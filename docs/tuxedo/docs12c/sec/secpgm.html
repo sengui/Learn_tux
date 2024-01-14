@@ -1,0 +1,1919 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="2" />
+<meta name="LOC_US_CHANGE" content="41848" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/sec/fm/secpgm.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/26/12 11:55:23" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Programming Security</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Using Security in ATMI Applications
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="secadm.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="sngleadm.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/sec.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1355400"> </a>
+Programming Security
+</h1>
+<p class="pBody"><a name="wp1257991"> </a>
+The following sections describe how to build security for your Oracle Tuxedo ATMI application into your code.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1349477"> </a><span class="cHyperlink">
+What Programming Security Means</span></li>
+<li><a name="wp1257995"> </a><span class="cHyperlink">
+Programming an ATMI Application with Security</span></li>
+<li><a name="wp1257998"> </a><span class="cHyperlink">
+Writing Security Code So Client Programs Can Join the ATMI Application</span></li>
+<li><a name="wp1258003"> </a><span class="cHyperlink">
+Writing Security Code to Protect Data Integrity and Privacy</span></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1258005"> </a>
+What Programming Security Means
+</h2><p class="pBody"><a name="wp1363086"> </a>
+Programming security is the task of writing security code for Application-to-Transaction Monitor Interface (ATMI) applications. In addition to the code that expresses the logic of the program, application programmers use ATMI to link their application code with the Oracle Tuxedo transaction monitor. The ATMI programming interfaces enable communication among application clients and servers running under the control of the Oracle Tuxedo transaction monitor. C and COBOL implementations of the ATMI are available.
+</p>
+<p class="pBody"><a name="wp1363090"> </a>
+As shown in <a href="secpgm.html#wp1258008">Figure&#160;3-1</a>, application programmers have access to the ATMI functions for authenticating users and controlling user access, and for incorporating public key encryption techniques into their applications. Also shown is the absence, at the application level, of ATMI functions for auditing or link-level encryption. Auditing is accessed at the Oracle Tuxedo system level, and link-level encryption is configured by the application administrator.
+</p>
+<div class="pFigureTitle"><a name="wp1258008"> </a>
+Figure&#160;3-1  Programming Oracle Tuxedo Security
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1258068"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/sec-3-1-1.gif" height="445" width="552" alt="Programming Oracle Tuxedo Security" id="wp1258010"/></div><p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1258069"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1258073"> </a><span class="cHyperlink">
+&#8220;Programming an ATMI Application with Security&#8221; on page&#160;3-3</span></li>
+<li><a name="wp1258077"> </a><span class="cHyperlink">
+&#8220;What Security Means&#8221; on page&#160;1-2</span></li>
+<li><a name="wp1258081"> </a><span class="cHyperlink">
+&#8220;What Administering Security Means&#8221; on page&#160;2-2</span></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1258083"> </a>
+Programming an ATMI Application with Security
+</h2><p class="pBody"><a name="wp1258084"> </a>
+The Oracle Tuxedo system offers various ATMI functions for different security needs.
+</p>
+<p class="pGraphic"><a name="wp1359801"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1265441table1265439">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1265441"> </a>
+If You Are Writing Security Code for . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1265443"> </a>
+Then You Use the ATMI Functions Available for . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1265445"> </a>
+Client programs so that clients can join a ATMI application and access application services.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1265447"> </a>
+Clients joining an ATMI application, which in turn invoke system-level calls to the authentication and authorization plug-ins.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1265449"> </a>
+Both client and server programs to protect the integrity and privacy of the data they exchange.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1265451"> </a>
+Public key security, which supports end-to-end digital signing and data encryption.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1258088"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1258092"> </a><span class="cHyperlink">
+&#8220;Setting Up the Programming Environment&#8221; on page&#160;3-3</span></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1258094"> </a>
+Setting Up the Programming Environment
+</h2><p class="pBody"><a name="wp1258095"> </a>
+To be able to write security code, an application programmer needs:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1266634"> </a>Access to Oracle Tuxedo libraries and commands</li>
+<li><a name="wp1266641"> </a>Read and execute permissions on the directories and files in the Oracle Tuxedo system directory structure</li>
+</ul></div>
+<p class="pBody"><a name="wp1322310"> </a>
+To obtain access to the required libraries and commands, you must set the <code class="cCode">TUXCONFIG</code>, <code class="cCode">TUXDIR</code>, <code class="cCode">APPDIR</code>, and other environment variables in your environment. For details, see <span class="cHyperlink">
+&#8220;How to Set Your Environment&#8221; on page&#160;1-2</span> in <em class="cEmphasis">Administering an Oracle Tuxedo Application at Run Time</em>.
+</p>
+<p class="pBody"><a name="wp1267383"> </a>
+The application administrator is responsible for setting the permissions on directories and files. See your administrator to get the permissions you need.
+</p>
+<h3 class="pHeading2"><a name="wp1258105"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1258108"> </a><span class="cHyperlink">
+&#8220;Writing Security Code So Client Programs Can Join the ATMI Application&#8221; on page&#160;3-4</span></li>
+<li><a name="wp1258113"> </a><span class="cHyperlink">
+&#8220;Writing Security Code to Protect Data Integrity and Privacy&#8221; on page&#160;3-14</span></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1258115"> </a>
+Writing Security Code So Client Programs Can Join the ATMI Application
+</h2><p class="pBody"><a name="wp1258116"> </a>
+Client programs are responsible for gathering data from outside the application or computer, bundling the data into messages, and forwarding the messages to servers for processing. Client programs are made available to users through devices such as automatic teller machines (ATMs), data entry terminals, and graphics devices.
+</p>
+<p class="pBody"><a name="wp1268575"> </a>
+For default authentication and authorization, application security may be set to one of five levels. At the lowest level, no authentication is performed. At the highest level, an access control checking feature determines which users can execute a service, post an event, or enqueue (or dequeue) a message on an application queue. Setting the security level for an ATMI application is the responsibility of the application administrator. 
+</p>
+<p class="pBody"><a name="wp1315104"> </a>
+An application programmer needs to perform two tasks so that a client program can join an ATMI application: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1315105"> </a>Get the security data for the specific client process</li>
+<li><a name="wp1315106"> </a>Pass that data to the Oracle Tuxedo system</li>
+</ul></div>
+<p class="pBody"><a name="wp1258118"> </a>
+The following pseudo-code in <a href="secpgm.html#wp1258119">Listing&#160;3-1</a> summarizes the operation of a basic client program. The security-related statements are highlighted in bold.
+</p>
+<div class="pCodeTitle"><a name="wp1258119"> </a>
+Listing&#160;3-1	   Pseudo-code for a Client
+</div> <a name="wp1258120"> </a><div class="pPreformatted"><pre>main()<br />&#160;{<br />&#160;&#160;&#160;&#160;&#160;&#160;<code class="cCodeBold">call tpchkauth() to check security level of ATMI application<br /></code>&#160;&#160;&#160;&#160;&#160;&#160;<code class="cCodeBold">get usrname, cltname<br /></code>&#160;&#160;&#160;&#160;&#160;&#160;<code class="cCodeBold">prompt for application password<br /></code>&#160;&#160;&#160;&#160;&#160;&#160;<code class="cCodeBold">prompt for per-user password<br /></code>&#160;&#160;&#160;&#160;&#160;&#160;<code class="cCodeBold">allocate a TPINIT buffer<br /></code>&#160;&#160;&#160;&#160;&#160;&#160;<code class="cCodeBold">place initial client identification into TPINIT buffer<br /></code>&#160;&#160;&#160;&#160;&#160;&#160;<code class="cCodeBold">call tpinit() to enroll as a client of the ATMI application<br /></code>&#160;&#160;&#160;&#160;&#160;&#160;allocate buffer<br />&#160;&#160;&#160;&#160;&#160;&#160;do while true {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;place user input in buffer<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;send service request<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;receive reply<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;pass reply to user }<br />&#160;&#160;&#160;&#160;&#160;&#160;leave application<br />&#160;}</pre></div><p class="pBody"><a name="wp1268608"> </a>
+Most of the statements in the preceding listing are implemented by ATMI functions in either C or COBOL. The preceding listing shows only the C language implementation.
+</p>
+<p class="pBody"><a name="wp1258122"> </a>
+A client program written in C uses <a href="../rf3c/rf3c.html">tpinit(3c)</a> to comply with the level of security set for the ATMI application and to join the application. The argument to <code class="cCode">tpinit()</code> is a pointer to a <code class="cCode">TPINIT</code> buffer. To perform the same tasks in a COBOL application, a client program calls TPINITIALIZE(3cbl), specifying a pointer to a <code class="cCode">TPINFDEF-REC</code> record as an argument.
+</p>
+<h3 class="pHeading2"><a name="wp1258123"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1258127"> </a><span class="cHyperlink">
+&#8220;Getting Security Data&#8221; on page&#160;3-5</span></li>
+<li><a name="wp1322540"> </a><span class="cHyperlink">
+&#8220;Joining the ATMI Application&#8221; on page&#160;3-7</span></li>
+<li><a name="wp1322544"> </a><span class="cHyperlink">
+&#8220;Writing Clients&#8221; on page&#160;4-1</span> in <em class="cEmphasis">Programming an Oracle Tuxedo ATMI Application Using C</em> and <em class="cEmphasis">Programming an Oracle Tuxedo ATMI Application Using COBOL</em></li>
+<li><a name="wp1322638"> </a><a href="../rf3c/rf3c.html">tpinit(3c)</a> in <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em></li>
+<li><a name="wp1322660"> </a>TPINITIALIZE(3cbl) in the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em></li>
+<li><a name="wp1258136"> </a><span class="cHyperlink">
+&#8220;Administering Public Key Security&#8221; on page&#160;2-48</span></li>
+<li><a name="wp1318503"> </a><span class="cHyperlink">
+&#8220;Administering Authorization&#8221; on page&#160;2-34</span></li>
+<li><a name="wp1318507"> </a><span class="cHyperlink">
+&#8220;Default Authentication and Authorization&#8221; on page&#160;1-45</span></li>
+<li><a name="wp1318511"> </a><span class="cHyperlink">
+&#8220;Programming an ATMI Application with Security&#8221; on page&#160;3-3</span></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1258150"> </a>
+Getting Security Data
+</h2><p class="pBody"><a name="wp1258151"> </a>
+For general-purpose client programs that are written to work with a variety of applications, the Oracle Tuxedo system provides an ATMI function that enables a client to determine the level of security required by the ATMI application that the client is trying to join. This ATMI function, implemented as <a href="../rf3c/rf3c.html">tpchkauth(3c)</a> for C and TPCHKAUTH(3cbl) for COBOL, is designed to work with ATMI applications using default authentication and authorization. The <code class="cCode">tpchkauth()</code> and <code class="cCode">TPCHKAUTH()</code> functions can also be used in ATMI applications in which custom authentication and/or authorization is used. How they are used, however, depends on how the custom security features are implemented. For the most part, this discussion focuses on default authentication and authorization.
+</p>
+<p class="pBody"><a name="wp1258152"> </a>
+An application programmer writing in C uses <code class="cCode">tpchkauth()</code> to check the ATMI application&#8217;s security level before calling <a href="../rf3c/rf3c.html">tpinit(3c)</a>, so that the client program can prompt for the application password and the user authentication data needed for the <code class="cCode">tpinit()</code> call; <code class="cCode">tpchkauth()</code> is called without arguments.
+</p>
+<p class="pBody"><a name="wp1268978"> </a>
+An application programmer writing in COBOL uses <code class="cCode">TPCHKAUTH()</code> for the same purpose before calling TPINITIALIZE(3cbl). The syntax and functionality of TPCHKAUTH(3cbl) and TPINITIALIZE(3cbl) are the same as those of <a href="../rf3c/rf3c.html">tpchkauth(3c)</a> and <a href="../rf3c/rf3c.html">tpinit(3c)</a>.
+</p>
+<p class="pBody"><a name="wp1268951"> </a>
+The <code class="cCode">tpchkauth()</code> function (or <code class="cCode">TPCHKAUTH()</code> routine) returns one of the following values.
+</p>
+<h4 class="pDefTerm"><a name="wp1258153"> </a>
+<code class="cCode">TPNOAUTH</code> 
+</h4><div class="pDefPara"><a name="wp1258154"> </a>
+Nothing is required beyond the normal operating system login and file permission security. <code class="cCode">TPNOAUTH</code> is returned for security level <code class="cCode">NONE</code>.
+</div>
+<h4 class="pDefTerm"><a name="wp1258155"> </a>
+<code class="cCode">TPSYSAUTH</code> 
+</h4><div class="pDefPara"><a name="wp1258156"> </a>
+An application password is required. The client program should prompt the user to provide the password, and should put it in the password field of the <code class="cCode">TPINIT</code> buffer for C, or <code class="cCode">TPINFDEF-REC</code> record for COBOL. <code class="cCode">TPSYSAUTH</code> is returned for security level <code class="cCode">APP_PW</code>. 
+</div>
+<div class="pDefParaCont"><a name="wp1258157"> </a>
+The application administrator informs users of the application password, and the application programmer writes client-program code to prompt users for the application password and to put the user-supplied password, as plain text, in the password field of the <code class="cCode">TPINIT</code> buffer or <code class="cCode">TPINFDEF-REC</code> record. The password should not be displayed on the user&#8217;s screen.
+<a name="wp1258158"> </a>
+Oracle Tuxedo system-supplied client programs, such as ud, wud(1), prompt for an application password. <code class="cCode">ud()</code> allows fielded buffers to be read from standard input and sent to a service.
+</div>
+<h4 class="pDefTerm"><a name="wp1258159"> </a>
+<code class="cCode">TPAPPAUTH</code> 
+</h4><div class="pDefPara"><a name="wp1258160"> </a>
+The application password is required. The client is expected to provide a value to be passed to the authentication service in the data field of the <code class="cCode">TPINIT</code> buffer for C, or the <code class="cCode">TPINFDEF-REC</code> record for COBOL. <code class="cCode">TPAPPAUTH</code> is returned for security level <code class="cCode">USER_AUTH</code>, <code class="cCode">ACL</code>, or <code class="cCode">MANDATORY_ACL</code>.
+</div>
+<div class="pDefParaCont"><a name="wp1258161"> </a>
+The application programmer writes client-program code to furnish additional information for the application authentication service, which is provided by the <code class="cCode">AUTHSVR</code> server for default authentication and authorization. <code class="cCode">AUTHSVR</code> is configured by the administrator to validate the per-user authentication information with client and usernames, indicating whether the client program is allowed to join the ATMI application.
+</div>
+<h3 class="pHeading2"><a name="wp1258163"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1258167"> </a><span class="cHyperlink">
+&#8220;Joining the ATMI Application&#8221; on page&#160;3-7</span></li>
+<li><a name="wp1322556"> </a><span class="cHyperlink">
+&#8220;Writing Clients&#8221; on page&#160;4-1</span> in <em class="cEmphasis">Programming an Oracle Tuxedo ATMI Application Using C</em> and <em class="cEmphasis">Programming an Oracle Tuxedo ATMI Application Using COBOL</em></li>
+<li><a name="wp1322679"> </a><a href="../rf3c/rf3c.html">tpinit(3c)</a> and <a href="../rf3c/rf3c.html">tpchkauth(3c)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em></li>
+<li><a name="wp1322683"> </a>TPINITIALIZE(3cbl) and TPCHKAUTH(3cbl) in the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em></li>
+<li><a name="wp1318551"> </a><span class="cHyperlink">
+&#8220;Default Authentication and Authorization&#8221; on page&#160;1-45</span></li>
+<li><a name="wp1258176"> </a><span class="cHyperlink">
+&#8220;Programming an ATMI Application with Security&#8221; on page&#160;3-3</span></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1258178"> </a>
+Joining the ATMI Application
+</h2><p class="pBody"><a name="wp1258179"> </a>
+In a secure ATMI application, it is necessary to pass security information to the Oracle Tuxedo system via a <code class="cCode">TPINIT</code> buffer for C, or a <code class="cCode">TPINFDEF-REC</code> record for COBOL. The <code class="cCode">TPINIT</code> buffer is a special typed buffer used by a client program to pass client identification and authentication information to the system as the client attempts to join the ATMI application. The <code class="cCode">TPINFDEF-REC</code> record serves the same purpose in a COBOL application.
+</p>
+<p class="pBody"><a name="wp1258180"> </a>
+<code class="cCode">TPINIT</code> is defined in the <code class="cCode">atmi.h</code> header file, and <code class="cCode">TPINFDEF-REC</code> is defined in the COBOL <code class="cCode">COPY</code> file. They have the following structures.
+</p>
+<p class="pGraphic"><a name="wp1359823"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1258183table1258181">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1258183"> </a>
+TPINIT Structure
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1258185"> </a>
+TPINFDEF-REC Structure
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1258187"> </a>
+<code class="cCode">char&#160;&#160;&#160;usrname[MAXTIDENT+2];<br />char&#160;&#160;&#160;cltname[MAXTIDENT+2];<br />char&#160;&#160;&#160;passwd[MAXTIDENT+2];<br />char&#160;&#160;&#160;grpname[MAXTIDENT+2];<br />long&#160;&#160;&#160;flags;<br />long&#160;&#160;&#160;datalen;<br />long&#160;&#160;&#160;data;</code>
+</div>
+<div class="pCellBody"><a name="wp1258191"> </a>
+Note:<code class="cCode"> MAXTIDENT</code> may contain up to 30 characters.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1258193"> </a>
+<code class="cCode">05 USRNAME&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PIC X(30).<br />05 CLTNAME&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PIC X(30).<br />05 PASSWD&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PIC X(30).<br />05 GRPNAME&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PIC X(30).<br />05 NOTIFICATION-FLAG&#160;&#160;PIC S9(9) COMP-5.<br />&#160;&#160;88 TPU-SIG&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;VALUE 1.<br />&#160;&#160;88 TPU-DIP&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;VALUE 2.<br />&#160;&#160;88 TPU-IGN&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;VALUE 3.<br />05 ACCESS-FLAG&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PIC S9(9) COMP-5.<br />&#160;&#160;88 TPSA-FASTPATH&#160;&#160;&#160;&#160;&#160;&#160;VALUE 1.<br />&#160;&#160;88 TPSA-PROTECTED&#160;&#160;&#160;&#160;&#160;VALUE 2.<br />05 DATLEN&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PIC S9(9) COMP-5.</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1258194"> </a>
+The fields in the <code class="cCode">TPINIT</code> buffer/ <code class="cCode">TPINFDEF-REC</code> record are described in <a href="secpgm.html#wp1258197">Table&#160;3-1</a>.
+</p>
+<p class="pGraphic"><a name="wp1359831"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1258197table1258195"><caption><a name="wp1258197"> </a>
+Table 3-1  Fields in TPINIT Buffer/ TPINFDEF-REC Record&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1258203"> </a>
+TPINIT Fields
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1258205"> </a>
+TPINFDEF-REC Fields
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1258207"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1258209"> </a>
+<code class="cCode">usrname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1258211"> </a>
+<code class="cCode">USRNAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1258213"> </a>
+Username.* A null-terminated string of up to 30 characters.
+</div>
+<div class="pCellBody"><a name="wp1258214"> </a>
+The username represents the caller; writers of client programs might use the same login names used to log in to the host operating system.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1258216"> </a>
+<code class="cCode">cltname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1258218"> </a>
+<code class="cCode">CLTNAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1258220"> </a>
+Client name.* A null-terminated string of up to 30 characters.
+</div>
+<div class="pCellBody"><a name="wp1258221"> </a>
+The client name represents the client program; writers of client programs might use this field to indicate the job function or role of the user when executing the client program.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1258223"> </a>
+<code class="cCode">passwd</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1258225"> </a>
+<code class="cCode">PASSWD</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1258227"> </a>
+Application password.* A null-terminated string of up to eight characters.
+</div>
+<div class="pCellBody"><a name="wp1258228"> </a>
+<code class="cCode">tpinit()</code> or <code class="cCode">TPINITIALIZE()</code> validates this password by comparing it to the configured application password stored in the <code class="cCode">TUXCONFIG</code> file.**
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1258230"> </a>
+<code class="cCode">grpname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1258232"> </a>
+<code class="cCode">GRPNAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1258234"> </a>
+Group name. A null-terminated string of up to 30 characters. This field is not related to security.
+</div>
+<div class="pCellBody"><a name="wp1258235"> </a>
+The group name allows a client to be associated with a resource manager group that is defined in the <code class="cCode">UBBCONFIG</code> file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1258237"> </a>
+<code class="cCode">flags</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1258239"> </a>
+<code class="cCode">NOTIFICATION-FLAG<br />&#160;&#160;TPU-SIG</code>
+</div>
+<div class="pCellBody"><a name="wp1258240"> </a>
+<code class="cCode">&#160;&#160;TPU-DIP</code>
+</div>
+<div class="pCellBody"><a name="wp1258241"> </a>
+<code class="cCode">&#160;&#160;TPU-IGN</code>
+</div>
+<div class="pCellBody"><a name="wp1258242"> </a>
+<code class="cCode">ACCESS-FLAG</code>
+</div>
+<div class="pCellBody"><a name="wp1258243"> </a>
+<code class="cCode">&#160;&#160;TPSA-FASTPATH</code>
+</div>
+<div class="pCellBody"><a name="wp1258244"> </a>
+<code class="cCode">&#160;&#160;TPSA-PROTECTED</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1258246"> </a>
+Notification and access flags. This field is not related to security.
+</div>
+<div class="pCellBody"><a name="wp1258247"> </a>
+The flag settings specify the notification mechanism and system access mode to be used for the client. Selections override (with some exceptions) the values set in the <code class="cCode">RESOURCES</code> section of the <code class="cCode">UBBCONFIG</code> file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1258249"> </a>
+<code class="cCode">datalen</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1258251"> </a>
+<code class="cCode">DATALEN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270454"> </a>
+Length of the user-specific data*** that follows.*
+</div>
+<div class="pCellBody"><a name="wp1269828"> </a>
+To get a size value for this field, writers of client programs written in C can call <code class="cCode">TPINITNEED</code> with the number of bytes of user-specific data expected to be sent. <code class="cCode">TPINITNEED</code> is a macro provided in the <code class="cCode">atmi.h</code> header file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1258255"> </a>
+<code class="cCode">data</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1258257"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1269649"> </a>
+User-specific data*** of no fixed length.*
+</div>
+<div class="pCellBody"><a name="wp1258260"> </a>
+<code class="cCode">tpinit()</code> or <code class="cCode">TPINITIALIZE()</code> forwards the user-specific data to the authentication server for validation. For default authentication, the authentication server is <code class="cCode">AUTHSVR</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="3" rowspan="1"><div class="pCellBody"><a name="wp1258262"> </a>
+<code class="cCode">&#160;&#160;*&#160;</code>This field is required for the <code class="cCode">USER_AUTH</code>, <code class="cCode">ACL</code>, and <code class="cCode">MANDATORY_ACL</code> security levels provided by default authentication and authorization.
+</div>
+<div class="pCellBody"><a name="wp1270392"> </a>
+<code class="cCode">&#160;**&#160;</code>The binary equivalent of the <code class="cCode">UBBCONFIG</code> file; created using tmloadcf(1).
+</div>
+<div class="pCellBody"><a name="wp1258263"> </a>
+<code class="cCode">***&#160;</code>Usually a user password.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1258268"> </a>
+The client program calls <a href="../rf3c/rf3c.html">tpalloc(3c)</a> to allocate a <code class="cCode">TPINIT</code> buffer. The following sample code in <a href="secpgm.html#wp1258269">Listing&#160;3-2</a> prepares to pass eight bytes of application-specific data to <code class="cCode">tpinit()</code> and enables the client to join an ATMI application.
+</p>
+<div class="pCodeTitle"><a name="wp1258269"> </a>
+Listing&#160;3-2	   Allocating a TPINIT Buffer and Joining an ATMI Application
+</div> <a name="wp1258270"> </a><div class="pPreformattedRelative"><pre>&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />TPINIT *tpinfo;<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />if ((tpinfo = (TPINIT *)tpalloc(&quot;TPINIT&quot;,(char *)NULL,<br />&#160;&#160;&#160;&#160;&#160;TPINITNEED(8))) == (TPINIT *)NULL){<br />&#160;&#160;&#160;&#160;&#160;Error Routine<br />}<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />tpinit(tpinfo) &#160;/* join an ATMI application */<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.</pre></div><p class="pBody"><a name="wp1330701"> </a>
+When a Workstation client calls the <code class="cCode">tpinit()</code> function or the <code class="cCode">TPINITIALIZE()</code> routine to join an ATMI application, the following major events occur.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1335659"> </a>The <em class="cEmphasis">initiator</em> Workstation client and the <em class="cEmphasis">target</em> workstation listener (WSL) exchange link-level encryption (LLE) <code class="cCodeEmphasis">min</code>-<code class="cCodeEmphasis">max</code> values to be used to set up LLE on the link between the initiator Workstation client and the <em class="cEmphasis">target</em> WSH. LLE is described in <span class="cHyperlink">
+&#8220;Link-Level Encryption&#8221; on page&#160;1-22</span>.</li>
+<li><a name="wp1335680"> </a>The initiator Workstation client and target WSH authenticate one another through the exchange of security tokens. For default authentication, a successful authentication ends with the transfer of client security data from the <code class="cCode">TPINIT</code> buffer or <code class="cCode">TPINFDEF-REC</code> record to the target WSH.</li>
+<li><a name="wp1335764"> </a>After a successful authentication, the initiator Workstation client sends another buffer to the target WSH containing the values of the <code class="cCode">usrname</code>, <code class="cCode">cltname</code>, and <code class="cCode">flags</code> fields, to ensure that the target WSH receives this information for the authenticated Workstation client.</li>
+</ol></div>
+<p class="pBody"><a name="wp1335883"> </a>
+When a native client calls the <code class="cCode">tpinit()</code> function or the <code class="cCode">TPINITIALIZE()</code> routine to join an ATMI application, only authentication occurs. In essence, the native client authenticates with itself.
+</p>
+<h3 class="pHeading2"><a name="wp1335802"> </a>
+Transferring the Client Security Data
+</h3>
+<p class="pBody"><a name="wp1335803"> </a>
+<a href="secpgm.html#wp1328766">Listing&#160;3-2</a> demonstrate the transfer of data from the <code class="cCode">TPINIT</code> buffer for a Workstation client. The transfer of data from the <code class="cCode">TPINFDEF-REC</code> record is similar to what is shown in the figure.
+</p>
+<div class="pFigureTitle"><a name="wp1328766"> </a>
+Figure&#160;3-2  Transferring Data from the TPINIT Buffer for a Workstation Client
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1329067"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/sec-3-1-2.gif" height="559" width="557" alt="Transferring Data from the TPINIT Buffer for a Workstation Client" id="wp1328768"/></div><p class="pGraphic">
+
+</p>
+<a name="wp1335933"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The authorization procedure shown in the preceding figure is essentially the same for a native client attempting to join an ATMI application except that no network link or WSH is involved. A native client authenticates with itself.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1332058"> </a>
+In the preceding diagram, notice that the information sent to the Oracle Tuxedo system differs between default and custom authentication. For default authentication, the values of the <code class="cCode">cltname</code>, <code class="cCode">grpname</code>, and <code class="cCode">flags</code> fields are delivered to the default authentication plug-in at the Workstation client by a means <em class="cEmphasis">other</em> than through the plug-in interface. However, for custom authentication, writers of client programs can include these values as well as any other values they so choose in the variable length <code class="cCode">data</code> field.
+</p>
+<p class="pBody"><a name="wp1335927"> </a>
+For a Workstation client <em class="cEmphasis">and</em> assuming default authentication, the authentication plug-in at the Workstation client uses the <code class="cCode">passwd</code>/ <code class="cCode">PASSWD</code> field to encrypt the information when transmitting the information over the network. The encryption algorithm used is 56-bit DES, where DES is an acronym for the Data Encryption Standard. The authentication plug-in at the target WSH uses the application password stored in the <code class="cCode">TUXCONFIG</code> file to decrypt the information. For a native client, the system simply compares the <code class="cCode">passwd</code>/ <code class="cCode">PASSWD</code> field with the application password stored in the <code class="cCode">TUXCONFIG</code> file.
+</p>
+<a name="wp1334451"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>At the Workstation client, the <code class="cCode">passwd</code>/ <code class="cCode">PASSWD</code> field is delivered to the authentication plug-in by a means <em class="cEmphasis">other</em> than through the authentication plug-in interface. At the WSH, the application password in the <code class="cCode">TUXCONFIG</code> file is delivered to the authentication plug-in through the authentication plug-in interface during application booting.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1333887"> </a>
+After a successful authentication of a Workstation client, the <code class="cCode">tpinit()</code> function ends with the sending of another buffer to the WSH containing the values of the <code class="cCode">usrname</code>, <code class="cCode">cltname</code>, and <code class="cCode">flags</code> fields, to ensure that the WSH receives this information for the authenticated Workstation client. Similarly, the <code class="cCode">TPINITIALIZE()</code> routine ends with the sending of another buffer containing the same information. A custom authentication plug-in might not send this information to the WSH during the authentication procedure, and the WSH needs this information for reporting purposes, that is, during an invocation of the tmadmin(1) <code class="cCode">printclient</code> (<code class="cCode">pclt</code>) command.
+</p>
+<p class="pBody"><a name="wp1330694"> </a>
+When a Workstation or native client passes the security check, it may initiate service requests and receive replies.
+</p>
+<h3 class="pHeading2"><a name="wp1330729"> </a>
+Calling a Service Request Before Joining the ATMI Application
+</h3>
+<p class="pBody"><a name="wp1258273"> </a>
+If a client calls a service request (or any ATMI function) before invoking <code class="cCode">tpinit()</code> or <code class="cCode">TPINITIALIZE()</code> <em class="cEmphasis">and</em> assuming the <code class="cCode">SECURITY</code> configuration for the target ATMI application is <em class="cEmphasis">not</em> set or is set to <code class="cCode">NONE</code>, the Oracle Tuxedo system automatically invokes <code class="cCode">tpinit()</code>/ <code class="cCode">TPINITIALIZE()</code> with a <code class="cCode">NULL</code> parameter. This behavior has the following consequences:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1258274"> </a>The <code class="cCode">TPINIT</code>/ <code class="cCode">TPINFDEF-REC</code> feature cannot be used.</li>
+<li><a name="wp1258275"> </a>Default values are used for client naming, unsolicited notification type, and system access mode.</li>
+<li><a name="wp1258276"> </a>The client cannot be associated with a resource manager group.</li>
+<li><a name="wp1258277"> </a>An application password cannot be specified.</li>
+</ul></div>
+<p class="pBody"><a name="wp1331275"> </a>
+If a client calls a service request (or any ATMI function) before invoking <code class="cCode">tpinit()</code> or <code class="cCode">TPINITIALIZE()</code> <em class="cEmphasis">and</em> assuming the <code class="cCode">SECURITY</code> configuration for the target ATMI application is set to <code class="cCode">APP_PW</code>, <code class="cCode">USER_AUTH</code>, <code class="cCode">ACL</code>, or <code class="cCode">MANDATORY_ACL</code>, the Oracle Tuxedo system rejects the service request.
+</p>
+<h3 class="pHeading2"><a name="wp1322143"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1339919"> </a><span class="cHyperlink">
+&#8220;Writing Clients&#8221; on page&#160;4-1</span> in <em class="cEmphasis">Programming an Oracle Tuxedo ATMI Application Using C</em> and <em class="cEmphasis">Programming an Oracle Tuxedo ATMI Application Using COBOL</em></li>
+<li><a name="wp1340079"> </a><a href="../rf3c/rf3c.html">tpinit(3c)</a> and <a href="../rf3c/rf3c.html">tpalloc(3c)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em></li>
+<li><a name="wp1340093"> </a>TPINITIALIZE(3cbl) in the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em></li>
+<li><a name="wp1318592"> </a><span class="cHyperlink">
+&#8220;Default Authentication and Authorization&#8221; on page&#160;1-45</span></li>
+<li><a name="wp1258287"> </a><span class="cHyperlink">
+&#8220;Programming an ATMI Application with Security&#8221; on page&#160;3-3</span></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1258289"> </a>
+Writing Security Code to Protect Data Integrity and Privacy
+</h2><p class="pBody"><a name="wp1258290"> </a>
+Public key security comprises end-to-end digital signing and data encryption. Both features are supported by Oracle Tuxedo ATMI functions. ATMI applications protected by public key security are much safer for use across the Internet than programs in which this type of security is not used.
+</p>
+<p class="pBody"><a name="wp1258291"> </a>
+The capabilities that make end-to-end digital signing and data encryption possible are message-based digital signature and message-based encryption. Both capabilities are built upon the <em class="cEmphasis">PKCS-7 standard</em>, which is one of a set of Public-Key Cryptography Standards (PKCS) developed by RSA Laboratories in cooperation with several other leading communications companies.
+</p>
+<p class="pBody"><a name="wp1258292"> </a>
+Message-based digital signature ensures data integrity and non-repudiation by having the sending party bind proof of its identity to a specific message buffer. Message-based encryption protects the confidentiality of messages; only parties for whom messages are intended can decrypt and read them.
+</p>
+<p class="pBody"><a name="wp1258293"> </a>
+Because the unit of digital signing and encryption is an ATMI message buffer, both capabilities are compatible with existing ATMI programming interfaces and communication paradigms. It is possible for a message buffer to be both signed and encrypted. There is no required relationship between the number of digital signatures and the number of <em class="cEmphasis">encryption envelopes</em> associated with a message buffer.
+</p>
+<a name="wp1258294"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Each encryption envelope identifies a recipient of the message, and contains information needed by the recipient to decrypt the message.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1258295"> </a>
+ATMI Interface for Public Key Security
+</h3>
+<p class="pBody"><a name="wp1258296"> </a>
+The ATMI interface for public key security is a compact set of functions used to:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1258297"> </a>Open and close key resources</li>
+<li><a name="wp1258298"> </a>View and change key optional parameters</li>
+<li><a name="wp1258299"> </a>Sign and seal (encrypt) message buffers</li>
+<li><a name="wp1258300"> </a>Access the digital signature and encryption information associated with a message buffer</li>
+<li><a name="wp1258301"> </a>Convert a typed message buffer into an exportable, machine-independent string representation, which includes the generation of any digital signatures or encryption envelopes associated with the buffer</li>
+</ul></div>
+<p class="pBody"><a name="wp1258302"> </a>
+The ATMI interfaces for public key security are available in both C and COBOL implementations. The ATMI COBOL language binding, however, does not support <em class="cEmphasis">message buffers</em>; thus, explicit signature, encryption, and query operations on individual buffers cannot be used in a COBOL application. However, key management interfaces do have a COBOL language binding, which enables signature generation in the <code class="cCode">AUTOSIGN</code> mode and encryption-envelope generation in the <code class="cCode">AUTOENCRYPT</code> mode. All operations related to automatic signature verification or automatic decryption apply to COBOL client and server processes.
+</p>
+<a name="wp1363146"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The COBOL <code class="cCode">TPKEYDEF</code> record is used to manage public-private keys for performing message-based digital signature and encryption operations. See &#8220;COBOL Language ATMI Return Codes and Other Definitions&#8221; in the introduction part of the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference </em>for a description of the <code class="cCode">TPKEYDEF</code> record.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1363153"> </a>
+<a href="secpgm.html#wp1360229">Table&#160;3-2</a> and <a href="secpgm.html#wp1359997">Table&#160;3-3</a> summarize the ATMI interfaces for public key security. Each function is also documented in the <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em> and the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em>.
+</p>
+<p class="pGraphic"><a name="wp1360138"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1360229table1360224"><caption><a name="wp1360229"> </a>
+Table 3-2  C Functions in ATMI Interface for Public Key Security&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1360233"> </a>
+Use This Function
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1360235"> </a>
+To . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360240"> </a>
+<a href="../rf3c/rf3c.html">tpkey_open(3c)</a>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360242"> </a>
+Open a key handle for digital signature generation, message encryption, or message decryption. Keys are represented and manipulated via handles. A handle has data associated with it that is used by the ATMI application to locate or access the item named by the handle.
+</div>
+<div class="pCellBody"><a name="wp1360243"> </a>
+A key may play one or more of the following roles:
+</div>
+<div class="pSmartList1TableBullet"><ul class="SmartList1TableBullet">
+<li><a name="wp1360244"> </a><span style="font-style: normal">Signature Generation<br /></span>The key identifies the calling process as being authorized to generate a digital signature under the <em class="cEmphasis">principal</em>&#8217;s identity. (A principal may be a person or a process.) Calling <code class="cCode">tpkey_open()</code> with the principal&#8217;s name and either the <code class="cCode">TPKEY_SIGNATURE</code> or <code class="cCode">TPKEY_AUTOSIGN</code> flag returns a handle to the principal&#8217;s private key and digital certificate.</li>
+<li><a name="wp1360245"> </a><span style="font-style: normal">Signature Verification<br /></span>The key represents the principal associated with a digital signature. Signature verification does not require a call to <code class="cCode">tpkey_open()</code>; the verifying process uses the public key specified in the digital certificate accompanying the digitally signed message to verify the signature.</li>
+<li><a name="wp1360246"> </a><span style="font-style: normal">Encryption<br /></span>The key represents the intended principal of an encrypted message. Calling <code class="cCode">tpkey_open()</code> with the principal&#8217;s name and either the <code class="cCode">TPKEY_ENCRYPT</code> or <code class="cCode">TPKEY_AUTOENCRYPT</code> flag returns a handle to the principal&#8217;s public key via the principal&#8217;s digital certificate.</li>
+<li><a name="wp1360247"> </a><span style="font-style: normal">Decryption<br /></span>The key identifies the calling process as being authorized to decrypt a private message for the intended principal. Calling <code class="cCode">tpkey_open()</code> with the principal&#8217;s name and the <code class="cCode">TPKEY_DECRYPT</code> flag returns a handle to the principal&#8217;s private key and digital certificate.</li>
+</ul></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360252"> </a>
+<a href="../rf3c/rf3c.html">tpkey_getinfo(3c)</a>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360254"> </a>
+Get information associated with a key handle. Some information is specific to a cryptographic service provider, but the following set of attributes is supported by all providers:
+</div>
+<div class="pSmartList1TableBullet"><ul class="SmartList1TableBullet">
+<li><a name="wp1360255"> </a><code class="cCode">PRINCIPAL<br /></code>The name of the <em class="cEmphasis">principal</em> associated with the specified key (key handle). A principal may be a person or a process, depending on how an application developer sets up public key security. Any principal specified in an ATMI application&#8217;s <code class="cCode">UBBCONFIG</code> file using the <code class="cCode">SEC_PRINCIPAL_NAME</code> parameter become the identity of one or more system processes. (See <span class="cHyperlink">
+&#8220;Specifying Principal Names&#8221; on page&#160;2-11</span> and <span class="cHyperlink">
+&#8220;Initializing Decryption Keys Through the Plug-ins&#8221; on page&#160;2-56</span> for more detail.)</li>
+<li><a name="wp1360262"> </a><code class="cCode">PKENCRYPT_ALG<br /></code>An ASN.1 Distinguished Encoding Rules (DER) <em class="cEmphasis">object identifier</em> of the public key algorithm used by the key for public key encryption. See the <a href="../rf3c/rf3c.html">tpkey_getinfo(3c)</a> reference page for details.</li>
+<li><a name="wp1360266"> </a><code class="cCode">PKENCRYPT_BITS<br /></code>The key length of the public key algorithm (RSA modulus size). The value must be within the range of 512 to 2048 bits, inclusive.</li>
+<li><a name="wp1360267"> </a><code class="cCode">SIGNATURE_ALG<br /></code>An ASN.1 DER <em class="cEmphasis">object identifier</em> of the digital signature algorithm used by the key for digital signature. See the <a href="../rf3c/rf3c.html">tpkey_getinfo(3c)</a> reference page for details.</li>
+<li><a name="wp1360271"> </a><code class="cCode">SIGNATURE_BITS<br /></code>The key length of the digital signature algorithm (RSA modulus size). The value must be within the range of 512 to 2048 bits, inclusive.</li>
+<li><a name="wp1360272"> </a><code class="cCode">ENCRYPT_ALG<br /></code>An ASN.1 DER <em class="cEmphasis">object identifier</em> of the symmetric key algorithm used by the key for bulk data encryption. See the <a href="../rf3c/rf3c.html">tpkey_getinfo(3c)</a> reference page for details.</li>
+<li><a name="wp1360276"> </a><code class="cCode">ENCRYPT_BITS<br /></code>The key length of the symmetric key algorithm. The value must be within the range of 40 to 128 bits, inclusive.</li>
+<li><a name="wp1360277"> </a><code class="cCode">DIGEST_ALG<br /></code>An ASN.1 DER <em class="cEmphasis">object identifier </em>of the message digest algorithm used by the key for digital signature. See the <a href="../rf3c/rf3c.html">tpkey_getinfo(3c)</a> reference page for details.</li>
+<li><a name="wp1360281"> </a><code class="cCode">PROVIDER<br /></code>The name of the cryptographic service provider.</li>
+<li><a name="wp1360282"> </a><code class="cCode">VERSION<br /></code>The version number of the cryptographic service provider&#8217;s software.</li>
+</ul></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360287"> </a>
+<a href="../rf3c/rf3c.html">tpkey_setinfo(3c)</a>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360289"> </a>
+Set optional attribute parameters associated with a key handle. A core set of key handle attributes is identified in the preceding description of <code class="cCode">tpkey_getinfo()</code>. Other attributes, specific to a certain cryptographic service provider, may also be available.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360294"> </a>
+<a href="../rf3c/rf3c.html">tpkey_close(3c)</a>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360296"> </a>
+Close a previously opened key handle. A key handle may be opened explicitly using <code class="cCode">tpkey_open()</code>, or implicitly (automatically) using <code class="cCode">tpenvelope()</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360301"> </a>
+<a href="../rf3c/rf3c.html">tpsign(3c)</a>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360303"> </a>
+Mark a typed message buffer for digital signature. The public key software generates the digital signature just before the message is sent.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360308"> </a>
+<a href="../rf3c/rf3c.html">tpseal(3c)</a>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360310"> </a>
+Mark a typed message buffer for encryption. The public key software encrypts the message just before the message is sent.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360315"> </a>
+<a href="../rf3c/rf3c.html">tpenvelope(3c)</a>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360317"> </a>
+Access the digital signature and encryption information associated with a typed message buffer. <code class="cCode">tpenvelope()</code> returns status information about the digital signatures and encryption envelopes attached to a particular message buffer. It also returns the key handle associated with each digital signature or encryption envelope. The key handle for a digital signature identifies the signer, and the key handle for an encryption envelope identifies the recipient of the message.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360322"> </a>
+<a href="../rf3c/rf3c.html">tpexport(3c)</a>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360324"> </a>
+Convert a typed message buffer into an exportable, machine-independent (externalized) string representation. <code class="cCode">tpexport()</code> generates any digital signatures or encryption envelopes associated with a typed message buffer just before it converts that buffer into an externalized string representation.
+</div>
+<div class="pCellBody"><a name="wp1360325"> </a>
+An externalized string representation can be transmitted between processes, machines, or domains through any communication mechanism. It can be archived on permanent storage.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360330"> </a>
+<a href="../rf3c/rf3c.html">tpimport(3c)</a>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360332"> </a>
+Convert an externalized string representation back into a typed message buffer. During the conversion, <code class="cCode">tpimport()</code> decrypts the message, if necessary, and verifies any associated digital signatures.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pGraphic"><a name="wp1359849"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1359997table1359992"><caption><a name="wp1359997"> </a>
+Table 3-3  COBOL Routines in ATMI Interface for Public Key Security&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1360001"> </a>
+Use This Routine . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1360003"> </a>
+To . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360008"> </a>
+TPKEYOPEN(3cbl)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360010"> </a>
+Open a key handle for digital signature generation, message encryption, or message decryption. Keys are represented and manipulated via handles. A handle has data associated with it that is used by the ATMI application to locate or access the item named by the handle.
+</div>
+<div class="pCellBody"><a name="wp1360011"> </a>
+A key may play one or more of the following roles:
+</div>
+<div class="pSmartList1TableBullet"><ul class="SmartList1TableBullet">
+<li><a name="wp1360012"> </a><span style="font-style: normal">Signature Generation<br /></span>The key identifies the calling process as being authorized to generate a digital signature under the <em class="cEmphasis">principal</em>&#8217;s identity. (A principal can be a person or a process.) Calling <code class="cCode">TPKEYOPEN()</code> with the principal&#8217;s name and the <code class="cCode">TPKEY-SIGNATURE</code> and <code class="cCode">TPKEY-AUTOSIGN</code> settings returns a handle to the principal&#8217;s public key and enables signature generation in <code class="cCode">AUTOSIGN</code> mode. The public key software generates and attaches the digital signature to the message just before the message is sent.</li>
+<li><a name="wp1360013"> </a><span style="font-style: normal">Signature Verification<br /></span>The key represents the principal associated with a digital signature. Signature verification does not require a call to <code class="cCode">TPKEYOPEN()</code>; the verifying process uses the public key specified in the digital certificate accompanying the digitally signed message to verify the signature.</li>
+<li><a name="wp1360014"> </a><span style="font-style: normal">Encryption<br /></span>The key represents the intended principal of an encrypted message. Calling <code class="cCode">TPKEYOPEN()</code> with the principal&#8217;s name and the <code class="cCode">TPKEY-ENCRYPT</code> and <code class="cCode">TPKEY-AUTOENCRYPT</code> settings returns a handle to the principal&#8217;s public key (via the principal&#8217;s digital certificate) and enables encryption in <code class="cCode">AUTOENCRYPT</code> mode. The public key software encrypts the message and attaches an encryption envelope to the message; the encryption envelope enables the receiving process to decrypt the message.</li>
+<li><a name="wp1360015"> </a><span style="font-style: normal">Decryption<br /></span>The key identifies the calling process as being authorized to decrypt a private message for the intended principal. Calling <code class="cCode">TPKEYOPEN()</code> with the principal&#8217;s name and the <code class="cCode">TPKEY-DECRYPT</code> setting returns a handle to the principal&#8217;s private key and digital certificate.</li>
+</ul></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360020"> </a>
+TPKEYGETINFO(3cbl)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360022"> </a>
+Get information associated with a key handle. Some information is specific to a cryptographic service provider, but the following set of attributes is supported by all providers:
+</div>
+<div class="pSmartList1TableBullet"><ul class="SmartList1TableBullet">
+<li><a name="wp1360023"> </a><code class="cCode">PRINCIPAL<br /></code>The name of the <em class="cEmphasis">principal</em> associated with the specified key (key handle). A principal may be a person or a process, depending on how an ATMI application developer sets up public key security. Any principal specified in an ATMI application&#8217;s <code class="cCode">UBBCONFIG</code> file using the <code class="cCode">SEC_PRINCIPAL_NAME</code> parameter become the identity of one or more system processes. (See <span class="cHyperlink">
+&#8220;Specifying Principal Names&#8221; on page&#160;2-11</span> and <span class="cHyperlink">
+&#8220;Initializing Decryption Keys Through the Plug-ins&#8221; on page&#160;2-56</span> for more detail.)</li>
+<li><a name="wp1360030"> </a><code class="cCode">PKENCRYPT_ALG<br /></code>An ASN.1 Distinguished Encoding Rules (DER) <em class="cEmphasis">object identifier</em> of the public key algorithm used by the key for public key encryption. See the TPKEYGETINFO(3cbl) reference page for details.</li>
+<li><a name="wp1360034"> </a><code class="cCode">PKENCRYPT_BITS<br /></code>The key length of the public key algorithm (RSA modulus size). The value must be within the range of 512 to 2048 bits, inclusive.</li>
+<li><a name="wp1360035"> </a><code class="cCode">SIGNATURE_ALG<br /></code>An ASN.1 DER <em class="cEmphasis">object identifier</em> of the digital signature algorithm used by the key for digital signature. See the TPKEYGETINFO(3cbl) reference page for details.</li>
+<li><a name="wp1360039"> </a><code class="cCode">SIGNATURE_BITS<br /></code>The key length of the digital signature algorithm (RSA modulus size). The value must be within the range of 512 to 2048 bits, inclusive.</li>
+<li><a name="wp1360040"> </a><code class="cCode">ENCRYPT_ALG<br /></code>An ASN.1 DER <em class="cEmphasis">object identifier</em> of the symmetric key algorithm used by the key for bulk data encryption. See the TPKEYGETINFO(3cbl) reference page for details.</li>
+<li><a name="wp1360044"> </a><code class="cCode">ENCRYPT_BITS<br /></code>The key length of the symmetric key algorithm. The value must be within the range of 40 to 128 bits, inclusive.</li>
+<li><a name="wp1360045"> </a><code class="cCode">DIGEST_ALG<br /></code>An ASN.1 DER <em class="cEmphasis">object identifier </em>of the message digest algorithm used by the key for digital signature. See the TPKEYGETINFO(3cbl) reference page for details.</li>
+<li><a name="wp1360049"> </a><code class="cCode">PROVIDER<br /></code>The name of the cryptographic service provider.</li>
+<li><a name="wp1360050"> </a><code class="cCode">VERSION<br /></code>The version number of the cryptographic service provider&#8217;s software.</li>
+</ul></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360055"> </a>
+TPKEYSETINFO(3cbl)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360057"> </a>
+Set optional attribute parameters associated with a key handle. A core set of key handle attributes is identified in the preceding description of <code class="cCode">TPKEYGETINFO()</code>. Other attributes, specific to a certain cryptographic service provider, may also be available.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360062"> </a>
+TPKEYCLOSE(3cbl)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1360064"> </a>
+Close a key handle previously opened using <code class="cCode">TPKEYOPEN()</code>.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1317364"> </a>
+Recommended Uses of Public Key Security
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1289376"> </a>Use <code class="cCode">tpkey_close()</code> to release key handles used for digital signature generation or for data decryption as soon as they are no longer needed.</li>
+<li><a name="wp1286357"> </a>To inhibit replay attacks, generate digital signatures only on message buffers that contain details identifying a specific operation. For example, a buffer that contains the message &#8220;Your deposit is confirmed&#8221; is dangerously vague. An attacker who intercepts such a message can easily reuse it. On the other hand, a message that contains many operation-specific details is much safer. An attacker who intercepts a message such as the one that follows will not be able to reuse it easily: &#8220;John Smith&#8217;s deposit of $100.00, account 987654321, confirmation code 123456789, 7/31/2001, is confirmed.&#8221;</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1258342"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1258346"> </a><span class="cHyperlink">
+&#8220;Sending and Receiving Signed Messages&#8221; on page&#160;3-22</span></li>
+<li><a name="wp1258350"> </a><span class="cHyperlink">
+&#8220;Sending and Receiving Encrypted Messages&#8221; on page&#160;3-33</span></li>
+<li><a name="wp1258354"> </a><span class="cHyperlink">
+&#8220;Examining Digital Signature and Encryption Information&#8221; on page&#160;3-50</span></li>
+<li><a name="wp1258358"> </a><span class="cHyperlink">
+&#8220;Externalizing Typed Message Buffers&#8221; on page&#160;3-57</span></li>
+<li><a name="wp1318598"> </a><span class="cHyperlink">
+&#8220;Public Key Security&#8221; on page&#160;1-32</span></li>
+<li><a name="wp1258366"> </a><span class="cHyperlink">
+&#8220;Administering Public Key Security&#8221; on page&#160;2-48</span></li>
+<li><a name="wp1258370"> </a><span class="cHyperlink">
+&#8220;Programming an ATMI Application with Security&#8221; on page&#160;3-3</span></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1258372"> </a>
+Sending and Receiving Signed Messages
+</h2><p class="pBody"><a name="wp1258373"> </a>
+Message-based digital signature provides end-to-end authentication and message integrity protection. For a diagram that illustrates how it works, see the figure <span class="cHyperlink">
+&#8220;ATMI PKCS-7 End-to-End Digital Signing&#8221; on page&#160;1-37</span>.
+</p>
+<p class="pBody"><a name="wp1258377"> </a>
+To add a digital signature to an ATMI message buffer, the originating process or user signs the message buffer. This signature contains a cryptographically secure checksum of the message buffer&#8217;s content and a timestamp based on the signer&#8217;s local clock.
+</p>
+<p class="pBody"><a name="wp1274447"> </a>
+Any party with access to the message buffer can verify that the signing party&#8217;s signature is authentic, that the message buffer content is unchanged, and that the timestamp is within a configured tolerance of the verifier&#8217;s local clock. In addition, time-independent verification by a third party guarantees non-repudiation: the originating process or user cannot later deny authorship or claim the message was altered.
+</p>
+<h3 class="pHeading2"><a name="wp1274464"> </a>
+Writing Code to Send Signed Messages
+</h3>
+<p class="pBody"><a name="wp1274465"> </a>
+<a href="secpgm.html#wp1274466">Figure&#160;3-3</a> provides the procedure for writing code to send signed messages.
+</p>
+<div class="pFigureTitle"><a name="wp1274466"> </a>
+Figure&#160;3-3  Procedure for Sending Signed Messages
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1258461"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/sec-3-1-3.gif" height="527" width="456" alt="Procedure for Sending Signed Messages" id="wp1258382"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1274785"> </a>
+For details about these steps and insight into how the system signs a message buffer, see the following topics.
+</p>
+<h4 class="pHeading3"><a name="wp1258462"> </a>
+Step 1: Opening a Key Handle for Digital Signature
+</h4>
+<p class="pBody"><a name="wp1258463"> </a>
+Call the <a href="../rf3c/rf3c.html">tpkey_open(3c)</a> function or TPKEYOPEN(3cbl) routine to make the private key and the associated digital certificate of the signer available to the originating process. The private key is highly protected, and possession of it is equivalent to possessing the signer&#8217;s identity.
+</p>
+<p class="pBody"><a name="wp1258464"> </a>
+In order to access the signer&#8217;s private key, the originating process must prove its right to act as the signer. Proof requirements depend on the implementation of the public key plug-in interface. The default public key implementation requires a secret password from the calling process.
+</p>
+<p class="pBody"><a name="wp1274865"> </a>
+When the originating process calls <code class="cCode">tpkey_open()</code> to open the key handle, it specifies either the <code class="cCode">TPKEY_SIGNATURE</code> or <code class="cCode">TPKEY_AUTOSIGN</code> flag to indicate that the handle will be used to digitally sign a message buffer. Typically, a client makes this call after calling <code class="cCode">tpinit()</code>, and a server makes this call as part of initializing through <code class="cCode">tpsvrinit()</code>.
+</p>
+<p class="pBody"><a name="wp1258466"> </a>
+Opening a key handle with the <code class="cCode">TPKEY_AUTOSIGN</code> flag enables automatic signature generation: subsequently, the originating process signs message buffers automatically whenever they are sent. Using the <code class="cCode">TPKEY_AUTOSIGN</code> flag is beneficial for three reasons:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1274970"> </a>Less work is required from application programmers because fewer ATMI calls are required when operating in a secure ATMI application.</li>
+<li><a name="wp1274971"> </a>Existing ATMI applications can leverage digital signature technology with minimal coding changes.</li>
+<li><a name="wp1274972"> </a>The possibility of programming errors that might result in an unsigned buffer being sent over an insecure network is reduced.</li>
+</ul></div>
+<p class="pBody"><a name="wp1291902"> </a>
+<a href="secpgm.html#wp1291222">Listing&#160;3-3</a> shows how to open a signer&#8217;s key handle. <code class="cCode">TPKEY</code> is a special data type defined in the <code class="cCode">atmi.h</code> header file.
+</p>
+<div class="pCodeTitle"><a name="wp1291222"> </a>
+Listing&#160;3-3	   Opening a Signer&#8217;s Key Handle Example
+</div> <a name="wp1305972"> </a><div class="pPreformatted"><pre>main(argc, argv)<br />int argc;<br />char *argv[];<br />#endif</pre></div><a name="wp1293744"> </a><div class="pPreformatted"><pre>{<br />&#160;&#160;&#160;TPKEY sdo_key;<br />&#160;&#160;&#160;char *sdo_location;<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;&#160;if (tpkey_open(&amp;sdo_key, &#8220;sdo&#8221;, sdo_location,<br />&#160;&#160;&#160;&#160;&#160;&#160;NULL, 0, TPKEY_SIGNATURE) == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;(void) fprintf(stderr, &#8220;tpkey_open sdo failed<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tperrno=%d(%s)\n&#8221;, tperrno, tpstrerror(tperrno));<br />&#160;&#160;&#160;&#160;&#160;&#160;exit(1);<br />&#160;&#160;&#160;}<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />}</pre></div><h4 class="pHeading3"><a name="wp1258467"> </a>
+Step 2 (Optional): Getting Key Handle Information
+</h4>
+<p class="pBody"><a name="wp1258468"> </a>
+You may want to get information about a signer&#8217;s key handle to establish the validity of the key. To do so, call the <a href="../rf3c/rf3c.html">tpkey_getinfo(3c)</a> function or TPKEYGETINFO(3cbl) routine. While some of the information returned may be specific to a cryptographic service provider, a core set of attributes is common to all providers.
+</p>
+<p class="pBody"><a name="wp1258469"> </a>
+The default public key implementation supports the following signature modes for computing signatures on a message buffer:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1258470"> </a>MD5 message digest algorithm with RSA public key signature</li>
+<li><a name="wp1258471"> </a>SHA-1 message digest algorithm with RSA public key signature</li>
+</ul></div>
+<p class="pBody"><a name="wp1258472"> </a>
+The message digest algorithm is controlled by the <code class="cCode">DIGEST_ALG</code> key attribute, and the public key signature is controlled by the <code class="cCode">SIGNATURE_ALG</code> key attribute. Public key sizes from 512 to 2048 bits are supported, to allow a wide range of safety and performance options. The public key size is controlled by the <code class="cCode">SIGNATURE_BITS</code> key attribute.
+</p>
+<p class="pBody"><a name="wp1258473"> </a>
+The default public key implementation recognizes only those digital certificate signatures that are created with these algorithm and key size choices.
+</p>
+<p class="pBody"><a name="wp1293814"> </a>
+<a href="secpgm.html#wp1293815">Listing&#160;3-4</a> shows how to get information about a signer&#8217;s key handle.
+</p>
+<div class="pCodeTitle"><a name="wp1293815"> </a>
+Listing&#160;3-4	   Getting Information About a Signer&#8217;s Key Handle Example
+</div> <a name="wp1293816"> </a><div class="pPreformatted"><pre>main(argc, argv)<br />int argc;<br />char *argv[];<br />#endif</pre></div><a name="wp1305374"> </a><div class="pPreformatted"><pre>{<br />&#160;&#160;&#160;TPKEY sdo_key;<br />&#160;&#160;&#160;char principal_name[PNAME_LEN];<br />&#160;&#160;&#160;long pname_len = PNAME_LEN;<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;&#160;if (tpkey_getinfo(sdo_key, &#8220;PRINCIPAL&#8221;,<br />&#160;&#160;&#160;&#160;&#160;&#160;principal_name, &amp;pname_len, 0) == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;(void) fprintf(stdout, &#8220;Unable to get information<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;about principal: %d(%s)\n&#8221;,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tperrno, tpstrerror(tperrno));<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;exit(1);<br />&#160;&#160;&#160;}<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />}</pre></div><h4 class="pHeading3"><a name="wp1258474"> </a>
+Step 3 (Optional): Changing Key Handle Information
+</h4>
+<p class="pBody"><a name="wp1258475"> </a>
+To set optional attributes associated with a signer&#8217;s key handle, call the <a href="../rf3c/rf3c.html">tpkey_setinfo(3c)</a> function or TPKEYSETINFO(3cbl) routine. Key handle attributes vary, depending on the cryptographic service provider.
+</p>
+<p class="pBody"><a name="wp1298890"> </a>
+The following example code shows how to change information associated with a signer&#8217;s key handle.
+</p>
+<div class="pCodeTitle"><a name="wp1298891"> </a>
+Listing&#160;3-5	   Changing Information Associated with a Signer&#8217;s Key Handle Example
+</div> <a name="wp1305866"> </a><div class="pPreformatted"><pre>main(argc, argv)<br />int argc;<br />char *argv[];<br />#endif</pre></div><a name="wp1303320"> </a><div class="pPreformatted"><pre>{<br />&#160;&#160;&#160;TPKEY sdo_key;<br />&#160;&#160;&#160;static const unsigned char sha1_objid[] = {<br />&#160;&#160;&#160;&#160;&#160;&#160;0x06, 0x05, 0x2b, 0x0e, 0x03, 0x02, 0x1a<br />&#160;&#160;&#160;};<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;&#160;if (tpkey_setinfo(sdo_key, &#8220;DIGEST_ALG&#8221;, (void *) sha1_objid,<br />&#160;&#160;&#160;&#160;&#160;&#160;sizeof(sha1_objid), 0) == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;(void) fprintf(stderr, &#8220;tpkey_setinfo failed<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tperrno=%d(%s)\n&#8221;,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tperrno, tpstrerror(tperrno));<br />&#160;&#160;&#160;&#160;&#160;&#160;return(1);<br />&#160;&#160;&#160;}<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />}</pre></div><h4 class="pHeading3"><a name="wp1258476"> </a>
+Step 4: Allocating a Buffer and Putting a Message in the Buffer
+</h4>
+<p class="pBody"><a name="wp1258477"> </a>
+To allocate a typed message buffer, call the <a href="../rf3c/rf3c.html">tpalloc(3c)</a> function. Then put a message in the buffer.
+</p>
+<h4 class="pHeading3"><a name="wp1258478"> </a>
+Step 5: Marking the Buffer for Digital Signature
+</h4>
+<p class="pBody"><a name="wp1258479"> </a>
+To mark, or register, the message buffer for digital signature, call the <a href="../rf3c/rf3c.html">tpsign(3c)</a> function. By calling this function, you attach a copy of the signer&#8217;s key handle to the message buffer. If you open the key with the <code class="cCode">TPKEY_AUTOSIGN</code> flag, each message that you send is automatically marked for digital signature without an explicit call to <code class="cCode">tpsign()</code>; signature parameters are stored and associated with the buffer for later use.
+</p>
+<a name="wp1258480"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>In COBOL applications, use the <code class="cCode">AUTOSIGN</code> settings member to create a digital signature. See TPKEYOPEN(3cbl).</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1297996"> </a>
+The following example code shows how to mark a message buffer for digital signature.
+</p>
+<div class="pCodeTitle"><a name="wp1297997"> </a>
+Listing&#160;3-6	   Marking a Message Buffer For Digital Signature Example
+</div> <a name="wp1305980"> </a><div class="pPreformatted"><pre>main(argc, argv)<br />int argc;<br />char *argv[];<br />#endif</pre></div><a name="wp1299470"> </a><div class="pPreformatted"><pre>{<br />&#160;&#160;&#160;TPKEY sdo_key;<br />&#160;&#160;&#160;char *sendbuf, *rcvbuf;<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;&#160;if (tpsign(sendbuf, sdo_key, 0) == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;(void) fprintf(stderr, &#8220;tpsign failed tperrno=%d(%s)\n&#8221;,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tperrno, tpstrerror(tperrno));<br />&#160;&#160;&#160;&#160;&#160;&#160;tpfree(rcvbuf);<br />&#160;&#160;&#160;&#160;&#160;&#160;tpfree(sendbuf);<br />&#160;&#160;&#160;&#160;&#160;&#160;tpterm();<br />&#160;&#160;&#160;&#160;&#160;&#160;(void) tpkey_close(sdo_key, 0);<br />&#160;&#160;&#160;&#160;&#160;&#160;exit(1);<br />&#160;&#160;&#160;}<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />}</pre></div><h4 class="pHeading3"><a name="wp1258481"> </a>
+Step 6: Sending the Message
+</h4>
+<p class="pBody"><a name="wp1258482"> </a>
+After the message buffer has been marked for digital signature, transmit the message buffer using one of the following C functions or COBOL routines:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1258483"> </a><code class="cCode">tpcall()</code> or <code class="cCode">TPCALL</code></li>
+<li><a name="wp1258484"> </a><code class="cCode">tpbroadcast()</code> or <code class="cCode">TPBROADCAST</code></li>
+<li><a name="wp1258485"> </a><code class="cCode">tpconnect()</code> or <code class="cCode">TPCONNECT</code></li>
+<li><a name="wp1258486"> </a><code class="cCode">tpenqueue() </code>or <code class="cCode">TPENQUEUE</code></li>
+<li><a name="wp1258487"> </a><code class="cCode">tpforward()</code></li>
+<li><a name="wp1258488"> </a><code class="cCode">tpnotify()</code> or <code class="cCode">TPNOTIFY</code></li>
+<li><a name="wp1258489"> </a><code class="cCode">tppost()</code> or <code class="cCode">TPPOST</code></li>
+<li><a name="wp1258490"> </a><code class="cCode">tpreturn()</code> or <code class="cCode">TPRETURN</code></li>
+<li><a name="wp1258491"> </a><code class="cCode">tpsend()</code> or <code class="cCode">TPSEND</code></li>
+</ul></div>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1277528"> </a>
+Step 7: Closing the Signer&#8217;s Key Handle
+</h4>
+<p class="pBody"><a name="wp1277529"> </a>
+Call the <a href="../rf3c/rf3c.html">tpkey_close(3c)</a> function or TPKEYCLOSE(3cbl) routine to release the signer&#8217;s key handle and all resources associated with it.
+</p>
+<h4 class="pHeading3"><a name="wp1258492"> </a>
+How the System Generates a Digital Signature
+</h4>
+<p class="pBody"><a name="wp1258493"> </a>
+Just before a message buffer is sent, the public key software digitally signs the message. If a signed buffer is transmitted more than once, the software generates a new signature for each communication. This process makes it possible to modify a message buffer after marking the buffer to be digitally signed.
+</p>
+<p class="pBody"><a name="wp1258494"> </a>
+The public key software generates a digital signature by performing the following three-step procedure.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1258495"> </a>digest[message_buffer_data + buffer_type_string + buffer_subtype_string] = hash1</li>
+<li><a name="wp1258496"> </a>digest[hash1 + local_timestamp + PKCS-7_message_type] = hash2</li>
+<li><a name="wp1258497"> </a>{hash2}signer&#8217;s_private_key = encrypted_hash2 = digital_signature</li>
+</ol></div>
+<p class="pBody"><a name="wp1317923"> </a>
+The notation <em class="cEmphasis">digest</em>[<em class="cEmphasis">something</em>] means that a hash value has been computed for <em class="cEmphasis">something</em> using a message digest algorithm&#8212;in this case, MD5 or SHA-1. The notation {<em class="cEmphasis">something</em>}<em class="cEmphasis">key</em> means that <em class="cEmphasis">something</em> has been encrypted or decrypted using <em class="cEmphasis">key</em>. In this case, the computed hash value is encrypted using the signer&#8217;s private key<em class="cEmphasis">.</em>
+</p>
+<h5 class="pHeading4"><a name="wp1258498"> </a>
+Signature Timestamp
+</h5>
+<p class="pBody"><a name="wp1258499"> </a>
+A digital signature includes a timestamp from the local system&#8217;s clock. Inclusion of such a timestamp ensures that any tampering with the timestamp value will be detected when the recipient verifies the signature. In addition, a copy of the timestamp accompanies the digitally signed message when the message is routed to its destination.
+</p>
+<p class="pBody"><a name="wp1278291"> </a>
+Time resolution is to the second. Timestamps are stored in PKCS-9 <code class="cCode">SigningTime</code> format.
+</p>
+<h5 class="pHeading4"><a name="wp1258500"> </a>
+Multiple Signatures
+</h5>
+<p class="pBody"><a name="wp1279544"> </a>
+More than one signature can be associated with a message buffer, which means that any number of signers can sign a message buffer in parallel. A signer can be a person or a process. Each signer signs the message buffer using his, her, or its private key.
+</p>
+<p class="pBody"><a name="wp1258502"> </a>
+Different signatures may be based on different message digest or digital signature algorithms. If two signers use the same message digest and digital signature algorithm, the hash value is computed for only one of them.
+</p>
+<h5 class="pHeading4"><a name="wp1258503"> </a>
+Signed Message Content
+</h5>
+<p class="pBody"><a name="wp1258504"> </a>
+A digitally signed message buffer is represented in the PKCS-7 format as a version 1 <code class="cCode">SignedData</code> content type. The <code class="cCode">SignedData</code> content type, as used by the Oracle Tuxedo system, consists of the following items:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1258505"> </a>One or more digital signatures, each with its own set of signer-specific information, such as:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1258506"> </a>Signer&#8217;s X.509v3 certificate</li>
+<li><a name="wp1258507"> </a>Message digest and digital signature algorithm identifiers</li>
+<li><a name="wp1258508"> </a>Timestamp based on the local clock</li>
+</ul></div>
+<li><a name="wp1258509"> </a>Message content, which is a composite of message buffer data, buffer type string, and buffer subtype string represented in the Oracle Tuxedo encoded format. The encoded format allows a message buffer&#8217;s signature to be verified on any machine architecture.</li>
+</ul></div>
+<p class="pBody"><a name="wp1258510"> </a>
+As shown in <a href="secpgm.html#wp1258511">Figure&#160;3-4</a>, the message content is enveloped by <code class="cCode">SignedData</code> content type.
+</p>
+<div class="pFigureTitle"><a name="wp1258511"> </a>
+Figure&#160;3-4  SignedData Content Type
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1258522"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/sec-3-1-4.gif" height="155" width="458" alt="SignedData Content Type" id="wp1258513"/></div><p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1279823"> </a>
+How a Signed Message Is Received
+</h3>
+<p class="pBody"><a name="wp1279824"> </a>
+No ATMI application code is needed to receive a signed message buffer. The public key software automatically verifies the attached digital signatures and passes the message to the receiving process.
+</p>
+<p class="pBody"><a name="wp1258527"> </a>
+Upon receiving a signed message buffer, the public key software, operating on behalf of the receiving process, performs the following tasks.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1258528"> </a>Reads the digital signature information attached to the received message, including the signer&#8217;s digital certificate, message digest algorithm, digital signature algorithm, and signature timestamp.</li>
+<li><a name="wp1258529"> </a>Decrypts the attached digital signature (encrypted hash value) using the signer&#8217;s public key (found in the signer&#8217;s digital certificate) and the digital signature algorithm.</li>
+<li><a name="wp1258530"> </a>Recomputes the hash value for the received message, as shown in the following two-step procedure.</li>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp1258531"> </a>digest[message_buffer_data + buffer_type_string + buffer_subtype_string] = hash1</li>
+<li><a name="wp1258532"> </a>digest[hash1 + received_timestamp + PKCS-7_message_type] = hash2</li>
+<p class="pBodyRelative"><a name="wp1318253"> </a>
+The notation <em class="cEmphasis">digest</em>[<em class="cEmphasis">something</em>] means that a hash value has been computed for <em class="cEmphasis">something</em> using a message digest algorithm&#8212;in this case, MD5 or SHA-1.
+</p>
+</ol></div>
+<li><a name="wp1258533"> </a>Compares the recomputed hash value with the received hash value; if the two are not identical, discards the message buffer.</li>
+<li><a name="wp1258534"> </a>Compares the received timestamp with the local system&#8217;s clock; if the timestamp is not within a configured tolerance, discards the message buffer.</li>
+<li><a name="wp1258535"> </a>If the message buffer successfully passes the checks performed in Steps 4 and 5, the public key software decodes the message buffer data, buffer type string, and buffer subtype string, and then passes the message to the receiving process. This step reverses the encoding performed by the originating process. (The Oracle Tuxedo encoded format allows a message buffer&#8217;s signature to be verified on any machine architecture.)</li>
+</ol></div>
+<a name="wp1311290"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If none of the attached digital signatures can be verified, the receiving process does <em class="cEmphasis">not</em> receive the message buffer. Moreover, the receiving process has no knowledge of the message buffer.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp1258538"> </a>
+Verifying Digital Signatures
+</h4>
+<p class="pBody"><a name="wp1258539"> </a>
+The public key software automatically verifies digital signatures whenever a signed message buffer enters a client process, server process, or any system process that needs to access the content of the message buffer. If a system process is acting as a <em class="cEmphasis">conduit</em> (that is, if it is not reading the content of the message), then the attached digital signatures need not be verified. Bridges and workstation handlers (WSHs) are examples of system processes acting as conduits.
+</p>
+<p class="pBody"><a name="wp1258540"> </a>
+The signature timestamp is based on an unsynchronized clock, and therefore cannot be fully trusted, especially if the signature is performed on a PC or personal workstation. However, a server may reject requests with timestamps that are too old or dated too far into the future. The capability to reject a request based on the timestamp provides a measure of protection against replay attacks.
+</p>
+<h4 class="pHeading3"><a name="wp1258541"> </a>
+Verifying and Transmitting an Input Buffer&#8217;s Signatures
+</h4>
+<p class="pBody"><a name="wp1258542"> </a>
+If a message buffer is passed to an ATMI function (such as <code class="cCode">tpacall()</code>) as an input parameter, the public key software verifies any signatures previously attached to the message and then forwards the message. This behavior enables a secure, verified transfer of information with signatures from multiple processes.
+</p>
+<p class="pBody"><a name="wp1258543"> </a>
+If a server modifies a received message buffer and then forwards the buffer, the original signature is no longer valid. In this case, the public key software detects the invalid signature and silently discards it. For an example of the process, see <span class="cHyperlink">
+&#8220;Discarding an Input Buffer&#8217;s Encryption Envelopes&#8221; on page&#160;3-47</span>.
+</p>
+<h4 class="pHeading3"><a name="wp1258658"> </a>
+Replacing an Output Buffer&#8217;s Signatures
+</h4>
+<p class="pBody"><a name="wp1264039"> </a>
+If a message buffer is passed to an ATMI function (such as <code class="cCode">tpgetreply()</code>) as an output parameter, the public key software deletes any signature information associated with the buffer. This information includes any <em class="cEmphasis">pending</em> signatures and signatures from previous uses of the buffer. (A pending signature is a signature that is registered with a message buffer.)
+</p>
+<p class="pBody"><a name="wp1279205"> </a>
+New signature information might be associated with the new buffer content after successful completion of this operation.
+</p>
+<h3 class="pHeading2"><a name="wp1258660"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1258664"> </a><span class="cHyperlink">
+&#8220;Sending and Receiving Encrypted Messages&#8221; on page&#160;3-33</span></li>
+<li><a name="wp1258668"> </a><span class="cHyperlink">
+&#8220;Examining Digital Signature and Encryption Information&#8221; on page&#160;3-50</span></li>
+<li><a name="wp1258672"> </a><span class="cHyperlink">
+&#8220;Externalizing Typed Message Buffers&#8221; on page&#160;3-57</span></li>
+<li><a name="wp1318605"> </a><span class="cHyperlink">
+&#8220;Public Key Security&#8221; on page&#160;1-32</span></li>
+<li><a name="wp1319802"> </a><span class="cHyperlink">
+&#8220;Administering Public Key Security&#8221; on page&#160;2-48</span></li>
+<li><a name="wp1258684"> </a><span class="cHyperlink">
+&#8220;Programming an ATMI Application with Security&#8221; on page&#160;3-3</span></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1258686"> </a>
+Sending and Receiving Encrypted Messages
+</h2><p class="pBody"><a name="wp1258689"> </a>
+Message-based encryption provides end-to-end data privacy. For a diagram that illustrates how it works, see the figure <span class="cHyperlink">
+&#8220;ATMI PKCS-7 End-to-End Encryption&#8221; on page&#160;1-42</span>.
+</p>
+<p class="pBody"><a name="wp1274444"> </a>
+A message is encrypted just before it leaves the originating process, and remains encrypted until it is received by the final destination process. It is opaque at all intermediate transit points (including operating system message queues, system processes, and disk-based queues) and during network transmission over inter-server network links.
+</p>
+<h3 class="pHeading2"><a name="wp1258691"> </a>
+Writing Code to Send Encrypted Messages
+</h3>
+<p class="pBody"><a name="wp1258692"> </a>
+<a href="secpgm.html#wp1258693">Figure&#160;3-5</a> provides the procedure for writing code to send encrypted messages.
+</p>
+<div class="pFigureTitle"><a name="wp1258693"> </a>
+Figure&#160;3-5  Procedure for Sending Encrypted Messages
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1258773"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/sec-3-1-5.gif" height="596" width="456" alt="Procedure for Sending Encrypted Messages" id="wp1258695"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1274802"> </a>
+For details about these steps and insight into how the system encrypts a message buffer, see the following topics.
+</p>
+<h4 class="pHeading3"><a name="wp1258774"> </a>
+Step 1: Opening a Key Handle for Encryption
+</h4>
+<p class="pBody"><a name="wp1279325"> </a>
+Call the <a href="../rf3c/rf3c.html">tpkey_open(3c)</a> function or TPKEYOPEN(3cbl) routine to make the digital certificate of the target recipient available to the originating process. The target recipient might be a client, a service, a server group, a gateway group, a server machine, or an entire domain of servers.
+</p>
+<p class="pBody"><a name="wp1258776"> </a>
+When the originating process calls <code class="cCode">tpkey_open()</code> to open the key handle, it specifies either the <code class="cCode">TPKEY_ENCRYPT</code> or <code class="cCode">TPKEY_AUTOENCRYPT</code> flag to indicate that the handle will be used to encrypt a message buffer. Typically, a client makes this call after calling <code class="cCode">tpinit()</code>, and a server makes this call as part of initializing through <code class="cCode">tpsvrinit()</code>.
+</p>
+<p class="pBody"><a name="wp1275381"> </a>
+Opening a key handle with the <code class="cCode">TPKEY_AUTOENCRYPT</code> flag enables automatic encryption: subsequently, the originating process encrypts message buffers automatically whenever they are sent. Using the <code class="cCode">TPKEY_AUTOENCRYPT</code> flag is beneficial for three reasons:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1275382"> </a>Less work is required from application programmers because fewer ATMI calls are required when operating in a secure ATMI application.</li>
+<li><a name="wp1275464"> </a>Existing ATMI applications can leverage encryption technology with minimal coding changes.</li>
+<li><a name="wp1275465"> </a>The possibility of programming errors that might result in an unencrypted (plaintext) buffer being sent over an insecure network is reduced.</li>
+</ul></div>
+<p class="pBody"><a name="wp1300958"> </a>
+<a href="secpgm.html#wp1300959">Listing&#160;3-7</a> shows how to open an encryption key handle. <code class="cCode">TPKEY</code> is a special data type defined in the <code class="cCode">atmi.h</code> header file.
+</p>
+<div class="pCodeTitle"><a name="wp1300959"> </a>
+Listing&#160;3-7	   Opening an Encryption Key Handle Example
+</div> <a name="wp1305988"> </a><div class="pPreformatted"><pre>main(argc, argv)<br />int argc;<br />char *argv[];<br />#endif</pre></div><a name="wp1302686"> </a><div class="pPreformatted"><pre>{<br />&#160;&#160;&#160;TPKEY tu_key;<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;&#160;if (tpkey_open(&amp;tu_key, &#8220;TOUPPER&#8221;, NULL,<br />&#160;&#160;&#160;&#160;&#160;&#160;NULL, 0, TPKEY_ENCRYPT) == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;(void) fprintf(stderr, &#8220;tpkey_open tu failed<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tperrno=%d(%s)\n&#8221;, tperrno, tpstrerror(tperrno));<br />&#160;&#160;&#160;&#160;&#160;&#160;exit(1);<br />&#160;&#160;&#160;}<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />}</pre></div><h4 class="pHeading3"><a name="wp1258778"> </a>
+Step 2 (Optional): Getting Key Handle Information
+</h4>
+<p class="pBody"><a name="wp1276901"> </a>
+You may want to get information about an encryption key handle to establish the validity of the key. To do so, call the <a href="../rf3c/rf3c.html">tpkey_getinfo(3c)</a> function or TPKEYGETINFO(3cbl) routine. While some of the information returned may be specific to a cryptographic service provider, a core set of attributes is common to all providers.
+</p>
+<p class="pBody"><a name="wp1258780"> </a>
+The default public key implementation supports three algorithms for bulk data encryption of message content:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1258781"> </a>DES (DES-CBC)&#8212;a 64-bit block cipher run in Cipher Block Chaining (CBC) mode. It provides 56-bit keys (8 parity bits are stripped from the full 64-bit key) and is exportable outside the United States. (DES stands for the Data Encryption Standard.)</li>
+<li><a name="wp1258782"> </a>3DES (two-key triple-DES)&#8212;a 128-bit block cipher run in Encrypt-Decrypt-Encrypt (EDE) mode. 3DES provides two 56-bit keys (in effect, a 112-bit key) and is <em class="cEmphasis">not</em> exportable outside the United States.</li>
+<li><a name="wp1258783"> </a>RC2&#8212;a variable key-size block cipher with a key size range of 40 to 128 bits. It is faster than DES and is exportable with a key size of 40 bits. A 56-bit key size is allowed for foreign subsidiaries and overseas offices of United States companies. In the United States, RC2 can be used with keys of virtually unlimited length, but the public key software restricts the key length to 128 bits. (RC2 stands for Rivest&#8217;s Cipher 2.)</li>
+</ul></div>
+<p class="pBody"><a name="wp1258784"> </a>
+Encryption strength is controlled by the <code class="cCode">ENCRYPT_BITS</code> key attribute, and the algorithm is controlled by the <code class="cCode">ENCRYPT_ALG</code> key attribute. When an algorithm with fixed key length is set in <code class="cCode">ENCRYPT_ALG</code>, the value of <code class="cCode">ENCRYPT_BITS</code> is automatically adjusted to match.
+</p>
+<p class="pBody"><a name="wp1302239"> </a>
+<a href="secpgm.html#wp1302240">Listing&#160;3-8</a> shows how to get information about an encryption key handle.
+</p>
+<div class="pCodeTitle"><a name="wp1302240"> </a>
+Listing&#160;3-8	   Getting Information About an Encryption Key Handle Example
+</div> <a name="wp1306342"> </a><div class="pPreformatted"><pre>main(argc, argv)<br />int argc;<br />char *argv[];<br />#endif</pre></div><a name="wp1302242"> </a><div class="pPreformatted"><pre>{<br />&#160;&#160;&#160;TPKEY tu_key;<br />&#160;&#160;&#160;char principal_name[PNAME_LEN];<br />&#160;&#160;&#160;long pname_len = PNAME_LEN;<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;&#160;if (tpkey_getinfo(tu_key, &#8220;PRINCIPAL&#8221;,<br />&#160;&#160;&#160;&#160;&#160;&#160;principal_name, &amp;pname_len, 0) == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;(void) fprintf(stdout, &#8220;Unable to get information<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;about principal: %d(%s)\n&#8221;,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tperrno, tpstrerror(tperrno));<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;exit(1);<br />&#160;&#160;&#160;}<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />}</pre></div><h4 class="pHeading3"><a name="wp1258785"> </a>
+Step 3 (Optional): Changing Key Handle Information
+</h4>
+<p class="pBody"><a name="wp1277563"> </a>
+To set optional attributes associated with an encryption key handle, call the <a href="../rf3c/rf3c.html">tpkey_setinfo(3c)</a> function or TPKEYSETINFO(3cbl) routine. Key handle attributes vary, depending on the cryptographic service provider.
+</p>
+<p class="pBody"><a name="wp1301839"> </a>
+<a href="secpgm.html#wp1301840">Listing&#160;3-9</a> shows how to change information associated with an encryption key handle.
+</p>
+<div class="pCodeTitle"><a name="wp1301840"> </a>
+Listing&#160;3-9	   Changing Information Associated with an Encryption Key Handle Example
+</div> <a name="wp1306350"> </a><div class="pPreformatted"><pre>main(argc, argv)<br />int argc;<br />char *argv[];<br />#endif</pre></div><a name="wp1303804"> </a><div class="pPreformatted"><pre>{<br />&#160;&#160;&#160;TPKEY tu_key;<br />&#160;&#160;&#160;static const unsigned char rc2_objid[] = {<br />&#160;&#160;&#160;&#160;&#160;&#160;0x06, 0x08, 0x2a, 0x86, 0x48, 0x86, 0xf7, 0x0d, 0x03, 0x02<br />&#160;&#160;&#160;};<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;&#160;if (tpkey_setinfo(tu_key, &#8220;ENCRYPT_ALG&#8221;, (void *) rc2_objid,<br />&#160;&#160;&#160;&#160;&#160;&#160;sizeof(rc2_objid), 0) == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;(void) fprintf(stderr, &#8220;tpkey_setinfo failed<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tperrno=%d(%s)\n&#8221;,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tperrno, tpstrerror(tperrno));<br />&#160;&#160;&#160;&#160;&#160;&#160;return(1);<br />&#160;&#160;&#160;}<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />}</pre></div><h4 class="pHeading3"><a name="wp1258787"> </a>
+Step 4: Allocating a Buffer and Putting a Message in the Buffer
+</h4>
+<p class="pBody"><a name="wp1277702"> </a>
+To allocate a typed message buffer, call the <a href="../rf3c/rf3c.html">tpalloc(3c)</a> function. Then put a message in the buffer.
+</p>
+<h4 class="pHeading3"><a name="wp1258789"> </a>
+Step 5: Marking the Buffer for Encryption
+</h4>
+<p class="pBody"><a name="wp1258790"> </a>
+To mark, or register, the message buffer for encryption, call the <a href="../rf3c/rf3c.html">tpseal(3c)</a> function. By calling this function, you attach a copy of the encryption key handle to the message buffer. If you open the key with the <code class="cCode">TPKEY_AUTOENCRYPT</code> flag, each message that you send is automatically marked for encryption without an explicit call to <code class="cCode">tpseal()</code>.
+</p>
+<a name="wp1258791"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>In COBOL applications, use the <code class="cCode">AUTOENCRYPT</code> settings member to encrypt a message buffer. See TPKEYOPEN(3cbl).</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1301120"> </a>
+<a href="secpgm.html#wp1301121">Listing&#160;3-10</a> shows how to mark a message buffer for encryption.
+</p>
+<div class="pCodeTitle"><a name="wp1301121"> </a>
+Listing&#160;3-10	   Marking a Message Buffer for Encryption Example
+</div> <a name="wp1306362"> </a><div class="pPreformatted"><pre>main(argc, argv)<br />int argc;<br />char *argv[];<br />#endif<br />{<br />&#160;&#160;&#160;TPKEY tu_key;<br />&#160;&#160;&#160;char *sendbuf, *rcvbuf;<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;&#160;if (tpseal(sendbuf, tu_key, 0) == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;(void) fprintf(stderr, &#8220;tpseal failed tperrno=%d(%s)\n&#8221;,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tperrno, tpstrerror(tperrno));<br />&#160;&#160;&#160;&#160;&#160;&#160;tpfree(rcvbuf);<br />&#160;&#160;&#160;&#160;&#160;&#160;tpfree(sendbuf);<br />&#160;&#160;&#160;&#160;&#160;&#160;tpterm();<br />&#160;&#160;&#160;&#160;&#160;&#160;(void) tpkey_close(tu_key, 0);<br />&#160;&#160;&#160;&#160;&#160;&#160;exit(1);<br />&#160;&#160;&#160;}<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />}</pre></div><h4 class="pHeading3"><a name="wp1258792"> </a>
+Step 6: Sending the Message
+</h4>
+<p class="pBody"><a name="wp1258793"> </a>
+After the message buffer has been marked for encryption, transmit the message buffer using one of the following C functions or COBOL routines:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1258794"> </a><code class="cCode">tpcall()</code> or <code class="cCode">TPCALL</code></li>
+<li><a name="wp1258795"> </a><code class="cCode">tpbroadcast()</code> or <code class="cCode">TPBROADCAST</code></li>
+<li><a name="wp1258796"> </a><code class="cCode">tpconnect()</code> or <code class="cCode">TPCONNECT</code></li>
+<li><a name="wp1258797"> </a><code class="cCode">tpenqueue() </code>or <code class="cCode">TPENQUEUE</code></li>
+<li><a name="wp1258798"> </a><code class="cCode">tpforward()</code></li>
+<li><a name="wp1258799"> </a><code class="cCode">tpnotify()</code> or <code class="cCode">TPNOTIFY</code></li>
+<li><a name="wp1258800"> </a><code class="cCode">tppost()</code> or <code class="cCode">TPPOST</code></li>
+<li><a name="wp1258801"> </a><code class="cCode">tpreturn()</code> or <code class="cCode">TPRETURN</code></li>
+<li><a name="wp1258802"> </a><code class="cCode">tpsend()</code> or <code class="cCode">TPSEND</code></li>
+</ul></div>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1277164"> </a>
+Step 7: Closing the Encryption Key Handle
+</h4>
+<p class="pBody"><a name="wp1277165"> </a>
+Call the <a href="../rf3c/rf3c.html">tpkey_close(3c)</a> function or TPKEYCLOSE(3cbl) routine to release the encryption key handle and all resources associated with it.
+</p>
+<h4 class="pHeading3"><a name="wp1258803"> </a>
+How the System Encrypts a Message Buffer
+</h4>
+<p class="pBody"><a name="wp1258804"> </a>
+Just before a message buffer is sent, the public key software encrypts the message and attaches an encryption envelope; the encryption envelope enables the target recipient to decrypt the message. If a sealed buffer is transmitted more than once, encryption is performed for each transmission. This process makes it possible to modify a message buffer after marking the buffer to be encrypted.
+</p>
+<p class="pBody"><a name="wp1258805"> </a>
+The public key software encrypts the content of the message buffer and generates an encryption envelope for the recipient of the encrypted message by performing the following two-step procedure.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1258806"> </a>{message_buffer_data + buffer_type_string + buffer_subtype_string}session_key = encrypted_message</li>
+<li><a name="wp1258807"> </a>{session_key}recipient&#8217;s_public_key = encrypted_session_key = encryption_envelope_for_recipient</li>
+</ol></div>
+<p class="pBody"><a name="wp1318317"> </a>
+The notation {<em class="cEmphasis">something</em>}<em class="cEmphasis">key</em> means that <em class="cEmphasis">something</em> has been encrypted or decrypted using <em class="cEmphasis">key</em>. In Step 1, a message buffer is encrypted using the session key, and in step&#160;2, the session key is encrypted using the recipient&#8217;s public key.
+</p>
+<h5 class="pHeading4"><a name="wp1258808"> </a>
+Multiple Message Recipients
+</h5>
+<p class="pBody"><a name="wp1258809"> </a>
+More than one encryption envelope can be associated with a message buffer, which means that multiple recipients, with different private keys, can receive and decrypt an encrypted message. A recipient can be a person or a process. When a message is encrypted for multiple recipients, it is encrypted only once, but the session key is encrypted with the public key of each recipient. All encryption envelopes are attached to the encrypted message.
+</p>
+<p class="pBody"><a name="wp1258810"> </a>
+If several encryption envelopes are associated with one message buffer, all of them must use the same symmetric key algorithm and the same key size for that algorithm.
+</p>
+<h5 class="pHeading4"><a name="wp1258811"> </a>
+Encrypted Message Content
+</h5>
+<p class="pBody"><a name="wp1258812"> </a>
+An encrypted message buffer is represented in the PKCS-7 format as a version 0 <code class="cCode">EnvelopedData</code> content type. The <code class="cCode">EnvelopedData</code> content type, as used by the Oracle Tuxedo system, consists of the following items:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1258813"> </a>A list of recipients (in plaintext) that can be read by any ATMI process</li>
+<li><a name="wp1258814"> </a>Encryption envelopes for one or more recipients</li>
+<li><a name="wp1258815"> </a>Public key algorithm (and any associated parameters) under which the session key was encrypted</li>
+<li><a name="wp1258816"> </a>Symmetric key algorithm (and any associated parameters) under which the bulk data was encrypted</li>
+<li><a name="wp1258817"> </a>Encrypted bulk data, which is a composite of message buffer data, buffer type string, buffer subtype string, and digital signatures (if any) that have undergone the following transformations:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1258818"> </a>Conversion of the message buffer data, buffer type string, and buffer subtype string into the Oracle Tuxedo encoded format to form the composite encoded data. (The Oracle Tuxedo encoded format allows a message buffer to be decrypted on any machine architecture.)</li>
+<li><a name="wp1258819"> </a>Compression of the composite encoded data and digital signatures (if any) using the Deflate compression algorithm to form the composite compressed data.</li>
+<li><a name="wp1258820"> </a>Encryption of the composite compressed data under a randomly generated session key and symmetric key algorithm (identified earlier in this list) to form the encrypted bulk data.</li>
+</ul></div>
+</ul></div>
+<p class="pBody"><a name="wp1258821"> </a>
+<a href="secpgm.html#wp1258822">Figure&#160;3-6</a> shows the envelope hierarchy for the <code class="cCode">EnvelopedData</code> content type. The <code class="cCode">SignedData</code> content type is part of the hierarchy <em class="cEmphasis">only</em> if the message to which it belongs has one or more associated digital signatures.
+</p>
+<div class="pFigureTitle"><a name="wp1258822"> </a>
+Figure&#160;3-6  EnvelopedData Content Type
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1258840"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/sec-3-1-6.gif" height="304" width="455" alt="EnvelopedData Content Type" id="wp1258824"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1258841"> </a>
+As shown in the preceding figure, a message buffer may be both signed and encrypted. No relationship is required between the number of digital signatures and the number of encryption envelopes associated with a message buffer.
+</p>
+<p class="pBody"><a name="wp1258842"> </a>
+When both processes are performed on a message buffer, signatures are generated first, on unencrypted data. The number of attached signatures and the identity of signing parties are then obscured by the bulk data encryption.
+</p>
+<a name="wp1258843"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>A suitable decryption key must be available to access message data before signatures can be verified.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1279656"> </a>
+Writing Code to Receive Encrypted Messages
+</h3>
+<p class="pBody"><a name="wp1279736"> </a>
+The procedure for writing code to receive encrypted messages consists of the following steps.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1279812"> </a>Call <code class="cCode">tpkey_open()</code> to open a key handle for the target recipient. <code class="cCode">tpkey_open</code> returns a key handle to the recipient&#8217;s private key and digital certificate.</li>
+<li><a name="wp1280377"> </a>(Optional): Call <code class="cCode">tpkey_getinfo()</code> to get information about the decryption key handle.</li>
+<li><a name="wp1280394"> </a>(Optional): Call <code class="cCode">tpkey_setinfo()</code> to change information associated with the decryption key handle.</li>
+<li><a name="wp1279856"> </a>Call <code class="cCode">tpkey_close()</code> to close the decryption key handle. <code class="cCode">tpkey_close()</code> releases the key handle and all resources associated with it.</li>
+</ol></div>
+<p class="pBody"><a name="wp1279917"> </a>
+For details about these steps and insight into how the system decrypts a message buffer, see the following topics.
+</p>
+<h4 class="pHeading3"><a name="wp1258858"> </a>
+Step 1: Opening a Key Handle for Decryption
+</h4>
+<p class="pBody"><a name="wp1258859"> </a>
+Call the <a href="../rf3c/rf3c.html">tpkey_open(3c)</a> function or TPKEYOPEN(3cbl) routine to make the private key and the associated digital certificate of the target recipient available to the receiving process. The receiving process might be a client, a service, a server group, a gateway group, a server machine, or an entire domain of servers.
+</p>
+<p class="pBody"><a name="wp1258860"> </a>
+An application administrator can configure the ATMI application&#8217;s <code class="cCode">UBBCONFIG</code> file such that decryption key handles are opened automatically when the ATMI application is booted. No more than one decryption key handle per server may be used with this method. See <span class="cHyperlink">
+&#8220;Initializing Decryption Keys Through the Plug-ins&#8221; on page&#160;2-56</span> for details.
+</p>
+<p class="pBody"><a name="wp1280515"> </a>
+If an ATMI application is not configured to open a decryption key handle for the receiving process during booting, the receiving process initiates its own <code class="cCode">tpkey_open()</code> call. Or, if the receiving process wants to open another decryption key handle, the receiving process makes an additional <code class="cCode">tpkey_open()</code> call.
+</p>
+<p class="pBody"><a name="wp1280516"> </a>
+In order to access the target recipient&#8217;s private key, the receiving process must prove its right to act as the target recipient. Proof requirements depend on the implementation of the public key plug-in interface. The default public key implementation requires a secret password from the calling process.
+</p>
+<p class="pBody"><a name="wp1258866"> </a>
+When the receiving process calls <code class="cCode">tpkey_open()</code> to open the key handle, it specifies the <code class="cCode">TPKEY_DECRYPT</code> flag to indicate that the handle will be used to decrypt a message buffer. Typically, a client makes this call after calling <code class="cCode">tpinit()</code>, and a server makes this call as part of initializing through <code class="cCode">tpsvrinit()</code>.
+</p>
+<p class="pBody"><a name="wp1303938"> </a>
+<a href="secpgm.html#wp1303939">Listing&#160;3-11</a> shows how to open a decryption key handle. <code class="cCode">TPKEY</code> is a special data type defined in the <code class="cCode">atmi.h</code> header file.
+</p>
+<div class="pCodeTitle"><a name="wp1303939"> </a>
+Listing&#160;3-11	   Opening a Decryption Key Handle Example
+</div> <a name="wp1305331"> </a><div class="pPreformatted"><pre>TPKEY tu_key;<br />tpsvrinit(argc, argv)<br />int argc;<br />char **argv;<br />#endif<br />{<br />&#160;&#160;&#160;char&#160;&#160;*tu_location;<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;&#160;if (tpkey_open(&amp;tu_key, &#8220;TOUPPER&#8221;, tu_location,<br />&#160;&#160;&#160;&#160;&#160;&#160;NULL, 0, TPKEY_DECRYPT) == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;userlog(&#8220;Unable to open private key: %d(%s)&#8221;,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tperrno, tpstrerror(tperrno));<br />&#160;&#160;&#160;return(-1)<br />&#160;&#160;&#160;}<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />}</pre></div><h4 class="pHeading3"><a name="wp1280128"> </a>
+Step 2 (Optional): Getting Key Handle Information
+</h4>
+<p class="pBody"><a name="wp1280129"> </a>
+You may want to get information about a decryption key handle to establish the validity of the key. To do so, call the <a href="../rf3c/rf3c.html">tpkey_getinfo(3c)</a> function or TPKEYGETINFO(3cbl) routine. While some of the information returned may be specific to a cryptographic service provider, a core set of attributes is common to all providers.
+</p>
+<p class="pBody"><a name="wp1304994"> </a>
+<a href="secpgm.html#wp1304995">Listing&#160;3-12</a> shows how to get information about a decryption key handle.
+</p>
+<div class="pCodeTitle"><a name="wp1304995"> </a>
+Listing&#160;3-12	   Getting Information About a Decryption Key Handle Example
+</div> <a name="wp1306403"> </a><div class="pPreformatted"><pre>TPKEY tu_key;<br />tpsvrinit(argc, argv)<br />int argc;<br />char **argv;<br />#endif<br />{<br />&#160;&#160;&#160;char principal_name[PNAME_LEN];<br />&#160;&#160;&#160;long pname_len = PNAME_LEN;<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;&#160;if (tpkey_getinfo(tu_key, &#8220;PRINCIPAL&#8221;,<br />&#160;&#160;&#160;&#160;&#160;&#160;principal_name, &amp;pname_len, 0) == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;(void) fprintf(stdout, &#8220;Unable to get information<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;about principal: %d(%s)\n&#8221;,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tperrno, tpstrerror(tperrno));<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;exit(1);<br />&#160;&#160;&#160;}<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />}</pre></div><h4 class="pHeading3"><a name="wp1280135"> </a>
+Step 3 (Optional): Changing Key Handle Information
+</h4>
+<p class="pBody"><a name="wp1280136"> </a>
+To set optional attributes associated with a decryption key handle, call the <a href="../rf3c/rf3c.html">tpkey_setinfo(3c)</a> function or TPKEYSETINFO(3cbl) routine. Key handle attributes vary, depending on the cryptographic service provider.
+</p>
+<p class="pBody"><a name="wp1304681"> </a>
+<a href="secpgm.html#wp1304682">Listing&#160;3-13</a> shows how to change information associated with a decryption key handle.
+</p>
+<div class="pCodeTitle"><a name="wp1304682"> </a>
+Listing&#160;3-13	   Changing Information Associated with a Decryption Key Handle Example
+</div> <a name="wp1308361"> </a><div class="pPreformatted"><pre>TPKEY tu_key;<br />tpsvrinit(argc, argv)<br />int argc;<br />char **argv;<br />#endif<br />{<br />&#160;&#160;&#160;TM32U mybits = 128;<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;&#160;if (tpkey_setinfo(tu_key, &#8220;ENCRYPT_BITS&#8221;, &amp;mybits,<br />&#160;&#160;&#160;&#160;&#160;&#160;sizeof(mybits), 0) == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;(void) fprintf(stderr, &#8220;tpkey_setinfo failed<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tperrno=%d(%s)\n&#8221;,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tperrno, tpstrerror(tperrno));<br />&#160;&#160;&#160;&#160;&#160;&#160;return(1);<br />&#160;&#160;&#160;}<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />}</pre></div><h4 class="pHeading3"><a name="wp1280344"> </a>
+Step 4: Closing the Decryption Key Handle
+</h4>
+<p class="pBody"><a name="wp1280345"> </a>
+Call the <a href="../rf3c/rf3c.html">tpkey_close(3c)</a> function or TPKEYCLOSE(3cbl) routine to release the decryption key handle and all resources associated with it.
+</p>
+<h4 class="pHeading3"><a name="wp1277675"> </a>
+How the System Decrypts a Message Buffer
+</h4>
+<p class="pBody"><a name="wp1277676"> </a>
+The public key software automatically decrypts an encrypted message buffer whenever it enters an Oracle Tuxedo client process, server process, or any system process that needs to access the content of the message buffer. For automatic decryption to succeed, the receiving process must have opened a decryption key (type <code class="cCode">TPKEY_DECRYPT</code>) corresponding to a recipient identified in one of the attached encryption envelopes.
+</p>
+<p class="pBody"><a name="wp1280462"> </a>
+Upon receiving an encrypted message, the public key software, operating on behalf of the receiving process, performs the following tasks.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1280463"> </a>Reads the target recipient&#8217;s name on the attached encryption envelope.</li>
+<li><a name="wp1280464"> </a>To recover the session key, decrypts the recipient&#8217;s encryption envelope using the recipient&#8217;s private key and the public key algorithm.</li>
+<li><a name="wp1280465"> </a>Decrypts the message using the recovered session key and the symmetric key algorithm.</li>
+<li><a name="wp1280466"> </a>Uncompresses the message.</li>
+<li><a name="wp1315704"> </a>Verifies digital signatures if any. (See <span class="cHyperlink">
+&#8220;How a Signed Message Is Received&#8221; on page&#160;3-31</span>.)</li>
+<li><a name="wp1315706"> </a>If the message buffer successfully passes the check performed in step 5, the public key software decodes the message buffer data, buffer type string, and buffer subtype string, and then passes the plaintext message to the receiving process. This step reverses the encoding performed by the originating process. (The Oracle Tuxedo encoded format allows a message buffer to be decrypted on any machine architecture.)</li>
+</ol></div>
+<a name="wp1311433"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If none of the attached digital signatures can be verified or the message buffer cannot be decrypted, the receiving process does <em class="cEmphasis">not</em> receive the message buffer. Moreover, the receiving process has no knowledge of the message buffer.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1261911"> </a>
+If a system process is acting as a <em class="cEmphasis">conduit</em> (that is, if it is not reading the content of the message), then the message need not be decrypted. Bridges and workstation handlers (WSHs) are examples of system processes acting as conduits.
+</p>
+<p class="pBody"><a name="wp1261912"> </a>
+The WSH is a special example of a conduit. If a WSH is configured for data-dependent routing, it needs to read the received message buffer to determine how to route the buffer. The public key software makes a copy of the received message buffer, decrypts the copy, and then passes the decrypted copy to the WSH. The WSH analyzes the decrypted copy to determine how to route the buffer, and then routes the original message buffer <em class="cEmphasis">unchanged</em> to the appropriate server. (For more detail about the interaction between data-dependent routing and public key security, see <span class="cHyperlink">
+&#8220;Compatibility/Interaction with Data-dependent Routing&#8221; on page&#160;1-61</span>.)
+</p>
+<h5 class="pHeading4"><a name="wp1258871"> </a>
+Discarding an Input Buffer&#8217;s Encryption Envelopes
+</h5>
+<p class="pBody"><a name="wp1263689"> </a>
+If a message buffer is passed to an ATMI function (such as <code class="cCode">tpacall()</code>) as an input parameter, the public key software discards any encryption envelopes previously attached to the message. This behavior prevents the target recipients for the original message from receiving any modifications made by an intermediate process.
+</p>
+<p class="pBody"><a name="wp1258873"> </a>
+As an example of this process, consider the scenario shown in <a href="secpgm.html#wp1258874">Figure&#160;3-7</a>.
+</p>
+<div class="pFigureTitle"><a name="wp1258874"> </a>
+Figure&#160;3-7  Forwarding a Signed and Encrypted Message Example
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1258951"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/sec-3-1-7.gif" height="327" width="553" alt="Forwarding a Signed and Encrypted Message Example" id="wp1258876"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1262596"> </a>
+A server process named <code class="cCode">Manager</code> receives a signed and encrypted message buffer from a client process named <code class="cCode">Employee</code>, decrypts and reads the received message buffer, signs and seals it for a service named <code class="cCode">Purchasing</code>, and then forwards the message to <code class="cCode">Purchasing</code>.
+</p>
+<p class="pBody"><a name="wp1258956"> </a>
+The following is a detailed description of how this operation is performed.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1262700"> </a>The workstation handler (WSH) receives the signed and encrypted message buffer from the employee and forwards it <em class="cEmphasis">as is</em>.</li>
+<p class="pBodyRelative"><a name="wp1263002"> </a>
+The WSH process is configured for data-dependent routing, which is briefly described in <span class="cHyperlink">
+&#8220;How the System Decrypts a Message Buffer&#8221; on page&#160;3-46</span>. The public key software uses a decryption key previously opened for the WSH process to decrypt a copy of the received message buffer, and then passes the decrypted copy to the WSH. After analyzing the decrypted copy, the WSH routes the received message buffer to the <code class="cCode">Manager</code> process <em class="cEmphasis">as is</em>.
+</p>
+<p class="pBodyRelative"><a name="wp1263309"> </a>
+If the WSH process is <em class="cEmphasis">not</em> configured for data-dependent routing, the <code class="cCode">Employee</code> process does not need to <code class="cCode">tpseal()</code> the message buffer for the WSH process, and the WSH process does not need to open a decryption key.
+</p>
+<p class="pBodyRelative"><a name="wp1264267"> </a>
+Regardless of how it is configured, the WSH does not verify digital signatures.
+</p>
+<li><a name="wp1258958"> </a>When the message buffer arrives at the <code class="cCode">Manager</code> process, the public key software:</li>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp1280831"> </a>Decrypts the message buffer using a decryption key previously opened for the <code class="cCode">Manager</code> process.</li>
+<li><a name="wp1280833"> </a>Verifies the employee&#8217;s signature.</li>
+<li><a name="wp1280840"> </a>Passes the message <em class="cEmphasis">without</em> digital signature or encryption information to the <code class="cCode">Manager.</code></li>
+<p class="pBodyRelative"><a name="wp1262876"> </a>
+When a process receives a message buffer, it receives <em class="cEmphasis">only</em> the message content. Any digital signatures or encryption envelopes associated with the message buffer are not included.
+</p>
+</ol></div>
+<li><a name="wp1258959"> </a>The <code class="cCode">Manager</code> calls <code class="cCode">tpenvelope()</code> <em class="cEmphasis">repeatedly</em> to find out about the digital signature and encryption information associated with the message buffer. <code class="cCode">tpenvelope()</code> returns:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1280862"> </a>Digital signature information, including the signer&#8217;s public key and a digital-signature status of <code class="cCode">TPSIGN_OK</code></li>
+<li><a name="wp1263007"> </a>Encryption information, including the public keys of the WSH process and the <code class="cCode">Manager</code> process itself</li>
+</ul></div>
+<li><a name="wp1258960"> </a>The <code class="cCode">Manager</code> calls <code class="cCode">tpkey_getinfo()</code> with the signer&#8217;s public key as an argument, to obtain more information about the signer, including the signer&#8217;s principal name.</li>
+<li><a name="wp1258961"> </a>If the <code class="cCode">Manager</code> determines that the signer is a known employee and that the employee&#8217;s request (as stated in the message content) is valid, the <code class="cCode">Manager</code> proceeds as follows.</li>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp1258962"> </a>Calls <code class="cCode">tpsign()</code> to mark the message buffer for digital signature by the <code class="cCode">Manager.</code></li>
+<li><a name="wp1263019"> </a>Calls <code class="cCode">tpseal()</code> to mark the message buffer to be encrypted for <code class="cCode">Purchasing</code>.</li>
+<li><a name="wp1258963"> </a>Calls <code class="cCode">tpforward()</code> (or some other function used to transmit data) to send the message to <code class="cCode">Purchasing</code>.</li>
+</ol></div>
+</ol></div>
+<p class="pBody"><a name="wp1258964"> </a>
+Just before the message is transmitted, the public key software performs the following tasks.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1263211"> </a>Generates a digital signature for the <code class="cCode">Manager.</code></li>
+<li><a name="wp1263212"> </a>Verifies the employee&#8217;s digital signature.</li>
+<li><a name="wp1263213"> </a>Encrypts the message content and associated digital signatures.</li>
+<li><a name="wp1263232"> </a>Creates an encryption envelope for <code class="cCode">Purchasing.</code></li>
+</ol></div>
+<h5 class="pHeading4"><a name="wp1258965"> </a>
+Replacing an Output Buffer&#8217;s Encryption Envelopes
+</h5>
+<p class="pBody"><a name="wp1282759"> </a>
+If a message buffer is passed to an ATMI function (such as <code class="cCode">tpgetrply()</code>) as an output parameter, the public key software deletes any encryption information associated with the buffer. This information includes any <em class="cEmphasis">pending</em> seals, or seals from previous uses of the buffer. (A pending seal is a recipient&#8217;s seal that is registered with a message buffer.) 
+</p>
+<p class="pBody"><a name="wp1299703"> </a>
+New encryption information might be associated with the new buffer content after successful completion of the operation.
+</p>
+<h3 class="pHeading2"><a name="wp1258967"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1258971"> </a><span class="cHyperlink">
+&#8220;Examining Digital Signature and Encryption Information&#8221; on page&#160;3-50</span></li>
+<li><a name="wp1258975"> </a><span class="cHyperlink">
+&#8220;Externalizing Typed Message Buffers&#8221; on page&#160;3-57</span></li>
+<li><a name="wp1318612"> </a><span class="cHyperlink">
+&#8220;Public Key Security&#8221; on page&#160;1-32</span></li>
+<li><a name="wp1319813"> </a><span class="cHyperlink">
+&#8220;Administering Public Key Security&#8221; on page&#160;2-48</span></li>
+<li><a name="wp1258987"> </a><span class="cHyperlink">
+&#8220;Programming an ATMI Application with Security&#8221; on page&#160;3-3</span></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1258989"> </a>
+Examining Digital Signature and Encryption Information
+</h2><p class="pBody"><a name="wp1263947"> </a>
+The public key software maintains the order in which:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1280908"> </a>Digital-signature registration requests and digital signatures are attached to a message buffer</li>
+<li><a name="wp1281067"> </a>Encryption registration requests and encryption envelopes are attached to a message buffer</li>
+</ul></div>
+<p class="pBody"><a name="wp1263937"> </a>
+A process obtains this information by calling the <code class="cCode">tpenvelope()</code> function with the target message buffer as an argument. <code class="cCode">tpenvelope()</code> is described on the <a href="../rf3c/rf3c.html">tpenvelope(3c)</a> reference page in the <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em>.
+</p>
+<p class="pBody"><a name="wp1282290"> </a>
+There may be multiple occurrences of digital-signature registration requests, digital signatures, encryption registration requests, and encryption envelopes associated with a message buffer. The occurrences are stored in sequence, with the first item at the zero position and subsequent items in consecutive positions. The <code class="cCode">occurrence</code> input parameter for <code class="cCode">tpenvelope()</code> indicates which item is being requested. When the value of <code class="cCode">occurrence</code> is beyond the position of the last item, <code class="cCode">tpenvelope()</code> fails with the <code class="cCode">TPENOENT</code> error condition. A process can examine all items by calling <code class="cCode">tpenvelope()</code> repeatedly until <code class="cCode">TPENOENT</code> is returned.
+</p>
+<p class="pBody"><a name="wp1282737"> </a>
+In an originating process, digital signature and encryption information is generally in a pending state, waiting until the message is sent. In a receiving process, digital signatures have already been verified, and encryption and decryption have already been performed.
+</p>
+<h3 class="pHeading2"><a name="wp1263879"> </a>
+What Happens When an Originating Process Calls tpenvelope
+</h3>
+<p class="pBody"><a name="wp1281428"> </a>
+When an originating process calls <code class="cCode">tpenvelope()</code> with the originating message buffer as an argument, <code class="cCode">tpenvelope()</code> reports:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1281300"> </a>Any digital signature request <em class="cEmphasis">explicitly</em> registered with the message buffer as being in the <code class="cCode">TPSIGN_PENDING</code> state. The originating process explicitly registers a digital signature request by calling the <a href="../rf3c/rf3c.html">tpsign(3c)</a> function.</li>
+<li><a name="wp1281262"> </a>Any digital signature request <em class="cEmphasis">implicitly</em> registered with the message buffer as also being in the <code class="cCode">TPSIGN_PENDING</code> state. The originating process implicitly registers a digital signature request by calling <a href="../rf3c/rf3c.html">tpkey_open(3c)</a> with the <code class="cCode">TPKEY_AUTOSIGN</code> flag specified.</li>
+<li><a name="wp1281621"> </a>Any encryption (seal) request <em class="cEmphasis">explicitly</em> registered with the message buffer as being in the <code class="cCode">TPSEAL_PENDING</code> state. The originating process explicitly registers an encryption request by calling the <a href="../rf3c/rf3c.html">tpseal(3c)</a> function.</li>
+<li><a name="wp1281622"> </a>Any encryption (seal) request <em class="cEmphasis">implicitly</em> registered with the message buffer as also being in the <code class="cCode">TPSEAL_PENDING</code> state. The originating process implicitly registers an encryption request by calling <code class="cCode">tpkey_open()</code> with the <code class="cCode">TPKEY_AUTOENCRYPT</code> flag specified.</li>
+</ul></div>
+<p class="pBody"><a name="wp1258991"> </a>
+In addition to the status, <code class="cCode">tpenvelope()</code> returns the key handle associated with a digital signature or encryption registration request. A process can call the <a href="../rf3c/rf3c.html">tpkey_getinfo(3c)</a> function with the key handle as an argument, to get more information about the key handle.
+</p>
+<h3 class="pHeading2"><a name="wp1281691"> </a>
+What Happens When a Receiving Process Calls tpenvelope
+</h3>
+<p class="pBody"><a name="wp1282767"> </a>
+When a process receives a message buffer, it receives <em class="cEmphasis">only</em> the message content. Any digital signatures or encryption envelopes associated with the message buffer are not included. The receiving process must call <code class="cCode">tpenvelope()</code> to obtain information about any attached digital signatures or encryption envelopes.
+</p>
+<p class="pBody"><a name="wp1281759"> </a>
+When a receiving process calls <code class="cCode">tpenvelope()</code> with the received message buffer as an argument, <code class="cCode">tpenvelope()</code> reports:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1281796"> </a>Any digital signature attached to the message buffer. A digital signature has one of the following states:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1282043"> </a><code class="cCode">TPSIGN_OK</code></li>
+<p class="pBodyRelative"><a name="wp1312039"> </a>
+Digital signature has been verified.
+</p>
+<li><a name="wp1314040"> </a><code class="cCode">TPSIGN_TAMPERED_MESSAGE</code></li>
+<p class="pBodyRelative"><a name="wp1314041"> </a>
+Digital signature is not valid because the content of the message buffer has been altered.
+</p>
+<li><a name="wp1282279"> </a><code class="cCode">TPSIGN_TAMPERED_CERT</code></li>
+<p class="pBodyRelative"><a name="wp1312231"> </a>
+Digital signature is not valid because the signer&#8217;s digital certificate has been altered.
+</p>
+<li><a name="wp1314075"> </a><code class="cCode">TPSIGN_REVOKED_CERT</code></li>
+<p class="pBodyRelative"><a name="wp1314076"> </a>
+Digital signature is not valid because the signer&#8217;s digital certificate has been revoked.
+</p>
+<li><a name="wp1314114"> </a><code class="cCode">TPSIGN_POSTDATED</code></li>
+<p class="pBodyRelative"><a name="wp1314115"> </a>
+Digital signature is not valid because its timestamp is too far into the future.
+</p>
+<li><a name="wp1314232"> </a><code class="cCode">TPSIGN_EXPIRED_CERT</code></li>
+<p class="pBodyRelative"><a name="wp1314233"> </a>
+Digital signature is not valid because the signer&#8217;s digital certificate has expired.
+</p>
+<li><a name="wp1312326"> </a><code class="cCode">TPSIGN_EXPIRED</code></li>
+<p class="pBodyRelative"><a name="wp1312327"> </a>
+Digital signature is not valid because its timestamp is too old.
+</p>
+<li><a name="wp1314197"> </a><code class="cCode">TPSIGN_UNKNOWN</code></li>
+<p class="pBodyRelative"><a name="wp1314198"> </a>
+Digital signature is not valid because the signer&#8217;s digital certificate was issued by an unknown Certification Authority (CA).
+</p>
+</ul></div>
+<li><a name="wp1282124"> </a>Any encryption envelope attached to the message buffer. An encryption envelope has one of the following states:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1282125"> </a><code class="cCode">TPSEAL_OK</code></li>
+<p class="pBodyRelative"><a name="wp1312103"> </a>
+Encryption envelope is valid.
+</p>
+<li><a name="wp1325584"> </a><code class="cCode">TPSEAL_TAMPERED_CERT</code></li>
+<p class="pBodyRelative"><a name="wp1325585"> </a>
+Encryption envelope is not valid because the target recipient&#8217;s digital certificate has been altered. (Target recipient will <em class="cEmphasis">not</em> receive the message buffer.)
+</p>
+<li><a name="wp1282130"> </a><code class="cCode">TPSEAL_REVOKED_CERT</code></li>
+<p class="pBodyRelative"><a name="wp1313926"> </a>
+Encryption envelope is not valid because the target recipient&#8217;s digital certificate has been revoked. (Target recipient will <em class="cEmphasis">not</em> receive the message buffer.)
+</p>
+<li><a name="wp1314267"> </a><code class="cCode">TPSEAL_EXPIRED_CERT</code></li>
+<p class="pBodyRelative"><a name="wp1314268"> </a>
+Encryption envelope is not valid because the target recipient&#8217;s digital certificate has expired. (Target recipient will <em class="cEmphasis">not</em> receive the message buffer.)
+</p>
+<li><a name="wp1325614"> </a><code class="cCode">TPSEAL_UNKNOWN</code></li>
+<p class="pBodyRelative"><a name="wp1325615"> </a>
+Encryption envelope is not valid because the target recipient&#8217;s digital certificate was issued by an unknown CA. (Target recipient will <em class="cEmphasis">not</em> receive the message buffer.)
+</p>
+</ul></div>
+</ul></div>
+<p class="pBody"><a name="wp1313927"> </a>
+In addition to the status, <code class="cCode">tpenvelope()</code> returns the key handle associated with a digital signature or encryption envelope. A process can call the <a href="../rf3c/rf3c.html">tpkey_getinfo(3c)</a> function with the key handle as an argument, to get more information about the key handle.
+</p>
+<p class="pBody"><a name="wp1313232"> </a>
+If a receiving process calls <code class="cCode">tpsign()</code> to register a digital signature request after receiving the message buffer, <code class="cCode">tpenvelope()</code> reports the status of the registration as <code class="cCode">TPSIGN_PENDING</code>. Similarly, if a receiving process calls <code class="cCode">tpseal()</code> to register an encryption (seal) request after receiving the message buffer, <code class="cCode">tpenvelope()</code> reports the status of the registration as <code class="cCode">TPSEAL_PENDING</code>.
+</p>
+<p class="pBody"><a name="wp1313225"> </a>
+If a receiving process modifies the content of a <em class="cEmphasis">signed</em> message buffer after receiving it, the attached signatures are no longer valid. As a result, <code class="cCode">tpenvelope()</code> cannot verify the signatures, and reports a signature status of <code class="cCode">TPSIGN_TAMPERED_MESSAGE</code>.
+</p>
+<h3 class="pHeading2"><a name="wp1312897"> </a>
+Understanding the Composite Signature Status
+</h3>
+<p class="pBody"><a name="wp1313655"> </a>
+For a message buffer with multiple digital signatures, the public key software calls an internal function equivalent to <code class="cCode">tpenvelope()</code> to examine the state of each digital signature. Then, by observing certain rules, the public key software forms a <em class="cEmphasis">composite signature status</em>. The rules for forming a composite signature status are shown in <a href="secpgm.html#wp1312615">Table&#160;3-4</a>.
+</p>
+<p class="pGraphic"><a name="wp1362868"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1312615table1312613"><caption><a name="wp1312615"> </a>
+Table 3-4  Composite Signature Status&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1312621"> </a>
+If Any Status Is . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1312623"> </a>
+And There Is No Status of . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1312625"> </a>
+Then the Composite Status Is . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312627"> </a>
+<code class="cCode">TPSIGN_TAMPERED_MESSAGE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312629"> </a>
+. . .
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312631"> </a>
+<code class="cCode">TPSIGN_TAMPERED_MESSAGE</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312633"> </a>
+<code class="cCode">TPSIGN_TAMPERED_CERT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312635"> </a>
+<code class="cCode">TPSIGN_TAMPERED_MESSAGE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312637"> </a>
+<code class="cCode">TPSIGN_TAMPERED_CERT</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312639"> </a>
+<code class="cCode">TPSIGN_REVOKED_CERT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312641"> </a>
+<code class="cCode">TPSIGN_TAMPERED_MESSAGE<br />TPSIGN_TAMPERED_CERT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312643"> </a>
+<code class="cCode">TPSIGN_REVOKED_CERT</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312645"> </a>
+<code class="cCode">TPSIGN_POSTDATED</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312647"> </a>
+<code class="cCode">TPSIGN_TAMPERED_MESSAGE<br />TPSIGN_TAMPERED_CERT<br />TPSIGN_REVOKED_CERT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312649"> </a>
+<code class="cCode">TPSIGN_POSTDATED</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312651"> </a>
+<code class="cCode">TPSIGN_EXPIRED_CERT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312653"> </a>
+<code class="cCode">TPSIGN_TAMPERED_MESSAGE<br />TPSIGN_TAMPERED_CERT<br />TPSIGN_REVOKED_CERT<br />TPSIGN_POSTDATED</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312655"> </a>
+<code class="cCode">TPSIGN_EXPIRED_CERT</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312657"> </a>
+<code class="cCode">TPSIGN_OK</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312659"> </a>
+<code class="cCode">TPSIGN_TAMPERED_MESSAGE<br />TPSIGN_TAMPERED_CERT<br />TPSIGN_REVOKED_CERT<br />TPSIGN_POSTDATED<br />TPSIGN_EXPIRED_CERT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312661"> </a>
+<code class="cCode">TPSIGN_OK</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312663"> </a>
+<code class="cCode">TPSIGN_EXPIRED</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312665"> </a>
+<code class="cCode">TPSIGN_TAMPERED_MESSAGE<br />TPSIGN_TAMPERED_CERT<br />TPSIGN_REVOKED_CERT<br />TPSIGN_POSTDATED<br />TPSIGN_EXPIRED_CERT<br />TPSIGN_OK</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312667"> </a>
+<code class="cCode">TPSIGN_EXPIRED</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312669"> </a>
+<code class="cCode">TPSIGN_UNKNOWN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312671"> </a>
+<code class="cCode">TPSIGN_TAMPERED_MESSAGE<br />TPSIGN_TAMPERED_CERT<br />TPSIGN_REVOKED_CERT<br />TPSIGN_POSTDATED<br />TPSIGN_EXPIRED_CERT<br />TPSIGN_OK<br />TPSIGN_EXPIRED</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312673"> </a>
+<code class="cCode">TPSIGN_UNKNOWN</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1313761"> </a>
+Any incoming message buffer <em class="cEmphasis">without </em>a composite signature status of <code class="cCode">TPSIGN_OK</code> or <code class="cCode">TPSIGN_UNKNOWN</code> is discarded as if it were never received. If the <code class="cCode">SIGNATURE_REQUIRED</code> parameter is set to <code class="cCode">Y</code> (yes) in the ATMI application&#8217;s <code class="cCode">UBBCONFIG</code> file, then any incoming message buffer <em class="cEmphasis">without </em>a composite signature status of <code class="cCode">TPSIGN_OK</code> is discarded as if it were never received. See <span class="cHyperlink">
+&#8220;Enforcing the Signature Policy for Incoming Messages&#8221; on page&#160;2-50</span> for more detail.
+</p>
+<p class="pBody"><a name="wp1317567"> </a>
+An exception to the handling of signed message buffers described in the previous paragraph is the <a href="../rf3c/rf3c.html">tpimport(3c)</a> function. The <a href="../rf3c/rf3c.html">tpimport(3c)</a> function delivers an incoming message buffer regardless of the composite signature status.
+</p>
+<h3 class="pHeading2"><a name="wp1284179"> </a>
+Example Code for tpenvelope
+</h3>
+<p class="pBody"><a name="wp1308515"> </a>
+<a href="secpgm.html#wp1284026">Listing&#160;3-14</a> shows how to use <code class="cCode">tpenvelope()</code> to examine the digital signature and encryption information associated with a message buffer.
+</p>
+<div class="pCodeTitle"><a name="wp1284026"> </a>
+Listing&#160;3-14	   Using tpenvelope Example
+</div> <a name="wp1308700"> </a><div class="pPreformatted"><pre>main(argc, argv)<br />int argc;<br />char *argv[];<br />#endif</pre></div><a name="wp1308670"> </a><div class="pPreformatted"><pre>{<br />&#160;&#160;&#160;TPKEY tu_key;<br />&#160;&#160;&#160;TPKEY sdo_key;<br />&#160;&#160;&#160;TPKEY output_key;<br />&#160;&#160;&#160;char *sendbuf, *rcvbuf;<br />&#160;&#160;&#160;int ret;<br />&#160;&#160;&#160;int occurrence = 0;<br />&#160;&#160;&#160;long status;<br />&#160;&#160;&#160;char principal_name[PNAME_LEN];<br />&#160;&#160;&#160;long pname_len = PNAME_LEN;<br />&#160;&#160;&#160;int found = 0;<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;&#160;output_key = NULL;<br />&#160;&#160;&#160;ret = tpenvelope(rcvbuf, 0, occurrence, &amp;output_key, <br />&#160;&#160;&#160;&#160;&#160;&#160;&amp;status, NULL, 0);<br />&#160;&#160;&#160;while (ret != -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;if (status == TPSIGN_OK) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (tpkey_getinfo(output_key, &#8220;PRINCIPAL&#8221;,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;principal_name, &amp;pname_len, 0) == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void) fprintf(stdout, &#8220;Unable to get information<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;about principal: %d(%s)\n&#8221;,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tperrno, tpstrerror(tperrno));<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpfree(sendbuf);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpfree(rcvbuf);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpterm();<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void) tpkey_close(tu_key, 0);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void) tpkey_close(sdo_key, 0);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void) tpkey_close(output_key, 0);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exit(1);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* Do not forget to free resources */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void) tpkey_close(output_key, 0);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;output_key = NULL;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;found = 1;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break;<br />&#160;&#160;&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;&#160;&#160;/* Do not forget to free resources */<br />&#160;&#160;&#160;&#160;&#160;&#160;(void) tpkey_close(output_key, 0);<br />&#160;&#160;&#160;&#160;&#160;&#160;output_key = NULL;<br />&#160;&#160;&#160;&#160;&#160;&#160;occurrence++;<br />&#160;&#160;&#160;&#160;&#160;&#160;ret = tpenvelope(rcvbuf, 0, occurrence, &amp;output_key,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&amp;status, NULL, 0);<br />&#160;&#160;&#160;}<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />}</pre></div><h3 class="pHeading2"><a name="wp1259009"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1259013"> </a><span class="cHyperlink">
+&#8220;Externalizing Typed Message Buffers&#8221; on page&#160;3-57</span></li>
+<li><a name="wp1318623"> </a><span class="cHyperlink">
+&#8220;Public Key Security&#8221; on page&#160;1-32</span></li>
+<li><a name="wp1319825"> </a><span class="cHyperlink">
+&#8220;Administering Public Key Security&#8221; on page&#160;2-48</span></li>
+<li><a name="wp1259025"> </a><span class="cHyperlink">
+&#8220;Programming an ATMI Application with Security&#8221; on page&#160;3-3</span></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1259027"> </a>
+Externalizing Typed Message Buffers
+</h2><p class="pBody"><a name="wp1317660"> </a>
+An externalized representation is a message buffer that does <em class="cEmphasis">not</em> include any ATMI header information that is normally added to a message buffer just before the buffer is transmitted. An externalized representation of a signed message buffer enables &#8220;pass through&#8221; transmission of signed data and long-term storage of the signed buffer for non-repudiation. It also enables an encrypted message buffer to be transported through intermediate processes without access to a decryption key.
+</p>
+<h3 class="pHeading2"><a name="wp1317668"> </a>
+How to Create an Externalized Representation
+</h3>
+<p class="pBody"><a name="wp1284504"> </a>
+An ATMI process converts a typed message buffer into an externalized representation by calling the <a href="../rf3c/rf3c.html">tpexport(3c)</a> function. Pending signatures associated with a message buffer are generated at the time <code class="cCode">tpexport()</code> is called, just as if the buffer were being transmitted to another process by an ATMI function. Similarly, pending seals associated with a message buffer are generated at the time <code class="cCode">tpexport()</code> is called, just as if the buffer were being transmitted to another process by an ATMI communication function.
+</p>
+<p class="pBody"><a name="wp1317768"> </a>
+The externalized representation of a message buffer is stored in the PKCS-7 format, which is a binary format. If a string format is required, the calling process must call <code class="cCode">tpexport()</code> with the <code class="cCode">TPEX_STRING</code> flag specified.
+</p>
+<a name="wp1317773"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The ability to create an externalized representation of a typed message buffer is not unique to public key security. A process may call <code class="cCode">tpexport()</code> to externalize a typed message buffer regardless of whether a message buffer is marked for digital signature or encryption.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1317726"> </a>
+How to Convert an Externalized Representation
+</h3>
+<p class="pBody"><a name="wp1317710"> </a>
+A receiving process calls the <a href="../rf3c/rf3c.html">tpimport(3c)</a> function to convert the externalized representation of a message buffer into a typed message buffer. The <code class="cCode">tpimport()</code> function also performs decryption, if necessary, and verifies any associated digital signatures.
+</p>
+<h3 class="pHeading2"><a name="wp1299709"> </a>
+Example Code for tpexport and tpimport
+</h3>
+<p class="pBody"><a name="wp1299710"> </a>
+<a href="secpgm.html#wp1309112">Listing&#160;3-15</a> shows how to use <code class="cCode">tpexport()</code> to convert a typed message buffer into an externalized representation, and how to use <code class="cCode">tpimport()</code> to convert the externalized representation back into a typed message buffer.
+</p>
+<div class="pCodeTitle"><a name="wp1309112"> </a>
+Listing&#160;3-15	   Using tpexport and tpimport Example
+</div> <a name="wp1309387"> </a><div class="pPreformatted"><pre>static void hexdump _((unsigned char *, long));<br />#define MAX_BUFFER 80000<br />main(argc, argv)<br />int argc;<br />char *argv[];<br />#endif<br />{<br />&#160;&#160;&#160;char&#160;&#160;*databuf;<br />&#160;&#160;&#160;char&#160;&#160;exportbuf[MAX_BUFFER];<br />&#160;&#160;&#160;long&#160;&#160;exportbuf_size = 0;<br />&#160;&#160;&#160;char&#160;&#160;*importbuf = NULL;<br />&#160;&#160;&#160;long&#160;&#160;importbuf_size = 0;<br />&#160;&#160;&#160;int go_on = 1;<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;&#160;exportbuf_size = 0;<br />&#160;&#160;&#160;while (go_on == 1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;if (tpexport(databuf, 0, exportbuf, &amp;exportbuf_size, 0) <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;== -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (tperrno == TPELIMIT) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;printf(&#8220;%d tperrno is TPELIMIT, exportbuf_size=%ld\n&#8221;,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;__LINE__, exportbuf_size);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (exportbuf_size &gt; MAX_BUFFER) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return(1);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;else {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;printf(&#8220;tpexport(%d) failed: tperrno=%d(%s)\n&#8221;,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;__LINE__, tperrno, tpstrerror(tperrno));<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return(1);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;&#160;&#160;else {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;go_on = 0;<br />&#160;&#160;&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;}<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;&#160;hexdump((unsigned char *) exportbuf, (long) exportbuf_size);<br />&#160;&#160;&#160;if (tpimport(exportbuf, exportbuf_size, &amp;importbuf,<br />&#160;&#160;&#160;&#160;&#160;&#160;&amp;importbuf_size, 0) == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;printf(&#8220;tpimport(%d) failed: tperrno=%d(%s)\n&#8221;,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;__LINE__, tperrno, tpstrerror(tperrno));<br />&#160;&#160;&#160;&#160;&#160;&#160;return(1);<br />&#160;&#160;&#160;}<br />&#160;&#160;.<br />&#160;&#160;.<br />&#160;&#160;.<br />}</pre></div><h3 class="pHeading2"><a name="wp1259038"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1259042"> </a><span class="cHyperlink">
+&#8220;Public Key Security&#8221; on page&#160;1-32</span></li>
+<li><a name="wp1319836"> </a><span class="cHyperlink">
+&#8220;Administering Public Key Security&#8221; on page&#160;2-48</span></li>
+<li><a name="wp1259050"> </a><span class="cHyperlink">
+&#8220;Programming an ATMI Application with Security&#8221; on page&#160;3-3</span></li>
+</ul></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="secpgm.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="secadm.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="sngleadm.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

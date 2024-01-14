@@ -1,0 +1,792 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/snmpadmin/fm/3setupag.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:43:02" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Setting Up Oracle SNMP Agent on a Managed Node</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">SNMP Agent Administration Guide
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="2arch.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="4mgmtfrw.html"><img id="LongDescNotReq3" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq4" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq5" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq6" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/snmpadmin.pdf" target="pdf"><img id="LongDescNotReq7" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq8" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp38699"> </a>
+Setting Up Oracle SNMP Agent on a Managed Node
+</h1>
+<p class="pBody"><a name="wp31816"> </a>
+To integrate Oracle SNMP Agent into your management framework, you need to set up the Oracle SNMP Agent software on the managed node and on the management framework. The following sections describe the procedure for setting up the Oracle SNMP Agent on the managed node:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp36491"> </a><a href="3setupag.html#wp31848">Directory Structure</a></li>
+<li><a name="wp36494"> </a><a href="3setupag.html#wp36403">Oracle SNMP Agent Configuration Files</a></li>
+<li><a name="wp31830"> </a><a href="3setupag.html#wp36597">Oracle SNMP Agent Configuration</a></li>
+<li><a name="wp31834"> </a><a href="3setupag.html#wp32018">Oracle SNMP Agent Advanced Configuration</a></li>
+<li><a name="wp31838"> </a><a href="3setupag.html#wp32094">Starting Oracle SNMP Agent</a></li>
+<li><a name="wp31842"> </a><a href="3setupag.html#wp32208">Stopping Oracle SNMP Agent</a></li>
+<li><a name="wp31846"> </a><a href="3setupag.html#wp32221">Oracle Tuxedo Master and Non-Master Nodes</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp31848"> </a>
+Directory Structure
+</h2><p class="pBody"><a name="wp31853"> </a>
+The Oracle SNMP Agent files reside in the directories shown in <a href="3setupag.html#wp31854">Figure&#160;3-1</a>.
+</p>
+<div class="pFigureTitle"><a name="wp31854"> </a>
+Figure&#160;3-1  Directory Structure
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp31888"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/snmpadmin-03-1-1.gif" height="301" width="460" alt="Directory Structure" id="wp31856"/></div><p class="pGraphic">
+
+</p>
+<a name="wp36226"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td><em class="cEmphasis">tux_prod_dir</em> represents the directory in which the Oracle Tuxedo 10.0 distribution is installed.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp36403"> </a>
+Oracle SNMP Agent Configuration Files
+</h2><p class="pBody"><a name="wp36408"> </a>
+Oracle SNMP Agent provides the following two configuration files: <code class="cCode">beamgr.conf</code> and <code class="cCode">beamgr_snmpd.conf</code>. The <code class="cCode">beamgr.conf</code> file, also known as the &#8220;Oracle SNMP Agent configuration file,&#8221; contains the user-defined operational configurations read by the Tuxedo SNMP agent (<code class="cCode">tux_snmpd</code>) and the Oracle SNMP Agent Integrator (<code class="cCode">snmp_integrator</code>) at startup.
+</p>
+<p class="pBody"><a name="wp36816"> </a>
+The <code class="cCode">beamgr_snmpd.conf</code> file, also known as the &#8220;Oracle SNMP Agent passwords configuration file,&#8221; contains the user-defined password configurations (SNMP community names, SMUX password) read by <code class="cCode">tux_snmpd</code> and <code class="cCode">snmp_integrator</code> at startup. The default read-only community name is <code class="cCode">public</code>, and the default read-write community name is <code class="cCode">iview</code>. The default SMUX password is no password.
+</p>
+<p class="pBody"><a name="wp37311"> </a>
+For more information about the Oracle SNMP Agent configuration files, see <a href="9cnfgfl.html">Configuration Files</a>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp36597"> </a>
+Oracle SNMP Agent Configuration
+</h2><p class="pBody"><a name="wp31906"> </a>
+To configure Oracle SNMP Agent, follow these steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp31911"> </a>Install the Oracle SNMP Agent on the Oracle Tuxedo server nodes to be managed.</li>
+<p class="pBodyRelative"><a name="wp31912"> </a>
+The Tuxedo SNMP agent <code class="cCode">tux_snmpd</code> is installed one at a time. On a Windows system, if you do not install Oracle Tuxedo first, you do not get the option to install <code class="cCode">tux_snmpd</code>. For detailed information about how to install Oracle SNMP Agent, see <span style="font-style: italic"><a href="../interm/install.html">Installing the Oracle Tuxedo System</a></span>.
+</p>
+<p class="pBodyRelative"><a name="wp31917"> </a>
+Some attributes of Tuxedo resources are accessible globally (that is, no matter which Tuxedo node they are on) while others are accessible only by an Oracle SNMP agent local to the same machine. To access managed objects that are only accessible locally, you must install Oracle SNMP agents on each machine where these resources reside, or install an Oracle SNMP agent on the master node and execute it with the <code class="cCode">-c</code> option, which enables you to run the agent only on the master node but to still gather information from all machines.
+</p>
+<li><a name="wp31919"> </a>Set up access to Tuxedo shared binaries.</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp31920"> </a>On a Windows system:</li>
+<p class="pBodyRelative"><a name="wp31924"> </a>
+If Oracle SNMP Agent is not installed in the same directory as the Oracle Tuxedo application, make sure that the <code class="cCode">bin</code> directory of the appropriate Tuxedo installation precedes any other Tuxedo installations in the <code class="cCode">PATH</code> system environment variable. This directory order in <code class="cCode">PATH</code> enables Oracle SNMP Agent to have access to the correct Tuxedo dynamic link libraries (DLLs).
+</p>
+<li><a name="wp31928"> </a>On a UNIX system:</li>
+<p class="pBodyRelative"><a name="wp31929"> </a>
+Make sure the search path for shared libraries includes <code class="cCode">$TUXDIR/lib</code>. The search path for shared libraries is:
+</p>
+<p class="pBodyRelative"><a name="wp31930"> </a>
+<code class="cCode">SHLIB_PATH</code> on HP-UX, <code class="cCode">LIBPATH</code> on AIX, and <code class="cCode">LIBRARY_PATH</code> on all other UNIX systems.
+</p>
+</ul></div>
+<li><a name="wp31934"> </a>Install the Oracle SNMP Agent configuration file.</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp31935"> </a>On a Windows system:</li>
+<p class="pBodyRelative"><a name="wp31939"> </a>
+Open a command-line shell and copy the Oracle SNMP Agent configuration file <code class="cCode">beamgr.conf</code> to the <code class="cCode">C:\etc</code> directory:
+</p>
+<p class="pBodyRelative"><a name="wp31940"> </a>
+prompt&gt;<code class="cCode"> md c:\etc<br /></code>prompt&gt;<code class="cCode"> copy </code><code class="cCodeEmphasis">tux_prod_dir</code><code class="cCode">\udataobj\snmp\etc\beamgr.conf <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;c:\etc</code>
+</p>
+<li><a name="wp31941"> </a>On a UNIX system:</li>
+<p class="pBodyRelative"><a name="wp31945"> </a>
+Log in as <code class="cCode">root</code> and copy the Oracle SNMP Agent configuration file <code class="cCode">beamgr.conf</code> to the <code class="cCode">/etc </code>directory:
+</p>
+<p class="pBodyRelative"><a name="wp31946"> </a>
+prompt&gt;<code class="cCode"> su<br /></code>prompt&gt;<code class="cCode"> Password:<br /></code>prompt&gt;<code class="cCode"> cp </code><code class="cCodeEmphasis">tux_prod_dir</code><code class="cCode">/udataobj/snmp/etc/beamgr.conf /etc</code>
+</p>
+</ul></div>
+<li><a name="wp31950"> </a>Set your <code class="cCode">PATH</code> to include the location of the Oracle SNMP Agent executables. This step applies to both Windows and UNIX systems.</li>
+<p class="pBodyRelative"><a name="wp31954"> </a>
+All users of the installed Oracle SNMP Agent products need to update their <code class="cCode">PATH</code> environment variable to include the location of the Oracle SNMP Agent executable files. The following is a UNIX example in C shell:
+</p>
+<p class="pBodyRelative"><a name="wp31958"> </a>
+prompt&gt;<code class="cCode"> set path = ( $PATH </code><code class="cCodeEmphasis">tux_prod_dir</code><code class="cCode">/bin )</code>
+</p>
+<li><a name="wp31959"> </a>If you are running the Oracle SNMP agent as an SNMP multiplexing (SMUX) subagent, set your master agent timeout. The SMUX protocol is defined in RFC 1227.</li>
+<p class="pBodyRelative"><a name="wp31960"> </a>
+Configure the timeout of your SMUX master, if any (such as <code class="cCode">snmp_integrator</code>), and of your SNMP manager, to at least 30 seconds. For <code class="cCode">snmp_integrator</code>, you can set this timeout by adding an <code class="cCode">INTEGRATOR_TIMEOUT</code> entry to the Oracle SNMP Agent <code class="cCode">beamgr.conf</code> configuration file as follows:
+</p>
+<p class="pBodyRelative"><a name="wp31964"> </a>
+<code class="cCode">INTEGRATOR_TIMEOUT 30</code>
+</p>
+<li><a name="wp31968"> </a>When Oracle SNMP Agent is installed on a Windows system, ensure that a match exists between the TCP/IP host name and the computer name.</li>
+<p class="pBodyRelative"><a name="wp31969"> </a>
+Check that the host name specified in Start-&gt;Settings-&gt;Control Panel-&gt;Network-&gt;Identification is all UPPERCASE and matches the host name specified in Start-&gt;Settings-&gt;Control Panel-&gt;Network-&gt;Protocols-&gt;TCP/IP-&gt; Properties-&gt;DNS, which should also be all UPPERCASE.
+</p>
+<li><a name="wp31970"> </a>Specify the destination for traps.</li>
+<p class="pBodyRelative"><a name="wp31971"> </a>
+The default destination for SNMP trap notifications is <code class="cCode">localhost</code>. To send traps to other destinations, use a text editor to modify the <code class="cCode">TRAP_HOST</code> entry in the Oracle SNMP Agent <code class="cCode">beamgr.conf</code> configuration file to specify the host name of the target destination machine for SNMP trap notifications, and the port number and community name to use in sending traps.
+</p>
+<p class="pBodyRelative"><a name="wp31975"> </a>
+Typically, the destination is the host machine where the SNMP management framework is located. Some management frameworks use distributed trap daemons that &#8220;collect&#8221; SNMP trap notifications for forwarding to management stations. In that case, the machine with the trap daemon should be the destination.
+</p>
+<p class="pBodyRelative"><a name="wp31979"> </a>
+For more information, see <a href="9cnfgfl.html">Configuration Files</a>.
+</p>
+<li><a name="wp31980"> </a>Identify the domain to be managed.</li>
+<p class="pBodyRelative"><a name="wp31981"> </a>
+The identity of the Oracle Tuxedo application to be managed can be specified in two ways. Oracle SNMP Agent uses the following sources in the indicated order of precedence:
+</p>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp31988"> </a>The <code class="cCode">TMAGENT</code> entry in the Oracle SNMP Agent configuration file. This entry is of the form:</li>
+<p class="pBodyRelative"><a name="wp31989"> </a>
+<code class="cCode">TMAGENT </code><code class="cCodeEmphasis">logical_agent_name tuxdir tuxconfig_path</code>
+</p>
+<p class="pBodyRelative"><a name="wp31993"> </a>
+For more information, see <a href="9cnfgfl.html">Configuration Files</a>.
+</p>
+<li><a name="wp31994"> </a><code class="cCode">TUXCONFIG</code> and <code class="cCode">TUXDIR</code> environment variables</li>
+</ol></div>
+<li><a name="wp31995"> </a>Ensure that the Oracle Tuxedo EventBroker is configured.</li>
+<p class="pBodyRelative"><a name="wp39184"> </a>
+Oracle SNMP Agent cannot receive Tuxedo event notifications unless the Tuxedo EventBroker server (<code class="cCode">TMSYSEVT</code>) is running. To enable forwarding of Tuxedo events as SNMP traps, ensure that the Tuxedo EventBroker servers are running. For information on the Tuxedo EventBroker, see <span class="cHyperlink">
+<a href="../ada/adevnt.html">&#8220;About the EventBroker&#8221;</a></span> in <em class="cEmphasis">Administering an Oracle Tuxedo Application at Run Time</em> and reference page <a href="../rf5/rf5.html">TMSYSEVT(5)</a> in <em class="cEmphasis">Oracle Tuxedo File Formats, Data Descriptions, MIBs, and System Processes Reference</em>.
+</p>
+<li><a name="wp32002"> </a>If you are using only Oracle SNMP agents, start the Tuxedo SNMP agents on the managed nodes where your Tuxedo resources reside. For more information, see <a href="3setupag.html#wp32094">Starting Oracle SNMP Agent</a>.</li>
+<p class="pBodyRelative"><a name="wp32006"> </a>
+If you are using the Oracle SNMP Agent Integrator, follow the instructions in <a href="5agintg.html">Setting Up the Oracle SNMP Agent Integrator</a> and set up the Oracle SNMP agents and then the Oracle SNMP Agent Integrator.
+</p>
+<li><a name="wp32013"> </a>Integrate Oracle SNMP Agent with your SNMP management framework. See <a href="4mgmtfrw.html">Integrating Oracle SNMP Agent with a Management Framework</a>.</li>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp32018"> </a>
+Oracle SNMP Agent Advanced Configuration
+</h2><p class="pBody"><a name="wp35891"> </a>
+If you want to customize Oracle SNMP Agent for tasks such as managing multiple Oracle Tuxedo domains concurrently or using nondefault ports for communication with the system manager, perform the following additional steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp32023"> </a>Define logical agent names if you want to manage multiple Tuxedo domains concurrently.</li>
+<p class="pBodyRelative"><a name="wp32024"> </a>
+To manage multiple Tuxedo domains on a managed node at the same time, add a <code class="cCode">TMAGENT</code> entry to the Oracle SNMP Agent configuration file for each agent. The <code class="cCode">TMAGENT</code> entry is of the following form:
+</p>
+<p class="pBodyRelative"><a name="wp32028"> </a>
+<code class="cCode">TMAGENT </code><code class="cCodeEmphasis">logical_agent_name</code><code class="cCode"> </code><code class="cCodeEmphasis">tuxdir</code><code class="cCode"> </code><code class="cCodeEmphasis">tuxconfig_path</code>
+</p>
+<p class="pBodyRelative"><a name="wp32029"> </a>
+To manage multiple domains on a managed node, run a separate Tuxedo agent for each domain being monitored. These agents must be run as SMUX subagents under the Oracle SNMP Agent Integrator.
+</p>
+<p class="pBodyRelative"><a name="wp32030"> </a>
+When multiple agents running as SMUX subagents are running on the same node, SNMP manager Set or Get requests to a particular agent must be addressed using a community of the form:
+</p>
+<p class="pBodyRelative"><a name="wp32031"> </a>
+<code class="cCodeEmphasis">community</code><code class="cCode">@</code><code class="cCodeEmphasis">logical_agent_name</code>
+</p>
+<p class="pBodyRelative"><a name="wp32032"> </a>
+where <code class="cCodeEmphasis">logical_agent_name</code> identifies the agent to which the SNMP request is forwarded. For example:
+</p>
+<p class="pBodyRelative"><a name="wp32033"> </a>
+<code class="cCode">public@simpapp_agent</code>
+</p>
+<p class="pBodyRelative"><a name="wp32034"> </a>
+If only one agent is running on a node, <code class="cCodeEmphasis">logical_agent_name</code> is optional in specifying the community in Set or Get requests.
+</p>
+<li><a name="wp32035"> </a>Define Tuxedo event filters to be used.</li>
+<p class="pBodyRelative"><a name="wp32036"> </a>
+Tuxedo event filters can define a subset of Tuxedo events to be received by the agent for each domain being monitored. You can use <code class="cCode">TMEVENT_FILTER</code> entries in the Oracle SNMP Agent configuration file to define a subset of Tuxedo event notifications that are to be forwarded as SNMP trap notifications. For more information, see <a href="9cnfgfl.html">Configuration Files</a>. MIB objects corresponding to Tuxedo event filters are described in <span class="cHyperlink">
+<a href="../snmpmref/2coremib.html">&#8220;Core MIB&#8221;</a></span> in <em class="cEmphasis">Oracle Tuxedo SNMP Agent MIB Reference</em>.
+</p>
+<li><a name="wp32044"> </a>Specify non-default SNMP communities and SMUX password.</li>
+<p class="pBodyRelative"><a name="wp32045"> </a>
+By default, an SNMP agent (such as the Oracle SNMP Agent Integrator or <code class="cCode">tux_snmpd</code> when running as an SNMP agent) uses <code class="cCode">public</code> as the read-only community and <code class="cCode">iview</code> as the read-write community when communicating with SNMP managers. To define additional community names, specify them in the Oracle SNMP Agent passwords file. You can also use the passwords file to specify a password for the Oracle SNMP Agent Integrator to use for authenticating connection requests from SMUX subagents.
+</p>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp32049"> </a>To set up the passwords file:</li>
+<p class="pBodyRelative"><a name="wp32050"> </a>
+On a Windows system:
+</p>
+<p class="pBodyRelative"><a name="wp32054"> </a>
+Open a command-line shell and copy the Oracle SNMP Agent <code class="cCode">beamgr_snmpd.conf</code> passwords file to <code class="cCode">c:\etc.</code> For example:
+</p>
+<p class="pBodyRelative"><a name="wp32055"> </a>
+prompt&gt;<code class="cCode"> copy </code><code class="cCodeEmphasis">tux_prod_dir</code><code class="cCode">\udataobj\snmp\etc\beamgr_snmpd.conf <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;c:\etc</code>
+</p>
+<p class="pBodyRelative"><a name="wp32056"> </a>
+On a UNIX system:
+</p>
+<p class="pBodyRelative"><a name="wp32060"> </a>
+Copy the Oracle SNMP Agent <code class="cCode">beamgr_snmpd.conf</code> passwords file to the <code class="cCode">/etc</code> directory and make the copy readable and writable only by <code class="cCode">root</code>. For example:
+</p>
+<p class="pBodyRelative"><a name="wp32061"> </a>
+prompt&gt;<code class="cCode"> cp </code><code class="cCodeEmphasis">tux_prod_dir</code><code class="cCode">/udataobj/snmp/etc/beamgr_snmpd.conf <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/etc<br /></code>prompt&gt;<code class="cCode"> chmod 600 /etc/beamgr_snmpd.conf</code>
+</p>
+<li><a name="wp32062"> </a>Modify the SNMP communities in this file. The keywords used in this file are:</li>
+<p class="pBodyRelative"><a name="wp32063"> </a>
+<code class="cCode">SMUX_PASSWD</code>
+</p>
+<p class="pBodyRelative"><a name="wp32064"> </a>
+<code class="cCode">COMMUNITY_RO</code>
+</p>
+<p class="pBodyRelative"><a name="wp32065"> </a>
+<code class="cCode">COMMUNITY_RW</code>
+</p>
+<p class="pBodyRelative"><a name="wp32066"> </a>
+<code class="cCode">DISABLE_SET</code>
+</p>
+<li><a name="wp32067"> </a>If you want to set the agent to be read-only, specify a <code class="cCode">DISABLE_SET</code> entry in the passwords file as follows:</li>
+<p class="pBodyRelative"><a name="wp32068"> </a>
+<code class="cCode">DISABLE_SET YES</code>
+</p>
+<p class="pBodyRelative"><a name="wp32069"> </a>
+If there is no <code class="cCode">DISABLE_SET</code> entry in the passwords file, the agent has both Set and Get capability.
+</p>
+<p class="pBodyRelative"><a name="wp32073"> </a>
+For more information, see <a href="9cnfgfl.html">Configuration Files</a>.
+</p>
+</ol></div>
+<li><a name="wp32074"> </a>Specify a SMUX password when using the Oracle SNMP agent component as a SMUX subagent under a SMUX master agent, such as the Oracle SNMP Agent Integrator.</li>
+<p class="pBodyRelative"><a name="wp32075"> </a>
+The environment variable <code class="cCode">BEA_SMUX_PASSWD</code> specifies the password that the SNMP agent uses when registering with a SMUX master agent, such as the Oracle SNMP Agent Integrator. This environment variable is required only if the SMUX master agent expects a password. If this environment variable is not set, a password is not specified by <code class="cCode">tux_snmpd</code> when registering.
+</p>
+<li><a name="wp32076"> </a>Define different port numbers.</li>
+<p class="pBodyRelative"><a name="wp32077"> </a>
+By default, Oracle SNMP agents assume the following port numbers as specified by SNMP and SMUX standards:
+</p>
+<p class="pBodyRelative"><a name="wp32078"> </a>
+<code class="cCode">snmp         161/udp<br />snmp-trap    162/udp<br />smux         199/tcp</code>
+</p>
+<p class="pBodyRelative"><a name="wp32079"> </a>
+If the default port assignments are not sufficient for your needs, you can define these services on other ports, or use the appropriate command-line options when starting SNMP agents to assign them to nondefault ports.
+</p>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp32080"> </a>On a Windows system:</li>
+<p class="pBodyRelative"><a name="wp32081"> </a>
+To modify or define the services, add the appropriate lines in the <code class="cCodeEmphasis">root_directory</code><code class="cCode">\system32\drivers\etc\services</code> file. For example:
+</p>
+<p class="pBodyRelative"><a name="wp32082"> </a>
+<code class="cCode">snmp        161/udp   snmp<br />snmp-trap   162/udp   snmp</code>
+</p>
+<p class="pBodyRelative"><a name="wp32083"> </a>
+Consult your Windows system administrator for the default settings used for your SNMP-related services.
+</p>
+<li><a name="wp32084"> </a>On a UNIX system:</li>
+<p class="pBodyRelative"><a name="wp32085"> </a>
+To modify or define the services, perform these steps:
+</p>
+</ul></div>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp32086"> </a>Determine if the NIS server is running. Use the <code class="cCode">ypwhich</code> command to determine if an NIS server or map master is available. For example:</li>
+<p class="pBodyRelative"><a name="wp32087"> </a>
+prompt&gt;<code class="cCode"> ypwhich<br />zort.kremvax.com</code>
+</p>
+<li><a name="wp32088"> </a>If an NIS server is available, use the <code class="cCode">ypcat</code> command to determine if the services are available.</li>
+<p class="pBodyRelative"><a name="wp32089"> </a>
+prompt&gt;<code class="cCode"> ypcat services | grep snmp<br />snmp-trap    162/udp   snmptrap<br />snmp         161/udp</code>
+</p>
+<li><a name="wp32090"> </a>If an NIS server is not available and services are provided on the local host, examine the <code class="cCode">/etc/services</code> file.</li>
+<p class="pBodyRelative"><a name="wp32091"> </a>
+prompt&gt;<code class="cCode"> cat /etc/services | grep snmp<br />snmp-trap    162/udp   snmptrap<br />snmp         161/udp</code>
+</p>
+<p class="pBodyRelative"><a name="wp32092"> </a>
+To establish the SNMP services, refer to your UNIX system documentation as needed for instructions specific to your UNIX platform.
+</p>
+</ol></div>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp32094"> </a>
+Starting Oracle SNMP Agent
+</h2><p class="pBody"><a name="wp32095"> </a>
+To manage multiple Oracle Tuxedo domains, you can run multiple Oracle SNMP agents on the same node. Each agent can manage only one domain. To manage multiple domains, you must have the Oracle SNMP Agent Integrator running and the agents must be started as SMUX subagents.
+</p>
+<p class="pBody"><a name="wp32098"> </a>
+On startup, a Tuxedo SNMP agent checks for a <code class="cCode">TMAGENT</code> entry in the Oracle SNMP Agent configuration file that matches its logical agent name. A <code class="cCode">TMAGENT</code> entry provides a path to the Tuxedo domain to be monitored. If no matching <code class="cCode">TMAGENT</code> entry is found, the agent connects to the Tuxedo domain specified in the <code class="cCode">TUXCONFIG</code><span class="arrow"><img id="LongDescNotReq1" src="/global_resources/images/arrwrite.gif" alt="Arrow symbol"/></span>and <code class="cCode">TUXDIR</code> environment variables. The agent exits if the <code class="cCode">TUXCONFIG</code> or <code class="cCode">TUXDIR</code> environment variable is not defined and no appropriate <code class="cCode">TMAGENT</code> entry is found in the Oracle SNMP Agent configuration file. For more information, see <a href="9cnfgfl.html">Configuration Files</a>.
+</p>
+<h3 class="pHeading2"><a name="wp32106"> </a>
+Oracle SNMP Agent Processes
+</h3>
+<p class="pBody"><a name="wp32107"> </a>
+The <code class="cCode">tux_snmpd</code> binary is the Tuxedo SNMP agent that supports the Tuxedo SNMP MIB. For a description of the supported MIB groups and objects, see <a href="../snmpmref/index.html">Oracle Tuxedo SNMP Agent MIB Reference</a>.
+</p>
+<p class="pBody"><a name="wp32111"> </a>
+The Oracle SNMP agent can run as an SNMP agent or as a SMUX subagent.
+</p>
+<p class="pBody"><a name="wp36204"> </a>
+When the Oracle SNMP agent starts up as an SNMP agent, it generates a coldStart trap. The destination host, port, and community used when sending traps are as specified in the <code class="cCode">TRAP_HOST</code> entry in the Oracle SNMP Agent <code class="cCode">beamgr.conf</code> configuration file. For more information, see <a href="3setupag.html#wp36597">Oracle SNMP Agent Configuration</a>.
+</p>
+<p class="pBody"><a name="wp36211"> </a>
+When running as a SMUX subagent, the Oracle SNMP agent specifies a password to the SMUX master agent at the time of registration if the environment variable <code class="cCode">BEA_SMUX_PASSWD</code> has been defined. In that case, the Oracle SNMP agent uses the value of <code class="cCode">BEA_SMUX_PASSWD</code> as the password; if <code class="cCode">BEA_SMUX_PASSWD</code> has not been defined, the Oracle SNMP agent does not specify a password to the master agent when registering.
+</p>
+<p class="pBody"><a name="wp32125"> </a>
+The <code class="cCode">tux_snmpd</code> supports the MIB-II <code class="cCode">snmp</code> group when running as the SNMP agent.
+</p>
+<h3 class="pHeading2"><a name="wp32126"> </a>
+Starting Oracle SNMP Agent on a Windows System
+</h3>
+<p class="pBody"><a name="wp32127"> </a>
+To start Oracle SNMP agents on a Windows system, follow these steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp32128"> </a>On the Windows taskbar, choose Start-&gt;Settings-&gt;Control Panel-&gt;Services (or Start-&gt;Programs-&gt;Administrative Tools-&gt;Services on a Windows 2003 system) to display the Services window.</li>
+<li><a name="wp34131"> </a>In the list of Services, locate and select the installed service named <code class="cCode">tux81_snmpd</code> and click Start to start it, as shown in <a href="3setupag.html#wp32131">Figure&#160;3-2</a>. There may be a short delay as the service is initiated.</li>
+<div class="pFigureTitle"><a name="wp32131"> </a>
+Figure&#160;3-2  Starting a Service
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp32136"> </a>
+<br />
+<img src="wwimages/2_2srvc.gif" height="298" width="553" alt="Starting a Service" id="wp32134"/><br />
+
+</p>
+<li><a name="wp32137"> </a>Install additional Windows services if you want to run multiple agents on a single node.</li>
+<p class="pBodyRelative"><a name="wp32138"> </a>
+The installation program for Windows installs the SNMP agent as a single Windows service. If you want to run multiple instances of the agent to monitor multiple Tuxedo domains, you need to install additional Windows services for the additional agents.
+</p>
+<p class="pBodyRelative"><a name="wp32139"> </a>
+To install additional Windows services for Tuxedo SNMP agents, open a command-line shell and run the following command for each additional Tuxedo SNMP agent:
+</p>
+<p class="pBodyRelative"><a name="wp32140"> </a>
+prompt&gt;<code class="cCode"> instsrv </code><code class="cCodeEmphasis">logical_agent_name <br /></code><code class="cCode">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</code><code class="cCodeEmphasis">tux_prod_dir</code><code class="cCode">\bin\tux_snmpd.exe</code>
+</p>
+<p class="pBodyRelative"><a name="wp32143"> </a>
+Assign separate logical agent names to run multiple instances of the agent on the same node. To use multiple agents to monitor multiple Tuxedo domains, <code class="cCodeEmphasis">logical_agent_name</code> is a string that associates an agent with a Tuxedo domain as defined by a <code class="cCode">TMAGENT</code> entry in the Oracle SNMP Agent <code class="cCode">beamgr.conf</code> configuration file. For format information, see <a href="3setupag.html#wp32018">Oracle SNMP Agent Advanced Configuration</a>.
+</p>
+<p class="pBodyRelative"><a name="wp32150"> </a>
+This entry assigns the agent started with <code class="cCodeEmphasis">logical_agent_name</code> to the indicated Tuxedo domain. See <a href="9cnfgfl.html">Configuration Files</a>.
+</p>
+</ol></div>
+<h4 class="pHeading3"><a name="wp32154"> </a>
+Windows Startup Options
+</h4>
+<p class="pBody"><a name="wp32155"> </a>
+Enter the desired startup options in the Startup Parameters field in the Services window.
+</p>
+<h4 class="pDefTerm"><a name="wp32156"> </a>
+<code class="cCode">-d</code>
+</h4><div class="pDefPara"><a name="wp32157"> </a>
+Dumps the SNMP or SMUX packets received and sent by the agent to the Windows Event Log.
+</div>
+<h4 class="pDefTerm"><a name="wp32158"> </a>
+<code class="cCode">-s</code>
+</h4><div class="pDefPara"><a name="wp32159"> </a>
+Specifies that the Oracle SNMP agent is to run as an SNMP agent. If you do not specify this option, the Oracle SNMP agent runs as a SMUX subagent. If a SMUX master agent (for example, <code class="cCode">snmp_integrator</code>) is not running, you must provide <code class="cCode">-s</code> as a startup parameter before selecting Start.
+</div>
+<h4 class="pDefTerm"><a name="wp32161"> </a>
+<code class="cCode">-p </code><code class="cCodeEmphasis">snmp_port</code>
+</h4><div class="pDefPara"><a name="wp32162"> </a>
+The<code class="cCodeEmphasis"> snmp_port</code> option specifies the UDP port on which the Oracle SNMP<code class="cCode"> </code>agent<code class="cCode"> </code>listens for incoming SNMP packets. The <code class="cCode">-p</code> option enables you to run the Oracle SNMP agent on a port other than the standard SNMP port 161. This option is meaningful only when the Oracle SNMP agent is running as an SNMP agent.
+</div>
+<h4 class="pDefTerm"><a name="wp32164"> </a>
+<code class="cCode">-r </code><code class="cCodeEmphasis">smux_port</code>
+</h4><div class="pDefPara"><a name="wp32165"> </a>
+Specifies the TCP port to connect to a SMUX master agent. (The default is port 199.) This option is meaningful only when <code class="cCode">tux_snmpd</code> is running as a SMUX subagent.
+</div>
+<h4 class="pDefTerm"><a name="wp32166"> </a>
+<code class="cCode">-m </code><code class="cCodeEmphasis">hostname</code>
+</h4><div class="pDefPara"><a name="wp32167"> </a>
+The name of the machine where the SMUX master agent, such as the Oracle SNMP Agent Integrator, is running. This option is used only when you want <code class="cCode">tux_snmpd</code> to register with a SMUX master agent on a remote machine.
+</div>
+<h4 class="pDefTerm"><a name="wp32168"> </a>
+<code class="cCode">-c</code>
+</h4><div class="pDefPara"><a name="wp32169"> </a>
+Enables you to run the agent only on the master node but to still gather information from all machines. This results in a more manageable solution because it requires you to run one agent process per domain instead of one per node. In addition, it enables you to gather SNMP information from nodes with operating systems not supporting the current SNMP Agent.
+</div>
+<div class="pDefParaCont"><a name="wp32170"> </a>
+When using this option, you must ensure that only one agent is started on the domain; otherwise, the results are unpredictable.
+</div>
+<h3 class="pHeading2"><a name="wp32171"> </a>
+Starting Oracle SNMP Agent on a UNIX System
+</h3>
+<p class="pBody"><a name="wp32172"> </a>
+To start Oracle SNMP agents on a UNIX system, enter the Tuxedo SNMP agent startup command at the command-line prompt:
+</p>
+<p class="pBody"><a name="wp32174"> </a>
+<code class="cCode">tux_snmpd&#160;[-l </code><code class="cCodeEmphasis">logical_agent_name</code><code class="cCode">] [-d]&#160;[-n]&#160;[-s]&#160;[-p&#160;</code><code class="cCodeEmphasis">snmp_port</code><code class="cCode">]<br />[-r&#160;</code><code class="cCodeEmphasis">smux_port</code><code class="cCode">] [-m&#160;</code><code class="cCodeEmphasis">hostname</code><code class="cCode">] [-h] [-c]</code>
+</p>
+<h4 class="pHeading3"><a name="wp32177"> </a>
+UNIX Startup Options
+</h4>
+<p class="pBody"><a name="wp32178"> </a>
+The command line options are:
+</p>
+<h4 class="pDefTerm"><a name="wp32179"> </a>
+<code class="cCode">-l </code><code class="cCodeEmphasis">logical_agent_name</code>
+</h4><div class="pDefPara"><a name="wp32180"> </a>
+The<code class="cCodeEmphasis"> logical_agent_name</code> string associates an agent with an Oracle Tuxedo domain as defined by a <code class="cCode">TMAGENT</code> entry in the Oracle SNMP Agent <code class="cCode">beamgr.conf</code> configuration file. The logical agent name can be a maximum of 32 characters long. For format information, see <a href="3setupag.html#wp32018">Oracle SNMP Agent Advanced Configuration</a>.
+</div>
+<div class="pDefParaCont"><a name="wp32187"> </a>
+Assign separate logical agent names to run multiple instances of the agent on the same node. If you do not specify the <code class="cCode">-l</code> option, the Oracle SNMP agent uses the name of the executable as the logical agent name.
+</div>
+<h4 class="pDefTerm"><a name="wp32188"> </a>
+<code class="cCode">-d</code>
+</h4><div class="pDefPara"><a name="wp32189"> </a>
+Dumps the SNMP or SMUX packets received and sent by the agent to standard output.
+</div>
+<h4 class="pDefTerm"><a name="wp32190"> </a>
+<code class="cCode">-n</code>
+</h4><div class="pDefPara"><a name="wp32191"> </a>
+If the agent/subagent is run with this option, it does not become a daemon. Use this option to start the Oracle SNMP agent with the <code class="cCode">init</code> command.
+</div>
+<h4 class="pDefTerm"><a name="wp32192"> </a>
+<code class="cCode">-s</code>
+</h4><div class="pDefPara"><a name="wp32193"> </a>
+Specifies that the Oracle SNMP agent is to run as an SNMP agent. If you do not specify this option, the Oracle SNMP agent runs as a SMUX subagent.
+</div>
+<h4 class="pDefTerm"><a name="wp32194"> </a>
+<code class="cCode">-c</code>
+</h4><div class="pDefPara"><a name="wp32195"> </a>
+Enables you to run the agent only on the master node but to still gather information from all machines. This results in a more manageable solution because it requires you to run one agent process per domain instead of one per node. In addition, it enables you to gather SNMP information from nodes with operating systems not supporting the current SNMP Agent.
+</div>
+<div class="pDefParaCont"><a name="wp32196"> </a>
+When using this option, you must ensure that only one agent is started on the domain; otherwise, the results are unpredictable.
+</div>
+<h4 class="pDefTerm"><a name="wp32198"> </a>
+<code class="cCode">-p </code><code class="cCodeEmphasis">snmp_port</code>
+</h4><div class="pDefPara"><a name="wp32199"> </a>
+The<code class="cCodeEmphasis"> snmp_port</code> option specifies the UDP port on which the Oracle SNMP agent listens for incoming SNMP packets. The <code class="cCode">-p</code> option enables you to run the Oracle SNMP agent on a port other than the standard SNMP port 161. This option is meaningful only when the Oracle SNMP agent is running as an SNMP agent.
+</div>
+<h4 class="pDefTerm"><a name="wp32201"> </a>
+<code class="cCode">-r </code><code class="cCodeEmphasis">smux_port</code>
+</h4><div class="pDefPara"><a name="wp32202"> </a>
+Specifies the TCP port to connect to a SMUX master agent. The default is port 199. This option is meaningful only when the Oracle SNMP agent is running as a SMUX subagent.
+</div>
+<h4 class="pDefTerm"><a name="wp32203"> </a>
+<code class="cCode">-m </code><code class="cCodeEmphasis">hostname</code>
+</h4><div class="pDefPara"><a name="wp32204"> </a>
+The name of the machine where the SMUX master agent, such as the Oracle SNMP Agent Integrator, is running. This option is used only when you want the Oracle SNMP agent to register with a SMUX master agent on a remote machine.
+</div>
+<h4 class="pDefTerm"><a name="wp32205"> </a>
+<code class="cCode">-h</code>
+</h4><div class="pDefPara"><a name="wp32206"> </a>
+Displays the syntax for the <code class="cCode">tux_snmpd</code> command.
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp32208"> </a>
+Stopping Oracle SNMP Agent
+</h2><p class="pBody"><a name="wp32209"> </a>
+On a Windows system, you stop Oracle SNMP agents and the optional Oracle SNMP Agent Integrator via the Services window. On a UNIX system, you stop Oracle SNMP agents and the optional Oracle SNMP Agent Integrator by entering the <code class="cCode">stop_agent</code> command at the command-line prompt.
+</p>
+<h3 class="pHeading2"><a name="wp32210"> </a>
+Stopping Oracle SNMP Agent on a Windows System
+</h3>
+<p class="pBody"><a name="wp32211"> </a>
+To stop one or more Oracle SNMP agents on a Windows system, follow these steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp32212"> </a>On the Windows taskbar, choose Start-&gt;Settings-&gt;Control Panel-&gt;Services (or Start-&gt;Programs-&gt;Administrative Tools-&gt;Services on a Windows 2003 system) to display the Services window.</li>
+<li><a name="wp32213"> </a>In the list of Services, locate and select the installed service and click Stop to stop it.</li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp32214"> </a>
+Stopping Oracle SNMP Agent on a UNIX System
+</h3>
+<p class="pBody"><a name="wp32215"> </a>
+To stop one or more Oracle SNMP agents on a UNIX system, issue the following command:
+</p>
+<p class="pBody"><a name="wp32216"> </a>
+prompt&gt;<code class="cCode"> stop_agent </code><code class="cCodeEmphasis">logical_agent_name</code><code class="cCode"> | all [</code><code class="cCodeEmphasis">logical_agent_name</code><code class="cCode">]</code>
+</p>
+<p class="pBody"><a name="wp32217"> </a>
+For example, 
+</p>
+<p class="pBody"><a name="wp32218"> </a>
+prompt&gt;<code class="cCode"> stop_agent tux_snmpd</code>
+</p>
+<p class="pBody"><a name="wp32219"> </a>
+If you specify <code class="cCode">all</code>, all SNMP agents are stopped. The name of the executable is the default logical agent name.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp32221"> </a>
+Oracle Tuxedo Master and Non-Master Nodes
+</h2><p class="pBody"><a name="wp32222"> </a>
+The Tuxedo SNMP agent can be installed on both Tuxedo master and non-master nodes. If the Oracle Tuxedo application is down on the non-master node, SNMP Get requests addressed to the Oracle SNMP agent on the non-master node may not have the latest information. For example, this would be true if the requested information was updated on a master node after the application on the non-master node went down. Set requests to a non-master node are not permitted if the Oracle Tuxedo application is down on the local node.
+</p>
+<p class="pBody"><a name="wp32224"> </a>
+Some MIB groups in the Tuxedo SNMP MIB return values for all Tuxedo nodes, whereas other MIB groups return data only for the local node, as shown in the following table. Thus, if you want to manage objects whose values are local to a particular machine, you must install a copy of the Oracle SNMP agent on that machine or start the Oracle SNMP agent with the <code class="cCode">-c</code> option on the master machine.
+</p>
+<p class="pGraphic"><a name="wp32312"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp32234table32225">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp32234"> </a>
+MIB Table/Group
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp32236"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp32238"> </a>
+<code class="cCode">tuxTwshTbl</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp32240"> </a>
+Run-time attributes of workstation handler (WSH) client processes.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp32242"> </a>
+<code class="cCode">tuxTulogTable</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp32244"> </a>
+Run-time attributes of userlog files within an application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp32246"> </a>
+<code class="cCode">tuxTmsgTable</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp32248"> </a>
+Run-time attributes of the Tuxedo system message tables.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp32250"> </a>
+<code class="cCode">tuxTqueueTable</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp32252"> </a>
+Run-time attributes of queues in an application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp32254"> </a>
+<code class="cCode">tuxTAppQTbl</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp32256"> </a>
+Attributes of application queues.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp32258"> </a>
+<code class="cCode">tuxTAppQmsgTbl</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp32260"> </a>
+Attributes of messages stored in application queues.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp32262"> </a>
+<code class="cCode">tuxTQspaceTbl</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp32264"> </a>
+Attributes of application queue spaces.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp32266"> </a>
+<code class="cCode">tuxTQtransTbl</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp32268"> </a>
+Run-time attributes of transactions associated with application queue spaces.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp32270"> </a>
+<code class="cCode">tuxTBridgeTbl</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp32272"> </a>
+Status and statistics pertaining to connections between machines making up an application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp32274"> </a>
+<code class="cCode">tuxTclientTbl</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp32276"> </a>
+Run-time attributes of active clients within an application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp32278"> </a>
+<code class="cCode">tuxTconnTable</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp32280"> </a>
+Run-time attributes of active conversations within an application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp32282"> </a>
+<code class="cCode">tuxTdeviceTbl</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp32284"> </a>
+Configuration and run-time attributes of raw disk slices or UNIX system files being used to store Tuxedo system device lists.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp32286"> </a>
+<code class="cCode">tuxTsrvrTblExt</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp32288"> </a>
+Attributes of servers within an application. It is an extension of <code class="cCode">tuxTsrvrTbl</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp32290"> </a>
+<code class="cCode">tuxTranTbl</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp32292"> </a>
+Run-time attributes of active transactions within the application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp32294"> </a>
+<code class="cCode">tuxTsvcGrp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp32296"> </a>
+Configuration attributes of services within an application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp32298"> </a>
+<code class="cCode">tuxLclIfQueueTable</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp32300"> </a>
+Local run-time attributes of an interface for a particular CORBA server queue.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp32302"> </a>
+<code class="cCode">tuxLclInterfaceTable</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp32304"> </a>
+Configuration and run-time attributes of CORBA interfaces for the local host on which Oracle SNMP Agent is running.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp32309"> </a>
+<code class="cCode">tuxTAppQctrl</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp32311"> </a>
+A control MIB that enables controlled access to all application queue-related MIB groups.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="3setupag.html"><img id="LongDescNotReq9" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="2arch.html"><img id="LongDescNotReq10" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="4mgmtfrw.html"><img id="LongDescNotReq11" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

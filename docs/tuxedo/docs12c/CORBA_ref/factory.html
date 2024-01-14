@@ -1,0 +1,1307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="2" />
+<meta name="LOC_US_CHANGE" content="41908" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/CORBA_ref/fm/factory.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/26/12 11:01:19" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>FactoryFinder Interface</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">CORBA Programming Reference
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="boot.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="security.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/CORBA_ref.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1080335"> </a>
+FactoryFinder Interface
+</h1>
+<p class="pBody"><a name="wp1039308"> </a>
+The FactoryFinder interface provides clients with one object reference that serves as the single point of entry into the Oracle Tuxedo domain. The Oracle Tuxedo NameManager provides the mapping of factory names to object references for the FactoryFinder. Multiple FactoryFinders and NameManagers together provide increased availability and reliability. In this release the level of functionality has been extended to support multiple domains.
+</p>
+<a name="wp1048532"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The NameManager is not a naming service, such as CORBAservices Naming Service, but is merely a vehicle for storing registered factories.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1011861"> </a>
+In the Oracle Tuxedo environment, application factory objects are used to create objects that clients interact with to perform their business operations (for example, TellerFactory and Teller). Application factories are generally created during server initialization and are accessed by both remote clients and clients located within the server application. 
+</p>
+<p class="pBody"><a name="wp1021838"> </a>
+The FactoryFinder interface and the NameManager services are contained in separate (nonapplication) servers. A set of application programming interfaces (APIs) is provided so that both client and server applications can access and update the factory information.
+</p>
+<p class="pBody"><a name="wp1047199"> </a>
+The support for multiple domains in this release benefits customers that need to scale to a large number of machines or who want to partition their application environment. To support multiple domains, the mechanism used to find factories in an Oracle Tuxedo environment has been enhanced to allow factories in one domain to be visible in another. The visibility of factories in other domains is under the control of the system administrator.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1011862"> </a>
+Capabilities, Limitations, and Requirements
+</h2><p class="pBody"><a name="wp1048136"> </a>
+During server application initialization, application factories need to be registered with the NameManager. Clients can then be provided with the object reference of a FactoryFinder to allow them to retrieve a factory object reference based on associated names that were created when the factory was registered. 
+</p>
+<p class="pBody"><a name="wp1069563"> </a>
+The following functional capabilities, limitations, and requirements apply to this release:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1039732"> </a>The FactoryFinder interface is in compliance with the <code class="cCode">CosLifeCycle::FactoryFinder</code> interface.</li>
+<li><a name="wp1039733"> </a>Server applications can register and unregister application factories with the CORBAservices Naming Service.</li>
+<li><a name="wp1009043"> </a>Clients can access objects using a single point of entry&#8212;the FactoryFinder.</li>
+<li><a name="wp1009044"> </a>Clients can construct names for objects using a simplified Oracle scheme made possible by Oracle Tuxedo extensions to the CORBAservices interface or the more general CORBA scheme.</li>
+<li><a name="wp1030980"> </a>Multiple FactoryFinders and NameManagers can be used to increase availability and reliability in the event that one FactoryFinder or NameManager should fail.</li>
+<li><a name="wp1048375"> </a>Support for multiple domains. Factories in one domain can be configured to be visible in another domain under administrative control. </li>
+<li><a name="wp1030995"> </a>Two NameManager services, at a minimum, must be configured, preferably on different machines, to maintain the factory-to-object reference mapping across process failures. If both NameManagers fail, the master NameManager, which has been keeping a persistent journal of the registered factories, recovers the previous state by processing the journal so as to re-establish its internal state.</li>
+<li><a name="wp1048488"> </a>One NameManager must be designated as the Master and the Master NameManager must be started before the Slave. If the master NameManager is started after one or more Slaves, the Master assumes that it is in recovery mode instead of in initializing mode. </li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1050236"> </a>
+Functional Description
+</h2><p class="pBody"><a name="wp1048683"> </a>
+The Oracle Tuxedo CORBA environment promotes the use of the factory design pattern as the primary means for a client to obtain a reference to an object. Through the use of this design pattern, client applications require a mechanism to obtain a reference to an object that acts as a factory for another object. Because the Oracle Tuxedo environment has chosen CORBA as its visible programming model, the mechanism used to locate factories is modeled after the FactoryFinder as described in the CORBAservices Specification, Chapter 6 &#8220;Life Cycle Service,&#8221; December 1997, published by the Object Management Group.
+</p>
+<p class="pBody"><a name="wp1048730"> </a>
+In the CORBA FactoryFinder model, application servers register active factories with a FactoryFinder. When an application server&#8217;s factory becomes inactive, the application server removes the corresponding registration from the FactoryFinder. Client applications locate factories by querying a FactoryFinder. The client application can control the references to the factory object returned by specifying criteria that is used to select one or more references.
+</p>
+<h3 class="pHeading2"><a name="wp1055439"> </a>
+Locating a FactoryFinder
+</h3>
+<p class="pBody"><a name="wp1049154"> </a>
+A client application must obtain a reference to a FactoryFinder before it can begin locating an appropriate factory. To obtain a reference to a FactoryFinder in the domain to which a client application is associated, the client application can use either of two bootstrapping mechanisms:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1073842"> </a>Invoke the <code class="cCode">Tobj_Bootstrap::resolve_initial_references</code> operation with a value of <code class="cCode">&#8220;FactoryFinder&#8221;</code>. This operation returns a reference to a FactoryFinder that is in the domain to which the client application is currently attached. You should use this mechanism if you are using the Oracle Tuxedo client software. For more information, see the section <a href="boot.html#wp1018639">Tobj_Bootstrap::resolve_initial_references</a>.</li>
+<li><a name="wp1077408"> </a>Invoke the <code class="cCode">CORBA::ORB::resolve_initial_references</code> operation with a value of <code class="cCode">&#8220;FactoryFinder&#8221;</code>. This operation returns a reference to a FactoryFinder that is in the domain to which the client application is currently attached. You should use this mechanism if you are using a third-party client ORB. For more information, see the section <a href="corba_api.html#wp1297533">CORBA::ORB::resolve_initial_references</a>.</li>
+</ul></div>
+<a name="wp1077412"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The references to the FactoryFinder that are returned to the client application can be references to factory objects that are registered on the same machine as the FactoryFinder, on a different machine than the FactoryFinder, or possibly in a different domain than the FactoryFinder.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1053370"> </a>
+Registering a Factory
+</h3>
+<p class="pBody"><a name="wp1049289"> </a>
+For a client application to be able to obtain a reference to a factory, an application server must register a reference to any factory object for which it provides an implementation with the FactoryFinder (see <a href="factory.html#wp1064453">Figure&#160;5-1</a>). Using the Oracle Tuxedo CORBA TP Framework, the registration of the reference for the factory object can be accomplished using the <code class="cCode">TP::register_factory</code> operation, once a reference to a factory object has been created. The reference to the factory object, along with a value that identifies the factory, is passed to this operation. The registration of references to factory objects is typically done as part of initialization of the application (normally as part of the implementation of the operation <code class="cCode">Server::initialize)</code>.
+</p>
+<div class="pFigureTitle"><a name="wp1064453"> </a>
+Figure&#160;5-1  Registering a Factory Object
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1067804"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/ff_fig1.gif" height="254" width="456" alt="Registering a Factory Object" id="wp1067805"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1049332"> </a>
+When the server application is shutting down, it must unregister any references to factory objects that it has previously registered in the application server. This is done by passing the same reference to the factory object, along with the corresponding value used to identify the factory, to the <code class="cCode">TP::unregister_factory</code> operation. Once unregistered, the reference to the factory object can then be destroyed. The process of unregistering a factory with the FactoryFinder is typically done as part of the implementation of the <code class="cCode">Server::release</code> operation. For more information about these operations, see the section <a href="tpfw.html#wp1028814">Server Interface</a>.
+</p>
+<h4 class="pHeading3"><a name="wp1058120"> </a>
+C++ Mapping
+</h4>
+<p class="pBody"><a name="wp1058124"> </a>
+<a href="factory.html#wp1058132">Listing&#160;5-1</a> shows the C++ class (static) methods. For more information about these methods, see the sections <a href="tpfw.html#wp1058612">TP::register_factory()</a> and <a href="tpfw.html#wp1017919">TP::unregister_factory()</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1058132"> </a>
+Listing&#160;5-1	   C++ Mappings for the Factory Registration Pseudo OMG IDL
+</div> <a name="wp1058133"> </a><div class="pPreformatted"><pre>#include &lt;TP.h&gt;</pre></div><a name="wp1058134"> </a><div class="pPreformatted"><pre>static void <code class="cCode">TP::register_factory</code>(<br />              CORBA::Object_ptr factory_or, const char* factory_id);</pre></div><a name="wp1058135"> </a><div class="pPreformatted"><pre>static void <code style="font-weight: normal" class="cCode">TP::unregister_factory</code><span style="font-weight: bold"> </span>(<br />               CORBA::Object_ptr factory_or, const char* factory_id);</pre></div><p class="pBody"><a name="wp1058138"> </a>
+The TP.h header file contains the two method declarations. This file must to be included in any server application that wants to use these methods.
+</p>
+<p class="pBody"><a name="wp1058118"> </a>
+A server application generally includes this header file within the application file that contains the methods for application server initialization and release.
+</p>
+<h3 class="pHeading2"><a name="wp1057402"> </a>
+Locating a Factory
+</h3>
+<p class="pBody"><a name="wp1057458"> </a>
+For a client application to request a factory to create a reference to an object, it must first obtain a reference to the factory object. The reference to the factory object is obtained by querying a FactoryFinder with specific selection criteria (see <a href="factory.html#wp1064730">Figure&#160;5-2</a>). The criteria are determined by the format of the particular FactoryFinder interface and method used.
+</p>
+<div class="pFigureTitle"><a name="wp1064730"> </a>
+Figure&#160;5-2  Locating a Factory Object
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1067881"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/ff_fig2.gif" height="253" width="456" alt="Locating a Factory Object" id="wp1067882"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1057407"> </a>
+Oracle Tuxedo CORBA extends the <code class="cCode">CosLifeCycle::FactoryFinder</code> interface by introducing four methods in addition to the <code class="cCode">find_factories()</code> method declared for the FactoryFinder. Therefore, using the Tobj extensions, a client can use either the <code class="cCode">find_factories(</code>) or <code class="cCode">find_factories_by_id()</code> methods to obtain a list of application factories. A client can also use the <code class="cCode">find_one_factory</code>() or <code class="cCode">find_one_factory_by_id</code>() method to obtain a single application factory, and <code class="cCode">list_factories () </code>to obtain a list of all registered factories. 
+</p>
+<a name="wp1076403"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>You can used the Oracle Tuxedo CORBA extensions to the <code class="cCode">CosLifeCycle::FactoryFinder</code> interface if you use the Tobj_Bootstrap object, however, use of the Tobj_Bootstrap object is not required to locate a factory. If you use CORBA INS, you can use the <code class="cCode">find_factories()</code> method provided by the <code class="cCode">CosLifeCycle::FactoryFinder</code> interface.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1076394"> </a>
+The <code class="cCode">CosLifeCycle::FactoryFinder</code> interface defines a <code class="cCode">factory_key</code>, which is a sequence of <code class="cCode">id</code> and <code class="cCode">kind</code> strings conforming to the CosNaming Name shown below. The <code class="cCode">kind</code> field of the NameComponent for all application factories is set to the string <code class="cCode">FactoryInterface</code> by the TP Framework when an application factory is registered. Applications supply their own value for the <code class="cCode">id</code> field.
+</p>
+<p class="pBody"><a name="wp1057418"> </a>
+Assuming that the CORBAservices Life Cycle Service modules are contained in their own file (<code class="cCode">ns.idl</code> and <code class="cCode">lcs.idl,</code> respectively), only the OMG IDL code for that subset of both files that is relevant for using the Oracle Tuxedo FactoryFinder is shown in the following listings. 
+</p>
+<h4 class="pHeading3"><a name="wp1059001"> </a>
+CORBAservices Naming Service Module OMG IDL
+</h4>
+<p class="pBody"><a name="wp1059006"> </a>
+<a href="factory.html#wp1059008">Listing&#160;5-2</a> shows the portions of the <code class="cCode">ns.idl</code> file that are relevant to the FactoryFinder.
+</p>
+<div class="pCodeTitle"><a name="wp1059008"> </a>
+Listing&#160;5-2	   CORBAservices Naming OMG IDL
+</div> <a name="wp1059009"> </a><div class="pPreformatted"><pre>// ------  ns.idl  ------</pre></div><a name="wp1059010"> </a><div class="pPreformatted"><pre>module CosNaming {<br />       typedef string Istring;<br />       struct NameComponent {<br />              Istring id;<br />              Istring kind;<br />       };<br />       typedef sequence &lt;NameComponent&gt; Name;</pre></div><a name="wp1059011"> </a><div class="pPreformatted"><pre>};</pre></div><a name="wp1059012"> </a><div class="pPreformatted"><pre>// This information is taken from <span style="font-style: italic">CORBAservices: Common Object <br />// Services Specification</span>, page 3-6. Revised Edition: <br />// March 31, 1995. Updated: November 1997. Used with permission by OMG.</pre></div><h4 class="pHeading3"><a name="wp1059015"> </a>
+CORBAservices Life Cycle Service Module OMG IDL
+</h4>
+<p class="pBody"><a name="wp1059019"> </a>
+<a href="factory.html#wp1059021">Listing&#160;5-3</a> shows the portions of the<code class="cCode"> lcs.idl</code> file that are relevant to the FactoryFinder.
+</p>
+<div class="pCodeTitle"><a name="wp1059021"> </a>
+Listing&#160;5-3	   Life Cycle Service OMG IDL
+</div> <a name="wp1059022"> </a><div class="pPreformatted"><pre>// -----  lcs.idl  -----</pre></div><a name="wp1059023"> </a><div class="pPreformatted"><pre>#include &#8220;ns.idl&#8221;</pre></div><a name="wp1059024"> </a><div class="pPreformatted"><pre>module CosLifeCycle{<br />       typedef CosNaming::Name Key;<br />       typedef Object Factory;<br />        typedef sequence&lt;Factory&gt; Factories;</pre></div><a name="wp1059025"> </a><div class="pPreformatted"><pre>       exception NoFactory{ Key search_key; }</pre></div><a name="wp1059026"> </a><div class="pPreformatted"><pre>       interface FactoryFinder {<br />            Factories find_factories(in Key factory_key)<br />                  raises(NoFactory);</pre></div><a name="wp1059027"> </a><div class="pPreformatted"><pre>        };</pre></div><a name="wp1059028"> </a><div class="pPreformatted"><pre>};</pre></div><a name="wp1059029"> </a><div class="pPreformatted"><pre>// This information is taken from <span style="font-style: italic">CORBAservices: Common Object <br />// Services Specification</span>, pages 6-10, 11. Revised Edition: <br />// March 31, 1995. Updated: November 1997. Used with permission by OMG.</pre></div><h4 class="pHeading3"><a name="wp1059031"> </a>
+Tobj Module OMG IDL
+</h4>
+<p class="pBody"><a name="wp1059036"> </a>
+<a href="factory.html#wp1059038">Listing&#160;5-4</a> shows the Tobj Module OMG IDL.
+</p>
+<div class="pCodeTitle"><a name="wp1059038"> </a>
+Listing&#160;5-4	   Tobj Module OMG IDL
+</div> <a name="wp1059039"> </a><div class="pPreformatted"><pre>// -----  Tobj.idl  -----</pre></div><a name="wp1059040"> </a><div class="pPreformatted"><pre>module Tobj {</pre></div><a name="wp1059041"> </a><div class="pPreformatted"><pre>   // Constants</pre></div><a name="wp1059042"> </a><div class="pPreformatted"><pre>   const string FACTORY_KIND = &quot;FactoryInterface&quot;;</pre></div><a name="wp1059043"> </a><div class="pPreformatted"><pre>   // Exceptions</pre></div><a name="wp1059044"> </a><div class="pPreformatted"><pre>   exception CannotProceed { };<br />   exception InvalidDomain {};<br />   exception InvalidName { };<br />   exception RegistrarNotAvailable { };</pre></div><a name="wp1059045"> </a><div class="pPreformatted"><pre>   // Extension to LifeCycle Service</pre></div><a name="wp1059046"> </a><div class="pPreformatted"><pre>   struct FactoryComponent {<br />        CosLifeCycle::Key factory_key;<br />        CosLifeCycle::Factory factory_ior;<br />   };</pre></div><a name="wp1059047"> </a><div class="pPreformatted"><pre>   typedef sequence&lt;FactoryComponent&gt; FactoryListing;</pre></div><a name="wp1059048"> </a><div class="pPreformatted"><pre>   interface FactoryFinder : CosLifeCycle::FactoryFinder {<br />     CosLifeCycle::Factory find_one_factory(in CosLifeCycle::Key<br />                                            factory_key)<br />                  raises (CosLifeCycle::NoFactory,<br />                          CannotProceed,<br />                          RegistrarNotAvailable);<br />      CosLifeCycle::Factory find_one_factory_by_id(in string<br />                                                   factory_id)<br />                   raises (CosLifeCycle::NoFactory,<br />                           CannotProceed,<br />                           RegistrarNotAvailable);<br />      CosLifeCycle::Factories find_factories_by_id(in string<br />                                                   factory_id)<br />                     raises (CosLifeCycle::NoFactory,<br />                             CannotProceed,<br />                             RegistrarNotAvailable);<br />      FactoryListing list_factories()<br />                       raises (CannotProceed,<br />                               RegistrarNotAvailable);<br />   };<br />};</pre></div><h4 class="pHeading3"><a name="wp1054680"> </a>
+Locating Factories in Another Domain
+</h4>
+<p class="pBody"><a name="wp1049729"> </a>
+Typically, a FactoryFinder returns references to factory objects that are in the same domain as the FactoryFinder itself. However, it is possible to return references to factory objects in domains other than the domain in which a FactoryFinder exists. This can occur if a FactoryFinder contains information about factories that are resident in another domain (see <a href="factory.html#wp1067778">Figure&#160;5-3</a>). A FactoryFinder finds out about these interdomain factory objects through configuration information that describes the location of these other factory objects.
+</p>
+<p class="pBody"><a name="wp1067771"> </a>
+When a FactoryFinder receives a request to locate a factory object, it must first determine if a reference to a factory object that meets the specified criteria exists. If there is registration information for a factory object that matches the criteria, the FactoryFinder must then determine if the factory object is local to the current domain or needs to be imported from another domain. If the factory object is from the local domain, the FactoryFinder returns the reference to the factory object to the client.
+</p>
+<div class="pFigureTitle"><a name="wp1067778"> </a>
+Figure&#160;5-3  Inter-Domain FactoryFinder Interaction
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1065925"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/ff_fig3.gif" height="252" width="456" alt="Inter-Domain FactoryFinder Interaction" id="wp1067514"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1049317"> </a>
+If, on the other hand, the information indicates that the actual factory object is from another domain, the FactoryFinder delegates the request to an interdomain FactoryFinder in the appropriate domain. As a result, only a FactoryFinder in the same domain as the factory object will contain an actual reference to the factory object. The interdomain FactoryFinder is responsible for returning the reference of the factory object to the local FactoryFinder, which subsequently returns it to the client.
+</p>
+<h4 class="pHeading3"><a name="wp1049779"> </a>
+Why Use Oracle Tuxedo CORBA Extensions?
+</h4>
+<p class="pBody"><a name="wp1049780"> </a>
+The Oracle Tuxedo software extends the interfaces defined in the CORBAservices specification, Chapter 6 &#8220;Life Cycle Service,&#8221; December 1997, published by the Object Management Group, for the following reasons:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1050131"> </a>Although the CORBA-defined approach is powerful and allows various selection criteria, the interface used to query a FactoryFinder can be complicated to use. </li>
+<li><a name="wp1050159"> </a>Additionally, if the selection criterion specified by the client application is not specific enough, it is possible that more than one reference to a factory object may be returned. If this occurs, it is not immediately obvious what a client application should do next. </li>
+<li><a name="wp1050172"> </a>Finally, the CORBAservices specification did not specify a standardized mechanism through which an application server is to register a factory object.</li>
+</ul></div>
+<p class="pBody"><a name="wp1049781"> </a>
+Therefore, Oracle Tuxedo extends the interfaces defined in the CORBAservices specification to make using a FactoryFinder easier. The extensions are manifested as refined interfaces to the FactoryFinder that are derived from the interfaces specified in the CORBAservices specification.
+</p>
+<h3 class="pHeading2"><a name="wp1059870"> </a>
+Creating Application Factory Keys
+</h3>
+<p class="pBody"><a name="wp1059872"> </a>
+Two of the five methods provided by the FactoryFinder interface accept <code class="cCode">CosLifeCycle::Keys</code>, which corresponds to <code class="cCode">CosNaming::Name</code>. A client must be able to construct these keys.
+</p>
+<p class="pBody"><a name="wp1059876"> </a>
+The CosNaming Specification describes two interfaces that constitute a Names Library interface that can be used to create and manipulate <code class="cCode">CosLifeCycle::Keys</code>. The pseudo OMG IDL statements for these interfaces is described in the following section. 
+</p>
+<h4 class="pHeading3"><a name="wp1059878"> </a>
+Names Library Interface Pseudo OMG IDL
+</h4>
+<a name="wp1059879"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This information is taken from the <span style="font-style: italic">CORBAservices: Common Object Services Specification</span>, pp. 3-14 to18. Revised Edition: March 31, 1995. Updated: November 1997. Used with permission by OMG.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1059880"> </a>
+To allow the representation of names to evolve without affecting existing client applications, it is desirable to hide the representation of names from the client application. Ideally, names themselves would be objects; however, names must be lightweight entities that are efficient to create, manipulate, and transmit. As such, names are presented to programs through the names library.
+</p>
+<p class="pBody"><a name="wp1059881"> </a>
+The names library implements names as pseudo-objects. A client application makes calls on a pseudo-object in the same way it makes calls on an ordinary object. Library names are described in pseudo-IDL (to suggest the appropriate language binding). C++ client applications use the same client language bindings for pseudo-IDL (PIDL) as they use for IDL.
+</p>
+<p class="pBody"><a name="wp1059882"> </a>
+Pseudo-object references cannot be passed across OMG IDL interfaces. As described in Chapter 3 of the <em class="cEmphasis">CORBAservices: Common Object Services Specification</em>, in the section &#8220;The CosNaming Module,&#8221; the CORBAservices Naming Service supports the NamingContext OMG IDL interface. The names library supports an operation to convert a library name into a value that can be passed to the name service through the NamingContext interface.
+</p>
+<a name="wp1059883"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>It is not a requirement to use the names library in order to use the CORBAservices Naming Service.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1059884"> </a>
+The names library consists of two pseudo-IDL interfaces, the LNameComponent interface and the LName interface, as shown in <a href="factory.html#wp1059889">Listing&#160;5-5</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1059889"> </a>
+Listing&#160;5-5	   Names Library Interfaces in Pseudo-IDL
+</div> <a name="wp1059890"> </a><div class="pPreformatted"><pre>interface LNameComponent { //  PIDL<br />    const short MAX_LNAME_STRLEN = 128;</pre></div><a name="wp1059891"> </a><div class="pPreformatted"><pre>    exception NotSet{ };<br />    exception OverFlow{ };</pre></div><a name="wp1059892"> </a><div class="pPreformatted"><pre>    string get_id<br />           raises (NotSet);<br />    void set_id(in string i)<br />           raises (OverFlow); <br />    string get_kind()<br />           raises(NotSet);<br />    void set_kind(in string k)<br />           raises (OverFlow);<br />    void destroy();<br />};</pre></div><a name="wp1059893"> </a><div class="pPreformatted"><pre>interface LName {		// PIDL<br />       exception NoComponent{ };<br />       exception OverFlow{ };<br />       exception InvalidName{ };<br />       LName insert_component(in unsigned long i, <br />                     in LNameComponent n)<br />              raises (NoComponent, OverFlow);<br />       LNameComponent get_component(in unsigned long i)<br />              raises (NoComponent);<br />       LNameComponent delete_component(in unsigned long i)<br />&#160;             raises (NoComponent);<br />       unsigned long num_components();<br />       boolean equal(in LName ln);<br />       boolean less_than(in LName ln);<br />       Name to_idl_form()<br />              raises (InvalidName);<br />       void from_idl_form(in Name n);<br />       void destroy();<br />};</pre></div><a name="wp1059894"> </a><div class="pPreformatted"><pre>LName create_lname();			// C/C++<br />LNameComponent create_lname_component();	// C/C++</pre></div><h5 class="pHeading4"><a name="wp1059896"> </a>
+Creating a Library Name Component
+</h5>
+<p class="pBody"><a name="wp1059897"> </a>
+To create a library name component pseudo-object, use the following C/C++ function:
+</p>
+<p class="pBody"><a name="wp1059898"> </a>
+<code class="cCode">LNameComponent create_lname_component();    // C/C++</code>
+</p>
+<p class="pBody"><a name="wp1059899"> </a>
+The returned pseudo-object can then be operated on using the operations shown in <a href="factory.html#wp1059889">Listing&#160;5-5</a>. 
+</p>
+<h5 class="pHeading4"><a name="wp1059903"> </a>
+Creating a Library Name
+</h5>
+<p class="pBody"><a name="wp1059904"> </a>
+To create a library name pseudo-object, use the following C/C++ function:
+</p>
+<p class="pBody"><a name="wp1059905"> </a>
+<code class="cCode">LName create_lname();        // C/C++</code>
+</p>
+<p class="pBody"><a name="wp1059906"> </a>
+The returned pseudo-object reference can then be operated on using the operations shown in <a href="factory.html#wp1059889">Listing&#160;5-5</a>.
+</p>
+<h5 class="pHeading4"><a name="wp1059910"> </a>
+The LNameComponent Interface
+</h5>
+<p class="pBody"><a name="wp1059911"> </a>
+A name component consists of two attributes: <code class="cCode">identifier</code> and <code class="cCode">kind</code>. The LNameComponent interface defines the operations associated with these attributes, as follows:
+</p>
+<a name="wp1059912"> </a><div class="pPreformatted"><pre><code class="cCode">string get_id()<br />raises(NotSet);<br />void set_id(in string k);<br />string get_kind()<br />raises(NotSet);<br />void set_kind(in string k);</code></pre></div><h4 class="pDefTerm"><a name="wp1059913"> </a>
+<code class="cCode">get_id</code>
+</h4><div class="pDefPara"><a name="wp1059914"> </a>
+The <code class="cCode">get_id</code> operation returns the <code class="cCode">identifier</code> attribute&#8217;s value. If the attribute has not been set, the <code class="cCode">NotSet</code> exception is raised.
+</div>
+<h4 class="pDefTerm"><a name="wp1059915"> </a>
+<code class="cCode">set_id</code>
+</h4><div class="pDefPara"><a name="wp1059916"> </a>
+The <code class="cCode">set_id</code> operation sets the <code class="cCode">identifier</code> attribute to the string argument.
+</div>
+<h4 class="pDefTerm"><a name="wp1059917"> </a>
+<code class="cCode">get_kind</code>
+</h4><div class="pDefPara"><a name="wp1059918"> </a>
+The <code class="cCode">get_kind</code> operation returns the <code class="cCode">kind</code> attribute&#8217;s value. If the attribute has not been set, the <code class="cCode">NotSet</code> exception is raised.
+</div>
+<h4 class="pDefTerm"><a name="wp1059919"> </a>
+<code class="cCode">set_kind</code>
+</h4><div class="pDefPara"><a name="wp1059920"> </a>
+The <code class="cCode">set_kind</code> operation sets the <code class="cCode">kind</code> attribute to the string argument.
+</div>
+<h5 class="pHeading4"><a name="wp1059921"> </a>
+The LName Interface
+</h5>
+<p class="pBody"><a name="wp1059922"> </a>
+The following operations are described in this section:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1059923"> </a>Destroying a library name component pseudo-object</li>
+<li><a name="wp1059924"> </a>Inserting a name component</li>
+<li><a name="wp1059925"> </a>Getting the i<sup class="cSuperscript">th</sup> name component</li>
+<li><a name="wp1059926"> </a>Deleting a name component</li>
+<li><a name="wp1059927"> </a>Number of name components</li>
+<li><a name="wp1059928"> </a>Testing for equality</li>
+<li><a name="wp1059929"> </a>Testing for order</li>
+<li><a name="wp1059930"> </a>Producing an OMG IDL form</li>
+<li><a name="wp1059931"> </a>Translating an OMG IDL form</li>
+<li><a name="wp1059932"> </a>Destroying a library name pseudo-object</li>
+</ul></div>
+<h5 class="pHeading4"><a name="wp1059933"> </a>
+Destroying a Library Name Component Pseudo-Object
+</h5>
+<p class="pBody"><a name="wp1059934"> </a>
+The <code class="cCode">destroy</code> operation destroys library name component pseudo-objects.
+</p>
+<p class="pBody"><a name="wp1059935"> </a>
+<code class="cCode">void destroy();</code>
+</p>
+<h5 class="pHeading4"><a name="wp1059936"> </a>
+Inserting a Name Component
+</h5>
+<p class="pBody"><a name="wp1059937"> </a>
+A name has one or more components. Each component except the last is used to identify names of subcontexts. (The last component denotes the bound object.) The <code class="cCode">insert_component</code> operation inserts a component after position <code class="cCode">i</code>.
+</p>
+<p class="pBody"><a name="wp1059938"> </a>
+<code class="cCode">LName insert_component(in unsigned long i, in LNameComponent lnc)<br />raises(NoComponent, OverFlow);</code>
+</p>
+<p class="pBody"><a name="wp1059939"> </a>
+If component <code class="cCode">i</code>-1 is undefined and component <code class="cCode">i</code> is greater than 1 (one), the <code class="cCode">insert_component</code> operation raises the <code class="cCode">NoComponent</code> exception.
+</p>
+<p class="pBody"><a name="wp1059940"> </a>
+If the library cannot allocate resources for the inserted component, the <code class="cCode">OverFlow</code> exception is raised.
+</p>
+<h5 class="pHeading4"><a name="wp1059941"> </a>
+Getting the i<sup class="cSuperscript">th</sup> Name Component
+</h5>
+<p class="pBody"><a name="wp1059942"> </a>
+The <code class="cCode">get_component</code> operation returns the <code class="cCode">i</code><sup class="cSuperscript">th</sup> component. The first component is numbered 1 (one).
+</p>
+<p class="pBody"><a name="wp1059943"> </a>
+<code class="cCode">LNameComponent get_component(in unsigned long i)<br />raises(NoComponent);</code>
+</p>
+<p class="pBody"><a name="wp1059944"> </a>
+If the component does not exist, the <code class="cCode">NoComponent</code> exception is raised.
+</p>
+<h5 class="pHeading4"><a name="wp1059945"> </a>
+Deleting a Name Component
+</h5>
+<p class="pBody"><a name="wp1059946"> </a>
+The <code class="cCode">delete_component</code> operation removes and returns the <code class="cCode">i</code><sup class="cSuperscript">th</sup> component.
+</p>
+<p class="pBody"><a name="wp1059947"> </a>
+<code class="cCode">LNameComponent delete_component(in unsigned long i)<br />     raises(NoComponent);</code>
+</p>
+<p class="pBody"><a name="wp1059948"> </a>
+If the component does not exist, the <code class="cCode">NoComponent</code> exception is raised.
+</p>
+<p class="pBody"><a name="wp1059949"> </a>
+After a <code class="cCode">delete_component</code> operation has been performed, the compound name has one fewer component and components previously identified as <code class="cCode">i</code>+1...n are now identified as <code class="cCode">i</code>...n-1.
+</p>
+<h5 class="pHeading4"><a name="wp1059950"> </a>
+Number of Name Components
+</h5>
+<p class="pBody"><a name="wp1059951"> </a>
+The <code class="cCode">num_components</code> operation returns the number of components in a library name.
+</p>
+<p class="pBody"><a name="wp1059952"> </a>
+<code class="cCode">unsigned long num_components();</code>
+</p>
+<h5 class="pHeading4"><a name="wp1059953"> </a>
+Testing for Equality
+</h5>
+<p class="pBody"><a name="wp1059954"> </a>
+The equal operation tests for equality with library name <code class="cCode">ln</code>.
+</p>
+<p class="pBody"><a name="wp1059955"> </a>
+<code class="cCode">boolean equal(in LName ln);</code>
+</p>
+<h5 class="pHeading4"><a name="wp1059956"> </a>
+Testing for Order
+</h5>
+<p class="pBody"><a name="wp1059957"> </a>
+The <code class="cCode">less_than</code> operation tests for the order of a library name in relation to library name <code class="cCode">ln</code>.
+</p>
+<p class="pBody"><a name="wp1059958"> </a>
+<code class="cCode">boolean less_than(in LName ln);</code>
+</p>
+<p class="pBody"><a name="wp1059959"> </a>
+This operation returns <code class="cCode">TRUE</code> if the library name is less than the library name <code class="cCode">ln</code> passed as an argument. The library implementation defines the ordering on names.
+</p>
+<h5 class="pHeading4"><a name="wp1059960"> </a>
+Producing an OMG IDL Form
+</h5>
+<p class="pBody"><a name="wp1059961"> </a>
+Pseudo-objects cannot be passed across OMG IDL interfaces. The library name is a pseudo-object; therefore, it cannot be passed across the OMG IDL interface for the CORBAservices Naming Service. Several operations in the NamingContext interface have arguments of an OMG IDL-defined structure, <code class="cCode">Name</code>. The following PIDL operation on library names produces a structure that can be passed across the OMG IDL request.
+</p>
+<p class="pBody"><a name="wp1059962"> </a>
+<code class="cCode">Name to_idl_form()<br />    raises(InvalidName);</code>
+</p>
+<p class="pBody"><a name="wp1059963"> </a>
+If the name is of length 0 (zero), the <code class="cCode">InvalidName</code> exception is returned.
+</p>
+<h5 class="pHeading4"><a name="wp1059964"> </a>
+Translating an IDL Form
+</h5>
+<p class="pBody"><a name="wp1059965"> </a>
+Pseudo-objects cannot be passed across OMG IDL interfaces. The library name is a pseudo-object; therefore, it cannot be passed across the OMG IDL interface for the CORBAservices Naming Service. The NamingContext interface defines operations that return an IDL struct of type <code class="cCode">Name</code>. The following PIDL operation on library names sets the components and <code class="cCode">kind</code> attribute for a library name from a returned OMG IDL defined structure, <code class="cCode">Name</code>.
+</p>
+<p class="pBody"><a name="wp1059966"> </a>
+<code class="cCode">void from_idl_form(in Name n);</code>
+</p>
+<h5 class="pHeading4"><a name="wp1059967"> </a>
+Destroying a Library Name Pseudo-Object
+</h5>
+<p class="pBody"><a name="wp1059968"> </a>
+The <code class="cCode">destroy</code> operation destroys library name pseudo-objects.
+</p>
+<p class="pBody"><a name="wp1059969"> </a>
+<code class="cCode">void destroy();</code>
+</p>
+<h4 class="pHeading3"><a name="wp1059970"> </a>
+C++ Mapping
+</h4>
+<p class="pBody"><a name="wp1059971"> </a>
+The Names Library pseudo OMG IDL interface maps to the C++ classes shown in <a href="factory.html#wp1059987">Listing&#160;5-6</a>, which can be found in the <code class="cCode">NamesLib.h</code> header file. 
+</p>
+<p class="pBody"><a name="wp1059978"> </a>
+Two Oracle Tuxedo extensions to CORBA are included to support scalability. Specifically, the <code class="cCode">LNameComponent::set_id() </code>and <code class="cCode">LNameComponent::set_kind()</code> methods raise an <code class="cCode">OverFlow</code> exception if the length of the input string exceeds <code class="cCode">MAX_LNAME_STRLEN</code>. This length coincides with the maximum length of the Oracle Tuxedo object ID (OID) and interface name. For a detailed description of the Library Name class, see the section <a href="factory.html#wp1059878">Names Library Interface Pseudo OMG IDL</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1059987"> </a>
+Listing&#160;5-6	   Library Name Class 
+</div> <a name="wp1059988"> </a><div class="pPreformatted"><pre>const short MAX_LNAME_STRLEN = 128;</pre></div><a name="wp1059989"> </a><div class="pPreformatted"><pre>class LNameComponent {<br />public:<br />      class NotSet{ };<br />      class OverFlow{ };<br />      static LNameComponent* create_lname_component();<br />      void   destroy();<br />      const char*   get_id() const throw (NotSet);<br />      void          set_id(const char* i) throw (OverFlow);<br />      const char*   get_kind() const throw (NotSet);<br />      void          set_kind(const char* k) throw (OverFlow);<br />};</pre></div><a name="wp1059990"> </a><div class="pPreformatted"><pre>class LName {<br />public:<br />       class NoComponent{ };<br />       class OverFlow{ };<br />       class InvalidName{ };<br />       static LName* create_lname();<br />       void destroy();<br />       LName* insert_component(const unsigned long i,<br />                     LNameComponent* n)<br />              throw (NoComponent, OverFlow);<br />       const LNameComponent* get_component(<br />                     const unsigned long i) const<br />              throw (NoComponent);<br />       const LNameComponent* delete_component(<br />                     const unsigned long i)<br />              throw (NoComponent);<br />       unsigned long num_components() const;<br />       CORBA::Boolean equal(const LName* ln) const;<br />       CORBA::Boolean less_than(<br />               const LName* ln) const; // not implemented<br />       CosNaming::Name* to_idl_form()<br />              throw (InvalidName);<br />       void from_idl_form(const CosNaming::Name&amp; n);<br />};</pre></div><h4 class="pHeading3"><a name="wp1059992"> </a>
+Java Mapping
+</h4>
+<p class="pBody"><a name="wp1059993"> </a>
+The Names Library pseudo OMG IDL interface maps to the Java classes contained in the <code class="cCode">com.beasys.Tobj</code> package, shown in <a href="factory.html#wp1060000">Listing&#160;5-7</a>. All exceptions are contained in the same package.
+</p>
+<p class="pBody"><a name="wp1059998"> </a>
+For a detailed description of the Library Name class, refer to Chapter 3 in the <span style="font-style: italic">CORBAservices: Common Object Services Specification</span>.
+</p>
+<div class="pCodeTitle"><a name="wp1060000"> </a>
+Listing&#160;5-7	   Java Mapping for LNameComponent
+</div> <a name="wp1060002"> </a><div class="pPreformatted"><pre><code class="cCode">public class LNameComponent {<br />    public static LNameComponent create_lname_component();<br />    public static final short MAX_LNAME_STRING = 128;<br />    public void	 destroy();<br />    public String get_id() throws NotSet;<br />    public void   set_id(String i) throws OverFlow;<br />    public String get_kind() throws NotSet;<br />    public void   set_kind(String k) throws OverFlow;<br />};</code></pre></div><a name="wp1060004"> </a><div class="pPreformatted"><pre><code class="cCode">public class LName {</code></pre></div><a name="wp1060005"> </a><div class="pPreformatted"><pre><code class="cCode">   public static LName create_lname();<br />   public void destroy();<br />   public LName insert_component(long i, LNameComponent n)<br />     throws NoComponent, OverFlow;<br />   public LNameComponent get_component(long i)<br />     throws NoComponent;<br />   public LNameComponent delete_component(long i)<br />     throws NoComponent;<br />   public long num_components();<br />   public boolean equal(LName ln);<br />   public boolean less_than(LName ln);	// not implemented<br />   public org.omg.CosNaming.NameComponent[] to_idl_form()<br />     throws InvalidName;<br />   public void from_idl_form(org.omg.CosNaming.NameComponent[] nr);<br />};</code></pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1031237"> </a>
+C++ Member Functions and Java Methods
+</h2><p class="pBody"><a name="wp1018660"> </a>
+This section describes the FactoryFinder C++ member functions and Java methods.
+</p>
+<a name="wp1020889"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>All FactoryFinder member functions, except the <code class="cCode">less_than</code> member function in LName, are implemented in both C++ and Java. </td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1060904"> </a>
+The following methods are described in this section:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1060912"> </a><code class="cCode">CosLifeCycle::FactoryFinder::find_factories</code></li>
+<li><a name="wp1060916"> </a><code class="cCode">Tobj::Factoryfinder::find_one_factory</code></li>
+<li><a name="wp1060917"> </a><code class="cCode">Tobj::Factoryfinder::find_one_factory_by_id</code></li>
+<li><a name="wp1060922"> </a><code class="cCode">Tobj::Factoryfinder::find_factories_by_id</code></li>
+<li><a name="wp1062572"> </a><code class="cCode">Tobj::Factoryfinder::list_factories</code></li>
+</ul></div>
+<a name="wp1060947"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td><code class="cCode">The CosLifeCycle::FactoryFinder::find_factories</code> method is the standard CORBA CosLifeCycle method. The four Tobj methods are extensions to the CosLifeCycle interface and, therefore, inherit the attributes of the CosLifeCycle interface. </td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp1060705"> </a>
+CosLifeCycle::FactoryFinder::find_factories
+</h3>
+<h4 class="pHeading3"><a name="wp1060706"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1060707"> </a>
+Obtains a sequence of factory object references.
+</p>
+<h4 class="pHeading3"><a name="wp1060708"> </a>
+C++ Mapping
+</h4>
+<a name="wp1060709"> </a><div class="pPreformatted"><pre>CosLifeCycle::Factories *<br />CORBA::Object_ptr CosLifeCycle::FactoryFinder::find_factories(<br />             const CosNaming::Name&amp; factory_key)<br />      throw (CosLifeCycle::NoFactory);</pre></div><h4 class="pHeading3"><a name="wp1060710"> </a>
+Java Mapping
+</h4>
+<a name="wp1060711"> </a><div class="pPreformatted"><pre>import org.omg.CosLifeCycle.*;</pre></div><a name="wp1060712"> </a><div class="pPreformatted"><pre>public org.omg.CORBA.Object[] find_factories(<br />           org.omg.CosNaming.NameComponent[] factory_key)<br />    throws org.omg.CosLifeCycle.NoFactory;</pre></div><h4 class="pHeading3"><a name="wp1060713"> </a>
+Parameter
+</h4>
+<h4 class="pDefTerm"><a name="wp1060715"> </a>
+<code class="cCode">factory_key</code>
+</h4><div class="pDefPara"><a name="wp1060717"> </a>
+This parameter is an unbounded sequence of NameComponents (tuple of &lt;id, kind&gt; pairs) that uniquely identifies a factory object reference.
+<a name="wp1060988"> </a>
+A NameComponent is defined as a having two members: an <code class="cCode">id</code> and a <code class="cCode">kind</code>, both of type string. The <code class="cCode">id</code> field is used to represent the identity of factory object. The <code class="cCode">kind</code> field is used to indicate how the value of the <code class="cCode">id</code> field should be interpreted.
+<a name="wp1060989"> </a>
+References to factory object registered using the operation <code class="cCode">TP::register_factory</code> will have a kind value of <code class="cCode">&#8220;FactoryInterface&#8221;</code>.
+</div>
+<h4 class="pHeading3"><a name="wp1060719"> </a>
+Exception
+</h4>
+<h4 class="pDefTerm"><a name="wp1061223"> </a>
+<code class="cCode">CORBA::BAD_PARAM</code>
+</h4><div class="pDefPara"><a name="wp1061324"> </a>
+Indicates that the value of an input parameter has an inappropriate value or is invalid. Of particular importance, the exception is raised if no value or a NULL value for the parameter <code class="cCode">factory_key</code> is specified.
+</div>
+<h4 class="pDefTerm"><a name="wp1061350"> </a>
+<code class="cCode">CosLifeCycle::NoFactory</code>
+</h4><div class="pDefPara"><a name="wp1061410"> </a>
+Indicates that there are no factories registered that match the information in the <code class="cCode">factory_key</code> parameter.
+</div>
+<h4 class="pHeading3"><a name="wp1061423"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1061456"> </a>
+The <code class="cCode">find_factories</code> method is called by an application to obtain a sequence of factory object references. The operation is passed a key used to identify the desired factory. The key is a name, as defined by the CORBAservices Naming service. More than one factory may match the key, and, if that is the case, the FactoryFinder returns a sequence of factories.
+</p>
+<p class="pBody"><a name="wp1061457"> </a>
+The scope of the key is the FactoryFinder. The FactoryFinder assigns no semantics to the key. It simply matches keys. It makes no guarantees about the interface or implementation of the returned factories or objects they create.
+</p>
+<p class="pBody"><a name="wp1060723"> </a>
+Key values are considered equal if they are of equal length (same number of elements in the sequence), and if every NameComponent value in the key matches the corresponding NameComponent value at the exact same location in the key that was specified when the reference to the factory object was registered.
+</p>
+<h4 class="pHeading3"><a name="wp1060727"> </a>
+Return Values
+</h4>
+<p class="pBody"><a name="wp1061501"> </a>
+An unbounded sequence of references to factory objects that match the information specified as the value of the <code class="cCode">factory_key</code> parameter. In C++, the method returns a sequence of object references of type <code class="cCode">CosLifeCycle::Factory</code>. In Java, the method returns an unbounded array of object references of type <code class="cCode">org.omg.CORBA.Object</code>.
+</p>
+<p class="pBody"><a name="wp1061502"> </a>
+If the operation raises an exception, the return value is invalid and does not need to be released by the caller.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp1031977"> </a>
+Tobj::FactoryFinder::find_one_factory
+</h3>
+<h4 class="pHeading3"><a name="wp1031978"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1031979"> </a>
+	Obtains a reference to a single factory object. 
+</p>
+<h4 class="pHeading3"><a name="wp1031980"> </a>
+C++ Mapping
+</h4>
+<a name="wp1061590"> </a><div class="pPreformatted"><pre>virtual CosLifeCycle::Factory_ptr <br />       find_one_factory( const CosNaming::Name&amp; factory_key) = 0;</pre></div><h4 class="pHeading3"><a name="wp1061591"> </a>
+Java Mapping
+</h4>
+<a name="wp1031984"> </a><div class="pPreformatted"><pre>public org.omg.CORBA.Object <br />  find_one_factory( org.omg.CosNaming.NameComponent[] factory_key) <br />    throws<br />       org.omg.CosLifeCycle.NoFactory,<br />       com.beasys.Tobj.CannotProceed,<br />       com.beasys.Tobj.RegistrarNotAvailable;</pre></div><h4 class="pHeading3"><a name="wp1031985"> </a>
+Parameter
+</h4>
+<h4 class="pDefTerm"><a name="wp1061629"> </a>
+<code class="cCode">factory_key</code>
+</h4><div class="pDefPara"><a name="wp1061631"> </a>
+This parameter is an unbounded sequence of NameComponents (tuple of &lt;id, kind&gt; pairs) that uniquely identifies a factory object reference.
+<a name="wp1061632"> </a>
+A NameComponent is defined as a having two members: an <code class="cCode">id</code> and a <code class="cCode">kind</code>, both of type string. The <code class="cCode">id</code> field is used to represent the identity of factory object. The <code class="cCode">kind</code> field is used to indicate how the value of the <code class="cCode">id</code> field should be interpreted.
+<a name="wp1031987"> </a>
+References to factory object registered using the operation <code class="cCode">TP::register_factory</code> will have a kind value of <code class="cCode">&#8220;FactoryInterface&#8221;</code>.
+</div>
+<h4 class="pHeading3"><a name="wp1031989"> </a>
+Exceptions
+</h4>
+<h4 class="pDefTerm"><a name="wp1061641"> </a>
+<code class="cCode">CORBA::BAD_PARAM</code>
+</h4><div class="pDefPara"><a name="wp1061642"> </a>
+Indicates that the value of an input parameter has an inappropriate value or is invalid. Of particular importance, the exception is raised if no value or a NULL value for the parameter <code class="cCode">factory_key</code> is specified.
+</div>
+<h4 class="pDefTerm"><a name="wp1061643"> </a>
+<code class="cCode">CosLifeCycle::NoFactory</code>
+</h4><div class="pDefPara"><a name="wp1061644"> </a>
+Indicates that there are no factories registered that match the information in the <code class="cCode">factory_key</code> parameter.
+</div>
+<h4 class="pDefTerm"><a name="wp1031992"> </a>
+<code class="cCode">Tobj::CannotProceed</code>
+</h4><div class="pDefPara"><a name="wp1061674"> </a>
+Indicates that the FactoryFinder or NameManager encountered an internal error while attempting to locate a reference for a factory object.
+<a name="wp1061696"> </a>
+Error information is written to the user log. 
+</div>
+<h4 class="pDefTerm"><a name="wp1031994"> </a>
+<code class="cCode">Tobj::RegistrarNotAvailable</code>
+</h4><div class="pDefPara"><a name="wp1061741"> </a>
+Indicates that the FactoryFinder could not communicate with the NameManager.
+<a name="wp1061756"> </a>
+Error information is written to the user log.
+</div>
+<h4 class="pHeading3"><a name="wp1031996"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1061763"> </a>
+The <code class="cCode">find_one_factory </code>method is called by an application to obtain a reference to a single factory object whose key matches the value of the key specified as input to the method. If more than one factory object is registered with the specified key, the FactoryFinder selects one factory object based on the FactoryFinder&#8217;s load balancing scheme. As a result, invoking the <code class="cCode">find_one_factory</code> method multiple times using the same key may return different object references.
+</p>
+<p class="pBody"><a name="wp1061764"> </a>
+The scope of the key is the FactoryFinder. The FactoryFinder assigns no semantics to the key. It simply matches keys. It makes no guarantees about the interface or implementation of the returned factory or objects they create.
+</p>
+<p class="pBody"><a name="wp1031997"> </a>
+Key values are considered equal if they are of equal length (same number of elements in the sequence), and if every NameComponent value in the key matches the corresponding NameComponent value at the exact same location in the key that was specified when the reference to the factory object was registered.
+</p>
+<h4 class="pHeading3"><a name="wp1031999"> </a>
+Return Values
+</h4>
+<p class="pBody"><a name="wp1061820"> </a>
+An object reference for a factory object. In C++, the method returns an object reference of type <code class="cCode">CosLifeCycle::Factory</code>. In Java, the method returns an object reference of type <code class="cCode">org.omg.CORBA.Object</code>.
+</p>
+<p class="pBody"><a name="wp1061821"> </a>
+If the operation raises an exception, the return value is invalid and does not need to be released by the caller.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp1012495"> </a>
+Tobj::FactoryFinder::find_one_factory_by_id
+</h3>
+<h4 class="pHeading3"><a name="wp1012496"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1019670"> </a>
+Obtains a reference to a single factory object. 
+</p>
+<h4 class="pHeading3"><a name="wp1012498"> </a>
+C++ Mapping
+</h4>
+<a name="wp1061858"> </a><div class="pPreformatted"><pre>virtual CosLifeCycle::Factory_ptr <br />    find_one_factory_by_id( const char * factory_id) = 0;</pre></div><h4 class="pHeading3"><a name="wp1016810"> </a>
+Java Mapping
+</h4>
+<a name="wp1026673"> </a><div class="pPreformatted"><pre>public org.omg.CORBA.Object <br />    find_one_factory_by_id( java.lang.String factory_id) <br />      throws<br />        org.omg.CosLifeCycle.NoFactory,<br />        com.beasys.Tobj.CannotProceed,<br />        com.beasys.Tobj.RegistrarNotAvailable;</pre></div><h4 class="pHeading3"><a name="wp1026643"> </a>
+Parameter
+</h4>
+<h4 class="pDefTerm"><a name="wp1061923"> </a>
+<code class="cCode">factory_id</code>
+</h4><div class="pDefPara"><a name="wp1061942"> </a>
+A NULL-terminated string that contains a value that is used to identify the registered factory object to be found.
+<a name="wp1061924"> </a>
+The value of the <code class="cCode">factory_id</code> parameter is used as the value of the <code class="cCode">id</code> field of a NameComponent that has a <code class="cCode">kind</code> field with the value <code class="cCode">&#8220;FactoryInterface&#8221;</code> when comparing against registered references for factory objects.
+</div>
+<h4 class="pHeading3"><a name="wp1061929"> </a>
+Exceptions
+</h4>
+<h4 class="pDefTerm"><a name="wp1062026"> </a>
+<code class="cCode">CORBA::BAD_PARAM</code>
+</h4><div class="pDefPara"><a name="wp1062027"> </a>
+Indicates that the value of an input parameter has an inappropriate value or is invalid. Of particular importance, the exception is raised if no value or a NULL value for the parameter <code class="cCode">factory_key</code> is specified.
+</div>
+<h4 class="pDefTerm"><a name="wp1062028"> </a>
+<code class="cCode">CosLifeCycle::NoFactory</code>
+</h4><div class="pDefPara"><a name="wp1062029"> </a>
+Indicates that there are no factories registered that match the information in the <code class="cCode">factory_key</code> parameter.
+</div>
+<h4 class="pDefTerm"><a name="wp1062030"> </a>
+<code class="cCode">Tobj::CannotProceed</code>
+</h4><div class="pDefPara"><a name="wp1062031"> </a>
+Indicates that the FactoryFinder or NameManager encountered an internal error while attempting to locate a reference for a factory object.
+<a name="wp1062032"> </a>
+Error information is written to the user log. 
+</div>
+<h4 class="pDefTerm"><a name="wp1062033"> </a>
+<code class="cCode">Tobj::RegistrarNotAvailable</code>
+</h4><div class="pDefPara"><a name="wp1062034"> </a>
+Indicates that the FactoryFinder could not communicate with the NameManager.
+<a name="wp1023988"> </a>
+Error information is written to the user log.
+</div>
+<h4 class="pHeading3"><a name="wp1012502"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1062046"> </a>
+The <code class="cCode">find_one_factory_by_id</code> method is called by an application to obtain a reference to a single factory object whose registration ID matches the value of the ID specified as input to the method. If more than one factory object is registered with the specified ID, the FactoryFinder selects one factory object based on the FactoryFinder&#8217;s load balancing scheme. As a result, invoking the <code class="cCode">find_one_factory_by_id</code> operation multiple times using the same ID may return different object references.
+</p>
+<p class="pBody"><a name="wp1062047"> </a>
+The <code class="cCode">find_one_factory_by_id</code> method behaves the same as the <code class="cCode">find_one_factory</code> operation that was passed a key that contains a single NameComponent with an <code class="cCode">id</code> field that contains the same value as the <code class="cCode">factory_id</code> parameter and a <code class="cCode">kind</code> field that contains the value <code class="cCode">&#8220;FactoryInterface&#8221;</code>.
+</p>
+<p class="pBody"><a name="wp1062048"> </a>
+The registered identifier for a factory is considered equal to the value of the <code class="cCode">factory_id</code> parameter if the result of constructing a <code class="cCode">CosLifeCycle::Key</code> structure containing a single NameComponent that has the <code class="cCode">factory_id</code> parameter as the value of the <code class="cCode">id</code> field and the value <code class="cCode">&#8220;FactoryInterface&#8221;</code> as the value of the <code class="cCode">kind</code> field. The values must match exactly in all respects (case, location, etc.).
+</p>
+<h4 class="pHeading3"><a name="wp1012504"> </a>
+Return Values
+</h4>
+<p class="pBody"><a name="wp1061998"> </a>
+An object reference for a factory object. In C++, the method returns an object reference of type <code class="cCode">CosLifeCycle::Factory</code>. In Java, the method returns an object reference of type <code class="cCode">org.omg.CORBA.Object</code>.
+</p>
+<p class="pBody"><a name="wp1062024"> </a>
+If the operation raises an exception, the return value is invalid and does not need to be released by the caller.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp1012523"> </a>
+Tobj::FactoryFinder::find_factories_by_id
+</h3>
+<h4 class="pHeading3"><a name="wp1012524"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1012525"> </a>
+Obtains a sequence of one or more factory object references.
+</p>
+<h4 class="pHeading3"><a name="wp1012526"> </a>
+C++ Mapping
+</h4>
+<a name="wp1062125"> </a><div class="pPreformatted"><pre>virtual CosLifeCycle::Factories * <br />    find_factories_by_id( const char * factory_id) = 0;</pre></div><h4 class="pHeading3"><a name="wp1016897"> </a>
+Java Mapping
+</h4>
+<a name="wp1026720"> </a><div class="pPreformatted"><pre>public org.omg.CORBA.Object[]<br />   find_factories_by_id( java.lang.String factory_id) <br />     throws<br />         org.omg.CosLifeCycle.NoFactory,<br />         com.beasys.Tobj.CannotProceed,<br />         com.beasys.Tobj.RegistrarNotAvailable;</pre></div><h4 class="pHeading3"><a name="wp1026687"> </a>
+Parameter
+</h4>
+<h4 class="pDefTerm"><a name="wp1062181"> </a>
+<code class="cCode">factory_id</code>
+</h4><div class="pDefPara"><a name="wp1062182"> </a>
+A NULL-terminated string that contains a value that is used to identify the registered factory object to be found.
+<a name="wp1024001"> </a>
+The value of the <code class="cCode">factory_id</code> parameter is used as the value of the <code class="cCode">id</code> field of a NameComponent that has a <code class="cCode">kind</code> field with the value <code class="cCode">&#8220;FactoryInterface&#8221;</code> when comparing against registered references for factory objects.
+</div>
+<h4 class="pHeading3"><a name="wp1016848"> </a>
+Exceptions
+</h4>
+<h4 class="pDefTerm"><a name="wp1062191"> </a>
+<code class="cCode">CORBA::BAD_PARAM</code>
+</h4><div class="pDefPara"><a name="wp1062192"> </a>
+Indicates that the value of an input parameter has an inappropriate value or is invalid. Of particular importance, the exception is raised if no value or a NULL value for the parameter <code class="cCode">factory_key</code> is specified.
+</div>
+<h4 class="pDefTerm"><a name="wp1062193"> </a>
+<code class="cCode">CosLifeCycle::NoFactory</code>
+</h4><div class="pDefPara"><a name="wp1062194"> </a>
+Indicates that there are no factories registered that match the information in the <code class="cCode">factory_key</code> parameter.
+</div>
+<h4 class="pDefTerm"><a name="wp1062195"> </a>
+<code class="cCode">Tobj::CannotProceed</code>
+</h4><div class="pDefPara"><a name="wp1062196"> </a>
+Indicates that the FactoryFinder or NameManager encountered an internal error while attempting to locate a reference for a factory object.
+<a name="wp1062197"> </a>
+Error information is written to the user log. 
+</div>
+<h4 class="pDefTerm"><a name="wp1062198"> </a>
+<code class="cCode">Tobj::RegistrarNotAvailable</code>
+</h4><div class="pDefPara"><a name="wp1062199"> </a>
+Indicates that the FactoryFinder could not communicate with the NameManager.
+<a name="wp1024004"> </a>
+Error information is written to the user log.
+</div>
+<h4 class="pHeading3"><a name="wp1012530"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1062212"> </a>
+The <code class="cCode">find_factories_by_id</code> method is called by an application to obtain a sequence of one or more factory object references. The method is passed a NULL-terminated string that contains the identifier of the factory to be located. If more than one factory object is registered with the specified ID, the FactoryFinder will return a list of object references for the matching registered factory objects.
+</p>
+<p class="pBody"><a name="wp1062213"> </a>
+The <code class="cCode">find_factories_by_id</code> method behaves the same as the <code class="cCode">find_factory</code> operation that was passed a key that contains a single NameComponent with an <code class="cCode">id</code> field that contains the same value as the <code class="cCode">factory_id</code> parameter and a <code class="cCode">kind</code> field that contains the value <code class="cCode">&#8220;FactoryInterface&#8221;</code>.
+</p>
+<p class="pBody"><a name="wp1062282"> </a>
+The registered identifier for a factory is considered equal to the value of the <code class="cCode">factory_id</code> parameter if the result of constructing a <code class="cCode">CosLifeCycle::Key</code> structure containing a single NameComponent that has the <code class="cCode">factory_id</code> parameter as the value of the <code class="cCode">id</code> field and the value <code class="cCode">&#8220;FactoryInterface&#8221;</code> as the value of the <code class="cCode">kind</code> field. The values must match exactly in all respects (case, location, etc.).
+</p>
+<h4 class="pHeading3"><a name="wp1012532"> </a>
+Return Values
+</h4>
+<p class="pBody"><a name="wp1062296"> </a>
+An unbounded sequence of references to factory objects that match the information specified as the value of the <code class="cCode">factory_key</code> parameter. In C++, the method returns a sequence of object references of type <code class="cCode">CosLifeCycle::Factory</code>. In Java, the method returns an unbounded array of object references of type <code class="cCode">org.omg.CORBA.Object</code>.
+</p>
+<p class="pBody"><a name="wp1028253"> </a>
+If the operation raises an exception, the return value is invalid and does not need to be released by the caller.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp1019736"> </a>
+Tobj::Factoryfinder::list_factories
+</h3>
+<h4 class="pHeading3"><a name="wp1036030"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1036031"> </a>
+Obtains a list of factory objects currently registered with the FactoryFinder.
+</p>
+<h4 class="pHeading3"><a name="wp1036032"> </a>
+C++ Mapping
+</h4>
+<a name="wp1036093"> </a><div class="pPreformatted"><pre>virtual FactoryListing * list_factories() = 0;</pre></div><h4 class="pHeading3"><a name="wp1036034"> </a>
+Java Mapping
+</h4>
+<a name="wp1036132"> </a><div class="pPreformatted"><pre>public com.beasys.Tobj.FactoryComponent[] list_factories()<br />  throws<br />      com.beasys.Tobj.CannotProceed,<br />       com.beasys.Tobj.RegistrarNotAvailable;</pre></div><h4 class="pHeading3"><a name="wp1036043"> </a>
+Exception
+</h4>
+<h4 class="pDefTerm"><a name="wp1062330"> </a>
+<code class="cCode">Tobj::CannotProceed</code>
+</h4><div class="pDefPara"><a name="wp1062331"> </a>
+Indicates that the FactoryFinder or NameManager encountered an internal error while attempting to locate a reference for a factory object.
+<a name="wp1062332"> </a>
+Error information is written to the user log. 
+</div>
+<h4 class="pDefTerm"><a name="wp1062333"> </a>
+<code class="cCode">Tobj::RegistrarNotAvailable</code>
+</h4><div class="pDefPara"><a name="wp1062334"> </a>
+Indicates that the FactoryFinder could not communicate with the NameManager.
+<a name="wp1062335"> </a>
+Error information is written to the user log.
+</div>
+<h4 class="pHeading3"><a name="wp1036046"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1062339"> </a>
+The <code class="cCode">list_factories</code> method is called by an application to obtain a list of the factory objects currently registered with the FactoryFinder. The method returns both the key used to register the factory, as well as a reference to the factory object.
+</p>
+<p class="pBody"><a name="wp1081387"> </a>
+The number of factories returned by <code class="cCode">list_factories</code> will be one more than the ones registered by the user. For example, if the user registered four factories then the number of factories returned by <code class="cCode">list_factories</code> will be five.
+</p>
+<a name="wp1081385"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This change in behavior is because the OMG Transaction Service specification version 1.1 in section 2.1.2 specifies that the Transaction Factory is located using the FactoryFinder interface of the Life Cycle Service. Hence the Transaction factory is registered internally by the product with the FactoryFinder. </td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp1036051"> </a>
+Return Values
+</h4>
+<p class="pBody"><a name="wp1062358"> </a>
+An unbounded sequence of <code class="cCode">Tobj::FactoryComponent</code>. Each occurrence of a <code class="cCode">Tobj::FactoryComponent</code> in the sequence contains a reference to the registered factory object, as well as the <code class="cCode">CosLifeCycle::Key</code> that was used to register that factory object.
+</p>
+<p class="pBody"><a name="wp1062359"> </a>
+If the operation raises an exception, the return value is invalid and does not need to be released by the caller.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1044055"> </a>
+Automation Methods
+</h2><p class="pBody"><a name="wp1044057"> </a>
+This section describes the DITobj_FactoryFinder Automation methods.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp1044063"> </a>
+DITobj_FactoryFinder.find_one_factory
+</h3>
+<h4 class="pHeading3"><a name="wp1044064"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1045132"> </a>
+Obtains a single application factory. 
+</p>
+<h4 class="pHeading3"><a name="wp1045144"> </a>
+MIDL Mapping
+</h4>
+<a name="wp1045169"> </a><div class="pPreformatted"><pre>HRESULT find_one_factory(<br />  [in] VARIANT factory_key, <br />  [in,out,optional] VARIANT* exceptionInfo, <br />  [out,retval] IDispatch** returnValue);</pre></div><h4 class="pHeading3"><a name="wp1045181"> </a>
+Automation Mapping
+</h4>
+<a name="wp1045182"> </a><div class="pPreformatted"><pre>Function find_one_factory(factory_key, [exceptionInfo]) As Object</pre></div><h4 class="pHeading3"><a name="wp1045170"> </a>
+Parameters
+</h4>
+<h4 class="pDefTerm"><a name="wp1044072"> </a>
+<code class="cCode">factory_key</code>
+</h4><div class="pDefPara"><a name="wp1044073"> </a>
+This parameter contains a safe array of DICosNaming_NameComponent (&lt;id, kind&gt; value pairs) that uniquely identifies a factory object reference.
+</div>
+<h4 class="pDefTerm"><a name="wp1044751"> </a>
+<code class="cCode">exceptionInfo</code>
+</h4><div class="pDefPara"><a name="wp1044752"> </a>
+An optional input argument that enables the application to get additional exception data if an error occurred.
+</div>
+<h4 class="pHeading3"><a name="wp1046327"> </a>
+Exceptions
+</h4>
+<h4 class="pDefTerm"><a name="wp1046328"> </a>
+<code class="cCode">NoFactory</code>
+</h4><div class="pDefPara"><a name="wp1046329"> </a>
+This exception is raised if the FactoryFinder cannot find an application factory object reference that corresponds to the input <code class="cCode">factory_key</code>. 
+</div>
+<h4 class="pDefTerm"><a name="wp1046330"> </a>
+<code class="cCode">CannotProceed</code>
+</h4><div class="pDefPara"><a name="wp1046331"> </a>
+This exception is raised if the FactoryFinder or CORBAservices Naming Service encounter an internal error during the search with the error being written to the user log (<code class="cCode">ULOG</code>). Notify the operations staff immediately if this exception is raised. Depending on the severity of the internal error, the server running the FactoryFinder or CORBAservices Naming Service may have terminated. If a FactoryFinder service has terminated, start a new FactoryFinder service. If a CORBAservices Naming Service has terminated and there is another CORBAservices Naming Service running, start a new CORBAservices Naming Service. If no naming services servers are running, restart the application.
+</div>
+<h4 class="pDefTerm"><a name="wp1046332"> </a>
+<code class="cCode">RegistrarNotAvailable</code>
+</h4><div class="pDefPara"><a name="wp1046333"> </a>
+This exception is raised if the FactoryFinder object cannot locate the CORBAservices Naming Service object. Notify the operations staff immediately if this exception is raised. If no naming services servers are running, restart the application.
+</div>
+<h4 class="pHeading3"><a name="wp1044082"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1044083"> </a>
+This member function instructs the FactoryFinder to return one application factory object reference whose key matches the input <code class="cCode">factory_key</code>. To accomplish this, the member function performs an equality match; that is, every NameComponent &lt;id, kind&gt; pair in the input <code class="cCode">factory_key</code> must exactly match each &lt;id, kind&gt; pair in the application factory&#8217;s key. If multiple factory keys contain the input <code class="cCode">factory_key</code>, the FactoryFinder selects one factory key, based on an internally defined load balancing scheme. Invoking <code class="cCode">find_one_factory</code> multiple times using the same <code class="cCode">id</code> may return different object references.
+</p>
+<h4 class="pHeading3"><a name="wp1044085"> </a>
+Return Values
+</h4>
+<p class="pBody"><a name="wp1044086"> </a>
+Returns a reference to an interface pointer for the application factory.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp1044089"> </a>
+DITobj_FactoryFinder.find_one_factory_by_id
+</h3>
+<h4 class="pHeading3"><a name="wp1044090"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1044091"> </a>
+Obtains a single application factory. 
+</p>
+<h4 class="pHeading3"><a name="wp1044094"> </a>
+MIDL Mapping
+</h4>
+<a name="wp1044792"> </a><div class="pPreformatted"><pre>HRESULT find_one_factory_by_id(<br />  [in] BSTR factory_id, <br />  [in,out,optional] VARIANT* exceptionInfo, <br />  [out,retval] IDispatch** returnValue);</pre></div><h4 class="pHeading3"><a name="wp1045209"> </a>
+Automation Mapping
+</h4>
+<a name="wp1045210"> </a><div class="pPreformatted"><pre>Function find_one_factory_by_id(factory_id As String,<br />                                   [exceptionInfo]) As Object</pre></div><h4 class="pHeading3"><a name="wp1044097"> </a>
+Parameters
+</h4>
+<h4 class="pDefTerm"><a name="wp1044099"> </a>
+<code class="cCode">factory_id</code>
+</h4><div class="pDefPara"><a name="wp1044100"> </a>
+This parameter represents a string identifier that is used to identify the kind or type of application factory. For some suggestions as to the composition of this string, see <a href="../cservers/index.html">Creating CORBA Server Applications</a>.
+</div>
+<h4 class="pDefTerm"><a name="wp1044809"> </a>
+<code class="cCode">exceptionInfo</code>
+</h4><div class="pDefPara"><a name="wp1044810"> </a>
+An optional input argument that enables the application to get additional exception data if an error occurred.
+</div>
+<h4 class="pHeading3"><a name="wp1046396"> </a>
+Exceptions
+</h4>
+<h4 class="pDefTerm"><a name="wp1046397"> </a>
+<code class="cCode">NoFactory</code>
+</h4><div class="pDefPara"><a name="wp1046398"> </a>
+This exception is raised if the FactoryFinder cannot find an application factory object reference that corresponds to the input <code class="cCode">factory_id</code>. 
+</div>
+<h4 class="pDefTerm"><a name="wp1046399"> </a>
+<code class="cCode">CannotProceed</code>
+</h4><div class="pDefPara"><a name="wp1046400"> </a>
+This exception is raised if the FactoryFinder or CORBAservices Naming Service encounter an internal error during the search, with the error being written to the user log (<code class="cCode">ULOG</code>). Notify the operations staff immediately if this exception is raised. Depending on the severity of the internal error, the server running the FactoryFinder or the CORBAservices Naming Service may have terminated. If a FactoryFinder service has terminated, start a new FactoryFinder service. If a CORBAservices Naming Service has terminated and there is another CORBAservices Naming Service running, start a new CORBAservices Naming Service. If there are no naming services running, restart the application.
+</div>
+<h4 class="pDefTerm"><a name="wp1046401"> </a>
+<code class="cCode">RegistrarNotAvailable</code>
+</h4><div class="pDefPara"><a name="wp1046402"> </a>
+This exception is raised if the FactoryFinder object cannot locate the CORBAservices Naming Service object. Notify the operations staff immediately if this exception is raised. If no naming service servers are running, restart the application.
+</div>
+<h4 class="pHeading3"><a name="wp1044112"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1044115"> </a>
+This member function instructs the FactoryFinder to return one application factory object reference whose <code class="cCode">id</code> in the key matches the method&#8217;s input <code class="cCode">factory_id</code>. To accomplish this, the member function performs an equality match (that is, the input <code class="cCode">factory_id</code> must exactly match the <code class="cCode">id</code> in the &lt;id,kind&gt; pair in the application factory&#8217;s key). If multiple factory keys contain the input <code class="cCode">factory_id</code>, the FactoryFinder selects one factory key, based on an internally defined load balancing scheme. Invoking <code class="cCode">find_one_factory_by_id</code> multiple times using the same <code class="cCode">id</code> may return different object references.
+</p>
+<h4 class="pHeading3"><a name="wp1044117"> </a>
+Return Values
+</h4>
+<p class="pBody"><a name="wp1044826"> </a>
+Returns a reference to an interface pointer for the application factory.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp1044121"> </a>
+DITobj_FactoryFinder.find_factories_by_id
+</h3>
+<h4 class="pHeading3"><a name="wp1044122"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1044123"> </a>
+Obtains a list of application factories.
+</p>
+<h4 class="pHeading3"><a name="wp1044126"> </a>
+MIDL Mapping
+</h4>
+<a name="wp1044581"> </a><div class="pPreformatted"><pre>HRESULT find_factories_by_id(<br />  [in] BSTR factory_id,<br />  [in,out,optional] VARIANT* exceptionInfo, <br />  [out,retval] VARIANT* returnValue);<br /></pre></div><h4 class="pHeading3"><a name="wp1045244"> </a>
+Automation Mapping
+</h4>
+<a name="wp1045245"> </a><div class="pPreformatted"><pre>Function find_factories_by_id(factory_id As String,<br />                                  [exceptionInfo]) </pre></div><h4 class="pHeading3"><a name="wp1044129"> </a>
+Parameters
+</h4>
+<h4 class="pDefTerm"><a name="wp1044131"> </a>
+<code class="cCode">factory_id</code>
+</h4><div class="pDefPara"><a name="wp1044132"> </a>
+This parameter represents a string identifier that will be used to identify the kind or type of application factory. The <a href="../creclient/index.html">Creating CORBA Client Applications</a> online document provides some suggestions as to the composition of this string.
+</div>
+<h4 class="pDefTerm"><a name="wp1044649"> </a>
+<code class="cCode">exceptionInfo</code>
+</h4><div class="pDefPara"><a name="wp1044676"> </a>
+An optional input argument that enables the application to get additional exception data if an error occurred.
+</div>
+<h4 class="pHeading3"><a name="wp1046465"> </a>
+Exceptions
+</h4>
+<h4 class="pDefTerm"><a name="wp1046466"> </a>
+<code class="cCode">NoFactory</code>
+</h4><div class="pDefPara"><a name="wp1046467"> </a>
+This exception is raised if the FactoryFinder cannot find an application factory object reference that corresponds to the input <code class="cCode">factory_key</code> or <code class="cCode">factory_id</code>. 
+</div>
+<h4 class="pDefTerm"><a name="wp1046468"> </a>
+<code class="cCode">CannotProceed</code>
+</h4><div class="pDefPara"><a name="wp1046469"> </a>
+This exception is raised if the FactoryFinder or CORBAservices Naming Service encounter an internal error during the search with the error being written to the user log (<code class="cCode">ULOG</code>). Notify the operations staff immediately if this exception is raised. Depending on the severity of the internal error, the server running the FactoryFinder or CORBAservices Naming Service may have terminated. If a FactoryFinder service has terminated, start a new FactoryFinder service. If a CORBAservices Naming Service has terminated and there is another CORBAservices Naming Service running, start a new CORBAservices Naming Service. If no naming services servers are running, restart the application.
+</div>
+<h4 class="pDefTerm"><a name="wp1046470"> </a>
+<code class="cCode">RegistrarNotAvailable</code>
+</h4><div class="pDefPara"><a name="wp1046471"> </a>
+This exception is raised if the FactoryFinder object cannot locate the CORBAservices Naming Service object. Notify the operations staff immediately if this exception is raised. If no naming services servers are running, restart the application.
+</div>
+<h4 class="pHeading3"><a name="wp1044144"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1044147"> </a>
+This member function instructs the FactoryFinder to return a list of application factory object references whose <code class="cCode">id</code> in the keys match the method&#8217;s input <code class="cCode">factory_id</code>. To accomplish this, the member function performs an equality match (that is, the input <code class="cCode">factory_id</code> must exactly match each <code class="cCode">id</code> in the &lt;id,kind&gt; pair in the application factory&#8217;s keys). 
+</p>
+<h4 class="pHeading3"><a name="wp1044149"> </a>
+Return Values
+</h4>
+<p class="pBody"><a name="wp1044703"> </a>
+Returns a variant containing an array of interface pointers to application factories.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp1044153"> </a>
+DITobj_FactoryFinder.find_factories
+</h3>
+<h4 class="pHeading3"><a name="wp1044154"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1044155"> </a>
+Obtains a list of application factories.
+</p>
+<h4 class="pHeading3"><a name="wp1044390"> </a>
+MIDL Mapping
+</h4>
+<a name="wp1045056"> </a><div class="pPreformatted"><pre>HRESULT find_factories(<br />  [in] VARIANT factory_key, <br />  [in,out,optional] VARIANT* exceptionInfo, <br />  [out,retval] VARIANT* returnValue);</pre></div><h4 class="pHeading3"><a name="wp1045269"> </a>
+Automation Mapping
+</h4>
+<a name="wp1045270"> </a><div class="pPreformatted"><pre><code class="cCode">Function find_factories(factory_key, [exceptionInfo])</code></pre></div><h4 class="pHeading3"><a name="wp1045057"> </a>
+Parameters
+</h4>
+<h4 class="pDefTerm"><a name="wp1044163"> </a>
+<code class="cCode">factory_key</code>
+</h4><div class="pDefPara"><a name="wp1044165"> </a>
+This parameter contains a safe array of DICosNaming_NameComponents (&lt;id, kind&gt; value pairs) that uniquely identifies a factory object reference.
+</div>
+<h4 class="pDefTerm"><a name="wp1044514"> </a>
+exceptionInfo
+</h4><div class="pDefPara"><a name="wp1044694"> </a>
+An optional input argument that enables the application to get additional exception data if an error occurred.
+</div>
+<h4 class="pHeading3"><a name="wp1046529"> </a>
+Exception
+</h4>
+<h4 class="pDefTerm"><a name="wp1046530"> </a>
+<code class="cCode">NoFactory</code>
+</h4><div class="pDefPara"><a name="wp1046531"> </a>
+This exception is raised if the FactoryFinder cannot find an application factory object reference that corresponds to the input <code class="cCode">factory_key</code>.
+</div>
+<h4 class="pHeading3"><a name="wp1044525"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1044171"> </a>
+The <code class="cCode">find_factories</code> method instructs the FactoryFinder to return a list of server application factory object references whose keys match the method&#39;s input key. The Oracle Tuxedo system assumes that an equality match is to be performed. This means that for the two sequences of &lt;id,kind&gt; pairs (those corresponding to the input key and those in the application factory&#39;s keys), each are of equal length; for every pair in one sequence, there is an identical pair in the other.
+</p>
+<h4 class="pHeading3"><a name="wp1044175"> </a>
+Return Values
+</h4>
+<p class="pBody"><a name="wp1044176"> </a>
+Returns a variant containing an array of interface pointers to application factories.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp1044178"> </a>
+DITobj_FactoryFinder.list_factories
+</h3>
+<h4 class="pHeading3"><a name="wp1044179"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1044180"> </a>
+Lists all of the application factory names and object references.
+</p>
+<h4 class="pHeading3"><a name="wp1044183"> </a>
+MIDL Mapping
+</h4>
+<a name="wp1044870"> </a><div class="pPreformatted"><pre>HRESULT list_factories(<br />  [in,out,optional] VARIANT* exceptionInfo, <br />  [out,retval] VARIANT* returnValue);</pre></div><h4 class="pHeading3"><a name="wp1045294"> </a>
+Automation Mapping
+</h4>
+<a name="wp1045295"> </a><div class="pPreformatted"><pre>Function list_factories([exceptionInfo])</pre></div><h4 class="pHeading3"><a name="wp1044186"> </a>
+Parameter
+</h4>
+<h4 class="pDefTerm"><a name="wp1044947"> </a>
+<code class="cCode">exceptionInfo</code>
+</h4><div class="pDefPara"><a name="wp1044948"> </a>
+An optional input argument that enables the application to get additional exception data if an error occurred.
+</div>
+<h4 class="pHeading3"><a name="wp1046545"> </a>
+Exception
+</h4>
+<h4 class="pDefTerm"><a name="wp1046546"> </a>
+<code class="cCode">CannotProceed</code>
+</h4><div class="pDefPara"><a name="wp1046547"> </a>
+This exception is raised if the FactoryFinder or the CORBAservices Naming Service encounter an internal error during the search with the error being written to the user log (<code class="cCode">ULOG</code>). Notify the operations staff immediately if this exception is raised. Depending on the severity of the internal error, the server running the FactoryFinder or the CORBAservices Naming Service may have terminated. If a FactoryFinder service has terminated, start a new FactoryFinder service. If a CORBAservices Naming Service has terminated and there is another CORBAservices Naming Service running, start a new CORBAservices Naming Service. If there are no naming service servers running, restart the application.
+</div>
+<h4 class="pDefTerm"><a name="wp1046548"> </a>
+<code class="cCode">RegistrarNotAvailable</code>
+</h4><div class="pDefPara"><a name="wp1046549"> </a>
+This exception is raised if the FactoryFinder object cannot locate the CORBAservices Naming Service object. Notify the operations staff immediately if this exception is raised. It is possible that no naming service servers are running. Restart the application.
+</div>
+<h4 class="pHeading3"><a name="wp1044191"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1044192"> </a>
+This method instructs the FactoryFinder to return a list containing all of the factory keys and associated object references for application factories registered with the CORBAservices Naming Service.
+</p>
+<h4 class="pHeading3"><a name="wp1044193"> </a>
+Return Values
+</h4>
+<p class="pBody"><a name="wp1044194"> </a>
+Returns a variant containing an array of DITobj_FactoryComponent objects. The FactoryComponent object consists of a variant containing an array of DICosNaming_NameComponent objects and an interface pointer to the application factory.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1036003"> </a>
+Programming Examples
+</h2><p class="pBody"><a name="wp1063443"> </a>
+This section describes how to program using the FactoryFinder interface.
+</p>
+<a name="wp1064201"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Remember to check for exceptions in your code.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1063444"> </a>
+Using the FactoryFinder Object
+</h3>
+<p class="pBody"><a name="wp1063445"> </a>
+A FactoryFinder object is used by programmers to locate a reference to a factory object. The FactoryFinder object provides operations to obtain one or more references to factory objects based on the criteria specified.
+</p>
+<p class="pBody"><a name="wp1063446"> </a>
+There can be more than one FactoryFinder object in a process address space. Multiple references to a FactoryFinder object must be supported. A FactoryFinder object is semi-stateful in that it maintains state about the association between FactoryFinder objects within a domain and a particular IIOP Server Listener/Handler (ISL/ISH) through which to access the domain.
+</p>
+<p class="pBody"><a name="wp1063447"> </a>
+All FactoryFinder objects support the <code class="cCode">CosLifeCycle::FactoryFinder</code> interface as defined in CORBAservices Specification, Chapter 6 &#8220;Life Cycle Service,&#8221; December 1997, published by the Object Management Group. The interface contains one operation that is used to obtain one or more references to factory objects that meet the criteria specified.
+</p>
+<h4 class="pHeading3"><a name="wp1063449"> </a>
+Registering a Reference to a Factory Object
+</h4>
+<p class="pBody"><a name="wp1063450"> </a>
+The following code fragment (<a href="factory.html#wp1063649">Listing&#160;5-8</a>) shows how to use the TP Framework interface to register a reference to a factory object with a FactoryFinder.
+</p>
+<div class="pCodeTitle"><a name="wp1063649"> </a>
+Listing&#160;5-8	   Server Application: Registering a Factory
+</div> <a name="wp1063650"> </a><div class="pPreformatted"><pre>// Server Application: Registering a factory.<br />// C++ Example.</pre></div><p class="pBody"><a name="wp1063662"> </a>
+TP::register_factory( factory_obj.in( ), &#8220;TellerFactory&#8221; );
+</p>
+<h4 class="pHeading3"><a name="wp1063452"> </a>
+Obtaining a Reference to a FactoryFinder Object Using the CosLifeCycle::FactoryFinder Interface
+</h4>
+<p class="pBody"><a name="wp1063939"> </a>
+The following code fragment (<a href="factory.html#wp1063795">Listing&#160;5-9</a>) shows how to use of the CORBA-compliant interface to obtain one or more references to factory objects.
+</p>
+<div class="pCodeTitle"><a name="wp1063795"> </a>
+Listing&#160;5-9	   Client Application: Getting a FactoryFinder Object Reference
+</div> <a name="wp1063796"> </a><div class="pPreformatted"><pre>// Client Application: Obtaining the object reference<br />// to factory objects.</pre></div><p class="pBody"><a name="wp1063841"> </a>
+<code class="cCode">CosLifeCycle::Key_var  factory_key = new CosLifeCycle::Key( );<br />factory_key -&gt;length(1);<br />factory_key[0].id = string_dupalloc( &#8220;strlen(&#8220;TellerFactory&#8221;) +1 ); <br />factory_key[0].kind = string_dupalloc( <br />                               strlen(&#8220;&#8220;FactoryInterface&#8221;) + 1);<br />strcpy( factory_key[0].id, &#8220;&#8221;TellerFactory&#8221; );<br />strcpy( facory_key[0].kind, &#8220;FactoryInterface&#8221; );<br />CosLifeCycle::Factories_var *  flp = ff_np -&gt; <br />                               find_factories( factory_key.in( ) );</code>
+</p>
+<h4 class="pHeading3"><a name="wp1063628"> </a>
+Obtaining a Reference to a FactoryFinder Object Using the Extensions Bootstrap object
+</h4>
+<p class="pBody"><a name="wp1063456"> </a>
+The following code fragment (<a href="factory.html#wp1064053">Listing&#160;5-10</a>) shows how to use of the Oracle Tuxedo extensions Bootstrap object to obtain a reference to a FactoryFinder object.
+</p>
+<div class="pCodeTitle"><a name="wp1064053"> </a>
+Listing&#160;5-10	   Client Application: Finding One Factory Using the Tobj Approach	
+</div> <a name="wp1064054"> </a><div class="pPreformatted"><pre>// Client Application: Finding one factory using the Tobj<br />// approach.</pre></div><a name="wp1064087"> </a><div class="pPreformatted"><pre><code class="cCode">Tobj_Bootstrap * bsp = new Tobj_Bootstrap( <br />                                     orb_ptr.in( ), host_port );<br />CORBA::Object_varptr  ff_op = bsp -&gt; <br />                   resolve_initial_references( &#8220;FactoryFinder&#8221; );<br />Tobj::FactoryFinder_ptrvar  ff_np =<br />                           Tobj::FactoryFinder::_narrow( ff_op);</code></pre></div><a name="wp1076418"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>You can used the Oracle Tuxedo CORBA extensions to the <code class="cCode">CosLifeCycle::FactoryFinder</code> interface if you use the Tobj_Bootstrap object, however, use of the Tobj_Bootstrap object is not required to locate a factory. If you use CORBA INS, you can use the <code class="cCode">find_factories()</code> method provided by the <code class="cCode">CosLifeCycle::FactoryFinder</code> interface.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1076408"> </a>
+Using Extensions to the FactoryFinder Object
+</h3>
+<p class="pBody"><a name="wp1063460"> </a>
+Oracle Tuxedo extends the FactoryFinder object with functionality to support similar capabilities to those provided by the operations defined by CORBA, but with a much simpler and more restrictive signature. The enhanced functionality is provided by defining the <code class="cCode">Tobj::FactoryFinder</code> interface. The operations defined for the <code class="cCode">Tobj::FactoryFinder</code> interface are intended to provide a focused, simplified form of the equivalent capability defined by CORBA. An application developer can choose to use the CORBA-defined or Oracle Tuxedo extensions when developing an application. The interface <code class="cCode">Tobj::FactoryFinder</code> is derived from the <code class="cCode">CosLifeCycle::FactoryFinder</code> interface.
+</p>
+<p class="pBody"><a name="wp1063461"> </a>
+Oracle Tuxedo extensions to the FactoryFinder object adhere to allthe same rules as the FactoryFinder object defined in the CORBAservices Specification, Chapter 6 &#8220;Life Cycle Service,&#8221; December 1997, published by the Object Management Group.
+</p>
+<p class="pBody"><a name="wp1063462"> </a>
+The implementation of the extended FactoryFinder object requires users to supply either a <code class="cCode">CosLifeCycle::Key</code>, as in the CORBA-defined <code class="cCode">CosLifeCycle::FactoryFinder</code> interface, or a NULL-terminated string containing the identifier of a factory object to be located.
+</p>
+<h4 class="pHeading3"><a name="wp1063464"> </a>
+Obtaining One Factory Using Tobj::FactoryFinder
+</h4>
+<p class="pBody"><a name="wp1063465"> </a>
+The following code fragment (<a href="factory.html#wp1064124">Listing&#160;5-11</a>) shows how to use the Oracle Tuxedo extensions interface to obtain one reference to a factory object based on an identifier.
+</p>
+<div class="pCodeTitle"><a name="wp1064124"> </a>
+Listing&#160;5-11	   Client Application: Finding Factories Using the Oracle Tuxedo Extensions Approach
+</div> <a name="wp1063466"> </a><div class="pPreformatted"><pre><code class="cCode">CosLifeCycle::Factory_ptrvar  fp_obj = ff_np -&gt;<br />                         find_one_factory_by_id( &#8220;TellerFactory&#8221; );</code></pre></div><h4 class="pHeading3"><a name="wp1063467"> </a>
+Obtaining One or More Factories Using Tobj::FactoryFinder
+</h4>
+<p class="pBody"><a name="wp1063468"> </a>
+The following code fragment (<a href="factory.html#wp1064139">Listing&#160;5-12</a>) shows how to use the Oracle Tuxedo extensions to obtain one or more references to factory objects based on an identifier.
+</p>
+<div class="pCodeTitle"><a name="wp1064139"> </a>
+Listing&#160;5-12	   Client Application: Finding One or More Factories Using the Oracle Tuxedo Extensions Approach
+</div> <a name="wp1063469"> </a><div class="pPreformatted"><pre><code class="cCode">CosLifeCycle::Factories * _var  flp = ff_np -&gt;<br />                            find_factories_by_id( &#8220;TellerFactory&#8221; );</code></pre></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="factory.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="boot.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="security.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

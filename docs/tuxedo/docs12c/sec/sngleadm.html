@@ -1,0 +1,1876 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="2" />
+<meta name="LOC_US_CHANGE" content="41848" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/sec/fm/sngleadm.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/26/12 11:55:29" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Implementing Single Point Security Administration</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Using Security in ATMI Applications
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq2" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="secpgm.html"><img id="LongDescNotReq3" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq4" src="/global_resources/images/doc_nav_next_grey1.gif" border="0" alt="Next" />&nbsp;
+<img id="LongDescNotReq5" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq6" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq7" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/sec.pdf" target="pdf"><img id="LongDescNotReq8" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq9" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1475942"> </a>
+Implementing Single Point Security Administration
+</h1>
+<p class="pBody"><a name="wp1239329"> </a>
+The following sections explain how to implement single point security administration for Tuxedo and WebLogic Server from the Tuxedo point of view:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1448047"> </a><a href="sngleadm.html#wp1239347"><span class="cHyperlink">
+What Single Point Security Administration Means</span></a></li>
+<li><a name="wp1239333"> </a><a href="sngleadm.html#wp1239453"><span class="cHyperlink">
+Setting up LAUTHSVR as the Authentication Server</span></a></li>
+<li><a name="wp1476955"> </a><a href="sngleadm.html#wp1477869">Setting up GAUTHSVR as the Authentication Server</a></li>
+</ul></div>
+<a name="wp1474390"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Before setting up single point security, be sure you are familiar with the Tuxedo security architecture and requirements. You may also want to coordinate this effort with your WebLogic or LDAP Administrator.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1239347"> </a>
+What Single Point Security Administration Means
+</h2><p class="pBody"><a name="wp1239348"> </a>
+If you have both Tuxedo and WebLogic Server deployed in your environment, then you have to manage two sets of security information. Single point security administration allows you to leverage the WebLogic Server security to manage your security database by eliminating user and group information from Tuxedo. You can use WebLogic Server as your security database to authenticate Tuxedo users.
+</p>
+<a name="wp1468377"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The Tuxedo ACL information will continue to reside in Tuxedo and is not currently integrated with WebLogic Server 7.0.</td>
+</tr>
+</table>
+
+<a name="wp1468437"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>If you are specifying <code class="cCode">SECURITY=ACL</code> or <code class="cCode">SECURITY=MANDATORY_ACL</code> in the <code class="cCode">RESOURCES</code> section of the <code class="cCode">UBBCONFIG</code> file, then you must continue to maintain <code class="cCodeEmphasis">tpgrp</code> and <code class="cCodeEmphasis">tpacl</code> files in Tuxedo.</td>
+</tr>
+</table>
+<p class="pBody"><a name="wp1468403"> </a>
+The single point security administration feature leverages the enhanced WebLogic Server 7.0 security and the LDAP to allow single point security administration. You can maintain user security information in WebLogic Server embedded LDAP server and use the WebLogic Server Console to administer the security information from a single system. You must modify the UBBCONFIG file to enable single point security.
+</p>
+<h3 class="pHeading2"><a name="wp1476822"> </a>
+Single Point Security Administration Tasks
+</h3>
+<p class="pBody"><a name="wp1476823"> </a>
+To set up single point security, you must provide the Tuxedo security information to the WebLogic Server-embedded LDAP server. This includes migrating or setting up the Tuxedo user (UID) and group (GID) information in WebLogic Server LDAP server so that authentication can be successful. For Tuxedo UID and GID values to be available to WebLogic Server, you must use the <code class="cCode">tpmigldap</code> utility, modify the <code class="cCodeEmphasis">tpusr</code> file manually with a text editor, or enter the user information via the WebLogic Administration Console. 
+</p>
+<a name="wp1476827"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The WebLogic Administration Console may be the method used when adding one or two users after the security database is set up. For efficiency and time management, you may prefer using the <code class="cCode">tpmigldap</code> utility or the <code class="cCodeEmphasis">tpusr</code> file as a general rule.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1476828"> </a>
+Single point security administration consists of the following tasks:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1476832"> </a><a href="sngleadm.html#wp1239453"><span class="cHyperlink">
+Setting up LAUTHSVR as the Authentication Server</span></a></li>
+<li><a name="wp1476836"> </a><a href="sngleadm.html#wp1466009"><span class="cHyperlink">
+Using tpmigldap to Migrate User Information to WebLogic Server</span></a></li>
+<li><a name="wp1476840"> </a><a href="sngleadm.html#wp1477869">Setting up GAUTHSVR as the Authentication Server</a></li>
+<li><a name="wp1476844"> </a><a href="sngleadm.html#wp1479181">Using tpmigldif to Migrate User Information</a></li>
+<li><a name="wp1476848"> </a><a href="sngleadm.html#wp1477901"><span class="cHyperlink">
+Adding New Tuxedo User Information</span></a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1239415"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1269763"> </a>Security information for WebLogic Server 8.1at the following URL:</li>
+<p class="pBodyRelative"><a name="wp1468596"> </a>
+<span class="cHyperlink">
+<a href="http://e-docs.bea.com/wls/docs81/security.html">http://e-docs.bea.com/wls/docs81/security.html</a></span>
+</p>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1239453"> </a>
+Setting up LAUTHSVR as the Authentication Server 
+</h2><p class="pBody"><a name="wp1239455"> </a>
+<code class="cCode">LAUTHSVR</code> is a System /T provided server that offers the authentication service while the user security information is located in WebLogic Server. To enable the single security administration feature, you must configure <code class="cCode">LAUTHSVR</code> as the authentication server. At runtime, the <code class="cCode">LAUTHSVR</code> will retrieve the user information from the WebLogic Server-embedded LDAP and authenticate users. If the authentication is successful, an <code class="cCodeEmphasis">appkey</code> is returned to the user, otherwise, authentication fails.
+</p>
+<a name="wp1478350"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Tuxedo 10 and greater allows you to configure WebLogic authentication using a more general authentication server, <code class="cCode">GAUTHSVR</code> (which can be used along with <code class="cCode">LAUTHSVR</code> or replace it). </td>
+</tr>
+</table>
+
+<a name="wp1485025"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>For more <code class="cCode">GAUTHSVR</code> information, see <a href="sngleadm.html#wp1477869">Setting up GAUTHSVR as the Authentication Server</a> and <code class="cHyperlinkCode">
+<a href="../rf5/rf5.html">GAUTHSVR(5)</a></code>, in the <em class="cEmphasis">Oracle Tuxedo File Formats, Data Descriptions, MIBs, and System Processes Reference</em>.</td>
+</tr>
+</table>
+<p class="pBody"><a name="wp1485016"> </a>
+To define <code class="cCode">LAUTHSVR</code> as the authentication server, you must define the following parameters in the <code class="cCode">UBBCONFIG</code> file:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1485017"> </a><code class="cCode">SECURITY</code> must be set to <code class="cCode">USER_AUTH</code>, <code class="cCode">ACL</code>, or <code class="cCode">MANDATORY_ACL</code> in the <code class="cCode">RESOURCES</code> section.</li>
+<li><a name="wp1485018"> </a><code class="cCode">LAUTHSVR</code> must be specified in the <code class="cCode">SERVERS</code> section.</li>
+<a name="wp1471997"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If <code class="cCode">LAUTHSVR</code> cannot find a valid configuration file or the file does not exist, it will log an error message in USERLOG and fail to boot. The default <code class="cCode">LAUTHSVR</code> configuration file is <code class="cCode">$TUXDIR/udataobj/tpldap</code> and is provided with the product.</td>
+</tr>
+</table>
+
+</ul></div>
+<h3 class="pHeading2"><a name="wp1471933"> </a>
+LAUTHSVR Command Line Interface
+</h3>
+<p class="pBody"><a name="wp1471937"> </a>
+The <code class="cCode">LAUTHSVR</code> is the LDAP-based authentication server for Tuxedo. It requires a configuration file, that by default is <code class="cCode">$TUXDIR/udataobj/tpldap</code>. You can create your own <code class="cCode">LAUTHSVR</code> configuration file or use the default <code class="cCode">tpldap</code> file that is available with the product. 
+</p>
+<p class="pBody"><a name="wp1474446"> </a>
+The command line interface syntax for <code class="cCode">LAUTHSVR</code> is as follows:
+</p>
+<h4 class="pDefTerm"><a name="wp1471938"> </a>
+<code class="cCode">-f </code><code class="cCodeEmphasis">full_pathname</code>
+</h4><div class="pDefPara"><a name="wp1471939"> </a>
+Specifies the full pathname of the <code class="cCode">LAUTHSVR</code> configuration file.
+</div>
+<a name="wp1471940"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If <code class="cCode">-f</code> option is omitted, the default <code class="cCode">LAUTHSVR</code> configuration file <code class="cCode">tpldap</code> is used.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1474745"> </a>
+The following example instructs <code class="cCode">LAUTHSVR</code> to use the default configuration file, <code class="cCodeEmphasis">tpldap</code>, in the <code class="cCode">$TUXDIR/udataobj</code> directory.
+</p>
+<a name="wp1484645"> </a><div class="pPreformatted"><pre>LAUTHSVR SRVGRP=GROUP1 SRVID=2 CLOPT=&#8221;-A-&#8221;</pre></div><p class="pBody"><a name="wp1484646"> </a>
+In the following example, <code class="cCode">LAUTHSVR</code> uses the <code class="cCode">myauthsvr.conf </code>configuration file in the <code class="cCode">/home/tuxedo/bankapp</code> directory. 
+</p>
+<a name="wp1471944"> </a><div class="pPreformatted"><pre>LAUTHSVR SRVGRP=GROUP1 SRVID=2 <br />	CLOPT=&#8221;-A-- -f/home/tuxedo/bankapp/myauthsvr.conf&#8221;</pre></div><h3 class="pHeading2"><a name="wp1471746"> </a>
+Setting Up the LAUTHSVR Configuration File
+</h3>
+<p class="pBody"><a name="wp1470190"> </a>
+<code class="cCode">LAUTHSVR</code> supports an input configuration file that contains information such as bind DN and an unencrypted password for bind DN. This configuration file is a plain text file and can be edited using any text editor and must be protected by the system using file permissions. By default the configuration file, named <code class="cCodeEmphasis">tpldap</code>, is located in <code class="cCode">$TUXDIR/udataobj</code> directory. You can overwrite this file in the command line for <code class="cCode">LAUTHSVR</code>. The <code class="cCode">LAUTHSVR</code> configuration file contains keyword and value pairs as defined in <a href="sngleadm.html#wp573498"><span class="cHyperlink">
+Table&#160;4-1</span></a>. 
+</p>
+<h4 class="pHeading3"><a name="wp1470318"> </a>
+Syntax Requirements for LAUTHSVR Configuration File
+</h4>
+<p class="pBody"><a name="wp1470345"> </a>
+Although the default values for the <code class="cCode">LAUTHSVR</code> configuration file are usually sufficient, a system administrator may choose to configure it with different names. Therefore, you should be aware of the following requirements for the <code class="cCode">LAUTHSVR</code> configuration file:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1470354"> </a>The <code class="cCode">LAUTHSVR</code> configuration file is a plain text file.</li>
+<li><a name="wp1470380"> </a>Keyword order does not matter; however, there must be at least one space character between the keyword and its value.</li>
+<li><a name="wp1470371"> </a>Comments begin with the pound symbol (#). Text after the # is ignored.</li>
+<li><a name="wp1470387"> </a>The upper limit of a line is 255 characters. If a line exceeds this upper limit, it will be truncated.</li>
+<li><a name="wp1470424"> </a>The bind DN must have privileges to access the LDAP database (usually this is the LDAP administrator).</li>
+<a name="wp1470433"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Before an administrator can set up and use the Tuxedo LDAP-based security authentication server, the administrator must change the LDAP administrator password through the WebLogic Administration Console.</td>
+</tr>
+</table>
+
+</ul></div>
+<h4 class="pHeading3"><a name="wp1467302"> </a>
+LAUTHSVR Configuration File Keywords
+</h4>
+<p class="pBody"><a name="wp1470461"> </a>
+<a href="sngleadm.html#wp573498">Table&#160;4-1</a> defines the <code class="cCode">LAUTHSVR</code> configuration file keywords.
+</p>
+<a name="wp1470856"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The only required keyword in the <code class="cCode">LAUTHSVR</code> configuration file is <code class="cCode">PASSWORD</code>, which specifies the password for bind DN. All other keywords are optional.</td>
+</tr>
+</table>
+
+<p class="pGraphic"><a name="wp1470530"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp573498table1470565"><caption><a name="wp573498"> </a>
+Table 4-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">LAUTHSVR Configuration File Keywords</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1470567"> </a>
+Keyword
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1470569"> </a>
+Value Type
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1470571"> </a>
+Usage
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1470573"> </a><div class="pPreformatted"><pre>FILE_VERSION</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470575"> </a>
+numeric
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470577"> </a>
+The configuration file version. This should always be 1. The default is 1.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1470579"> </a><div class="pPreformatted"><pre>LDAP_VERSION</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470581"> </a>
+numeric
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470583"> </a>
+The LDAP protocol version. Valid values are 2 or 3. The default is 3.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1470585"> </a><div class="pPreformatted"><pre>BINDDN</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470587"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470589"> </a>
+The DN used to bind to an LDAP server, usually the DN for the LDAP administrator. The default is &#8220;<code class="cCode">cn=admin</code>&#8221;.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1470591"> </a><div class="pPreformatted"><pre>BASE</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470593"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470595"> </a>
+LDAP search base. The default is &#8220;<code class="cCode">ou=people, ou=</code><code class="cCodeEmphasis">myrealm</code><code class="cCode">, dc=</code><code class="cCodeEmphasis">mydomain</code>&#8221;, where <code class="cCodeEmphasis">myrealm</code> is the name of the security realm and <code class="cCodeEmphasis">mydomain</code> is the name of the WebLogic Server domain.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1470597"> </a><div class="pPreformatted"><pre>UID</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470599"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470601"> </a>
+The userid attribute that is used to logon to WebLogic Server and Tuxedo. The default is <code class="cCode">uid</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1470603"> </a><div class="pPreformatted"><pre>PASSWORD</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470605"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470607"> </a>
+The password for bind DN. This is a required keyword and the password is in clear text format.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1470609"> </a><div class="pPreformatted"><pre>LDAP_ADDR</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470611"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470613"> </a>
+A comma separated list of WebLogic hostnames and ports. The syntax is <code class="cCode">[//]</code><code class="cCodeEmphasis">hostname</code><code class="cCode">[:</code><code class="cCodeEmphasis">port</code><code class="cCode">][,[//]</code><code class="cCodeEmphasis">hostname</code><code class="cCode">[:</code><code class="cCodeEmphasis">port</code><code class="cCode">]...]</code>. The default value for port is 7001. If <code class="cCode">LDAP_ADDR</code> is not specified, <code class="cCode">LAUTHSVR</code> assumes<code class="cCode"> </code><code class="cCodeEmphasis">localhost</code><code class="cCode">:7001</code> is the location to contact the LDAP server.
+</div>
+<div class="pCellBody"><a name="wp1473158"> </a>
+For more information about specifying multiple network addresses, refer to <a href="sngleadm.html#wp1466448"><span class="cHyperlink">
+Using Multiple Network Addresses for High Availability.</span></a>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1470615"> </a><div class="pPreformatted"><pre>EXPIRE</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470617"> </a>
+numeric
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470619"> </a>
+A numeric value that represents the number of seconds the cached entry is available in the local process memory. A value other than zero will enable caching. A value of zero specifies no caching. The default is zero.
+</div>
+<div class="pCellBody"><a name="wp1473184"> </a>
+For more information about enabling caching, refer to <a href="sngleadm.html#wp1466448"><span class="cHyperlink">
+Using Multiple Network Addresses for High Availability.</span></a>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1470621"> </a><div class="pPreformatted"><pre>SRCH_ORDER</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470623"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470625"> </a>
+Valid values are <code class="cCode">LDAP</code> or <code class="cCode">LOCAL</code>, or both separated by a comma. If you specify <code class="cCode">LOCAL</code>, the search order will use the <code class="cCodeEmphasis">tpusr</code> file. The default is <code class="cCode">LDAP</code>.
+</div>
+<div class="pCellBody"><a name="wp1473115"> </a>
+For more information about database search order, refer to <a href="sngleadm.html#wp1466490"><span class="cHyperlink">
+Configuring the Database Search Order.</span></a>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1470627"> </a><div class="pPreformatted"><pre>LOCAL_FILE</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470629"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470631"> </a>
+The full pathname of the <code class="cCodeEmphasis">tpusr</code> file to be used if <code class="cCode">LOCAL</code> search order is enabled. The default value is <code class="cCode">$APPDIR/tpusr</code>.
+</div>
+<div class="pCellBody"><a name="wp1473090"> </a>
+For more information about database search order, refer to <a href="sngleadm.html#wp1466490"><span class="cHyperlink">
+Configuring the Database Search Order.</span></a>
+</div>
+<p class="pTableNote"><a name="wp1473038"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If a directory path is specified other than the default <code class="cCode">$APPDIR/</code><code class="cCodeEmphasis">tpusr</code>, the file must be generated using Tuxedo MIB or <code class="cCode">tpusradd</code> command line utility. Failure to do this may cause authentication failure.</td></tr>
+</table>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1470633"> </a><div class="pPreformatted"><pre>WLS_DOMAIN</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470635"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470637"> </a>
+The WebLogic Server domain name. The default value is <code class="cCodeEmphasis">mydomain</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1470639"> </a><div class="pPreformatted"><pre>WLS_REALM</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470641"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470643"> </a>
+The WebLogic Server security realm name. The default is <code class="cCodeEmphasis">myrealm</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1470645"> </a><div class="pPreformatted"><pre>ADM_GROUP</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470647"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470649"> </a>
+The WebLogic Server administrator group name. The default is <code class="cCode">Administrators</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1470651"> </a><div class="pPreformatted"><pre>OP_GROUP</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470653"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470655"> </a>
+The WebLogic Server operators group name. The default is <code class="cCode">Operators</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1470657"> </a><div class="pPreformatted"><pre>TUX_UID_KW</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470659"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470661"> </a>
+The keyword used in the description to identify the Tuxedo userid. The default is <code class="cCode">TUXEDO_UID</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1470663"> </a><div class="pPreformatted"><pre>TUX_GID_KW</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1470665"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1471246"> </a>
+The keyword used in the description to identify the Tuxedo group ID. The default is <code class="cCode">TUXEDO_GID</code>.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1470482"> </a>
+Example LAUTHSVR Configuration File
+</h4>
+<p class="pBody"><a name="wp1470511"> </a>
+<a href="sngleadm.html#wp1471283">Listing&#160;4-1</a> shows an example of a <code class="cCode">LAUTHSVR</code> configuration file.
+</p>
+<div class="pCodeTitle"><a name="wp1471283"> </a>
+Listing&#160;4-1	   Example LAUTHSVR Configuration File
+</div> <a name="wp1485421"> </a><div class="pPreformatted"><pre>#<br /># Tuxedo LDAP Authentication Server configuration file.<br />#<br /># created: Thu May 26 15:36:59 2002<br />#<br />FILE_VERSION	&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;1<br />LDAP_VERSION	&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;3<br />BINDDN	&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;cn=Admin<br />BASE&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ou=people,ou=myrealm,dc=mydomain<br />UID&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;uid<br />PASSWORD&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;secret<br />LDAP_ADDR	&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;//PLUTO:7001,//Saturn:7001<br />EXPIRE&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;0<br />SRCH_ORDER	&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LDAP<br />WLS_DOMAIN	&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;mydomain<br />WLS_REALM	&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;myrealm<br />ADM_GROUP	&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Administrators<br />OP_GROUP&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Operators<br />TUX_UID_KW&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TUXEDO_UID<br />TUX_GID_KW	&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TUXEDO_GID<br /># end of file</pre></div><a name="wp1471288"> </a>
+<table class="Note">
+<tr>
+<td valign="top"><strong>WARNING:</strong></td>
+<td>Because the <code class="cCode">PASSWORD</code> for the LDAP administrator is in clear text, it is recommended that the system administrator guards this file with correct access permission.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1484691"> </a>
+Example UBBCONFIG Using LAUTHSVR
+</h3>
+<p class="pBody"><a name="wp1484695"> </a>
+<a href="sngleadm.html#wp1484688">Listing&#160;4-2</a> shows an example UBBCONFIG file with <code class="cCode">SECURITY</code> set to <code class="cCode">ACL</code> and <code class="cCode">LAUTHSVR</code> defined.
+</p>
+<div class="pCodeTitle"><a name="wp1484688"> </a>
+Listing&#160;4-2	   Example UBBCONFIG File Using LAUTHSVR
+</div> <a name="wp1472120"> </a><div class="pPreformatted"><pre>*RESOURCES<br /><br />IPCKEY	&#160;&#160;&#160;&#160;&#160;&#160;&#160;51002<br />MASTER	&#160;&#160;&#160;&#160;&#160;&#160;&#160;site1<br />MAXACCESSERS	&#160;50<br />MAXSERVERS	&#160;&#160;&#160;20<br />MAXSERVICES	&#160;&#160;20<br />MODEL&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SHM<br />LDBAL&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;N<br />BLOCKTIME	&#160;&#160;&#160;&#160;10<br />SECURITY	&#160;&#160;&#160;&#160;&#160;ACL<br />AUTHSVC	&#160;&#160;&#160;&#160;&#160;&#160;&quot;..AUTHSVC&quot;<br /><br />*MACHINES<br />DEFAULT:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;APPDIR=&quot;/home/tuxedo/application&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;TUXCONFIG=&quot;/home/tuxedo/application/TUXCONFIG&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;TUXDIR=&quot;/home/tuxedo/tux81&quot;<br />Server1	&#160;&#160;&#160;&#160;&#160;&#160;&#160;LMID=site1<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MAXWSCLIENTS=20<br /><br />*GROUPS<br />GROUP1	&#160;&#160;&#160;&#160;&#160;&#160;&#160;LMID=site1 GRPNO=1<br />GROUP2	&#160;&#160;&#160;&#160;&#160;&#160;&#160;LMID=site1 GRPNO=2<br />GROUP3	&#160;&#160;&#160;&#160;&#160;&#160;&#160;LMID=site1 GRPNO=3<br />GROUP4	&#160;&#160;&#160;&#160;&#160;&#160;&#160;LMID=site1 GRPNO=4<br /><br />*SERVERS<br />DEFAULT:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;CLOPT=&quot;-A&quot; RESTART=N MAXGEN=5<br />LAUTHSVR	&#160;&#160;&#160;&#160;&#160;&#160;SRVGRP=GROUP1 SRVID=10<br />CLOPT=&quot;-A -- -F /home/tuxedo/application/lauthsvr.conf &quot;<br />DMADM&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SRVGRP=GROUP2 SRVID=20<br />GWADM&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SRVGRP=GROUP3 SRVID=30<br />GWTDOMAIN	&#160;&#160;&#160;&#160;&#160;SRVGRP=GROUP3 SRVID=31<br />Simpserv	&#160;&#160;&#160;&#160;&#160;&#160;SRVGRP=GROUP4 SRVID=40<br />*SERVICES<br />TOUPPER</pre></div><h3 class="pHeading2"><a name="wp1466448"> </a>
+Using Multiple Network Addresses for High Availability
+</h3>
+<p class="pBody"><a name="wp1466439"> </a>
+It is possible to configure more than one network address for a WebLogic Server domain. This may be a favorable configuration in order to provide high availability for user authentication. The user security information is replicated to all WebLogic Server-embedded LDAP servers in a WebLogic domain. <code class="cCode">LAUTHSVR</code> can only connect to one server at a time; however, when a network error occurs, <code class="cCode">LAUTHSVR</code> will try to connect to the next available address. 
+</p>
+<p class="pBody"><a name="wp1472542"> </a>
+To configure multiple network addresses for <code class="cCode">LAUTHSVR</code>, use the <code class="cCode">LDAP_ADDR</code> keyword in the <code class="cCode">LAUTHSVR</code> configuration file. The order in which the hostnames are specified is the order in which <code class="cCode">LAUTHSVR</code> will try to connect. To use caching during authentication, specify the <code class="cCode">EXPIRE</code> keyword. The value in this keyword will determine the number of seconds the cached entry is available in the local process memory.
+</p>
+<a name="wp1472627"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>It is not required to have WebLogic Server available when you boot Tuxedo using <code class="cCode">tmboot</code>; however, without the availability of at least one WebLogic Server, <code class="cCode">LAUTHSVR</code>s ability to authenticate users is limited.</td>
+</tr>
+</table>
+
+<a name="wp1474448"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>Without the availability of WebLogic Server, you can boot Tuxedo and authenticate users using <code class="cCode">SRCH_ORDER LOCAL</code>. In this case, the user authentication is verified against the <code class="cCodeEmphasis">tpusr</code> file. For more information about search order, refer to <a href="sngleadm.html#wp1466490"><span class="cHyperlink">
+Configuring the Database Search Order</span></a>.</td>
+</tr>
+</table>
+<h4 class="pHeading3"><a name="wp1472666"> </a>
+Example LAUTHSVR Configuration of Multiple Network Addresses
+</h4>
+<p class="pBody"><a name="wp1472670"> </a>
+The following example specifies multiple network addresses in the <code class="cCode">LDAP_ADDR</code> keyword.
+</p>
+<a name="wp1472680"> </a><div class="pPreformatted"><pre>LDAP_ADDR //Pluto:8000,//Saturn,Jupiter</pre></div><p class="pBody"><a name="wp1472693"> </a>
+The previous example specifies three WebLogic Server hostnames. The first server runs on Pluto and uses address 8000. The second server runs on Saturn and uses the default address 7001. The third server runs on Jupiter and also uses the default address 7001.
+</p>
+<h3 class="pHeading2"><a name="wp1466490"> </a>
+Configuring the Database Search Order
+</h3>
+<p class="pBody"><a name="wp1466491"> </a>
+By default the <code class="cCode">LAUTHSVR</code> authentication server will search the user information in the WebLogic Server-embedded LDAP server. To enable the use of the <code class="cCodeEmphasis">tpusr</code> file in the database search, you must specify <code class="cCode">LOCAL</code> in the <code class="cCode">SRCH_ORDER</code> keyword. The order that the comma separated values are defined in the <code class="cCode">SRCH_ORDER</code> keyword will specify the order in which <code class="cCode">LAUTHSVR</code> searches for user information. <code class="cCode">LAUTHSVR</code> will search the LDAP server or the <code class="cCodeEmphasis">tpusr</code> file or both (according to the order of the values specified).
+</p>
+<p class="pBody"><a name="wp1473233"> </a>
+If there are two or more <code class="cCode">SRCH_ORDER</code> entries specified in the <code class="cCode">LAUTHSVR</code> configuration file, only the last entry takes effect. In this case a warning message is logged in <code class="cCode">USERLOG</code> as well. A warning message also results if you specify a value other than <code class="cCode">LDAP</code> or <code class="cCode">LOCAL</code> in the <code class="cCode">SRCH_ORDER</code> keyword. In this case, the invalid entry is discarded and the default value or a previous valid <code class="cCode">SRCH_ORDER</code> entry is used.
+</p>
+<h5 class="pHeading4"><a name="wp1472752"> </a>
+Example LAUTHSVR Configuration for Database Search Order
+</h5>
+<p class="pBody"><a name="wp1472917"> </a>
+The following example specifies that <code class="cCode">LAUTHSVR</code> should search the WebLogic Server-embedded LDAP server first for user information. If the user information is not found in the LDAP server, then <code class="cCode">LAUTHSVR</code> should look in the <code class="cCodeEmphasis">tpusr</code> file.
+</p>
+<a name="wp1472754"> </a><div class="pPreformatted"><pre>SRCH_ORDER LDAP,LOCAL</pre></div><p class="pBody"><a name="wp1472755"> </a>
+The following example specifies that <code class="cCode">LAUTHSVR</code> should search the <code class="cCodeEmphasis">tpusr</code> file first for user information. If the user information is not found in the tpusr file, then <code class="cCode">LAUTHSVR</code> should look in the WebLogic Server-embedded LDAP server for the information.
+</p>
+<a name="wp1472904"> </a><div class="pPreformatted"><pre>SRCH_ORDER LOCAL,LDAP</pre></div><p class="pBody"><a name="wp1473203"> </a>
+The following example specifies that <code class="cCode">LAUTHSVR</code> should search the <code class="cCodeEmphasis">tpusr</code> file only for user information. 
+</p>
+<a name="wp1473204"> </a><div class="pPreformatted"><pre>SRCH_ORDER LOCAL</pre></div><h3 class="pHeading2"><a name="wp1239456"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1466022"> </a><span class="cHyperlink">
+&#8220;LAUTH</span><a href="../rf5/rf5.html"></a>SVR(5)&#8221; and <span class="cHyperlink">
+&#8220;GAUTH</span><a href="../rf5/rf5.html"></a>SVR(5)&#8221; in the <em class="cEmphasis">Oracle Tuxedo File Formats, Data Descriptions, MIBs, and System Processes Reference</em>.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1466009"> </a>
+Using tpmigldap to Migrate User Information to WebLogic Server
+</h3>
+<p class="pBody"><a name="wp1466061"> </a>
+You should use the <code class="cCode">tpmigldap</code> command utility to migrate Tuxedo user and group information to WebLogic Server. 
+</p>
+<h4 class="pHeading3"><a name="wp1466587"> </a>
+Assigning New Passwords for the tpusr File
+</h4>
+<p class="pBody"><a name="wp1473348"> </a>
+Before migrating the user and group information, the administrator must assign new passwords for each user so the migration can be successful. This step is required because the passwords in the tpusr file are encrypted with one-way encryption; therefore, it is impossible to retrieve the original password from the file. 
+</p>
+<p class="pBody"><a name="wp1473953"> </a>
+There are two ways to handle this password situation:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1473349"> </a>Modify the <code class="cCodeEmphasis">tpusr</code> file.</li>
+<p class="pBodyRelative"><a name="wp1473933"> </a>
+You can modify the <code class="cCodeEmphasis">tpusr</code> file using a text editor and change the user password for each user in the file. The password field is the second field in the <code class="cCodeEmphasis">tpusr</code> file. The field delimiter is a colon (:). Each user takes up a line in the <code class="cCodeEmphasis">tpusr</code> file.
+</p>
+<p class="pBodyRelative"><a name="wp1473938"> </a>
+The following example:
+</p>
+<a name="wp1473939"> </a><div class="pPreformattedRelative"><pre>TuxedoUser1:ADdg0w8nfGMag:6001:601:TPCLTNM,*::<br />TuxedoUser2:0Yq2s6FjbvuU2:6002:601:TPCLTNM,*::</pre></div><p class="pBodyRelative"><a name="wp1473944"> </a>
+could be modified to:
+</p>
+<a name="wp1473949"> </a><div class="pPreformattedRelative"><pre>TuxedoUser1:User1Password:6001:601:TPCLTNM,*::<br />TuxedoUser2:User2Password:6002:601:TPCLTNM,*::</pre></div><li><a name="wp1473350"> </a>Use the <code class="cCode">-f</code> option with the <code class="cCode">tpmigldap</code> utility to define a default password for all users.</li>
+<p class="pBodyRelative"><a name="wp1473351"> </a>
+If a -f option is used, then the argument that follows will be used as a substitute for the password field in the <code class="cCodeEmphasis">tpusr</code> file for every user in the file.
+</p>
+<p class="pBodyRelative"><a name="wp1473962"> </a>
+The following example command:
+</p>
+<a name="wp1473972"> </a><div class="pPreformattedRelative"><pre>tpmigldap -f userpassword -c</pre></div><p class="pBodyRelative"><a name="wp1473997"> </a>
+will cause &#8220;userpassword&#8221; to be assigned to every user in the <code class="cCodeEmphasis">tpusr</code> file. After the migration, all users will have to use &#8220;userpassword&#8221; as their password in order to join the Tuxedo application.
+</p>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1473411"> </a>
+tpmigldap Command Line Options
+</h4>
+<p class="pBody"><a name="wp1473412"> </a>
+<a href="sngleadm.html#wp573666">Table&#160;4-2</a> defines the command line options for the <code class="cCode">tpmigldap</code> utility. The order of the command line options does not matter. 
+</p>
+<a name="wp1473926"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The <code class="cCode">tpmigldap</code> command requires the use of <code class="cCode">-w</code> or <code class="cCode">-c</code> so the user or group can be added to the WebLogic Server-embedded LDAP database.</td>
+</tr>
+</table>
+
+<p class="pGraphic"><a name="wp1473545"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp573666table1473416"><caption><a name="wp573666"> </a>
+Table 4-2  tpmigldap Command Line Options
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1473418"> </a>
+Command Line Option
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1473621"> </a>
+Option Argument
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1473420"> </a>
+Default Value
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1473422"> </a>
+Usage
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1473424"> </a><div class="pPreformatted"><pre>-h</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473623"> </a>
+hostname
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473426"> </a>
+localhost
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473428"> </a>
+Hostname of WebLogic Server.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1473430"> </a><div class="pPreformatted"><pre>-p</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473625"> </a>
+port
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473432"> </a>
+7001
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473434"> </a>
+Port number for WebLogic Server Administration Console.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1473436"> </a><div class="pPreformatted"><pre>-d</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473627"> </a>
+domain
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473438"> </a>
+mydomain
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473440"> </a>
+WebLogic Server domain name.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1473442"> </a><div class="pPreformatted"><pre>-r</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473629"> </a>
+realm
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473444"> </a>
+myrealm
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473446"> </a>
+WebLogic Server security realm name.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1473448"> </a><div class="pPreformatted"><pre>-i</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473631"> </a>
+TUXEDO_UID keyword string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473450"> </a>
+TUXEDO_UID
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473452"> </a>
+The keyword string for Tuxedo UID that the administrator wants to use in the WebLogic Server user &#8220;description&#8221; attribute.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1473454"> </a><div class="pPreformatted"><pre>-e</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473633"> </a>
+TUXEDO_GID keyword string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473456"> </a>
+TUXEDO_GID
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473458"> </a>
+The keyword string for Tuxedo GID that the administrator wants to use in the WebLogic Server user &#8220;description&#8221;.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1473460"> </a><div class="pPreformatted"><pre>-f</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473635"> </a>
+user password
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473462"> </a>
+No default.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473465"> </a>
+The default user password for every user in the <code class="cCodeEmphasis">tpusr</code> file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1473470"> </a><div class="pPreformatted"><pre>-b</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473637"> </a>
+binddn
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473472"> </a>
+<code class="cCode">cn=Admin</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473475"> </a>
+LDAP connection bind DN.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1473480"> </a><div class="pPreformatted"><pre>-w</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473639"> </a>
+password
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473482"> </a>
+No default.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473485"> </a>
+The password for bind DN. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1473490"> </a><div class="pPreformatted"><pre>-c</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473641"> </a>
+Not applicable.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473492"> </a>
+No default.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473499"> </a>
+A prompt for entering a password for bind DN.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1473504"> </a><div class="pPreformatted"><pre>-u</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473643"> </a>
+full path name
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473506"> </a>
+<code class="cCode">$APPDIR/</code><code class="cCodeEmphasis">tpusr</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473508"> </a>
+The full directory path for the <code class="cCodeEmphasis">tpusr</code> file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1473510"> </a><div class="pPreformatted"><pre>-g</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473645"> </a>
+full path name
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473891"> </a>
+<code class="cCode">$APPDIR/</code><code class="cCodeEmphasis">tpgrp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1473900"> </a>
+The full directory path for the <code class="cCodeEmphasis">tpgrp</code> file.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1476707"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1477777"> </a><span class="cHyperlink">
+&#8220;tpmigld</span><a href="../rfcm/rfcmd.html"></a>ap(1)&#8221; in the <em class="cEmphasis">Oracle Tuxedo Command Reference</em></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1477901"> </a>
+Adding New Tuxedo User Information
+</h3>
+<p class="pBody"><a name="wp1477902"> </a>
+There are two methods for adding new user and group information to the single security LDAP database:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1477903"> </a>Add new information to the <code class="cCodeEmphasis">tpusr</code> text file and then specify the updated file when using the migration utility <code class="cCode">tpmigldap</code>. Refer to <a href="sngleadm.html#wp1477913"><span class="cHyperlink">
+Adding New User Information in tpusr or tpgrp</span></a><span class="cHyperlink">
+.</span></li>
+<li><a name="wp1477907"> </a>Use the WebLogic Administration Console to add user or group information. Refer to <a href="sngleadm.html#wp1477919"><span class="cHyperlink">
+Adding New User Information Using the WebLogic Administration Console</span></a><span class="cHyperlink">
+.</span></li>
+<a name="wp1477911"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Using the WebLogic Administration Console may not be efficient for adding large numbers of users to the LDAP database. In the case of adding several users, you may want to use the <code class="cCode">tpmigldap</code> utility.</td>
+</tr>
+</table>
+
+</ul></div>
+<h4 class="pHeading3"><a name="wp1477913"> </a>
+Adding New User Information in tpusr or tpgrp
+</h4>
+<p class="pBody"><a name="wp1477914"> </a>
+To add new user information to the single point security LDAP database:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1477915"> </a>Use your existing <code class="cCodeEmphasis">tpusr</code> file and <code class="cCodeEmphasis">tpgrp</code> file to add the new user and group information. Be sure to use the same format previously defined in the file. Be sure to use clear text passwords to add to the LDAP database.</li>
+<li><a name="wp1477916"> </a>Run the <code class="cCode">tpmigldap</code> utility using the <code class="cCode">-u</code> option and specify the updated <code class="cCodeEmphasis">tpusr</code> file and the<code class="cCode"> -g</code> option and specify the updated <code class="cCodeEmphasis">tpgrp</code> file. For example:</li>
+<a name="wp1477917"> </a><div class="pPreformattedRelative"><pre>tpmigldap -u $APPDIR/tpusr -g $APPDIR/tpgrp</pre></div></ol></div>
+<h4 class="pHeading3"><a name="wp1477919"> </a>
+Adding New User Information Using the WebLogic Administration Console
+</h4>
+<p class="pBody"><a name="wp1477920"> </a>
+To add new user information to the single point security LDAP database using the WebLogic Administration Console:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1477921"> </a>Access the WebLogic Administration Console and select <code class="cCode">Security</code> <span class="arrow"><img id="LongDescNotReq1" src="/global_resources/images/arrwrite.gif" alt="Arrow symbol"/></span><code class="cCode">Realms</code><span class="arrow"><img id="LongDescNotReq2" src="/global_resources/images/arrwrite.gif" alt="Arrow symbol"/></span> <code class="cCodeEmphasis">myrealm</code> where <code class="cCodeEmphasis">myrealm</code> represents the LDAP security realm.</li>
+<p class="pGraphic"><a name="wp1477925"> </a>
+<br />
+<img src="wwimages/wlsusrlist.gif" id="wp1477923"/><br />
+
+</p>
+<li><a name="wp1477926"> </a>Click Configure a new User... and access the General tab.</li>
+<p class="pGraphic"><a name="wp1477930"> </a>
+<br />
+<img src="wwimages/wlsusrnew.gif" id="wp1477928"/><br />
+
+</p>
+<p class="pBodyRelative"><a name="wp1477931"> </a>
+Enter the user information:
+</p>
+<p class="pBodyRelative"><a name="wp1477932"> </a>
+In the Name field specifies the user name. 
+</p>
+<p class="pBodyRelative"><a name="wp1477933"> </a>
+In the Description field specify the Tuxedo UID and GID values as a string in the following syntax:
+</p>
+<a name="wp1477934"> </a><div class="pPreformattedRelative"><pre>&lt;TUXEDO UID KEYWORD&gt;=&lt;decimal value&gt;<br />&lt;TUXEDO GID KEYWORD&gt;=&lt;decimal value&gt;</pre></div><p class="pBodyRelative"><a name="wp1477935"> </a>
+where by default, the <code class="cCode">TUXEDO UID KEYWORD</code> is <code class="cCode">TUXEDO_UID</code> and <code class="cCode">TUXEDO GID KEYWORD</code> by default is <code class="cCode">TUXEDO_GID</code>. For example:
+</p>
+<a name="wp1477936"> </a><div class="pPreformattedRelative"><pre><code class="cCode">TUXEDO_UID=2504 TUXEDO_GID=601</code>.</pre></div><p class="pBodyRelative"><a name="wp1477937"> </a>
+In the Password field, specify the password for the user. Then confirm the password by entering the password again in the Confirm Password field.
+</p>
+<li><a name="wp1477938"> </a>Click Apply to update the LDAP database with the new user information.</li>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1477869"> </a>
+Setting up GAUTHSVR as the Authentication Server
+</h2><p class="pBody"><a name="wp1477083"> </a>
+<code class="cCode">GAUTHSVR</code> is a System /T provided server usage is similar to <code class="cCode">LAUTHSVR</code>, but with the following differences:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1483421"> </a><code class="cCode">GAUTHSVR</code> can access user security information located in a wide variety of LDAP servers (for example, WebLogic, OpenLDAP, Netscape/IPlanet, Microsoft Active Directory, z/OS LDAP, and so on), using LDAP (Lightweight Directory Access Protocol).</li>
+<a name="wp1483422"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>You can also configure WebLogic authentication using <code class="cCode">LAUTHSVR</code>. <code class="cCode">GAUTHSVR</code> can be used along with an existing <code class="cCode">LAUTHSVR</code> or replace it. </td>
+</tr>
+</table>
+
+<a name="wp1478443"> </a><table class="ListNote">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>For more <code class="cCode">LAUTHSVR</code> information, see <a href="sngleadm.html#wp1239453">Setting up LAUTHSVR as the Authentication Server</a> and <span class="cHyperlink">
+&#8220;LAUT</span><a href="../rf5/rf5.html"></a>HSVR(5),&#8221; in the <em class="cEmphasis">Oracle Tuxedo File Formats, Data Descriptions, MIBs, and System Processes Reference</em>.</td>
+</tr>
+</table>
+<li><a name="wp1477175"> </a><code class="cCode">GAUTHSVR</code> syntax does not support multiple network addresses for high availability. For more information, see <a href="sngleadm.html#wp1466448">Using Multiple Network Addresses for High Availability</a>.</li>
+<li><a name="wp1483490"> </a><code class="cCode">GAUTHSVR</code> does not support user security information stored in a local file. For more information, see <a href="sngleadm.html#wp1466490">Configuring the Database Search Order</a>.</li>
+</ul></div>
+<p class="pBody"><a name="wp1484243"> </a>
+To enable the single security administration feature, <code class="cCode">GAUTHSVR</code> must be configured as the authentication server. <code class="cCode">GAUTHSVR</code> authenticates user security information against <code class="cCode">LDAP</code> server. It returns <code class="cCodeEmphasis">appkey</code> if <code class="cCode">SECURITY</code> is set to <code class="cCode">ACL</code> or <code class="cCode">MANDATORY_ACL</code> when authentication success.
+</p>
+<p class="pBody"><a name="wp1484244"> </a>
+To configure <code class="cCode">GAUTHSVR</code> as the authentication server, you must define the following parameters in the <code class="cCode">UBBCONFIG</code> file:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1477022"> </a><code class="cCode">SECURITY</code> must be set to <code class="cCode">USER_AUTH</code>, <code class="cCode">ACL</code>, or <code class="cCode">MANDATORY_ACL</code> in the <code class="cCode">RESOURCES</code> section.</li>
+<li><a name="wp1476132"> </a><code class="cCode">GAUTHSVR</code> must be specified in the <code class="cCode">SERVERS</code> section.</li>
+<a name="wp1477001"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If <code class="cCode">GAUTHSVR</code> cannot find a valid configuration file or the file does not exist, it will log an error message in USERLOG and fail to boot. The default <code class="cCode">GAUTHSVR</code> configuration file is <code class="cCode">$TUXDIR/udataobj/tpgauth</code> and is provided with the product.</td>
+</tr>
+</table>
+
+</ul></div>
+<h3 class="pHeading2"><a name="wp1476105"> </a>
+GAUTHSVR Command Line Interface
+</h3>
+<p class="pBody"><a name="wp1476117"> </a>
+<code class="cCode">GAUTHSVR</code> is an LDAP-based authentication server for Tuxedo. It requires a configuration file, that by default is <code class="cCode">$TUXDIR/udataobj/tpgauth</code>.
+</p>
+<p class="pBody"><a name="wp1476118"> </a>
+The command line interface syntax for <code class="cCode">GAUTHSVR</code> is as follows:
+</p>
+<h4 class="pDefTerm"><a name="wp1476119"> </a>
+<code class="cCode">-f </code><code class="cCodeEmphasis">config</code>
+</h4><div class="pDefPara"><a name="wp1483541"> </a>
+Specifies the full pathname of the <code class="cCode">GAUTHSVR</code> configuration file.
+</div>
+<h4 class="pDefTerm"><a name="wp1483564"> </a>
+<code class="cCode">-o </code><code class="cCodeEmphasis">gaconfig.xml</code>
+</h4><div class="pDefPara"><a name="wp1483565"> </a>
+Specifies the full pathname of the <code class="cCode">GAUTHSVR</code> internal configuration file generated from customer configuration file specified by <code class="cCode">-f</code> option. The default value is $APPDIR/gaconfig.xml.
+</div>
+<h4 class="pDefTerm"><a name="wp1484760"> </a>
+<code class="cCode">-k </code><code class="cCodeEmphasis">gakey.dat</code>
+</h4><div class="pDefPara"><a name="wp1484761"> </a>
+Specifies the full pathname of the <code class="cCode">GAUTHSVR</code> internal configuration file generated from the configuration file (specified in the <code class="cCode">-f</code> option). The default value is $APPDIR/gakey.dat.
+</div>
+<h4 class="pDefTerm"><a name="wp1484762"> </a>
+<code class="cCode">-v</code>
+</h4><div class="pDefPara"><a name="wp1477148"> </a>
+Verbose mode. Logs more detailed messages to ULOG.
+</div>
+<p class="pBody"><a name="wp1483638"> </a>
+The following example instructs <code class="cCode">GAUTHSVR</code> to use the default configuration file, <code class="cCodeEmphasis">tpgauth</code>, in the <code class="cCode">$TUXDIR/udataobj/tpgauth</code> directory.
+</p>
+<a name="wp1483639"> </a><div class="pPreformatted"><pre>GAUTHSVR SRVGRP=GROUP1 SRVID=2 CLOPT=&#8221;-A --&#8221;</pre></div><p class="pBody"><a name="wp1483640"> </a>
+In the following example, <code class="cCode">GAUTHSVR</code> use the <code class="cCode">myauthsvr.conf </code>configuration file in the <code class="cCode">/home/tuxedo/bankapp</code> directory. 
+</p>
+<a name="wp1476125"> </a><div class="pPreformatted"><pre>GAUTHSVR SRVGRP=GROUP1 SRVID=2 <br />	CLOPT=&#8221;-A -- -f/home/tuxedo/bankapp/myauthsvr.conf&#8221;</pre></div><p class="pBody"><a name="wp1485165"> </a>
+<code class="cCode">GAUTHSVR</code> updates the generated <code class="cCode">XML</code> file if <code class="cCode">tpgauth</code> is newer than the generated <code class="cCode">XML</code> and key files. Only changed or newly added <code class="cCode">tpgauth</code> items are updated in the generated <code class="cCode">XML</code> file.
+</p>
+<a name="wp1485224"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If the <code class="cCode">XML</code> and key file are not present when <code class="cCode">GAUTHSVR </code>is booted, <code class="cCode">GAUTHSVR </code>creates them automatically.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1476165"> </a>
+Setting Up the GAUTHSVR Configuration File
+</h3>
+<p class="pBody"><a name="wp1484110"> </a>
+<code class="cCode">GAUTHSVR</code> supports an input configuration file that contains information such as bind DN and an unencrypted password for bind DN. This configuration file is a plain text file and can be edited using any text editor and must be protected by the system using file permissions. By default the configuration file, named <code class="cCodeEmphasis">tpgauth</code>, is located in <code class="cCode">$TUXDIR/udataobj/tpgauth</code> directory. You can overwrite this file in the command line for <code class="cCode">GAUTHSVR</code>. <a href="sngleadm.html#wp573771"><span class="cHyperlink">
+Table&#160;4-3</span></a><span class="cHyperlink">
+ lists </span>keywords and value pairs contained in the <code class="cCode">GAUTHSVR</code> configuration file. 
+</p>
+<h4 class="pHeading3"><a name="wp1484115"> </a>
+Syntax Requirements for GAUTHSVR Configuration File
+</h4>
+<p class="pBody"><a name="wp1476171"> </a>
+Although the default values for the <code class="cCode">GAUTHSVR</code> configuration file are usually sufficient, you can choose to configure it with different names. Therefore, you should be aware of the following requirements for the <code class="cCode">GAUTHSVR</code> configuration file:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1476172"> </a>The <code class="cCode">GAUTHSVR</code> configuration file is a plain text file.</li>
+<li><a name="wp1483634"> </a>Keywords are case-sensitive, but their order does not matter. The keyword format is &#8220;<code class="cCode">keyword=value</code>&#8221;. </li>
+<li><a name="wp1483635"> </a>Blank lines or lines starting with a <code class="cCode">#</code> sign are treated as comments, and are ignored.</li>
+<li><a name="wp1476175"> </a>The upper limit of a line is 255 characters. If a line exceeds this upper limit, it is truncated.</li>
+<li><a name="wp1476176"> </a>The <code class="cCode">Principal</code> must have privileges to access the LDAP database (usually the LDAP administrator).</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1476178"> </a>
+GAUTHSVR Configuration File Keywords
+</h4>
+<p class="pBody"><a name="wp1476179"> </a>
+GAUTHSVR keywords are divided into three groups: basic, advanced, and LDAP schema. <a href="sngleadm.html#wp573771">Table&#160;4-3</a>, <a href="sngleadm.html#wp573992">Table&#160;4-4</a>, and <a href="sngleadm.html#wp574137">Table&#160;4-5</a> define the <code class="cCode">GAUTHSVR</code> configuration file keywords accordingly.
+</p>
+<p class="pGraphic"><a name="wp1480471"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp573771table1480301"><caption><a name="wp573771"> </a>
+Table 4-3  Basic GAUTHSVR Configuration File Keywords&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1480998"> </a>
+Configuration Keyword
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1481000"> </a>
+Value Type
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1481002"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481004"> </a><div class="pPreformatted"><pre>UserCacheExpire</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481006"> </a>
+numeric
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481008"> </a>
+A numeric value that represents the number of seconds the cached entry is available in the local process memory. A value other than zero will enable caching. A value of zero specifies no caching. 
+</div>
+<div class="pCellBody"><a name="wp1481009"> </a>
+The default value is <code class="cCode">0.</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481011"> </a><div class="pPreformatted"><pre>UserCacheSize</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481013"> </a>
+numeric
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1484293"> </a>
+Maximum number of entries for user cache where one entry is required for each user. A <code class="cCode">0 </code>value of zero specifies no limit.
+</div>
+<div class="pCellBody"><a name="wp1481016"> </a>
+The default value is <code class="cCode">0</code> (indicating no limit).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481018"> </a><div class="pPreformatted"><pre>SYSADM</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481020"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1483945"> </a>
+The user name for the Tuxedo SYSADM.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481025"> </a><div class="pPreformatted"><pre>SYSOP</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481027"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481029"> </a>
+The user name for the Tuxedo SYSOP.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481032"> </a><div class="pPreformatted"><pre>Host</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481034"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481036"> </a>
+The host name or IP address of the LDAP server.
+</div>
+<div class="pCellBody"><a name="wp1481037"> </a>
+The default value is <code class="cCode">localhos</code>t.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481039"> </a><div class="pPreformatted"><pre>Port</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481041"> </a>
+numeric
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481043"> </a>
+The port number on which the LDAP server is listening.
+</div>
+<div class="pCellBody"><a name="wp1481044"> </a>
+The default value is <code class="cCode">389.</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481046"> </a><div class="pPreformatted"><pre>Principal</pre></div></td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481050"> </a>
+The Distinguished Name (DN) of the LDAP user that is used to connect to the LDAP server.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481052"> </a><div class="pPreformatted"><pre>Credential</pre></div></td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481056"> </a>
+The credential (generally a password) used to authenticate the LDAP user that is defined in the Principal attribute.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481058"> </a><div class="pPreformatted"><pre>RetrieveUIDAndGID</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481060"> </a>
+boolean
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481062"> </a>
+Specifies whether the UID and GID information are retrieved from the LDAP server. It must be set to <code class="cCode">true</code> when <code class="cCode">SECURITY </code>is <code class="cCode">ACL</code> or <code class="cCode">MANDATORY_ACL</code>.
+</div>
+<div class="pCellBody"><a name="wp1484778"> </a>
+The default value is <code class="cCode">false.</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pGraphic"><a name="wp1481255"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp573992table1481187"><caption><a name="wp573992"> </a>
+Table 4-4  Advanced GAUTHSVR Configuration File Keywords&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1481189"> </a>
+Configuration Keyword
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1481191"> </a>
+Value Type
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1481193"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481195"> </a><div class="pPreformatted"><pre>TuxedoUIDKey</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481197"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481200"> </a>
+Used to identify the Tuxedo UID.
+</div>
+<div class="pCellBody"><a name="wp1481456"> </a>
+The default value is <code class="cCode">TUXEDO_UID</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481202"> </a><div class="pPreformatted"><pre>TuxedoGIDKey</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481204"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481207"> </a>
+Used to identify the Tuxedo GID
+</div>
+<div class="pCellBody"><a name="wp1481560"> </a>
+The default value is <code class="cCode">TUXEDO_GID</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481209"> </a><div class="pPreformatted"><pre>ConnectTimeout</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481211"> </a>
+numeric
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481214"> </a>
+The maximum number of seconds to wait for the LDAP connection to be established. If set to 0, there is no maximum time limit.
+</div>
+<div class="pCellBody"><a name="wp1481561"> </a>
+The default value is <code class="cCode">0</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481216"> </a><div class="pPreformatted"><pre>ConnectionRetryLimit</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481218"> </a>
+numeric
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481221"> </a>
+The number of times to attempt to connect to the LDAP server if the initial connection failed.
+</div>
+<div class="pCellBody"><a name="wp1481547"> </a>
+The default value is <code class="cCode">1</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481223"> </a><div class="pPreformatted"><pre>ResultsTimeLimit</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481225"> </a>
+numeric
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481228"> </a>
+The maximum number of milliseconds to wait for results before timing out. If set to 0, there is no maximum time limit.
+</div>
+<div class="pCellBody"><a name="wp1481555"> </a>
+The default value is <code class="cCode">0</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481230"> </a><div class="pPreformatted"><pre>SSLEnabled</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481232"> </a>
+boolean
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481235"> </a>
+Specifies that SSL is used to connect to the LDAP server.
+</div>
+<div class="pCellBody"><a name="wp1481556"> </a>
+The default value is <code class="cCode">false</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481237"> </a><div class="pPreformatted"><pre>KeepAliveEnabled</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481239"> </a>
+boolean
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481241"> </a>
+Specifies whether to prevent LDAP connections from timing out or not.
+</div>
+<div class="pCellBody"><a name="wp1481557"> </a>
+The default value is <code class="cCode">false</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481243"> </a><div class="pPreformatted"><pre>ParallelConnectDelay</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481245"> </a>
+numeric
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481587"> </a>
+The number of seconds to delay when making concurrent attempts to connect to multiple servers.
+</div>
+<div class="pCellBody"><a name="wp1481588"> </a>
+If set to 0, connection attempts are serialized. An attempt is made to connect to the first server in the list. The next entry in the list is tried only if the attempt to connect to the current host fails. This might cause your application to block for unacceptably long time if a host is down. If set to greater than 0, another connection setup thread is started after this number of delay seconds has passed.
+</div>
+<div class="pCellBody"><a name="wp1481558"> </a>
+The default value is <code class="cCode">0</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481249"> </a><div class="pPreformatted"><pre>FollowReferrals</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481251"> </a>
+boolean
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1484335"> </a>
+Specifies whether referrals are automatically followed within the LDAP Directory or not. 
+</div>
+<div class="pCellBody"><a name="wp1484346"> </a>
+If set to <code class="cCode">false</code>, a referral exception is sent when referrals are encountered during LDAP requests.
+</div>
+<div class="pCellBody"><a name="wp1481559"> </a>
+The default value is <code class="cCode">true</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481801"> </a><div class="pPreformatted"><pre>BindAnonymouslyOnReferrals</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481803"> </a>
+boolean
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481805"> </a>
+Specifies to anonymously bind when following referrals within the LDAP directory. If set to <code class="cCode">false</code>, then the current Principal and Credential are used.
+</div>
+<div class="pCellBody"><a name="wp1481806"> </a>
+The default value is <code class="cCode">false</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481828"> </a><div class="pPreformatted"><pre>UseZOSRACF</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481830"> </a>
+boolean
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481832"> </a>
+Specifies whether the LDAP server is z/OS RACF LDAP server.
+</div>
+<div class="pCellBody"><a name="wp1481833"> </a>
+The default value is <code class="cCode">false</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481852"> </a><div class="pPreformatted"><pre>ControlFlag</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481854"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481856"> </a>
+Specifies how Tuxedo LDAP Authentication provider fits into the login sequence.
+</div>
+<div class="pCellBody"><a name="wp1481857"> </a>
+The Control Flag determines how the login sequence uses the Authentication provider.
+</div>
+<div class="pCellBody"><a name="wp1481858"> </a>
+A REQUIRED value specifies this LoginModule must succeed. Even if it fails, authentication proceeds down the list of LoginModules for the configured Authentication providers. This setting is the default.
+</div>
+<div class="pCellBody"><a name="wp1481859"> </a>
+A REQUISITE value specifies this LoginModule must succeed. If other Authentication providers are configured and this LoginModule succeeds, authentication proceeds down the list of LoginModules. Otherwise, control is return to the application.
+</div>
+<div class="pCellBody"><a name="wp1481860"> </a>
+A SUFFICIENT value specifies this LoginModule need not succeed. If it does succeed, return control to the application. If it fails and other Authentication providers are configured, authentication proceeds down the LoginModule list.
+</div>
+<div class="pCellBody"><a name="wp1481861"> </a>
+An OPTIONAL value specifies this LoginModule need not succeed. Whether it succeeds or fails, authentication proceeds down the LoginModule list. 
+</div>
+<div class="pCellBody"><a name="wp1481862"> </a>
+The default value is <code class="cCode">REQUIRED</code>.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pGraphic"><a name="wp1481350"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp574137table1481289"><caption><a name="wp574137"> </a>
+Table 4-5  LDAP Schema Configuration File Keywords&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1481291"> </a>
+Configuration Keyword
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1481293"> </a>
+Value Type
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1481295"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481297"> </a><div class="pPreformatted"><pre>UserObjectClass</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481299"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481620"> </a>
+The LDAP object class that stores users
+</div>
+<div class="pCellBody"><a name="wp1481923"> </a>
+The default is <code class="cCode">person</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481303"> </a><div class="pPreformatted"><pre>UserBaseDN</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481305"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481933"> </a>
+The base distinguished name (DN) of the tree in the LDAP directory that contains users.
+</div>
+<div class="pCellBody"><a name="wp1481934"> </a>
+The default value is <code class="cCode">ou=people, o=example.com</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481309"> </a><div class="pPreformatted"><pre>UserFromNameFilter</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481311"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481956"> </a>
+An LDAP search filter for finding a user given the name of the user.
+</div>
+<div class="pCellBody"><a name="wp1481957"> </a>
+The default value is <code class="cCode">(&amp;(cn=%u)(objectclass=person))</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481903"> </a><div class="pPreformatted"><pre>UserSearchScope</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481905"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481979"> </a>
+Specifies how deep in the LDAP directory tree to search for users. Valid values are &quot;subtree, onelevel&quot;.
+</div>
+<div class="pCellBody"><a name="wp1481980"> </a>
+The default value is<code class="cCode"> subtree</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481897"> </a><div class="pPreformatted"><pre>UserUIDAttrName</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481899"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1482002"> </a>
+The attribute name of an LDAP user object that specifies the UID of the user or the UID and GID of the user in a fixed format.
+</div>
+<div class="pCellBody"><a name="wp1481901"> </a>
+The default value is <code class="cCode">userid</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481891"> </a><div class="pPreformatted"><pre>UIDAttrValueType</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481893"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1483977"> </a>
+Specifies the value type of the uid attribute for the LDAP user object. Legal values include &quot;UID, UIDAndGID&quot;.
+</div>
+<div class="pCellBody"><a name="wp1481895"> </a>
+The default value is <code class="cCode">UID</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481885"> </a><div class="pPreformatted"><pre>UserGroupAttrNames</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481887"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1482029"> </a>
+The attribute names of an LDAP user object that specify the groups the user belongs to. This attribute can contain three types of values: GID, group CN and group DN. One type of value for each configuration. More names are separated by comma.
+</div>
+<div class="pCellBody"><a name="wp1481889"> </a>
+The default value is <code class="cCode">usergroups</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481879"> </a><div class="pPreformatted"><pre>GroupAttrValueType</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481881"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1482042"> </a>
+Specifies the value type of the group attributes for the LDAP user object. Legal values include &quot;<code class="cCode">GID</code>,<code class="cCode"> group CN</code>, and <code class="cCode">group DN</code>&quot;.
+</div>
+<div class="pCellBody"><a name="wp1481883"> </a>
+The default value is<code class="cCode"> GID</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1481873"> </a><div class="pPreformatted"><pre>GroupBaseDN</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1481875"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1482059"> </a>
+The base distinguished name (DN) of the tree in the LDAP directory that contains groups.
+</div>
+<div class="pCellBody"><a name="wp1481877"> </a>
+The default value is <code class="cCode">ou=groups, o=example.com.</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1482120"> </a><div class="pPreformatted"><pre>GroupFromNameFilter</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1482122"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1482149"> </a>
+An LDAP search filter for finding a group given the name of the group.
+</div>
+<div class="pCellBody"><a name="wp1482150"> </a>
+The default value is <code class="cCode">(&amp;(cn=%g)(objectclass=groupofuniquenames)).</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1482114"> </a><div class="pPreformatted"><pre>StaticGroupObjectClass</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1482116"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1482184"> </a>
+The name of the LDAP object class that stores static groups
+</div>
+<div class="pCellBody"><a name="wp1482118"> </a>
+The default value is <code class="cCode">groupofuniquenames</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1482108"> </a><div class="pPreformatted"><pre>GroupSearchScope</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1482110"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1484068"> </a>
+Specifies how deep in the LDAP directory tree to search for groups. Valid values are &quot;subtree, onelevel&quot;
+</div>
+<div class="pCellBody"><a name="wp1482112"> </a>
+The default value is<code class="cCode"> subtree</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1482535"> </a><div class="pPreformatted"><pre>GroupGIDAttrName</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1482537"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1482597"> </a>
+The attribute of a LDAP group object that specifies the GID of the group
+</div>
+<div class="pCellBody"><a name="wp1482568"> </a>
+The default value is <code class="cCode">groupid</code>.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1484390"> </a>
+Example GAUTHSVR Configuration File
+</h4>
+<p class="pBody"><a name="wp1484391"> </a>
+<a href="sngleadm.html#wp1476985">Listing&#160;4-3</a> shows a <code class="cCode">GAUTHSVR</code> configuration file for WebLogic Server example. Please refer to this example when configuring other LDAP servers.
+</p>
+<div class="pCodeTitle"><a name="wp1476985"> </a>
+Listing&#160;4-3	   Example WebLogic GAUTHSVR Configuration File
+</div> <a name="wp1476986"> </a><div class="pPreformatted"><pre>#<br /># Tuxedo LDAP Authentication Server configuration file.<br />#<br /># created: Thu May 26 15:36:59 2002<br /># end of file</pre></div><a name="wp1480000"> </a><div class="pPreformatted"><pre># Tuxedo configuration<br />UserCacheExpire = 600<br />UserCacheSize   = 16384<br />SYSADM           = sysadm<br />SYSOP            = sysop<br /><br /># LDAP server configuration<br />Host = server.bea.com<br />Port = 7001</pre></div><a name="wp1480009"> </a><div class="pPreformatted"><pre>Principal = cn=Admin<br />Credential= weblogic<br /><br />UserObjectClass = person<br />UserBaseDN      = ou=people,ou=myrealm,dc=examples<br />UserFromNameFilter = (&amp;(uid=%u)(objectclass=person))<br />UserUIDAttrName = description<br />UserGroupAttrNames=wlsMemberOf<br />RetrieveUIDAndGID = true<br />UIDAttrValueType = UIDAndGID</pre></div><a name="wp1476355"> </a>
+<table class="Note">
+<tr>
+<td valign="top"><strong>WARNING:</strong></td>
+<td>Because the <code class="cCode">PASSWORD</code> for the LDAP administrator is in clear text, it is recommended that the system administrator guards this file with correct access permission.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1484025"> </a>
+Example UBBCONFIG Using GAUTHSVR
+</h3>
+<p class="pBody"><a name="wp1484026"> </a>
+<a href="sngleadm.html#wp1484027">Listing&#160;4-4</a> shows an example UBBCONFIG file with <code class="cCode">SECURITY</code> set to <code class="cCode">ACL</code> and <code class="cCode">GAUTHSVR</code> defined.
+</p>
+<div class="pCodeTitle"><a name="wp1484027"> </a>
+Listing&#160;4-4	   Example UBBCONFIG File Using GAUTHSVR
+</div> <a name="wp1477996"> </a><div class="pPreformatted"><pre># UBBCONFIG</pre></div><a name="wp1477997"> </a><div class="pPreformatted"><pre>*SERVER</pre></div><a name="wp1477998"> </a><div class="pPreformatted"><pre>GAUTHSVR SVRGRP=&quot;SYSGRP&quot; SVRID=100<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CLOPT=&quot;-A -- -f ${APPDIR}/tpgauth&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ENVFILE=&quot;${APPDIR}/tpgauth.env&quot;</pre></div><h3 class="pHeading2"><a name="wp1476761"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1479221"> </a><span class="cHyperlink">
+&#8220;GAUTH</span><a href="../rf5/rf5.html"></a>SVR(5)&#8221; and <span class="cHyperlink">
+&#8220;LAUTH</span><a href="../rf5/rf5.html"></a>SVR(5)&#8221; in the <em class="cEmphasis">Oracle Tuxedo File Formats, Data Descriptions, MIBs, and System Processes Reference</em></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1479181"> </a>
+Using tpmigldif to Migrate User Information
+</h3>
+<p class="pBody"><a name="wp1479019"> </a>
+You can use the <code class="cCode">tpmigldif</code> command utility to migrate Tuxedo user and group information to LDAP servers in LDAP Interchange Format (LDIF). In order to use <code class="cCode">tpmigldif</code>, you must create a migration template.
+</p>
+<h4 class="pHeading3"><a name="wp1479282"> </a>
+Using tpmigldif Command Line Options
+</h4>
+<p class="pBody"><a name="wp1479283"> </a>
+<a href="sngleadm.html#wp573849">Table&#160;4-6</a> lists the command line options for the <code class="cCode">tpmigldif</code> utility. The order of the command line options does not matter. 
+</p>
+<p class="pGraphic"><a name="wp1479334"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp573849table1479285"><caption><a name="wp573849"> </a>
+Table 4-6  tpmigldif Command Line Options&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1479287"> </a>
+Command Line Option
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1484466"> </a>
+Option Argument
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1484467"> </a>
+Default Value
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1484468"> </a>
+Usage
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1479295"> </a><div class="pPreformatted"><pre>-t</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1479297"> </a>
+user|group
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1479299"> </a>
+<code style="font-style: normal" class="cCode">user</code><span style="font-style: italic"> </span>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1479301"> </a>
+Specifies migration type. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1479303"> </a><div class="pPreformatted"><pre>-f</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1479305"> </a>
+template filename
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1479307"> </a>
+<code class="cCode">tpusr-template (when type is user), or tpgrp-template(when type is group)</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1479309"> </a>
+Specifies the template file name. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1479311"> </a><div class="pPreformatted"><pre>-o</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1479313"> </a>
+o (output filename)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1479315"> </a>
+<code class="cCode">console/stdout</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1479317"> </a>
+Specifies the output file name. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1479319"> </a><div class="pPreformatted"><pre>-u</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1479321"> </a>
+full path name
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1479323"> </a>
+<code class="cCodeEmphasis">tpusr</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1479325"> </a>
+The full directory path for the <code class="cCodeEmphasis">tpusr</code> file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1479327"> </a><div class="pPreformatted"><pre>-g</pre></div></td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1479329"> </a>
+full path name
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1479331"> </a>
+<code class="cCodeEmphasis">tpgrp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1479333"> </a>
+The full directory path for the <code class="cCodeEmphasis">tpgrp</code> file.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1479082"> </a>
+tpusr and tpgrp File Format
+</h4>
+<p class="pBody"><a name="wp1479412"> </a>
+<a href="sngleadm.html#wp1484802">Listing&#160;4-5</a> shows a <code class="cCode">tpusr</code> file with five fields separated by a colon: 
+</p>
+<p class="pBody"><a name="wp1484800"> </a>
+<code class="cCode">name:password</code>(encrypted)<code class="cCode">:user id:group id:client name::</code>
+</p>
+<div class="pCodeTitle"><a name="wp1484802"> </a>
+Listing&#160;4-5	   Example tpusr File
+</div> <a name="wp1484803"> </a><div class="pPreformattedRelative"><pre>user1:EI4xxxjrCc:16668:601:TPCLTNM,client::<br />user2:EI4xxxjrCc:16669:602:TPCLTNM,client::</pre></div><p class="pBody"><a name="wp1479543"> </a>
+<a href="sngleadm.html#wp1479432">Listing&#160;4-6</a> shows a <code class="cCode">tpgrp</code> file with three fields separated by a colon:
+</p>
+<p class="pBody"><a name="wp1479544"> </a>
+<code class="cCode">name::group id:</code>
+</p>
+<div class="pCodeTitle"><a name="wp1479432"> </a>
+Listing&#160;4-6	   Example tpgrp File
+</div> <a name="wp1479746"> </a><div class="pPreformatted"><pre>group1::601:<br />group2::602:</pre></div><h5 class="pHeading4"><a name="wp1479511"> </a>
+Assigning New Passwords for the tpusr File (Optional)
+</h5>
+<p class="pBody"><a name="wp1479453"> </a>
+Before migrating the user and group information, the administrator could assign new passwords for each user so the generated LDIF output contains correct password for each user. This step is required because the passwords in the tpusr file are encrypted with one-way encryption; therefore, it is impossible to retrieve the original password from the file.
+</p>
+<p class="pBody"><a name="wp1479454"> </a>
+Using a text-editor, there are two methods you can use to modify <code class="cCode">tpusr</code> file passwords:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1479455"> </a>Modify the <code class="cCodeEmphasis">tpusr</code> file password field to change the user password for each user in the file. The password field is the <span style="font-style: italic">second field </span>in the <code class="cCodeEmphasis">tpusr</code> file. Each user is entered on a separate line in the <code class="cCodeEmphasis">tpusr</code> file. See listing <a href="sngleadm.html#wp1484802">Listing&#160;4-5</a>, for original <code class="cCode">tpusr</code> file example.</li>
+<a name="wp1482895"> </a><div class="pPreformattedRelative"><pre>user1:pwd1:16668:601:TPCLTNM,client::<br />user2:pwd2:16669:602:TPCLTNM,client:</pre></div><li><a name="wp1479628"> </a>Add a new password to the last <code class="cCode">tpusr</code> file field</li>
+<a name="wp1482879"> </a><div class="pPreformattedRelative"><pre>user1:EI4xxxjrCc:16668:601:TPCLTNM,client::pwd1:<br />user2:EI4xxxjrCc:16669:602:TPCLTNM,client::pwd2:</pre></div></ul></div>
+<h4 class="pHeading3"><a name="wp1479411"> </a>
+Creating a Migration Template
+</h4>
+<p class="pBody"><a name="wp1479725"> </a>
+The migration template is a text file used by the <code class="cCode">tpmigldif</code> command utility to translate the <code class="cCode">tpusr</code> or <code class="cCode">tpgrp</code> file into an LDIF output file. 
+</p>
+<p class="pBody"><a name="wp1479726"> </a>
+<a href="sngleadm.html#wp1479728">Listing&#160;4-7</a> shows a <code class="cCode">tpusr-template</code> migration file example. <code class="cCode">&lt;%n&gt;</code> refers to a <code class="cCode">tpusr</code> file field, where n starts at 1.
+</p>
+<a name="wp1479734"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Use <code class="cCode">&lt;%gn&gt;</code> for group field in <code class="cCode">tpgrp</code> file for given user.</td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1479728"> </a>
+Listing&#160;4-7	   tpusr-template
+</div> <a name="wp1482758"> </a><div class="pPreformatted"><pre>dn: CN=&lt;%1&gt;,CN=Users,DC=tuxdev,DC=bea,dc=com<br />objectclass: top<br />objectclass: person<br />objectclass: organizationalPerson<br />objectclass: user<br />cn: &lt;%1&gt;<br />description: Tuxedo User, TUXEDO_UID=&lt;%3&gt; TUXEDO_GID=&lt;%4&gt;<br />password: &lt;%7&gt;</pre></div><p class="pBody"><a name="wp1479401"> </a>
+<a href="sngleadm.html#wp1484164">Listing&#160;4-8</a> shows the LDIF output from the <code class="cCode">tpusr</code>-template.
+</p>
+<div class="pCodeTitle"><a name="wp1484164"> </a>
+Listing&#160;4-8	   LDIF Output
+</div> <a name="wp1484165"> </a><div class="pPreformatted"><pre>dn: CN=user1,CN=Users,DC=tuxdev,DC=bea,dc=com<br />objectclass: top<br />objectclass: person<br />objectclass: organizationalPerson<br />objectclass: user<br />cn: user1<br />description: Tuxedo User, TUXEDO_UID=16668 TUXEDO_GID=601<br />password: pwd1<br /><br />dn: CN=user2,CN=Users,DC=tuxdev,DC=bea,dc=com<br />objectclass: top<br />objectclass: person<br />objectclass: organizationalPerson<br />objectclass: user<br />cn: user2<br />description: Tuxedo User, TUXEDO_UID=16669 TUXEDO_GID=602<br />password: pwd2</pre></div><h3 class="pHeading2"><a name="wp1483693"> </a>
+Supported LDAP Server Template Example
+</h3>
+<p class="pBody"><a name="wp1483812"> </a>
+Tuxedo provides an example template for supported LDAP servers. The files are listed in <a href="sngleadm.html#wp1483816">Table&#160;4-7</a>. 
+</p>
+<p class="pGraphic"><a name="wp1483863"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1484180table1483813"><caption><a name="wp1483816"> </a>
+Table 4-7  Supported LDAP Server Template Example<a href="#wp1484180" title="Footnote 1"><sup class="Footnote">1</sup></a>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1484430"> </a>
+LDAP Server
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1483826"> </a>
+GAUTHSVR 
+</div>
+<div class="pCellHeading"><a name="wp1483878"> </a>
+Configuration
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1483828"> </a>
+User Migration Template
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1483830"> </a>
+Group Migration Template
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1483832"> </a>
+WebLogic Server
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1483834"> </a>
+tpgauth
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1483836"> </a>
+tpusr-template
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1483838"> </a>
+tpgrp-template
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1483840"> </a>
+Active Directory<a href="#wp1483906" title="Footnote 2"><sup class="Footnote">2</sup></a>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1483842"> </a>
+tpgauth-ad
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1483844"> </a>
+tpusr-template-ad
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1483846"> </a>
+tpgrp-template-ad
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1483848"> </a>
+IPlanet
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1483850"> </a>
+tpgauth-iplanet
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1483852"> </a>
+tpusr-template-iplanet
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1483854"> </a>
+tpgrp-template-iplanet
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1483856"> </a>
+z/OS LDAP, with RACF backend<a href="#wp1483920" title="Footnote 3"><sup class="Footnote">3</sup></a>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1483858"> </a>
+tpgauth-racf
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1483860"> </a>
+tpusr-template-racf
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1483862"> </a>
+tpgrp-template-racf
+</div>
+</td>
+</tr>
+</table>
+
+<table class="footnote" id="SummaryNotReq1">  <tr>
+    <td><p class="pTableFootnote"><a name="wp1484180"> </a>
+<a href="#wp1483816" title="Footnote 1"><sup class="Footnote">1</sup></a>All files are available under $TUXDIR/udataobj;
+</p>
+
+<p class="pTableFootnote"><a name="wp1483906"> </a>
+<a href="#wp1483840" title="Footnote 2"><sup class="Footnote">2</sup></a>For Active Directory user&#8217;s password cannot be added on creation. For help on how to change or reset it, please refer to Microsoft support document, http://support.microsoft.com/kb/269190, http://support.microsoft.com/kb/263991, etc;
+</p>
+
+<p class="pTableFootnote"><a name="wp1483920"> </a>
+<a href="#wp1483856" title="Footnote 3"><sup class="Footnote">3</sup></a>Two things need to be done to activate z/OS RACF account after migration: i) reset the password by z/OS administrator; and ii) logon with the account to change its password.
+</p>
+
+</td>
+  </tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1483686"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1477608"> </a>tpmi<a href="../rfcm/rfcmd.html"></a>gldif(1) in the <em class="cEmphasis">Oracle Tuxedo Command Reference</em></li>
+</ul></div>
+ 
+<br/>
+    <table id="SummaryNotReq3" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="sngleadm.html"><img id="LongDescNotReq10" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="secpgm.html"><img id="LongDescNotReq11" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq12" src="/global_resources/images/nexttop_disabled.gif" border="0" alt="Next" />
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

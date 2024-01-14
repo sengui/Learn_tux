@@ -1,0 +1,712 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="11" />
+<meta name="LOC_US_CHANGE" content="42015" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/ads/fm/adsdis.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/29/12 11:10:28" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Creating the Configuration File for a Distributed ATMI Application</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Setting Up an Oracle Tuxedo Application
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="addist.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="adsnet.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/ads.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1044772"> </a>
+Creating the Configuration File for a Distributed ATMI Application
+</h1>
+<p class="pBody"><a name="wp1041983"> </a>
+This section includes the following topics:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1026026"> </a><a href="adsdis.html#wp1015036">Configuration File Requirements for a Distributed Oracle Tuxedo ATMI Application</a></li>
+<li><a name="wp1030398"> </a><a href="adsdis.html#wp1030370">Creating the RESOURCES Section</a></li>
+<li><a name="wp1030992"> </a><a href="adsdis.html#wp1040045">Creating the MACHINES Section</a></li>
+<li><a name="wp1030203"> </a><a href="adsdis.html#wp1030810">Creating the GROUPS Section</a></li>
+<li><a name="wp1030246"> </a><a href="adsdis.html#wp1025376">Creating the SERVICES Section</a></li>
+<li><a name="wp1030267"> </a><a href="adsdis.html#wp1025936">Creating the ROUTING Section</a></li>
+<li><a name="wp1025656"> </a><a href="adsdis.html#wp1016026">Example Configuration File for a Distributed Application</a></li>
+<li><a name="wp1025660"> </a><a href="adsdis.html#wp1018882">Modifying the Domain Gateway Configuration File to Support Routing</a></li>
+</ul></div>
+<a name="wp1041988"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For detailed information about creating a configuration file for a distributed Oracle Tuxedo CORBA application, refer to the <em class="cEmphasis">Scaling, Distributing, and Tuning CORBA Applications</em> guide.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1015036"> </a>
+Configuration File Requirements for a Distributed Oracle Tuxedo ATMI Application
+</h2><p class="pBody"><a name="wp1025943"> </a>
+A distributed Oracle Tuxedo ATMI application consists of one or more local or remote clients that communicate with one or more servers residing on several machines linked through a network, all of which are administered as a single entity in one Oracle Tuxedo configuration file. To set up a distributed configuration, you must create a configuration file that includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1025859"> </a><span class="cHyperlink">
+<a href="adsdis.html#wp1030370">RESOURCES</a></span><a href="adsdis.html#wp1030370"> section</a></li>
+<li><a name="wp1035524"> </a><a href="adsdis.html#wp1040045">MACHINES</a><a href="adsdis.html#wp1040045"> section</a></li>
+<li><a name="wp1025866"> </a><a href="adsdis.html#wp1030810">GROUPS</a><a href="adsdis.html#wp1030810"> section</a></li>
+<li><a name="wp1025873"> </a><a href="adfig.html#wp1254138">NETGROUPS</a><a href="adfig.html#wp1254138"> section (optional)</a></li>
+<li><a name="wp1025880"> </a><a href="adfig.html#wp1254036">NETWORK</a><a href="adfig.html#wp1254036"> section</a></li>
+<li><a name="wp1025894"> </a><a href="adsdis.html#wp1025376">SERVICES</a><a href="adsdis.html#wp1025376"> section</a></li>
+<li><a name="wp1025901"> </a><a href="adsdis.html#wp1025936">ROUTING</a><a href="adsdis.html#wp1025936"> section (if data-dependent routing is used)</a></li>
+</ul></div>
+<p class="pBody"><a name="wp1039975"> </a>
+If your configuration spans multiple domains and uses data-dependent routing, you must also modify the domain gateway configuration file (<code class="cCode">DMCONFIG</code>) to support<code class="cCode"> </code>routing functionality.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1030370"> </a>
+Creating the RESOURCES Section
+</h2><p class="pBody"><a name="wp1040300"> </a>
+In the <code class="cCode">RESOURCES</code> section you define governing parameters for system-wide resources, such as the maximum number of servers allowed in the application. All parameter settings in this section apply to the entire application.
+</p>
+<a name="wp1040301"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The parameters described in the tables in this topic are used only for distributed applications. For a description of the basic parameters that are available for any kind of OracleTuxedo application, see <a href="../rf5/rf5.html">UBBCONFIG(5)</a> in the <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em>.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1045732"> </a>
+<a href="adsdis.html#wp1040811">Table&#160;10-1</a> shows the resources section parameters.
+</p>
+<p class="pGraphic"><a name="wp1040042"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1040811table1039986"><caption><a name="wp1040811"> </a>
+Table 10-1  RESOURCES Section Parameters&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1039988"> </a>
+Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1039990"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1039992"> </a>
+<code class="cCode">BBLQUERY</code> (Optional)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1039994"> </a>
+<code class="cCode">BBLQUERY</code> sets a multiplier of the basic <code class="cCode">SCANUNIT</code> between     status checks by the DBBL of all BBLs. The DBBL checks to ensure that all BBLs have reported in within the <code class="cCode">BBLQUERY</code> cycle. If a BBL has not been heard from, the DBBL sends a message to that BBL asking for status. If no reply is received,     the BBL is partitioned. 
+</div>
+<div class="pCellBody"><a name="wp1039995"> </a>
+The value of <code class="cCode">BBLQUERY</code> must be greater than 0. If this parameter is not specified, the default is set so that (<code class="cCode">SCANUNIT</code> * <code class="cCode">BBLQUERY</code>) is approximately 300 seconds.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1039997"> </a>
+<code class="cCode">BLOCKTIME</code> (Optional)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1039999"> </a>
+<code class="cCode">BLOCKTIME</code> sets a multiplier of the basic <code class="cCode">SCANUNIT</code> after      which a blocking call (for example, receiving a reply) times out.
+</div>
+<div class="pCellBody"><a name="wp1040000"> </a>
+The value of <code class="cCode">BLOCKTIME</code> must be greater than 0. If this parameter is not specified, the default is set so that (<code class="cCode">SCANUNIT</code> * <code class="cCode">BLOCKTIME</code>) is approximately 60 seconds.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040002"> </a>
+<code class="cCode">DBBLWAIT</code> (Optional)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040004"> </a>
+<code class="cCode">DBBLWAIT </code>sets a multiplier of the basic <code class="cCode">SCANUNIT</code> for the      maximum amount of wall time a DBBL should wait for replies from all its BBLs before timing out. Every time the DBBL forwards a request to its BBLs, it waits for all of them to reply with a positive acknowledgment before replying to the requester.    This option can be used for detecting dead or insane BBLs in a timely manner. 
+</div>
+<div class="pCellBody"><a name="wp1040005"> </a>
+The value of <code class="cCode">DBBLWAIT</code> must be greater than 0. If this parameter is not specified, the default is set so that (<code class="cCode">SCANUNIT</code> * <code class="cCode">DBBLWAIT</code>) is the greater of <code class="cCode">SCANUNIT</code> or 20 seconds.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040007"> </a>
+<code class="cCode">IPCKEY</code> (Required)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040009"> </a>
+<code class="cCode">IPCKEY</code> specifies the numeric key for the bulletin board. In a single-processor environment, this key <em class="cEmphasis">names</em> the bulletin board. In a multiprocessor environment, this key <em class="cEmphasis">names</em> the message queue of the DBBL. This key is also used as a basis for deriving the names of resources other than this well-known address, such as the names for bulletin boards throughout a multiprocessor. 
+</div>
+<div class="pCellBody"><a name="wp1040010"> </a>
+The value of <code class="cCode">IPCKEY</code> must be greater than 32,768 and less than 262,143. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040012"> </a>
+<code class="cCode">MASTER</code> (Required)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040014"> </a>
+<code class="cCode">MASTER</code> (<code class="cCodeEmphasis">string_value1</code><code class="cCode">[,</code><code class="cCodeEmphasis">string_value2</code><code class="cCode">]</code>) specifies the LMID of the machine on which the master copy of <code class="cCode">TUXCONFIG</code> is located. Also, if the application is run in MP mode, <code class="cCode">MASTER</code> indicates the machine on which the DBBL is run. <code class="cCodeEmphasis">string_value2</code> names an alternate LMID location used during process relocation and booting. If the primary location is not available, the DBBL is booted at the alternate location and the alternate <code class="cCode">TUXCONFIG</code> file found there is used.
+</div>
+<div class="pCellBody"><a name="wp1040015"> </a>
+The value of both <code class="cCodeEmphasis">string_value1</code> and <code class="cCodeEmphasis">string_value2</code> must be LMIDs of machines defined in the <code class="cCode">MACHINES</code> section. Each string may contain up to 30 characters.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040017"> </a>
+<code class="cCode">MAXGROUPS</code> (Optional)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040019"> </a>
+<code class="cCode">MAXGROUPS</code> specifies the maximum number of configured server groups to be accommodated in the group table of the bulletin board.
+</div>
+<div class="pCellBody"><a name="wp1040020"> </a>
+The value of <code class="cCode">MAXGROUPS</code> must be greater than or equal to 100 and less than 32,768. The default is 100.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040022"> </a>
+<code class="cCode">MAXSERVERS</code> (Optional)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040024"> </a>
+<code class="cCode">MAXSERVERS</code> specifies the maximum number of servers to be accommodated in the server table of the bulletin board.
+</div>
+<div class="pCellBody"><a name="wp1040025"> </a>
+The value of <code class="cCode">MAXSERVERS</code> must be greater than 0 and less than 8192. The default is 50.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040027"> </a>
+<code class="cCode">MAXSERVICES</code> (Optional)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040029"> </a>
+<code class="cCode">MAXSERVICES</code> specifies the maximum number of services to be accommodated in the services table of the bulletin board.
+</div>
+<div class="pCellBody"><a name="wp1040030"> </a>
+The value of <code class="cCode">MAXSERVICES</code> must be greater than 0 and less than 1,048,575. The default is 100.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040032"> </a>
+<code class="cCode">SANITYSCAN</code> (Optional)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040034"> </a>
+<code class="cCode">SANITYSCAN</code> sets a multiplier of the basic <code class="cCode">SCANUNIT</code> between sanity checks of the system. 
+</div>
+<div class="pCellBody"><a name="wp1040035"> </a>
+The value of <code class="cCode">SCANUNIT</code> must be greater than 0. The default is set so that (<code class="cCode">SCANUNIT</code> * <code class="cCode">SANITYSCAN</code>) is approximately 120 seconds. 
+</div>
+<div class="pCellBody"><a name="wp1040036"> </a>
+Sanity checks are performed on servers as well as on the bulletin board data structure itself. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040038"> </a>
+<code class="cCode">SCANUNIT</code> (Optional)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040040"> </a>
+<code class="cCode">SCANUNIT</code> sets the time interval (in seconds) between scans by the bulletin board liaison for timed-out transactions and blocking calls within service requests. This value is used as the basic unit of scanning by the BBL. It affects the granularity with which transaction timeout values can be specified on <code class="cCode">tpbegin</code>(3c) and the blocking timeout value specified with the <code class="cCode">BLOCKTIME</code> parameter. The <code class="cCode">SANITYSCAN</code>, <code class="cCode">BBLQUERY</code>, <code class="cCode">DBBLWAIT</code>, and     <code class="cCode">BLOCKTIME</code> parameters are multipliers of this unit for other timed operations within the system. 
+</div>
+<div class="pCellBody"><a name="wp1040041"> </a>
+The value of <code class="cCode">SCANUNIT</code> must be a multiple of 2 or 5 greater than 0 and less than or equal to 60 seconds. The default is 10 seconds. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1040045"> </a>
+Creating the MACHINES Section
+</h2><p class="pBody"><a name="wp1040046"> </a>
+In the <code class="cCode">MACHINES</code> section you assign logical names to all the physical machines in your configuration (including all the processing elements in multiprocessor machines) and define other parameters for individual machines. <a href="adsdis.html#wp1040821">Table&#160;10-2</a> describes the parameters available for defining machine names and other machine-specific parameters for each machine that participates in a distributed application.
+</p>
+<p class="pGraphic"><a name="wp1030924"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1040821table1030907"><caption><a name="wp1040821"> </a>
+Table 10-2  MACHINES Section Parameters
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1030909"> </a>
+Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1030911"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032833"> </a>
+<code class="cCode">ENVFILE</code> (Optional)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032984"> </a>
+<code class="cCode">ENVFILE</code> specifies a file that defines the environment with which all clients and servers on the machine are to be executed.
+</div>
+<div class="pCellBody"><a name="wp1038019"> </a>
+Lines must be in the form <code class="cCodeEmphasis">ident=value</code> where <code class="cCodeEmphasis">ident</code> contains only underscores and/or alphanumeric characters, and begins with an underscore or a letter of the alphabet. 
+</div>
+<div class="pCellBody"><a name="wp1038027"> </a>
+If the value of <code class="cCode">ENVFILE</code> is an invalid filename, no values are added to the environment. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030913"> </a>
+<code class="cCode">MAXACCESSERS</code> (Optional)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033208"> </a>
+<code class="cCode">MAXACCESSERS</code> specifies the maximum number of processes that can access the bulletin board on this processor at any one time. When calculating the appropriate number, you are not required to count system administration processes, such as the BBL and <code class="cCode">tmadmin</code>, but you must count all application servers and clients, and TMS servers.
+</div>
+<div class="pCellBody"><a name="wp1037555"> </a>
+The value of <code class="cCode">MAXACCESSERS</code> must be greater than 0 and less than 32,768. The default is the value specified in the <code class="cCode">RESOURCES</code> section. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030917"> </a>
+<code class="cCode">MAXCONV</code> (Optional)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033391"> </a>
+<code class="cCode">MAXCONV</code> specifies the maximum number of simultaneous conversations allowed for processes on a particular machine. 
+</div>
+<div class="pCellBody"><a name="wp1037648"> </a>
+The value of <code class="cCode">MAXCONV</code> must be greater than 0 and less than 32,768. The maximum number of simultaneous conversations per server is 64. The default is the value specified in the <code class="cCode">RESOURCES</code> section. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030921"> </a>
+<code class="cCode">MAXWSCLIENTS</code> (Optional)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033523"> </a>
+<code class="cCode">MAXWSCLIENTS</code> specifies the number of accesser entries on this processor to be reserved for Workstation clients only. This parameter is used only when the Oracle Tuxedo System Workstation component is used. This number takes a portion of the total accesser slots specified with <code class="cCode">MAXACCESSERS</code>. The appropriate setting of this parameter helps conserve IPC resources because Workstation client access to the system is multiplexed through an Oracle Tuxedo system-supplied surrogate, the workstation handler. 
+</div>
+<div class="pCellBody"><a name="wp1038064"> </a>
+The value of <code class="cCode">MAXWSCLIENTS</code> must be greater than or equal to 0, and less than 32,768; it may not be greater than the value of <code class="cCode">MAXACCESSERS</code>. (Assigning a value to <code class="cCode">MAXWSCLIENTS</code> that is higher than the value of <code class="cCode">MAXACCESSERS</code> is an error.) The default is 0.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1030810"> </a>
+Creating the GROUPS Section
+</h2><p class="pBody"><a name="wp1015043"> </a>
+In the <code class="cCode">GROUPS</code> section you identify each server group in your application so that the Oracle Tuxedo system can route requests to the member servers of specific groups.
+</p>
+<p class="pBody"><a name="wp1026467"> </a>
+The <code class="cCode">GROUPS</code> section is populated with the number of server groups required for the application. Server groups can all reside on the same site (<code class="cCode">SHM</code> mode) or, in a distributed application, they can reside on different sites (<code class="cCode">MP</code> mode).
+</p>
+<p class="pBody"><a name="wp1026486"> </a>
+Parameters in the <code class="cCode">GROUPS</code> section implement two important aspects of distributed transaction processing:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1038227"> </a>They associate a group of servers with a particular <code class="cCode">LMID</code> and a particular instance of a resource manager.</li>
+<li><a name="wp1038241"> </a>By allowing a second <code class="cCode">LMID</code> to be associated with the server group, they name an alternate machine to which a group of servers can be migrated if the <code class="cCode">MIGRATE</code> option is specified. </li>
+</ul></div>
+<p class="pBody"><a name="wp1035119"> </a>
+<a href="adsdis.html#wp1040799">Table&#160;10-3</a> describes the parameters in the <code class="cCode">GROUPS</code> section.
+</p>
+<p class="pGraphic"><a name="wp1025375"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1040799table1025532"><caption><a name="wp1040799"> </a>
+Table 10-3  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">GROUPS Section Parameters</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1025534"> </a>
+Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1025536"> </a>
+Description&#160;
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033752"> </a>
+<code class="cCode">ENVFILE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033870"> </a>
+<code class="cCode">ENVFILE</code> specifies a file that defines the environment with which all servers in the group are executed.
+</div>
+<div class="pCellBody"><a name="wp1038253"> </a>
+Lines must be in the form <code class="cCodeEmphasis">ident=value</code> where <code class="cCodeEmphasis">ident</code> contains only underscores and/or alphanumeric characters. 
+</div>
+<div class="pCellBody"><a name="wp1038254"> </a>
+If the value of <code class="cCode">ENVFILE</code> is an invalid filename, no values are added to the environment.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033814"> </a>
+<code class="cCode">GRPNO</code> (Required)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033816"> </a>
+<code class="cCode">GRPNO</code> associates a number with a particular server group.
+</div>
+<div class="pCellBody"><a name="wp1038271"> </a>
+The number must be greater than 0 and less than 30,000. It must be unique among entries in the <code class="cCode">GROUPS</code> section.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025538"> </a>
+<code class="cCode">LMID</code> (Required)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1038274"> </a>
+<code class="cCode">LMID</code> identifies the machine on which the server group being defined runs. A second <code class="cCode">LMID</code> value can be specified (separated from the first by a comma) for an alternate machine to which this server group can be migrated if the <code class="cCode">MIGRATE</code> option has been specified. Servers in the group can be migrated if <code class="cCode">RESTART=Y</code> to migrate is specified in the <code class="cCode">GROUPS</code> section.
+</div>
+<div class="pCellBody"><a name="wp1038281"> </a>
+The values of <code class="cCode">LMID</code> must be the values assigned to the <code class="cCode">LMID</code> parameter in the <code class="cCode">MACHINES</code> section. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1025376"> </a>
+Creating the SERVICES Section
+</h2><p class="pBody"><a name="wp1019257"> </a>
+The <code class="cCode">SERVICES</code> section contains parameters that determine how application services are handled. Every line of every entry in this section is associated with a service by its identifier name.
+</p>
+<p class="pBody"><a name="wp1040508"> </a>
+You must identify the service provided by each server group in the <code class="cCode">SERVICES</code> section. Because the same service can be link edited with more than one server, the <code class="cCode">SRVGRP</code> parameter is provided to tie the parameters for an instance of a service to a particular group of servers.
+</p>
+<p class="pBody"><a name="wp1035148"> </a>
+<a href="adsdis.html#wp1040836">Table&#160;10-4</a> describes the parameters in the <code class="cCode">SERVICES</code> section that are available for defining distributed applications.
+</p>
+<p class="pBody"><a name="wp1021834"> </a>
+If your application includes transaction processing, you may also want to set three other parameters in the <code class="cCode">SERVICES</code> section: <code class="cCode">AUTOTRAN</code>, <code class="cCode">ROUTING</code>, and <code class="cCode">TRANTIME</code>. These parameters are described in <a href="adtran.html">Configuring Your ATMI Application to Use Transactions</a>.
+</p>
+<p class="pBody"><a name="wp1040170"> </a>
+The following listing shows a sample of the SERVICES section.
+</p>
+<a name="wp1025935"> </a><div class="pPreformatted"><pre>*SERVICES<br /><br />WITHDRAW  ROUTING=ACCOUNT_ID<br />DEPOSIT   ROUTING=ACCOUNT_ID<br />OPEN_ACCT ROUTING=BRANCH_ID</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1025936"> </a>
+Creating the ROUTING Section
+</h2><p class="pBody"><a name="wp1026615"> </a>
+In the <code class="cCode">ROUTING</code> section you specify the criteria to be used when data-dependent routing is performed. If a service is listed in multiple entries, each with a different <code class="cCode">SRVGRP</code> parameter, the <code class="cCode">ROUTING</code> section must be set with the same value in all entries. Otherwise, routing cannot be done consistently for that service. Because a service can be routed on one field only, the value of that field must be the same in all entries for the same service.
+</p>
+<p class="pBody"><a name="wp1025937"> </a>
+You can add a <code class="cCode">ROUTING</code> section to the configuration file to show mappings between data ranges and groups. The information in this section enables the system to send a request to a server in a specific group. Each <code class="cCode">ROUTING</code> section item contains an identifier that is used in the <code class="cCode">SERVICES</code> section.
+</p>
+<p class="pBody"><a name="wp1039722"> </a>
+Lines within the <code class="cCode">ROUTING</code> section have the following form.
+</p>
+<a name="wp1039723"> </a><div class="pPreformatted"><pre><code class="cCodeEmphasis">CRITERION_NAME</code> <code class="cCodeEmphasis">required_parameters</code></pre></div><p class="pBody"><a name="wp1039724"> </a>
+where <code class="cCodeEmphasis">CRITERION_NAME</code> is the name of the routing entry specified in the <code class="cCode">SERVICES</code> section for data-dependent routing. The value of <code class="cCodeEmphasis">CRITERION_NAME</code> must be a string with a maximum of 15 characters.
+</p>
+<p class="pBody"><a name="wp1039233"> </a>
+<a href="adsdis.html#wp1040850">Table&#160;10-5</a> describes the parameters in the <code class="cCode">ROUTING</code> section.
+</p>
+<p class="pGraphic"><a name="wp1028962"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1040850table1028964"><caption><a name="wp1040850"> </a>
+Table 10-5  ROUTING Section Parameters
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1028966"> </a>
+Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1028968"> </a>
+Description 
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1038889"> </a>
+<code class="cCode">RANGES</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1038891"> </a>
+Ranges and associated server groups for the routing field. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1028978"> </a>
+<code class="cCode">FIELD</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1028980"> </a>
+Name of the routing field, which is assumed to be one of the following: an <code class="cCode">FML</code> buffer, an <code class="cCode">XML</code> element or element attribute, a view field name identified in an <code class="cCode">FML</code> field table (using the <code class="cCode">FLDTBLDIR</code> and <code class="cCode">FIELDTBLS</code> environment variables), or an <code class="cCode">FML</code> view table (using the <code class="cCode">VIEWDIR</code> and <code class="cCode">VIEWFILES</code> environment variables). This information is used to obtain the associated field value for data-dependent routing when sending a message.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1028982"> </a>
+<code class="cCode">BUFTYPE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1028984"> </a>
+A list of types and subtypes of data buffers for which this routing entry is valid. 
+</div>
+<div class="pCellBody"><a name="wp1038948"> </a>
+The value of this parameter may contain up to 256 characters with a maximum of 32 type/subtype combinations.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1025909"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1029355"> </a><a href="adfig.html#wp1253022">How to Create the Configuration File for a Multiple-machine (Distributed) Application</a></li>
+<li><a name="wp1040264"> </a><a href="../rf5/rf5.html">UBBCONFIG(5)</a> in the <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em></li>
+<li><a name="wp1042027"> </a><em class="cEmphasis">Scaling, Distributing, and Tuning CORBA Applications</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1016026"> </a>
+Example Configuration File for a Distributed Application
+</h2><p class="pBody"><a name="wp1015158"> </a>
+The following excerpt from a sample <code class="cCode">UBBCONFIG</code> file shows the <code class="cCode">GROUPS</code>, <code class="cCode">SERVICES</code>, and <code class="cCode">ROUTING</code> sections, which support data-dependent routing in an Oracle Tuxedo application.
+</p>
+<a name="wp1015810"> </a><div class="pPreformatted"><pre>*GROUPS<br />BANKB1            GRPNO=1<br />BANKB2            GRPNO=2<br />BANKB3            GRPNO=3<br />#<br />*SERVICES<br />WITHDRAW          ROUTING=BY_ACCOUNT_ID<br />DEPOSIT           ROUTING=BY_ACCOUNT_ID<br />INQUIRY           ROUTING=BY_ACCOUNT_ID<br />OPEN_ACCT         ROUTING=BY_BRANCH_ID<br />CLOSE_ACCT        ROUTING=BY_BRANCH_ID<br />#<br />*ROUTING<br />BY_ACCOUNT_ID     FIELD=ACCOUNT_ID BUFTYPE=&#8221;FML&#8221;<br />                   RANGES=&#8221;MIN - 9999:*,<br />                      10000-49999:BANKB1,<br />                      50000-79999:BANKB2,<br />                      80000-109999:BANKB3,<br />                      *:*&#8221;<br />BY_BRANCH_ID      FIELD=BRANCH_ID BUFTYPE=&#8221;FML&#8221;<br />                   RANGES=&#8221;MIN - 0:*,<br />                      1-4:BANKB1,<br />                      5-7:BANKB2,<br />                      8-10:BANKB3,<br />                        *:*&#8221;</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1018882"> </a>
+Modifying the Domain Gateway Configuration File to Support Routing
+</h2><p class="pBody"><a name="wp1035184"> </a>
+All domain gateway configuration information is stored in a binary file called <code class="cCode">BDMCONFIG</code>. This file is created by first writing a text configuration file called <code class="cCode">DMCONFIG</code> and then compiling it into a binary version called <code class="cCode">BDMCONFIG</code>. The compiled <code class="cCode">BDMCONFIG</code> file can be updated while the system is running by using the <code class="cCode">dmadmin(1)</code> command. Although the Oracle Tuxedo documentation refers to these configuration files as <code class="cCode">DMCONFIG</code> and <code class="cCode">BDMCONFIG</code>, you can give these files any names. 
+</p>
+<p class="pBody"><a name="wp1035185"> </a>
+You must have one <code class="cCode">BDMCONFIG</code> file for each Oracle Tuxedo application to which you want to add Domains functionality. System access to the <code class="cCode">BDMCONFIG</code> file is provided through the Domains administrative server, <code class="cCode">DMADM</code>(5). When a gateway group is booted, the gateway administrative server, <code class="cCode">GWADM</code>(5), requests from the <code class="cCode">DMADM</code> server a copy of the configuration required by that group. The <code class="cCode">GWADM</code> server and the <code class="cCode">DMADM</code> server also ensure that run-time changes to the configuration are reflected in the corresponding domain gateway groups. 
+</p>
+<a name="wp1015188"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For more information about the <code class="cCode">DMCONFIG</code> file, refer to <a href="../rf5/rf5.html">DMCONFIG(5)</a> in the <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em>.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1015189"> </a>
+Description of ROUTING Section Parameters in DMCONFIG
+</h3>
+<p class="pBody"><a name="wp1015190"> </a>
+The <code class="cCode">DM_ROUTING</code> section provides information for data-dependent routing of service requests using <code class="cCode">FML</code>, <code class="cCode">XML</code>, <code class="cCode">VIEW</code>, <code class="cCode">X_C_TYPE</code>, and <code class="cCode">X_COMMON</code> typed buffers. Lines within the <code class="cCode">DM_ROUTING</code> section have the following form.
+</p>
+<a name="wp1039817"> </a><div class="pPreformatted"><pre><code class="cCodeEmphasis">CRITERION_NAME</code> <code class="cCodeEmphasis">required_parameters</code></pre></div><p class="pBody"><a name="wp1039814"> </a>
+where <code class="cCodeEmphasis">CRITERION_NAME</code> is the name of the routing entry specified in the <code class="cCode">SERVICES</code> section. The value of <code class="cCodeEmphasis">CRITERION_NAME</code> must be a string with a maximum of 15 characters.
+</p>
+<p class="pBody"><a name="wp1038959"> </a>
+The following table describes the parameters in the <code class="cCode">DM_ROUTING</code> section.
+</p>
+<p class="pGraphic"><a name="wp1015209"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1015193table1015191">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1015193"> </a>
+Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1015195"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015197"> </a>
+<code class="cCode">FIELD</code> (Optional)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015199"> </a>
+Specifies the name of the routing field, which is assumed to be one of the following: an <code class="cCode">FML</code> buffer, an <code class="cCode">XML</code> element or element attribute, a view field name identified in an <code class="cCode">FML</code> field table (using the <code class="cCode">FLDTBLDIR</code> and <code class="cCode">FIELDTBLS</code> environment variables), or an <code class="cCode">FML</code> view table (using the <code class="cCode">VIEWDIR</code> and <code class="cCode">VIEWFILES</code> environment variables). This information is used to obtain the associated field value for data-dependent routing when sending a message. 
+</div>
+<div class="pCellBody"><a name="wp1038967"> </a>
+If a field in an <code class="cCode">FML32</code> buffer is used for routing, it must have a field number less than or equal to 8191.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015201"> </a>
+<code class="cCode">RANGES</code> (Optional)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015203"> </a>
+Specifies the ranges and associated remote domain names (<code class="cCode">RACCESSPOINT</code>) for the routing field. The value of <code class="cCode">RANGES</code> must be a string enclosed in double quotes. The enclosed string, in turn, must consist of a comma-separated ordered list of <code class="cCodeEmphasis">range/RACCESSPOINT</code><code class="cCode"> </code>pairs.
+</div>
+<div class="pCellBody"><a name="wp1039002"> </a>
+The value of <code class="cCodeEmphasis">range</code> may be either a single value (a signed numeric value or a character string enclosed in single quotes), or a range of the form <code class="cCodeEmphasis">lower</code> - <code class="cCodeEmphasis">upper</code> (where <code class="cCodeEmphasis">lower</code> and <code class="cCodeEmphasis">upper</code> are both signed numeric values or character strings in single quotes).
+</div>
+<div class="pCellBody"><a name="wp1039008"> </a>
+The value of <code class="cCodeEmphasis">lower</code> must be less than or equal to <code class="cCodeEmphasis">upper</code>. A single quote embedded in a character string value, as in &#8220;O&#8217;Brien,&#8221; for example, must be preceded by two back slashes: &#8220;O\\&#8217;Brien&#8221;.
+</div>
+<div class="pCellBody"><a name="wp1039009"> </a>
+Use <code class="cCode">MIN</code> to indicate the minimum value for the data type of the associated <code class="cCode">FIELD</code>. For strings and carrays, it is the null string; for character fields, it is <code class="cCode">0</code>; for numeric values, it is the minimum numeric value that can be stored in the field. 
+</div>
+<div class="pCellBody"><a name="wp1039014"> </a>
+Use <code class="cCode">MAX</code> to indicate the maximum value for the data type of the associated <code class="cCode">FIELD</code>. For strings and carrays, it is effectively an unlimited string of octal-255 characters; for a character field, it is a single octal-255 character; for numeric values, it is the maximum numeric value that can be stored in the field. Thus, <code class="cCode">MIN - -5 </code>is all numbers less than or equal to <code class="cCode">-5</code>, and <code class="cCode">6 - MAX</code> is all numbers greater than or equal to <code class="cCode">6</code>. 
+</div>
+<div class="pCellBody"><a name="wp1039019"> </a>
+The metacharacter <code class="cCode">*</code> (wildcard) in the position of a range indicates any values not covered by other ranges previously seen in the entry. Only one wildcard range is allowed per entry and it should be listed last (ranges following it are ignored).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015206"> </a>
+<code class="cCode">BUFTYPE</code> (Optional)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015208"> </a>
+<code class="cCode">BUFTYPE</code> provides a list of types and subtypes of data buffers for which this routing entry is valid. Valid types are <code class="cCode">FML</code>, <code class="cCode">VIEW</code>, <code class="cCode">X_C_TYPE</code>, and <code class="cCode">X_COMMON</code>. No subtype can be specified for type <code class="cCode">FML</code>, and subtypes are required for the other types (<code class="cCode">*</code> is not allowed). Duplicate type/subtype pairs cannot be specified for the same routing criteria name; more than one routing entry can have the same criteria name as long as the type/subtype pairs are unique. 
+</div>
+<div class="pCellBody"><a name="wp1039033"> </a>
+If multiple buffer types are specified for a single routing entry, the data types of the routing field for each buffer type must be the same. If the field value is not set (for <code class="cCode">FML</code> buffers), or does not match any specific range, and a wildcard range has not been specified, an error is returned to the application process that requested the execution of the remote service.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1015210"> </a>
+Routing Field Description
+</h4>
+<p class="pBody"><a name="wp1015211"> </a>
+The value in the routing field can be any data type supported in <code class="cCode">FML</code> or <code class="cCode">VIEW</code>; it may be a numeric range or a string range. The following rules apply to string range values for string, carray, and character field types:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1029752"> </a>They must be enclosed by single quotation marks and cannot be preceded by a plus or minus sign.</li>
+<li><a name="wp1029753"> </a>A short or long integer value must be a string of digits, optionally preceded by a plus or minus sign.</li>
+<li><a name="wp1029758"> </a>Floating point numbers must be written in the form required by the C compiler or <code class="cCode">atof()</code>: a plus or minus sign, followed by a string of digits (optionally containing a decimal point), then an optional <code class="cCode">e</code> or <code class="cCode">E</code> followed by an optional sign or space, followed by an integer.</li>
+<li><a name="wp1035273"> </a>When a field value matches a range, the associated <code class="cCodeEmphasis">RACCESSPOINT</code> value specifies the remote domain to which the request should be routed. An <code class="cCodeEmphasis">RACCESSPOINT</code> value of <code class="cCode">*</code> indicates that the request may be sent to any remote domain known by the gateway group. Within a <code class="cCodeEmphasis">range/RACCESSPOINT </code>pair, the range must be separated from the <code class="cCodeEmphasis">RACCESSPOINT</code> by a: (colon).</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1015212"> </a>
+Example of a 5-Site Domain Configuration Using Routing
+</h4>
+<p class="pBody"><a name="wp1015213"> </a>
+The following sample configuration file defines a two-domain application distributed across five sites. The five sites include a Central Bank Office and four bank branches. Three of the branches belong to an Oracle Tuxedo domain. The fourth branch belongs to another TP domain, and OSI-TP is used to communicate with that domain. 
+</p>
+<p class="pBody"><a name="wp1035331"> </a>
+<a href="adsdis.html#wp1018949">Listing&#160;10-1</a> shows the Oracle Tuxedo system domain gateway configuration file from the Central Bank point of view. In the <code class="cCode">DM_TDOMAIN</code> section, this example shows a mirrored gateway for <code class="cCode">b01</code>.
+</p>
+<div class="pCodeTitle"><a name="wp1018949"> </a>
+Listing&#160;10-1	   Domains Configuration File for Five Sites
+</div> <a name="wp1043390"> </a><div class="pPreformatted"><pre><code class="cCode"># TUXEDO DOMAIN CONFIGURATION FILE FOR THE CENTRAL BANK<br />#<br />#<br />*DM_LOCAL<br /># </code><code class="cCodeEmphasis">local_domain_name</code><code class="cCode"> </code><code class="cCodeEmphasis">Gateway_Group_name</code><code class="cCode"> </code><code class="cCodeEmphasis">domain_type</code><code class="cCode"> </code><code class="cCodeEmphasis">domain_ID</code><code class="cCode"> </code><code class="cCodeEmphasis">log_device<br /></code><code class="cCode">#                [</code><code class="cCodeEmphasis">audit log</code><code class="cCode">] [</code><code class="cCodeEmphasis">blocktime</code><code class="cCode">]<br />#                [</code><code class="cCodeEmphasis">log name</code><code class="cCode">] [</code><code class="cCodeEmphasis">log offset</code><code class="cCode">] [</code><code class="cCodeEmphasis">log size</code><code class="cCode">]<br />#                [</code><em class="cEmphasis">maxaccesspoint</em><code class="cCode">] [</code><code class="cCodeEmphasis">maxraptran</code><code class="cCode">] [</code><code class="cCodeEmphasis">maxtran</code><code class="cCode">]<br />#                [</code><code class="cCodeEmphasis">maxdatalen</code><code class="cCode">] [</code><code class="cCodeEmphasis">security</code><code class="cCode">]<br />#                [</code><code class="cCodeEmphasis">tuxconfig</code><code class="cCode">] [</code><code class="cCodeEmphasis">tuxoffset</code><code class="cCode">]<br /><br />#<br />#<br />DEFAULT: SECURITY = NONE<br />c01     GWGRP = bankg1<br />        TYPE = TDOMAIN<br />        ACCESSPOINTID = &quot;BA.CENTRAL01&quot;<br />        DMTLOGDEV = &quot;/usr/apps/bank/DMTLOG&quot;<br />        DMTLOGNAME = &quot;DMTLG_C01&quot;<br />c02     GWGRP = bankg2<br />        TYPE = OSITP<br />        ACCESSPOINTID = &quot;BA.CENTRAL01&quot;<br />        DMTLOGDEV = &quot;/usr/apps/bank/DMTLOG&quot;<br />        DMTLOGNAME = &quot;DMTLG_C02&quot;<br />        NWDEVICE = &quot;OSITP&quot;<br />        URCH = &quot;ABCD&quot;<br />#<br />*DM_REMOTE<br />#</code><code class="cCodeEmphasis">remote_domain_name  domain_type domain_ID<br /></code><code class="cCode">#<br />b01     TYPE = TDOMAIN<br />        ACCESSPOINTID = &quot;BA.BANK01&quot;<br />b02     TYPE = TDOMAIN<br />        ACCESSPOINTID = &quot;BA.BANK02&quot;<br />b03     TYPE = TDOMAIN<br />        ACCESSPOINTID = &quot;BA.BANK03&quot;<br />b04     TYPE = OSITP<br />        ACCESSPOINTID = &quot;BA.BANK04&quot;<br />        URCH = &quot;ABCD&quot;<br />#<br />*DM_TDOMAIN<br />#<br />#     </code><code class="cCodeEmphasis">local_or_remote_domain_name</code><code class="cCode"> </code><code class="cCodeEmphasis">network_address</code><code class="cCode"> [</code><code class="cCodeEmphasis">nwdevice</code><code class="cCode">]<br />#<br /># Local network addresses<br />c01     NWADDR = &quot;//newyork.acme.com:65432&quot;     NWDEVICE =&quot;/dev/tcp&quot;<br />c02     NWADDR = &quot;//192.76.7.47:65433&quot;     NWDEVICE =&quot;/dev/tcp&quot;<br /># Remote network addresses: second b01 specifies a mirrored gateway<br />b01     NWADDR = &quot;//192.11.109.5:1025&quot; NWDEVICE = &quot;/dev/tcp&quot;<br />b01     NWADDR = &quot;//194.12.110.5:1025&quot; NWDEVICE = &quot;/dev/tcp&quot;<br />b02     NWADDR = &quot;//dallas.acme.com:65432&quot;  NWDEVICE = &quot;/dev/tcp&quot;<br />b03     NWADDR = &quot;//192.11.109.156:4244&quot; NWDEVICE = &quot;/dev/tcp&quot;<br />#<br />*DM_OSITP<br />#<br />#</code><code class="cCodeEmphasis">local_or_remote_domain_name</code><code class="cCode"> </code><code class="cCodeEmphasis">apt</code><code class="cCode"> </code><code class="cCodeEmphasis">aeq<br /></code><code class="cCode">#                              [</code><code class="cCodeEmphasis">aet</code><code class="cCode">] [</code><code class="cCodeEmphasis">acn</code><code class="cCode">] [</code><code class="cCodeEmphasis">apid</code><code class="cCode">] [</code><code class="cCodeEmphasis">aeid</code><code class="cCode">]<br />#                              [</code><code class="cCodeEmphasis">profile</code><code class="cCode">]<br />#<br />c02     APT = &quot;BA.CENTRAL01&quot;<br />        AEQ = &quot;TUXEDO.R.4.2.1&quot;<br />        AET = &quot;{1.3.15.0.3},{1}&quot;<br />        ACN = &quot;XATMI&quot;<br />b04     APT = &quot;BA.BANK04&quot;<br />        AEQ = &quot;TUXEDO.R.4.2.1&quot;<br />        AET = &quot;{1.3.15.0.4},{1}&quot;<br />        ACN = &quot;XATMI&quot;<br />*DM_EXPORT<br />#</code><code class="cCodeEmphasis">service_name</code><code class="cCode">  [</code><code class="cCodeEmphasis">Local_Domain_name</code><code class="cCode">] [</code><code class="cCodeEmphasis">access_control</code><code class="cCode">] [</code><code class="cCodeEmphasis">exported_svcname</code><code class="cCode">]<br />#                [</code><code class="cCodeEmphasis">inbuftype</code><code class="cCode">] [</code><code class="cCodeEmphasis">outbuftype</code><code class="cCode">]<br />#<br />open_act        ACL = branch<br />close_act       ACL = branch<br />credit<br />debit<br />balance<br />loan            LACCESSPOINT = c02      ACL = loans<br />*DM_IMPORT<br />#</code><code class="cCodeEmphasis">service_name</code><code class="cCode">   [</code><code class="cCodeEmphasis">Remote_domain_name</code><code class="cCode">] [</code><code class="cCodeEmphasis">local_domain_name</code><code class="cCode">]<br />#               [</code><code class="cCodeEmphasis">remote_svcname</code><code class="cCode">] [</code><code class="cCodeEmphasis">routing</code><code class="cCode">] [</code><code class="cCodeEmphasis">conv</code><code class="cCode">]<br />#               [</code><code class="cCodeEmphasis">trantime</code><code class="cCode">] [</code><code class="cCodeEmphasis">inbuftype</code><code class="cCode">] [</code><code class="cCodeEmphasis">outbuftype</code><code class="cCode">]<br />#<br />tlr_add   LACCESSPOINT = c01  ROUTING = ACCOUNT<br />tlr_bal   LACCESSPOINT = c01  ROUTING = ACCOUNT<br />tlr_add   RACCESSPOINT = b04  LACCESSPOINT = c02 RNAME =&quot;TPSU002&quot;<br />tlr_bal   RACCESSPOINT = b04  LACCESSPOINT = c02 RNAME =&quot;TPSU003&quot;<br />*DM_ROUTING<br /># </code><code class="cCodeEmphasis">routing_criteria</code><code class="cCode">    </code><code class="cCodeEmphasis">field</code><code class="cCode"> </code><code class="cCodeEmphasis">typed_buffer</code><code class="cCode"> </code><code class="cCodeEmphasis">ranges<br /></code><code class="cCode">#<br />ACCOUNT FIELD = branchid  BUFTYPE =&quot;VIEW:account&quot;<br />        RANGES =&quot;MIN - 1000:b01, 1001-3000:b02, *:b03&quot;<br />*DM_ACCESS_CONTROL<br />#</code><em class="cEmphasis">acl_name</em><code class="cCode">   </code><code class="cCodeEmphasis">Remote_domain_list<br /></code><code class="cCode">#<br />branch  ACLIST = b01, b02, b03<br />loans   ACLIST = b04</code></pre></div><h3 class="pHeading2"><a name="wp1029199"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1029200"> </a><span class="cHyperlink">
+&#8220;Understanding the Do</span><a href="../add/addom.html"></a>mains Configuration File&#8221; in <em class="cEmphasis">Using the Oracle Tuxedo Domains Component</em></li>
+<li><a name="wp1029348"> </a><span class="cHyperlink">
+&#8220;Setting Up a </span><a href="../add/addomc.html"></a>Domains Configuration&#8221; in <em class="cEmphasis">Using the Oracle Tuxedo Domains Component</em></li>
+<li><a name="wp1042065"> </a><em class="cEmphasis">Scaling, Distributing, and Tuning CORBA Applications</em></li>
+</ul></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="adsdis.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="addist.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="adsnet.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

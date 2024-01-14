@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>Running the Application</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = document) - Version 5.1 Build 128" />
+<meta name="date" content="2008-12-09T7:52:55Z" />
+<meta name="robots" content="noarchive" />
+<meta name="doctitle" content="Running the Application" />
+<meta name="relnum" content="Release 5.1" />
+<meta name="partnum" content="A12345-01" />
+<link rel="copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+<link rel="stylesheet" href="../../dcommon/css/blafdoc.css" title="Oracle BLAFDoc" type="text/css" />
+<link rel="contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="prev" href="txc04.htm" title="Previous" type="text/html" />
+<link rel="next" href="txxa.htm" title="Next" type="text/html" />
+</head>
+<body>
+<div class="header"><a id="top" name="top"></a>
+<div class="zz-skip-header"><a href="#BEGIN">Skip Headers</a></div>
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td align="left" valign="top"><b>Programming an Oracle Tuxedo Application Using TxRPC</b><b></b><br /></td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+<td align="center" valign="top"><a href="toc.htm"><img src="../../dcommon/gifs/toc.gif" alt="Go To Table Of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<tr>
+<td align="center"><a href="txc04.htm"><img src="../../dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="txxa.htm"><img src="../../dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<a name="BEGIN" id="BEGIN"></a></div>
+<!-- class="header" -->
+<div class="ind"><!-- End Header --><a id="g1005205" name="g1005205"></a><a id="i999740" name="i999740"></a>
+  <h1 class="chapter"><span class="secnum">5</span> Running the Application</h1>
+<p>This topic includes the following sections:</p>
+<ul>
+<li>
+<p>Prerequisite Knowledge</p>
+</li>
+<li>
+<p>Configuring the Application</p>
+</li>
+<li>
+<p>Booting and Shutting Down the Application</p>
+</li>
+<li>
+<p>Administering the Application</p>
+</li>
+<li>
+<p>Using Dynamic Service Advertisement</p>
+</li>
+</ul>
+<a id="i999580" name="i999580"></a>
+<div class="sect1">
+<h2 class="sect1">Prerequisite Knowledge</h2>
+<p>The Oracle Tuxedo ATMI system administrator modifying the configuration to add RPC servers should be familiar with creating an ASCII configuration file (the format is described in <code>UBBCONFIG(5)</code>), and loading the binary configuration using <a href="../../rfcm/rfcmd.html"><code>tmloadcf(1)</code></a>. These activities are described in <span class="italic">Administering the Oracle Tuxedo System</span>.</p>
+</div>
+<!-- class="sect1" -->
+<a id="i999593" name="i999593"></a>
+<div class="sect1">
+<h2 class="sect1">Configuring the Application</h2>
+<p>When configuring an RPC server, it is configured the same as a Request/Response server. One entry is needed in the <code>SERVERS</code> page for each RPC server or group of RPC servers. (<code>MAX</code> can be set to a value greater than one to configure multiple RPC servers with one entry.) An <code>RQADDR</code> can optionally be specified so that multiple instances of an RPC server share the same request queue (multiple servers, single queue configuration). The <code>CONV</code> parameter must be not specified or must be set to N (for example, <code>CONV=N</code>). See the sample configuration file in <a href="txxa.htm#g1027039">Appendix A, "A Sample Application."</a></p>
+<p>If a server will be part of a transaction, then it must be in a group on a machine that has a <code>TLOGDEVICE</code>. The <code>GROUPS</code> entry must be configured with a <code>TMSNAME</code> and an <code>OPENINFO</code> string that are used to access the associated resource manager.</p>
+<p>It is optional to specify <code>SERVICES</code> entries. If specified, the service name must be the name described in the previous chapter, based on the interface name and version number. This entry is needed only if you want to give a specific load, priority, or transaction time that is different than the defaults. It can also be used to turn on the <code>AUTOTRAN</code> feature, which ensures that a transaction is automatically started for the service if the incoming request is not in transaction mode. Do not use the service entry to specify buffer types <code>BUFTYPE</code> since the only buffer type handled is <code>CARRAY</code>. Also, do not specify <code>ROUTING</code> because routing is not supported for RPC requests.</p>
+<p>The <a href="../../rfcm/rfcmd.html"><code>tmloadcf(1)</code></a> command is used to load the ASCII configuration file into a binary <code>TUXCONFIG</code> file before the application is booted.</p>
+<p>Note that entries for RPC servers can be added to a booted application using the <code>tmconfig</code> command, as described in <a href="../../rfcm/rfcmd.html"><code>tmconfig</code></a>, <a href="../../rfcm/rfcmd.html"><code>wtmconfig(1)</code></a> in the Oracle Tuxedo Command Reference.</p>
+</div>
+<!-- class="sect1" -->
+<a id="i999598" name="i999598"></a>
+<div class="sect1">
+<h2 class="sect1">Booting and Shutting Down the Application</h2>
+<p>When the configuration has been modified, boot the application using <a href="../../rfcm/rfcmd.html"><code>tmboot(1)</code></a>. The application is shut down using <a href="../../rfcm/rfcmd.html"><code>tmshutdown(1)</code></a>. See the example in <a href="txxa.htm#g1027039">Appendix A, "A Sample Application."</a></p>
+<p>The RPC servers are booted and shut down in the same way that Request/Response servers are. They can be booted or shut down as part of the entire configuration with the <code>-y</code> option, as part of a group with the <code>-g</code> option, as part of a logical machine with the <code>-l</code> option, or by server name with the <code>-s</code> option.</p>
+</div>
+<!-- class="sect1" -->
+<a id="i999607" name="i999607"></a>
+<div class="sect1">
+<h2 class="sect1">Administering the Application</h2>
+<p>RPC servers appear as Request/Response servers in the administration interfaces. As mentioned above, <code>tmconfig</code> can be used for dynamic reconfiguration of RPC servers and services, as described in <a href="../../rfcm/rfcmd.html"><code>tmconfig</code></a>, <a href="../../rfcm/rfcmd.html"><code>wtmconfig(1)</code></a> in the Oracle Tuxedo Command Reference. The <code>tmadmin(1)</code> command can be used to monitor RPC servers. The RPC server name and associated run-time information (for example, services or operations run, load, and so forth) can be printed using the <code>tmadmin printserver</code> command. The RPC services (interfaces) that are available can be printed using <code>printservice</code>. For samples of the output, see the example in <a href="txxa.htm#g1027039">Appendix A, "A Sample Application."</a></p>
+</div>
+<!-- class="sect1" -->
+<a id="i999620" name="i999620"></a>
+<div class="sect1">
+<h2 class="sect1">Using Dynamic Service Advertisement</h2>
+<p>RPC services can be dynamically controlled in the same way that Request/Response services can be controlled. Remember that the service name is not the operation name, but the interface name and version number, as described earlier. Generally, the service name is specified at the time that <a href="../../rfcm/rfcmd.html"><code>buildserver(1)</code></a> is run using the <code>-s</code> option and automatically advertised when the server is booted with the <code>-A</code> option. Service (interface) names can be dynamically advertised either from <code>tmadmin</code> using the <code>adv</code> command or from within the server using the <a href="../../rf3c/rf3c.html"><code>tpadvertise(3c)</code></a> function. Service (interface) names can be dynamically unadvertised either from <code>tmadmin</code> using the <code>unadv</code> command or from within the server using the <a href="../../rf3c/rf3c.html"><code>tpunadvertise(3c)</code></a> function. Service names can also be temporarily suspended and unsuspended (resumed) from <code>tmadmin(1)</code>. Note that unadvertising or suspending a service name makes all operations defined in the associated interface unavailable.</p>
+</div>
+<!-- class="sect1" --></div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+<div class="footer">
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<col width="33%" />
+<col width="*" />
+<col width="33%" />
+<tr>
+<td valign="bottom">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<col width="*" />
+<col width="48%" />
+<col width="48%" />
+<tr>
+<td>&nbsp;</td>
+<td align="center"><a href="txc04.htm"><img src="../../dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="txxa.htm"><img src="../../dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="copyrightlogo"><img class="copyrightlogo" src="../../dcommon/gifs/oracle.gif" alt="Oracle Logo" /><br />
+<span class="copyrightlogo">Copyright&nbsp;&copy;&nbsp;1996, 2009,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span> <a href="../../dcommon/html/cpyr.htm"><br />
+<span class="copyrightlogo">Legal Notices</span></a></td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+<td align="center" valign="top"><a href="toc.htm"><img src="../../dcommon/gifs/toc.gif" alt="Go To Table Of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<!-- class="footer" -->
+</body>
+</html>

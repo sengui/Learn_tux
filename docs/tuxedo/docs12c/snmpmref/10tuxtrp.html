@@ -1,0 +1,1639 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/snmpmref/fm/10tuxtrp.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:44:43" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Traps MIB</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">SNMP Agent MIB Reference
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="9evtbrok.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next_grey1.gif" border="0" alt="Next" />&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/snmpmref.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp345297"> </a>
+Traps MIB
+</h1>
+<p class="pBody"><a name="wp342529"> </a>
+The event monitor feature of Oracle Tuxedo systems detects and reports certain predefined events&#8212;primarily failures of which a system operator should be aware. Oracle SNMP Agent on the master node subscribes to all system events and generates a corresponding SNMP trap notification whenever any of these events occur. The enterprise ID used for these traps is <code class="cCode">.1.3.6.1.4.1.140.tuxedo</code>, where <code class="cCode">tuxedo</code> is <code class="cCode">300</code>. For Oracle SNMP Agent to receive Tuxedo system events, the Tuxedo system EventBroker (<code class="cCode">TMSYSEVT</code>) must be running because that is the entity that generates the system events.
+</p>
+<p class="pBody"><a name="wp341339"> </a>
+The Event Traps MIB defines all the traps that are generated and the objects that are passed in the variable bindings for these traps. The following sections describe the cause and recommended action for each event:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp341343"> </a><a href="10tuxtrp.html#wp341353">Specific Trap Number</a></li>
+<li><a name="wp341347"> </a><a href="10tuxtrp.html#wp341357">Variable Bindings</a></li>
+<li><a name="wp341351"> </a><a href="10tuxtrp.html#wp341471">Trap Definitions</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp341353"> </a>
+Specific Trap Number
+</h2><p class="pBody"><a name="wp341354"> </a>
+Each enterprise-specific trap notification generated by Oracle SNMP Agent has a value in the specific trap ID field of the SNMP trap packet that identifies the Tuxedo event. For each trap listed in this chapter, &#8220;Trap ID&#8221; is the specific trap number that is sent in the trap packet.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp341357"> </a>
+Variable Bindings
+</h2><p class="pBody"><a name="wp341358"> </a>
+SNMP trap notifications generated by Oracle SNMP Agent contain 12 variables (variable/value pairs) in the variable bindings of the trap packet:
+</p>
+<h4 class="pDefTerm"><a name="wp341359"> </a>
+<code class="cCode">beaEventsDomainId</code>
+</h4><div class="pDefPara"><a name="wp341360"> </a>
+The ID of the domain that generated the Tuxedo event notification.
+</div>
+<h4 class="pDefTerm"><a name="wp341361"> </a>
+<code class="cCode">beaEventsIpcKey</code>
+</h4><div class="pDefPara"><a name="wp341362"> </a>
+The IPC key of the Tuxedo domain.
+</div>
+<h4 class="pDefTerm"><a name="wp341363"> </a>
+<code class="cCode">beaLogicalAgentName</code>
+</h4><div class="pDefPara"><a name="wp341364"> </a>
+The logical agent name of the SNMP agent for Oracle SNMP Agent generating the trap. The executable name is the default logical agent name.
+</div>
+<p class="pBody"><a name="wp341367"> </a>
+The <code class="cCode">tuxEventTrapVars</code> group contains all objects that are sent as a part of the variable bindings of the traps generated in relation to Tuxedo system events, as defined in EVENTS.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341369"> </a>
+tuxEventsName
+</h3>
+<h4 class="pHeading3"><a name="wp341370"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp341371"> </a>
+<code class="cCodeEmphasis">DisplayString</code> 
+</p>
+<h4 class="pHeading3"><a name="wp341372"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp341373"> </a>
+not-accessible
+</p>
+<h4 class="pHeading3"><a name="wp341374"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341375"> </a>
+A string that uniquely identifies this event. All system-generated events begin with <code class="cCode">.Sys</code>. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341377"> </a>
+tuxEventsSeverity
+</h3>
+<h4 class="pHeading3"><a name="wp341378"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp341379"> </a>
+<code class="cCode">INTEGER { Error(1), Warn(2), Infor(3) }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341380"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp341381"> </a>
+not-accessible
+</p>
+<h4 class="pHeading3"><a name="wp341382"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341384"> </a>
+Indicates the severity of the system event. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341386"> </a>
+tuxEventsLmid
+</h3>
+<h4 class="pHeading3"><a name="wp341387"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp341388"> </a>
+<code class="cCodeEmphasis">DisplayString</code> ( <code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..30</code>) ) 
+</p>
+<h4 class="pHeading3"><a name="wp341389"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp341390"> </a>
+not-accessible
+</p>
+<h4 class="pHeading3"><a name="wp341391"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341392"> </a>
+A string that identifies the machine where the event was detected. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341394"> </a>
+tuxEventsTime
+</h3>
+<h4 class="pHeading3"><a name="wp341395"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp341396"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp341397"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp341398"> </a>
+not-accessible
+</p>
+<h4 class="pHeading3"><a name="wp341399"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341400"> </a>
+A long integer containing the event detection time, in seconds, according to the clock on the machine where detection took place. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341402"> </a>
+tuxEventsUsec
+</h3>
+<h4 class="pHeading3"><a name="wp341403"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp341404"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp341405"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp341406"> </a>
+not-accessible
+</p>
+<h4 class="pHeading3"><a name="wp341407"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341408"> </a>
+A long integer containing the event detection time, in microseconds, according to the clock on the machine where detection took place. While the units of this value are always microseconds, the actual resolution depends on the underlying operating system and hardware.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341410"> </a>
+tuxEventsDescription
+</h3>
+<h4 class="pHeading3"><a name="wp341411"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp341412"> </a>
+<code class="cCodeEmphasis">DisplayString</code> 
+</p>
+<h4 class="pHeading3"><a name="wp341413"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp341414"> </a>
+not-accessible
+</p>
+<h4 class="pHeading3"><a name="wp341415"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341416"> </a>
+A one-line string summarizing the event.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341418"> </a>
+tuxEventsClass
+</h3>
+<h4 class="pHeading3"><a name="wp341419"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp341420"> </a>
+<code class="cCodeEmphasis">DisplayString</code> 
+</p>
+<h4 class="pHeading3"><a name="wp341421"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp341422"> </a>
+not-accessible
+</p>
+<h4 class="pHeading3"><a name="wp341423"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341424"> </a>
+The class of the object associated with the event. Depending on TA_CLASS, the event notification buffer can contain additional fields specific to an object of this class. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341426"> </a>
+tuxEventsUlogCat
+</h3>
+<h4 class="pHeading3"><a name="wp341427"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp341428"> </a>
+<code class="cCodeEmphasis">DisplayString</code>
+</p>
+<h4 class="pHeading3"><a name="wp341429"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp341430"> </a>
+not-accessible
+</p>
+<h4 class="pHeading3"><a name="wp341431"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341432"> </a>
+Catalog name from which the message was derived, if any. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341434"> </a>
+tuxEventsUlogMsgNum
+</h3>
+<h4 class="pHeading3"><a name="wp341435"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp341436"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp341437"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp341438"> </a>
+not-accessible
+</p>
+<h4 class="pHeading3"><a name="wp341439"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341440"> </a>
+Catalog message number, if the message was derived from a catalog. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341441"> </a>
+tuxTdomainID
+</h3>
+<h4 class="pHeading3"><a name="wp341442"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp341443"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code> (<code class="cCodeEmphasis">0..30</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp341444"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp341445"> </a>
+not-accessible
+</p>
+<h4 class="pHeading3"><a name="wp341446"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341450"> </a>
+Domain identification string. Refer to <a href="2coremib.html">Core MIB.</a>
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341451"> </a>
+tuxTdomainKey
+</h3>
+<h4 class="pHeading3"><a name="wp341452"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp341453"> </a>
+<code class="cCode">INTEGER (32769..262143)</code>
+</p>
+<h4 class="pHeading3"><a name="wp341454"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp341455"> </a>
+not-accessible
+</p>
+<h4 class="pHeading3"><a name="wp341456"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341457"> </a>
+Numeric key for the well-known address in a Tuxedo system bulletin board. In a single processor environment, this key &#8220;names&#8221; the bulletin board. In a multiple processor or LAN environment, this key names the message queue of the DBBL. In addition, this key is used as a basis for deriving the names of resources other than the well-known address, such as the names for bulletin boards throughout the application. Refer to <a href="2coremib.html">Core MIB.</a>
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341461"> </a>
+beaLogicalAgentName
+</h3>
+<h4 class="pHeading3"><a name="wp341462"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp341463"> </a>
+<code class="cCodeEmphasis">DisplayString</code>
+</p>
+<h4 class="pHeading3"><a name="wp341464"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp341465"> </a>
+not-accessible
+</p>
+<h4 class="pHeading3"><a name="wp341466"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341467"> </a>
+The logical name of the agent as provided in the <code class="cCode">-l </code>option (service name in case of Windows NT) when the agent was started. This object value is the agent that is monitoring this domain. If there are multiple SNMP agents running on a managed node, this name needs to be appended to the community with an @ sign to get the MIB values from the appropriate agent. For example, if there are two logical agents, <code class="cCode">simp_snmpd</code> and <code class="cCode">bank_snmpd</code>, the communities used to query values from these agents would be <code class="cCode">public@simp_snmpd</code> and <code class="cCode">public@bank_snmpd</code> respectively. The component after the <code class="cCode">@</code> sign is used to identify the agent to which the MIB query is to be sent. 
+</p>
+<p class="pBody"><a name="wp341468"> </a>
+This object is passed in the variable binding of all SNMP traps generated on behalf of Tuxedo system events.
+</p>
+<a name="wp341469"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>To run multiple SNMP agents on the same managed node, they must be started as subagents (without <code class="cCode">-s</code> option) and run after starting the Oracle SNMP Agent Integrator.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp341471"> </a>
+Trap Definitions
+</h2><p class="pBody"><a name="wp341472"> </a>
+The following sections define all the traps generated by Oracle SNMP Agent when system events occur:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp341476"> </a><a href="10tuxtrp.html#wp341502">DOMAIN Traps</a></li>
+<li><a name="wp341480"> </a><a href="10tuxtrp.html#wp341520">MACHINE Traps</a></li>
+<li><a name="wp341484"> </a><a href="10tuxtrp.html#wp341653">BRIDGE Traps</a></li>
+<li><a name="wp341488"> </a><a href="10tuxtrp.html#wp341717">SERVER Event Traps</a></li>
+<li><a name="wp341492"> </a><a href="10tuxtrp.html#wp341819">CLIENT Traps</a></li>
+<li><a name="wp341496"> </a><a href="10tuxtrp.html#wp341871">TRANSACTION Traps</a></li>
+<li><a name="wp341500"> </a><a href="10tuxtrp.html#wp341899">EVENT Traps</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp341502"> </a>
+DOMAIN Traps
+</h3>
+<p class="pBody"><a name="wp341503"> </a>
+The Domain Traps group defines the Tuxedo domain specific event traps.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341506"> </a>
+resourceConfigTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341507"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341509"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341510"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341511"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341512"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341513"> </a>
+This trap is generated when <code class="cCode">.SysResourceConfig</code> occurs. It denotes a system configuration change. 
+</p>
+<h4 class="pHeading3"><a name="wp341514"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341515"> </a>
+This message is informational.
+</p>
+<h4 class="pHeading3"><a name="wp341516"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341517"> </a>
+1
+</p>
+<h3 class="pHeading2"><a name="wp341520"> </a>
+MACHINE Traps
+</h3>
+<p class="pBody"><a name="wp341521"> </a>
+The Machine Traps group defines the Tuxedo machine specific event traps.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341523"> </a>
+machineBroadcastTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341524"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341525"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341526"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341527"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName} </code>
+</p>
+<h4 class="pHeading3"><a name="wp341528"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341529"> </a>
+This trap is generated when <code class="cCode">.SysMachineBroadcast</code> occurs. It denotes broadcast delivery failure. This message indicates that <code class="cCode">tpbroadcast()</code> failed for at least one accesser on the LMID of the application. 
+</p>
+<h4 class="pHeading3"><a name="wp341530"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341531"> </a>
+Since the broadcast messages are sent in no-blocking mode, it is possible that the process doing the broadcasting encountered a blocking condition and dropped a message. Configure larger message queues or load-balance clients and servers such that excessive load is not put on some machines. 
+</p>
+<h4 class="pHeading3"><a name="wp341532"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341533"> </a>
+2 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341535"> </a>
+machineConfigTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341536"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341537"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341538"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341539"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341540"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341541"> </a>
+This trap is generated when <code class="cCode">.SysMachineConfig</code> occurs. It denotes a change in a particular machine configuration. 
+</p>
+<h4 class="pHeading3"><a name="wp341542"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341543"> </a>
+This message is informational.
+</p>
+<h4 class="pHeading3"><a name="wp341544"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341545"> </a>
+3 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341547"> </a>
+machineFullMaxAccessersTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341548"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341549"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341550"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341551"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341552"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341553"> </a>
+This trap is generated when <code class="cCode">.SysMachineFullMaxaccessers</code> occurs. This message indicates that the given LMID reached the capacity limit on the number of accessers.
+</p>
+<h4 class="pHeading3"><a name="wp341554"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341555"> </a>
+Increase the MAXACCESSERS value for the particular machine. Or, if the hardware/software limits have been reached for the maximum number of users on the machine, move additional users to other machines. 
+</p>
+<h4 class="pHeading3"><a name="wp341556"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341557"> </a>
+4 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341559"> </a>
+machineFullMaxConvTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341560"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341561"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341562"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341563"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341564"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341565"> </a>
+This trap is generated when <code class="cCode">.SysMachineFullMaxconv</code> occurs. This message indicates that the given LMID reached the capacity limit on the number of concurrent conversations. 
+</p>
+<h4 class="pHeading3"><a name="wp341566"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341567"> </a>
+Increase the value of MAXCONV for the particular machine to the point that this event is not generated. 
+</p>
+<h4 class="pHeading3"><a name="wp341568"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341569"> </a>
+5 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341571"> </a>
+machineFullMaxGttTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341572"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341573"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341574"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341575"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341576"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341577"> </a>
+This trap is generated when <code class="cCode">.SysMachineFullMaxgtt</code> is raised. This message indicates that the given machine reached the capacity limit on the number of concurrent transactions. 
+</p>
+<h4 class="pHeading3"><a name="wp341578"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341579"> </a>
+Increase the value of MAXGTT for the particular machine to the point that this event is not generated.
+</p>
+<h4 class="pHeading3"><a name="wp341580"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341581"> </a>
+6 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341583"> </a>
+machineFullMaxWsClientsTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341584"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341585"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341586"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341587"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341588"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341589"> </a>
+This trap is generated when <code class="cCode">.SysMachineFullMaxwsclients</code> is raised. This message indicates that the given machine reached the capacity limit on the number of workstation clients. 
+</p>
+<h4 class="pHeading3"><a name="wp341590"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341591"> </a>
+Increase the value of MAXWSCLIENTS for the particular machine to the point that this event is not generated. 
+</p>
+<h4 class="pHeading3"><a name="wp341592"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341593"> </a>
+7 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341595"> </a>
+machineMsgQTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341596"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341597"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341598"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341599"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341600"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341601"> </a>
+This trap is generated when <code class="cCode">.SysMachineMsgq</code> occurs. This message indicates that the server posting a message encountered a blocking condition while putting a message on the message queue.
+</p>
+<h4 class="pHeading3"><a name="wp341602"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341603"> </a>
+Configure larger message queues and/or distribute the load equally on all the machines.
+</p>
+<h4 class="pHeading3"><a name="wp341604"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341605"> </a>
+8 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341607"> </a>
+machinePartitionedTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341608"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341609"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341610"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341611"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName} </code>
+</p>
+<h4 class="pHeading3"><a name="wp341612"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341613"> </a>
+This trap is generated when <code class="cCode">.SysMachinePartitioned</code> occurs. This message indicates that DBBL partitioned the stated machine either because the BBL on the machine is slow or the network link between the master and the machine is broken. 
+</p>
+<h4 class="pHeading3"><a name="wp341614"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341615"> </a>
+This can occur due to several reasons:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp341616"> </a>The entire network might be bogged down due to heavy traffic.</li>
+<li><a name="wp341617"> </a>The BBL or BRIDGE on the non-master is either dead or slow.</li>
+<li><a name="wp341618"> </a>The BRIDGE process on the non-master is extremely busy.</li>
+</ul></div>
+<p class="pBody"><a name="wp341619"> </a>
+The software is capable of unpartitioning the machine if things stabilize. 
+</p>
+<h4 class="pHeading3"><a name="wp341620"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341621"> </a>
+9 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341623"> </a>
+machineSlowTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341624"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341625"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341626"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341627"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName} </code>
+</p>
+<h4 class="pHeading3"><a name="wp341628"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341629"> </a>
+This trap is generated when <code class="cCode">.SysMachineSlow</code> occurs. This message indicates that BBL on the non-master machine is slow in generating IAMOK messages. These messages are sent periodically from BBLs to the DBBL that helps the DBBL maintain the pulse of the system. 
+</p>
+<h4 class="pHeading3"><a name="wp341631"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341632"> </a>
+This can occur due to several reasons:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp341633"> </a>The entire network might be bogged down due to heavy traffic. </li>
+<li><a name="wp341634"> </a>The BBL on the non-master might be either dead or slow. </li>
+<li><a name="wp341635"> </a>The BRIDGE process on the non-master is extremely busy.</li>
+</ul></div>
+<p class="pBody"><a name="wp341636"> </a>
+This problem can be intermittent. 
+</p>
+<h4 class="pHeading3"><a name="wp341637"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341638"> </a>
+10 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341640"> </a>
+machineStateTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341641"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341642"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341643"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341644"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341645"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341646"> </a>
+This trap is generated when <code class="cCode">.SysMachineState</code> occurs. This denotes that a particular machine changed its state. 
+</p>
+<h4 class="pHeading3"><a name="wp341647"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341648"> </a>
+This message is informational.
+</p>
+<h4 class="pHeading3"><a name="wp341649"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341650"> </a>
+11
+</p>
+<h3 class="pHeading2"><a name="wp341653"> </a>
+BRIDGE Traps
+</h3>
+<p class="pBody"><a name="wp341654"> </a>
+The Bridge Traps group defines the Tuxedo bridge specific traps.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341656"> </a>
+networkConfigTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341657"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341658"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341659"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341660"> </a>
+<code class="cCode">{tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341661"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341662"> </a>
+This trap is generated when <code class="cCode">.SysNetworkConfig</code> occurs. This message indicates the network link between the two machines specified changed to a new state.
+</p>
+<h4 class="pHeading3"><a name="wp341663"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341664"> </a>
+This message is informational.
+</p>
+<h4 class="pHeading3"><a name="wp341665"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341666"> </a>
+12 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341668"> </a>
+networkDroppedTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341669"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341670"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341671"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341672"> </a>
+<code class="cCode">{tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341673"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341674"> </a>
+This trap is generated when <code class="cCode">.SysNetworkDropped</code> occurs. This message indicates the network link between the two machines specified was dropped abnormally.
+</p>
+<h4 class="pHeading3"><a name="wp341675"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341676"> </a>
+This can happen either because the BRIDGE on either machine died or one of the machines crashed. 
+</p>
+<h4 class="pHeading3"><a name="wp341677"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341678"> </a>
+13 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341680"> </a>
+networkFailureTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341681"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341682"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341683"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341684"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341685"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341686"> </a>
+This trap is generated when <code class="cCode">.SysNetworkFailure</code> occurs. This indicates a network connection failure between BRIDGE processes.
+</p>
+<h4 class="pHeading3"><a name="wp341687"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341688"> </a>
+This can happen either because the BRIDGE on remote machine died or the remote machine itself crashed. 
+</p>
+<h4 class="pHeading3"><a name="wp341689"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341690"> </a>
+14 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341692"> </a>
+networkFlowTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341693"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341694"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341695"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341696"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341697"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341698"> </a>
+This trap is generated when <code class="cCode">.SysNetworkFlow</code> occurs. This message states that the virtual circuit between machines changed to a new state. 
+</p>
+<h4 class="pHeading3"><a name="wp341699"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341700"> </a>
+This message is informational.
+</p>
+<h4 class="pHeading3"><a name="wp341701"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341702"> </a>
+15 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341704"> </a>
+networkStateTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341705"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341706"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341707"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341708"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName} </code>
+</p>
+<h4 class="pHeading3"><a name="wp341709"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341710"> </a>
+This trap is generated when <code class="cCode">.SysNetworkState</code> occurs. This message indicates that the server died abnormally and BBL cleaned up the slot allocated by the server. 
+</p>
+<h4 class="pHeading3"><a name="wp341711"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341712"> </a>
+Debug the server and fix the problem before the server is restarted.
+</p>
+<h4 class="pHeading3"><a name="wp341713"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341714"> </a>
+16
+</p>
+<h3 class="pHeading2"><a name="wp341717"> </a>
+SERVER Event Traps
+</h3>
+<p class="pBody"><a name="wp341719"> </a>
+The Server Traps group defines the Tuxedo server specific traps.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341721"> </a>
+serverCleaningTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341722"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341723"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341724"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341725"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341726"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341727"> </a>
+This trap is generated when <code class="cCode">.SysServerCleaning</code> occurs. This message indicates that the server died abnormally and BBL cleaned up the slot allocated by the server. 
+</p>
+<h4 class="pHeading3"><a name="wp341728"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341729"> </a>
+Debug the server and fix the problem before the server is restarted. 
+</p>
+<h4 class="pHeading3"><a name="wp341730"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341731"> </a>
+17 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341733"> </a>
+serverConfigTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341734"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341735"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341736"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341737"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName} </code>
+</p>
+<h4 class="pHeading3"><a name="wp341738"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341739"> </a>
+This trap is generated when <code class="cCode">.SysServerConfig</code> occurs. This message indicates that the configuration parameters for the server have been updated.
+</p>
+<h4 class="pHeading3"><a name="wp341740"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341741"> </a>
+This message is informational.
+</p>
+<h4 class="pHeading3"><a name="wp341742"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341743"> </a>
+18 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341745"> </a>
+serverDiedTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341746"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341747"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341748"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341749"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341750"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341751"> </a>
+This trap is generated when <code class="cCode">.SysServerDied</code> occurs. This message indicates that the server died abnormally and the BBL detected this condition in its periodic scan of the BB.
+</p>
+<h4 class="pHeading3"><a name="wp341753"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341754"> </a>
+Debug the server and fix the problem before the server is restarted. 
+</p>
+<h4 class="pHeading3"><a name="wp341755"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341756"> </a>
+19
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341758"> </a>
+serverInitTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341759"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341760"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341761"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341762"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName} </code>
+</p>
+<h4 class="pHeading3"><a name="wp341763"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341764"> </a>
+This trap is generated when <code class="cCode">.SysServerInit</code> occurs. This message indicates that the server specified above failed in <code class="cCode">tpsvrinit()</code> and therefore could not be booted. 
+</p>
+<h4 class="pHeading3"><a name="wp341765"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341766"> </a>
+Fix the problem and then reboot the server. This problem might be due to a Tuxedo resource limit or an application-specific problem.
+</p>
+<h4 class="pHeading3"><a name="wp341767"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341768"> </a>
+20 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341770"> </a>
+serverMaxgenTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341771"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341772"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341773"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341774"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341775"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341776"> </a>
+This trap is generated when <code class="cCode">.SysServerMaxgen</code> occurs. This message indicates that the server died abnormally. Since the server has been marked as restartable, it has been restarted <code class="cCode">MAXGEN-1</code> times in the specified GRACE period. 
+</p>
+<h4 class="pHeading3"><a name="wp341777"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341778"> </a>
+Tuxedo application servers should not die abnormally. If this happens, it is most likely due to an application-specific problem. Debug the server and resolve the problem before restarting the server.
+</p>
+<h4 class="pHeading3"><a name="wp341779"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341780"> </a>
+21
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341782"> </a>
+serverRestartingTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341783"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341784"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341785"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341786"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341787"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341788"> </a>
+This trap is generated when <code class="cCode">.SysServerRestarting</code> occurs.. This message indicates that the server died abnormally. Since this has been marked as a restartable server, it has been restarted.
+</p>
+<h4 class="pHeading3"><a name="wp341789"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341790"> </a>
+Tuxedo application servers should not die abnormally. If this happens, it is most likely due to an application-specific problem. Debug the server and resolve the problem before restarting the server. 
+</p>
+<h4 class="pHeading3"><a name="wp341791"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341792"> </a>
+22 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341794"> </a>
+serverStateTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341795"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341796"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341797"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341798"> </a>
+<code class="cCode">{tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341799"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341800"> </a>
+This trap is generated when <code class="cCode">.SysServerState</code> occurs. This message indicates that the server changed state.
+</p>
+<h4 class="pHeading3"><a name="wp341801"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341802"> </a>
+This message is informational.
+</p>
+<h4 class="pHeading3"><a name="wp341803"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341804"> </a>
+23 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341806"> </a>
+serverTpExitTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341807"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341808"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341809"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341810"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341811"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341812"> </a>
+This trap is generated when <code class="cCode">.SysServerTpexit</code> occurs. This message indicates that the server received a request and the service routine code did a <code class="cCode">tpreturn(TPEXIT)</code> while the server was executing application-specific code. 
+</p>
+<h4 class="pHeading3"><a name="wp341813"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341814"> </a>
+This message is informational.
+</p>
+<h4 class="pHeading3"><a name="wp341815"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341816"> </a>
+24
+</p>
+<h3 class="pHeading2"><a name="wp341819"> </a>
+CLIENT Traps
+</h3>
+<p class="pBody"><a name="wp341820"> </a>
+The Client Traps group defines the Tuxedo client-specific traps.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341822"> </a>
+clientConfigTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341823"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341824"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341825"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341826"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341827"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341828"> </a>
+This trap is generated when <code class="cCode">.SysClientConfig</code> is raised. This denotes that a particular user on a machine changed its configuration. 
+</p>
+<h4 class="pHeading3"><a name="wp341829"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341830"> </a>
+This message is informational.
+</p>
+<h4 class="pHeading3"><a name="wp341831"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341832"> </a>
+25 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341834"> </a>
+clientDiedTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341835"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341837"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341838"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341839"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341840"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341841"> </a>
+This trap is generated when <code class="cCode">.SysClientDied</code> occurs. This message indicates that the client exited the application without doing a <code class="cCode">tpterm()</code>. Normally, clients should do a <code class="cCode">tpterm()</code> before exiting the application.
+</p>
+<h4 class="pHeading3"><a name="wp341842"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341843"> </a>
+This message is informational.
+</p>
+<h4 class="pHeading3"><a name="wp341844"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341845"> </a>
+26 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341846"> </a>
+clientSecurityTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341847"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341848"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341849"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341850"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime,<br />tuxEventsUsec, tuxEventsDescription, tuxEventsClass,<br />tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341851"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341852"> </a>
+This trap is generated when <code class="cCode">.SysClientSecurity</code> occurs. This message indicates that the client failed security validation when trying to join the application.
+</p>
+<h4 class="pHeading3"><a name="wp341853"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341854"> </a>
+Check to make sure that this is not an unauthorized user trying to gain access to your application data.
+</p>
+<h4 class="pHeading3"><a name="wp341855"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341856"> </a>
+27 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341858"> </a>
+clientStateTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341859"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341860"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341861"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341862"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName}</code> 
+</p>
+<h4 class="pHeading3"><a name="wp341863"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341864"> </a>
+This trap is generated when <code class="cCode">.SysClientState</code> occurs. This message indicates that a particular client on a machine changed state.
+</p>
+<h4 class="pHeading3"><a name="wp341865"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341866"> </a>
+This message is informational.
+</p>
+<h4 class="pHeading3"><a name="wp341867"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341868"> </a>
+28
+</p>
+<h3 class="pHeading2"><a name="wp341871"> </a>
+TRANSACTION Traps
+</h3>
+<p class="pBody"><a name="wp341872"> </a>
+The Transaction Traps group defines the Tuxedo transaction-specific traps.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341874"> </a>
+transHeuristicAbortTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341875"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341877"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341878"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341879"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName } </code>
+</p>
+<h4 class="pHeading3"><a name="wp341880"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341881"> </a>
+This trap is generated when <code class="cCode">.SysTransactionHeuristicAbort</code> occurs. This message indicates that the database in a particular group performed an heuristic abort on a transaction. 
+</p>
+<h4 class="pHeading3"><a name="wp341882"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341883"> </a>
+Check to make sure that the coordinator of the transaction is still running. 
+</p>
+<h4 class="pHeading3"><a name="wp341884"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341885"> </a>
+29 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341887"> </a>
+transHeuristicCommitTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341888"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341889"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341890"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341891"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341892"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341893"> </a>
+This trap is generated when <code class="cCode">.SysTransactionHeuristicCommit</code> occurs. This message indicates that the database in a particular group performed an heuristic commit on a transaction. 
+</p>
+<h4 class="pHeading3"><a name="wp341894"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341895"> </a>
+Check to make sure that the coordinator of the transaction is still running. 
+</p>
+<h4 class="pHeading3"><a name="wp341896"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341897"> </a>
+30
+</p>
+<h3 class="pHeading2"><a name="wp341899"> </a>
+EVENT Traps
+</h3>
+<p class="pBody"><a name="wp341901"> </a>
+The Event Traps group defines the Tuxedo event specific traps.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341903"> </a>
+eventDeliveryTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341904"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341905"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341906"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341907"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName } </code>
+</p>
+<h4 class="pHeading3"><a name="wp341908"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341909"> </a>
+This trap is generated when <code class="cCode">.SysEventDelivery</code> occurs. This message indicates that the event server failed to perform at least one notification for a posted event.
+</p>
+<h4 class="pHeading3"><a name="wp341910"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341911"> </a>
+Check to make sure that the notifications specified in the subscriptions that match the posted event are doable.
+</p>
+<h4 class="pHeading3"><a name="wp341912"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341913"> </a>
+31 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp341915"> </a>
+eventFailureTrap
+</h3>
+<h4 class="pHeading3"><a name="wp341916"> </a>
+Enterprise
+</h4>
+<p class="pBody"><a name="wp341917"> </a>
+tuxedo
+</p>
+<h4 class="pHeading3"><a name="wp341918"> </a>
+Variables
+</h4>
+<p class="pBody"><a name="wp341919"> </a>
+<code class="cCode">{ tuxEventsName, tuxEventsSeverity, tuxEventsLmid, tuxEventsTime, tuxEventsUsec, tuxEventsDescription, tuxEventsClass, tuxEventsUlogCat, tuxEventsUlogMsgNum, beaDomainId, beaDomainKey, beaLogicalAgentName }</code>
+</p>
+<h4 class="pHeading3"><a name="wp341920"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp341921"> </a>
+This trap is generated when <code class="cCode">.SysEventFailure</code> occurs. The system event server periodically sends a message to itself to detect blocking conditions on the message queues. This event is generated if the server cannot put a message on the queue in no-block mode. It can also be generated if the received message does not match what was sent out earlier. The second possible case is very unlikely. This denotes a system event monitor subsystem failure on a particular host. 
+</p>
+<h4 class="pHeading3"><a name="wp341922"> </a>
+Action
+</h4>
+<p class="pBody"><a name="wp341923"> </a>
+Configure larger message queues or distribute the load in the application equally among all the machines.
+</p>
+<h4 class="pHeading3"><a name="wp341924"> </a>
+Trap ID
+</h4>
+<p class="pBody"><a name="wp341925"> </a>
+32 
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="10tuxtrp.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="9evtbrok.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq10" src="/global_resources/images/nexttop_disabled.gif" border="0" alt="Next" />
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

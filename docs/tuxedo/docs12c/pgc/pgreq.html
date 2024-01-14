@@ -1,0 +1,631 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41824" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/pgc/fm/pgreq.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/26/12 11:37:56" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Writing Request/Response Clients and Servers</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Programming an Oracle Tuxedo ATMI Application Using C
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pgserv.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pgconv.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/pgc.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1126219"> </a>
+Writing Request/Response Clients and Servers
+</h1>
+<p class="pBody"><a name="wp1118758"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1055312"> </a><a href="pgreq.html#wp1055327">Overview of Request/Response Communication</a></li>
+<li><a name="wp1055316"> </a><a href="pgreq.html#wp1055338">Sending Synchronous Messages</a></li>
+<li><a name="wp1055320"> </a><a href="pgreq.html#wp1055477">Sending Asynchronous Messages</a></li>
+<li><a name="wp1055324"> </a><a href="pgreq.html#wp1055592">Setting and Getting Message Priorities</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1055327"> </a>
+Overview of Request/Response Communication
+</h2><p class="pBody"><a name="wp1055328"> </a>
+In request/response communication mode, one software module sends a request to a second software module and waits for a response. Because the first software module performs the role of the client, and the second, the role of the server, this mode is also referred to as client/server interaction. Many online banking tasks are programmed in request/response mode. For example, a request for an account balance is executed as follows in <a href="pgreq.html#wp1055331">Figure&#160;6-1</a>:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1055329"> </a>A customer (the client) sends a request for an account balance to the Account Record Storage System (the server).</li>
+<li><a name="wp1055330"> </a>The Account Record Storage System (the server) sends a reply to the customer (the client), specifying the dollar amount in the designated account.</li>
+<div class="pFigureTitle"><a name="wp1055331"> </a>
+Figure&#160;6-1  Example of Request/Response Communication in Online Banking
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1055335"> </a>
+<br />
+<img src="wwimages/request.jpg" alt="Example of Request/Response Communication in Online Banking" id="wp1055333" border="0" hspace="0" vspace="0"/><br />
+
+</p>
+</ol></div>
+<p class="pBody"><a name="wp1055336"> </a>
+Once a client process has joined an application, allocated a buffer, and placed a request for input into that buffer, it can then send the request message to a service subroutine for processing and receive a reply message. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1055338"> </a>
+Sending Synchronous Messages
+</h2><p class="pBody"><a name="wp1055339"> </a>
+The <a href="../rf3c/rf3c.html">tpcall(3c)</a> function sends a request to a service subroutine and synchronously waits for a reply. Use the following signature to call the <code class="cCode">tpcall()</code> function:
+</p>
+<a name="wp1121812"> </a><div class="pPreformatted"><pre>int<br />tpcall(char *<code class="cCodeEmphasis">svc</code>, char *<code class="cCodeEmphasis">idata</code>, long <code class="cCodeEmphasis">ilen</code>, char **<code class="cCodeEmphasis">odata</code>, long *<code class="cCodeEmphasis">olen</code>, long flags) </pre></div><p class="pBody"><a name="wp1121817"> </a>
+<a href="pgreq.html#wp888775">Table&#160;6-1</a> describes the arguments to the <code class="cCode">tpcall()</code> function.
+</p>
+<p class="pGraphic"><a name="wp1121854"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp888775table1121818"><caption><a name="wp888775"> </a>
+Table 6-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">tpcall( ) Function Arguments</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1121820"> </a>
+Argument
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1121822"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1121824"> </a>
+<code class="cCodeEmphasis">svc</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1121826"> </a>
+Pointer to the name of the service offered by your application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1121828"> </a>
+<code class="cCodeEmphasis">idata</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1121830"> </a>
+Pointer that contains the address of the data portion of the request. The pointer must reference a typed buffer that was allocated by a prior call to <a href="pgbuf.html#wp1262143">tpalloc()</a>. Note that the <code class="cCode">type</code> (and optionally the <code class="cCode">subtype</code>) of <code class="cCodeEmphasis">idata</code> must match the <code class="cCode">type</code> (and optionally the <code class="cCode">subtype</code>) expected by the service routine. If the types do not match, the system sets <code class="cCode">tperrno</code> to <code class="cCode">TPEITYPE</code> and the function call fails. 
+</div>
+<div class="pCellBody"><a name="wp1121832"> </a>
+If the request requires no data, set <code class="cCodeEmphasis">idata</code> to the NULL pointer. This setting means that the parameter can be ignored. If no data is being sent with the request, you do not need to allocate a buffer for <code class="cCodeEmphasis">idata</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1121834"> </a>
+<code class="cCodeEmphasis">ilen</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1121836"> </a>
+Length of the request data in the buffer referenced by <code class="cCodeEmphasis">idata</code>. If the buffer is a self-defining type, that is, an <code class="cCode">FML</code>, <code class="cCode">FML32</code>, <code class="cCode">VIEW</code>, <code class="cCode">VIEW32</code>, <code class="cCode">X_COMMON</code>, <code class="cCode">X_C_TYPE</code>, or <code class="cCode">STRING</code> buffer, you can set this argument to zero to indicate that the argument should be ignored.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1121838"> </a>
+<code class="cCode">*</code><code class="cCodeEmphasis">odata</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1121840"> </a>
+Address of a pointer to the output buffer that receives the reply. You must allocate the output buffer using the <a href="pgbuf.html#wp1262143">tpalloc()</a> function. If the reply message contains no data, upon successful return from <code class="cCode">tpcall()</code>, the system sets <code class="cCode">*</code><code class="cCodeEmphasis">olen</code> to zero, and the pointer and the contents of the output buffer remain unchanged. 
+</div>
+<div class="pCellBody"><a name="wp1121842"> </a>
+You can use the same buffer for both the request and reply messages. If you do, you must set *<code class="cCodeEmphasis">odata</code> to the address of the pointer returned when you allocate the input buffer. It is an error for this parameter to point to NULL.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1121844"> </a>
+<code class="cCode">olen</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1121846"> </a>
+Pointer to the length of the reply data. It is an error for this parameter to point to NULL.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1121848"> </a>
+<code class="cCode">flags</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1121850"> </a>
+Flag options. You can <code class="cCode">OR</code> a series of flags together. If you set this value to zero, the communication is conducted in the default manner. For a list of valid flags and the defaults, refer to <code class="cCode">tpcall(3c)</code> in the <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em>. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1066879"> </a>
+<code class="cCode">tpcall()</code> waits for the expected reply. 
+</p>
+<a name="wp1055386"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Calling the <code class="cCode">tpcall()</code> function is logically the same as calling the <a href="pgreq.html#wp1055338">tpacall()</a> function immediately followed by <a href="pgreq.html#wp1098002">tpgetrply()</a>, as described in <a href="pgreq.html#wp1055477">Sending Asynchronous Messages</a>.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1055390"> </a>
+The request carries the priority set by the system for the specified service (<code class="cCodeEmphasis">svc</code>) unless a different priority has been explicitly set by a call to the <a href="pgreq.html#wp1055604">tpsprio()</a> function (described in <a href="pgreq.html#wp1055592">Setting and Getting Message Priorities</a>).
+</p>
+<p class="pBody"><a name="wp1055394"> </a>
+<code class="cCode">tpcall()</code> returns an integer. On failure, the value of this integer is -1 and the value of <a href="../rf5/rf5.html">tperrno(5)</a> is set to a value that reflects the type of error that occurred. For information on valid error codes, refer to <a href="../rf3c/rf3c.html">tpcall(3c)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em>. 
+</p>
+<a name="wp1055401"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Communication calls may fail for a variety of reasons, many of which can be corrected at the application level. Possible causes of failure include: application defined errors (<code class="cCode">TPESVCFAIL</code>), errors in processing return arguments (<code class="cCode">TPESVCERR</code>), typed buffer errors (<code class="cCode">TPEITYPE</code>, <code class="cCode">TPEOTYPE</code>), timeout errors (<code class="cCode">TPETIME</code>), and protocol errors (<code class="cCode">TPEPROTO</code>), among others. For a detailed discussion of errors, refer to <a href="pgerr.html">Managing Errors</a>. For a complete list of possible errors, refer to <a href="../rf3c/rf3c.html">tpcall(3c)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em>. </td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1055411"> </a>
+The Oracle Tuxedo system automatically adjusts a buffer used for receiving a message if the received message is too large for the allocated buffer. You should test for whether or not the reply buffers have been resized. 
+</p>
+<p class="pBody"><a name="wp1055412"> </a>
+To access the new size of the buffer, use the address returned in the *<code class="cCodeEmphasis">olen</code> parameter. To determine whether a reply buffer has changed in size, compare the size of the reply buffer before the call to <code class="cCode">tpcall()</code> with the value of <code class="cCode">*</code><code class="cCodeEmphasis">olen</code> after its return. If <code class="cCode">*</code><code class="cCodeEmphasis">olen</code> is larger than the original size, the buffer has grown. If not, the buffer size has not changed. 
+</p>
+<p class="pBody"><a name="wp1122366"> </a>
+You should reference the output buffer by the value returned in <code class="cCodeEmphasis">odata</code> after the call because the output buffer may change for reasons other than an increase in buffer size. You do not need to verify the size of request buffers because the request data is not adjusted once it has been allocated. 
+</p>
+<a name="wp1122367"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If you use the same buffer for the request and reply message, and the pointer to the reply buffer has changed because the system adjusted the size of the buffer, then the input buffer pointer no longer references a valid address.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1122368"> </a>
+Example: Using the Same Buffer for Request and Reply Messages
+</h3>
+<p class="pBody"><a name="wp1055417"> </a>
+<a href="pgreq.html#wp1122532">Listing&#160;6-1</a> shows how the client program, <code class="cCode">audit.c</code>, makes a synchronous call using the same buffer for both the request and reply messages. In this case, using the same buffer is appropriate because the *<code class="cCode">audv</code> message buffer has been set up to accommodate both request and reply information. The following actions are taken in this code:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1055418"> </a>The service queries the <code class="cCode">b_id</code> field, but does not overwrite it. </li>
+<li><a name="wp1055419"> </a>The application initializes the <code class="cCode">bal</code> and <code class="cCode">ermsg</code> fields to zero and the NULL string, respectively, in preparation for the values to be returned by the service. </li>
+<li><a name="wp1055420"> </a>The <code class="cCode">svc_name</code> and <code class="cCode">hdr_type</code> variables represent the service name and the balance type requested, respectively. In this example, these variables represent <code class="cCode">account</code> and <code class="cCode">teller</code>, respectively.</li>
+<div class="pCodeTitle"><a name="wp1122532"> </a>
+Listing&#160;6-1	   Using the Same Buffer for Request and Reply Messages
+</div> <a name="wp1122533"> </a><div class="pPreformatted"><pre>. . .<br />/* Create buffer and set data pointer */<br /><br />audv = (struct aud *)tpalloc(&quot;VIEW&quot;, &quot;aud&quot;, sizeof(struct aud));<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* Prepare aud structure */<br /><br />audv-&gt;b_id = q_branchid;<br />audv-&gt;balance = 0.0;<br />(void)strcpy(audv-&gt;ermsg, &quot;&quot;);<br /> <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* Do tpcall */<br /> <br />if (tpcall(svc_name,(char *)audv,sizeof(struct aud),<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;(char **)&amp;audv,(long *)&amp;audrl,0)== -1){<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)fprintf (stderr, &quot;%s service failed\n %s: %s\n&quot;,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;svc_name, svc_name, audv-&gt;ermsg);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;retc = -1;<br />}<br />else<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)printf (&quot;Branch %ld %s balance is $%.2f\n&quot;,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;audv-&gt;b_id, hdr_type, audv-&gt;balance);<br />. . .</pre></div></ol></div>
+<h3 class="pHeading2"><a name="wp1122539"> </a>
+Example: Testing for Change in Size of Reply Buffer
+</h3>
+<p class="pBody"><a name="wp1122540"> </a>
+<a href="pgreq.html#wp1122541">Listing&#160;6-2</a> provides a generic example of how an application test for a change in buffer size after a call to <code class="cCode">tpcall()</code>. In this example, the input and output buffers must remain equal in size.
+</p>
+<div class="pCodeTitle"><a name="wp1122541"> </a>
+Listing&#160;6-2	   Testing for Change in Size of the Reply Buffer
+</div> <a name="wp1122542"> </a><div class="pPreformatted"><pre>char *svc, *idata, *odata;<br />long ilen, olen, bef_len, aft_len;<br />. . .<br />if (idata = tpalloc(&quot;STRING&quot;, NULL, 0) == NULL)<br />&#160;&#160;&#160;error<br /> <br />if (odata = tpalloc(&quot;STRING&quot;, NULL, 0) == NULL)<br />&#160;&#160;&#160;error<br /> <br />place string value into idata buffer<br /> <br />ilen = olen = strlen(idata)+1;<br />. . .<br />bef_len = olen;<br />if (tpcall(svc, idata, ilen, &amp;odata, &amp;olen, flags) == -1)<br />&#160;&#160;&#160;error<br /> <br />aft_len = olen;<br /> <br />if (aft_len &gt; bef_len){  /* message buffer has grown */<br /> <br />&#160;&#160;&#160;if (idata = tprealloc(idata, olen) == NULL)<br />&#160;&#160;&#160;&#160;&#160;&#160;error<br />}</pre></div><h3 class="pHeading2"><a name="wp1080614"> </a>
+Example: Sending a Synchronous Message with TPSIGRSTRT Set
+</h3>
+<p class="pBody"><a name="wp1055434"> </a>
+<a href="pgreq.html#wp1122631">Listing&#160;6-3</a> is based on the <code class="cCode">TRANSFER</code> service, which is part of the <code class="cCode">XFER</code> server process of <code class="cCode">bankapp</code>. (<code class="cCode">bankapp</code> is a sample ATMI application delivered with the Oracle Tuxedo system.) The <code class="cCode">TRANSFER</code> service assumes the role of a client when it calls the <code class="cCode">WITHDRAWAL</code> and <code class="cCode">DEPOSIT</code> services. The application sets the communication flag to <code class="cCode">TPSIGRSTRT</code> in these service calls to give the transaction a better chance of committing. The <code class="cCode">TPSIGRSTRT</code> flag specifies the action to take if there is a signal interrupt. For more information on communication flags, refer to <a href="../rf3c/rf3c.html">tpcall(3c)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em>.
+</p>
+<div class="pCodeTitle"><a name="wp1122631"> </a>
+Listing&#160;6-3	   Sending a Synchronous Message with TPSIGRSTRT Set
+</div> <a name="wp1122632"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;&#160;/* Do a tpcall to withdraw from first account */<br /> <br />if (tpcall(&quot;WITHDRAWAL&quot;, (char *)reqfb,0, (char **)&amp;reqfb,<br />&#160;&#160;&#160;&#160;&#160;(long *)&amp;reqlen,TPSIGRSTRT) == -1) {<br />&#160;&#160;&#160;&#160;&#160;(void)Fchg(transf, STATLIN, 0,<br />&#160;&#160;&#160;&#160;&#160;&quot;Cannot withdraw from debit account&quot;, (FLDLEN)0);<br />&#160;&#160;&#160;&#160;&#160;tpfree((char *)reqfb);<br />}<br />...<br />&#160;&#160;&#160;&#160;&#160;/* Do a tpcall to deposit to second account */<br /> <br />if (tpcall(&quot;DEPOSIT&quot;, (char *)reqfb, 0, (char **)&amp;reqfb,<br />&#160;&#160;&#160;&#160;&#160;(long *)&amp;reqlen, TPSIGRSTRT) == -1) {<br />&#160;&#160;&#160;&#160;&#160;(void)Fchg(transf, STATLIN, 0,<br />&#160;&#160;&#160;&#160;&#160;&quot;Cannot deposit into credit account&quot;, (FLDLEN)0);<br />&#160;&#160;&#160;&#160;&#160;tpfree((char *)reqfb);<br />}</pre></div><h3 class="pHeading2"><a name="wp1055449"> </a>
+Example: Sending a Synchronous Message with TPNOTRAN Set
+</h3>
+<p class="pBody"><a name="wp1055450"> </a>
+<a href="pgreq.html#wp1122708">Listing&#160;6-4</a> illustrates a communication call that suppresses transaction mode. The call is made to a service that is not affiliated with a resource manager; it would be an error to allow the service to participate in the transaction. The application prints an accounts receivable report, <code class="cCode">accrcv</code>, generated from information obtained from a database named <code class="cCode">accounts</code>. 
+</p>
+<p class="pBody"><a name="wp1055451"> </a>
+The service routine <code class="cCode">REPORT</code> interprets the specified parameters and sends the byte stream for the completed report as a reply. The client uses <code class="cCode">tpcall()</code> to send the byte stream to a service called <code class="cCode">PRINTER</code>, which, in turn, sends the byte stream to a printer that is conveniently close to the client. The reply is printed. Finally, the <code class="cCode">PRINTER</code> service notifies the client that the hard copy is ready to be picked up. 
+</p>
+<a name="wp1055454"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The example <a href="pgreq.html#wp1123399">Sending an Asynchronous Message with TPNOREPLY | TPNOTRAN</a> shows a similar example using an asynchronous message call.</td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1122708"> </a>
+Listing&#160;6-4	   Sending a Synchronous Message with TPNOTRAN Set
+</div> <a name="wp1122709"> </a><div class="pPreformatted"><pre>#include &lt;stdio.h&gt;<br />#include &quot;atmi.h&quot;<br /> <br />main()<br /> <br />{<br />char *rbuf;                /* report buffer */<br />long r1len, r2len, r3len;  /* buffer lengths of send, 1st reply,<br />                              and 2nd reply buffers for report */<br />join application<br /> <br />if (rbuf = tpalloc(&quot;STRING&quot;, NULL, 0) == NULL)  /* allocate space for report */<br />&#160;&#160;&#160;leave application and exit program<br />(void)strcpy(rbuf,<br />&#160;&#160;&#160;&quot;REPORT=accrcv DBNAME=accounts&quot;); /* send parms of report */<br />r1len = strlen(rbuf)+1;              /* length of request */<br /><br />start transaction<br /> <br />if (tpcall(&quot;REPORT&quot;, rbuf, r1len, &amp;rbuf,<br />&#160;&#160;&#160;&amp;r2len, 0) == -1)                 /* get report print stream */<br />&#160;&#160;&#160;error routine<br />if (tpcall(&quot;PRINTER&quot;, rbuf, r2len, &amp;rbuf,<br />&#160;&#160;&#160;&amp;r3len, TPNOTRAN) == -1)          /* send report to printer */<br />&#160;&#160;&#160;error routine<br />(void)printf(&quot;Report sent to %s printer\n&quot;,<br />&#160;&#160;&#160;rbuf);                            /* indicate which printer */<br /> <br />terminate transaction<br />free buffer<br />leave application<br />}</pre></div><a name="wp1055464"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>In the preceding example, the term <code class="cCode">error routine</code> indicates that the following tasks are performed: an error message is printed, the transaction is aborted, allocated buffers are freed, the client leaves the application, and the program is exited.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1122738"> </a>
+Example: Sending a Synchronous Message with TPNOCHANGE Set
+</h3>
+<p class="pBody"><a name="wp1122826"> </a>
+<a href="pgreq.html#wp1122905">Listing&#160;6-5</a> shows how the <code class="cCode">TPNOCHANGE</code> communication flag is used to enforce strong buffer type checking by indicating that the reply message must be returned in the same type of buffer that was originally allocated. This example refers to a service routine called <code class="cCode">REPORT</code>. (The <code class="cCode">REPORT</code> service is also shown in <a href="pgreq.html#wp1055449">Example: Sending a Synchronous Message with TPNOTRAN Set</a>.) 
+</p>
+<p class="pBody"><a name="wp1055471"> </a>
+In this example, the client receives the reply in a <code class="cCode">VIEW</code> typed buffer called <code class="cCode">rview1</code> and prints the elements in <code class="cCode">printf()</code> statements. The strong type check flag, <code class="cCode">TPNOCHANGE</code>, forces the reply to be returned in a buffer of type <code class="cCode">VIEW</code> and of subtype <code class="cCode">rview1</code>. 
+</p>
+<p class="pBody"><a name="wp1055472"> </a>
+A possible reason for this check is to guard against errors that may occur in the <code class="cCode">REPORT</code> service subroutine, resulting in the use of a reply buffer of an incorrect type. Another reason is to prevent changes that are not made consistently across all areas of dependency. For example, another programmer may have changed the <code class="cCode">REPORT</code> service to standardize all replies in another <code class="cCode">VIEW</code> format without modifying the client process to reflect the change.
+</p>
+<div class="pCodeTitle"><a name="wp1122905"> </a>
+Listing&#160;6-5	   Sending a Synchronous Message with TPNOCHANGE Set
+</div> <a name="wp1122906"> </a><div class="pPreformatted"><pre><code class="cCode">#include &lt;stdio.h&gt;<br />#include &quot;atmi.h&quot;<br />#include &quot;rview1.h&quot;<br /> <br />main(argc, argv)<br />int argc;<br />char * argv[];<br /> <br />{<br />char *rbuf;            /* report buffer */<br />struct rview1 *rrbuf;  /* report reply buffer */<br />long rlen, rrlen;      /* buffer lengths of send and reply <br /></code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<code class="cCode">buffers for report */<br />if (tpinit((TPINIT *) tpinfo) == -1)<br /></code>&#160;&#160;&#160;<code class="cCode">fprintf(stderr, &quot;%s: failed to join application\n&quot;, argv[0]);<br /> <br />if (rbuf = tpalloc(&quot;STRING&quot;, NULL, 0) == NULL) { /* allocate space for report */<br /></code>&#160;&#160;&#160;<code class="cCode">tpterm();<br /></code>&#160;&#160;&#160;<code class="cCode">exit(1);<br />}<br /></code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<code class="cCode">/* allocate space for return buffer */<br />if (rrbuf = (struct rview1 *)tpalloc(&quot;VIEW&quot;, &quot;rview1&quot;, sizeof(struct rview1)) \ == NULL{<br /></code>&#160;&#160;&#160;<code class="cCode">tpfree(rbuf);<br /></code>&#160;&#160;&#160;<code class="cCode">tpterm();<br /></code>&#160;&#160;&#160;<code class="cCode">exit(1);<br />}<br />(void)strcpy(rbuf, &quot;REPORT=accrcv DBNAME=accounts FORMAT=rview1&quot;);<br />rlen = strlen(rbuf)+1;     /* length of request */<br /></code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<code class="cCode">/* get report in rview1 struct */<br />if (tpcall(&quot;REPORT&quot;, rbuf, rlen, (char **)&amp;rrbuf, &amp;rrlen, TPNOCHANGE) == -1) {<br /></code>&#160;&#160;&#160;<code class="cCode">fprintf(stderr, &quot;accounts receivable report failed in service call\n&quot;);<br /></code>&#160;&#160;&#160;<code class="cCode">if (tperrno == TPEOTYPE)<br /></code>&#160;&#160;&#160;&#160;&#160;&#160;<code class="cCode">fprintf(stderr, &quot;report returned has wrong view type\n&quot;);<br /></code>&#160;&#160;&#160;<code class="cCode">tpfree(rbuf);<br /></code>&#160;&#160;&#160;<code class="cCode">tpfree(rrbuf);<br /></code>&#160;&#160;&#160;<code class="cCode">tpterm();<br /></code>&#160;&#160;&#160;<code class="cCode">exit(1);<br />}<br />(void)printf(&quot;Total accounts receivable %6d\n&quot;, rrbuf-&gt;total);<br />(void)printf(&quot;Largest three outstanding %-20s %6d\n&quot;, rrbuf-&gt;name1, rrbuf-&gt;amt1);<br />(void)printf(&quot;%-20s %6d\n&quot;, rrbuf-&gt;name2, rrbuf-&gt;amt2);<br />(void)printf(&quot;%-20s %6d\n&quot;, rrbuf-&gt;name3, rrbuf-&gt;amt3);<br />tpfree(rbuf);<br />tpfree(rrbuf);<br />tpterm();<br />}</code></pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1055477"> </a>
+Sending Asynchronous Messages
+</h2><p class="pBody"><a name="wp1055478"> </a>
+This section explains how to:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1055479"> </a>Send an asynchronous request using the <code class="cCode">tpacall()</code> function</li>
+<li><a name="wp1055480"> </a>Get an asynchronous reply using the <code class="cCode">tpgetrply()</code> function</li>
+</ul></div>
+<p class="pBody"><a name="wp1055481"> </a>
+The type of asynchronous processing discussed in this section is sometimes referred to as <em class="cEmphasis">fan-out parallelism</em> because it allows a client&#8217;s requests to be distributed (or &#8220;fanned out&#8221;) simultaneously to several services for processing.
+</p>
+<p class="pBody"><a name="wp1055482"> </a>
+The other type of asynchronous processing supported by the Oracle Tuxedo system is pipeline parallelism in which the <a href="pgserv.html#wp1168061">tpforward()</a> function is used to pass (or forward) a process from one service to another. For a description of the <code class="cCode">tpforward()</code> function, refer to <a href="pgserv.html">Writing Servers</a>.
+</p>
+<h3 class="pHeading2"><a name="wp1055487"> </a>
+Sending an Asynchronous Request
+</h3>
+<p class="pBody"><a name="wp1055488"> </a>
+The <a href="../rf3c/rf3c.html">tpacall(3c)</a> function sends a request to a service and immediately returns. Use the following signature to call the <code class="cCode">tpacall()</code> function:
+</p>
+<a name="wp1123028"> </a><div class="pPreformatted"><pre>int<br />tpacall(char *<code class="cCodeEmphasis">svc</code>, char *<code class="cCodeEmphasis">data</code>, long <code class="cCodeEmphasis">len</code>, long <em class="cEmphasis">flags</em>) </pre></div><p class="pBody"><a name="wp1123033"> </a>
+<a href="pgreq.html#wp888817">Table&#160;6-2</a> describes the arguments to the <code class="cCode">tpacall()</code> function.
+</p>
+<p class="pGraphic"><a name="wp1123063"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp888817table1123034"><caption><a name="wp888817"> </a>
+Table 6-2  tpacall( ) Function Arguments
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1123036"> </a>
+Argument
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1123038"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1123040"> </a>
+<code class="cCodeEmphasis">svc</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1123042"> </a>
+Pointer to the name of the service offered by your application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1123044"> </a>
+<code class="cCodeEmphasis">data</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1123046"> </a>
+Pointer that contains the address of the data portion of the request. The pointer must reference a typed buffer that was allocated by a prior call to <a href="pgbuf.html#wp1262143">tpalloc()</a>. Note that the <code class="cCode">type</code> (and optionally the <code class="cCode">subtype</code>) of <code class="cCodeEmphasis">idata</code> must match the <code class="cCode">type</code> (and optionally the <code class="cCode">subtype</code>) expected by the service routine. If the types do not match, the system sets <code class="cCode">tperrno</code> to <code class="cCode">TPEITYPE</code> and the function call fails. 
+</div>
+<div class="pCellBody"><a name="wp1123048"> </a>
+If the request requires no data, set <code class="cCodeEmphasis">data</code> to the NULL pointer. This setting means that the parameter can be ignored. If no data is being sent with the request, you do not need to allocate a buffer for <code class="cCodeEmphasis">data</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1123050"> </a>
+<code class="cCodeEmphasis">len</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1123052"> </a>
+Length of the request data in the buffer referenced by <code class="cCodeEmphasis">data</code>. If the buffer is a self-defining type, that is, an <code class="cCode">FML</code>, <code class="cCode">FML32</code>, <code class="cCode">VIEW</code>, <code class="cCode">VIEW32</code>, <code class="cCode">X_COMMON</code>, <code class="cCode">X_C_TYPE</code>, or <code class="cCode">STRING</code> buffer, you can set this argument to zero, indicating that the argument should be ignored.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1123054"> </a>
+<code class="cCodeEmphasis">flags</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1123056"> </a>
+Flag options. You can list a group of flags by using the logical <code class="cCode">OR</code> operator. If you set this value to zero, the communication is conducted in the default manner. For a list of valid flags and defaults, refer to <a href="../rf3c/rf3c.html">tpacall(3c)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em>. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1055521"> </a>
+The <code class="cCode">tpacall()</code> function sends a request message to the service named in the <code class="cCodeEmphasis">svc</code> parameter and immediately returns from the call. Upon successful completion of the call, the <code class="cCode">tpacall()</code> function returns an integer that serves as a descriptor used to access the correct reply for the relevant request. While <code class="cCode">tpacall()</code> is in transaction mode (as described in <a href="pgglob.html">Writing Global Transactions</a>) there may not be any outstanding replies when the transaction commits; that is, within a given transaction, for each request for which a reply is expected, a corresponding reply must eventually be received.
+</p>
+<p class="pBody"><a name="wp1055525"> </a>
+If the value <code class="cCode">TPNOREPLY</code> is assigned to the <code class="cCodeEmphasis">flags</code> parameter, the parameter signals to <code class="cCode">tpacall()</code> that a reply is not expected. When this flag is set, on success <code class="cCode">tpacall()</code> returns a value of <code class="cCode">0</code> as the reply descriptor. If subsequently passed to the <a href="pgreq.html#wp1098002">tpgetrply()</a> function, this value becomes invalid. Guidelines for using this flag value correctly when a process is in transaction mode are discussed in <a href="pgglob.html">Writing Global Transactions</a>.
+</p>
+<p class="pBody"><a name="wp1055529"> </a>
+On error, <code class="cCode">tpacall()</code> returns <code class="cCode">-1</code> and sets <a href="../rf5/rf5.html">tperrno(5)</a> to a value that reflects the nature of the error. <code class="cCode">tpacall()</code> returns many of the same error codes as <a href="pgreq.html#wp1055338">tpcall()</a>. The differences between the error codes for these functions are based on the fact that one call is synchronous and the other, asynchronous. These errors are discussed at length in <a href="pgerr.html">Managing Errors</a>.
+</p>
+<h4 class="pHeading3"><a name="wp1123352"> </a>
+Example: Sending an Asynchronous Message with TPNOTRAN | TPNOREPLY
+</h4>
+<p class="pBody"><a name="wp1110168"> </a>
+<a href="pgreq.html#wp1123399">Listing&#160;6-6</a> shows how <code class="cCode">tpacall()</code> uses the <code class="cCode">TPNOTRAN</code> and <code class="cCode">TPNOREPLY</code> flags. This code is similar to the code in <a href="pgreq.html#wp1055449">Example: Sending a Synchronous Message with TPNOTRAN Set</a>. In this case, however, a reply is not expected from the <code class="cCode">PRINTER</code> service. By setting both <code class="cCode">TPNOTRAN</code> and <code class="cCode">TPNOREPLY</code> flags, the client is indicating that no reply is expected and the <code class="cCode">PRINTER</code> service will not participate in the current transaction. This situation is discussed more fully in <a href="pgerr.html">Managing Errors</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1123399"> </a>
+Listing&#160;6-6	   Sending an Asynchronous Message with TPNOREPLY | TPNOTRAN
+</div> <a name="wp1123400"> </a><div class="pPreformatted"><pre><code class="cCode">#include &lt;stdio.h&gt;<br />#include &quot;atmi.h&quot;<br /> <br />main()<br /> <br />{<br />char *rbuf;         /* report buffer */<br />long rlen, rrlen;   /* buffer lengths of send, reply buffers for report */<br /> <br />join application<br /> <br />if (rbuf = tpalloc(&quot;STRING&quot;, NULL, 0) == NULL) /* allocate space for report */<br /> error<br />(void)strcpy(rbuf, &quot;REPORT=accrcv DBNAME=accounts&quot;);/* send parms of report */<br />rlen = strlen(rbuf)+1;  /* length of request */<br /> <br />start transaction<br /> <br />if (tpcall(&quot;REPORT&quot;, rbuf, rlen, &amp;rbuf, &amp;rrlen, 0)<br />&#160;&#160;&#160;== -1) /* get report print stream */<br />&#160;&#160;&#160;error<br />if (tpacall(&quot;PRINTER&quot;, rbuf, rrlen, TPNOTRAN|TPNOREPLY)<br />&#160;&#160;&#160;== -1) /* send report to printer */<br />&#160;&#160;&#160;error<br /><br />. . .<br />commit transaction<br />free buffer<br />leave application<br />}</code></pre></div><h4 class="pHeading3"><a name="wp1123407"> </a>
+Example: Sending Asynchronous Requests
+</h4>
+<p class="pBody"><a name="wp1123408"> </a>
+The following example shows a series of asynchronous calls that make up the total bank balance query. Because the banking application data is distributed among several database sites, an SQL query needs to be executed against each one. The application performs these queries by selecting one branch identifier per database site, and calling the <code class="cCode">ABAL</code> or <code class="cCode">TBAL</code> service for each site. The branch identifier is not used in the actual SQL query, but it enables the Oracle Tuxedo system to route each request to the proper site. In the following code, the <code class="cCode">for</code> loop invokes <code class="cCode">tpacall()</code> once for each site. 
+</p>
+<div class="pCodeTitle"><a name="wp1123409"> </a>
+Listing&#160;6-7	   Sending Asynchronous Requests
+</div> <a name="wp1123410"> </a><div class="pPreformatted"><pre>audv-&gt;balance = 0.0;<br />(void)strcpy(audv-&gt;ermsg, &quot;&quot;);<br /> <br />for (i=0; i&lt;NSITE; i++) {<br /> <br /><code class="cCode">&#160;&#160;</code>/* Prepare aud structure */<br /> <br />&#160;&#160;audv-&gt;b_id = sitelist[i];    /* routing done on this field */<br /> <br />&#160;&#160;/* Do tpacall */<br /> <br />&#160;&#160;if ((cd[i]=tpacall(sname, (char *)audv, sizeof(struct aud), 0))<br />&#160;&#160;&#160;&#160;&#160;== -1) {<br />&#160;&#160;&#160;&#160;&#160;(void)fprintf (stderr,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;%s: %s service request failed for site rep %ld\n&quot;,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;pgmname, sname, sitelist[i]);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpfree((char *)audv);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return(-1);<br />&#160;&#160;}<br />}</pre></div><h3 class="pHeading2"><a name="wp1098002"> </a>
+Getting an Asynchronous Reply
+</h3>
+<p class="pBody"><a name="wp1055556"> </a>
+A reply to a service call can be received asynchronously by calling the <a href="../rf3c/rf3c.html">tpgetrply(3c)</a> function. The <code class="cCode">tpgetrply()</code> function dequeues a reply to a request previously sent by <a href="pgreq.html#wp1055487">tpacall()</a>. 
+</p>
+<p class="pBody"><a name="wp1055557"> </a>
+Use the following signature to call the <code class="cCode">tpgetrply()</code> function:
+</p>
+<a name="wp1123510"> </a><div class="pPreformatted"><pre>int<br />tpgetrply(int *<code class="cCodeEmphasis">cd</code>, char **<code class="cCodeEmphasis">data</code>, long *<code class="cCodeEmphasis">len</code>, long <code class="cCodeEmphasis">flags</code>) </pre></div><p class="pBody"><a name="wp1123515"> </a>
+<a href="pgreq.html#wp888861">Table&#160;6-3</a> describes the arguments to the <code class="cCode">tpgetrply()</code> function.
+</p>
+<p class="pGraphic"><a name="wp1123547"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp888861table1123516"><caption><a name="wp888861"> </a>
+Table 6-3  tpgetrply( ) Function Arguments
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1123518"> </a>
+Argument
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1123520"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1123522"> </a>
+<code class="cCodeEmphasis">cd</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1123525"> </a>
+Pointer to the call descriptor returned by the <a href="pgreq.html#wp1055487">tpacall()</a> function.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1123527"> </a>
+<code class="cCode">*</code><code class="cCodeEmphasis">data</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1123529"> </a>
+Address of a pointer to the output buffer that receives the reply. You must allocate the output buffer using the <a href="pgbuf.html#wp1262143">tpalloc()</a> function. If the reply message contains no data, upon successful return from <a href="pgreq.html#wp1055338">tpcall()</a>, the system sets <code class="cCode">*</code><code class="cCodeEmphasis">data</code> to zero. The pointer and the contents of the output buffer remain unchanged. 
+</div>
+<div class="pCellBody"><a name="wp1123532"> </a>
+You can use the same buffer for both the request and reply messages. If you do, then you must set <code class="cCodeEmphasis">odata</code> to the address of the pointer returned when you allocated the input buffer. It is an error for this parameter to point to NULL.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1123534"> </a>
+<code class="cCodeEmphasis">len</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1123536"> </a>
+Pointer to the length of the reply data. It is an error for this parameter to point to NULL.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1123538"> </a>
+<code class="cCodeEmphasis">flags</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1123540"> </a>
+Flag options. You can list a group of flags using the logical <code class="cCode">OR</code> operator. If you set this value to zero, the communication is conducted in the default manner. For a list of valid flags and defaults, refer to <a href="../rf3c/rf3c.html">tpcall(3c)</a>) in the <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em>.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1055590"> </a>
+By default, the function waits for the arrival of the reply that corresponds to the value referenced by the <code class="cCode">cd</code> parameter. During this waiting interval, a blocking timeout may occur. A time-out occurs when <code class="cCode">tpgetrply()</code> fails and <a href="../rf5/rf5.html">tperrno(5)</a> is set to <code class="cCode">TPETIME</code> (unless the <code class="cCodeEmphasis">flags</code> parameter is set to <code class="cCode">TPNOTIME</code>).
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1055592"> </a>
+Setting and Getting Message Priorities
+</h2><p class="pBody"><a name="wp1055593"> </a>
+Two ATMI functions allow you to determine and set the priority of a message request: <a href="../rf3c/rf3c.html">tpsprio(3c)</a> and <a href="../rf3c/rf3c.html">tpgprio(3c)</a>. The priority affects how soon the request is dequeued by the server; servers dequeue requests with the highest priorities first. 
+</p>
+<p class="pBody"><a name="wp1055594"> </a>
+This section describes:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1055598"> </a><a href="pgreq.html#wp1055604">Setting a Message Priority</a></li>
+<li><a name="wp1055602"> </a><a href="pgreq.html#wp1055635">Getting a Message Priority</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1055604"> </a>
+Setting a Message Priority
+</h3>
+<p class="pBody"><a name="wp1055605"> </a>
+The <a href="../rf3c/rf3c.html">tpsprio(3c)</a> function enables you to set the priority of a message request. 
+</p>
+<p class="pBody"><a name="wp1055606"> </a>
+The <code class="cCode">tpsprio()</code> function affects the priority level of only one request: the next request to be sent by <a href="pgreq.html#wp1055338">tpcall()</a> or <a href="pgreq.html#wp1055487">tpacall()</a>, or to be forwarded by a service subroutine. 
+</p>
+<p class="pBody"><a name="wp1055607"> </a>
+Use the following signature to call the <code class="cCode">tpsprio()</code> function:
+</p>
+<a name="wp1123806"> </a><div class="pPreformatted"><pre>int<br />tpsprio(int <code class="cCodeEmphasis">prio</code>, long <code class="cCodeEmphasis">flags</code>);</pre></div><p class="pBody"><a name="wp1055625"> </a>
+<a href="pgreq.html#wp888883">Table&#160;6-4</a>describes the arguments to the <code class="cCode">tpsprio()</code> function.
+</p>
+<p class="pGraphic"><a name="wp1061773"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp888883table1055612"><caption><a name="wp888883"> </a>
+Table 6-4  tpsprio( ) Function Arguments
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1055614"> </a>
+Argument
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1055616"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1055618"> </a>
+<code class="cCodeEmphasis">prio</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1055620"> </a>
+Integer indicating a new priority value. The effect of this argument is controlled by the <code class="cCodeEmphasis">flags</code> parameter. If <code class="cCodeEmphasis">flags</code> is set to 0, <code class="cCodeEmphasis">prio</code> specifies a relative value and the sign accompanying the value indicates whether the current priority is incremented or decremented. Otherwise, the value specified indicates an absolute value and <code class="cCodeEmphasis">prio</code> must be set to a value between 0 and 100. If you do not specify a value within this range, the system sets the value to 50.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1055622"> </a>
+<code class="cCodeEmphasis">flags</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1055624"> </a>
+Flag indicating whether the value of <code class="cCodeEmphasis">prio</code> is treated as a relative value (0, the default) or an absolute value (<code class="cCode">TPABSOLUTE</code>).
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1055626"> </a>
+The following sample code is an excerpt from the <code class="cCode">TRANSFER</code> service. In this example, the <code class="cCode">TRANSFER</code> service acts as a client by sending a synchronous request, via <a href="pgreq.html#wp1055338">tpcall()</a>, to the <code class="cCode">WITHDRAWAL</code> service. <code class="cCode">TRANSFER</code> also invokes <code class="cCode">tpsprio()</code> to increase the priority of its request message to <code class="cCode">WITHDRAWAL</code>, and to prevent the request from being queued for the <code class="cCode">WITHDRAWAL</code> service (and later the <code class="cCode">DEPOSIT</code> service) after waiting on the <code class="cCode">TRANSFER</code> queue.
+</p>
+<div class="pCodeTitle"><a name="wp1123952"> </a>
+Listing&#160;6-8	   Setting the Priority of a Request Message
+</div> <a name="wp1126897"> </a><div class="pPreformatted"><pre>/* increase the priority of withdraw call */<br />if (tpsprio(PRIORITY, 0L) == -1)<br />&#160;&#160;&#160;(void)userlog(&quot;Unable to increase priority of withdraw\n&quot;);<br /> <br />if (tpcall(&quot;WITHDRAWAL&quot;, (char *)reqfb,0, (char **)&amp;reqfb, (long *)<br />\<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&amp;reqlen,TPSIGRSTRT) == -1) {<br />&#160;&#160;&#160;(void)Fchg(transf, STATLIN, 0, &quot;Cannot withdraw from debit account&quot;, \<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;(FLDLEN)0);<br />&#160;&#160;&#160;tpfree((char *)reqfb);<br />&#160;&#160;&#160;tpreturn(TPFAIL, 0,transb-&gt;data, 0L, 0);<br />}</pre></div><h3 class="pHeading2"><a name="wp1055635"> </a>
+Getting a Message Priority
+</h3>
+<p class="pBody"><a name="wp1055636"> </a>
+The <a href="../rf3c/rf3c.html">tpgprio(3c)</a> function enables you to get the priority of a message request.
+</p>
+<p class="pBody"><a name="wp1055637"> </a>
+Use the following signature to call the <code class="cCode">tpgprio()</code> function:
+</p>
+<a name="wp1124017"> </a><div class="pPreformatted"><pre>int<br />tpgprio();</pre></div><p class="pBody"><a name="wp1055640"> </a>
+A requester can call the <code class="cCode">tpgprio()</code> function after invoking the <a href="pgreq.html#wp1055338">tpcall()</a> or <a href="pgreq.html#wp1055487">tpacall()</a> function to retrieve the priority of the request message. If a requester calls the function but no request is sent, the function fails, returning <code class="cCode">-1</code> and setting <a href="../rf5/rf5.html">tperrno(5)</a> to <code class="cCode">TPENOENT</code>. Upon success, <code class="cCode">tpgprio()</code> returns an integer value in the range of 1 to 100 (where the highest priority value is 100). 
+</p>
+<p class="pBody"><a name="wp1055641"> </a>
+If a priority has not been explicitly set using the <a href="pgreq.html#wp1055604">tpsprio()</a> function, the system sets the message priority to that of the service routine that handles the request. Within an application, the priority of the request-handling service is assigned a default value of 50 unless a system administrator overrides this value.
+</p>
+<p class="pBody"><a name="wp1055642"> </a>
+The following example shows how to determine the priority of a message that was sent in an asynchronous call.
+</p>
+<div class="pCodeTitle"><a name="wp1124202"> </a>
+Listing&#160;6-9	   Determining the Priority of a Request After It Is Sent
+</div> <a name="wp1124203"> </a><div class="pPreformatted"><pre>#include &lt;stdio.h&gt;<br />#include &quot;atmi.h&quot;<br /> <br />main ()<br />{<br />int cd1, cd2;              /* call descriptors */<br />int pr1, pr2;              /* priorities to two calls */<br />char *buf1, *buf2;         /* buffers */<br />long buf1len, buf2len;     /* buffer lengths */<br /> <br /><code class="cCodeEmphasis">join application<br /></code> <br />if (buf1=tpalloc(&quot;FML&quot;, NULL, 0) == NULL)<br />&#160;&#160;&#160;error<br />if (buf2=tpalloc(&quot;FML&quot;, NULL, 0) == NULL)<br />&#160;&#160;&#160;error<br /> <br /><code class="cCodeEmphasis">populate FML buffers with send request<br /></code> <br />if ((cd1 = tpacall(&quot;service1&quot;, buf1, 0, 0)) == -1)<br />&#160;&#160;&#160;error<br />if ((pr1 = tpgprio()) == -1)<br />&#160;&#160;&#160;error<br />if ((cd2 = tpacall(&quot;service2&quot;, buf2, 0, 0)) == -1)<br />&#160;&#160;&#160;error</pre></div><a name="wp1124204"> </a><div class="pPreformatted"><pre>if ((pr2 = tpgprio()) == -1)\<br />&#160;&#160;&#160;error<br /> <br />if (pr1 &gt;= pr2) {   /* base the order of tpgetrplys on priority of calls */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (tpgetrply(&amp;cd1, &amp;buf1, &amp;buf1len, 0) == -1)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;error<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (tpgetrply(&amp;cd2, &amp;buf2, &amp;buf2len, 0) == -1)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;error<br />}<br />else {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (tpgetrply(&amp;cd2, &amp;buf2, &amp;buf2len, 0) == -1)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;error<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (tpgetrply(&amp;cd1, &amp;buf1, &amp;buf1len, 0) == -1)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;error<br />}<br />. . .<br />}</pre></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="pgreq.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pgserv.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pgconv.html"><img id="LongDescNotReq9" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

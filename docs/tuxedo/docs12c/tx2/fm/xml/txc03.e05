@@ -1,0 +1,301 @@
+<?Fm Document txc03.fm?>
+<Chapter Id = "g1016763">
+<?Fm Condition HardcopyHide Blue NO_OVERRIDE show?>
+
+<?Fm Condition HardcopyOnly Blue NO_OVERRIDE show?>
+
+<?Fm Condition SoftcopyOnly Magenta NO_OVERRIDE show?>
+
+<?Fm Condition Hide Blue NO_OVERRIDE show?>
+
+<?Fm Condition RevRec Red NO_OVERRIDE hide?>
+
+<?Fm Condition BetaDraft Red NO_OVERRIDE show?>
+
+<?Fm Condition Comment Magenta NO_OVERRIDE show?>
+
+<?Fm Condition HTML Blue NO_OVERRIDE show?>
+
+<?Fm Condition PSPDF AsIs NO_OVERRIDE show?>
+
+<Title Id = "i1004563">Writing RPC Client and Server Programs</Title>
+<Para>This topic includes the following sections:</Para>
+<ItemizedList mark = "Bullet"><ListItem><Para><XRef Role = "Section Head Number &#x0026; Title" Linkend = "i1004581"/></Para></ListItem>
+<ListItem><Para><XRef Role = "Section Head Number &#x0026; Title" Linkend = "i1004494"/></Para></ListItem>
+<ListItem><Para><XRef Role = "Section Head Number &#x0026; Title" Linkend = "i1004499"/></Para></ListItem>
+<ListItem><Para><XRef Role = "Section Head Number &#x0026; Title" Linkend = "i1004507"/></Para></ListItem>
+<ListItem><Para><XRef Role = "Section Head Number &#x0026; Title" Linkend = "i1004512"/></Para></ListItem>
+<ListItem><Para><XRef Role = "Section Head Number &#x0026; Title" Linkend = "i1005045"/></Para></ListItem>
+<ListItem><Para><XRef Role = "Section Head Number &#x0026; Title" Linkend = "i1004522"/></Para>
+<Note><InformalTable Colsep = "0" Frame = "Topbot" Rowsep = "0" Summary = "This is a layout table to format a note" Tabstyle = "Note" Title = "Note"><TGroup Cols = "1" Colsep = "0" Rowsep = "0" TGroupStyle = "Note">
+<ColSpec Colname = "1" Colnum = "1" Colsep = "0" Colwidth = "4.333313in"/>
+<TBody>
+<Row Rowsep = "0">
+<Entry Colname = "1"><Para>Note</Para>
+<Para>Sample client and server source files are provided in <XRef Role = "Appendix Number &#x0026; Title (period)" Linkend = "g1027039"/></Para></Entry>
+</Row>
+</TBody>
+</TGroup></InformalTable></Note></ListItem></ItemizedList>
+<Sect1 Id = "i1004581"><Title>Handling Remoteness</Title>
+<Para>The goal of TxRPC is to provide procedure calls transparently between a client in one address space and a server in another address space, potentially on different machines. However, because the client and server are not in the same address space, there are some things to remember: </Para>
+<ItemizedList mark = "Bullet"><ListItem><Para>Because the client and server are in different address spaces, potentially on different machines, memory is not assumed to be shared. Program state (for example, open file descriptors) and global variables are not shared between the client and server. Any state information required must be passed from the client to the server and then back to the client for subsequent calls.</Para></ListItem>
+<ListItem><Para>The division of labor between the client and server has some advantages, such as providing more modularity of the software and the ability to do the work near the resources required to do the work. However, it may also mean more complexity in dealing with issues related to distributed processing, such as communication problems, independent unavailability of either the client or server, and so forth. Errors resulting from the increased complexity may require different handling from those in an interface designed for local procedure calls. The handling of errors involved in communications and&sol;or the remote process is covered in the next topic.</Para></ListItem></ItemizedList></Sect1>
+<Sect1 Id = "i1004494"><Title>Handling Status and Exception Returns</Title>
+<Para>In the X&sol;OPEN RPC specification, non-application errors are returned via status parameters or a status return. A <Emphasis Role = "CodeInline">fault&lowbar;status</Emphasis> value is returned if there is an RPC server failure and a <Emphasis Role = "CodeInline">comm&lowbar;status</Emphasis> value is returned if there is a communications failure. Status returns are specified by defining an operation return value or an <Emphasis Role = "CodeInline">&lsqb;out&rsqb;</Emphasis> parameter of type <Emphasis Role = "CodeInline">error&lowbar;status&lowbar;t</Emphasis> in the IDL file, and declaring the same operation or parameter to have the <Emphasis Role = "CodeInline">&lsqb;fault&lowbar;status&rsqb;</Emphasis> and&sol;or <Emphasis Role = "CodeInline">&lsqb;comm&lowbar;status&rsqb;</Emphasis> attribute in the ACF file.</Para>
+<Para>For example, an operation defined in an IDL file as:</Para>
+<InformalExample><ProgramListing>error&lowbar;status&lowbar;t op(&lsqb;in,out&rsqb;long &ast;parm1, &lsqb;out&rsqb;error&lowbar;status&lowbar;t &ast;commstat);</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Para>with a definition in the corresponding ACF file as:</Para>
+<InformalExample><ProgramListing>&lsqb;fault&lowbar;status&rsqb;op(&lsqb;comm&lowbar;status&rsqb;commstat);</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Para>returns an error from the server via the operation return, and an error in communications via the second parameter. Its use in the client code could be as follows: </Para>
+<InformalExample><ProgramListing>if (op(&amp;parm1, &amp;commstat) !&equals; 0 &boxv;&boxv; commstat !&equals; 0) &sol;&ast; handle error &ast;&sol;</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Para>The advantage of using status returns is that the error can be handled immediately at the point of failure for fine-grained error recovery.</Para>
+<Para>The disadvantage of using status returns is that the remote function has additional parameters that the local version of the function does not have. Additionally, fine-grained error recovery can be tedious and error prone (for example, some cases may be missing).</Para>
+<Para>DCE defines a second mechanism called exception handling. It is similar to C&plus;&plus; exception handling.</Para>
+<Para>The application delimits a block of C or C&plus;&plus; code in which an exception may be raised with the <Emphasis Role = "CodeInline">TRY</Emphasis>, <Emphasis Role = "CodeInline">CATCH</Emphasis>, <Emphasis Role = "CodeInline">CATCH&lowbar;ALL</Emphasis>, and <Emphasis Role = "CodeInline">ENDTRY</Emphasis> statements. <Emphasis Role = "CodeInline">TRY</Emphasis> indicates the beginning of the block. <Emphasis Role = "CodeInline">CATCH</Emphasis> is used to indicate an exception-handling block for a specific exception, and <Emphasis Role = "CodeInline">CATCH&lowbar;ALL</Emphasis> is used to handle any exceptions for which there is not a <Emphasis Role = "CodeInline">CATCH</Emphasis> statement. <Emphasis Role = "CodeInline">ENDTRY</Emphasis> ends the block. <Emphasis Role = "CodeInline">TRY</Emphasis> blocks are nested such that if an exception cannot be handled at a lower level, the exception can be raised to a higher level block using the <Emphasis Role = "CodeInline">RERAISE</Emphasis> statement. If an exception is raised out of any exception handling block, the program writes a message to the log and exits. Details of the exception handling macros and an example are described in <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">TRY(3c)</Emphasis></Xulink> in the &ref3c;.</Para>
+<Para>In addition to exceptions generated by the communications and server for an RPC call, exceptions are also generated for lower level exceptions, specifically operating system signals. These exceptions are documented within  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">TRY(3c)</Emphasis></Xulink> in the &ref3c;.</Para></Sect1>
+<Sect1 Id = "i1004499"><Title>Using Stub Support Functions</Title>
+<Para>There are a large number of run-time support functions (over 100) defined in the X&sol;OPEN RPC specification. These functions need not all be supported in an X&sol;OPEN TxRPC IDL-only environment. Most of these functions relate to binding and management which are done transparently for ATMI clients and servers.</Para>
+<Para>One area that affects application portability is the management of memory allocated for stub input and output parameters and return values. The Stub Memory Management routines are supported in TxRPC run time with the exception of the two routines to handle threads. The status-returning functions include:</Para>
+<ItemizedList mark = "Bullet"><ListItem><Para><Emphasis Role = "CodeInline">rpc&lowbar;sm&lowbar;allocate</Emphasis></Para></ListItem>
+<ListItem><Para><Emphasis Role = "CodeInline">rpc&lowbar;sm&lowbar;client&lowbar;free</Emphasis></Para></ListItem>
+<ListItem><Para><Emphasis Role = "CodeInline">rpc&lowbar;sm&lowbar;disable&lowbar;allocate</Emphasis></Para></ListItem>
+<ListItem><Para><Emphasis Role = "CodeInline">rpc&lowbar;sm&lowbar;enable&lowbar;allocate</Emphasis></Para></ListItem>
+<ListItem><Para><Emphasis Role = "CodeInline">rpc&lowbar;sm&lowbar;free</Emphasis></Para></ListItem>
+<ListItem><Para><Emphasis Role = "CodeInline">rpc&lowbar;sm&lowbar;set&lowbar;client&lowbar;alloc&lowbar;free</Emphasis></Para></ListItem>
+<ListItem><Para><Emphasis Role = "CodeInline">rpc&lowbar;sm&lowbar;set&lowbar;server&lowbar;alloc&lowbar;free</Emphasis></Para></ListItem>
+<ListItem><Para><Emphasis Role = "CodeInline">rpc&lowbar;sm&lowbar;swap&lowbar;client&lowbar;alloc&lowbar;free</Emphasis></Para></ListItem></ItemizedList>
+<Para>The equivalent exception-returning functions include: </Para>
+<ItemizedList mark = "Bullet"><ListItem><Para><Emphasis Role = "CodeInline">rpc&lowbar;ss&lowbar;allocate</Emphasis></Para></ListItem>
+<ListItem><Para><Emphasis Role = "CodeInline">rpc&lowbar;ss&lowbar;client&lowbar;free</Emphasis></Para></ListItem>
+<ListItem><Para><Emphasis Role = "CodeInline">rpc&lowbar;ss&lowbar;disable&lowbar;allocate</Emphasis></Para></ListItem>
+<ListItem><Para><Emphasis Role = "CodeInline">rpc&lowbar;ss&lowbar;enable&lowbar;allocate</Emphasis></Para></ListItem>
+<ListItem><Para><Emphasis Role = "CodeInline">rpc&lowbar;ss&lowbar;free</Emphasis></Para></ListItem>
+<ListItem><Para><Emphasis Role = "CodeInline">rpc&lowbar;ss&lowbar;set&lowbar;client&lowbar;alloc&lowbar;free</Emphasis></Para></ListItem>
+<ListItem><Para><Emphasis Role = "CodeInline">rpc&lowbar;ss&lowbar;set&lowbar;server&lowbar;alloc&lowbar;free</Emphasis></Para></ListItem>
+<ListItem><Para><Emphasis Role = "CodeInline">rpc&lowbar;ss&lowbar;swap&lowbar;client&lowbar;alloc&lowbar;free</Emphasis></Para></ListItem></ItemizedList>
+<Para>Refer to &ref3c; for more information on these functions.</Para>
+<Para>The run-time functions are contained in <Emphasis Role = "CodeInline">libtrpc</Emphasis>; building RPC clients and servers is discussed in the next topic.</Para>
+<Para>The following are a few tips regarding memory management:</Para>
+<ItemizedList mark = "Bullet"><ListItem><Para>When an ATMI client calls a client stub, it uses <Emphasis Role = "CodeInline">malloc</Emphasis> and <Emphasis Role = "CodeInline">free</Emphasis> by default. All space will be freed on return from the client stub except space allocated for <Emphasis Role = "CodeInline">&lsqb;out&rsqb;</Emphasis> pointers (including implicit <Emphasis Role = "CodeInline">&lsqb;out&rsqb;</Emphasis> pointers in the return value of the operation). To make freeing of <Emphasis Role = "CodeInline">&lsqb;out&rsqb;</Emphasis> pointers easier, call <Emphasis Role = "CodeInline">rpc&lowbar;ss&lowbar;enable&lowbar;allocate</Emphasis>(), and set <Emphasis Role = "CodeInline">alloc</Emphasis>&sol; <Emphasis Role = "CodeInline">free</Emphasis> to <Emphasis Role = "CodeInline">rpc&lowbar;ss&lowbar;alloc</Emphasis>()&sol; <Emphasis Role = "CodeInline">rpc&lowbar;ss&lowbar;free</Emphasis>() before calling the RPC by calling <Emphasis Role = "CodeInline">rpc&lowbar;ss&lowbar;set&lowbar;client&lowbar;alloc&lowbar;free</Emphasis>(). Then <Emphasis Role = "CodeInline">rpc&lowbar;ss&lowbar;disable&lowbar;allocate</Emphasis>() can be used to free all of the allocated memory. For example, to simplify freeing space returned from a client stub the following could be used:</Para>
+<InformalExample><ProgramListing>rpc&lowbar;ss&lowbar;set&lowbar;client&lowbar;alloc&lowbar;free(rpc&lowbar;ss&lowbar;allocate, rpc&lowbar;ss&lowbar;free);</ProgramListing>
+<ProgramListing>ptr &equals; remote&lowbar;call&lowbar;returns&lowbar;pointer();</ProgramListing>
+<ProgramListing>&sol;&ast; use returned pointer here &ast;&sol;</ProgramListing>
+<ProgramListing>...</ProgramListing>
+<ProgramListing>rpc&lowbar;ss&lowbar;disable&lowbar;allocate(); &sol;&ast; this frees ptr &ast;&sol;</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></ListItem>
+<ListItem><Para>When an ATMI server stub is executed that calls an application operation, memory allocation using <Emphasis Role = "CodeInline">rpc&lowbar;ss&lowbar;allocate</Emphasis> is always enabled in the server stub. The <Emphasis Role = "CodeInline">&lsqb;enable&lowbar;allocate&rsqb;</Emphasis> attribute in the ACF file has no effect. All memory will be freed in the server before returning the response to the client. (In DCE, memory allocation is enabled only if <Emphasis Role = "CodeInline">&lsqb;ptr&rsqb;</Emphasis> fields or parameters exist, or the programmer explicitly specifies <Emphasis Role = "CodeInline">&lsqb;enable&lowbar;allocate&rsqb;</Emphasis>.)</Para></ListItem>
+<ListItem><Para>When a server stub calls an application operation which in turn calls a client stub (that is, when a server acts as a client by calling an RPC), the <Emphasis Role = "CodeInline">rpc&lowbar;ss&lowbar;set&lowbar;client&lowbar;alloc&lowbar;free</Emphasis>() function must be called to set up allocation such that any space allocated will be freed when the operation returns. This is done by calling:</Para>
+<InformalExample><ProgramListing>rpc&lowbar;ss&lowbar;set&lowbar;client&lowbar;alloc&lowbar;free(rpc&lowbar;ss&lowbar;allocate, rpc&lowbar;ss&lowbar;free);</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></ListItem>
+<ListItem><Para>When calling <Emphasis Role = "CodeInline">rpc&lowbar;ss&lowbar;allocate</Emphasis>() or <Emphasis Role = "CodeInline">rpc&lowbar;sm&lowbar;allocate</Emphasis>(), remember to cast the output to match the data type of the pointer being set. For example:</Para>
+<InformalExample><ProgramListing>long &ast;ptr;</ProgramListing>
+<ProgramListing>ptr &equals; (long &ast;)rpc&lowbar;ss&lowbar;allocate(sizeof(long));</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></ListItem></ItemizedList></Sect1>
+<Sect1 Id = "i1004507"><Title>Using RPC Header Files</Title>
+<Para>To ensure that stubs from both DCE&sol;RPC and TxRPC can be compiled in the same environment, different header filenames are used in the TxRPC implementation. This should not affect the application programmer since these header files are automatically included in the interface header file generated by the IDL compiler. However, an application program may wish to view these headers to see how a type or function is defined. The new header filenames are listed here:</Para>
+<ItemizedList mark = "Bullet"><ListItem><Para><Emphasis Role = "CodeInline">dce&sol;nbase.h</Emphasis>, <Emphasis Role = "CodeInline">dce&sol;nbase.idl</Emphasis>&mdash;renamed <Emphasis Role = "CodeInline">rpc&sol;tbase.h</Emphasis> and <Emphasis Role = "CodeInline">rpc&sol;tbase.idl</Emphasis>. Contain the declarations for pre-declared types <Emphasis Role = "CodeInline">error&lowbar;status&lowbar;t</Emphasis>, <Emphasis Role = "CodeInline">ISO&lowbar;LATIN&lowbar;1</Emphasis>, <Emphasis Role = "CodeInline">ISO&lowbar;MULTI&lowbar;LINGUAL</Emphasis>, and <Emphasis Role = "CodeInline">ISO&lowbar;UCS</Emphasis>.</Para></ListItem>
+<ListItem><Para><Emphasis Role = "CodeInline">dce&sol;idlbase.h</Emphasis>&mdash;renamed <Emphasis Role = "CodeInline">rpc&sol;tidlbase.h</Emphasis>. Contains the IDL base types, as defined in the specification (for example, <Emphasis Role = "CodeInline">idl&lowbar;boolean</Emphasis>, <Emphasis Role = "CodeInline">idl&lowbar;long&lowbar;int</Emphasis>), and the function prototypes for the stub functions.</Para></ListItem>
+<ListItem><Para><Emphasis Role = "CodeInline">dce&sol;pthread&lowbar;exc.h</Emphasis>&mdash;renamed <Emphasis Role = "CodeInline">rpc&sol;texc.h</Emphasis>. Contains the <Emphasis Role = "CodeInline">TRY</Emphasis>&sol; <Emphasis Role = "CodeInline">CATCH</Emphasis> exception handling macros.</Para></ListItem>
+<ListItem><Para><Emphasis Role = "CodeInline">dce&sol;rpcsts.h</Emphasis>&mdash;renamed <Emphasis Role = "CodeInline">rpc&sol;trpcsts.h</Emphasis>. Contains the exception and status value definitions for the RPC interface.</Para></ListItem></ItemizedList>
+<Para>These header files are located in <Emphasis Role = "CodeInline">&dollar;TUXDIR&sol;include&sol;rpc</Emphasis>. The TxRPC IDL compiler will look in <Emphasis Role = "CodeInline">&dollar;TUXDIR&sol;include</Emphasis> by default as the "system IDL directory."</Para></Sect1>
+<Sect1 Id = "i1004512"><Title>Portability of Code</Title>
+<Para>The output from the IDL compiler is generated in a way to allow it to be compiled in a large number of environments (see the next chapter for a discussion of compilation). However, there are some constructs that don't work in various environments. The following are a few known problems:</Para>
+<Para>When compiling with Classic (non-ANSI) C, "pointers to arrays" are not allowed. For example: </Para>
+<InformalExample><ProgramListing>typedef long array&lsqb;10&rsqb;&lsqb;10&rsqb;;</ProgramListing>
+<ProgramListing>func()</ProgramListing>
+<ProgramListing>  &lcub;</ProgramListing>
+<ProgramListing>  array t1;</ProgramListing>
+<ProgramListing>  array &ast;t2;</ProgramListing>
+<ProgramListing>  t2 &equals; &amp;t1;   &sol;&ast; &amp; ignored, invalid assignment &ast;&sol;</ProgramListing>
+<ProgramListing>  func2(&amp;t1); &sol;&ast; &amp; ignored &ast;&sol;</ProgramListing>
+<ProgramListing>  &rcub;</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Para>This will make it difficult to pass "pointers to arrays" to operations as parameters in a portable fashion.</Para>
+<Para>When using an array of strings where the string attribute is applied to a multi-byte structure, the results will not be as desired if the compiler pads the structure. This is not the normal case (most compilers do not pad a structure that contains only character fields), but at least one occurrence is known to exist.</Para>
+<Para>Constant values are, by default, implemented by generating a <Emphasis Role = "CodeInline">&num;define</Emphasis> for each constant. This means that names used for constants should not be used for any other names in the IDL file or any imported IDL files. A TxRPC-specific option on the <Emphasis Role = "CodeInline">tidl</Emphasis> compiler, <Emphasis Role = "CodeInline">-use&lowbar;const</Emphasis>, may be used to get around this problem in an ANSI C environment. This option will cause <Emphasis Role = "CodeInline">const</Emphasis> declarations instead of <Emphasis Role = "CodeInline">&num;define</Emphasis> definitions to be generated. The constant values will be declared in the client and server stubs, and any other source file including the header file will simply get <Emphasis Role = "CodeInline">extern const</Emphasis> declarations. Note that this has the restriction that the client and server stubs may not be compiled into the same executable file (or duplicate definition errors will occur).</Para>
+<Para>There are several restrictions in the C&plus;&plus; environment: </Para>
+<ItemizedList mark = "Bullet"><ListItem><Para>Do not use the same name for a <Emphasis Role = "CodeInline">typedef</Emphasis> and a structure or union tag, unless the <Emphasis Role = "CodeInline">typedef</Emphasis> name matches the <Emphasis Role = "CodeInline">struct</Emphasis> or <Emphasis Role = "CodeInline">union</Emphasis> name. </Para>
+<InformalExample><ProgramListing>struct t1 &lcub;</ProgramListing>
+<ProgramListing>  long s1;</ProgramListing>
+<ProgramListing>&rcub;;</ProgramListing>
+<ProgramListing>typedef struct t1 t1; &sol;&ast; ok &ast;&sol;</ProgramListing>
+<ProgramListing>typedef long t1; &sol;&ast; error &ast;&sol;</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></ListItem>
+<ListItem><Para>Do not hide a structure or union tag declaration inside another structure or union declaration and then reference it outside. </Para>
+<InformalExample><ProgramListing>struct t1 &lcub;</ProgramListing>
+<ProgramListing>  struct t2 &lcub;</ProgramListing>
+<ProgramListing>   long s2;</ProgramListing>
+<ProgramListing>&rcub; s1;</ProgramListing>
+<ProgramListing>&rcub; t1;</ProgramListing>
+<ProgramListing>typedef struct t3 &lcub;</ProgramListing>
+<ProgramListing>struct t2 s3; &sol;&ast; t2 undefined error &ast;&sol;</ProgramListing>
+<ProgramListing>&rcub; t3;</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></ListItem>
+<ListItem><Para>Some compiler warnings may be generated. These include the following: </Para>
+<ItemizedList mark = "Dash"><ListItem><Para>Warnings that automatic variables are declared but not used.</Para></ListItem>
+<ListItem><Para>Warnings that a variable is used before being set when referenced in <Emphasis Role = "CodeInline">sizeof()</Emphasis> as in the following case:</Para>
+<InformalExample><ProgramListing>long &ast;ptr;</ProgramListing>
+<ProgramListing>ptr &equals; (long &ast;)malloc(sizeof(&ast;ptr) &ast; 4);</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></ListItem></ItemizedList></ListItem></ItemizedList>
+<Para>When coding the client and server application software, you should use the data types generated by the IDL compiler, as defined in <Emphasis Role = "CodeInline">rpc&sol;tidlbase.h</Emphasis> (listed as Emitted Macro in the following table). For instance, if you use a <Emphasis Role = "CodeInline">long</Emphasis> instead of <Emphasis Role = "CodeInline">idl&lowbar;long&lowbar;int</Emphasis>, then the data type may be 32 bits on some platforms and 64 bits on others; <Emphasis Role = "CodeInline">idl&lowbar;long&lowbar;int</Emphasis> will be 32 bits on all platforms. <XRef Role = "Table Number" Linkend = "g1013990"/> lists the generated data types.</Para>
+<Table Colsep = "0" Frame = "Topbot" Rowsep = "1" Tabstyle = "HRuleFormal"><Title><SVTabCont/>Generated Data Types</Title>
+<TGroup Id = "g1013990" Cols = "4" Colsep = "0" Rowsep = "1" TGroupStyle = "HRuleFormal">
+<ColSpec Colname = "1" Colnum = "1" Colsep = "0" Colwidth = "0.750in"/>
+<ColSpec Colname = "2" Colnum = "2" Colsep = "0" Colwidth = "0.604in"/>
+<ColSpec Colname = "3" Colnum = "3" Colsep = "0" Colwidth = "1.392in"/>
+<ColSpec Colname = "4" Colnum = "4" Colsep = "0" Colwidth = "1.988in"/>
+<THead>
+<Row Rowsep = "1">
+<Entry Colname = "1"><Para>IDL Type</Para></Entry>
+<Entry Colname = "2"><Para>Size</Para></Entry>
+<Entry Colname = "3"><Para>Emitted Macro</Para></Entry>
+<Entry Colname = "4"><Para>C Type</Para></Entry>
+</Row>
+</THead>
+<TBody>
+<Row Rowsep = "1">
+<Entry Colname = "1"><Para>boolean</Para></Entry>
+<Entry Colname = "2"><Para>8 bits</Para></Entry>
+<Entry Colname = "3"><InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">idl&lowbar;boolean</ProgramListing></InformalExample></Entry>
+<Entry Colname = "4"><Para>unsigned char</Para></Entry>
+</Row>
+<Row Rowsep = "1">
+<Entry Colname = "1"><Para>char</Para></Entry>
+<Entry Colname = "2"><Para>8 bits</Para></Entry>
+<Entry Colname = "3"><InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">idl&lowbar;char</ProgramListing></InformalExample></Entry>
+<Entry Colname = "4"><Para>unsigned char</Para></Entry>
+</Row>
+<Row Rowsep = "1">
+<Entry Colname = "1"><Para>byte</Para></Entry>
+<Entry Colname = "2"><Para>8 bits</Para></Entry>
+<Entry Colname = "3"><InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">idl&lowbar;byte</ProgramListing></InformalExample></Entry>
+<Entry Colname = "4"><Para>unsigned char</Para></Entry>
+</Row>
+<Row Rowsep = "1">
+<Entry Colname = "1"><Para>small</Para></Entry>
+<Entry Colname = "2"><Para>8 bits</Para></Entry>
+<Entry Colname = "3"><InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">idl&lowbar;small&lowbar;int</ProgramListing></InformalExample></Entry>
+<Entry Colname = "4"><Para>char</Para></Entry>
+</Row>
+<Row Rowsep = "1">
+<Entry Colname = "1"><Para>short</Para></Entry>
+<Entry Colname = "2"><Para>16 bits</Para></Entry>
+<Entry Colname = "3"><InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">idl&lowbar;short&lowbar;int</ProgramListing></InformalExample></Entry>
+<Entry Colname = "4"><Para>short</Para></Entry>
+</Row>
+<Row Rowsep = "1">
+<Entry Colname = "1"><Para>long</Para></Entry>
+<Entry Colname = "2"><Para>32 bits</Para></Entry>
+<Entry Colname = "3"><InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">idl&lowbar;long&lowbar;int</ProgramListing></InformalExample></Entry>
+<Entry Colname = "4"><Para>Machines with 32-bit long: <Emphasis Role = "CodeInline">long</Emphasis> Machines with 64-bit long: <Emphasis Role = "CodeInline">int</Emphasis></Para></Entry>
+</Row>
+<Row Rowsep = "1">
+<Entry Colname = "1"><Para>hyper</Para></Entry>
+<Entry Colname = "2"><Para>64 bits</Para></Entry>
+<Entry Colname = "3"><InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">idl&lowbar;hyper&lowbar;int</ProgramListing></InformalExample></Entry>
+<Entry Colname = "4"><Para>Machines with 32-bit long:</Para>
+<Para>Big Endian</Para>
+<InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">struct </ProgramListing>
+<ProgramListing Role = "NormalFont">&lcub;</ProgramListing>
+<ProgramListing Role = "NormalFont">  long high;</ProgramListing>
+<ProgramListing Role = "NormalFont">  unsigned long low;</ProgramListing>
+<ProgramListing Role = "NormalFont">&rcub;</ProgramListing>
+<ProgramListing Role = "NormalFont"></ProgramListing></InformalExample>
+<Para>Little Endian</Para>
+<InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">struct</ProgramListing>
+<ProgramListing Role = "NormalFont"> &lcub;</ProgramListing>
+<ProgramListing Role = "NormalFont">  unsigned long low;</ProgramListing>
+<ProgramListing Role = "NormalFont">  long high;</ProgramListing>
+<ProgramListing Role = "NormalFont"> &rcub;</ProgramListing>
+<ProgramListing Role = "NormalFont"></ProgramListing></InformalExample>
+<Para>Machines with 64-bit long:</Para>
+<InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">long</ProgramListing></InformalExample></Entry>
+</Row>
+<Row Rowsep = "1">
+<Entry Colname = "1"><Para>unsigned small</Para></Entry>
+<Entry Colname = "2"><Para>8 bits</Para></Entry>
+<Entry Colname = "3"><InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">idl&lowbar;usmall&lowbar;int</ProgramListing></InformalExample></Entry>
+<Entry Colname = "4"><Para>unsigned char</Para></Entry>
+</Row>
+<Row Rowsep = "1">
+<Entry Colname = "1"><Para>unsigned short</Para></Entry>
+<Entry Colname = "2"><Para>16 bits</Para></Entry>
+<Entry Colname = "3"><InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">idl&lowbar;ushort&lowbar;int</ProgramListing></InformalExample></Entry>
+<Entry Colname = "4"><Para>short</Para></Entry>
+</Row>
+<Row Rowsep = "1">
+<Entry Colname = "1"><Para>unsigned long</Para></Entry>
+<Entry Colname = "2"><Para>32 bits</Para></Entry>
+<Entry Colname = "3"><InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">idl&lowbar;ulong&lowbar;int</ProgramListing></InformalExample></Entry>
+<Entry Colname = "4"><Para>Machines with 32-bit long: <Emphasis Role = "CodeInline">long</Emphasis> Machines with 64-bit long: <Emphasis Role = "CodeInline">int</Emphasis></Para></Entry>
+</Row>
+<Row Rowsep = "1">
+<Entry Colname = "1"><Para>unsigned hyper</Para></Entry>
+<Entry Colname = "2"><Para>64 bits</Para></Entry>
+<Entry Colname = "3"><InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">idl&lowbar;uhyper&lowbar;int</ProgramListing></InformalExample></Entry>
+<Entry Colname = "4"><Para>Machines with 32-bit long:</Para>
+<Para>Big Endian</Para>
+<InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">struct </ProgramListing>
+<ProgramListing Role = "NormalFont">&lcub;</ProgramListing>
+<ProgramListing Role = "NormalFont">  unsigned long high;</ProgramListing>
+<ProgramListing Role = "NormalFont">  unsigned long low;</ProgramListing>
+<ProgramListing Role = "NormalFont">&rcub;</ProgramListing>
+<ProgramListing Role = "NormalFont"></ProgramListing></InformalExample>
+<Para>Little Endian</Para>
+<InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">struct</ProgramListing>
+<ProgramListing Role = "NormalFont"> &lcub;</ProgramListing>
+<ProgramListing Role = "NormalFont">  unsigned long low;</ProgramListing>
+<ProgramListing Role = "NormalFont">  unsigned long high;</ProgramListing>
+<ProgramListing Role = "NormalFont"> &rcub;</ProgramListing>
+<ProgramListing Role = "NormalFont"></ProgramListing></InformalExample>
+<Para>Machines with 64-bit long:</Para>
+<InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">unsigned long</ProgramListing></InformalExample></Entry>
+</Row>
+<Row Rowsep = "1">
+<Entry Colname = "1"><Para>float</Para></Entry>
+<Entry Colname = "2"><Para>32 bits</Para></Entry>
+<Entry Colname = "3"><InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">idl&lowbar;short&lowbar;float</ProgramListing></InformalExample></Entry>
+<Entry Colname = "4"><InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">float</ProgramListing></InformalExample></Entry>
+</Row>
+<Row Rowsep = "1">
+<Entry Colname = "1"><Para>double</Para></Entry>
+<Entry Colname = "2"><Para>64 bits</Para></Entry>
+<Entry Colname = "3"><InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">idl&lowbar;long&lowbar;float</ProgramListing></InformalExample></Entry>
+<Entry Colname = "4"><InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">double</ProgramListing></InformalExample></Entry>
+</Row>
+<Row Rowsep = "1">
+<Entry Colname = "1"><Para>void &ast;</Para></Entry>
+<Entry Colname = "2"><Para>pointer</Para></Entry>
+<Entry Colname = "3"><InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">idl&lowbar;void&lowbar;p&lowbar;t</ProgramListing></InformalExample></Entry>
+<Entry Colname = "4"><InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">void &ast;</ProgramListing></InformalExample></Entry>
+</Row>
+<Row Rowsep = "0">
+<Entry Colname = "1"><Para>handle&lowbar;t</Para></Entry>
+<Entry Colname = "2"><Para>pointer</Para></Entry>
+<Entry Colname = "3"><InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">handle&lowbar;t</ProgramListing></InformalExample></Entry>
+<Entry Colname = "4"><InformalExample Role = "Wide"><ProgramListing Role = "NormalFont">handle&lowbar;t</ProgramListing></InformalExample></Entry>
+</Row>
+</TBody>
+</TGroup></Table>
+<Para>As in C, there are several classes of identifiers in the IDL. Names within each class (that is, scope or name space) must be unique: </Para>
+<ItemizedList mark = "Bullet"><ListItem><Para>Constant, <Emphasis Role = "CodeInline">typedef</Emphasis>, operation, and enumeration member names are in one name space.</Para></ListItem>
+<ListItem><Para>Structure, union, and enumeration tags are in another name space.</Para></ListItem>
+<ListItem><Para>Structure and union member names at the same level must be unique within the structure or union in which they are defined.</Para></ListItem>
+<ListItem><Para>Parameter names within the operation prototype in which they are defined must be unique.</Para></ListItem></ItemizedList>
+<Para>Note that an anonymous structure or union (without a tag and not defined as part of a <Emphasis Role = "CodeInline">typedef</Emphasis>) cannot be used for an operation return or a parameter.</Para></Sect1>
+<Sect1 Id = "i1005045"><Title>Interacting with ATMI</Title>
+<Para>The TxRPC executables use the Oracle Tuxedo system to do the RPC communications. Other Oracle Tuxedo interfaces and communications mechanisms can be used within the same clients and servers that are using the RPC calls. Thus, it is possible to have a single client making Request&sol;Response calls (for example <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tpcall(3c)</Emphasis></Xulink>, <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tpacall(3c)</Emphasis></Xulink>, and <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tpgetrply(3c)</Emphasis></Xulink>), making conversational calls (<Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tpconnect(3c)</Emphasis></Xulink>, <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tpsend(3c)</Emphasis></Xulink>,  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tprecv(3c)</Emphasis></Xulink>, and  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tpdiscon(3c)</Emphasis></Xulink>), and accessing the stable queue (<Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tpenqueue(3c)</Emphasis></Xulink> and   <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tpdequeue(3c)</Emphasis></Xulink>). When a client makes the first call to the Oracle Tuxedo software, either an RPC call, any of these other communications calls, or any other ATMI call (such as a call for buffer allocation or unsolicited notification), the client automatically joins the application. However, if the application is running with security turned on or if the client must run as part of a particular resource manager group, then  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tpinit(3c)</Emphasis></Xulink> must be called explicitly to join the application. Refer to  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tpinit(3c)</Emphasis></Xulink> in the &ref3c; for further details, and a list of options that can be explicitly set. When an application completes work using the Oracle Tuxedo system,  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tpterm(3c)</Emphasis></Xulink> should be called explicitly to leave the application and free up any associated resources. If this is not done for native (non-Workstation) clients, the monitor detects
+this, prints a warning in the  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">userlog(3c)</Emphasis></Xulink>, and frees up the resources. In the case of Workstation clients, the resources may not be freed up and eventually the Workstation Listener or Handler will run out of resources to accept new clients.</Para>
+<Para>As with clients, servers can use any of the communication paradigms in the role of client. However, a server cannot provide (advertise) both conversational services and RPC services within the same server; as described later, an RPC server must be marked as non-conversational. Although it is possible to mix ATMI request&sol;response and RPC services within the same server, this is not recommended. One further restriction is that RPC operations cannot call  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tpreturn(3c)</Emphasis></Xulink> or  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tpforward(3c)</Emphasis></Xulink>. Instead, RPC operations must return as they would if called locally. Any attempt to call  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tpreturn(3c)</Emphasis></Xulink> or  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tpforward(3c)</Emphasis></Xulink> from an RPC operation will be intercepted and an error will be returned to the client (exception <Emphasis Role = "CodeInline">rpc&lowbar;x&lowbar;fault&lowbar;unspec</Emphasis> or status <Emphasis Role = "CodeInline">rpc&lowbar;s&lowbar;fault&lowbar;unspec</Emphasis>).</Para>
+<Para>Two functions available to servers but not to clients are  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tpsvrinit(3c)</Emphasis></Xulink> and  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tpsvrdone(3c)</Emphasis></Xulink>, which are called when the server starts up and when it is shut down. Since the server must call  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tx&lowbar;open(3c)</Emphasis></Xulink> before receiving any TxRPC operation requests, <Emphasis Role = "CodeInline">tpsvrinit()</Emphasis> is a good place to call it. The default <Emphasis Role = "CodeInline">tpsvrinit()</Emphasis> function already calls <Emphasis Role = "CodeInline">tx&lowbar;open()</Emphasis>.</Para></Sect1>
+<Sect1 Id = "i1004522"><Title>Interacting with TX</Title>
+<Para>The TX functions provide an interface for transaction demarcation.  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tx&lowbar;begin(3c)</Emphasis></Xulink> and  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tx&lowbar;commit(3c)</Emphasis></Xulink> or  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tx&lowbar;rollback(3c)</Emphasis></Xulink> encapsulate any work, including communications, within a transaction. Other primitives are provided to set transaction timeout, declare the transaction as chained or unchained, and retrieve transaction information. These are discussed in detail in the <Emphasis Role = "Italic">X&sol;OPEN TX Specification</Emphasis>, and reviewed in the <Emphasis Role = "Italic">X&sol;OPEN TxRPC Specification</Emphasis>. The <Emphasis Role = "Italic">X&sol;OPEN TxRPC Specification</Emphasis> indicates the interactions between TX and RPC. These are summarized as follows: </Para>
+<ItemizedList mark = "Bullet"><ListItem><Para>An interface or an operation can have the <Emphasis Role = "CodeInline">&lsqb;transaction&lowbar;optional&rsqb;</Emphasis> attribute which indicates that if the RPC is called within a transaction, the work done in the called operation will be part of the transaction.</Para></ListItem>
+<ListItem><Para>An interface or an operation can have the <Emphasis Role = "CodeInline">&lsqb;transaction&lowbar;mandatory&rsqb;</Emphasis> attribute which indicates that the RPC must be called within a transaction or the <Emphasis Role = "CodeInline">txrpc&lowbar;x&lowbar;not&lowbar;in&lowbar;transaction</Emphasis> exception is returned.</Para></ListItem>
+<ListItem><Para>If neither of these attributes is specified, then the work in the called operation is not part of any transaction that may be active in the caller.</Para></ListItem>
+<ListItem><Para>If a TxRPC operation is called in the server and  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tx&lowbar;open(3c)</Emphasis></Xulink> has not been called, a <Emphasis Role = "CodeInline">txrpc&lowbar;x&lowbar;no&lowbar;tx&lowbar;open&lowbar;done</Emphasis> exception is returned to the caller.</Para></ListItem>
+<ListItem><Para>TxRPC allows <Emphasis Role = "CodeInline">tx&lowbar;rollback(3c)</Emphasis> to be called from an operation to mark the transaction as rollback-only, such that any work performed on behalf of the transaction will be ultimately rolled back. It is recommended in this case that the application also return an application-level error to the caller indicating that the transaction will be rolled back.</Para></ListItem></ItemizedList>
+<Para>Other changes or restrictions for the IDL defined by the TxRPC specification have been described earlier in the discussion about the IDL itself.</Para></Sect1></Chapter>

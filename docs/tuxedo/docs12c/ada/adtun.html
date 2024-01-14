@@ -1,0 +1,821 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="3" />
+<meta name="LOC_US_CHANGE" content="41998" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/ada/fm/adtun.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/28/12 11:40:34" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Tuning a Oracle Tuxedo ATMI Application</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Administering an Oracle Tuxedo Application at Run Time
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="admigt.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="adtrb.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/ada.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1033337"> </a>
+Tuning a Oracle Tuxedo ATMI Application
+</h1>
+<p class="pBody"><a name="wp1026840"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1021754"> </a><a href="adtun.html#wp1015636">When to Use MSSQ Sets</a></li>
+<li><a name="wp1021759"> </a><a href="adtun.html#wp1019553">How to Enable Load Balancing</a></li>
+<li><a name="wp1021764"> </a><a href="adtun.html#wp1015669">How to Measure Service Performance Time</a></li>
+<li><a name="wp1021819"> </a><a href="adtun.html#wp1026084">How to Assign Priorities to Interfaces or Services</a></li>
+<li><a name="wp1027815"> </a><a href="adtun.html#wp1015680">Bundling Services into Servers</a></li>
+<li><a name="wp1027820"> </a><a href="adtun.html#wp1030643">Enhancing Overall System Performance</a></li>
+<li><a name="wp1022202"> </a><a href="adtun.html#wp1031892">Determining Your System IPC Requirements</a></li>
+<li><a name="wp1032204"> </a><a href="adtun.html#wp1031800">Tuning IPC Parameters</a></li>
+<li><a name="wp1022206"> </a><a href="adtun.html#wp1018305">Measuring System Traffic</a></li>
+</ul></div>
+<a name="wp1026858"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For detailed information about tuning your applications in the Oracle Tuxedo CORBA environment, refer to the <em class="cEmphasis">Scaling, Distributing, and Tuning CORBA Applications</em> guide.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1015636"> </a>
+When to Use MSSQ Sets
+</h2><a name="wp1030536"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Multiple Servers, Single Queue (MSSQ) sets are not supported in Oracle Tuxedo CORBA servers.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1020655"> </a>
+The MSSQ scheme offers additional load balancing in Oracle Tuxedo ATMI environments. One queue is accommodated by several servers offering identical services at all times. If the server queue to which a request is sent is part of an MSSQ set, the message is dequeued to the first available server. Thus load balancing is provided at the individual queue level.
+</p>
+<p class="pBody"><a name="wp1020656"> </a>
+When a server is part of an MSSQ set, it must be configured with its own reply queue. When the server makes requests to other servers, the replies must be returned to the original requesting server; they must not be dequeued by other servers in the MSSQ set. 
+</p>
+<p class="pBody"><a name="wp1025868"> </a>
+You can configure MSSQ sets to be dynamic so they automatically spawn and eliminate servers based upon a queue load.
+</p>
+<p class="pBody"><a name="wp1020630"> </a>
+The following table specifies when it is beneficial to use MSSQ sets.
+</p>
+<p class="pGraphic"><a name="wp1018057"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1018061table1018059">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1018061"> </a>
+<span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">You </span><em class="cEmphasis">Should</em> Use MSSQ Sets If . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1018063"> </a>
+You <em class="cEmphasis">Should Not</em> Use MSSQ Sets If . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018065"> </a>
+You have between 2 and 12 servers.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018067"> </a>
+There are many servers. (A compromise is to use many MSSQ sets.)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018069"> </a>
+Buffer sizes are not too large, that is, large enough to exhaust a queue.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018071"> </a>
+Buffer sizes are large enough to exhaust one queue.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018073"> </a>
+All servers offer identical sets of services.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018075"> </a>
+Each server offers different services.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018077"> </a>
+Messages are relatively small.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018079"> </a>
+Large messages are being passed to the services, causing the queue to be exhausted. When a queue is exhausted, either nonblocking sends fail or blocking sends block.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018081"> </a>
+Optimization and consistency of service turnaround time are paramount. 
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1017976"> </a>
+The following two analogies illustrate when it is beneficial to use MSSQ sets.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1018116"> </a>A situation analogous to the appropriate use of MSSQ sets can be found in a bank at which several tellers performing identical services handle a single line of customers. The next available teller always takes the next person in line. In this scenario, each teller must be able to perform all customer services. In an Oracle Tuxedo environment, all servers set up to share a single queue must offer an identical set of services at all times. The advantage of MSSQ sets is that they offer a second form of load balancing at the individual queue level.</li>
+<li><a name="wp1019523"> </a>A supermarket at which different cashiers accept different forms of payment (some accept credit cards, while others accept only cash) is similar to a Oracle Tuxedo application in which MSSQ sets should not be used.</li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1019553"> </a>
+How to Enable Load Balancing
+</h2><p class="pBody"><a name="wp1015666"> </a>
+To alleviate the performance degradation resulting from heavy system traffic, you may want to implement a load balancing algorithm on your entire application. With load balancing, a load factor is applied to each service within the system, and you can track the total load on every server. Every service request is sent to the qualified server that is least loaded.
+</p>
+<p class="pBody"><a name="wp1023104"> </a>
+To implement system-wide load balancing, complete the following procedure.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1015668"> </a>Run your application for an extended period of time.</li>
+<li><a name="wp1020219"> </a>Note the average amount of time it takes for each service to be performed. </li>
+<li><a name="wp1020228"> </a>In the <code class="cCode">RESOURCES</code> section of the configuration file: </li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023130"> </a>Set <code class="cCode">LDBAL</code> to <code class="cCode">Y</code>.</li>
+<li><a name="wp1020335"> </a>Assign a <code class="cCode">LOAD</code> value of 50 (<code class="cCode">LOAD=50</code>) to any service that takes approximately the average amount of time. </li>
+<li><a name="wp1020235"> </a>For any service taking longer than the average amount of time, set <code class="cCode">LOAD&gt;50</code>; for any service taking less than the average amount of time, set <code class="cCode">LOAD&lt;50</code>.</li>
+</ul></div>
+</ol></div>
+<a name="wp1020306"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This algorithm, although effective, is expensive and should be used only when necessary, that is, only when a service is offered by servers that use more than one queue. Services offered by only one server, or by multiple servers, all of which belong to the same MSSQ (Multiple Server, Single Queue) set, do not need load balancing. </td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1015669"> </a>
+How to Measure Service Performance Time
+</h2><p class="pBody"><a name="wp1017642"> </a>
+You can measure service performance time in either of two ways:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1015670"> </a><span style="font-style: normal">Administratively</span>&#8212;in the configuration file, you can arrange to have a log of services that are performed to be written to standard error. In the <code class="cCode">SERVICES</code> section, specify:</li>
+<a name="wp1023343"> </a><div class="pPreformattedRelative"><pre>servopts -r</pre></div><p class="pBodyRelative"><a name="wp1023352"> </a>
+To analyze the information in the log, run the <code class="cCode">txrpt(1)</code> command.
+</p>
+<p class="pBodyRelative"><a name="wp1023426"> </a>
+For details about <a href="../rf5/rf5.html">servopts(5)</a> and <a href="../rfcm/rfcmd.html">txrpt(1)</a>, see the <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em> and <em class="cEmphasis">Oracle Tuxedo Command Reference</em>, respectively.
+</p>
+<li><a name="wp1026081"> </a><span style="font-style: normal">Programmatically</span>&#8212;insert a call to <code class="cCode">time()</code> at the beginning and end of a service routine. Services that take the longest time receive the highest load; those that take the shortest time receive the lowest load. (For details about <code class="cCode">time()</code>, see the documentation for your C language libraries.)</li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1026084"> </a>
+How to Assign Priorities to Interfaces or Services
+</h2><p class="pBody"><a name="wp1015673"> </a>
+Assigning priorities enables you to exert significant control over the flow of data in an application, provide faster service to the most important requests, and provide slower service to the less important requests. You can also give priority to specific users&#8212;at all times or in specific circumstances.
+</p>
+<p class="pBody"><a name="wp1023470"> </a>
+You can assign priorities to Oracle Tuxedo services in either of two ways:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1017503"> </a><span style="font-style: normal">Administratively</span>&#8212;in the <code class="cCode">SERVICES</code> section of the configuration file, specify the <code class="cCode">PRIO</code> parameter for each service named.</li>
+<li><a name="wp1020445"> </a><span style="font-style: normal">Programmatically</span>&#8212;add calls to the <code class="cCode">tpsprio()</code> function to the appropriate client and server applications, to allow designated clients and servers to change a priority dynamically. Only preferred clients should be able to increase the service priority. In a system on which servers perform service requests, the server can call<span style="font-style: italic"> </span><code class="cCode">tpsprio()</code> to increase the priority of its interface or service calls so the user does not wait in line for every interface or service request that is required.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1020418"> </a>
+Example of Using Priorities
+</h3>
+<p class="pBody"><a name="wp1017531"> </a>
+Server 1 offers Interfaces A, B, and C. Interfaces A and B have a priority of 50; Interface C, a priority of 70. An interface requested for C is always dequeued before a request for A or B. Requests for A and B are dequeued equally with respect to one another. The system dequeues every tenth request in first-in, first-out (FIFO) order to prevent a message from waiting indefinitely on the queue.
+</p>
+<h3 class="pHeading2"><a name="wp1015675"> </a>
+Using the PRIO Parameter to Enhance Performance
+</h3>
+<p class="pBody"><a name="wp1015676"> </a>
+The <code class="cCode">PRIO</code> parameter determines the priority of an interface or a service on a server&#8217;s queue. It should be used cautiously. Once priorities are assigned, it may take longer for some messages to be dequeued. Depending on the order of messages on the queue (for example, A, B, and C), some (such as A and B) are dequeued only one in ten times when there are more than 10 requests for C. This means reduced performance and potential slow turnaround time for some services.
+</p>
+<p class="pBody"><a name="wp1017670"> </a>
+When you are deciding whether to use the <code class="cCode">PRIO</code> parameter, keep the following implications in mind:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1015677"> </a>Because higher priorities get first preference, a higher priority should usually be assigned only to an interface or service that is not called frequently.</li>
+<li><a name="wp1015678"> </a>A message with a lower priority does not remain enqueued indefinitely; every tenth message is retrieved on a FIFO basis. Before you assign a low priority to an interface or service you should be sure that response time for that interface or service is not important.</li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1015680"> </a>
+Bundling Services into Servers
+</h2><p class="pBody"><a name="wp1017548"> </a>
+The easiest way to package services into servers is to avoid packaging them at all. Unfortunately, if you do not package services, the number of servers, message queues, and semaphores rises beyond an acceptable level. Thus there is a trade-off between no bundling and too much bundling. 
+</p>
+<h3 class="pHeading2"><a name="wp1015682"> </a>
+When to Bundle Services
+</h3>
+<p class="pBody"><a name="wp1017675"> </a>
+We recommend that you bundle services if you have one of the situations or requirements described in the following list.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1015683"> </a><span style="font-style: normal">Functional similarity</span>&#8212;if multiple services play a similar role in the application, you can bundle them in the same server. The application can offer all or none of them at a given time. In the <code class="cCode">bankapp</code> application, for example, the <code class="cCode">WITHDRAW</code>, <code class="cCode">DEPOSIT</code>, and <code class="cCode">INQUIRY</code> services are all operations that can be grouped together in a &#8220;bank teller operations&#8221; server. Administration of services is simplified when functionally similar services are bundled.</li>
+<li><a name="wp1015684"> </a><span style="font-style: normal">Similar libraries</span>&#8212;less disk space is required if you bundle services that use the same libraries. For example, if you have three services that use the same 100K library and three services that use different 100K libraries, bundling the first three services saves 200K. Functionally equivalent services often use similar libraries.</li>
+<li><a name="wp1015685"> </a><span style="font-style: normal">Filling the queue</span>&#8212;bundle only as many services into a server as the queue can handle. Each service added to an unfilled MSSQ set may add relatively little to the size of an executable, and nothing to the number of queues in the system. Once the queue is filled, however, system performance is degraded and you must create more executables to compensate.</li>
+</ul></div>
+<p class="pBody"><a name="wp1030641"> </a>
+Do not put two or more services that call each other, that is, <em class="cEmphasis">call-dependent services</em>, in the same server. If you do so, the server issues a call to itself, causing a deadlock.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1030643"> </a>
+Enhancing Overall System Performance
+</h2><p class="pBody"><a name="wp1030644"> </a>
+The following performance enhancement controls can be applied to Oracle Tuxedo release 8.0 or later. 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1030645"> </a>Service and Interface Caching</li>
+<li><a name="wp1030646"> </a>Removing Authorization and Auditing Security</li>
+<li><a name="wp1030647"> </a>Turning Off Multithreaded Processing</li>
+<li><a name="wp1030648"> </a>Turning Off XA Transactions</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1030649"> </a>
+Service and Interface Caching
+</h3>
+<p class="pBody"><a name="wp1030650"> </a>
+Oracle Tuxedo release 8.0 or later allows you to cache service and interface entries, and to use the cached copies of the service or interface without locking the bulletin board. This feature represents a significant performance improvement, especially in systems with large numbers of clients and only a few services. 
+</p>
+<p class="pBody"><a name="wp1030651"> </a>
+The <code class="cCode">SICACHEENTRIESMAX</code> option has been added to the <code class="cCode">MACHINES</code> and <code class="cCode">SERVERS</code> sections of the configuration file to allow you to define the maximum number of service cache entries that any process and/or server can hold. 
+</p>
+<p class="pBody"><a name="wp1030652"> </a>
+Since caching may not be useful for every client or every application, the <code class="cCode">TMSICACHEENTRIESMAX</code> environment variable has been added to control the cache size. The default value for <code class="cCode">TMSICACHEENTRIESMAX</code> is preconfigured so that no administrative changes are necessary when upgrading from previous releases. <code class="cCode">TMSICACHEENTRIESMAX</code> can also control the number of cache entries, since it is not desirable for clients to grow too large. 
+</p>
+<h4 class="pHeading3"><a name="wp1030653"> </a>
+Service Caching Limitations
+</h4>
+<p class="pBody"><a name="wp1030654"> </a>
+The following limitations apply to the caching feature:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1030655"> </a>If there are routing criteria on a service, then the service will not be cached.</li>
+<li><a name="wp1030656"> </a>If there are buffer type restrictions on a service, then the service will not be cached.</li>
+<li><a name="wp1030657"> </a>If the group of a service is predetermined (that is, TMS services), then the service will not be cached.</li>
+<li><a name="wp1030658"> </a>If the number of service entries is zero, no caching will be done.</li>
+</ul></div>
+<a name="wp1030659"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Notes:</strong></td>
+<td>For more information about the <code class="cCode">SICACHEENTRIESMAX</code> option, refer to the <code class="cCode">UBBCONFIG(5)</code>and <code class="cCode">TM_MIB(5)</code> sections in the <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em>.</td></tr>
+</table>
+
+<a name="wp1030663"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>For more information about the <code class="cCode">TMSICACHEENTRIESMAX</code> variable, refer to the <code class="cCode">tuxenv(5)</code>section in the <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em>.</td>
+</tr>
+</table>
+<h3 class="pHeading2"><a name="wp1030667"> </a>
+Removing Authorization and Auditing Security
+</h3>
+<p class="pBody"><a name="wp1030668"> </a>
+For Oracle Tuxedo release 7.1, the AAA (authentication, authorization, and auditing) security features were added so that implementations using the AAA plug-in functions would not need to base security on the Oracle Tuxedo administrative option. As a result, the Oracle Engine AAA security functions are always called in the main Oracle Tuxedo 7.1 code path. Since many applications do not use security, they should not pay the overhead price of these Oracle Engine security calls.
+</p>
+<p class="pBody"><a name="wp1030669"> </a>
+For Oracle Tuxedo release 8.0 or later, the <code class="cCode">NO_AA</code> option has been added to the <code class="cCode">OPTIONS</code> parameter in the <code class="cCode">RESOURCES</code> section of the configuration file. The <code class="cCode">NO_AA</code> option will circumvent the calling of the authorization and auditing security functions. Since most applications need authentication, this feature cannot be turned off. 
+</p>
+<p class="pBody"><a name="wp1030670"> </a>
+If the <code class="cCode">NO_AA</code> option is enabled, the following <code class="cCode">SECURITY</code> parameters may be affected: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1030671"> </a>The parameters <code class="cCode">NONE</code>, <code class="cCode">APP_PW</code>, and <code class="cCode">USER_AUTH</code> parameters will continue to work properly&#8212;except that no authorization or auditing will be done.</li>
+<li><a name="wp1030672"> </a>The <code class="cCode">ACL</code> and <code class="cCode">MANDATORY_ACL</code> parameters will continue to work properly, but will only use the default Oracle security mechanism.</li>
+</ul></div>
+<a name="wp1030673"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For more information about the <code class="cCode">NO_AA</code> option, refer to the <code class="cCode">UBBCONFIG(5)</code>and <code class="cCode">TM_MIB(5)</code> sections in the <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em>.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1030677"> </a>
+Using the Multithreaded Bridge
+</h3>
+<p class="pBody"><a name="wp1030979"> </a>
+Because only one Bridge process is running per host machine in a multiple machine Tuxedo domain, all traffic from a host machine passes through a single Bridge process to all other host machines in the domain. The Bridge process supports both single-threaded and multithreaded execution capabilities. The availability of multithreaded Bridge processing improves the data throughput potential. To enable multithreaded Bridge processing, you can configure the <code class="cCode">BRTHREADS</code> parameter in the <code class="cCode">MACHINES</code> section of the <code class="cCode">UBBCONFIG</code> file. 
+</p>
+<p class="pBody"><a name="wp1031101"> </a>
+Setting <code class="cCode">BRTHREADS=Y</code> configures the Bridge process for multithreaded execution. Setting <code class="cCode">BRTHREADS=N</code> or accepting the default <code class="cCode">N</code>, configures the Bridge process for single-threaded execution.
+</p>
+<p class="pBody"><a name="wp1031192"> </a>
+Configurations with BRTHREADS=Y on the local machine and BRTHREADS=N on the remote machine are allowed, but the thoughput between the machines will not be greater than that for the single-threaded Bridge process.
+</p>
+<p class="pBody"><a name="wp1031269"> </a>
+Other important considerations for using the BRTHREADS parameter include:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1031294"> </a>Setting BRTHREADS=Y makes sense only if a machine has multiple CPUs; however, having multiple CPUs id not a prerequisite for setting BRTHREADS=Y.</li>
+<li><a name="wp1031314"> </a>If the MODEL parameter in the RESOURCES section of the UBBCONFIG file is set to SHM, the BRTHREADS parameter has no effect and is ignored.</li>
+<li><a name="wp1031366"> </a>If <code class="cCode">BRTHREADS=Y</code> and the Bridge environment contains <code class="cCode">TMNOTHREADS=Y</code>, the Bridge starts up in threaded mode and logs a warning message. Basically, <code class="cCode">BRTHREADS</code> overrides <code class="cCode">TMNOTHREADS</code> and the warning message states that the Bridge is ignoring the <code class="cCode">TMNOTHREADS</code> setting.</li>
+</ul></div>
+<a name="wp1031378"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>In a Tuxedo multiple-machine domain, setting <code class="cCode">BRTHREADS=Y</code> has no effect for a machine that is running an earlier version of Tuxedo.</td>
+</tr>
+</table>
+
+<a name="wp1031394"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>For more information about the multithreaded Bridge, see the BRTHREADS parameter in the MACHINES section of the <span class="cHyperlink">
+UBBCONFIG</span><a href="../rf5/rf5.html"></a>(5) in <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em>.</td>
+</tr>
+</table>
+<h3 class="pHeading2"><a name="wp1030954"> </a>
+Turning Off Multithreaded Processing
+</h3>
+<p class="pBody"><a name="wp1030678"> </a>
+Oracle Tuxedo has a generalized threading feature. Due to the generality of the architecture, all ATMI calls must call mutexing functions in order to protect sensitive state information. Furthermore, the layering of the engine and caching schemes used in the libraries cause more mutexing. For applications that do not use threads, turning them off can result in significant performance improvements without making changes to the application code.
+</p>
+<p class="pBody"><a name="wp1030679"> </a>
+To turn off multithreaded processing use the <code class="cCode">TMNOTHREADS</code> environment variable. With this setting, individual processes can turn threads on and off without introducing a new API or flag in order to do so.
+</p>
+<p class="pBody"><a name="wp1030680"> </a>
+If the <code class="cCode">TMNOTHREADS=Y</code>, then the calls to the mutexing functions are avoided. 
+</p>
+<a name="wp1030681"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For more information about <code class="cCode">TMNOTHREADS</code>, refer to the <code class="cCode">tuxenv(5)</code> section in <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em>.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1030685"> </a>
+Turning Off XA Transactions
+</h3>
+<p class="pBody"><a name="wp1030686"> </a>
+Although not all Oracle Tuxedo applications use XA transactions, all processes pay the cost of transactional semantics by calling internal transactional verbs. To boost performance for applications that don&#8217;t use XA transactions for Oracle Tuxedo release 8.0 or later, the <code class="cCode">NO_XA</code> flag has been has been added to the <code class="cCode">OPTIONS</code> parameter in the <code class="cCode">RESOURCES</code> section of the configuration file. 
+</p>
+<p class="pBody"><a name="wp1030687"> </a>
+No XA transactions are allowed when the <code class="cCode">NO_XA</code> flag is set. It is important to remember though, that any attempt to configure TMS services in the <code class="cCode">GROUPS</code> section will fail if the <code class="cCode">NO_XA</code> option has been specified.
+</p>
+<a name="wp1030688"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For more information about the <code class="cCode">NO_XA</code> option, refer to the <code class="cCode">UBBCONFIG(5)</code>and <code class="cCode">TM_MIB(5)</code> sections in the <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em>.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1031892"> </a>
+Determining Your System IPC Requirements
+</h2><p class="pBody"><a name="wp1031893"> </a>
+The IPC requirements for your system are determined by the values of several system parameters:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1031894"> </a><code class="cCode">MAXACCESSERS</code></li>
+<li><a name="wp1031895"> </a><code class="cCode">REPLYQ</code></li>
+<li><a name="wp1031896"> </a><code class="cCode">RQADDR</code></li>
+<li><a name="wp1031897"> </a><code class="cCode">MAXSERVERS</code></li>
+<li><a name="wp1031898"> </a><code class="cCode">MAXSERVICES</code></li>
+<li><a name="wp1031899"> </a><code class="cCode">MAXGTT</code></li>
+</ul></div>
+<p class="pBody"><a name="wp1031900"> </a>
+You can use the <code style="font-weight: normal" class="cCode">tmboot</code><span style="font-weight: bold"> </span><code class="cCode">-c</code> command to display the minimum IPC requirements of your configuration. 
+</p>
+<p class="pBody"><a name="wp1031901"> </a>
+The following table describes these system parameters.
+</p>
+<p class="pGraphic"><a name="wp1031931"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1031907table1031902"><caption><a name="wp1031907"> </a>
+Table 8-1  Parameters for Tuning IPC Resources&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1031911"> </a>
+Parameter(s)
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1031913"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031915"> </a>
+<code class="cCode">MAXACCESSSERS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031917"> </a>
+Equals the number of semaphores.
+</div>
+<div class="pCellBody"><a name="wp1031918"> </a>
+Number of message queues is almost equal to <code class="cCode">MAXACCESSERS</code> + number of servers with reply queues (number of servers in <code class="cCode">MSSQ</code> set * number of <code class="cCode">MSSQ</code> sets).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031920"> </a>
+<code class="cCode">MAXSERVERS</code>, <code class="cCode">MAXSERVICES</code>, and <code class="cCode">MAXGTT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031922"> </a>
+While <code class="cCode">MAXSERVERS</code>, <code class="cCode">MAXSERVICES</code>, <code class="cCode">MAXGTT</code>, and the overall size of the <code class="cCode">ROUTING</code>, <code class="cCode">GROUP</code>, and <code class="cCode">NETWORK</code> sections affect the size of shared memory, an attempt to devise formulas that correlate these parameters can become complex. Instead, simply run <code class="cCode">tmboot -c</code> or <code class="cCode">tmloadcf</code> <code class="cCode">-c</code> to calculate the minimum IPC resource requirements for your application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031924"> </a>
+Queue-related kernel parameters
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031926"> </a>
+Need to be tuned to manage the flow of buffer traffic between clients and servers. The maximum total size (in bytes) of a queue must be large enough to handle the largest message in the application. A typical queue is not more than 75 to 85 percent full. Using a smaller percentage of a queue is wasteful; using a larger percentage causes message sends to block too frequently.
+</div>
+<div class="pCellBody"><a name="wp1031927"> </a>
+Set the maximum size for a message to handle the largest buffer that the application sends.
+</div>
+<div class="pCellBody"><a name="wp1031928"> </a>
+The maximum queue length (the largest number of messages that are allowed to sit on a queue at once) must be adequate for the application&#8217;s operations.
+</div>
+<div class="pCellBody"><a name="wp1031929"> </a>
+Simulate or run the application to measure the average fullness of a queue or its average length. This process may require a lot of trial and error; you may need to estimate values for your tunables before running the application, and then adjust them after running under performance analysis.
+</div>
+<div class="pCellBody"><a name="wp1031930"> </a>
+For a large system, analyze the effects of parameter settings on the size of the operating system kernel. If they are unacceptable, reduce the number of application processes or distribute the application across more machines to reduce <code class="cCode">MAXACCESSERS</code>.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1031800"> </a>
+Tuning IPC Parameters 
+</h2><p class="pBody"><a name="wp1031801"> </a>
+The following application parameters enable you to enhance the efficiency of your system:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1015689"> </a><code class="cCode">MAXACCESSERS</code>,<span style="font-weight: bold"> </span><code class="cCode">MAXSERVERS</code>, <code class="cCode">MAXINTERFACES</code>, and <code class="cCode">MAXSERVICES</code></li>
+<li><a name="wp1015690"> </a><code class="cCode">MAXGTT</code>, <code class="cCode">MAXBUFTYPE</code>, and <code class="cCode">MAXBUFSTYPE</code></li>
+<li><a name="wp1015691"> </a><code class="cCode">SANITYSCAN</code>, <code class="cCode">BLOCKTIME</code>, and individual transaction timeouts</li>
+<li><a name="wp1015692"> </a><code class="cCode">BBLQUERY</code> and <code class="cCode">DBBLWAIT</code></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1015693"> </a>
+Setting the MAXACCESSERS, MAXSERVERS, MAXINTERFACES, and MAXSERVICES Parameters
+</h3>
+<p class="pBody"><a name="wp1015694"> </a>
+The <code class="cCode">MAXACCESSERS</code>, <code class="cCode">MAXSERVERS</code>, <code class="cCode">MAXINTERFACES</code>, and <code class="cCode">MAXSERVICES</code> parameters increase semaphore and shared memory costs, so you should carefully weigh these costs against the expected benefits before using these parameters, and choose the values that best satisfy the needs of your system. You should take into account any increased resources your system may require for a potential migration. You should also allow for variation in the number of clients accessing the system simultaneously. Defaults may be appropriate for a generous allocation of IPC resources; however, it is prudent to set these parameters to the lowest appropriate values for the application.
+</p>
+<h3 class="pHeading2"><a name="wp1015695"> </a>
+Setting the MAXGTT, MAXBUFTYPE, and MAXBUFSTYPE Parameters
+</h3>
+<p class="pBody"><a name="wp1015696"> </a>
+To determine whether the default is adequate for your application, multiply the number of clients in the system times the percentage of time they are committing a transaction. If the product of this multiplication is close to 100, you should increase the value of the <code class="cCode">MAXGTT</code> parameter. As a result of increasing <code class="cCode">MAXGTT</code>:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1025055"> </a>Your system may require a greater number of clients, depending on the speed of commits.</li>
+<li><a name="wp1025145"> </a>You should also increase <code class="cCode">TLOGSIZE</code> accordingly for every machine. </li>
+<li><a name="wp1025158"> </a>You should set <code class="cCode">MAXGTT</code> to 0 for applications in which distributed transactions are not used. </li>
+</ul></div>
+<p class="pBody"><a name="wp1015697"> </a>
+To limit the number of buffer types and subtypes allowed in the application, set the <code class="cCode">MAXBUFTYPE</code> and <code class="cCode">MAXBUFSTYPE</code> parameters, respectively. The current default for <code class="cCode">MAXBUFTYPE</code> is 16. If you plan to create eight or more user-defined buffer types, you should set <code class="cCode">MAXBUFTYPE</code> to a higher value. Otherwise, you do not need to specify this parameter; the default value is used.
+</p>
+<p class="pBody"><a name="wp1025256"> </a>
+The current default for <code class="cCode">MAXBUFSTYPE</code> is 32. You may want to set this parameter to a higher value if you intend to use many different <code class="cCode">VIEW</code> subtypes.
+</p>
+<h3 class="pHeading2"><a name="wp1015698"> </a>
+Tuning with the SANITYSCAN, BLOCKTIME, BBLQUERY, and DBBLWAIT Parameters
+</h3>
+<p class="pBody"><a name="wp1017313"> </a>
+If a system is running on slow processors (for example, due to heavy usage), you can increase the timing parameters: <code class="cCode">SANITYCAN</code>, <code class="cCode">BLOCKTIME</code>, and individual transaction timeouts. 
+</p>
+<p class="pBody"><a name="wp1025357"> </a>
+If networking is slow, you can increase the value of the <code class="cCode">BLOCKTIME</code>, <code class="cCode">BBLQUERY</code>, and <code class="cCode">DBBLWAIT</code> parameters.
+</p>
+<h3 class="pHeading2"><a name="wp1017316"> </a>
+Recommended Values for Tuning-related Parameters
+</h3>
+<p class="pBody"><a name="wp1017684"> </a>
+In the following table are recommended values for the parameters available for tuning an application.
+</p>
+<p class="pGraphic"><a name="wp1017324"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1017333table1017331">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1017333"> </a>
+Use These Parameters . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1017335"> </a>
+To . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1017339"> </a>
+<code class="cCode">MAXACCESSERS</code>, <code class="cCode">MAXSERVERS</code>, <code class="cCode">MAXINTERFACES</code>, and <code class="cCode">MAXSERVICES</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1017342"> </a>
+Set the smallest satisfactory value because of IPC cost. (Allow for extra clients.)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1017347"> </a>
+<code class="cCode">MAXGTT</code>, <code class="cCode">MAXBUFTYPE</code>, and <code class="cCode">MAXBUFSTYPE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1017350"> </a>
+Increase MAXGTT for many clients; set MAXGTT to 0 for nontransactional applications.
+</div>
+<div class="pCellBody"><a name="wp1017351"> </a>
+Use MAXBUFTYPE only if you create eight or more user-defined buffer types.
+</div>
+<div class="pCellBody"><a name="wp1017352"> </a>
+Increase the value of MAXBUFSTYPE if you use many different <code class="cCode">VIEW</code> subtypes.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1017356"> </a>
+<code class="cCode">BLOCKTIME</code>, <code class="cCode">TRANTIME</code>, and <code class="cCode">SANITYSCAN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1017359"> </a>
+Increase the values if the system is slow.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1017362"> </a>
+<code class="cCode">BLOCKTIME</code>, <code class="cCode">TRANTIME</code>, <code class="cCode">BBLQUERY</code>, and <code class="cCode">DBBLWAIT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1017366"> </a>
+Increase the values if networking is slow.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1018305"> </a>
+Measuring System Traffic
+</h2><p class="pBody"><a name="wp1018307"> </a>
+As on any road that supports a lot of traffic, bottlenecks can occur in your system. On a highway, cars can be counted with a cable strung across the road, that causes a counter to be incremented each time a car drives over it. 
+</p>
+<p class="pBody"><a name="wp1025694"> </a>
+You can use a similar method to measure service traffic. For example, when a server is started (that is, when<code class="cCode"> tpsvrinit()</code> is invoked), you can initialize a global counter and record a starting time. Subsequently, each time a particular service is called, the counter is incremented. When the server is shut down (through the <code class="cCode">tpsvrdone()</code> function), the final count and the ending time are recorded. This mechanism allows you to determine how busy a particular service is over a specified period of time.
+</p>
+<p class="pBody"><a name="wp1015760"> </a>
+In the Oracle Tuxedo system, bottlenecks can originate from problematic data flow patterns. The quickest way to detect bottlenecks is to measure the amount of time required by relevant services from the client&#8217;s point of view.
+</p>
+<h3 class="pHeading2"><a name="wp1015761"> </a>
+Example of Detecting a System Bottleneck
+</h3>
+<p class="pBody"><a name="wp1015762"> </a>
+Client 1 requires 4 seconds to display the results. Calls to <code class="cCode">time()</code> determine that the <code class="cCode">tpcall</code> to service A is the culprit with a 3.7-second delay. Service A is monitored at the top and bottom and takes 0.5 seconds. This finding implies that a queue may be clogged, a situation that can be verified by running the <code class="cCode">pq</code> command in <code class="cCode">tmadmin</code>. 
+</p>
+<p class="pBody"><a name="wp1016956"> </a>
+On the other hand, suppose service A takes 3.2 seconds. The individual parts of service A can be bracketed and measured. Perhaps service A issues a <code class="cCode">tpcall</code> to service B, which requires 2.8 seconds. Knowing this, you should then be able to isolate queue time or message send blocking time. Once the relevant amount of time has been identified, the application can be retuned to handle the traffic.
+</p>
+<p class="pBody"><a name="wp1015763"> </a>
+Using<span style="font-style: italic"> </span><code class="cCode">time()</code>, you can measure the duration of the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1015764"> </a>An entire client program</li>
+<li><a name="wp1015765"> </a>A single client service request</li>
+<li><a name="wp1015766"> </a>An entire service function</li>
+<li><a name="wp1015767"> </a>A service function making a service request (if any)</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1015768"> </a>
+Detecting Bottlenecks on UNIX Platforms
+</h3>
+<p class="pBody"><a name="wp1015769"> </a>
+The UNIX system <code class="cCode">sar</code>(1) command provides valuable performance information that can be used to find system bottlenecks. You can run <code class="cCode">sar</code>(1) to do the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1015770"> </a>Sample cumulative activity counters in the operating system at predetermined intervals</li>
+<li><a name="wp1015771"> </a>Extract data from a system file</li>
+</ul></div>
+<p class="pBody"><a name="wp1017760"> </a>
+The following table describes the <code class="cCode">sar</code>(1) command options.
+</p>
+<p class="pGraphic"><a name="wp1015810"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025727table1015773">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1025727"> </a>
+Use This Option...
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1025729"> </a>
+To...
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025731"> </a>
+<code class="cCode">-u</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025733"> </a>
+Gather CPU utilization numbers, including percentages of time during which the system: runs in user mode, runs in system mode, remains idle with some process waiting for block I/O, and otherwise remains idle.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025735"> </a>
+<code class="cCode">-b</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025737"> </a>
+Report buffer activity, including number of data transfers, per second, between system buffers and disk (or other block devices).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025739"> </a>
+<code class="cCode">-c</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025741"> </a>
+Report activity of system calls of all types, as well as specific system calls, such as <code class="cCode">fork</code>(2) and <code class="cCode">exec</code>(2).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025743"> </a>
+<code class="cCode">-w</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025745"> </a>
+Monitor system swapping activity, including the number of transfers for swapins and swapouts.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025747"> </a>
+<code class="cCode">-q</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025749"> </a>
+Report average queue lengths while queues are occupied, and the percentage of time they are occupied.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025751"> </a>
+<code class="cCode">-m</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025753"> </a>
+Report message and system semaphore activities, including the number of primitives per second.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025755"> </a>
+<code class="cCode">-p</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025757"> </a>
+Report paging activity, including the number of address translation page faults, page faults and protection errors, and valid pages reclaimed for free lists.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025759"> </a>
+<code class="cCode">-r</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025761"> </a>
+Report the number of unused memory pages and disk blocks, including the average number of pages available to user processes and disk blocks available for process swapping.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<a name="wp1015811"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Some flavors of the UNIX system do not support the <code class="cCode">sar</code>(1) command, but offer equivalent commands, instead. BSD, for example, offers the <code class="cCode">iostat</code>(1) command; Sun offers <code class="cCode">perfmeter</code>(1).</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1018397"> </a>
+Detecting Bottlenecks on Windows Platforms
+</h3>
+<p class="pBody"><a name="wp1018398"> </a>
+On Windows platforms, you can use the Performance Monitor to collect system information and detect bottlenecks. To open the Performance Monitor, select the following options from the Start menu:
+</p>
+<a name="wp1017633"> </a><div class="pPreformatted"><pre>Start &#8212;&gt; Settings &#8212;&gt; Control Settings &#8212;&gt; Administration Tools &#8212;&gt; Performance</pre></div><h3 class="pHeading2"><a name="wp1026882"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1026885"> </a><span class="cHyperlink">
+&#8220;Creating the Configuration File for a</span><a href="../ads/adsdis.html"></a> Distributed ATMI Application&#8221; in <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em></li>
+<li><a name="wp1026890"> </a><span class="cHyperlink">
+&#8220;Setting Up the Network for a </span><a href="../ads/adsnet.html"></a>Distributed Application&#8221; in <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em></li>
+<li><a name="wp1030256"> </a><a href="adrnet.html"><span class="cHyperlink">
+&#8220;Managing the Network in a Distributed Application&#8221; on page&#160;4-1</span></a></li>
+<li><a name="wp1026901"> </a><em class="cEmphasis">Scaling, Distributing, and Tuning CORBA Applications</em></li>
+</ul></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="adtun.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="admigt.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="adtrb.html"><img id="LongDescNotReq9" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

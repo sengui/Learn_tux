@@ -1,0 +1,648 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/tutor/fm/tutsi.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:50:29" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Tutorial for simpapp, a Simple C Application</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Tutorials for Developing Oracle Tuxedo ATMI Applications
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="tutov.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="tutba.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/tutor.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1306076"> </a>
+Tutorial for simpapp, a Simple C Application
+</h1>
+<p class="pBody"><a name="wp1302237"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1301435"> </a><a href="tutsi.html#wp1112066">What Is simpapp?</a></li>
+<li><a name="wp1301424"> </a><a href="tutsi.html#wp1291598">Preparing simpapp Files and Resources</a></li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1294838"> </a><a href="tutsi.html#wp1296744">Step 1: How to Copy the simpapp Files</a></li>
+<li><a name="wp1294839"> </a><a href="tutsi.html#wp1070835">Step 2: Examining and Compiling the Client</a></li>
+<li><a name="wp1294886"> </a><a href="tutsi.html#wp1296164">Step 3: Examining and Compiling the Server</a></li>
+<li><a name="wp1294899"> </a><a href="tutsi.html#wp1070958">Step 4: Editing and Loading the Configuration File</a></li>
+<li><a name="wp1294912"> </a><a href="tutsi.html#wp1070992">Step 5: How to Boot the Application</a></li>
+<li><a name="wp1294925"> </a><a href="tutsi.html#wp1071005">Step 6: How to Execute the Run-time Application</a></li>
+<li><a name="wp1294938"> </a><a href="tutsi.html#wp1071009">Step 7: How to Monitor the Run-time Application</a></li>
+<li><a name="wp1294947"> </a><a href="tutsi.html#wp1071024">Step 8: How to Shut Down the Application</a></li>
+</ul></div>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1112066"> </a>
+What Is simpapp?
+</h2><p class="pBody"><a name="wp1070775"> </a>
+<code class="cCode">simpapp</code> is a sample ATMI application that includes one client and one server. This application is distributed with the Oracle Tuxedo software. The server performs only one service: it accepts a lowercase alphabetic string from the client and returns the same string in uppercase. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1291598"> </a>
+Preparing simpapp Files and Resources
+</h2><p class="pBody"><a name="wp1106480"> </a>
+This topic is a tutorial that leads you, step-by-step, through the process of developing and running a sample Oracle Tuxedo ATMI application. <a href="tutsi.html#wp1106573">Figure&#160;2-1</a> summarizes the process. Click on each task for instructions on completing that task.
+</p>
+<div class="pFigureTitle"><a name="wp1106573"> </a>
+Figure&#160;2-1  simpapp Development Process
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1106609"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/develop.gif" height="317" width="522" usemap="#develop_gif" alt="simpapp Development Process" id="wp1192832"/>
+<map name="develop_gif">
+<area href="tutsi.html#wp1296744" shape="rect" coords="183,9,342,40" />
+<area href="tutsi.html#wp1070835" shape="rect" coords="183,48,341,80" />
+<area href="tutsi.html#wp1296164" shape="rect" coords="183,84,345,116" />
+<area href="tutsi.html#wp1070958" shape="rect" coords="183,125,343,155" />
+<area href="tutsi.html#wp1070992" shape="rect" coords="183,162,343,190" />
+<area href="tutsi.html#wp1071005" shape="rect" coords="183,199,344,229" />
+<area href="tutsi.html#wp1071009" shape="rect" coords="183,238,341,269" />
+<area href="tutsi.html#wp1071024" shape="rect" coords="183,280,342,308" />
+</map>
+</div><p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1070776"> </a>
+Before You Begin
+</h3>
+<p class="pBody"><a name="wp1106632"> </a>
+Before you can run this tutorial, the Oracle Tuxedo ATMI client and server software must be installed so that the files and commands referred to are available. If the installation has already been done by someone else, you need to know the pathname of the directory in which the software is installed (<code class="cCode">TUXDIR</code>). You also need to have read and write permissions on the directories and files in the Oracle Tuxedo directory structure so you can copy <code class="cCode">simpapp</code> files and execute Oracle Tuxedo commands.
+</p>
+<h3 class="pHeading2"><a name="wp1284936"> </a>
+About This Tutorial
+</h3>
+<p class="pBody"><a name="wp1284949"> </a>
+The instructions for the <code class="cCode">simpapp</code> tutorial are based on a UNIX system platform. While specific platform instructions for the UNIX operating system environment remain largely the same, instructions for performing tasks (such as copying <code class="cCode">simpapp</code> files or setting environment variables) on non-UNIX platforms (such as Windows 2003) may be different. For this reason, the examples used in the tutorial may or may not provide reliable procedures for your platform.
+</p>
+<h3 class="pHeading2"><a name="wp1106722"> </a>
+What You Will Learn
+</h3>
+<p class="pBody"><a name="wp1296741"> </a>
+After you complete this tutorial, you will be able to understand the tasks ATMI clients and servers can perform, edit a configuration file for your own environment, and invoke <code class="cCode">tmadmin</code> to check on the activity of your application. You will understand the basic elements of all Oracle Tuxedo applications&#8212;client processes, server processes, and a configuration file&#8212;and you will know how to use Oracle Tuxedo system commands to manage your application.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1296744"> </a>
+Step 1: How to Copy the simpapp Files
+</h2><a name="wp1296745"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The following instructions are based on a UNIX system platform. Instruction for non-UNIX platforms, such as Windows 2003, may be different. Examples used in the sample applications may vary significantly, depending on the specific platform.</td>
+</tr>
+</table>
+
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1295309"> </a>Make a directory for <code class="cCode">simpapp</code> and <code class="cCode">cd</code> to it:</li>
+<a name="wp1295321"> </a><div class="pPreformattedRelative"><pre>mkdir simpdir<br />cd simpdir</pre></div><a name="wp1295322"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This step is suggested so you can see the <code class="cCode">simpapp</code> files you have at the start and the additional files you create along the way. Use the standard shell (<code class="cCode">/bin/sh</code>) or the Korn shell; do not use <code class="cCode">csh</code>.</td>
+</tr>
+</table>
+
+<li><a name="wp1070820"> </a>Set and export environment variables:</li>
+<a name="wp1295520"> </a><div class="pPreformattedRelative"><pre>TUXDIR=<code class="cCodeEmphasis">pathname of the Oracle Tuxedo system root directory<br /></code>TUXCONFIG=<code class="cCodeEmphasis">pathname of your present working directory/tuxconfig<br /></code>PATH=$PATH:$TUXDIR/bin<br />LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$TUXDIR/lib<br />  export TUXDIR TUXCONFIG PATH LD_LIBRARY_PATH</pre></div><p class="pBodyRelative"><a name="wp1295521"> </a>
+You need <code class="cCode">TUXDIR</code> and <code class="cCode">PATH</code> to be able to access files in the Oracle Tuxedo system directory structure and to execute Oracle Tuxedo system commands. On Sun&#160;Solaris, <code class="cCode">/usr/5bin</code> must be the first directory in your <code class="cCode">PATH</code>. With AIX on the RS/6000, use <code class="cCode">LIBPATH</code> instead of <code class="cCode">LD_LIBRARY_PATH</code>. On HP-UX on the HP&#160;9000, use <code class="cCode">SHLIB_PATH</code> instead of <code class="cCode">LD_LIBRARY_PATH</code>. 
+</p>
+<p class="pBodyRelative"><a name="wp1070823"> </a>
+You need to set <code class="cCode">TUXCONFIG</code> to be able to load the configuration file, described in <a href="tutsi.html#wp1070958">Step 4: Editing and Loading the Configuration File</a>.<span style="font-style: italic"> </span>
+</p>
+<li><a name="wp1070824"> </a>Copy the <code class="cCode">simpapp</code> files: </li>
+<a name="wp1070825"> </a><div class="pPreformattedRelative"><pre>cp $TUXDIR/samples/atmi/simpapp/* .</pre></div><a name="wp1070826"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>It is best to begin with a copy of the files rather than the originals delivered with the software because you will edit some of the files to make them executable.</td>
+</tr>
+</table>
+
+<li><a name="wp1070827"> </a>List the files: </li>
+<a name="wp1296633"> </a><div class="pPreformattedRelative"><pre>&#160;&#160;$ ls <br />&#160;&#160;&#160;&#160;&#160;README &#160;&#160;&#160;&#160;&#160;&#160;env &#160;&#160;&#160;&#160;&#160;&#160;&#160;simpapp.nt&#160;&#160;ubbmp &#160;&#160;&#160;&#160;wsimpcl<br />&#160;&#160;&#160;&#160;&#160;README.as400&#160;setenv.cmd&#160;simpcl.c&#160;&#160;&#160;&#160;ubbsimple<br />&#160;&#160;&#160;&#160;&#160;README.nt &#160;&#160;&#160;simpapp.mk&#160;simpserv.c&#160;&#160;ubbws<br />&#160;&#160;$</pre></div><a name="wp1296577"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Except for the <code class="cCode">README</code> files, the other files are variations of <code class="cCode">simp*.*</code> and <code class="cCode">ubb*</code> files for non-UNIX system platforms. The <code class="cCode">README</code> files provide explanations of the other files.</td>
+</tr>
+</table>
+
+<p class="pBodyRelative"><a name="wp1200163"> </a>
+The three files that are central to the application are:
+</p>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1070830"> </a><code class="cCode">simpcl.c</code>&#8212;the source code for the client program.</li>
+<li><a name="wp1070831"> </a><code class="cCode">simpserv.c</code>&#8212;the source code for the server program.</li>
+<li><a name="wp1070832"> </a><code class="cCode">ubbsimple</code>&#8212;the text form of the configuration file for the application. </li>
+</ul></div>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1150534"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1150647"> </a><a href="tutsi.html#wp1112066">What Is simpapp?</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1070835"> </a>
+Step 2: Examining and Compiling the Client
+</h2><h3 class="pHeading2"><a name="wp1070836"> </a>
+How to Examine the Client
+</h3>
+<p class="pBodyRelative"><a name="wp1070837"> </a>
+    Review the ATMI client program source code: 
+</p>
+<a name="wp1070838"> </a><div class="pPreformattedRelative"><pre>    $ more simpcl.c</pre></div><p class="pBodyRelative"><a name="wp1070839"> </a>
+    The output is shown in <a href="tutsi.html#wp1308628">Listing&#160;2-1</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1308628"> </a>
+Listing&#160;2-1	   Source Code of simpcl.c 
+</div> <a name="wp1308629"> </a><div class="pPreformatted"><pre>1&#160;&#160;&#160;&#160;&#160;#include &lt;stdio.h&gt;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br />2&#160;&#160;&#160;&#160;&#160;#include &quot;atmi.h&quot;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* TUXEDO */<br />3<br />4<br />5<br />6<br />7&#160;&#160;&#160;&#160;&#160;#ifdef __STDC__<br />8&#160;&#160;&#160;&#160;&#160;main(int argc, char *argv[])<br />9<br />10&#160;&#160;&#160;&#160;#else<br />11<br />12&#160;&#160;&#160;&#160;main(argc, argv)<br />13&#160;&#160;&#160;&#160;int argc;<br />14&#160;&#160;&#160;&#160;char *argv[];<br />15&#160;&#160;&#160;&#160;#endif<br />16<br />17&#160;&#160;&#160;&#160;{<br />18<br />19&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;char *sendbuf, *rcvbuf;<br />20&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int sendlen, rcvlen;<br />21&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int ret;<br />22<br />23&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if(argc != 2) {<br />24&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;fprintf(stderr, &quot;Usage: simpcl string\n&quot;);<br />25&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exit(1);<br />26&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br />27&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* Attach to BEA TUXEDO as a Client Process */<br />28&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (tpinit((TPINIT *) NULL) == -1) {<br />29&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;fprintf(stderr, &quot;Tpinit failed\n&quot;);<br />30&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exit(1);<br />31&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br />32&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;sendlen = strlen(argv[1]);<br />33&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if((sendbuf = (char *)tpalloc(&quot;STRING&quot;, NULL, sendlen+1))== NULL){<br />34 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;fprintf(stderr,&quot;Error allocating send buffer\n&quot;);<br />35&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpterm();<br />36&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exit(1);<br />37&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br />38&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if((rcvbuf = (char *)tpalloc(&quot;STRING&quot;, NULL, sendlen+1))== NULL){<br />39&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;fprintf(stderr,&quot;Error allocating receive buffer\n&quot;);<br />40&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpfree(sendbuf);<br />41&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpterm();<br />42&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exit(1);<br />43&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br />44&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;strcpy(sendbuf, argv[1]);<br />45&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ret = tpcall(&quot;TOUPPER&quot;, sendbuf, NULL, &amp;rcvbuf, &amp;rcvlen, 0);<br />46&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if(ret == -1) {<br />47&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;fprintf(stderr, &quot;Can&#39;t send request to service TOUPPER\n&quot;);<br />48&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;fprintf(stderr, &quot;Tperrno = %d, %s\n&quot;, tperrno,<br />49&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tmemsgs[tperrno]);<br />50&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpfree(sendbuf);<br />51&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpfree(rcvbuf);<br />52&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpterm();<br />53&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exit(1);<br />54&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br />55&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;printf(&quot;Returned string is: %s\n&quot;, rcvbuf);<br />56<br />57&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* Free Buffers &amp; Detach from Oracle TUXEDO */<br />58&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpfree(sendbuf);<br />59&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpfree(rcvbuf);<br />60&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpterm();<br />61&#160;&#160;&#160;&#160;}</pre></div><p class="pGraphic"><a name="wp1302249"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1302260table1302258"><caption><a name="wp1302260"> </a>
+Table 2-1  Significant Lines in the simpcl.c Source Code&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1302540"> </a>
+Line(s)
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1302542"> </a>
+File/Function
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1302544"> </a>
+Purpose
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row">&#160;</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302329"> </a>
+2
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302331"> </a>
+<code class="cCode">atmi.h</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302333"> </a>
+Header file required whenever Oracle Tuxedo ATMI functions are used.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302323"> </a>
+28
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302325"> </a>
+<code class="cCode">tpinit()</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302327"> </a>
+The ATMI function used by a client program to join an application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302317"> </a>
+33
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302319"> </a>
+<code class="cCode">tpalloc()</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302321"> </a>
+The ATMI function used to allocate a typed buffer. <code class="cCode">STRING</code> is one of the five basic Oracle Tuxedo buffer types; <code class="cCode">NULL</code> indicates there is no subtype argument. The remaining argument, <code class="cCode">sendlen + 1</code>, specifies the length of the buffer plus 1 for the null character that ends the string.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302311"> </a>
+38
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302313"> </a>
+<code class="cCode">tpalloc()</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302315"> </a>
+Allocates another buffer for the return message.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302305"> </a>
+45
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302307"> </a>
+<code class="cCode">tpcall()</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302309"> </a>
+Sends the message buffer to the <code class="cCode">TOUPPER</code> service specified in the first argument. Also includes the address of the return buffer. <code class="cCode">tpcall()</code> waits for a return message.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302299"> </a>
+35, 41, 52, 60
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302301"> </a>
+<code class="cCode">tpterm()</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302303"> </a>
+The ATMI function used to exit an application. A call to <code class="cCode">tpterm()</code> is used to exit the application before exiting in response to an error condition (lines 36, 42, and 53). The final call to <code class="cCode">tpterm()</code> (line 60) is issued after the message has been printed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302293"> </a>
+40, 50, 51, 58, 59
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302295"> </a>
+<code class="cCode">tpfree()</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302297"> </a>
+Frees allocated buffers. <code class="cCode">tpfree()</code> is the functional opposite of <code class="cCode">tpalloc()</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302287"> </a>
+55
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302289"> </a>
+<code class="cCode">printf()</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302291"> </a>
+The successful conclusion of the program. It prints out the message returned from the server.
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+<h3 class="pHeading2"><a name="wp1108583"> </a>
+How to Compile the Client
+</h3>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1070900"> </a>Run <code class="cCode">buildclient</code> to compile the ATMI client program: </li>
+<a name="wp1070901"> </a><div class="pPreformattedRelative"><pre>    buildclient -o simpcl -f simpcl.c</pre></div><p class="pBodyRelative"><a name="wp1070902"> </a>
+The output file is <code class="cCode">simpcl</code> and the input source file is <code class="cCode">simpcl.c</code>. 
+</p>
+<li><a name="wp1070903"> </a>Check the results:</li>
+<a name="wp1296097"> </a><div class="pPreformattedRelative"><pre>$ ls -l<br />total 97<br />-rwxr-x--x 1 usrid   grpid  313091 May 28 15:41 simpcl<br />-rw-r----- 1 usrid   grpid    1064 May 28 07:51 simpcl.c<br />-rw-r----- 1 usrid   grpid     275 May 28 08:57 simpserv.c<br />-rw-r----- 1 usrid   grpid     392 May 28 07:51 ubbsimple</pre></div><p class="pBodyRelative"><a name="wp1296098"> </a>
+As can be seen, we now have an executable module called <code class="cCode">simpcl</code>. The size of <code class="cCode">simpcl</code> may vary. 
+</p>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1070906"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1070907"> </a><a href="tutsi.html#wp1112066">What Is simpapp?</a></li>
+<li><a name="wp1296158"> </a><a href="../rfcm/rfcmd.html">buildclient(1)</a> in <em class="cEmphasis">Oracle Tuxedo Command Reference</em></li>
+<li><a name="wp1296189"> </a><em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1296164"> </a>
+Step 3: Examining and Compiling the Server
+</h2><h3 class="pHeading2"><a name="wp1070911"> </a>
+How to Examine the Server
+</h3>
+<p class="pBody"><a name="wp1070912"> </a>
+Review the ATMI server program source code.
+</p>
+<a name="wp1070913"> </a><div class="pPreformattedRelative"><pre>$ more simpserv.c</pre></div><div class="pCodeTitle"><a name="wp1293569"> </a>
+Listing&#160;2-2	   Source Code of simpserv.c 
+</div> <a name="wp1293691"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;*/</pre></div><a name="wp1299396"> </a><div class="pPreformatted"><pre>/* #ident	&quot;@(#) apps/simpapp/simpserv.c	$Revision: 1.1 $&quot; */<br /><code class="cCode">1</code>  #include &lt;stdio.h&gt;<br /><code class="cCode">2</code>  #include &lt;ctype.h&gt;<br /><code class="cCode">3</code>  #include &lt;atmi.h&gt;	/* TUXEDO Header File */<br /><code class="cCode">4</code>  #include &lt;userlog.h&gt;	/* TUXEDO Header File */<br /><code class="cCode">5</code>  /* tpsvrinit is executed when a server is booted, before it begins<br />&#160;&#160;&#160;processing requests.  It is not necessary to have this function.<br />&#160;&#160;&#160;Also available is tpsvrdone (not used in this example), which is<br />&#160;&#160;&#160;called at server shutdown time.</pre></div><a name="wp1296285"> </a><div class="pPreformatted"><pre><code class="cCode">9</code>  */<br /><code class="cCode">10</code> #if defined(__STDC__) || defined(__cplusplus)<br /><br /><code class="cCode">12</code> tpsvrinit(int argc, char *argv[])<br /><code class="cCode">13</code> #else<br /><code class="cCode">14</code> tpsvrinit(argc, argv)<br /><code class="cCode">15</code> int argc;<br /><code class="cCode">16</code> char **argv;<br /><code class="cCode">17</code> #endif<br /><code class="cCode">18</code> &#160;&#160;&#160;&#160;{<br /><code class="cCode">19</code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* Some compilers warn if argc and argv aren&#39;t used. <br /><code class="cCode">20</code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; */<br /><code class="cCode">21</code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;argc = argc;<br /><code class="cCode">22</code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;argv = argv;<br /><code class="cCode">23</code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* userlog writes to the central TUXEDO message log */<br /><code class="cCode">24</code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;userlog(&quot;Welcome to the simple server&quot;);<br /><code class="cCode">25</code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return(0);<br /><code class="cCode">26</code> }<br /><code class="cCode">27</code> /* This function performs the actual service requested by the client.<br />&#160;&#160;&#160;&#160;&#160;&#160;Its argument is a structure containing, among other things, a pointer<br />&#160;&#160;&#160;&#160;&#160;&#160;to the data buffer, and the length of the data buffer.<br /><code class="cCode">30</code> */<br /><code class="cCode">31</code> #ifdef __cplusplus<br /><code class="cCode">32</code> extern &quot;C&quot;<br /><code class="cCode">33</code> #endif<br /><code class="cCode">34</code> void<br /><code class="cCode">35</code> #if defined(__STDC__) || defined(__cplusplus)<br /><code class="cCode">36</code> TOUPPER(TPSVCINFO *rqst)<br /><code class="cCode">37</code> #else<br /><code class="cCode">38</code> TOUPPER(rqst)<br /><code class="cCode">39</code> TPSVCINFO *rqst;<br /><code class="cCode">40</code> #endif<br /><code class="cCode">41</code>  {<br /><code class="cCode">42</code> &#160;&#160;&#160;&#160;&#160;&#160;int i;<br /><code class="cCode">43</code> <br /><code class="cCode">44</code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;for(i = 0; i &lt; rqst-&gt;len-1; i++)<br /><code class="cCode">45</code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;rqst-&gt;data[i] = toupper(rqst-&gt;data[i]);<br /><code class="cCode">46</code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* Return the transformed buffer to the requestor. */<br /><code class="cCode">47</code> &#160;&#160;&#160;&#160;&#160;&#160;tpreturn(TPSUCCESS, 0, rqst-&gt;data, 0L, 0);<br /><code class="cCode">48</code> }</pre></div><p class="pGraphic"><a name="wp1070920"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1302862table1302860"><caption><a name="wp1302862"> </a>
+Table 2-2  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Significant Parts of the simpserv.c Source Code</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1302920"> </a>
+Line(s)
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1302922"> </a>
+File/Function
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1302924"> </a>
+Purpose
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302950"> </a>
+Whole file
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302954"> </a>
+An Oracle Tuxedo server does not contain a <code class="cCode">main()</code>. The <code class="cCode">main()</code> is provided by the Oracle Tuxedo system when the server is built.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302944"> </a>
+12
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302946"> </a>
+<code class="cCode">tpsvrinit()</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302948"> </a>
+This subroutine is called during server initialization, that is, before the server begins processing service requests. A default subroutine (provided by the Oracle Tuxedo system) writes a message to <code class="cCode">USERLOG</code> indicating that the server has been booted. <code class="cCode">userlog(3c)</code> is a log used by the Oracle Tuxedo system and can be used by applications.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302938"> </a>
+38
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302940"> </a>
+<code class="cCode">TOUPPER()</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302942"> </a>
+The declaration of a service (the only one offered by <code class="cCode">simpserv</code>). The sole argument expected by the service is a pointer to a <code class="cCode">TPSVCINFO</code> structure, which contains the data string to be converted to uppercase.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302932"> </a>
+45
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302934"> </a>
+<code class="cCode">for loop</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302936"> </a>
+Converts the input to uppercase by repeated calls to <code class="cCode">TOUPPER</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302926"> </a>
+49
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302928"> </a>
+<code class="cCode">tpreturn()</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1302930"> </a>
+Returns the converted string to the client with the <code class="cCode">TPSUCCESS</code> flag set.
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+<h3 class="pHeading2"><a name="wp1070947"> </a>
+How to Compile the Server
+</h3>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1070948"> </a>Run <code class="cCode">buildserver</code> to compile the ATMI server program:</li>
+<a name="wp1070949"> </a><div class="pPreformattedRelative"><pre>    buildserver -o simpserv -f simpserv.c -s TOUPPER</pre></div><p class="pBodyRelative"><a name="wp1070950"> </a>
+The executable file to be created is named <code class="cCode">simpserv</code> and <code class="cCode">simpserv.c</code> is the input source file. The -<code class="cCode">s TOUPPER</code> option specifies the service to be advertised when the server is booted.
+</p>
+<li><a name="wp1070951"> </a>Check the results:</li>
+<a name="wp1296314"> </a><div class="pPreformattedRelative"><pre>$ ls -l<br />total 97<br />-rwxr-x--x 1  usrid grpid 313091    May 28 15:41 simpcl<br />-rw-r----- 1  usrid grpid   1064    May 28 07:51 simpcl.c<br />-rwxr-x--x 1  usrid grpid 358369    May 29 09:00 simpserv<br />-rw-r----- 1  usrid grpid    275    May 28 08:57 simpserv.c<br />-rw-r----- 1  usrid grpid    392    May 28 07:51 ubbsimple</pre></div></ol></div>
+<p class="pBody"><a name="wp1296315"> </a>
+You now have an executable module called <code class="cCode">simpserv</code>. 
+</p>
+<h3 class="pHeading2"><a name="wp1070954"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1070955"> </a><a href="tutsi.html#wp1112066">What Is simpapp?</a></li>
+<li><a name="wp1150681"> </a><a href="../rfcm/rfcmd.html">buildserver(1)</a> in <em class="cEmphasis">Oracle Tuxedo Command Reference</em></li>
+<li><a name="wp1070956"> </a><em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1070958"> </a>
+Step 4: Editing and Loading the Configuration File
+</h2><h3 class="pHeading2"><a name="wp1070959"> </a>
+How to Edit the Configuration File
+</h3>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1070960"> </a>In a text editor, familiarize yourself with <code class="cCode">ubbsimple</code>, which is the configuration file for <code class="cCode">simpapp</code>.</li>
+<div class="pCodeTitle"><a name="wp1070961"> </a>
+Listing&#160;2-3	   The simpapp Configuration File 
+</div> <a name="wp1281753"> </a><div class="pPreformatted"><pre>1$<br />2<br />3 #Skeleton UBBCONFIG file for the BEA Tuxedo Simple Application.<br />4 #Replace the &lt;bracketed&gt; items with the appropriate values.<br />5 RESOURCES<br />6 IPCKEY&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;<em class="cEmphasis">Replace with valid IPC Key greater than 32,768</em>&gt;<br />7<br />8  #Example:<br />9<br />10 #IPCKEY         62345<br />11<br />12 MASTER          simple<br />13 MAXACCESSERS    5<br />14 MAXSERVERS      5<br />15 MAXSERVICES     10<br />16 MODEL           SHM<br />17 LDBAL           N<br />18 <br />19 *MACHINES<br />20<br />21 DEFAULT:<br />22<br />23 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;APPDIR=&quot;&lt;<em class="cEmphasis">Replace with the current pathname</em>&gt;&quot;<br />24&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TUXCONFIG=&quot;&lt;<em class="cEmphasis">Replace with TUXCONFIG Pathname</em>&gt;&quot;<br />25&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;UXDIR=&quot;&lt;<em class="cEmphasis">Root directory of Tuxedo (not /)</em>&gt;&quot;<br />26 #Example:<br />27 #&#160;&#160;&#160;&#160;&#160;&#160;&#160;APPDIR=&quot;/usr/me/simpdir&quot;<br />28 #&#160;&#160;&#160;&#160;&#160;&#160;&#160;TUXCONFIG=&quot;/usr/me/simpdir/tuxconfig&quot;<br />29 #&#160;&#160;&#160;&#160;&#160;&#160;&#160;TUXDIR=&quot;/usr/tuxedo&quot;<br />30<br />31 &lt;Machine-name&gt;  LMID=simple<br />32 #Example:<br />33 #tuxmach        LMID=simple<br />34 *GROUPS<br />35 GROUP1<br />36&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LMID=simple   GRPNO=1  OPENINFO=NONE<br />37<br />38 *SERVERS<br />39  DEFAULT:<br />40&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CLOPT=&quot;-A&quot;<br />41  simpserv    SRVGRP=GROUP1 SRVID=1<br />42 *SERVICES<br />43  TOUPPER</pre></div><li><a name="wp1070982"> </a>For each <code class="cCode">&lt;string&gt;</code> (that is, for each string shown between angle brackets), substitute an appropriate value.</li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1185569"> </a>
+How to Load the Configuration File
+</h3>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1070983"> </a>Run <code class="cCode">tmloadcf</code> to load the configuration file:</li>
+<a name="wp1070984"> </a><div class="pPreformattedRelative"><pre>$ tmloadcf ubbsimple<br />Initialize TUXCONFIG file: /usr/me/simpdir/tuxconfig [y, q] ? y<br />$</pre></div><li><a name="wp1070985"> </a>Check the results:</li>
+<a name="wp1070986"> </a><div class="pPreformattedRelative"><pre>$ ls -l<br />total 216<br />-rwxr-x--x 1 usrid grpid 313091    May 28 15:41 simpcl<br />-rw-r----- 1 usrid grpid   1064    May 28 07:51 simpcl.c<br />-rwxr-x--x 1 usrid grpid 358369    May 29 09:00 simpserv<br />-rw-r----- 1 usrid grpid    275    May 28 08:57 simpserv.c<br />-rw-r----- 1 usrid grpid 106496    May 29 09:27 tuxconfig<br />-rw-r----- 1 usrid grpid    382    May 29 09:26 ubbsimple</pre></div></ol></div>
+<p class="pBody"><a name="wp1070987"> </a>
+You now have a file called <code class="cCode">TUXCONFIG</code>. The <code class="cCode">TUXCONFIG</code> file is a new file under the control of the Oracle Tuxedo system. 
+</p>
+<h3 class="pHeading2"><a name="wp1070988"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1070989"> </a><a href="tutsi.html#wp1112066">What Is simpapp?</a></li>
+<li><a name="wp1150748"> </a><a href="../rfcm/rfcmd.html">tmloadcf(1)</a> in the <em class="cEmphasis">Oracle Tuxedo Command Reference</em></li>
+<li><a name="wp1070990"> </a><a href="../rf5/rf5.html">UBBCONFIG(5)</a> in the <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1070992"> </a>
+Step 5: How to Boot the Application
+</h2><div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1070993"> </a>Execute <code class="cCode">tmboot</code> to bring up the application:</li>
+<a name="wp1210640"> </a><div class="pPreformattedRelative"><pre>$ tmboot<br />Boot all admin and server processes? (y/n): y<br />Booting all admin and server processes in /usr/me/simpdir/tuxconfig<br />Booting all admin processes ...<br />   exec BBL -A:<br />   process id=24223 ... Started.</pre></div><a name="wp1210641"> </a><div class="pPreformattedRelative"><pre>Booting server processes ...</pre></div><a name="wp1070996"> </a><div class="pPreformattedRelative"><pre>   exec simpserv -A :<br />   process id=24257 ... Started.<br />2 processes started.<br />$</pre></div></ol></div>
+<p class="pBody"><a name="wp1070997"> </a>
+The BBL is the administrative process that monitors the shared memory structures in the application. <code class="cCode">simpserv</code> is the <code class="cCode">simpapp</code> server that runs continuously, awaiting requests. 
+</p>
+<h3 class="pHeading2"><a name="wp1070998"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1070999"> </a><a href="tutsi.html#wp1112066">What Is simpapp?</a></li>
+<li><a name="wp1151054"> </a><a href="../rfcm/rfcmd.html">tmboot(1)</a> in the <em class="cEmphasis">Oracle Tuxedo Command Reference</em></li>
+<li><a name="wp1071003"> </a><span class="cHyperlink">
+&#8220;How to Boot the</span><a href="../ada/adboot.html"></a> Application&#8221; in <em class="cEmphasis">Administering an Oracle Tuxedo Application at Run Time</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1071005"> </a>
+Step 6: How to Execute the Run-time Application
+</h2><p class="pBody"><a name="wp1071006"> </a>
+To execute your <code class="cCode">simpapp</code>, have the client submit a request. 
+</p>
+<a name="wp1071007"> </a><div class="pPreformattedRelative"><pre>$ simpcl &#8220;hello, world&#8221;<br />Returned string is: HELLO, WORLD</pre></div><h3 class="pHeading2"><a name="wp1151082"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1151098"> </a><a href="tutsi.html#wp1112066">What Is simpapp?</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1071009"> </a>
+Step 7: How to Monitor the Run-time Application
+</h2><p class="pBody"><a name="wp1071010"> </a>
+As the administrator, you can use the <code class="cCode">tmadmin</code> command interpreter to check an application and make dynamic changes. To run <code class="cCode">tmadmin</code>, you must have the <code class="cCode">TUXCONFIG</code> environment variable set. 
+</p>
+<p class="pBody"><a name="wp1117012"> </a>
+<code class="cCode">tmadmin</code> can interpret and run over 50 commands. For a complete list, see <a href="../rfcm/rfcmd.html">tmadmin(1)</a>. The following uses two of the <code class="cCode">tmadmin</code> commands. 
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1071011"> </a>Enter the following command: </li>
+<a name="wp1071012"> </a><div class="pPreformattedRelative"><pre>$ tmadmin</pre></div><p class="pBodyRelative"><a name="wp1071013"> </a>
+The following lines are displayed:
+</p>
+<a name="wp1071014"> </a><div class="pPreformattedRelative"><pre>tmadmin - Copyright (c) 1999 BEA Systems, Inc. All rights reserved.<br />&gt;</pre></div></ol></div>
+<a name="wp1071015"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The greater-than sign (&gt;) is the <code class="cCode">tmadmin</code> prompt. </td>
+</tr>
+</table>
+
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1071016"> </a>Enter the <code class="cCode">printserver(psr)</code> command to display information about servers:</li>
+<a name="wp1071017"> </a><div class="pPreformatted"><pre>&gt; psr<br />a.out Name Queue Name  Grp Name ID RqDone Load Done Current Service<br />---------- ----------  -------- -- ------ --------- ---------------<br />BBL        531993      simple    0      0         0 ( IDLE )<br />simpserv   00001.00001 GROUP1    1      0         0 ( IDLE )<br />&gt;</pre></div><li><a name="wp1071018"> </a>Enter the <code class="cCode">printservice(psc)</code> command to display information about the services: </li>
+<a name="wp1071019"> </a><div class="pPreformatted"><pre>&gt; psc<br />Service Name Routine Name a.out Name Grp Name ID Machine # Done Status<br />------------ ------------ ---------- -------- -- ------- ------ ------<br />TOUPPER      TOUPPER      simpserv   GROUP1    1 simple       - AVAIL<br />&gt;</pre></div></ol></div>
+<h3 class="pHeading2"><a name="wp1071021"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1071022"> </a><a href="tutsi.html#wp1112066">What Is simpapp?</a></li>
+<li><a name="wp1151116"> </a><a href="../rfcm/rfcmd.html">tmadmin(1)</a> in the <em class="cEmphasis">Oracle Tuxedo Command Reference</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1071024"> </a>
+Step 8: How to Shut Down the Application
+</h2><div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1071025"> </a>Run <code class="cCode">tmshutdown</code> to bring down the application:</li>
+<a name="wp1071026"> </a><div class="pPreformattedRelative"><pre>$ tmshutdown<br />Shutdown all admin and server processes? (y/n): y<br />Shutting down all admin and server processes in /usr/me/simpdir/tuxconfig<br />Shutting down server processes ...</pre></div><a name="wp1071027"> </a><div class="pPreformattedRelative"><pre>Server Id = 1 Group Id = GROUP1 Machine = simple:    shutdown succeeded.<br />Shutting down admin processes ...</pre></div><a name="wp1071028"> </a><div class="pPreformattedRelative"><pre>Server Id = 0 Group Id = simple Machine = simple:    shutdown succeeded.<br />2 processes stopped.<br />$</pre></div><li><a name="wp1071029"> </a>Check the <code class="cCode">ULOG</code>:</li>
+<a name="wp1071030"> </a><div class="pPreformattedRelative"><pre>$ cat ULOG*<br />$<br />113837.tuxmach!tmloadcf.10261: CMDTUX_CAT:879: A new file system has been created. (size = 32 4096-byte blocks)<br />113842.tuxmach!tmloadcf.10261: CMDTUX_CAT:871: TUXCONFIG file /usr/me/simpdir/tuxconfig has been created<br />113908.tuxmach!BBL.10768: LIBTUX_CAT:262: std main starting<br />113913.tuxmach!simpserv.10925: LIBTUX_CAT:262: std main starting<br />113913.tuxmach!simpserv.10925: Welcome to the simple server<br />114009.tuxmach!simpserv.10925: LIBTUX_CAT:522: Default tpsvrdone() function used.<br />114012.tuxmach!BBL.10768: CMDTUX_CAT:26: Exiting system</pre></div></ol></div>
+<h3 class="pHeading2"><a name="wp1071036"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1071037"> </a><a href="tutsi.html#wp1112066">What Is simpapp?</a></li>
+<li><a name="wp1151127"> </a><a href="../rfcm/rfcmd.html">tmshutdown(1)</a> in the <em class="cEmphasis">Oracle Tuxedo Command Reference</em></li>
+<li><a name="wp1071038"> </a><a href="../rf3c/rf3c.html">userlog(3c)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em></li>
+<li><a name="wp1071042"> </a><span class="cHyperlink">
+&#8220;How to Shut </span><a href="../ada/adboot.html"></a>Down Your Application&#8221; in <em class="cEmphasis">Administering an Oracle Tuxedo Application at Run Time</em></li>
+<li><a name="wp1292164"> </a><span class="cHyperlink">
+&#8220;What Is the </span><a href="../ada/admon.html"></a>User Log (ULOG)?&#8221; in <em class="cEmphasis">Administering an Oracle Tuxedo Application at Run Time</em></li>
+</ul></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="tutsi.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="tutov.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="tutba.html"><img id="LongDescNotReq9" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

@@ -1,0 +1,1101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41824" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/pgc/fm/pgserv.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/26/12 11:37:55" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Writing Servers</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Programming an Oracle Tuxedo ATMI Application Using C
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pgclt.html"><img id="LongDescNotReq3" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pgreq.html"><img id="LongDescNotReq4" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq5" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq6" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/pgc.pdf" target="pdf"><img id="LongDescNotReq7" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq8" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1394682"> </a>
+Writing Servers
+</h1>
+<p class="pBody"><a name="wp1292153"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1385631"> </a><a href="pgserv.html#wp1385665">Oracle Tuxedo System main( )</a></li>
+<li><a name="wp1167666"> </a><a href="pgserv.html#wp1167723">System-Supplied Server and Services</a></li>
+<li><a name="wp1167670"> </a><a href="pgserv.html#wp1167805">Guidelines for Writing Servers</a></li>
+<li><a name="wp1167674"> </a><a href="pgserv.html#wp1250152">Defining a Service</a></li>
+<li><a name="wp1385655"> </a><a href="pgserv.html#wp1387535">Example: Checking the Buffer Type</a></li>
+<li><a name="wp1385659"> </a><a href="pgserv.html#wp1387551">Example: Checking the Priority of the Service Request</a></li>
+<li><a name="wp1167682"> </a><a href="pgserv.html#wp1167959">Terminating a Service Routine</a></li>
+<li><a name="wp1167686"> </a><a href="pgserv.html#wp1168128">Advertising and Unadvertising Services</a></li>
+<li><a name="wp1167690"> </a><a href="pgserv.html#wp1250188">Building Servers</a></li>
+<li><a name="wp1397613"> </a><a href="pgserv.html#wp1390169">Using a C++ Compiler</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1385665"> </a>
+Oracle Tuxedo System main( )
+</h2><p class="pBody"><a name="wp1167695"> </a>
+To facilitate the development of ATMI servers, the Oracle Tuxedo system provides a predefined <code class="cCode">main()</code> routine for server load modules. When you execute the <a href="pgserv.html#wp1250188">buildserver</a> command, the <code class="cCode">main()</code> routine is automatically included as part of the server.
+</p>
+<a name="wp1167697"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The <code class="cCode">main()</code> routine that the system provides is a closed abstraction; you cannot modify it.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1167698"> </a>
+In addition to joining and exiting from an application, the predefined <code class="cCode">main()</code> routine accomplishes the following tasks on behalf of the server.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1167699"> </a>Executes the process ignoring any hangups (that is, it ignores the <code class="cCode">SIGHUP</code> signal). </li>
+<li><a name="wp1167700"> </a>Initiates the cleanup process on receipt of the standard operating system software termination signal (<code class="cCode">SIGTERM</code>). The server is shut down and must be rebooted if needed again.</li>
+<li><a name="wp1167701"> </a>Attaches to shared memory for bulletin board services.</li>
+<li><a name="wp1167702"> </a>Creates a message queue for the process.</li>
+<li><a name="wp1167703"> </a>Advertises the initial services to be offered by the server. The initial services are either all the services link edited with the predefined <code class="cCode">main()</code>, or a subset specified by the Oracle Tuxedo system administrator in the configuration file.</li>
+<li><a name="wp1252685"> </a>Processes command-line arguments up to the double dash (<code class="cCode">--</code>), which indicates the end of system-recognized arguments.</li>
+<li><a name="wp1252687"> </a>Calls the function <a href="pgserv.html#wp1386336">tpsvrinit()</a> to process any command-line arguments listed after the double dash (<code class="cCode">--</code>) and optionally to open the resource manager. These command-line arguments are used for application-specific initialization.</li>
+<li><a name="wp1167706"> </a>Until ordered to halt, checks its request queue for service request messages.</li>
+<li><a name="wp1167707"> </a>When a service request message arrives on the request queue, <code class="cCode">main()</code> performs the following tasks until ordered to halt: </li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1167708"> </a>If the <code class="cCode">-r</code> option is specified, records the starting time of the service request.</li>
+<li><a name="wp1167709"> </a>Updates the bulletin board to indicate that the server is <code class="cCode">BUSY</code>.</li>
+<li><a name="wp1385823"> </a>Allocates a buffer for the request message and dispatches the service; that is, calls the service subroutine.</li>
+</ul></div>
+<li><a name="wp1167711"> </a>When the service returns from processing its input, <code class="cCode">main()</code> performs the following tasks until ordered to halt: </li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1167712"> </a>If the <code class="cCode">-r</code> option is specified, records the ending time of the service request.</li>
+<li><a name="wp1167713"> </a>Updates statistics.</li>
+<li><a name="wp1167714"> </a>Updates the bulletin board to indicate that the server is <code class="cCode">IDLE</code>; that is, that the server is ready for work.</li>
+<li><a name="wp1167715"> </a>Checks its queue for the next service request.</li>
+</ul></div>
+<li><a name="wp1167716"> </a>When the server is required to halt, calls tpsvrdone() to perform any required shutdown operations.</li>
+</ul></div>
+<p class="pBody"><a name="wp1167717"> </a>
+As indicated above, the <code class="cCode">main()</code> routine handles all of the details associated with joining and exiting from an application, managing buffers and transactions, and handling communication.
+</p>
+<a name="wp1167718"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Because the system-supplied <code class="cCode">main()</code> accomplishes the work of joining and leaving the application, you should not include calls to the <a href="pgclt.html#wp1030381">tpinit()</a> or <a href="pgclt.html#wp1030538">tpterm()</a> function in your code. If you do, the function encounters an error and returns <code class="cCode">TPEPROTO</code> in <code class="cCode">tperrno</code>. For more information on the <a href="pgclt.html#wp1030381">tpinit()</a> or <a href="pgclt.html#wp1030538">tpterm()</a> function, refer to <a href="pgclt.html">Writing Clients</a>.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1167723"> </a>
+System-Supplied Server and Services
+</h2><p class="pBody"><a name="wp1167724"> </a>
+The <code class="cCode">main()</code> routine provides one system-supplied ATMI server, <code class="cCode">AUTHSVR</code>, and two subroutines, <code class="cCode">tpsvrinit()</code> and <code class="cCode">tpsvrdone()</code>. The default versions of all three, which are described in the following sections, can be modified to suit your application.
+</p>
+<a name="wp1167725"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Notes:</strong></td>
+<td>If you want to write your own versions of <code class="cCode">tpsvrinit()</code> and <code class="cCode">tpsvrdone()</code>, remember that the default versions of these two routines call <code class="cCode">tx_open()</code> and <code class="cCode">tx_close()</code>, respectively. If you write a new version of <code class="cCode">tpsvrinit()</code> that calls <code class="cCode">tpopen()</code> rather than <code class="cCode">tx_open()</code>, you should also write a new version of <code class="cCode">tpsvrdone()</code> that calls <code class="cCode">tpclose()</code>. In other words, both functions in an open/close pair must belong to the same set.</td></tr>
+</table>
+
+<a name="wp1386183"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>In addition to the subroutines described in this topic, the system provides two subroutines called <a href="../rf3c/rf3c.html">tpsvrthrinit(3c)</a> and <a href="../rf3c/rf3c.html">tpsvrthrdone(3c)</a>. For more information, refer to <a href="pgthr.html">Programming a Multithreaded and Multicontexted ATMI Application</a>.</td>
+</tr>
+</table>
+<h3 class="pHeading2"><a name="wp1167730"> </a>
+System-Supplied Server: AUTHSVR( )
+</h3>
+<p class="pBody"><a name="wp1167731"> </a>
+You can use the <a href="../rf5/rf5.html">AUTHSVR(5)</a> server to provide individual client authentication for an application. The <a href="pgclt.html#wp1030381">tpinit()</a> function calls this server when the level of security for the application is <code class="cCode">TPAPPAUTH</code>.
+</p>
+<p class="pBody"><a name="wp1167732"> </a>
+The service in <code class="cCode">AUTHSVR</code> looks in the <code class="cCode">data</code> field of the <code class="cCode">TPINIT</code> buffer for a user password (not to be confused with the application password specified in the <code class="cCode">passwd</code> field of the <code class="cCode">TPINIT</code> buffer). By default, the system takes the string in <code class="cCode">data</code> and searches for a matching string in the <code class="cCode">/etc/passwd</code> file.
+</p>
+<p class="pBody"><a name="wp1167733"> </a>
+When called by a native-site client, <code class="cCode">tpinit()</code> forwards the <code class="cCode">data</code> field as it is received. This means that if the application requires the password to be encrypted, the client program must be coded accordingly. 
+</p>
+<p class="pBody"><a name="wp1167734"> </a>
+When called by a Workstation client, <code class="cCode">tpinit()</code> encrypts the data before sending it across the network.
+</p>
+<h3 class="pHeading2"><a name="wp1386336"> </a>
+System-Supplied Services: tpsvrinit( ) Function
+</h3>
+<p class="pBody"><a name="wp1167736"> </a>
+When a server is booted, the Oracle Tuxedo system <code class="cCode">main()</code> calls <a href="../rf3c/rf3c.html">tpsvrinit(3c)</a> during its initialization phase, before handling any service requests.
+</p>
+<p class="pBody"><a name="wp1167737"> </a>
+If an application does not provide a custom version of this function within the server, the system uses the default function provided by <code class="cCode">main()</code>, which opens the resource manager and logs an entry in the central event log indicating that the server has successfully started. The central user log is an automatically generated file to which processes can write messages by calling the <a href="../rf3c/rf3c.html">userlog(3c)</a> function. Refer to <a href="pgerr.html">Managing Errors</a> for more information on the central event log. 
+</p>
+<p class="pBody"><a name="wp1167741"> </a>
+You can use the <code class="cCode">tpsvrinit()</code> function for any initialization processes that might be required by an application, such as the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1167742"> </a>Receiving command-line options</li>
+<li><a name="wp1167743"> </a>Opening a database</li>
+</ul></div>
+<p class="pBody"><a name="wp1167744"> </a>
+The following sections provide code samples showing how these initialization tasks are performed through calls to <code class="cCode">tpsvrinit()</code>. Although it is not illustrated in the following examples, message exchanges can also be performed within this routine. However, <code class="cCode">tpsvrinit()</code> fails if it returns with asynchronous replies pending. In this case, the replies are ignored by the Oracle Tuxedo system, and the server exits gracefully.
+</p>
+<p class="pBody"><a name="wp1167745"> </a>
+You can also use the <code class="cCode">tpsvrinit()</code> function to start and complete transactions, as described in <a href="pgerr.html">Managing Errors</a>.
+</p>
+<p class="pBody"><a name="wp1167749"> </a>
+Use the following signature to call the <code class="cCode">tpsvrinit()</code> function: 
+</p>
+<a name="wp1386636"> </a><div class="pPreformatted"><pre>int<br />tpsvrinit(int <em class="cEmphasis">argc, char **argv</em>)</pre></div><h4 class="pHeading3"><a name="wp1167752"> </a>
+Receiving Command-line Options
+</h4>
+<p class="pBody"><a name="wp1167753"> </a>
+When a server is booted, its first task is to read the server options specified in the configuration file up to the point that it receives an EOF indication. To do so, the server calls the <code class="cCode">getopt</code>(3) UNIX function. The presence of a double dash (<code class="cCode">--</code>) on the command line causes the <code class="cCode">getopt()</code> function to return an EOF. The <code class="cCode">getopt</code> function places the <code class="cCode">argv</code> index of the next argument to be processed in the external variable <code class="cCode">optind</code>. The predefined <code class="cCode">main()</code> then calls <code class="cCode">tpsvrinit()</code>.
+</p>
+<p class="pBody"><a name="wp1167754"> </a>
+<a href="pgserv.html#wp1386745">Listing&#160;5-1</a> shows how the <code class="cCode">tpsvrinit()</code> function is used to receive command-line options.
+</p>
+<div class="pCodeTitle"><a name="wp1386745"> </a>
+Listing&#160;5-1	   Receiving Command-line Options in tpsvrinit( )
+</div> <a name="wp1386746"> </a><div class="pPreformatted"><pre>tpsvrinit(argc, argv)<br />int argc;<br />char **argv;<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int c;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;extern char *optarg;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;extern int optind;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;while((c = getopt(argc, argv, &quot;f:x:&quot;)) != EOF)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;switch(c){<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;} <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.<br />}</pre></div><p class="pBody"><a name="wp1386748"> </a>
+When <code class="cCode">main()</code> calls <code class="cCode">tpsvrinit()</code>, it picks up any arguments that follow the double dash (<code class="cCode">--</code>) on the command line. In the example above, options <code class="cCode">f</code> and <code class="cCode">x</code> each takes an argument, as indicated by the colon. <code class="cCode">optarg</code> points to the beginning of the option argument. The switch statement logic is omitted.
+</p>
+<h4 class="pHeading3"><a name="wp1167764"> </a>
+Opening a Resource Manager
+</h4>
+<p class="pBody"><a name="wp1167765"> </a>
+The following example illustrates another common use of <code class="cCode">tpsvrinit()</code>: opening a resource manager. The Oracle Tuxedo system provides functions to open a resource manager, <a href="../rf3c/rf3c.html">tpopen(3c)</a> and <a href="../rf3c/rf3c.html">tx_open(3c)</a><code class="cCode">.</code> It also provides the complementary functions, <a href="../rf3c/rf3c.html">tpclose(3c)</a> and <a href="../rf3c/rf3c.html">tx_close(3c)</a>. Applications that use these functions to open and close their resource managers are portable in this respect. They work by accessing the resource manager instance-specific information that is available in the configuration file.
+</p>
+<a name="wp1386937"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If writing a multithreaded server, you must use the <code class="cCode">tpsvrthrinit()</code> function to open a resource manager, as described in <a href="pgthr.html">Programming a Multithreaded and Multicontexted ATMI Application</a>.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1167770"> </a>
+These function calls are optional and can be used in place of the resource manager specific calls that are sometimes part of the Data Manipulation Language (DML) if the resource manager is a database. Note the use of the <a href="../rf3c/rf3c.html">userlog(3c)</a> function to write to the central event log.
+</p>
+<a name="wp1167771"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>To create an initialization function that both receives command-line options and opens a database, combine the following example shown in <a href="pgserv.html#wp1387006">Listing&#160;5-2</a> with the previous example.</td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1387006"> </a>
+Listing&#160;5-2	   Opening a Resource Manager in tpsvrinit( )
+</div> <a name="wp1396175"> </a><div class="pPreformatted"><pre>tpsvrinit()<br />{<br /> <br />&#160;&#160;&#160;&#160;/* Open database */<br /> <br />&#160;&#160;&#160;&#160;if (tpopen() == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)userlog(&quot;tpsvrinit: failed to open database: &quot;);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;switch (tperrno) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case TPESYSTEM:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)userlog(&quot;System error\n&quot;);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case TPEOS:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)userlog(&quot;Unix error %d\n&quot;,Uunixerr);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case TPEPROTO:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)userlog(&quot;Called in improper context\n&quot;);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case TPERMERR:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)userlog(&quot;RM failure\n&quot;);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;return(-1);     /* causes the server to exit */<br />&#160;&#160;&#160;}<br />&#160;&#160;return(0);<br />}</pre></div><p class="pBody"><a name="wp1167780"> </a>
+To guard against errors that may occur during initialization, <code class="cCode">tpsvrinit()</code> can be coded to allow the server to exit gracefully before starting to process service requests.
+</p>
+<h3 class="pHeading2"><a name="wp1387047"> </a>
+System-Supplied Services: tpsvrdone( ) Function
+</h3>
+<p class="pBody"><a name="wp1167782"> </a>
+The <code class="cCode">tpsvrdone()</code> function calls <code class="cCode">tpclose()</code> to close the resource manager, similarly to the way <code class="cCode">tpsvrinit()</code> calls <code class="cCode">tpopen()</code> to open it. 
+</p>
+<a name="wp1387155"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If writing a multithreaded server, you must use the <code class="cCode">tpsvrthrdone()</code> command to open a resource manager, as described in <a href="pgthr.html">Programming a Multithreaded and Multicontexted ATMI Application</a>.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1167787"> </a>
+Use the following signature to call the <code class="cCode">tpsvrdone()</code> function:
+</p>
+<a name="wp1387199"> </a><div class="pPreformatted"><pre>void<br />tpsvrdone<code class="cCode">()</code>  /* Server termination routine */</pre></div><p class="pBody"><a name="wp1387204"> </a>
+The <code class="cCode">tpsvrdone()</code> function requires no arguments.
+</p>
+<p class="pBody"><a name="wp1387205"> </a>
+If an application does not define a closing routine for <code class="cCode">tpsvrdone()</code>, the Oracle Tuxedo system calls the default routine supplied by <code class="cCode">main()</code>. This routine calls <code class="cCode">tx_close</code>() and <code class="cCode">userlog</code>() to close the resource manager and write to the central event log, respectively. The message sent to the log indicates that the server is about to exit.
+</p>
+<p class="pBody"><a name="wp1387206"> </a>
+<code class="cCode">tpsvrdone()</code> is called after the server has finished processing service requests but before it exits. Because the server is still part of the system, further communication and transactions can take place within the routine, as long as certain rules are followed. These rules are covered in <a href="pgerr.html">Managing Errors</a>. 
+</p>
+<p class="pBody"><a name="wp1167796"> </a>
+<a href="pgserv.html#wp1387264">Listing&#160;5-3</a> illustrates how to use the <code class="cCode">tpsvrdone()</code> function to close a resource manager and exit gracefully.
+</p>
+<div class="pCodeTitle"><a name="wp1387264"> </a>
+Listing&#160;5-3	   Closing a Resource Manager with tpsvrdone( )
+</div> <a name="wp1387265"> </a><div class="pPreformatted"><pre>void<br />tpsvrdone()<br />{<br /> <br />&#160;&#160;&#160;&#160;&#160;/* Close the database */ <br />&#160;&#160;&#160;&#160;&#160;if(tpclose() == -1)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)userlog(&quot;tpsvrdone: failed to close database: &quot;);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;switch (tperrno) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case TPESYSTEM:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)userlog(&quot;BEA TUXEDO error\n&quot;);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case TPEOS:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)userlog(&quot;Unix error %d\n&quot;,Uunixerr);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case TPEPROTO:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)userlog(&quot;Called in improper context\n&quot;);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case TPERMERR:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)userlog(&quot;RM failure\n&quot;);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;break;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return;<br />&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;return;<br />}</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1167805"> </a>
+Guidelines for Writing Servers
+</h2><p class="pBody"><a name="wp1167806"> </a>
+Because the communication details are handled by the Oracle Tuxedo system <code class="cCode">main()</code> routine, you can concentrate on the application service logic rather than communication implementation. For compatibility with the system-supplied <code class="cCode">main()</code>, however, application services must adhere to certain conventions. These conventions are referred to, collectively, as the service template for coding service routines. They are summarized in the following list. Refer to the <a href="../rf3c/rf3c.html">tpservice(3c)</a> reference page in the <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em> for more information on these conventions.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1167810"> </a>A request/response service can receive only one request at a time and can send only one reply.</li>
+<li><a name="wp1167811"> </a>When processing a request, a request/response service works only on that request. It can accept another only after it has either sent a reply to the requester or forwarded the request to another service for additional processing.</li>
+<li><a name="wp1167812"> </a>Service routines must terminate by calling either the <a href="pgserv.html#wp1167965">tpreturn()</a> or <a href="pgserv.html#wp1168061">tpforward()</a> function. These functions behave similarly to the C language <code class="cCode">return</code> statement except that after they finish executing, control returns to the Oracle Tuxedo system&#8217;s <code class="cCode">main()</code> instead of the calling function.</li>
+<li><a name="wp1167813"> </a>When communicating with another server via <a href="pgreq.html#wp1055487">tpacall()</a>, the initiating service must either wait for all outstanding replies or invalidate them with <a href="pgserv.html#wp1168043">tpcancel()</a> before calling <a href="pgserv.html#wp1167965">tpreturn()</a> or <a href="pgserv.html#wp1168061">tpforward()</a>.</li>
+<li><a name="wp1387464"> </a>Service routines are invoked with one argument, <code class="cCodeEmphasis">svcinfo</code>, which is a pointer to a service information structure (<code class="cCode">TPSVCINFO</code>).</li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1250152"> </a>
+Defining a Service
+</h2><p class="pBody"><a name="wp1387469"> </a>
+You must define every service routine as a function that receives one argument consisting of a pointer to a <code class="cCode">TPSVCINFO</code> structure. The <code class="cCode">TPSVCINFO</code> structure is defined in the <code class="cCode">atmi.h</code> header file and includes the following information:
+</p>
+<a name="wp1387470"> </a><div class="pPreformatted"><pre>char      <code class="cCodeEmphasis">name</code>[32];<br />long      <code class="cCodeEmphasis">flags</code>;<br />char      *<code class="cCodeEmphasis">data</code>; <br />long      <code class="cCodeEmphasis">len</code>;<br />int       <code class="cCodeEmphasis">cd</code>;<br />int       <code class="cCodeEmphasis">appkey</code>;<br />CLIENTID  <code class="cCodeEmphasis">cltid</code>;</pre></div><p class="pBody"><a name="wp1387471"> </a>
+<a href="pgserv.html#wp774691">Table&#160;5-1</a> summarizes the <code class="cCode">TPSVCINFO</code> data structure.
+</p>
+<p class="pGraphic"><a name="wp1387518"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp774691table1387472"><caption><a name="wp774691"> </a>
+Table 5-1  TPSVCINFO Data Structure
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1387474"> </a>
+Field
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1387476"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1387478"> </a>
+<code class="cCodeEmphasis">name</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1387480"> </a>
+Specifies, to the service routine, the name used by the requesting process to invoke the service.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1387482"> </a>
+<code class="cCodeEmphasis">flags</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1387484"> </a>
+Notifies the service if it is in transaction mode or if the caller is expecting a reply. The various ways in which a service can be placed in transaction mode are discussed in <a href="pgglob.html">Writing Global Transactions</a>.
+</div>
+<div class="pCellBody"><a name="wp1387488"> </a>
+The <code class="cCode">TPTRAN</code> flag indicates that the service is in transaction mode. When a service is invoked through a call to <a href="pgreq.html#wp1055338">tpcall()</a> or <a href="pgreq.html#wp1055487">tpacall()</a> with the <code class="cCode">flags</code> parameter set to <code class="cCode">TPNOTRAN</code>, the service cannot participate in the current transaction. However, it is still possible for the service to be executed in transaction mode. That is, even when the caller sets the <code class="cCode">TPNOTRAN</code> communication flag, it is possible for <code class="cCode">TPTRAN</code> to be set in <code class="cCode">svcinfo-&gt;flags</code>. For an example of such a situation, refer to <a href="pgglob.html">Writing Global Transactions</a>. 
+</div>
+<div class="pCellBody"><a name="wp1387494"> </a>
+The <code class="cCodeEmphasis">flags</code> member is set to <code class="cCode">TPNOREPLY</code> if the service is called by <a href="pgreq.html#wp1055487">tpacall()</a> with the <code class="cCode">TPNOREPLY</code> communication flag set. If a called service is part of the same transaction as the calling process, it must return a reply to the caller.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1387497"> </a>
+<code class="cCodeEmphasis">data</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1387500"> </a>
+Pointer to a buffer that was previously allocated by <a href="pgbuf.html#wp1262143">tpalloc()</a> within the <code class="cCode">main()</code>. This buffer is used to receive request messages. However, it is recommended that you also use this buffer to send back reply messages or forward request messages.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1387502"> </a>
+<code class="cCodeEmphasis">len</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1387504"> </a>
+Contains the length of the request data that is in the buffer referenced by the <code class="cCodeEmphasis">data</code> field. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1387506"> </a>
+<code class="cCodeEmphasis">cd</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1387508"> </a>
+For conversational communication, specifies the connection descriptor.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1387510"> </a>
+<code class="cCodeEmphasis">appkey</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1387512"> </a>
+Reserved for use by the application. If application-specific authentication is part of your design, the application-specific authentication server, which is called when a client joins the application, should return a client authentication key as well as an indication of success or failure. The Oracle Tuxedo system holds the <code class="cCodeEmphasis">appkey</code> on behalf of the client and passes the information to subsequent service requests in this field. By the time the <code class="cCodeEmphasis">appkey</code> is passed to a service, the client has already been authenticated. However, the <code class="cCodeEmphasis">appkey</code> field can be used within a service to identify the user invoking the service or some other parameters associated with the user.
+</div>
+<div class="pCellBody"><a name="wp1387513"> </a>
+If this field is not used, the system assigns it a default value of <code class="cCode">-1</code>. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1387515"> </a>
+<code class="cCodeEmphasis">cltid</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1387517"> </a>
+Structure of type <code class="cCode">CLIENTID</code> used by the system to carry the identification of the client. You should not modify this structure.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1387519"> </a>
+When the <code class="cCodeEmphasis">data</code> field in the <code class="cCode">TPSVCINFO</code> structure is being accessed by a process, the following buffer types must agree:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1387520"> </a>Type of the request buffer passed by the calling process</li>
+<li><a name="wp1387521"> </a>Type of the corresponding buffer code defined within the called service</li>
+<li><a name="wp1387522"> </a>Type of the associated buffer type defined for the called service in the configuration file</li>
+</ul></div>
+<p class="pBody"><a name="wp1387523"> </a>
+<a href="pgserv.html#wp1387525">Listing&#160;5-4</a> illustrates a typical service definition. This code is borrowed from the <code class="cCode">ABAL</code> (account balance) service routine that is part of the banking application provided with the Oracle Tuxedo software. <code class="cCode">ABAL</code> is part of the <code class="cCode">BAL</code> server.
+</p>
+<div class="pCodeTitle"><a name="wp1387525"> </a>
+Listing&#160;5-4	   Typical Service Definition
+</div> <a name="wp1387526"> </a><div class="pPreformatted"><pre>#include &lt;stdio.h&gt;      /* UNIX */<br />#include &lt;atmi.h&gt;       /* BEA Tuxedo System */<br />#include &lt;sqlcode.h&gt;    /* BEA Tuxedo System */<br />#include &quot;bank.flds.h&quot;  /* bankdb fields */<br />#include &quot;aud.h&quot;        /* BANKING view defines */<br /> <br />EXEC SQL begin declare section;<br />static long branch_id;  /* branch id */<br />static float bal;       /* balance */<br />EXEC SQL end declare section;<br /> <br />/*<br /> * Service to find sum of the account balances at a SITE<br /> */<br /> <br />void<br />#ifdef __STDC__<br />ABAL(TPSVCINFO *transb)<br /> <br />#else<br /> <br />ABAL(transb)<br />TPSVCINFO *transb;<br />#endif<br /> <br />{<br />&#160;&#160;&#160;&#160;&#160;struct aud *transv;         /* view of decoded message */<br /> <br />&#160;&#160;&#160;&#160;&#160;/* Set pointer to TPSVCINFO data buffer */<br /> <br />&#160;&#160;&#160;&#160;&#160;transv = (struct aud *)transb-&gt;data;<br /> <br />&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">set the consistency level of the transaction<br /></em> <br />&#160;&#160;&#160;&#160;&#160;/* Get branch id from message, do query */<br /> <br />&#160;&#160;&#160;&#160;&#160;EXEC SQL declare acur cursor for<br />&#160;&#160;&#160;&#160;&#160;&#160;select SUM(BALANCE) from ACCOUNT;<br />&#160;&#160;&#160;&#160;&#160;EXEC SQL open acur;         /* open */<br />&#160;&#160;&#160;&#160;&#160;EXEC SQL fetch acur into :bal;   /* fetch */<br />&#160;&#160;&#160;&#160;&#160;if (SQLCODE != SQL_OK) {      /* nothing found */<br />&#160;&#160;&#160;&#160;&#160;&#160;(void)strcpy (transv-&gt;ermsg,&quot;abal failed in sql aggregation&quot;); <br />&#160;&#160;&#160;&#160;&#160;&#160;EXEC SQL close acur;<br />&#160;&#160;&#160;&#160;&#160;&#160;tpreturn(TPFAIL, 0, transb-&gt;data, sizeof(struct aud), 0);<br />&#160;&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;&#160;EXEC SQL close acur;<br />&#160;&#160;&#160;&#160;&#160;transv-&gt;balance = bal;<br />&#160;&#160;&#160;&#160;&#160;tpreturn (TPSUCCESS, 0, transb-&gt;data, sizeof(struct aud), 0);<br />}</pre></div><p class="pBody"><a name="wp1387529"> </a>
+In the preceding example, the application allocates a request buffer on the client side by a call to <a href="pgbuf.html#wp1262143">tpalloc()</a> with the <code class="cCodeEmphasis">type</code> parameter set to <code class="cCode">VIEW</code> and the <code class="cCodeEmphasis">subtype</code> set to <code class="cCode">aud</code>. The <code class="cCode">ABAL</code> service is defined as supporting the <code class="cCode">VIEW</code> typed buffer. The <code class="cCode">BUFTYPE</code> parameter is not specified for <code class="cCode">ABAL</code> and defaults to <code class="cCode">ALL</code>. The <code class="cCode">ABAL</code> service allocates a buffer of the type <code class="cCode">VIEW</code> and assigns the <code class="cCode">data</code> member of the <code class="cCode">TPSVCINFO</code> structure that was passed to the <code class="cCode">ABAL</code> subroutine to the buffer pointer. The <code class="cCode">ABAL</code> server retrieves the appropriate data buffer by accessing the corresponding <code class="cCodeEmphasis">data</code> member, as illustrated in the preceding example.
+</p>
+<a name="wp1387530"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>After the buffer is retrieved, but before the first attempt is made to access the database, the service must specify the consistency level of the transaction. Refer to <a href="pgglob.html">Writing Global Transactions</a> for more details on transaction consistency levels.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1387535"> </a>
+Example: Checking the Buffer Type
+</h3>
+<p class="pBody"><a name="wp1387536"> </a>
+The code example in this section shows how a service can access the data buffer defined in the <code class="cCode">TPSVCINFO</code> structure to determine its type by using the <a href="pgbuf.html#wp1262318">tptypes()</a> function. (This process is described in <a href="pgbuf.html#wp1262318">Checking for Buffer Type</a>.) The service also checks the maximum size of the buffer to determine whether or not to reallocate space for the buffer.
+</p>
+<p class="pBody"><a name="wp1387541"> </a>
+This example is derived from the <code class="cCode">ABAL</code> service that is part of the banking application provided with the Oracle Tuxedo software. It shows how the service is written to accept a request either as an <code class="cCode">aud VIEW</code> or an <code class="cCode">FML</code> buffer. If its attempt to determine the message type fails, the service returns a string with an error message plus an appropriate return code; otherwise it executes the segment of code that is appropriate for the buffer type. For more information on the <a href="pgserv.html#wp1167965">tpreturn()</a> function, refer to <a href="pgserv.html#wp1167959">Terminating a Service Routine</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1387547"> </a>
+Listing&#160;5-5	   Checking for Buffer Type
+</div> <a name="wp1387548"> </a><div class="pPreformatted"><pre>#define TMTYPERR 1 /* return code indicating tptypes failed */<br />#define INVALMTY 2 /* return code indicating invalid message type */<br /> <br />void<br />ABAL(transb)<br /> <br />TPSVCINFO *transb;<br /> <br />{<br />&#160;&#160;&#160;struct aud *transv; /* view message */<br />&#160;&#160;&#160;FBFR *transf;  /* fielded buffer message */<br />&#160;&#160;&#160;int repc;  /* tpgetrply return code */<br />&#160;&#160;&#160;char typ[TMTYPELEN+1], subtyp[TMSTYPELEN+1]; /* type, subtype of message */<br />&#160;&#160;&#160;char *retstr;  /* return string if tptypes fails */<br /> <br />/* find out what type of buffer sent */ <br />&#160;&#160;&#160;if (tptypes((char *)transb-&gt;data, typ, subtyp) == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;retstr=tpalloc(&quot;STRING&quot;, NULL, 100);<br />&#160;&#160;&#160;&#160;&#160;&#160;(void)sprintf(retstr,<br />&#160;&#160;&#160;&#160;&#160;&#160;&quot;Message garbled; tptypes cannot tell what type message\n&quot;);<br />&#160;&#160;&#160;&#160;&#160;&#160;tpreturn(TPFAIL, TMTYPERR, retstr, 100, 0);<br />&#160;&#160;&#160;}<br />/* Determine method of processing service request based on type */<br />&#160;&#160;&#160;if (strcmp(typ, &quot;FML&quot;) == 0) {<br />&#160;&#160;&#160;&#160;&#160;&#160;transf = (FBFR *)transb-&gt;data;<br /><em class="cEmphasis">... code to do abal service for fielded buffer ...<br /> tpreturn succeeds and sends FML buffer in reply<br /></em>&#160;&#160;&#160;}<br />&#160;&#160;&#160;else if (strcmp(typ, &quot;VIEW&quot;) == 0 &amp;&amp; strcmp(subtyp, &quot;aud&quot;) == 0) {<br />&#160;&#160;&#160;&#160;&#160;&#160;transv = (struct aud *)transb-&gt;data;<br /><em class="cEmphasis">... code to do abal service for aud struct ...<br /> tpreturn succeeds and sends aud view buffer in reply<br /></em>&#160;&#160;&#160;}<br />&#160;&#160;&#160;else {<br />&#160;&#160;&#160;&#160;&#160;&#160;retstr=tpalloc(&quot;STRING&quot;, NULL, 100);<br />&#160;&#160;&#160;&#160;&#160;&#160;(void)sprintf(retstr,<br />&#160;&#160;&#160;&#160;&#160;&#160;&quot;Message garbled; is neither FML buffer nor aud view\n&quot;);<br />&#160;&#160;&#160;&#160;&#160;&#160;tpreturn(TPFAIL, INVALMTY, retstr, 100, 0);<br />&#160;&#160;&#160;}<br />}</pre></div><h3 class="pHeading2"><a name="wp1387551"> </a>
+Example: Checking the Priority of the Service Request
+</h3>
+<a name="wp1167941"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The <code class="cCode">tpgprio()</code> and <code class="cCode">tpsprio()</code> functions, used for getting and setting priorities, respectively, are described in detail in <a href="pgreq.html#wp1055592">Setting and Getting Message Priorities</a>.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1167945"> </a>
+The example code in this section shows how a service called <code class="cCode">PRINTER</code> tests the priority level of the request just received using the <a href="pgreq.html#wp1055635">tpgprio()</a> function. Then, based on the priority level, the application routes the print job to the appropriate destination printer and pipes the contents of <code class="cCode">pbuf</code><span class="arrow"><img id="LongDescNotReq1" src="/global_resources/images/arrwrite.gif" alt="Arrow symbol"/></span><code class="cCode">data</code> to that printer.
+</p>
+<p class="pBody"><a name="wp1252868"> </a>
+ The application queries <code class="cCode">pbuf</code><span class="arrow"><img id="LongDescNotReq2" src="/global_resources/images/arrwrite.gif" alt="Arrow symbol"/></span><code class="cCode">flags</code> to determine whether a reply is expected. If so, it returns the name of the destination printer to the client. For more information on the <a href="pgserv.html#wp1167965">tpreturn()</a> function, refer to <a href="pgserv.html#wp1167959">Terminating a Service Routine</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1387795"> </a>
+Listing&#160;5-6	   Checking the Priority of a Received Request
+</div> <a name="wp1396702"> </a><div class="pPreformatted"><pre>#include &lt;stdio.h&gt;<br />#include &quot;atmi.h&quot;<br /> <br />char *roundrobin();<br /> <br />PRINTER(pbuf)<br /> <br />TPSVCINFO *pbuf;     /* print buffer */<br /> <br />{<br />char prname[20], ocmd[30];     /* printer name, output command */<br />long rlen;                     /* return buffer length */<br />int prio;                      /* priority of request */<br />FILE *lp_pipe;                 /* pipe file pointer */<br /> <br />prio=tpgprio();<br />if (prio &lt;= 20)<br />&#160;&#160;&#160;(void)strcpy(prname,&quot;bigjobs&quot;); /* send low priority (verbose)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;jobs to big comp. center<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;laser printer where operator<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;sorts output and puts it<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in a bin */<br />else if (prio &lt;= 60)<br />&#160;&#160;&#160;(void)strcpy(prname,roundrobin()); /* assign printer on a<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;rotating basis to one of<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;many local small laser printers<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;where output can be picked<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;up immediately; roundrobin() cycles<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;through list of printers */<br />else<br />&#160;&#160;&#160;(void)strcpy(prname,&quot;hispeed&quot;);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* assign job to high-speed laser<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;printer; reserved for those who<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;need verbose output on a daily,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;frequent basis */<br /> <br />(void)sprintf(ocmd, &quot;lp -d%s&quot;, prname);   /* output lp(1) command */<br />lp_pipe = popen(ocmd, &quot;w&quot;);               /* create pipe to command */<br />(void)fprintf(lp_pipe, &quot;%s&quot;, pbuf-&gt;data); /* print output there */<br />(void)pclose(lp_pipe);                    /* close pipe */<br /> <br />if ((pbuf-&gt;flags &amp; TPNOREPLY))<br />&#160;&#160;&#160;tpreturn(TPSUCCESS, 0, NULL, 0, 0);<br />rlen = strlen(prname) + 1;<br />pbuf-&gt;data = tprealloc(pbuf-&gt;data, rlen); /* ensure enough space for name */<br />(void)strcpy(pbuf-&gt;data, prname);<br />tpreturn(TPSUCCESS, 0, pbuf-&gt;data, rlen, 0);<br /> <br />char *<br />roundrobin()<br /> <br />{<br />static char *printers[] = {&quot;printer1&quot;, &quot;printer2&quot;, &quot;printer3&quot;, &quot;printer4&quot;};<br />static int p = 0;<br /> <br />if (p &gt; 3)<br />&#160;&#160;&#160;p=0;<br />return(printers[p++]);<br />}</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1167959"> </a>
+Terminating a Service Routine
+</h2><p class="pBody"><a name="wp1167960"> </a>
+The <a href="../rf3c/rf3c.html">tpreturn(3c)</a>, <a href="../rf3c/rf3c.html">tpcancel(3c)</a>, and <a href="../rf3c/rf3c.html">tpforward(3c)</a> functions specify that a service routine has completed with one of the following actions:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1167961"> </a><code class="cCode">tpreturn()</code> sends a reply to the calling client.</li>
+<li><a name="wp1167962"> </a><code class="cCode">tpcancel()</code> cancels the current request.</li>
+<li><a name="wp1167963"> </a><code class="cCode">tpforward</code>() forwards a request to another service for further processing.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1167965"> </a>
+Sending Replies
+</h3>
+<p class="pBody"><a name="wp1167966"> </a>
+The <a href="../rf3c/rf3c.html">tpreturn(3c)</a> function marks the end of the service routine and sends a message to the requester. Use the following signature to call the <code class="cCode">tpreturn()</code> function:
+</p>
+<a name="wp1388025"> </a><div class="pPreformatted"><pre>void<br />tpreturn(int <em class="cEmphasis">rval, int rcode, char *data, long len, long flags</em>)</pre></div><p class="pBody"><a name="wp1167972"> </a>
+<a href="pgserv.html#wp1395487">Table&#160;5-2</a> describes the arguments to the <code class="cCode">tpreturn()</code> function.
+</p>
+<p class="pGraphic"><a name="wp1167973"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1395487table1167974"><caption><a name="wp1395487"> </a>
+Table 5-2  tpreturn( ) Function Arguments
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1395491"> </a>
+Argument
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1395493"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1395495"> </a>
+<code class="cCodeEmphasis">rval</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1395497"> </a>
+Indicates whether or not the service has completed successfully on an application-level. The value is an integer that is represented by a symbolic name. Valid settings include:
+</div>
+<div class="pSmartList1TableBullet"><ul class="SmartList1TableBullet">
+<li><a name="wp1395498"> </a><code class="cCode">TPSUCCESS</code>&#8212;the calling function succeeded. The function stores the reply message in the caller&#8217;s buffer. If there is a reply message, it is in the caller&#8217;s buffer. </li>
+<li><a name="wp1395499"> </a><code class="cCode">TPFAIL</code> (default)&#8212;the service terminated unsuccessfully. The function reports an error message to the client process waiting for the reply. In this case, the client&#8217;s <a href="pgreq.html#wp1055338">tpcall()</a> or <a href="pgreq.html#wp1098002">tpgetrply()</a> function call fails and the system sets the <a href="../rf5/rf5.html">tperrno(5)</a> variable to <code class="cCode">TPESVCFAIL</code> to indicate an application-defined failure. If a reply message was expected, it is available in the caller&#8217;s buffer. </li>
+<li><a name="wp1395505"> </a><code class="cCode">TPEXIT</code>&#8212;the service terminated unsuccessfully. The function reports an error message to the client process waiting for the reply, and exits.</li>
+</ul></div>
+<div class="pCellBody"><a name="wp1395506"> </a>
+For a description of the effect that the value of this argument has on global transactions, refer to <a href="pgglob.html">Writing Global Transactions</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1395511"> </a>
+<code class="cCodeEmphasis">rcode</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1395513"> </a>
+Returns an application-defined return code to the caller. The client can access the value returned in <code class="cCodeEmphasis">rcode</code> by querying the <a href="../rf5/rf5.html">tpurcode(5)</a> global variable. The function returns this code regardless of success or failure.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1395518"> </a>
+<code class="cCodeEmphasis">data</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1395520"> </a>
+Pointer to the reply message that is returned to the client process. The message buffer must have been allocated previously by <a href="pgbuf.html#wp1262143">tpalloc()</a>. 
+</div>
+<div class="pCellBody"><a name="wp1395522"> </a>
+If you use the same buffer that was passed to the service in the <code class="cCode">SVCINFO</code> structure, you need not be concerned with buffer allocation or disposition because both are handled by the system-supplied <code class="cCode">main()</code>. You cannot free this buffer using the <a href="pgbuf.html#wp1262377">tpfree()</a> command; any attempt to do so quietly fails. You can resize the buffer using the <a href="pgbuf.html#wp1262255">tprealloc()</a> function. 
+</div>
+<div class="pCellBody"><a name="wp1395525"> </a>
+If you use another buffer (that is, a buffer other than the one passed to the service routine) to return the message, it is your responsibility to allocate it. The system frees the buffer automatically when the application calls the <a href="pgserv.html#wp1167965">tpreturn()</a> function. 
+</div>
+<div class="pCellBody"><a name="wp1395527"> </a>
+If no reply message needs to be returned, set this argument to the NULL pointer.
+</div>
+<p class="pTableNote"><a name="wp1395528"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If no reply is expected by the client (that is, if <code class="cCode">TPNOREPLY</code> was set), the <a href="pgserv.html#wp1167965">tpreturn()</a> function ignores the <code class="cCodeEmphasis">data</code> and <code class="cCodeEmphasis">len</code> arguments and returns control to <code class="cCode">main()</code>.</td></tr>
+</table>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1395531"> </a>
+<code class="cCodeEmphasis">len</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1395533"> </a>
+Length of the reply buffer. The application accesses the value of this argument through the <code class="cCode">olen</code> parameter of the <a href="pgreq.html#wp1055338">tpcall()</a> function or the <code class="cCode">len</code> parameter of the <a href="pgreq.html#wp1098002">tpgetrply()</a> function.
+</div>
+<div class="pCellBody"><a name="wp1395536"> </a>
+Acting as the client, the process can use this returned value to determine whether the reply buffer has grown.
+</div>
+<div class="pCellBody"><a name="wp1395537"> </a>
+If a reply is expected by the client and there is no data in the reply buffer (that is, if the <code class="cCodeEmphasis">data</code> argument is set to the NULL pointer), the function sends a reply with zero length, without modifying the client&#8217;s buffer. 
+</div>
+<div class="pCellBody"><a name="wp1395538"> </a>
+The system ignores the value of this argument if the <code class="cCodeEmphasis">data</code> argument is not specified.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1395540"> </a>
+<code class="cCodeEmphasis">flag</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1395542"> </a>
+Currently not used. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1253421"> </a>
+The primary function of a service routine is to process a request and return a reply to a client process. It is not necessary, however, for a single service to do all the work required to perform the requested function. A service can act as a requester and pass a request call to another service the same way a client issues the original request: through calls to <a href="pgreq.html#wp1055338">tpcall()</a> or <a href="pgreq.html#wp1055487">tpacall()</a>. 
+</p>
+<a name="wp1253426"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The <a href="pgreq.html#wp1055338">tpcall()</a> and <a href="pgreq.html#wp1055487">tpacall()</a> functions are described in detail in <a href="pgreq.html">Writing Request/Response Clients and Servers</a>.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1233856"> </a>
+When <a href="pgserv.html#wp1167965">tpreturn()</a> is called, control always returns to <code class="cCode">main()</code>. If a service has sent requests with asynchronous replies, it must receive all expected replies or invalidate them with <a href="pgserv.html#wp1168043">tpcancel()</a> before returning control to <code class="cCode">main()</code>. Otherwise, the outstanding replies are automatically dropped when they are received by the Oracle Tuxedo system <code class="cCode">main()</code>, and an error is returned to the caller.
+</p>
+<p class="pBody"><a name="wp1168022"> </a>
+If the client invokes the service with <a href="pgreq.html#wp1055338">tpcall()</a>, after a successful call to <a href="pgserv.html#wp1167965">tpreturn()</a>, the reply message is available in the buffer referenced by <em class="cEmphasis">*</em><code class="cCode">odata</code>. If <a href="pgreq.html#wp1055487">tpacall()</a> is used to send the request, and <code class="cCode">tpreturn()</code> returns successfully, the reply message is available in the <a href="pgreq.html#wp1098002">tpgetrply()</a> buffer that is referenced by <em class="cEmphasis">*</em><code class="cCode">data</code>. 
+</p>
+<p class="pBody"><a name="wp1206182"> </a>
+If a reply is expected and <a href="pgserv.html#wp1167965">tpreturn()</a> encounters errors while processing its arguments, it sends a <code class="cCode">failed</code> message to the calling process. The caller detects the error by checking the value placed in <code class="cCode">tperrno</code>. In the case of failed messages, the system sets <code class="cCode">tperrno</code> to <code class="cCode">TPESVCERR</code>. This situation takes precedence over the value of the <code class="cCode">tpurcode</code> global variable. If this type of error occurs, no reply data is returned, and both the contents and length of the caller&#8217;s output buffer remain unchanged.
+</p>
+<p class="pBody"><a name="wp1168024"> </a>
+If <a href="pgserv.html#wp1167965">tpreturn()</a> returns a message in a buffer of an unknown type or a buffer that is not allowed by the caller (that is, if the call is made with <code class="cCodeEmphasis">flags</code> set to <code class="cCode">TPNOCHANGE</code>), the system returns <code class="cCode">TPEOTYPE</code> in <a href="../rf5/rf5.html">tperrno(5)</a>. In this case, application success or failure cannot be determined, and the contents and length of the output buffer remain unchanged.
+</p>
+<p class="pBody"><a name="wp1168025"> </a>
+The value returned in the <a href="../rf5/rf5.html">tpurcode(5)</a> global variable is not relevant if the <a href="pgserv.html#wp1167965">tpreturn()</a> function is invoked and a timeout occurs for the call waiting for the reply. This situation takes precedence over all others in determining the value that is returned in <a href="../rf5/rf5.html">tperrno(5)</a>. In this case, <a href="../rf5/rf5.html">tperrno(5)</a> is set to <code class="cCode">TPETIME</code> and the reply data is not sent, leaving the contents and length of the caller&#8217;s reply buffer unchanged. There are two types of timeouts in the Oracle Tuxedo system: blocking and transaction timeouts (discussed in <a href="pgglob.html">Writing Global Transactions</a>).
+</p>
+<p class="pBody"><a name="wp1252364"> </a>
+The example code in this section shows the <code class="cCode">TRANSFER</code> service that is part of the <code class="cCode">XFER</code> server. Basically, the <code class="cCode">TRANSFER</code> service makes synchronous calls to the <code class="cCode">WITHDRAWAL</code> and <code class="cCode">DEPOSIT</code> services. It allocates a separate buffer for the reply message since it must use the request buffer for the calls to both the <code class="cCode">WITHDRAWAL</code> and the <code class="cCode">DEPOSIT</code> services. If the call to <code class="cCode">WITHDRAWAL</code> fails, the service writes the message <code class="cCode">cannot withdraw</code> on the status line of the form, frees the reply buffer, and sets the <code class="cCodeEmphasis">rval</code> argument of the <a href="pgserv.html#wp1167965">tpreturn()</a> function to <code class="cCode">TPFAIL</code>. If the call succeeds, the debit balance is retrieved from the reply buffer.
+</p>
+<a name="wp1168030"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>In the following example, the application moves the identifier for the &#8220;destination account&#8221; (which is retrieved from the <code class="cCode">cr_id</code> variable) to the zeroth occurrence of the <code class="cCode">ACCOUNT_ID</code> field in the <code class="cCode">transf</code> fielded buffer. This move is necessary because this occurrence of the field in an <code class="cCode">FML</code> buffer is used for data-dependent routing. Refer to <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em> for more information.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1168034"> </a>
+A similar scenario is followed for the call to <code class="cCode">DEPOSIT</code>. On success, the service frees the reply buffer that was allocated in the service routine and sets the <code class="cCodeEmphasis">rval</code> argument to <code class="cCode">TPSUCCESS</code>, returning the pertinent account information to the status line.
+</p>
+<div class="pCodeTitle"><a name="wp1388866"> </a>
+Listing&#160;5-7	   tpreturn( ) Function
+</div> <a name="wp1388867"> </a><div class="pPreformatted"><pre>#include &lt;stdio.h&gt;      /* UNIX */<br />#include &lt;string.h&gt;     /* UNIX */<br />#include &quot;fml.h&quot;        /* BEA Tuxedo System */<br />#include &quot;atmi.h&quot;       /* BEA Tuxedo System */<br />#include &quot;Usysflds.h&quot;   /* BEA Tuxedo System */<br />#include &quot;userlog.h&quot;    /* BEA Tuxedo System */<br />#include &quot;bank.h&quot;       /* BANKING #defines */<br />#include &quot;bank.flds.h&quot;  /* bankdb fields */<br /> <br /> <br />/*<br /> * Service to transfer an amount from a debit account to a credit <br /> * account<br /> */<br /> <br />void<br />#ifdef __STDC__<br />TRANSFER(TPSVCINFO *transb)<br /> <br />#else<br /> <br />TRANSFER(transb)<br />TPSVCINFO *transb;<br />#endif<br /> <br />{<br />&#160;&#160;&#160;FBFR *transf;          /* fielded buffer of decoded message */<br />&#160;&#160;&#160;long db_id, cr_id;     /* from/to account id&#8217;s              */<br />&#160;&#160;&#160;float db_bal, cr_bal;  /* from/to account balances          */<br />&#160;&#160;&#160;float tamt;            /* amount of the transfer            */<br />&#160;&#160;&#160;FBFR *reqfb;           /* fielded buffer for request message*/<br />&#160;&#160;&#160;int reqlen;            /* length of fielded buffer          */<br />&#160;&#160;&#160;char t_amts[BALSTR];   /* string for transfer amount        */<br />&#160;&#160;&#160;char db_amts[BALSTR];  /* string for debit account balance  */<br />&#160;&#160;&#160;char cr_amts[BALSTR];  /* string for credit account balance */<br /> <br />/* Set pointr to TPSVCINFO data buffer */<br />transf = (FBFR *)transb-&gt;data;<br /> <br />/* Get debit (db_id) and credit (cr_id) account IDs */<br /> <br />/* must have valid debit account number */<br />if (((db_id = Fvall(transf, ACCOUNT_ID, 0)) &lt; MINACCT) || (db_id &gt; MAXACCT)) {<br />&#160;&#160;&#160;(void)Fchg(transf, STATLIN, 0,&quot;Invalid debit account number&quot;,(FLDLEN)0);<br />&#160;&#160;&#160;tpreturn(TPFAIL, 0, transb-&gt;data, 0L, 0);<br />}<br />/* must have valid credit account number */<br />if ((cr_id = Fvall(transf, ACCOUNT_ID, 1)) &lt; MINACCT || cr_id &gt; MAXACCT) {<br />&#160;&#160;&#160;(void)Fchg(transf,STATLIN, 0,&quot;Invalid credit account number&quot;,(FLDLEN)0);<br />&#160;&#160;&#160;tpreturn(TPFAIL, 0, transb-&gt;data, 0L, 0);<br />}<br /> <br />/* get amount to be withdrawn */<br />if (Fget(transf, SAMOUNT, 0, t_amts, &lt;  0) 0 || strcmp(t_amts,&quot;&quot;) == 0) {<br />&#160;&#160;&#160;(void)Fchg(transf, STATLIN, 0, &quot;Invalid amount&quot;,(FLDLEN)0);<br />&#160;&#160;&#160;tpreturn(TPFAIL, 0, transb-&gt;data, 0L, 0);<br />}<br />(void)sscanf(t_amts,&quot;%f&quot;,tamt);<br /> <br />/* must have valid amount to transfer */<br />if (tamt = 0.0) {<br />&#160;&#160;&#160;(void)Fchg(transf, STATLIN, 0,<br />&#160;&#160;&#160;&#160;&#160;&#160;&quot;Transfer amount must be greater than $0.00&quot;,(FLDLEN)0);<br />&#160;&#160;&#160;&#160;tpreturn(TPFAIL, 0, transb-&gt;data, 0L, 0);<br />}<br /> <br />/* make withdraw request buffer */<br />if ((reqfb = (FBFR *)tpalloc(&quot;FML&quot;,NULL,transb-&gt;len)) == (FBFR *)NULL) {<br />&#160;&#160;&#160;(void)userlog(&quot;tpalloc failed in transfer\n&quot;);<br />&#160;&#160;&#160;(void)Fchg(transf, STATLIN, 0,<br />&#160;&#160;&#160;&#160;&#160;&#160;&quot;unable to allocate request buffer&quot;, (FLDLEN)0);<br />&#160;&#160;&#160;tpreturn(TPFAIL, 0, transb-&gt;data, 0L, 0);<br />}<br />reqlen = Fsizeof(reqfb);<br /> <br />/* put ID in request buffer */<br />(void)Fchg(reqfb,ACCOUNT_ID,0,(char *)&amp;db_id, (FLDLEN)0);<br /> <br />/* put amount in request buffer */<br />(void)Fchg(reqfb,SAMOUNT,0,t_amts, (FLDLEN)0);<br /> <br />/* increase the priority of withdraw call */<br />if (tpsprio(PRIORITY, 0L) == -1)<br />&#160;&#160;&#160;(void)userlog(&quot;Unable to increase priority of withdraw\n&quot;);<br /> <br />if (tpcall(&quot;WITHDRAWAL&quot;, (char *)reqfb,0, (char **)&amp;reqfb,<br />&#160;&#160;&#160;&#160;&#160;&#160;(long *)&amp;reqlen,TPSIGRSTRT) == -1) {<br />&#160;&#160;&#160;(void)Fchg(transf, STATLIN, 0,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;Cannot withdraw from debit account&quot;, (FLDLEN)0);<br />&#160;&#160;&#160;tpfree((char *)reqfb);<br />&#160;&#160;&#160;tpreturn(TPFAIL, 0,transb-&gt;data, 0L, 0);<br />}<br /> <br />/* get &quot;debit&quot; balance from return buffer */<br /> <br />(void)strcpy(db_amts, Fvals((FBFR *)reqfb,SBALANCE,0));<br />void)sscanf(db_amts,&quot;%f&quot;,db_bal);<br />if ((db_amts == NULL) || (db_bal &lt; 0.0)) {<br />&#160;&#160;&#160;(void)Fchg(transf, STATLIN, 0,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;illegal debit account balance&quot;, (FLDLEN)0);<br />&#160;&#160;&#160;tpfree((char *)reqfb);<br />&#160;&#160;&#160;tpreturn(TPFAIL, 0, transb-&gt;data, 0L, 0);<br />}<br /> <br />/* put deposit account ID in request buffer */<br />(void)Fchg(reqfb,ACCOUNT_ID,0,(char *)&amp;cr_id, (FLDLEN)0);<br /> <br />/* put transfer amount in request buffer */<br />(void)Fchg(reqfb,SAMOUNT,0,t_amts, (FLDLEN)0);<br /> <br />/* Up the priority of deposit call */<br />if (tpsprio(PRIORITY, 0L) == -1)<br />     (void)userlog(&quot;Unable to increase priority of deposit\n&quot;);<br /> <br />/* Do a tpcall to deposit to second account */<br />if (tpcall(&quot;DEPOSIT&quot;, (char *)reqfb, 0, (char **)&amp;reqfb,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(long *)&amp;reqlen, TPSIGRSTRT) == -1) {<br />&#160;&#160;&#160;(void)Fchg(transf, STATLIN, 0,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;Cannot deposit into credit account&quot;, (FLDLEN)0);<br />&#160;&#160;&#160;tpfree((char *)reqfb);<br />&#160;&#160;&#160;tpreturn(TPFAIL, 0,transb-&gt;data, 0L, 0);<br />}<br /> <br />/* get &quot;credit&quot; balance from return buffer */<br /> <br />(void)strcpy(cr_amts, Fvals((FBFR *)reqfb,SBALANCE,0));<br />(void)sscanf(cr_amts,&quot;%f&quot;,&amp;cr_bal);<br />if ((cr_amts == NULL) || (cr_bal 0.0)) {<br />&#160;&#160;&#160;(void)Fchg(transf, STATLIN, 0,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;Illegal credit account balance&quot;, (FLDLEN)0);<br />&#160;&#160;&#160;&#160;tpreturn(TPFAIL, 0, transb-&gt;data, 0L, 0);<br />}<br /> <br />/* set buffer for successful return */<br />(void)Fchg(transf, FORMNAM, 0, &quot;CTRANSFER&quot;, (FLDLEN)0);<br />(void)Fchg(transf, SAMOUNT, 0, Fvals(reqfb,SAMOUNT,0), (FLDLEN)0);<br />(void)Fchg(transf, STATLIN, 0, &quot;&quot;, (FLDLEN)0);<br />(void)Fchg(transf, SBALANCE, 0, db_amts, (FLDLEN)0);<br />(void)Fchg(transf, SBALANCE, 1, cr_amts, (FLDLEN)0);<br />tpfree((char *)reqfb);<br />tpreturn(TPSUCCESS, 0,transb-&gt;data, 0L, 0);<br />}</pre></div><h3 class="pHeading2"><a name="wp1168043"> </a>
+Invalidating Descriptors
+</h3>
+<p class="pBody"><a name="wp1388931"> </a>
+If a service calling <a href="pgreq.html#wp1098002">tpgetrply()</a> (described in detail in <a href="pgreq.html">Writing Request/Response Clients and Servers</a>) fails with <code class="cCode">TPETIME</code> and decides to cancel the request, it can invalidate the descriptor with a call to <a href="../rf3c/rf3c.html">tpcancel(3c)</a>. If a reply subsequently arrives, it is silently discarded. 
+</p>
+<p class="pBody"><a name="wp1168048"> </a>
+Use the following signature to call the <code class="cCode">tpcancel()</code> function:
+</p>
+<a name="wp1388937"> </a><div class="pPreformatted"><pre>void<br />tpcancel(int <em class="cEmphasis">cd</em>)</pre></div><p class="pBody"><a name="wp1388938"> </a>
+The <code class="cCode">cd</code> (call descriptor) argument identifies the process you want to cancel.
+</p>
+<p class="pBody"><a name="wp1168051"> </a>
+<code class="cCode">tpcancel()</code> cannot be used for transaction replies (that is, for replies to requests made without the <code class="cCode">TPNOTRAN</code> flag set). Within a transaction, <a href="../rf3c/rf3c.html">tpabort(3c)</a> does the same job of invalidating the transaction call descriptor. 
+</p>
+<p class="pBody"><a name="wp1168052"> </a>
+The following example shows how to invalidate a reply after timing out.
+</p>
+<div class="pCodeTitle"><a name="wp1388998"> </a>
+Listing&#160;5-8	   Invalidating a Reply After Timing Out
+</div> <a name="wp1388999"> </a><div class="pPreformatted"><pre>int cd1;<br /> .<br /> .<br /> .<br />&#160;&#160;&#160;&#160;&#160;&#160;if ((cd1=tpacall(sname, (char *)audv, sizeof(struct aud),<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPNOTRAN)) == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;&#160;&#160;if (tpgetrply(cd1, (char **)&amp;audv,&amp;audrl, 0) == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;if (tperrno == TPETIME) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpcancel(cd1);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;&#160;&#160;tpreturn(TPSUCCESS, 0,NULL, 0L, 0);</pre></div><h3 class="pHeading2"><a name="wp1168061"> </a>
+Forwarding Requests
+</h3>
+<p class="pBody"><a name="wp1168062"> </a>
+The <a href="../rf3c/rf3c.html">tpforward(3c)</a> function allows a service to forward a request to another service for further processing. 
+</p>
+<p class="pBody"><a name="wp1168063"> </a>
+Use the following signature to call the <code class="cCode">tpforward</code>() function:
+</p>
+<a name="wp1389083"> </a><div class="pPreformatted"><pre>void<br />tpforward(char *<em class="cEmphasis">svc, char *data, long len, long flags</em>)</pre></div><p class="pBody"><a name="wp1389084"> </a>
+<a href="pgserv.html#wp1395590">Table&#160;5-3</a> describes the arguments to the <code class="cCode">tpreturn()</code> function.
+</p>
+<p class="pGraphic"><a name="wp1389119"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1395590table1389085"><caption><a name="wp1395590"> </a>
+Table 5-3  tpreturn<code class="cCode">()</code> Function Arguments
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1395594"> </a>
+Argument
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1395596"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1395598"> </a>
+<code class="cCodeEmphasis">svc</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1395600"> </a>
+Character pointer to the name of the service to which the request is to be forwarded.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1395602"> </a>
+<code class="cCodeEmphasis">data</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1395604"> </a>
+Pointer to the reply message that is returned to the client process. The message buffer must have been allocated previously by <a href="pgbuf.html#wp1262143">tpalloc()</a>. 
+</div>
+<div class="pCellBody"><a name="wp1395606"> </a>
+If you use the same buffer that was passed to the service in the <code class="cCode">SVCINFO</code> structure, you need not be concerned with buffer allocation or disposition because both are handled by the system-supplied <code class="cCode">main()</code>. You cannot free this buffer using the <a href="pgbuf.html#wp1262377">tpfree()</a> command; any attempt to do so quietly fails. You can resize the buffer using the <a href="pgbuf.html#wp1262255">tprealloc()</a> function. 
+</div>
+<div class="pCellBody"><a name="wp1395609"> </a>
+If you use another buffer (that is, a buffer other than the one that is passed to the service routine) to return the message, it is your responsibility to allocate it. The system frees the buffer automatically when the application calls the <a href="pgserv.html#wp1167965">tpreturn()</a> function. 
+</div>
+<div class="pCellBody"><a name="wp1395611"> </a>
+If no reply message needs to be returned, set this argument to the NULL pointer.
+</div>
+<p class="pTableNote"><a name="wp1395612"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If no reply is expected by the client (that is, if <code class="cCode">TPNOREPLY</code> was set), the <code class="cCode">tpreturn()</code> function ignores the <code class="cCodeEmphasis">data</code> and <code class="cCodeEmphasis">len</code> arguments and returns control to <code class="cCode">main()</code>.</td></tr>
+</table>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1395614"> </a>
+<code class="cCodeEmphasis">len</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1395616"> </a>
+Length of the reply buffer. The application accesses the value of this argument through the <code class="cCode">olen</code> parameter of the <a href="pgreq.html#wp1055338">tpcall()</a> function or the <code class="cCode">len</code> parameter of the <a href="pgreq.html#wp1098002">tpgetrply()</a> function.
+</div>
+<div class="pCellBody"><a name="wp1395619"> </a>
+Acting as the client, the process can use this returned value to determine whether the reply buffer has grown.
+</div>
+<div class="pCellBody"><a name="wp1395620"> </a>
+If a reply is expected by the client and there is no data in the reply buffer (that is, if the <code class="cCodeEmphasis">data</code> argument is set to the NULL pointer), the function sends a reply with zero length, without modifying the client&#8217;s buffer. 
+</div>
+<div class="pCellBody"><a name="wp1395621"> </a>
+The system ignores the value of this argument if the <code class="cCodeEmphasis">data</code> argument is not specified.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1395623"> </a>
+<code class="cCodeEmphasis">flag</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1395625"> </a>
+Currently not used. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1168100"> </a>
+The functionality of <code class="cCode">tpforward</code>() differs from a service call: a service that forwards a request does not expect a reply. The responsibility for providing the reply is passed to the service to which the request has been forwarded. The latter service sends the reply to the process that originated the request. It becomes the responsibility of the last server in the forward chain to send the reply to the originating client by invoking <a href="pgserv.html#wp1167965">tpreturn()</a>.
+</p>
+<p class="pBody"><a name="wp1168101"> </a>
+<a href="pgserv.html#wp1389262">Figure&#160;5-1</a> shows one possible sequence of events when a request is forwarded from one service to another. Here a client initiates a request using the <a href="pgreq.html#wp1055338">tpcall()</a> function and the last service in the chain (<code class="cCode">SVC_C</code>) provides a reply using the <a href="pgserv.html#wp1167965">tpreturn()</a> function.
+</p>
+<div class="pFigureTitle"><a name="wp1389262"> </a>
+Figure&#160;5-1  Forwarding a Request
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1389266"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/forward.gif" alt="Forwarding a Request" id="wp1389264"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1168114"> </a>
+Service routines can forward requests at specified priorities in the same manner that client processes send requests, by using the <a href="pgreq.html#wp1055604">tpsprio()</a> function.
+</p>
+<p class="pBody"><a name="wp1168115"> </a>
+When a process calls <a href="pgserv.html#wp1168061">tpforward()</a>, the system-supplied <code class="cCode">main()</code> regains control, and the server process is free to do more work. 
+</p>
+<a name="wp1168116"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If a server process is acting as a client and a reply is expected, the server is not allowed to request services from itself. If the only available instance of the desired service is offered by the server process making the request, the call fails, indicating that a recursive call cannot be made. However, if a service routine sends a request (to itself) with the <code class="cCode">TPNOREPLY</code> communication flag set, or if it forwards the request, the call does not fail because the service is not waiting for itself.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1168117"> </a>
+Calling <a href="pgserv.html#wp1168061">tpforward()</a> can be used to indicate success up to that point in processing the request. If no application errors have been detected, you can invoke <code class="cCode">tpforward()</code>, otherwise, you can call <a href="pgserv.html#wp1167965">tpreturn()</a> with <code class="cCodeEmphasis">rval</code> set to <code class="cCode">TPFAIL</code>.
+</p>
+<p class="pBody"><a name="wp1168118"> </a>
+<a href="pgserv.html#wp1389534">Listing&#160;5-9</a> is borrowed from the <code class="cCode">OPEN_ACCT</code> service routine which is part of the <code class="cCode">ACCT</code> server. This example illustrates how the service sends its data buffer to the <code class="cCode">DEPOSIT</code> service by calling <a href="pgserv.html#wp1168061">tpforward()</a>. The code shows how to test the <code class="cCode">SQLCODE</code> to determine whether the account insertion is successful. If the new account is added successfully, the branch record is updated to reflect the new account, and the data buffer is forwarded to the <code class="cCode">DEPOSIT</code> service. On failure, <a href="pgserv.html#wp1167965">tpreturn()</a> is called with <code class="cCodeEmphasis">rval</code> set to <code class="cCode">TPFAIL</code> and the failure is reported on the status line of the form.
+</p>
+<div class="pCodeTitle"><a name="wp1389534"> </a>
+Listing&#160;5-9	   tpforward( ) Function
+</div> <a name="wp1389535"> </a><div class="pPreformatted"><pre> ...<br />/* set pointer to TPSVCINFO data buffer */ <br />transf = (FBFR *)transb-&gt;data;<br />...<br />/* Insert new account record into ACCOUNT*/ <br />account_id = ++last_acct;    /* get new account number */<br />tlr_bal = 0.0;               /* temporary balance of 0 */ <br />EXEC SQL insert into ACCOUNT (ACCOUNT_ID, BRANCH_ID, BALANCE,<br />ACCT_TYPE, LAST_NAME, FIRST_NAME, MID_INIT, ADDRESS, PHONE) values<br />(:account_id, :branch_id, :tlr_bal, :acct_type, :last_name,<br />&#160;&#160;&#160;&#160;&#160;&#160;:first_name, :mid_init, :address, :phone);<br />if (SQLCODE != SQL_OK) {    /* Failure to insert */<br />&#160;&#160;&#160;&#160;&#160;&#160;(void)Fchg(transf, STATLIN, 0,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;Cannot update ACCOUNT&quot;, (FLDLEN)0);<br />&#160;&#160;&#160;&#160;&#160;&#160;tpreturn(TPFAIL, 0, transb-&gt;data, 0L, 0);<br />}<br /> <br />/* Update branch record with new LAST_ACCT */<br /> <br />EXEC SQL update BRANCH set LAST_ACCT = :last_acct where BRANCH_ID = :branch_id;<br />if (SQLCODE != SQL_OK) {      /* Failure to update */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)Fchg(transf, STATLIN, 0,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;Cannot update BRANCH&quot;, (FLDLEN)0);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpreturn(TPFAIL, 0, transb-&gt;data, 0L, 0);<br />}<br />/* up the priority of the deposit call */<br />if (tpsprio(PRIORITY, 0L) == -1)<br />&#160;&#160;&#160;&#160;&#160;(void)userlog(&quot;Unable to increase priority of deposit\n&quot;);<br /> <br />/* tpforward same buffer to deposit service to add initial balance */<br />tpforward(&quot;DEPOSIT&quot;, transb-&gt;data, 0L, 0); </pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1168128"> </a>
+Advertising and Unadvertising Services
+</h2><p class="pBody"><a name="wp1168129"> </a>
+When a server is booted, it advertises the services it offers based on the values specified for the <code class="cCode">CLOPT</code> parameter in the configuration file.
+</p>
+<a name="wp1168130"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The services that a server may advertise are initially defined when the <a href="pgserv.html#wp1250188">buildserver</a> command is executed. The <code class="cCode">-s</code> option allows a comma-separated list of services to be specified. It also allows you to specify a function with a name that differs from that of the advertised service that is to be called to process the service request. Refer to the <a href="../rfcm/rfcmd.html">buildserver(1)</a> in the <em class="cEmphasis">Oracle Tuxedo Command Reference</em> for more information.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1168134"> </a>
+The default specification calls for the server to advertise all services with which it was built. Refer to the <a href="../rf5/rf5.html">UBBCONFIG(5)</a> or <a href="../rf5/rf5.html">servopts(5)</a> reference page in the <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em> for more information.
+</p>
+<p class="pBody"><a name="wp1168138"> </a>
+Because an advertised service uses a service table entry in the bulletin board, and can therefore be resource-expensive, an application may boot its servers in such a way that only a subset of the services offered are available. To limit the services available in an application, define the <code class="cCode">CLOPT</code> parameter, within the appropriate entry in the <code class="cCode">SERVERS</code> section of the configuration file, to include the desired services in a comma-separated list following the <code class="cCode">-s</code> option. The <code class="cCode">-s</code> option also allows you to specify a function with a name other than that of the advertised service to be called to process the request. Refer to the <a href="../rf5/rf5.html">servopts(5)</a> reference page in the <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em> for more information.
+</p>
+<p class="pBody"><a name="wp1168142"> </a>
+An Oracle Tuxedo application administrator can use the <code class="cCode">advertise</code> and <code class="cCode">unadvertise</code> commands of <a href="../rfcm/rfcmd.html">tmadmin(1)</a> to control the services offered by servers. The <code class="cCode">tpadvertise()</code> and <code class="cCode">tpunadvertise()</code> functions enable you to dynamically control the advertisement of a service in a request/response or conversational server. The service to be advertised (or unadvertised) must be available within the same server as the service making the request.
+</p>
+<h3 class="pHeading2"><a name="wp1168143"> </a>
+Advertising Services
+</h3>
+<p class="pBody"><a name="wp1168144"> </a>
+Use the following signature to call the <a href="../rf3c/rf3c.html">tpadvertise(3c)</a> function:
+</p>
+<a name="wp1389689"> </a><div class="pPreformatted"><pre>int<br />tpadvertise(char *<em class="cEmphasis">svcname</em>, void *<em class="cEmphasis">func</em>)</pre></div><p class="pBody"><a name="wp1168147"> </a>
+<a href="pgserv.html#wp774713">Table&#160;5-4</a> describes the arguments to the <code class="cCode">tpadvertise()</code> function.
+</p>
+<p class="pGraphic"><a name="wp1168148"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp774713table1168149"><caption><a name="wp774713"> </a>
+Table 5-4  tpadvertise( ) Function Arguments
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1168151"> </a>
+Argument
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1168153"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1168155"> </a>
+<code class="cCodeEmphasis">svcname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1168157"> </a>
+Pointer to the name of the service to be advertised. The service name must be a character string of up to 127 characters. Names longer than 127 characters are truncated. The NULL string is not a valid value. If it is specified, an error (<code class="cCode">TPEINVAL</code>) results.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1168159"> </a>
+<code class="cCodeEmphasis">func</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1168161"> </a>
+Pointer to the address of an Oracle Tuxedo system function that is called to perform a service. Frequently, this name is the same as the name of the service. The NULL string is not a valid value. If it is specified, an error results.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1168162"> </a>
+Unadvertising Services
+</h3>
+<p class="pBody"><a name="wp1168163"> </a>
+The <a href="../rf3c/rf3c.html">tpunadvertise(3c)</a> function removes the name of a service from the service table of the bulletin board so that the service is no longer advertised.
+</p>
+<p class="pBody"><a name="wp1168164"> </a>
+Use the following signature for the <code class="cCode">tpunadvertise()</code> function:
+</p>
+<a name="wp1389821"> </a><div class="pPreformatted"><pre>tpunadvertise(char *<em class="cEmphasis">svcname</em>)<br />char *<em class="cEmphasis">svcname</em>;</pre></div><p class="pBody"><a name="wp1168167"> </a>
+The <code class="cCode">tpunadvertise()</code> function contains one argument, which is described in <a href="pgserv.html#wp774729">Table&#160;5-5</a>.
+</p>
+<p class="pGraphic"><a name="wp1168168"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp774729table1168169"><caption><a name="wp774729"> </a>
+Table 5-5  tpunadvertise( ) FunctionArguments
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1168171"> </a>
+Argument
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1168173"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1168175"> </a>
+<code class="cCodeEmphasis">svcname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1168177"> </a>
+Pointer to the name of the service to be advertised. The service name must be a character string of up to 127 characters. Names longer than 127 characters are truncated. The NULL string is not a valid value. If it is specified, an error (<code class="cCode">TPEINVAL</code>) results.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1168178"> </a>
+Example: Dynamic Advertising and Unadvertising of a Service
+</h3>
+<p class="pBody"><a name="wp1168179"> </a>
+<a href="pgserv.html#wp1389986">Listing&#160;5-10</a> shows how to use the <code class="cCode">tpadvertise()</code> function. In this example, a server called <code class="cCode">TLR</code> is programmed to offer only the service called <code class="cCode">TLR_INIT</code> when booted. After some initialization, <code class="cCode">TLR_INIT</code> advertises two services called <code class="cCode">DEPOSIT</code> and <code class="cCode">WITHDRAW</code>. Both are performed by the <code class="cCode">tlr_funcs</code> function, and both are built into the <code class="cCode">TLR</code> server.
+</p>
+<p class="pBody"><a name="wp1168180"> </a>
+After advertising <code class="cCode">DEPOSIT</code> and <code class="cCode">WITHDRAW</code>, <code class="cCode">TLR_INIT</code> unadvertises itself.
+</p>
+<div class="pCodeTitle"><a name="wp1389986"> </a>
+Listing&#160;5-10	   Dynamic Advertising and Unadvertising
+</div> <a name="wp1389987"> </a><div class="pPreformatted"><pre>extern void tlr_funcs()<br /> .<br /> .<br /> .<br /> if (tpadvertise(&quot;DEPOSIT&quot;, (tlr_funcs)(TPSVCINFO *)) == -1)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">check for errors</em>;<br /> if (tpadvertise(&quot;WITHDRAW&quot;, (tlr_funcs)(TPSVCINFO *)) == -1)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">check for errors</em>;<br /> if (tpunadvertise(&quot;TLR_INIT&quot;) == -1)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">check for errors</em>;<br /> tpreturn(TPSUCCESS, 0, transb-&gt;data,0L, 0);</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1250188"> </a>
+Building Servers
+</h2><p class="pBody"><a name="wp1253656"> </a>
+To build an executable ATMI server, compile your application service subroutines with the Oracle Tuxedo system server adaptor and all other referenced files using the <a href="../rfcm/rfcmd.html">buildserver(1)</a> command. 
+</p>
+<a name="wp1253660"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The Oracle Tuxedo server adaptor accepts messages, dispatches work, and <span class="cHyperlink">
+<a href="pgglob.html#wp1100688">manages transactions</a></span> (if transactions are enabled). </td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1168195"> </a>
+Use the following syntax for the <code class="cCode">buildserver</code> command:
+</p>
+<a name="wp1168196"> </a><div class="pPreformatted"><pre>buildserver  -o <code class="cCodeEmphasis">filename</code> -f <code class="cCodeEmphasis">filenames</code> -l <code class="cCodeEmphasis">filenames </code><code class="cCode">-s -v</code></pre></div><p class="pBody"><a name="wp1374398"> </a>
+<a href="pgserv.html#wp1374454">Table&#160;5-6</a> describes the <code class="cCode">buildserver</code> command-line options:
+</p>
+<p class="pGraphic"><a name="wp1395673"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1374454table1374399"><caption><a name="wp1374454"> </a>
+Table 5-6  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">buildserver Command-line Options</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1374401"> </a>
+This Option . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1374403"> </a>
+Allows You to Specify the . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1374405"> </a>
+<code class="cCode">-o </code><code class="cCodeEmphasis">filename</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1374408"> </a>
+Name of the executable output file. The default is <code class="cCode">a.out</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1374410"> </a>
+<code class="cCode">-f </code><code class="cCodeEmphasis">filenames</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1374412"> </a>
+List of files that are link edited before the Oracle Tuxedo system libraries. You can specify the <code class="cCode">-f</code> option more than once, and multiple filenames for each occurrence of <code class="cCode">-f</code>. If you specify a C program file (<code class="cCodeEmphasis">file.</code><code class="cCode">c</code>), it is compiled before it is linked. You can specify other object files (<code class="cCodeEmphasis">file.</code><code class="cCode">o</code>) separately, or in groups in an archive file (<code class="cCodeEmphasis">file.</code><code class="cCode">a</code>).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1374416"> </a>
+<code class="cCode">-l </code><code class="cCodeEmphasis">filenames</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1374418"> </a>
+List of files that are link edited after the Oracle Tuxedo system libraries. You can specify the <code class="cCode">-l</code> option more than once, and multiple filenames for each occurrence of <code class="cCode">-l</code>. If you specify a C program file (<code class="cCodeEmphasis">file.</code><code class="cCode">c</code>), it is compiled before it is linked. You can specify other object files (<code class="cCodeEmphasis">file.</code><code class="cCode">o</code>) separately, or in groups in an archive file (<code class="cCodeEmphasis">file.</code><code class="cCode">a</code>).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1374422"> </a>
+-r <code class="cCodeEmphasis">filenames</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1374424"> </a>
+List of resource manager access libraries that are link edited with the executable server. The application administrator is responsible for predefining all valid resource manager information in the <code class="cCode">$TUXDIR/updataobj/RM</code> file using the <a href="../rfcm/rfcmd.html">buildtms(1)</a> command. You can specify only one resource manager. Refer to <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em> for more information.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1374433"> </a>
+-s [<code class="cCodeEmphasis">service</code>:]<code class="cCodeEmphasis">function</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1374435"> </a>
+Name of service or services offered by the server and the name of the function that performs each service. You can specify the <code class="cCode">-s</code> option more than once, and multiple services for each occurrence of <code class="cCode">-s</code>. The server uses the specified service names to advertise its services to clients. 
+</div>
+<div class="pCellBody"><a name="wp1374437"> </a>
+Typically, you should assign the same name to both the service and the function that performs that service. Alternatively, you can specify any names. To assign names, use the following syntax: <code class="cCodeEmphasis">service</code>:<code class="cCodeEmphasis">function</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1374441"> </a>
+<code class="cCode">-t</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1374443"> </a>
+Specifies that the server is coded in a thread-safe manner and may be booted as multithreaded if specified as such in the configuration file. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<a name="wp1397593"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Notes:</strong></td>
+<td>The Oracle Tuxedo libraries are linked in automatically. You do not need to specify the Oracle Tuxedo library names on the command line.</td></tr>
+</table>
+
+<a name="wp1397594"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>Link editing must be done by running the <code class="cCode">buildserver</code> command.</td>
+</tr>
+</table>
+<p class="pBody"><a name="wp1397595"> </a>
+The order in which you specify the library files to be link edited is significant: it depends on the order in which functions are called and which libraries contain references to those functions. 
+</p>
+<p class="pBody"><a name="wp1168234"> </a>
+By default, the <code class="cCode">buildserver</code> command invokes the UNIX <code class="cCode">cc</code> command. You can specify an alternative compile command and set your own flags for the compile and link-edit phases, however, by setting the <code class="cCode">CC</code> and <code class="cCode">CFLAGS</code> environment variables, respectively. For more information, refer to <a href="pgenv.html#wp1026302">Setting Environment Variables</a>.
+</p>
+<p class="pBody"><a name="wp1168238"> </a>
+The following command processes the <code class="cCode">acct.o</code> application file and creates a server called <code class="cCode">ACCT</code> that contains two services: <code class="cCode">NEW_ACCT</code>, which calls the <code class="cCode">OPEN_ACCT</code> function, and <code class="cCode">CLOSE_ACCT</code>, which calls a function of the same name.
+</p>
+<a name="wp1168239"> </a><div class="pPreformatted"><pre>buildserver &#8211; o ACCT &#8211; f acct.o &#8211; s NEW_ACCT:OPEN_ACCT &#8211; s CLOSE_ACCT</pre></div><h3 class="pHeading2"><a name="wp1251995"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1251999"> </a><a href="pgclt.html#wp1030541">Building Clients</a></li>
+<li><a name="wp1252006"> </a><a href="../rfcm/rfcmd.html">buildclient(1)</a> in the <em class="cEmphasis">Oracle Tuxedo Command Reference</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1390169"> </a>
+Using a C++ Compiler
+</h2><p class="pBody"><a name="wp1390170"> </a>
+There are basically two differences between using a C++ compiler and a C compiler to develop application ATMI servers:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1390171"> </a>Different declarations of the service function</li>
+<li><a name="wp1390172"> </a>Different use of constructors and destructors</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1390173"> </a>
+Declaring Service Functions
+</h3>
+<p class="pBody"><a name="wp1390174"> </a>
+When declaring a service function for a C++ compiler, you must declare it to have &#8220;C&#8221; linkage using <code class="cCode">extern &#8220;C&#8221;</code>. Specify the function prototype as follows:
+</p>
+<a name="wp1390175"> </a><div class="pPreformatted"><pre>#ifdef __cplusplus<br />extern &quot;C&quot;<br />#endif<br />MYSERVICE(TPSVCINFO *tpsvcinfo)</pre></div><p class="pBody"><a name="wp1390176"> </a>
+By declaring the name of your service with &#8220;C&#8221; linkage, you ensure that the C++ compiler will not <em class="cEmphasis">modify</em> the name. Many C++ compilers change the function name to include type information for the parameters and function return. 
+</p>
+<p class="pBody"><a name="wp1390177"> </a>
+This declaration also allows you to: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1390178"> </a>Link both C and C++ service routines into a single server without indicating the type of each routine.</li>
+<li><a name="wp1390179"> </a>Use dynamic service advertisement, which requires accessing the symbol table of the executable to find the function name.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1390180"> </a>
+Using Constructors and Destructors
+</h3>
+<p class="pBody"><a name="wp1390181"> </a>
+C++ constructors are called to initialize class objects when those objects are created, and destructors are invoked when class objects are destroyed. For automatic (that is, local, non-static) variables that contain constructors and destructors, the constructor is called when the variable comes into scope and the destructor is called when the variable goes out of scope. However, when you call the <a href="pgserv.html#wp1167965">tpreturn()</a> or <a href="pgserv.html#wp1168061">tpforward()</a> function, the compiler performs a non-local goto (using <code class="cCode">longjmp</code>(3)) such that destructors for automatic variables are not called. To avoid this problem, write the application so that you call <code class="cCode">tpreturn()</code> or <code class="cCode">tpforward()</code> from the service routine directly (instead of from any functions that are called from the service routine). In addition, one of the following should be true:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1390184"> </a>The service routine should not have any automatic variables with destructors (they should be declared and used in a function called by the service routine).</li>
+<li><a name="wp1390185"> </a>Automatic variables should be declared and used in a nested scope (contained within curly brackets {}) in such a way that the scope ends before calling the <a href="pgserv.html#wp1167965">tpreturn()</a> or <a href="pgserv.html#wp1168061">tpforward()</a> function. </li>
+</ul></div>
+<p class="pBody"><a name="wp1390188"> </a>
+In other words, you should define the application so that there are no automatic variables with destructors in scope in the current function or on the stack when the <a href="pgserv.html#wp1167965">tpreturn()</a><a href="pgserv.html#wp1167965"></a> or <a href="pgserv.html#wp1168061">tpforward()</a> function is called.
+</p>
+<p class="pBody"><a name="wp1390192"> </a>
+For proper handling of global and static variables that contain constructors and destructors, many C++ compilers require that you compile <code class="cCode">main()</code> using the C++ compiler.
+</p>
+<a name="wp1390193"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Special processing is included in the <code class="cCode">main()</code> routine to ensure that any constructors are executed when the program starts and any destructors are executed when the program exits.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1168259"> </a>
+Because <code class="cCode">main()</code> is provided by the Oracle Tuxedo system, you do not compile it directly. To ensure that the file is compiled using C++, you must use the C++ compiler with the <a href="pgserv.html#wp1250188">buildserver</a> command. By default, the <code class="cCode">buildserver</code> command invokes the UNIX <code class="cCode">cc</code> command. You can specify that the <code class="cCode">buildserver</code> command invoke the C++ compiler, instead, by setting the <code class="cCode">CC</code> environment variable to the full path name for the C++ compiler. Also, you can set flags for any options that you want to include on the C++ command line by setting the <code class="cCode">CFLAGS</code> environment variable. For more information, refer to <a href="pgenv.html#wp1026302">Setting Environment Variables</a>.
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="pgserv.html"><img id="LongDescNotReq9" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pgclt.html"><img id="LongDescNotReq10" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pgreq.html"><img id="LongDescNotReq11" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

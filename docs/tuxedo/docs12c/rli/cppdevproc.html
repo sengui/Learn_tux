@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/rli/fm/cppdevproc.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:36:17" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Developing CORBA Request-Level Interceptors</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Using CORBA Request-Level Interceptors
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="rliover.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="admin.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/rli.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1024251"> </a>
+Developing CORBA Request-Level Interceptors
+</h1>
+<p class="pBody"><a name="wp1022692"> </a>
+Developing a CORBA request-level interceptor typically involves the following steps:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1022693"> </a><a href="cppdevproc.html#wp1022701">Step 1: Identify the Interfaces of Your CORBA Application</a></li>
+<p class="pBodyRelative"><a name="wp1022956"> </a>
+Also identify the machines on which you plan to deploy the interceptors.
+</p>
+<li><a name="wp1022694"> </a><a href="cppdevproc.html#wp1022710">Step 2: Write the Interceptor Implementation Code</a></li>
+<li><a name="wp1022695"> </a><a href="cppdevproc.html#wp1022781">Step 3: Create the Interceptor Header File</a></li>
+<li><a name="wp1022696"> </a><a href="cppdevproc.html#wp1022789">Step 4: Build the Interceptor</a></li>
+<li><a name="wp1022697"> </a><a href="cppdevproc.html#wp1022801">Step 5: Test the Interceptor</a></li>
+</ul></div>
+<p class="pBody"><a name="wp1022698"> </a>
+The preceding steps are usually iterative. For example, the first time you build and test your interceptor, you might have only the most basic code in the interceptor that merely verifies that the interceptor is running. With subsequent builds and tests, you gradually implement the full functionality of the interceptor.
+</p>
+<p class="pBody"><a name="wp1022699"> </a>
+The sections that follow explain each of these steps in detail, using the sample interceptors packaged with the Oracle Tuxedo software for examples.
+</p>
+<a name="wp1024746"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Notes:</strong></td>
+<td>The Oracle Tuxedo CORBA Java client and Oracle Tuxedo CORBA Java client ORB were deprecated in Tuxedo 8.1 and are no longer supported. All Oracle Tuxedo CORBA Java client and Oracle Tuxedo CORBA Java client ORB text references, associated code samples, should only be used to help implement/run third party Java ORB libraries, and for programmer reference only.</td></tr>
+</table>
+
+<a name="wp1024476"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>Technical support for third party CORBA Java ORBs should be provided by their respective vendors. Oracle Tuxedo does not provide any technical support or documentation for third party CORBA Java ORBs.</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1022701"> </a>
+Step 1: Identify the Interfaces of Your CORBA Application
+</h2><p class="pBody"><a name="wp1022702"> </a>
+Deploying an interceptor on a given machine constitutes a significant overhead because that interceptor will be invoked every time any application on that machine issues (in the case of a client-side interceptor) or receives (target-side interceptor) a request. Therefore, any interceptor you create must be well-matched to those applications.
+</p>
+<p class="pBody"><a name="wp1022703"> </a>
+For example, a security interceptor typically needs to know about what kinds of requests are of concern, and what kinds of data are being handled in the request.
+</p>
+<p class="pBody"><a name="wp1022704"> </a>
+Any interceptor that deals with specific requests needs to be able to extract the interface repository ID from the request. With that interface knowledge, the interceptor then has a way of knowing what kind of data is in the request, and can then handle that data in a request-specific fashion.
+</p>
+<p class="pBody"><a name="wp1022705"> </a>
+In addition, if a request is sent that is <em class="cEmphasis">not</em> of interest, the interceptor needs to be able to pass the request through quickly and efficiently.
+</p>
+<p class="pBody"><a name="wp1022708"> </a>
+The PersonQuery example described in <a href="pquery.html"><span class="cHyperlink">
+PersonQuery Sample Application,</span></a> uses an interceptor that determines whether the user of the PersonQuery client application can receive addresses. If the identity of the user matches specific criteria, the interceptor allows the full address number to be returned to the client. If no match exists, the interceptor returns only the string of <code class="cCode">x</code> characters to the log file in place of the address.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1022710"> </a>
+Step 2: Write the Interceptor Implementation Code
+</h2><p class="pBody"><a name="wp1022711"> </a>
+To implement an interceptor:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1022712"> </a>For your first pass on implementing an interceptor, keep it simple. For example, you might decide for each function member to implement a statement that prints a message to a log file. This would simply verify that the interceptor is properly built, registered, and running. Once you know your interceptor is working properly, you can iteratively add code until you have all the functionality you need.</li>
+<li><a name="wp1022713"> </a>If you are planning to deploy client- and target-side interceptors to implement a specific piece of functionality, you can implement both interceptors in a single source file. Then when you build and deploy the interceptors, you can configure them separately on the client- and target-side machines if you desire. The sample interceptors provided with the Oracle Tuxedo software are done this way.</li>
+</ul></div>
+<p class="pBody"><a name="wp1022714"> </a>
+The topics that follow discuss implementation considerations that may be typical of many interceptors. Examples from the InterceptorData interceptors, which are described in <a href="pqint.html"><span class="cHyperlink">
+InterceptorData Sample Interceptors,</span></a> are provided.
+</p>
+<h3 class="pHeading2"><a name="wp1022719"> </a>
+Starting the Implementation File
+</h3>
+<p class="pBody"><a name="wp1022720"> </a>
+You can use the code fragments included in Appendix A as a place to start implementing your interceptor. You may use the code included in Appendix A, or you may copy the following starter files available at the WebLogic Enterprise Developer Center on the Oracle Web site:
+</p>
+<p class="pGraphic"><a name="wp1022737"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1022723table1022721">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1022723"> </a>
+<span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">File Name</span>
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1022725"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022727"> </a>
+<code class="cCode">intercep.h</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022729"> </a>
+Interceptor header starter file. The contents of this file, and instructions for using it, are in the section <a href="cppdevproc.html#wp1022781">&quot;Step 3: Create the Interceptor Header File&quot; on page&#160;-7</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022734"> </a>
+<code class="cCode">intercep.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022736"> </a>
+Interceptor implementation starter file.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1022738"> </a>
+For information about getting these starter files from the WebLogic Enterprise Developer Center, see the <em class="cEmphasis">Release Notes</em>.
+</p>
+<p class="pBody"><a name="wp1022739"> </a>
+You can start your interceptor implementation using the sample interceptor code provided in Appendix A, where <code class="cCodeEmphasis">YourInterceptor</code> represents the name of the interceptor you are implementing. The ORB will always pass nil references for the <code class="cCode">ServiceContextList</code> and <code class="cCode">CORBA::DataOutputStream</code> parameters. You should not use or reference those parameters. You should not test those parameters for <code class="cCode">nil</code> because this restriction may change in a future version.
+</p>
+<h3 class="pHeading2"><a name="wp1022741"> </a>
+Initializing the Interceptor at Run Time
+</h3>
+<p class="pBody"><a name="wp1022742"> </a>
+All interceptors are instantiated when the ORB is initialized. At no other time are request-level interceptors instantiated. As part of initializing, the interceptor&#8217;s initialization routine must instantiate an instance of an implementation for a client interceptor, or a target interceptor, or both, depending upon what the interceptor intends to support. As mentioned earlier, a single shareable image can support both the client-side and target-side interceptors. The instances of any interceptor instantiated are then returned from the initialization routine and registered with the ORB run time.
+</p>
+<p class="pBody"><a name="wp1022743"> </a>
+The following code fragment is from the InterceptorData interceptor, and shows the declaration of the initialization operation invoked by the client-side ORB when that ORB is initialized:
+</p>
+<a name="wp1022744"> </a><div class="pPreformatted"><pre>void InterceptorDataClientInit(<br />    CORBA::ORB_ptr                                       TheORB,<br />    RequestLevelInterceptor::ClientRequestInterceptor ** ClientPtr,<br />    RequestLevelInterceptor::TargetRequestInterceptor ** TargetPtr,<br />    CORBA::Boolean *                                     RetStatus)</pre></div><p class="pBody"><a name="wp1022745"> </a>
+The following code fragment shows the statements to instantiate the InterceptorData client interceptor class. Note that this fragment uses a class named <code class="cCode">tracker</code>, which is used for keeping track of each incoming client request so that it can be matched with the response returned by the target object. The tracker class is described in the section <a href="cppdevproc.html#wp1022758">&quot;Identifying Operations in the Request&quot; on page&#160;-5</a>.
+</p>
+<a name="wp1022749"> </a><div class="pPreformatted"><pre>ClientInterceptorData * client = new ClientInterceptorData(TheORB, tracker);<br />    if  (!client)<br />    {<br />        tmpfile &lt;&lt; &quot;InterceptorDataClientInit: Client alloc failed&quot; <br />                &lt;&lt; endl &lt;&lt; endl;<br />        *RetStatus = CORBA_FALSE;<br />        delete tracker;<br />        return;<br />    }</pre></div><p class="pBody"><a name="wp1022750"> </a>
+The following code fragment shows the statements to return the interceptor class to the ORB:
+</p>
+<a name="wp1022751"> </a><div class="pPreformatted"><pre>*ClientPtr = client;<br />*TargetPtr = 0;<br />*RetStatus = CORBA_TRUE;<br />return;</pre></div><h3 class="pHeading2"><a name="wp1022753"> </a>
+Obtaining the Interface Name from a Request
+</h3>
+<p class="pBody"><a name="wp1022754"> </a>
+If you have an interceptor that works with specific interfaces or requests, the interceptor needs a way to extract the interface ID associated with a request so that the interceptor can identify it and thus know how to handle the data in the request. For example, the InterceptorData interceptor manipulates the request parameters sent in requests from the PersonQuery application. To manipulate the request parameters, the interceptor needs to know which request is being sent.
+</p>
+<p class="pBody"><a name="wp1022755"> </a>
+The following code fragment from the InterceptorData sample shows the interface ID extracted from the RequestContext structure:
+</p>
+<a name="wp1022756"> </a><div class="pPreformatted"><pre>if (strcmp(request_context.interface_id.in(), <br />           PersonQuery::_get_interface_name()) != 0)<br />    return ret_status;</pre></div><h3 class="pHeading2"><a name="wp1022758"> </a>
+Identifying Operations in the Request
+</h3>
+<p class="pBody"><a name="wp1022759"> </a>
+Using the extracted interface ID, the InterceptorData sample uses a simple <code class="cCode">switch</code> statement to identify the operation in the client request. That way, the interceptor will know what do with the request parameters contained in the request.
+</p>
+<p class="pBody"><a name="wp1022760"> </a>
+The following code fragment shows the switch statement that checks for either the <code class="cCode">Exit</code> operation or the operation to query the database for a person by name. Note the use of the <code class="cCode">parser</code> object, which extracts operations from the request retrieved from the <code class="cCode">tracker</code> object.
+</p>
+<a name="wp1022761"> </a><div class="pPreformatted"><pre>m_outfile &lt;&lt; &#8220;   Operation:      &#8220; &lt;&lt; request_context.operation &lt;&lt; endl;<br />    PQ parser;<br />    PQ::op_key key = parser.MapOperation(request_context.operation.in());<br />    switch (key)<br />    {<br />        default:<br />          m_outfile &lt;&lt; &#8220;    ERROR: operation is not member of &#8220; <br />                  &lt;&lt; request_context.interface_id.in() &lt;&lt; endl;<br />                     excep_val = new CORBA::BAD_OPERATION();<br />          return Interceptors::REPLY_EXCEPTION;<br /><br />        case PQ::Exit:<br />          m_outfile &lt;&lt; endl;<br />          return  ret_status;<br /><br />        case PQ::ByPerson:<br />          {<br />             PersonQuery::Person per;<br />             parser.GetByPerson(request_arg_stream, &amp;per);<br />             m_outfile &lt;&lt; &#8220;   Parameters:&#8221; &lt;&lt; endl;<br />             m_outfile &lt;&lt; per &lt;&lt; endl;<br />          }<br />          break;</pre></div><h3 class="pHeading2"><a name="wp1022763"> </a>
+Implementing the Interceptor&#8217;s Response Operation
+</h3>
+<p class="pBody"><a name="wp1022764"> </a>
+Extracting an interface ID out of a client request is fairly straightforward. However, it&#8217;s not quite as simple to do that with a target response. If an interceptor needs to know what interface and operation is associated with the response it receives from the ORB, it needs to have special logic for tracking requests. It is the interceptor&#8217;s responsibility to track requests coming from the client.
+</p>
+<p class="pBody"><a name="wp1022765"> </a>
+The InterceptorData samples implement a language object, called <code class="cCode">Tracker</code>, that keeps a record of the target-bound requests, and then matches the target responses to them when those responses arrive back at the interceptor.
+</p>
+<p class="pBody"><a name="wp1022766"> </a>
+The <code class="cCode">client_response</code> and <code class="cCode">target_response</code> operations on the InterceptorData samples extract interface and operation information from the <code class="cCode">Tracker</code> object when responses are returned from the target.
+</p>
+<p class="pBody"><a name="wp1022767"> </a>
+The following InterceptorData code fragment extracts the request associated with a response:
+</p>
+<a name="wp1022768"> </a><div class="pPreformatted"><pre>RequestInfo * req_info = m_tracker-&gt;CompleteRequest(reply_context);<br />    if (!req_info)<br />    {<br />       m_outfile &lt;&lt; &#8220;   unable to find request for this reply (must not be one <br />       we care about)&#8221; &lt;&lt; endl &lt;&lt; endl;<br />       return Interceptors::RESPONSE_NO_EXCEPTION;<br />    }<br /><br />    //<br />    // This is the interface we are expecting.  Now identify the operation<br />    // being invoked, so we can parse the request parameters.<br />    //<br /><br />    m_outfile &lt;&lt; &#8220;   ReplyStatus:    &#8220;;<br />    OutputReplyStatus(m_outfile, reply_context.reply_status);<br />    m_outfile &lt;&lt; endl;<br />    m_outfile &lt;&lt; &#8220;   Interface:      &#8220; &lt;&lt; req_info-&gt;intf() &lt;&lt; endl;<br />    m_outfile &lt;&lt; &#8220;   Operation:      &#8220; &lt;&lt; req_info-&gt;op() &lt;&lt; endl;<br />    PQ parser;<br />    PQ::op_key key = parser.MapOperation(req_info-&gt;op());</pre></div><p class="pBody"><a name="wp1022769"> </a>
+Now that the interceptor has obtained the request associated with the response, the interceptor can handle the data in the response appropriately.
+</p>
+<h3 class="pHeading2"><a name="wp1022771"> </a>
+Reading Parameters Out of a Data Input Stream
+</h3>
+<p class="pBody"><a name="wp1022772"> </a>
+The following code fragment shows an example of how the InterceptorData sample places the request parameters from a data stream into a structure. The parameter <code class="cCode">S</code> in the following code fragment represents a pointer to a <code class="cCode">DataInputStream</code> structure that can be used by the interceptor implementation to retrieve the value of the reply parameters of the PersonQuery operation. The code encapsulated by the braces in this code fragment extracts the parameters of the response from the <code class="cCode">DataInputStream</code> structure. For more information about the <code class="cCode">DataInputStream</code> structure, see <a href="api.html"><span class="cHyperlink">
+Request-Level Interceptor API.</span></a>
+</p>
+<a name="wp1022776"> </a><div class="pPreformatted"><pre>void PQ::get_addr(CORBA::DataInputStream_ptr S, <br />                  PersonQuery::Address *addr)<br />{<br />    addr-&gt;number = S-&gt;read_short();<br />    addr-&gt;street = S-&gt;read_string();<br />    addr-&gt;town = S-&gt;read_string();<br />    addr-&gt;state = S-&gt;read_string();<br />    addr-&gt;country = S-&gt;read_string();<br />}</pre></div><h3 class="pHeading2"><a name="wp1022777"> </a>
+Exceptions
+</h3>
+<p class="pBody"><a name="wp1022778"> </a>
+Exceptions from interceptors returned via the <code class="cCode">excep_val</code> parameter can only be a derived type from the <code class="cCode">CORBA::SystemException</code> base class. (Any other exception type that the interceptor implementations return to the ORB is converted by the ORB to a <code class="cCode">CORBA::UNKNOWN</code> exception, which is passed via the <code class="cCode">excep_val</code> parameter.) You need to map exceptions to a <code class="cCode">CORBA::SystemException</code> class or one of its derivatives.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1022781"> </a>
+Step 3: Create the Interceptor Header File
+</h2><p class="pBody"><a name="wp1022782"> </a>
+After you have created any implementation code in the interceptor implementation file, you need to provide any data or operations as needed to the interceptor header file.
+</p>
+<p class="pBody"><a name="wp1022783"> </a>
+The following code example shows basic information that is required in the header file for an interceptor implementation file that implements both client- and target-side interceptors. 
+</p>
+<p class="pBody"><a name="wp1022784"> </a>
+This example also shows:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1022785"> </a>The <code class="cCode">include</code> file needed for security</li>
+<li><a name="wp1022786"> </a>Target data members for security</li>
+</ul></div>
+<p class="pBody"><a name="wp1022787"> </a>
+In this code example, <code class="cCode">YourInterceptor</code> represents the name of the interceptor you are creating.
+</p>
+<a name="wp1022788"> </a><div class="pPreformatted"><pre>#include &lt;CORBA.h&gt;<br />#include &lt;RequestLevelInterceptor.h&gt;<br />#include &lt;security_c.h&gt;          //for security<br /><br />class <em class="cEmphasis">YourInterceptor</em>Client : public virtual RequestLevelInterceptor::ClientRequestInterceptor<br />{<br />private:<br />    <em class="cEmphasis">YourInterceptor</em>Client() {}<br />    CORBA::ORB_ptr  m_orb;<br />public:<br />    <code class="cCodeEmphasis">YourInterceptor</code>Client(CORBA::ORB_ptr TheOrb);<br />    ~<code class="cCodeEmphasis">YourInterceptor</code>Client() {}<br />    Interceptors::ShutdownReturnStatus shutdown(<br />        Interceptors::ShutdownReason reason,<br />        CORBA::Exception_ptr &amp; excep_val);<br />    CORBA::String id();<br />    void exception_occurred (<br />        const RequestLevelInterceptor::ReplyContext &amp; reply_context,<br />        CORBA::Exception_ptr excep_val);<br />    Interceptors::InvokeReturnStatus client_invoke (<br />        const RequestLevelInterceptor::RequestContext &amp; request_context,<br />        RequestLevelInterceptor::ServiceContextList_ptr service_context,<br />        CORBA::DataInputStream_ptr request_arg_stream,<br />        CORBA::DataOutputStream_ptr reply_arg_stream,<br />        CORBA::Exception_ptr &amp; excep_val);<br />    Interceptors::ResponseReturnStatus client_response (<br />        const RequestLevelInterceptor::ReplyContext &amp; reply_context,<br />        RequestLevelInterceptor::ServiceContextList_ptr service_context,<br />        CORBA::DataInputStream_ptr arg_stream,<br />        CORBA::Exception_ptr &amp; excep_val);<br />    <br />};<br /><br />class <code class="cCodeEmphasis">YourInterceptor</code>Target : public virtual RequestLevelInterceptor::TargetRequestInterceptor<br />{<br />private:<br />    <code class="cCodeEmphasis">YourInterceptor</code>Target() {}<br />    CORBA::ORB_ptr  m_orb;<br />    SecurityLevel1::Current_ptr m_security_current;          //for security<br />    Security::AttributeTypeList * m_attributes_to_get;       //for security<br />public:<br />    <code class="cCodeEmphasis">YourInterceptor</code>Target(CORBA::ORB_ptr TheOrb);<br />    ~<code class="cCodeEmphasis">YourInterceptor</code>Target();<br />    Interceptors::ShutdownReturnStatus shutdown(<br />        Interceptors::ShutdownReason reason,<br />        CORBA::Exception_ptr &amp; excep_val);<br />    CORBA::String id();<br />    void exception_occurred (<br />        const RequestLevelInterceptor::ReplyContext &amp; reply_context,<br />        CORBA::Exception_ptr excep_val);<br />    Interceptors::InvokeReturnStatus target_invoke (<br />        const RequestLevelInterceptor::RequestContext &amp; request_context,<br />        RequestLevelInterceptor::ServiceContextList_ptr service_context,<br />        CORBA::DataInputStream_ptr request_arg_stream,<br />        CORBA::DataOutputStream_ptr reply_arg_stream,<br />        CORBA::Exception_ptr &amp; excep_val);<br />    Interceptors::ResponseReturnStatus target_response (<br />        const RequestLevelInterceptor::ReplyContext &amp; reply_context,<br />        RequestLevelInterceptor::ServiceContextList_ptr service_context,<br />        CORBA::DataInputStream_ptr arg_stream,<br />        CORBA::Exception_ptr &amp; excep_val);<br />    <br />};</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1022789"> </a>
+Step 4: Build the Interceptor
+</h2><p class="pBody"><a name="wp1022790"> </a>
+Interceptors are built into shareable libraries. Therefore, the steps for building an interceptor are platform-specific. For details about the specific commands and options used to build interceptors on any particular platform, execute the makefile that builds the  interceptor sample applications provided with the Oracle Tuxedo software, and view the results of the build in the log file that results from the build. 
+</p>
+<p class="pBody"><a name="wp1022791"> </a>
+The command to build the sample interceptors is as follows:
+</p>
+<p class="pBody"><a name="wp1022792"> </a>
+<b class="cBold">Windows 2003</b>
+</p>
+<a name="wp1022793"> </a><div class="pPreformatted"><pre>&gt; nmake -f makefile.nt</pre></div><p class="pBody"><a name="wp1022794"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<a name="wp1022795"> </a><div class="pPreformatted"><pre>&gt; make -f makefile.mk</pre></div><p class="pBody"><a name="wp1022796"> </a>
+For more information about building and running the sample interceptors provided with the Oracle Tuxedo software, see <a href="pquery.html"><span class="cHyperlink">
+PersonQuery Sample Application.</span></a>
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1022801"> </a>
+Step 5: Test the Interceptor
+</h2><p class="pBody"><a name="wp1022802"> </a>
+Testing an interceptor requires you to perform the following tasks:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1022803"> </a>Register the interceptor</li>
+<li><a name="wp1022804"> </a>Boot the CORBA server application using the <code class="cCode">tmboot</code> command</li>
+<li><a name="wp1022805"> </a>Run the CORBA client application</li>
+<li><a name="wp1022806"> </a>Check the interceptor&#8217;s log file to verify the interceptor&#8217;s behavior</li>
+</ul></div>
+<p class="pBody"><a name="wp1022809"> </a>
+For information about registering interceptors, see <a href="admin.html"><span class="cHyperlink">
+Deploying CORBA Request-Level Interceptors.</span></a>
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="cppdevproc.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="rliover.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="admin.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

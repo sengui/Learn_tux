@@ -1,0 +1,328 @@
+<?Fm Document txxa.fm?>
+<Appendix Id = "g1027039">
+<?Fm Condition HardcopyOnly Blue NO_OVERRIDE show?>
+
+<?Fm Condition SoftcopyOnly Magenta NO_OVERRIDE show?>
+
+<?Fm Condition Hide Blue NO_OVERRIDE show?>
+
+<?Fm Condition HardcopyHide Blue NO_OVERRIDE show?>
+
+<?Fm Condition RevRec Red NO_OVERRIDE hide?>
+
+<?Fm Condition BetaDraft Red NO_OVERRIDE show?>
+
+<?Fm Condition Comment Magenta NO_OVERRIDE show?>
+
+<?Fm Condition HTML Blue NO_OVERRIDE show?>
+
+<?Fm Condition PSPDF AsIs NO_OVERRIDE show?>
+
+<Title Id = "i1011539"><?FM MARKER [Cross-Ref] g1027039:Appendix: A A Sample Application?>A Sample Application</Title>
+<Para>This topic includes the following sections:</Para>
+<ItemizedList mark = "Bullet"><ListItem><Para><XRef Role = "Section Head Number &#x0026; Title" Linkend = "i1011670"/></Para></ListItem>
+<ListItem><Para><XRef Role = "Section Head Number &#x0026; Title" Linkend = "i1011679"/></Para></ListItem>
+<ListItem><Para><XRef Role = "Section Head Number &#x0026; Title" Linkend = "i1011725"/></Para></ListItem></ItemizedList>
+<Sect1 Id = "i1011670"><Title><?FM MARKER [Cross-Ref] 89854: !Head1: Appendix Contents?>Appendix Contents</Title>
+<Para>This appendix contains a description of a one-client, one-server application called <Emphasis Role = "CodeInline">rpcsimp</Emphasis> that uses TxRPC. The source files for this interactive application are distributed with the Oracle Tuxedo ATMI software, except they are not included in the RTK binary delivery.</Para></Sect1>
+<Sect1 Id = "i1011679"><Title><?FM MARKER [Cross-Ref] 49814: !Head1: Prerequisites?>Prerequisites</Title>
+<Para>Before you can run this sample application, the Oracle Tuxedo software must be installed so that the files and commands referred to in this chapter are available.</Para></Sect1>
+<Sect1 Id = "i1011725"><Title><?FM MARKER [Cross-Ref] 17288: !Head1: Using the rpcsimp Application?>Building the rpcsimp Application</Title>
+<Para><Emphasis Role = "CodeInline">rpcsimp</Emphasis> is a very basic Oracle Tuxedo ATMI application that uses TxRPC. It has one application client and one server. The client calls the remote procedure calls (operations) <Emphasis Role = "CodeInline">to&lowbar;upper()</Emphasis> and <Emphasis Role = "CodeInline">to&lowbar;lower()</Emphasis>, which are implemented in the server. The operation <Emphasis Role = "CodeInline">to&lowbar;upper()</Emphasis> converts a string from lowercase to uppercase and returns it to the client, while <Emphasis Role = "CodeInline">to&lowbar;lower()</Emphasis> converts a string from uppercase to lowercase and returns it to the client. When each procedure call returns, the client displays the string output on the user's screen.</Para>
+<Para>What follows is a procedure to build and run the example.</Para>
+<Sect2><Title>Step 1: Create an Application Directory</Title>
+<Para>Make a directory for <Emphasis Role = "CodeInline">rpcsimp</Emphasis> and <Emphasis Role = "CodeInline">cd</Emphasis> to it:</Para>
+<InformalExample><ProgramListing>mkdir rpcsimpdir</ProgramListing>
+<ProgramListing>cd rpcsimpdir</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Note><InformalTable Colsep = "0" Frame = "Topbot" Rowsep = "0" Summary = "This is a layout table to format a note" Tabstyle = "Note" Title = "Note"><TGroup Cols = "1" Colsep = "0" Rowsep = "0" TGroupStyle = "Note">
+<ColSpec Colname = "1" Colnum = "1" Colsep = "0" Colwidth = "4.333313in"/>
+<TBody>
+<Row Rowsep = "0">
+<Entry Colname = "1"><Para>Note</Para>
+<Para>This is suggested so you will be able to see clearly the <Emphasis Role = "CodeInline">rpcsimp</Emphasis> files you have at the start and the additional files you create along the way. Use the standard shell (<Emphasis Role = "CodeInline">&sol;bin&sol;sh</Emphasis>) or the Korn shell; do not use the C shell (<Emphasis Role = "CodeInline">csh</Emphasis>).</Para></Entry>
+</Row>
+</TBody>
+</TGroup></InformalTable></Note></Sect2>
+<Sect2><Title>Step 2: Set Environment Variables</Title>
+<Para>Set and export the necessary environment variables:</Para>
+<InformalExample><ProgramListing>TUXDIR&equals;&lt;<Emphasis Role = "Italic">pathname of the Oracle Tuxedo System root directory</Emphasis>></ProgramListing>
+<ProgramListing>TUXCONFIG&equals;&lt;<Emphasis Role = "Italic">pathname of your present working directory</Emphasis>>&sol;TUXCONFIG</ProgramListing>
+<ProgramListing>PATH&equals;&dollar;PATH:&dollar;TUXDIR&sol;bin</ProgramListing>
+<ProgramListing>&num; SVR4, Unixware</ProgramListing>
+<ProgramListing>LD&lowbar;LIBRARY&lowbar;PATH&equals;&dollar;LD&lowbar;LIBRARY&lowbar;PATH:&dollar;TUXDIR&sol;lib</ProgramListing>
+<ProgramListing>&num; HPUX</ProgramListing>
+<ProgramListing>SHLIB&lowbar;PATH&equals;&dollar;LD&lowbar;LIBRARY&lowbar;PATH:&dollar;TUXDIR&sol;lib</ProgramListing>
+<ProgramListing>&num; RS6000</ProgramListing>
+<ProgramListing>LIBPATH&equals;&dollar;LD&lowbar;LIBRARY&lowbar;PATH:&dollar;TUXDIR&sol;lib</ProgramListing>
+<ProgramListing>export TUXDIR TUXCONFIG PATH LD&lowbar;LIBRARY&lowbar;PATH SHLIB&lowbar;PATH LIBPATH</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Note><InformalTable Colsep = "0" Frame = "Topbot" Rowsep = "0" Summary = "This is a layout table to format a note" Tabstyle = "Note" Title = "Note"><TGroup Cols = "1" Colsep = "0" Rowsep = "0" TGroupStyle = "Note">
+<ColSpec Colname = "1" Colnum = "1" Colsep = "0" Colwidth = "4.333313in"/>
+<TBody>
+<Row Rowsep = "0">
+<Entry Colname = "1"><Para>Note</Para>
+<Para>You need <Emphasis Role = "CodeInline">TUXDIR</Emphasis> and <Emphasis Role = "CodeInline">PATH</Emphasis> to be able to access files in the Oracle Tuxedo ATMI directory structure and to execute Oracle Tuxedo ATMI commands. You need to set <Emphasis Role = "CodeInline">TUXCONFIG</Emphasis> to be able to load the configuration file. It may also be necessary to set an environment variable (for example, <Emphasis Role = "CodeInline">LD&lowbar;LIBRARY&lowbar;PATH</Emphasis>) if shared objects are being used.</Para></Entry>
+</Row>
+</TBody>
+</TGroup></InformalTable></Note></Sect2>
+<Sect2><Title>Step 3: Copy files</Title>
+<Para>Copy the <Emphasis Role = "CodeInline">rpcsimp</Emphasis> files to the application directory:</Para>
+<InformalExample><ProgramListing>cp &dollar;TUXDIR&sol;apps&sol;rpcsimp&sol;&ast; .</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Para>You will be editing some of the files and making them executable, so it is best to begin with a copy of the files rather than the originals delivered with the software.</Para></Sect2>
+<Sect2><Title>Step 4: List the Files</Title>
+<Para>List the files:</Para>
+<InformalExample><ProgramListing>&dollar; ls</ProgramListing>
+<ProgramListing>client.c</ProgramListing>
+<ProgramListing>rpcsimp.mk</ProgramListing>
+<ProgramListing>server.c</ProgramListing>
+<ProgramListing>simp.idl</ProgramListing>
+<ProgramListing>ubbconfig</ProgramListing>
+<ProgramListing>wclient.def</ProgramListing>
+<ProgramListing>wsimpdll.def</ProgramListing>
+<ProgramListing>&dollar;</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Note><InformalTable Colsep = "0" Frame = "Topbot" Rowsep = "0" Summary = "This is a layout table to format a note" Tabstyle = "Note" Title = "Note"><TGroup Cols = "1" Colsep = "0" Rowsep = "0" TGroupStyle = "Note">
+<ColSpec Colname = "1" Colnum = "1" Colsep = "0" Colwidth = "4.333313in"/>
+<TBody>
+<Row Rowsep = "0">
+<Entry Colname = "1"><Para>Note</Para>
+<Para>This list does not include files that are used in the DCE-Gateway example described in <XRef Role = "Appendix Number &#x0026; Title (period)" Linkend = "g1026316"/></Para></Entry>
+</Row>
+</TBody>
+</TGroup></InformalTable></Note>
+<Para>The files that make up the application are described in the following sections. </Para>
+<Sect3><Title>IDL Input File&mdash;simp.idl</Title>
+<Example><Title>simp.idl</Title>
+<ProgramListing>&lsqb;uuid(C996A680-9FC2-110F-9AEF-930269370000), version(1.0) &rsqb;</ProgramListing>
+<ProgramListing>interface changecase</ProgramListing>
+<ProgramListing>&lcub;</ProgramListing>
+<ProgramListing>&sol;&ast; change a string to upper case &ast;&sol;</ProgramListing>
+<ProgramListing>void to&lowbar;upper(&lsqb;in, out, string&rsqb; char &ast;str);</ProgramListing>
+<ProgramListing>&sol;&ast; change a string to lower case &ast;&sol;</ProgramListing>
+<ProgramListing>void to&lowbar;lower(&lsqb;in, out, string&rsqb; char &ast;str);</ProgramListing>
+<ProgramListing>&rcub;</ProgramListing>
+<ProgramListing></ProgramListing></Example>
+<Para>This file defines a single interface, <Emphasis Role = "CodeInline">changecase</Emphasis> version 1.0, with two operations, <Emphasis Role = "CodeInline">to&lowbar;upper</Emphasis> and <Emphasis Role = "CodeInline">to&lowbar;lower</Emphasis>. Each of the operations takes a NULL-terminated character string, that is both an input and output parameter. Because no ACF file is provided, status variables are not used and the client program must be able to handle exceptions. Each operation has a void return indicating that no return value is generated. <Emphasis Role = "CodeInline">simp.idl</Emphasis> is used to generate the stub functions (see below). </Para></Sect3>
+<Sect3><Title>The Client Source Code&mdash;client.c</Title>
+<Example><Title>client.c</Title>
+<InformalExample><ProgramListing>&num;include &lt;stdio.h></ProgramListing>
+<ProgramListing>&num;include "simp.h"</ProgramListing>
+<ProgramListing>&num;include "atmi.h"</ProgramListing>
+<ProgramListing>main(argc, argv)</ProgramListing>
+<ProgramListing>int argc;</ProgramListing>
+<ProgramListing>char &ast;&ast;argv;</ProgramListing>
+<ProgramListing>&lcub;</ProgramListing>
+<ProgramListing>  idl&lowbar;char str&lsqb;100&rsqb;;</ProgramListing>
+<ProgramListing>  unsigned char error&lowbar;text&lsqb;100&rsqb;;</ProgramListing>
+<ProgramListing>  int status;</ProgramListing>
+<ProgramListing>  if (argc > 1) &lcub;&sol;&ast; use command line argument if it exists &ast;&sol;</ProgramListing>
+<ProgramListing>    (void) strncpy(str, argv&lsqb;1&rsqb;, 100);</ProgramListing>
+<ProgramListing>    str&lsqb;99&rsqb; &equals; '&bsol;0';</ProgramListing>
+<ProgramListing>  &rcub;</ProgramListing>
+<ProgramListing>  else</ProgramListing>
+<ProgramListing>    (void) strcpy(str, "Hello, world");</ProgramListing>
+<ProgramListing>  TRY</ProgramListing>
+<ProgramListing>  to&lowbar;upper(str);</ProgramListing>
+<ProgramListing>  (void) fprintf(stdout, "to&lowbar;upper returns: &percnt;s&bsol;n", str);</ProgramListing>
+<ProgramListing>  to&lowbar;lower(str);</ProgramListing>
+<ProgramListing>  (void) fprintf(stdout, "to&lowbar;lower returns: &percnt;s&bsol;n", str);</ProgramListing>
+<ProgramListing>  &sol;&ast; control flow continues after ENDTRY &ast;&sol;</ProgramListing>
+<ProgramListing>  CATCH&lowbar;ALL</ProgramListing>
+<ProgramListing>    exc&lowbar;report(THIS&lowbar;CATCH); &sol;&ast; print to stderr &ast;&sol;</ProgramListing>
+<ProgramListing>    (void) tpterm();</ProgramListing>
+<ProgramListing>    exit(1);</ProgramListing>
+<ProgramListing>  ENDTRY</ProgramListing>
+<ProgramListing>  (void) tpterm();</ProgramListing>
+<ProgramListing>  exit(0);</ProgramListing>
+<ProgramListing>&rcub;</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></Example>
+<Para>The header, <Emphasis Role = "CodeInline">simp.h</Emphasis>, which is generated by the IDL compiler based on <Emphasis Role = "CodeInline">simp.idl</Emphasis>, has the function prototypes for the two operations. The <Emphasis Role = "CodeInline">simp.h</Emphasis> header also includes the header files for the RPC run-time functions (none appear in this example) and exception handling. The <Emphasis Role = "CodeInline">atmi.h</Emphasis> header file is included because  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tpterm(3c)</Emphasis></Xulink> is called. If an argument is provided on the command line, then it is used for the conversion to uppercase and lowercase (the default being "<Emphasis Role = "CodeInline">hello world</Emphasis>"). Exception handling is used to catch any errors. For example, exceptions are generated for unavailable servers, memory allocation failures, communication failures, and so forth. The <Emphasis Role = "CodeInline">TRY</Emphasis> block encapsulates the two remote procedure calls. If an error occurs, the execution will jump to the <Emphasis Role = "CodeInline">CATCH&lowbar;ALL</Emphasis> block which converts the exception (<Emphasis Role = "CodeInline">THIS&lowbar;CATCH</Emphasis>) into a string, prints it to the standard error output using <Emphasis Role = "CodeInline">exc&lowbar;report</Emphasis>, and exits. Note that in both the abnormal and normal execution,  <Xulink Url = "../../rfcm/rfcmd.html"><Emphasis Role = "CodeInline">tidl(1)</Emphasis></Xulink> is called to leave the application gracefully. If this is not done, a warning is printed in the  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">userlog(3c)</Emphasis></Xulink> for non-Workstation clients, and resources are tied up (until the connection times out, for Workstation clients).</Para></Sect3>
+<Sect3><Title>The Server Source Code&mdash;server.c</Title>
+<Example><Title>server.c</Title>
+<InformalExample><ProgramListing>&num;include &lt;stdio.h></ProgramListing>
+<ProgramListing>&num;include &lt;ctype.h></ProgramListing>
+<ProgramListing>&num;include "tx.h"</ProgramListing>
+<ProgramListing>&num;include "simp.h"</ProgramListing>
+<ProgramListing>int</ProgramListing>
+<ProgramListing>tpsvrinit(argc, argv)</ProgramListing>
+<ProgramListing>int argc;</ProgramListing>
+<ProgramListing>char &ast;&ast;argv;</ProgramListing>
+<ProgramListing>&lcub;</ProgramListing>
+<ProgramListing>  if (tx&lowbar;open() !&equals; TX&lowbar;OK) &lcub;</ProgramListing>
+<ProgramListing>    (void) userlog("tx&lowbar;open failed");</ProgramListing>
+<ProgramListing>    return(-1);</ProgramListing>
+<ProgramListing>  &rcub;</ProgramListing>
+<ProgramListing>  (void) userlog("tpsvrinit() succeeds.");</ProgramListing>
+<ProgramListing>  return(1);</ProgramListing>
+<ProgramListing>&rcub;</ProgramListing>
+<ProgramListing>void</ProgramListing>
+<ProgramListing>to&lowbar;upper(str)</ProgramListing>
+<ProgramListing>idl&lowbar;char &ast;str;</ProgramListing>
+<ProgramListing>&lcub;</ProgramListing>
+<ProgramListing>  idl&lowbar;char &ast;p;</ProgramListing>
+<ProgramListing>  for (p&equals;str; &ast;p !&equals; '&bsol;0'; p&plus;&plus;)</ProgramListing>
+<ProgramListing>    &ast;p &equals; toupper((int)&ast;p);</ProgramListing>
+<ProgramListing>  return;</ProgramListing>
+<ProgramListing>&rcub;</ProgramListing>
+<ProgramListing>void</ProgramListing>
+<ProgramListing>to&lowbar;lower(str)</ProgramListing>
+<ProgramListing>idl&lowbar;char &ast;str;</ProgramListing>
+<ProgramListing>&lcub;</ProgramListing>
+<ProgramListing>  idl&lowbar;char &ast;p;</ProgramListing>
+<ProgramListing>  for (p&equals;str; &ast;p !&equals; '&bsol;0'; p&plus;&plus;)</ProgramListing>
+<ProgramListing>    &ast;p &equals; tolower((int)&ast;p);</ProgramListing>
+<ProgramListing>  return;</ProgramListing>
+<ProgramListing>&rcub; </ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></Example>
+<Para>As with <Emphasis Role = "CodeInline">client.c</Emphasis>, this file includes <Emphasis Role = "CodeInline">simp.h</Emphasis>.</Para>
+<Para>It also includes <Emphasis Role = "CodeInline">tx.h</Emphasis> because  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tx&lowbar;open(3c)</Emphasis></Xulink> is called (as required by the X&sol;OPEN TxRPC specification, even if no resource manager is accessed). A  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tpsvrinit(3c)</Emphasis></Xulink> function is provided to ensure that <Emphasis Role = "CodeInline">tx&lowbar;open()</Emphasis> is called once at boot time. On failure, <Emphasis Role = "CodeInline">-1</Emphasis> is returned and the server fails to boot. This is done automatically, so you may not need to supply it.</Para>
+<Para>The two operation functions are provided to do the application work, in this case, converting to upper and lower case. </Para></Sect3>
+<Sect3><Title>Makefile&mdash;rpcsimp.mk</Title>
+<Example><Title>rpcsimp.mk</Title>
+<InformalExample><ProgramListing>CC&equals;cc</ProgramListing>
+<ProgramListing>CFLAGS&equals;</ProgramListing>
+<ProgramListing>TIDL&equals;&dollar;(TUXDIR)&sol;bin&sol;tidl</ProgramListing>
+<ProgramListing>LIBTRPC&equals;-ltrpc</ProgramListing>
+<ProgramListing>all:  client server</ProgramListing>
+<ProgramListing>&num; Tuxedo client</ProgramListing>
+<ProgramListing>client: simp.h simp&lowbar;cstub.o</ProgramListing>
+<ProgramListing>        CC&equals;&dollar;(CC) CFLAGS&equals;&dollar;(CFLAGS) &dollar;(TUXDIR)&sol;bin&sol;buildclient &bsol;</ProgramListing>
+<ProgramListing>            -oclient -fclient.c -fsimp&lowbar;cstub.o -f&dollar;(LIBTRPC)</ProgramListing>
+<ProgramListing>&num; Tuxedo server</ProgramListing>
+<ProgramListing>server: simp.h simp&lowbar;sstub.o</ProgramListing>
+<ProgramListing>        CC&equals;&dollar;(CC) CFLAGS&equals;&dollar;(CFLAGS) &dollar;(TUXDIR)&sol;bin&sol;buildserver &bsol; </ProgramListing>
+<ProgramListing>                  -oserver -s changecasev1&lowbar;0 -fserver.c -fsimp&lowbar;sstub.o &bsol;</ProgramListing>
+<ProgramListing>                  -f&dollar;(LIBTRPC)</ProgramListing>
+<ProgramListing>simp&lowbar;cstub.o simp&lowbar;sstub.o simp.h:     simp.idl</ProgramListing>
+<ProgramListing>        &dollar;(TIDL) -cc&lowbar;cmd "&dollar;(CC) &dollar;(CFLAGS) -c" simp.idl</ProgramListing>
+<ProgramListing>&num;</ProgramListing>
+<ProgramListing>&num; THIS PART OF THE FILE DEALING WITH THE DCE GATEWAY IS OMMITTED</ProgramListing>
+<ProgramListing>&num;</ProgramListing>
+<ProgramListing></ProgramListing>
+<ProgramListing>&num; Cleanup</ProgramListing>
+<ProgramListing>clean::</ProgramListing>
+<ProgramListing>         rm -f &ast;.o server &dollar;(ALL2) ULOG.&ast; TUXCONFIG</ProgramListing>
+<ProgramListing>         rm -f stderr stdout &ast;stub.c &ast;.h simpdce.idl gwinit.c</ProgramListing>
+<ProgramListing>clobber: clean</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></Example>
+<Para>The <Emphasis Role = "CodeInline">makefile</Emphasis> builds the executable client and server programs.</Para>
+<Para>The part of the <Emphasis Role = "CodeInline">makefile</Emphasis> dealing with the DCE Gateway (described in <XRef Role = "Appendix Number &#x0026; Title (comma)" Linkend = "g1026316"/> is omitted from the figure.</Para>
+<Para>The client is dependent on the <Emphasis Role = "CodeInline">simp.h</Emphasis> header file and the client stub object file. <Emphasis Role = "CodeInline">buildclient</Emphasis> is executed to create the output client executable, using the <Emphasis Role = "CodeInline">client.c</Emphasis> source file, the client stub object file, and the <Emphasis Role = "CodeInline">-ltrpc</Emphasis> RPC run-time library.</Para>
+<Para>The server is dependent on the <Emphasis Role = "CodeInline">simp.h</Emphasis> header file and the server stub object file. <Emphasis Role = "CodeInline">buildserver</Emphasis> is an output server executable, using the <Emphasis Role = "CodeInline">server.c</Emphasis> source file, the server stub object file, and the <Emphasis Role = "CodeInline">-ltrpc</Emphasis> RPC run-time library.</Para>
+<Para>The client and server stub object files and the <Emphasis Role = "CodeInline">simp.h</Emphasis> header file are all created by running the <Emphasis Role = "CodeInline">tidl</Emphasis> compiler on the IDL input file.</Para>
+<Para>The <Emphasis Role = "CodeInline">clean</Emphasis> target removes any files that are created while building or running the application. </Para></Sect3>
+<Sect3><Title>The Configuration File&mdash;ubbconfig</Title>
+<Para>The following is a sample ASCII configuration file. The machine name, <Emphasis Role = "CodeInline">TUXCONFIG</Emphasis>, <Emphasis Role = "CodeInline">TUXDIR</Emphasis>, and <Emphasis Role = "CodeInline">APPDIR</Emphasis> must be set based on your configuration. </Para>
+<Example><Title>ubbconfig</Title>
+<InformalExample><ProgramListing>&ast;RESOURCES</ProgramListing>
+<ProgramListing>IPCKEY     187345</ProgramListing>
+<ProgramListing>MODEL      SHM</ProgramListing>
+<ProgramListing>MASTER     SITE1</ProgramListing>
+<ProgramListing>PERM       0660</ProgramListing>
+<ProgramListing>&ast;MACHINES</ProgramListing>
+<ProgramListing>&lt;<Emphasis Role = "Italic">UNAME</Emphasis>>   LMID&equals;SITE1</ProgramListing>
+<ProgramListing>          TUXCONFIG&equals;"&lt;<Emphasis Role = "Italic">TUXCONFIG</Emphasis>>"</ProgramListing>
+<ProgramListing>          TUXDIR&equals;"&lt;<Emphasis Role = "Italic">TUXDIR</Emphasis>>"</ProgramListing>
+<ProgramListing>          APPDIR&equals;"&lt;<Emphasis Role = "Italic">APPDIR</Emphasis>>"</ProgramListing>
+<ProgramListing>&num;         MAXWSCLIENTS&equals;10</ProgramListing>
+<ProgramListing>&ast;GROUPS</ProgramListing>
+<ProgramListing>GROUP1    LMID&equals;SITE1      GRPNO&equals;1</ProgramListing>
+<ProgramListing>&ast;SERVERS</ProgramListing>
+<ProgramListing>server SRVGRP&equals;GROUP1 SRVID&equals;1</ProgramListing>
+<ProgramListing>&num;WSL SRVGRP&equals;GROUP1 SRVID&equals;2 RESTART&equals;Y GRACE&equals;0</ProgramListing>
+<ProgramListing>&num;         CLOPT&equals;"-A -- -n &lt;<Emphasis Role = "Italic">address</Emphasis>> -x 10 -m 1 -M 10 -d &lt;<Emphasis Role = "Italic">device</Emphasis>>"</ProgramListing>
+<ProgramListing>&num;</ProgramListing>
+<ProgramListing>&num; Tuxedo-to-DCE Gateway</ProgramListing>
+<ProgramListing>&num;simpgw SRVGRP&equals;GROUP1 SRVID&equals;2</ProgramListing>
+<ProgramListing>&ast;SERVICES</ProgramListing>
+<ProgramListing>&ast;ROUTING</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></Example>
+<Para>The lines for <Emphasis Role = "CodeInline">MAXWSCLIENTS</Emphasis> and <Emphasis Role = "CodeInline">WSL</Emphasis> would be uncommented and are used for a Workstation configuration. The literal <Emphasis Role = "CodeInlineItalic">netaddr</Emphasis> for the Workstation listener must be set as described in  <Xulink Url = "../../rf5/rf5.html"><Emphasis Role = "CodeInline">WSL(5)</Emphasis></Xulink> in the &ref5;. </Para></Sect3></Sect2>
+<Sect2><Title>Step 5: Modify the Configuration</Title>
+<Para>Edit the ASCII <Emphasis Role = "CodeInline">ubbconfig</Emphasis> configuration file to provide location-specific information (for example, your own directory pathnames and machine name), as described in the next step. The text to be replaced is enclosed in angle brackets. You need to substitute the full pathname for <Emphasis Role = "CodeInline">TUXDIR</Emphasis>, <Emphasis Role = "CodeInline">TUXCONFIG</Emphasis>, and <Emphasis Role = "CodeInline">APPDIR</Emphasis>, and the name of the machine on which you are running. The following is a summary of the required values. </Para>
+<InformalExample><ProgramListing>TUXDIR</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Para>The full pathname of the root directory of the Oracle Tuxedo software, as set above.</Para>
+<InformalExample><ProgramListing>TUXCONFIG</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Para>The full pathname of the binary configuration file, as set above.</Para>
+<InformalExample><ProgramListing>APPDIR</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Para>The full pathname of the directory in which your application will run.</Para>
+<InformalExample><ProgramListing>UNAME</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Para>The machine name of the machine on which your application will run; this is the output of the UNIX command <Emphasis Role = "CodeInline">uname -n</Emphasis>. </Para>
+<Para>For a Workstation configuration, the <Emphasis Role = "CodeInline">MAXWSCLIENTS</Emphasis> and <Emphasis Role = "CodeInline">WSL</Emphasis> lines must be uncommented and the &lt;<Emphasis Role = "CodeInlineItalic">address</Emphasis>> must be set for the Workstation Listener. (See <Emphasis Role = "CodeInline">WSL</Emphasis>(5) for further details.)</Para></Sect2>
+<Sect2><Title>Step 6: Build the Application</Title>
+<Para>Build the client and server programs by running the following:</Para>
+<InformalExample><ProgramListing>make -f rpcsimp.mk TUXDIR&equals;&dollar;TUXDIR</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></Sect2>
+<Sect2><Title>Step 7: Load the Configuration</Title>
+<Para>Load the binary <Emphasis Role = "CodeInline">TUXCONFIG</Emphasis> configuration file by running the following:</Para>
+<InformalExample><ProgramListing>tmloadcf -y ubbconfig</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></Sect2>
+<Sect2><Title>Step 8: Boot the Configuration</Title>
+<Para>Boot the application by running the following:</Para>
+<InformalExample><ProgramListing>tmboot -y</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></Sect2>
+<Sect2><Title>Step 9: Run the Client</Title>
+<OrderedList><ListItem><Para>The native client program can be run by optionally specifying a string to be converted first to uppercase, and then to lowercase, as shown in the following:</Para>
+<InformalExample><ProgramListing>&dollar; client HeLlO</ProgramListing>
+<ProgramListing>to&lowbar;upper returns: HELLO</ProgramListing>
+<ProgramListing>to&lowbar;lower returns: hello</ProgramListing>
+<ProgramListing>&dollar;</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></ListItem>
+<ListItem><Para>When running on a Workstation, set the <Emphasis Role = "CodeInline">WSNADDR</Emphasis> environment variable to match the address specified for the WSL program. The Windows client can be run by executing: </Para>
+<InformalExample><ProgramListing>>win wclient</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Note><InformalTable Colsep = "0" Frame = "Topbot" Rowsep = "0" Summary = "This is a layout table to format a note" Tabstyle = "Note" Title = "Note"><TGroup Cols = "1" Colsep = "0" Rowsep = "0" TGroupStyle = "Note">
+<ColSpec Colname = "1" Colnum = "1" Colsep = "0" Colwidth = "4.333313in"/>
+<TBody>
+<Row Rowsep = "0">
+<Entry Colname = "1"><Para>Note</Para>
+<Para>The dynamic link library may be used in a separately developed application such as a visual builder.</Para></Entry>
+</Row>
+</TBody>
+</TGroup></InformalTable></Note></ListItem></OrderedList></Sect2>
+<Sect2><Title>Step 10: Monitor the RPC Server</Title>
+<Para>You can monitor the RPC server using <Emphasis Role = "CodeInline">tmadmin</Emphasis>(1). In the following example, <Emphasis Role = "CodeInline">psr</Emphasis> and <Emphasis Role = "CodeInline">psc</Emphasis> are used to view the information for the <Emphasis Role = "CodeInline">server</Emphasis> program. Note that the length of the RPC service name causes it to be truncated in terse mode (indicated by the "&plus;"); verbose mode can be used to get the full name.</Para>
+<Example><Title>tmadmin psr and psc Output</Title>
+<InformalExample><ProgramListing>&dollar; tmadmin</ProgramListing>
+<ProgramListing>> psr</ProgramListing>
+<ProgramListing>a.out Name Queue Name  Grp Name ID RqDone Load Done Current Service</ProgramListing>
+<ProgramListing>---------- ----------  -------- -- ------ --------- ---------------</ProgramListing>
+<ProgramListing>BBL        587345      SITE1     0   0            0 ( IDLE )</ProgramListing>
+<ProgramListing>server     00001.00001 GROUP1    1   2          100 ( IDLE )</ProgramListing>
+<ProgramListing>> psc</ProgramListing>
+<ProgramListing>Service Name Routine Name a.out Name Grp Name ID  Machine &num; Done Status</ProgramListing>
+<ProgramListing>------------ ------------ ---------- -------- --  ------- ------ ------</ProgramListing>
+<ProgramListing>ADJUNCTBB    ADJUNCTBB    BBL        SITE1     0    SITE1      0 AVAIL</ProgramListing>
+<ProgramListing>ADJUNCTADMIN ADJUNCTADMIN BBL        SITE1     0    SITE1      0 AVAIL</ProgramListing>
+<ProgramListing>changecasev&plus; changecasev&plus; server     GROUP1    1    SITE1      2 AVAIL</ProgramListing>
+<ProgramListing>> verbose</ProgramListing>
+<ProgramListing>Verbose now on.</ProgramListing>
+<ProgramListing>> psc -g GROUP1</ProgramListing>
+<ProgramListing>    Service Name: changecasev1&lowbar;0</ProgramListing>
+<ProgramListing>    Service Type: USER</ProgramListing>
+<ProgramListing>    Routine Name: changecasev1&lowbar;0</ProgramListing>
+<ProgramListing>      a.out Name: &sol;home&sol;sdf&sol;trpc&sol;rpcsimp&sol;server</ProgramListing>
+<ProgramListing>      Queue Name: 00001.00001</ProgramListing>
+<ProgramListing>      Process ID: 8602, Machine ID: SITE1</ProgramListing>
+<ProgramListing>        Group ID: GROUP1, Server ID: 1</ProgramListing>
+<ProgramListing>    Current Load: 50</ProgramListing>
+<ProgramListing>Current Priority: 50</ProgramListing>
+<ProgramListing>Current Trantime: 30</ProgramListing>
+<ProgramListing>   Requests Done: 2</ProgramListing>
+<ProgramListing>  Current status: AVAILABLE</ProgramListing>
+<ProgramListing>> quit</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></Example></Sect2>
+<Sect2><Title>Step 11: Shut Down the Configuration</Title>
+<Para>Shut down the application by running the following:</Para>
+<InformalExample><ProgramListing>tmshutdown -y</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></Sect2>
+<Sect2><Title>Step 12: Clean Up the Created Files</Title>
+<Para>Clean up the created files by running the following:</Para>
+<InformalExample><ProgramListing>make -f rpcsimp.mk clean</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></Sect2></Sect1></Appendix>

@@ -1,0 +1,601 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/tutor/fm/tutcs.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:50:34" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Tutorial for CSIMPAPP, a Simple COBOL Application</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Tutorials for Developing Oracle Tuxedo ATMI Applications
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="tutba.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="tutst.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/tutor.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1300966"> </a>
+Tutorial for CSIMPAPP, a Simple COBOL Application
+</h1>
+<p class="pBody"><a name="wp1298381"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1298362"> </a><a href="tutcs.html#wp1294095">What Is CSIMPAPP?</a></li>
+<li><a name="wp1291880"> </a><a href="tutcs.html#wp1291883">Preparing CSIMPAPP Files and Resources</a></li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1294033"> </a><a href="tutcs.html#wp1074125">Step 1: How to Copy the CSIMPAPP Files</a></li>
+<li><a name="wp1294092"> </a><a href="tutcs.html#wp1074144">Step 2: Examining and Compiling the Client</a></li>
+<li><a name="wp1294126"> </a><a href="tutcs.html#wp1074199">Step 3: Examining and Compiling the Server</a></li>
+<li><a name="wp1294147"> </a><a href="tutcs.html#wp1074249">Step 4: Editing and Loading the Configuration File</a></li>
+<li><a name="wp1294530"> </a><a href="tutcs.html#wp1074305">Step 5: How to Boot the Application</a></li>
+<li><a name="wp1294534"> </a><a href="tutcs.html#wp1295777">Step 6: How to Test the Run-time Application</a></li>
+<li><a name="wp1294538"> </a><a href="tutcs.html#wp1074319">Step 7: How to Monitor the Run-time Application</a></li>
+<li><a name="wp1294293"> </a><a href="tutcs.html#wp1295921">Step 8: How to Shut Down the Application</a></li>
+</ul></div>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1294095"> </a>
+What Is CSIMPAPP?
+</h2><p class="pBody"><a name="wp1299769"> </a>
+<code class="cCode">CSIMPAPP</code> is a basic sample ATMI application delivered with the Oracle Tuxedo system. While instructions are written for the Microfocus COBOL compiler, these may vary depending on your specific compiler. To find out which COBOL platforms are supported by the Oracle Tuxedo system, consult <span class="cHyperlink">
+Appendix&#160;A, &#8220;Oracle </span><a href="../install/inspds.html"></a>Tuxedo 10.0 Platform Data Sheets,&#8221; in <em class="cEmphasis">Installing the Oracle Tuxedo System</em>.
+</p>
+<p class="pBody"><a name="wp1258466"> </a>
+<code class="cCode">CSIMPAPP</code> includes one client and one server. The server performs only one service: it accepts a string from the client and returns the same string in uppercase.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1291883"> </a>
+Preparing CSIMPAPP Files and Resources
+</h2><p class="pBody"><a name="wp1176294"> </a>
+This topic leads you through the procedures you must complete to develop <code class="cCode">CSIMPAPP</code>. <a href="tutcs.html#wp1107354">Figure&#160;4-1</a> summarizes this procedure.
+</p>
+<p class="pBody"><a name="wp1293839"> </a>
+Click on each task for instructions on completing that task.
+</p>
+<div class="pFigureTitle"><a name="wp1107354"> </a>
+Figure&#160;4-1  csimpapp Development Process
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1295196"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/cdevelop.gif" height="473" width="456" usemap="#cdevelop_gif" alt="csimpapp Development Process" id="wp1295134"/>
+<map name="cdevelop_gif">
+<area href="tutcs.html#wp1074199" shape="rect" coords="116,130,339,173" />
+<area href="tutcs.html#wp1074249" shape="rect" coords="116,185,339,228" />
+<area href="tutcs.html#wp1295777" shape="rect" coords="116,300,339,341" />
+<area href="tutcs.html#wp1074319" shape="rect" coords="116,356,339,401" />
+<area href="tutcs.html#wp1295921" shape="rect" coords="116,413,339,456" />
+<area href="tutcs.html#wp1074125" shape="rect" coords="116,12,339,58" />
+<area href="tutcs.html#wp1074144" shape="rect" coords="116,72,339,116" />
+<area href="tutcs.html#wp1074305" shape="rect" coords="116,240,336,286" />
+</map>
+</div><p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1107303"> </a>
+Before You Begin
+</h3>
+<p class="pBody"><a name="wp1074521"> </a>
+Before you can run this tutorial, the Oracle Tuxedo ATMI client and server software must be installed so that the files and commands referred to are available. If you are responsible for installing the Oracle Tuxedo system software, refer to <em class="cEmphasis">Installing the Oracle Tuxedo System </em>for installation instructions. If the installation has already been done by someone else, you need to find out the pathname of the directory in which the software is installed (<code class="cCode">TUXDIR</code>). You also need to have read and execute permissions on the directories and files in the Oracle Tuxedo system directory structure so you can copy <code class="cCode">CSIMPAPP</code> files and execute Oracle Tuxedo system commands.
+</p>
+<h3 class="pHeading2"><a name="wp1074559"> </a>
+What You Will Learn
+</h3>
+<p class="pBody"><a name="wp1107306"> </a>
+After you complete this procedure, you will be able to understand the tasks clients and servers can perform, edit a configuration file for your own environment, and invoke <code class="cCode">tmadmin</code> to check on the activity of your application. In short, you will understand the basic elements of all Oracle Tuxedo applications&#8212;client processes, server processes, and a configuration file&#8212;and you will know how to use Oracle Tuxedo system commands to manage your application.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1074125"> </a>
+Step 1: How to Copy the CSIMPAPP Files
+</h2><div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1075905"> </a>Make a directory for <code class="cCode">CSIMPAPP</code> and change the directory to it:</li>
+<a name="wp1074127"> </a><div class="pPreformattedRelative"><pre>mkdir CSIMPDIR<br />cd CSIMPDIR</pre></div></ol></div>
+<a name="wp1074128"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This step is suggested so you can see the <code class="cCode">CSIMPAPP</code> files you have at the start and the additional files you create along the way. Use the standard shell (<code class="cCode">/bin/sh</code>) or the Korn shell; do not use <code class="cCode">csh</code>.</td>
+</tr>
+</table>
+
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1074129"> </a>Set and export environment variables: </li>
+<a name="wp1074130"> </a><div class="pPreformatted"><pre>TUXDIR=&lt;<code class="cCodeEmphasis">pathname of the BEA Tuxedo System root directory</code>&gt;<br />APPDIR=&lt;<code class="cCodeEmphasis">pathname of your present working directory</code>&gt;<br />TUXCONFIG=$APPDIR/TUXCONFIG<br />COBDIR=&lt;<code class="cCodeEmphasis">pathname of the COBOL compiler directory</code>&gt;<br />COBCPY=$TUXDIR/cobinclude<br />COBOPT=&quot;-C ANS85 -C ALIGN=8 -C NOIBMCOMP -C TRUNC=ANSI -C OSEXT=cbl&quot;<br />CFLAGS=&quot;-I$TUXDIR/include&quot;<br />PATH=$TUXDIR/bin:$APPDIR: $PATH<br />LD_LIBRARY_PATH=$COBDIR/coblib:${LD_LIBRARY_PATH}<br />export TUXDIR APPDIR TUXCONFIG UBBCONFIG COBDIR COBCPY<br />export COBOPT CFLAGS PATH LD_LIBRARY_PATH</pre></div><p class="pBodyRelative"><a name="wp1074131"> </a>
+You need <code class="cCode">TUXDIR</code> and <code class="cCode">PATH</code> to be able to access files in the Oracle Tuxedo directory structure and to execute Oracle Tuxedo commands:
+</p>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1197155"> </a>On Sun Solaris, <code class="cCode">/usr/5bin</code> must be the first directory in your <code class="cCode">PATH</code>.</li>
+<li><a name="wp1197156"> </a>On an AIX platform on the RS/6000, use <code class="cCode">LIBPATH</code> instead of <code class="cCode">LD_LIBRARY_PATH</code>.</li>
+<li><a name="wp1197157"> </a>On an HP-UX platform on the HP 9000, use <code class="cCode">SHLIB_PATH</code> instead of <code class="cCode">LD_LIBRARY_PATH</code>. You need to set <code class="cCode">TUXCONFIG</code> to be able to load the configuration file as shown in step 4.</li>
+</ul></div>
+<li><a name="wp1074132"> </a>Copy the <code class="cCode">CSIMPAPP</code> files: </li>
+<a name="wp1074133"> </a><div class="pPreformattedRelative"><pre>cp TUXDIR/<code class="cCode">samples/atmi</code>/CSIMPAPP/* .</pre></div><a name="wp1074134"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Later, you will edit some files and make them executable, so we recommend using copies of the files rather than the originals delivered with the software.</td>
+</tr>
+</table>
+
+<li><a name="wp1074135"> </a>List the files: </li>
+<a name="wp1074136"> </a><div class="pPreformattedRelative"><pre>$ ls<br />CSIMPCL.cbl<br />CSIMPSRV.cbl<br />README<br />TPSVRINIT.cbl<br />UBBCSIMPLE<br />WUBBCSIMPLE<br />envfile<br />ws<br />$</pre></div><p class="pBodyRelative"><a name="wp1074137"> </a>
+The files that make up the application are: 
+</p>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1074138"> </a><code class="cCode">CSIMPCL.cbl</code>&#8212;the source code for the client program.</li>
+<li><a name="wp1074139"> </a><code class="cCode">CSIMPSRV.cbl</code>&#8212;the source code for the server program.</li>
+<li><a name="wp1074140"> </a><code class="cCode">TPSVRINIT.cbl</code>&#8212;the source code for the server initialization program.</li>
+<li><a name="wp1074141"> </a><code class="cCode">UBBCSIMPLE</code>&#8212;the text form of the configuration file for the application.</li>
+<li><a name="wp1074142"> </a><code class="cCode">WUBBCSIMPLE</code>&#8212;the configuration file for the Workstation example.</li>
+<li><a name="wp1074143"> </a><code class="cCode">ws</code>&#8212;a directory with <code class="cCode">.MAK</code> files for client programs for three workstation platforms.</li>
+</ul></div>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1074144"> </a>
+Step 2: Examining and Compiling the Client
+</h2><h3 class="pHeading2"><a name="wp1074145"> </a>
+How to Examine the Client
+</h3>
+<p class="pBody"><a name="wp1075986"> </a>
+Review the client program source code: 
+</p>
+<a name="wp1076021"> </a><div class="pPreformatted"><pre>$ more CSIMPCL.cbl</pre></div><p class="pBody"><a name="wp1076025"> </a>
+The output is shown in the following list.
+</p>
+<div class="pCodeTitle"><a name="wp1076027"> </a>
+Listing&#160;4-1	   Source Code for CSIMPCL.cbl
+</div> <a name="wp1074153"> </a><div class="pPreformatted"><pre>1      IDENTIFICATION DIVISION.<br />2      PROGRAM-ID. CSIMPCL.<br />3      AUTHOR. Tuxedo DEVELOPMENT.<br />4      ENVIRONMENT DIVISION.<br />5      CONFIGURATION SECTION.<br />6      WORKING-STORAGE SECTION.<br />7  *****************************************************<br />8  * Tuxedo definitions<br />9  *****************************************************<br />10     01 TPTYPE-REC.<br />11     COPY TPTYPE.<br />12  *<br />13     01 TPSTATUS-REC.<br />14     COPY TPSTATUS.<br />15  *<br />16     01 TPSVCDEF-REC.<br />17     COPY TPSVCDEF.<br />18  *<br />19     01 TPINFDEF-REC VALUE LOW-VALUES.<br />20     COPY TPINFDEF.<br />21  *****************************************************<br />22  * Log messages definitions<br />23  *****************************************************<br />24     01 LOGMSG.<br />25            05 FILLER   PIC X(8) VALUE &quot;CSIMPCL:&quot;.<br />26            05 LOGMSG-TEXT PIC X(50).<br />27     01 LOGMSG-LEN      PIC S9(9) COMP-5.<br />28  *<br />29     01 USER-DATA-REC   PIC X(75).<br />30     01 SEND-STRING     PIC X(100) VALUE SPACES.<br />31     01 RECV-STRING     PIC X(100) VALUE SPACES. <br />32  *****************************************************<br />33  * Command line arguments<br />34  *****************************************************<br />35  * Start program with command line args<br />36  ******************************************************<br />37<br />38  PROCEDURE<br />39  START-CSIMPCL.<br />40     MOVE LENGTH OF LOGMSG TO LOGMSG-LEN.<br />41     ACCEPT SEND-STRING FROM COMMAND-LINE.<br />42     DISPLAY &#8220;SEND-STRING:&#8221; SEND-STRING.<br />43<br />44     MOVE &#8220;Started&#8221; TO LOGMSG-TEXT.<br />45     PERFORM DO-TPINIT.<br />46     PERFORM DO-TPCALL.<br />47      DISPLAY &#8220;RECV-STRING:&#8221; RECV-STRING.<br />48      PERFORM DO-TPTERM.<br />49      PERFORM EXIT-PROGRAM.<br />50  *****************************************************<br />51  * Now register the client with the system.<br />52  *****************************************************<br />53  DO-TPINIT.<br />54     MOVE SPACES TO USRNAME.<br />55     MOVE SPACES TO CLTNAME.<br />56     MOVE SPACES TO PASSWD.<br />57     MOVE SPACES TO GRPNAME.<br />58     MOVE ZERO TO DATALEN.<br />59     SET TPU-DIP TO TRUE.<br />60<br />61   CALL &quot;TPINITIALIZE&quot; USING TPINFDEF-REC<br />62            USER-DATA-REC<br />63            TPSTATUS-REC.<br />64<br />65     IF NOT TPOK<br />66            MOVE &quot;TPINITIALIZE Failed&quot; TO LOGMSG-TEXT<br />67            PERFORM DO-USERLOG<br />68            PERFORM EXIT-PROGRAM<br />69     END-IF.<br />70     <br />71  *****************************************************<br />72  * Issue a TPCALL<br />73  *****************************************************<br />74  DO-TPCALL.<br />75     MOVE 100 to LEN.<br />76     MOVE &quot;STRING&quot; TO REC-TYPE.<br />77     MOVE &quot;CSIMPSRV&quot; TO SERVICE-NAME.<br />78     SET TPBLOCK TO TRUE.<br />79     SET TPNOTRAN TO TRUE.<br />80     SET TPNOTIME TO TRUE.<br />81     SET TPSIGRSTRT TO TRUE.<br />82     SET TPCHANGE TO TRUE.<br />83<br />84     CALL &quot;TPCALL&quot; USING TPSVCDEF-REC<br />85                  TPTYPE-REC<br />86                  SEND-STRING<br />87                  TPTYPE-REC<br />88                  RECV-STRING<br />89                  TPSTATUS-REC.<br />90<br />91     IF NOT TPOK<br />92           MOVE &quot;TPCALL Failed&quot; TO LOGMSG-TEXT<br />93           PERFORM DO-USERLOG<br />94     END-IF.<br />95<br />96   *****************************************************<br />97   * Leave Tuxedo<br />98   *****************************************************<br />99   DO-TPTERM.<br />100    CALL &quot;TPTERM&quot; USING TPSTATUS-REC.<br />101    IF NOT TPOK<br />102           MOVE &quot;TPTERM Failed&quot; TO LOGMSG-TEXT<br />103           PERFORM DO-USERLOG<br />104    END-IF.<br />105<br />106  *****************************************************<br />107  * Log messages to the userlog<br />108  *****************************************************<br />109  DO-USERLOG.<br />110    CALL &quot;USERLOG&quot; USING LOGMSG<br />111           LOGMSG-LEN<br />112           TPSTATUS-REC.<br />113<br />114  *****************************************************<br />115  *Leave Application<br />116  *****************************************************<br />117  EXIT-PROGRAM.<br />118    MOVE &quot;Ended&quot; TO LOGMSG-TEXT.<br />119    PERFORM DO-USERLOG.<br />120    STOP RUN.</pre></div><p class="pGraphic"><a name="wp1294674"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1298455table1298453"><caption><a name="wp1298455"> </a>
+Table 4-1  Significant Lines in the CSIMPCL.cbl Source Code&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1298483"> </a>
+Line(s)
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1298485"> </a>
+File/Function
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1298487"> </a>
+Purpose
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1298489"> </a>
+11, 14, 17, 20
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1298491"> </a>
+<code class="cCode">COPY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1298493"> </a>
+Command used to replicate files needed whenever Oracle Tuxedo ATMI functions are used.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1298495"> </a>
+61
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1298497"> </a>
+<code class="cCode">TPINITIALIZE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1298499"> </a>
+The ATMI function used by a client program to join an application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1298501"> </a>
+84
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1298503"> </a>
+<code class="cCode">TPCALL</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1298505"> </a>
+The ATMI function used to send the message record to the service specified in <code class="cCode">SERVICE-NAME</code>. <code class="cCode">TPCALL</code> waits for a return message. <code class="cCode">STRING</code> is one of the three basic Oracle Tuxedo record types. An argument, <code class="cCode">LEN IN TPTYPE-REC</code>, specifies the length of the record in <code class="cCode">USER-DATA-REC</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1298507"> </a>
+100
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1298509"> </a>
+<code class="cCode">TPTERM</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1298511"> </a>
+The ATMI function used to leave an application. A call to <code class="cCode">TPTERM</code> is used to exit an application before performing a <code class="cCode">STOP RUN</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1298513"> </a>
+110
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1298515"> </a>
+<code class="cCode">USERLOG</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1298517"> </a>
+The function that displays the message returned from the server, the successful conclusion of <code class="cCode">tpcall</code>.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1074190"> </a>
+How to Compile the Client
+</h3>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1074191"> </a>Run <code class="cCode">buildclient</code> to compile the ATMI client program: </li>
+<a name="wp1074192"> </a><div class="pPreformattedRelative"><pre>buildclient -C -o CSIMPCL -f CSIMPCL.cbl</pre></div><p class="pBodyRelative"><a name="wp1074193"> </a>
+The output file is <code class="cCode">CSIMPCL</code> and the input source file is <code class="cCode">CSIMPCL.cbl</code>.
+</p>
+<li><a name="wp1074194"> </a>Check the results: </li>
+<a name="wp1074195"> </a><div class="pPreformattedRelative"><pre>$ ls CSIMPCL*<br />CSIMPCL   CSIMPCL.cbl   CSIMPCL.idy   CSIMPCL.int   CSIMPCL.o</pre></div><p class="pBodyRelative"><a name="wp1074196"> </a>
+You now have an executable module called <code class="cCode">CSIMPCL</code>.
+</p>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1076565"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1076566"> </a><a href="../rfcm/rfcmd.html">buildclient(1)</a> in the <em class="cEmphasis">Oracle Tuxedo Command Reference</em></li>
+<li><a name="wp1295650"> </a><a href="../rf3cbl/rf3cbl.html">TPINITIALIZE(3cbl)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em></li>
+<li><a name="wp1295654"> </a><a href="../rf3cbl/rf3cbl.html">TPTERM(3cbl)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em></li>
+<li><a name="wp1295658"> </a><a href="../rf3cbl/rf3cbl.html">TPCALL(3cbl)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em></li>
+<li><a name="wp1076623"> </a><a href="../rf3cbl/rf3cbl.html">USERLOG(3cbl)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1074199"> </a>
+Step 3: Examining and Compiling the Server
+</h2><h3 class="pHeading2"><a name="wp1076854"> </a>
+How to Examine the Server
+</h3>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1074200"> </a>Review the source code from the <code class="cCode">CSIMPSRV</code> ATMI server program: </li>
+<a name="wp1074201"> </a><div class="pPreformattedRelative"><pre>$ more CSIMPSRV.cbl</pre></div><div class="pCodeTitle"><a name="wp1074202"> </a>
+Listing&#160;4-2	   Source Code for CSIMPSRV.cbl
+</div> <a name="wp1074203"> </a><div class="pPreformatted"><pre>1      IDENTIFICATION DIVISION.<br />2      PROGRAM-ID. CSIMPSRV.<br />3      AUTHOR. BEA Tuxedo DEVELOPMENT.<br />4      ENVIRONMENT DIVISION.<br />5      CONFIGURATION SECTION.<br />6      WORKING-STORAGE SECTION.<br />7  ******************************************************<br />8  * Tuxedo definitions<br />9  ******************************************************<br />10     01 TPSVCRET-REC.<br />11     COPY TPSVCRET.<br />12  *<br />13     01 TPTYPE-REC.<br />14     COPY TPTYPE.<br />15  *<br />16     01 TPSTATUS-REC.<br />17     COPY TPSTATUS.<br />18  *<br />19     01 TPSVCDEF-REC.<br />20     COPY TPSVCDEF.<br />21  ******************************************************<br />22  * Log message definitions<br />23  ******************************************************<br />24     01 LOGMSG.<br />25              05 FILLER        PIC X(10) VALUE<br />26                     &quot;CSIMPSRV :&quot;.<br />27              05 LOGMSG-TEXT   PIC X(50).<br />28     01 LOGMSG-LEN             PIC S9(9) COMP-5.<br />29  ******************************************************<br />31  * User defined data records<br />32  ******************************************************<br />33     01 RECV-STRING            PIC X(100).<br />34     01 SEND-STRING            PIC X(100).<br />35  *<br />36     LINKAGE SECTION.<br />37  *<br />38     PROCEDURE DIVISION.<br />39  *<br />40   START-FUNDUPSR.<br />41     MOVE LENGTH OF LOGMSG TO LOGMSG-LEN.<br />42     MOVE &quot;Started&quot; TO LOGMSG-TEXT.<br />43     PERFORM DO-USERLOG.<br />44<br />45  ******************************************************<br />46  * Get the data that was sent by the client<br />47  ******************************************************<br />48     MOVE LENGTH OF RECV-STRING TO LEN.<br />49     CALL &quot;TPSVCSTART&quot; USING TPSVCDEF-REC<br />50                   TPTYPE-REC<br />51                   RECV-STRING<br />52                   TPSTATUS-REC.<br />53<br />54     IF NOT TPOK<br />55            MOVE &quot;TPSVCSTART Failed&quot; TO LOGMSG-TEXT<br />56            PERFORM DO-USERLOG<br />57            PERFORM EXIT-PROGRAM<br />58     END-IF.<br />59<br />60     IF TPTRUNCATE<br />61            MOVE &quot;Data was truncated&quot; TO LOGMSG-TEXT<br />62            PERFORM DO-USERLOG<br />63            PERFORM EXIT-PROGRAM<br />64     END-IF.<br />65<br />66     INSPECT RECV-STRING CONVERTING<br />67     &quot;abcdefghijklmnopqrstuvwxyz&quot; TO<br />68     &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;.<br />69     MOVE &quot;Success&quot; TO LOGMSG-TEXT.<br />70     PERFORM DO-USERLOG.<br />71     SET TPSUCCESS TO TRUE.<br />72     COPY TPRETURN REPLACING<br />73            DATA-REC BY RECV-STRING.<br />74<br />75  ******************************************************<br />76  * Write out a log err messages<br />77  ******************************************************<br />78   DO-USERLOG.<br />79     CALL &quot;USERLOG&quot; USING LOGMSG<br />80            LOGMSG-LEN<br />81            TPSTATUS-REC.<br />82  ******************************************************<br />83  * EXIT PROGRAM<br />84  ******************************************************<br />85   EXIT-PROGRAM.<br />86     MOVE &quot;Failed&quot; TO LOGMSG-TEXT.<br />87     PERFORM DO-USERLOG.<br />88     SET TPFAIL TO TRUE.<br />89     COPY TPRETURN REPLACING<br />90               DATA-REC BY RECV-STRING.</pre></div><p class="pGraphic"><a name="wp1299058"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1299023table1299021"><caption><a name="wp1299023"> </a>
+Table 4-2  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Significant Lines in the CSIMPSRV.cbl Source Code&#160;</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1299029"> </a>
+Line(s)
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1299031"> </a>
+Routine
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1299033"> </a>
+Purpose
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1299035"> </a>
+49
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1299037"> </a>
+<code class="cCode">TPSVCSTART</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1299039"> </a>
+Routine used to start this service and to receive the service&#8217;s parameters and data. After a successful call, the <code class="cCode">RECV-STRING</code> contains the data sent by the client.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1299041"> </a>
+66-68
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1299043"> </a>
+<code class="cCode">INSPECT</code> statement
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1299045"> </a>
+Statement that converts the input to uppercase (Microfocus-specific). 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1299047"> </a>
+72
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1299049"> </a>
+<code class="cCode">COPY TPRETURN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1299051"> </a>
+Command line that returns the converted string to the client with <code class="cCode">TPSUCCESS</code> set.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1299053"> </a>
+79
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1299055"> </a>
+<code class="cCode">USERLOG</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1299057"> </a>
+Routine that logs messages used by the Oracle Tuxedo system and applications.
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+<li><a name="wp1299059"> </a>During server initialization (that is, before the server starts processing service requests), the Oracle Tuxedo system calls the <code class="cCode">TPSVRINIT</code> subroutine. To familiarize yourself with <code class="cCode">TPSVRINIT</code>, page through the source code for it.</li>
+<a name="wp1074233"> </a><div class="pPreformattedRelative"><pre>$ more TPSVRINIT.cbl</pre></div><div class="pCodeTitle"><a name="wp1074234"> </a>
+Listing&#160;4-3	   Source Code for TPSVRINIT.cbl
+</div> <a name="wp1074235"> </a><div class="pPreformatted"><pre>1   IDENTIFICATION DIVISION.<br />2   PROGRAM-ID. TPSVRINIT.<br />3   ENVIRONMENT DIVISION.<br />4   CONFIGURATION SECTION.<br />5  *<br />6   DATA DIVISION.<br />7   WORKING-STORAGE SECTION.<br />8  *<br />9   01 LOGMSG.<br />10      05 FILLER               PIC X(11) VALUE &quot;TPSVRINIT :&quot;.<br />11      05 LOGMSG-TEXT          PIC X(50).<br />12  01 LOGMSG-LEN               PIC S9(9) COMP-5.<br />13  *<br />14   01 TPSTATUS-REC.<br />15   COPY TPSTATUS.<br />16  *********************************************************<br />17   LINKAGE SECTION.<br />18   01 CMD-LINE.<br />19    05 ARGC PIC 9(4) COMP-5.<br />20    05 ARG.<br />21      10 ARGS PIC X OCCURS 0 TO 9999 DEPENDING ON ARGC.<br />22  *<br />23   01 SERVER-INIT-STATUS.<br />24   COPY TPSTATUS.<br />25  ***********************************************************<br />26   PROCEDURE DIVISION USING CMD-LINE SERVER-INIT-STATUS.<br />27   A-000.<br />28  MOVE LENGTH OF LOGMSG TO LOGMSG-LEN.<br />29  ***********************************************************<br />30  * There are no command line parameters in this TPSVRINIT<br />31  ***********************************************************<br />32     IF ARG NOT EQUAL TO SPACES<br />33            MOVE &quot;TPSVRINIT failed&quot; TO LOGMSG-TEXT<br />34            CALL &quot;USERLOG&quot; USING LOGMSG<br />35                   LOGMSG-LEN<br />36                   TPSTATUS-REC<br />37     ELSE<br />38            MOVE &quot;Welcome to the simple service&quot; TO LOGMSG-TEXT<br />39            CALL &quot;USERLOG&quot; USING LOGMSG<br />40                   LOGMSG-LEN<br />41                   TPSTATUS-REC<br />42     END-IF.<br />43  *<br />44   SET TPOK IN SERVER-INIT-STATUS TO TRUE.<br />45  *<br />46   EXIT PROGRAM.</pre></div></ol></div>
+<p class="pBody"><a name="wp1074237"> </a>
+A default is provided by the Oracle Tuxedo system that writes a message to <code class="cCode">USERLOG</code> indicating that the server has been booted.
+</p>
+<h3 class="pHeading2"><a name="wp1074240"> </a>
+How to Compile the Server
+</h3>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1074241"> </a>Run <code class="cCode">buildserver</code> as follows to compile the ATMI server program.</li>
+<a name="wp1074242"> </a><div class="pPreformatted"><pre>buildserver -C -o CSIMPSRV -f CSIMPSRV.cbl -f TPSVRINIT.cbl -s CSIMPSRV</pre></div><p class="pBodyRelative"><a name="wp1074243"> </a>
+The executable file to be created is named <code class="cCode">CSIMPSRV</code> and <code class="cCode">CSIMPSRV.cbl</code> and <code class="cCode">TPSVRINIT.cbl</code> are the input source files. The service being offered by the server CSIMPSRV is indicated by -s CSIMPSRV.
+</p>
+<li><a name="wp1074244"> </a>Check the results by displaying a list of the files in your current directory.</li>
+<a name="wp1074245"> </a><div class="pPreformatted"><pre>$ ls<br />CSIMPCL      CSIMPCL.int   CSIMPSRV.cbl    CSIMPSRV.o     TPSVRINIT.int<br />CSIMPCL.cbl  CSIMPCL.o     CSIMPSRV.idy    TPSVRINIT.cbl  TPSVRINIT.o<br />CSIMPCL.idy  CSIMPSRV      CSIMPSRV.int    TPSVRINIT.idy  UBBCSIMPLE</pre></div><p class="pBodyRelative"><a name="wp1074246"> </a>
+You now have an executable module called <code class="cCode">CSIMPSRV</code>.
+</p>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1077185"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1077186"> </a><a href="../rfcm/rfcmd.html">buildserver(1)</a> in <em class="cEmphasis">Oracle Tuxedo Command Reference</em></li>
+<li><a name="wp1176765"> </a><a href="../rf3cbl/rf3cbl.html">TPSVCSTART(3cbl)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em></li>
+<li><a name="wp1077187"> </a><a href="../rf3cbl/rf3cbl.html">TPSVRINIT(3cbl)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em></li>
+<li><a name="wp1077188"> </a><a href="../rf3cbl/rf3cbl.html">TPRETURN(3cbl)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em></li>
+<li><a name="wp1077198"> </a><a href="../rf3cbl/rf3cbl.html">USERLOG(3cbl)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1074249"> </a>
+Step 4: Editing and Loading the Configuration File
+</h2><h3 class="pHeading2"><a name="wp1074250"> </a>
+How to Edit the Configuration File
+</h3>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1077272"> </a>In a text editor, familiarize yourself with the configuration file for <code class="cCode">CSIMPAPP</code>.</li>
+<div class="pCodeTitle"><a name="wp1074251"> </a>
+Listing&#160;4-4	   CSIMPAPP Configuration File
+</div> <a name="wp1074252"> </a><div class="pPreformatted"><pre>#Skeleton UBBCONFIG file for the BEA Tuxedo COBOL Simple Application.<br />#Replace the &lt;bracketed&gt; items with the appropriate values.</pre></div><a name="wp1074253"> </a><div class="pPreformatted"><pre>*RESOURCES<br />IPCKEY             &lt;Replace with a valid IPC Key&gt;</pre></div><a name="wp1074254"> </a><div class="pPreformatted"><pre>#Example:<br />#IPCKEY            123456<br /><br />DOMAINID		           UBBCSIMPLE<br />MASTER             simple<br />MAXACCESSERS       5<br />MAXSERVERS         5<br />MAXSERVICES        10<br />MODEL              SHM<br />LDBAL              N</pre></div><a name="wp1074256"> </a><div class="pPreformatted"><pre>*MACHINES<br />DEFAULT:<br />                   APPDIR=&quot;&lt;<code class="cCodeEmphasis">Replace with the current pathname</code>&gt;&quot;<br />                   TUXCONFIG=&quot;&lt;<code class="cCodeEmphasis">Replace with TUXCONFIG Pathname</code>&gt;&quot;<br />                   TUXDIR=&quot;&lt;<code class="cCodeEmphasis">Root directory of BEA Tuxedo (not /)</code>&gt;&quot;<br />                   ENVFILE=&quot;&lt;<code class="cCodeEmphasis">pathname of file of environment vars</code>&gt;&quot;<br />#Example:<br />#                  APPDIR=&quot;/home/me/simpapp&quot;<br />#                  TUXCONFIG=&quot;/home/me/simpapp/TUXCONFIG&quot;<br />#                  TUXDIR=&quot;/usr/tuxedo&quot;<br />#                  ENVFILE=&#8221;/home/me/simpapp/envfile&#8221;<br />&lt;Machine-name&gt;     LMID=simple</pre></div><a name="wp1074258"> </a><div class="pPreformatted"><pre>#Example:<br />#usltux            LMID=simple</pre></div><a name="wp1074259"> </a><div class="pPreformatted"><pre>*GROUPS<br />GROUP1<br />                   LMID=simple     GRPNO=1     OPENINFO=NONE</pre></div><a name="wp1074260"> </a><div class="pPreformatted"><pre>*SERVERS<br />DEFAULT:<br />                   CLOPT=&quot;-A&quot;</pre></div><a name="wp1074261"> </a><div class="pPreformatted"><pre>CSIMPSRV           SRVGRP=GROUP1   SRVID=1</pre></div><a name="wp1074262"> </a><div class="pPreformatted"><pre>*SERVICES<br />CSIMPSRV</pre></div><li><a name="wp1074264"> </a>For each <code class="cCodeEmphasis">string</code> (that is, for each string shown in italic between angle brackets), substitute an appropriate value:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1077372"> </a><code class="cCode">IPCKEY</code>&#8212;use a value that will not conflict with any other users.</li>
+<li><a name="wp1077401"> </a><code class="cCode">TUXCONFIG</code>&#8212;provide the full pathname of the binary <code class="cCode">TUXCONFIG</code> file.</li>
+<li><a name="wp1077430"> </a><code class="cCode">TUXDIR</code>&#8212;the full pathname of your Oracle Tuxedo system root directory.</li>
+<li><a name="wp1077455"> </a><code class="cCode">APPDIR</code>&#8212;the full pathname of the directory in which you intend to boot the application; in this case, the current directory.</li>
+<li><a name="wp1077480"> </a><code class="cCode">ENVFILE</code>&#8212;the full pathname for the environment file to be used by <code class="cCode">mc</code>, <code class="cCode">viewc</code>, <code class="cCode">tmloadcf</code>, and so on.</li>
+<li><a name="wp1077502"> </a><code class="cCodeEmphasis">machine-name</code>&#8212;the machine name as returned by the <code class="cCode">uname -n</code> command on a UNIX platform.</li>
+</ul></div>
+</ol></div>
+<a name="wp1074291"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The pathnames for <code class="cCode">TUXCONFIG</code> and <code class="cCode">TUXDIR</code> must be identical to those you set and exported earlier. You must specify actual pathnames; references to pathnames through environment variables (such as <code class="cCode">TUXCONFIG</code>) are not acceptable. Do not forget to remove the angle brackets.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1074297"> </a>
+How to Load the Configuration File
+</h3>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1074298"> </a>Run <code class="cCode">tmloadcf</code> to load the configuration file: </li>
+<a name="wp1074299"> </a><div class="pPreformatted"><pre>$ tmloadcf UBBCSIMPLE<br />Initialize TUXCONFIG file: /usr/me/CSIMPDIR/TUXCONFIG [y, q] ? y<br />$</pre></div><li><a name="wp1074300"> </a>Check the results by displaying a list of the files in your current directory:</li>
+<a name="wp1074301"> </a><div class="pPreformatted"><pre>$ ls<br />CSIMPCL       CSIMPCL.o     CSIMPSRV.int    TPSVRINIT.int<br />CSIMPCL.cbl   CSIMPSRV      CSIMPSRV.o      TPSVRINIT.o<br />CSIMPCL.idy   CSIMPSRV.cbl  TPSVRINIT.cbl   TUXCONFIG<br />CSIMPCL.int   CSIMPSRV.idy  TPSVRINIT.idy   UBBCSIMPLE</pre></div><p class="pBodyRelative"><a name="wp1074302"> </a>
+We now have a file called <code class="cCode">TUXCONFIG</code> (a new file system under the control of the Oracle Tuxedo system).
+</p>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1077643"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1074303"> </a><a href="../rfcm/rfcmd.html">tmloadcf(1)</a> in the <em class="cEmphasis">Oracle Tuxedo Command Reference</em></li>
+<li><a name="wp1177050"> </a><a href="../rf5/rf5.html">UBBCONFIG(5)</a> in the <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em> </li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1074305"> </a>
+Step 5: How to Boot the Application
+</h2><p class="pBody"><a name="wp1074306"> </a>
+Execute <code class="cCode">tmboot</code> to bring up the application:
+</p>
+<a name="wp1074307"> </a><div class="pPreformatted"><pre>$ tmboot<br />Boot all admin and server processes? (y/n): y<br />Booting all admin and server processes in /usr/me/CSIMPDIR/TUXCONFIG</pre></div><a name="wp1074308"> </a><div class="pPreformatted"><pre>Booting all admin processes ...</pre></div><a name="wp1074309"> </a><div class="pPreformatted"><pre>exec BBL -A:<br />       process id=24223 ... Started.</pre></div><a name="wp1074310"> </a><div class="pPreformatted"><pre>Booting server processes ...</pre></div><a name="wp1074311"> </a><div class="pPreformatted"><pre>exec CSIMPSRV -A :<br />      process id=24257 ... Started.<br />2 processes started.<br />$</pre></div><p class="pBody"><a name="wp1074312"> </a>
+The Bulletin Board Liaison (BBL) is the administrative process that monitors the shared memory structures in the application. <code class="cCode">CSIMPSRV</code> is the <code class="cCode">CSIMPAPP</code> server that runs continuously, awaiting requests.
+</p>
+<h3 class="pHeading2"><a name="wp1295770"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1295774"> </a><a href="../rfcm/rfcmd.html">tmboot(1)</a> in the <em class="cEmphasis">Oracle Tuxedo Command Reference</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1295777"> </a>
+Step 6: How to Test the Run-time Application
+</h2><p class="pBody"><a name="wp1177227"> </a>
+To test <code class="cCode">CSIMPAPP</code>, have the client submit a request: 
+</p>
+<a name="wp1074317"> </a><div class="pPreformatted"><pre>$ CSIMPCL &#8220;hello world&#8221;<br />HELLO WORLD</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1074319"> </a>
+Step 7: How to Monitor the Run-time Application
+</h2><p class="pBody"><a name="wp1074320"> </a>
+As the administrator, you can use the <code class="cCode">tmadmin</code> command interpreter to check an application and make dynamic changes. To run <code class="cCode">tmadmin</code>, you must set the <code class="cCode">TUXCONFIG</code> variable
+</p>
+<p class="pBody"><a name="wp1295845"> </a>
+<code class="cCode">tmadmin</code> can interpret and run over 50 commands. For a complete list, see <a href="../rfcm/rfcmd.html">tmadmin(1)</a> in the <em class="cEmphasis">Oracle Tuxedo Command Reference</em>. The following demonstrates two of the many <code class="cCode">tmadmin</code> commands: 
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1295852"> </a>Enter the following command: </li>
+<a name="wp1074322"> </a><div class="pPreformattedRelative"><pre>tmadmin</pre></div><p class="pBodyRelative"><a name="wp1074323"> </a>
+The following lines are displayed:
+</p>
+<a name="wp1074324"> </a><div class="pPreformattedRelative"><pre>tmadmin - Copyright (c) 1999 BEA Systems Inc.; 1991 USL. All rights reserved.</pre></div><a name="wp1074325"> </a><div class="pPreformattedRelative"><pre>&gt;</pre></div></ol></div>
+<a name="wp1074326"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The greater-than sign (<code class="cCode">&gt;</code>) is the <code class="cCode">tmadmin</code> prompt.</td>
+</tr>
+</table>
+
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1074327"> </a>Enter the <code class="cCode">printserver(psr)</code> command to display information about servers:</li>
+<a name="wp1074328"> </a><div class="pPreformatted"><pre>&gt; psr<br />a.out Name  Queue Name   Grp Name  ID  RqDone   Load Done  Current Service<br />----------  ----------   --------  --  ------   ---------  ---------------<br />BBL         531993       simple     0      0           0   (IDLE)<br />CSIMPSRV    00001.00001  GROUP1     1      0           0   (IDLE)<br />&gt; </pre></div><li><a name="wp1074329"> </a>Enter the <code class="cCode">printservice(psc)</code> command to display information about services:</li>
+<a name="wp1074330"> </a><div class="pPreformatted"><pre>&gt; psc<br />Service Name  Routine Name  a.out Name  Grp Name  ID  Machine #  Done  Status<br />------------  ------------  ----------  --------  --  -------    ----  -------<br />CSIMPSRV      CSIMPSRV      CSIMPSRV    GROUP1    1   simple       -   AVAIL<br />&gt; </pre></div><li><a name="wp1074331"> </a>Leave <code class="cCode">tmadmin</code> by entering a <code class="cCode">q</code> at the prompt. (You can boot and shut down the application from within <code class="cCode">tmadmin</code>.)</li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1074332"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1295917"> </a><a href="../rfcm/rfcmd.html">tmadmin(1)</a> in the <em class="cEmphasis">Oracle Tuxedo Command Reference</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1295921"> </a>
+Step 8: How to Shut Down the Application
+</h2><div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1074335"> </a>Run <code class="cCode">tmshutdown</code> to bring down the application:</li>
+<a name="wp1074336"> </a><div class="pPreformatted"><pre>$ tmshutdown<br />Shutdown all admin and server processes? (y/n): y<br />Shutting down all admin and server processes in /usr/me/CSIMPDIR/TUXCONFIG</pre></div><a name="wp1074337"> </a><div class="pPreformatted"><pre>Shutting down server processes ...</pre></div><a name="wp1074338"> </a><div class="pPreformatted"><pre>Server Id = 1 Group Id = GROUP1 Machine = simple:  shutdown succeeded.</pre></div><a name="wp1074339"> </a><div class="pPreformatted"><pre>Shutting down admin processes ...</pre></div><a name="wp1074340"> </a><div class="pPreformatted"><pre>Server Id = 0 Group Id = simple Machine = simple:  shutdown succeeded.<br />2 processes stopped.<br />$ </pre></div><li><a name="wp1074341"> </a>Check the <code class="cCode">ULOG</code>: </li>
+<a name="wp1074342"> </a><div class="pPreformatted"><pre>$ cat ULOG*<br />$<br />140533.usltux!BBL.22964: LIBTUX_CAT:262: std main starting<br />140540.usltux!CSIMPSRV.22965: COBAPI_CAT:1067: INFO: std main starting<br />140542.usltux!CSIMPSRV.22965: TPSVRINIT :Welcome to the simple service<br />140610.usltux!?proc.22966: CSIMPCL:Started<br />140614.usltux!CSIMPSRV.22965: CSIMPSRV :Started<br />140614.usltux!CSIMPSRV.22965: CSIMPSRV :Success<br />140614.usltux!?proc.22966: switch to new log file<br />/home/usr_nm/CSIMPDIR/ULOG.112592<br />140614.usltux!?proc.22966: CSIMPCL:Ended</pre></div><p class="pBodyRelative"><a name="wp1074343"> </a>
+Each line of the <code class="cCode">ULOG</code> for this session is significant. First look at the format of a <code class="cCode">ULOG</code> line: 
+</p>
+<a name="wp1074344"> </a><div class="pPreformatted"><pre>time (hhmmss).machine_uname!process_name.process_id: log message</pre></div><p class="pBodyRelative"><a name="wp1074345"> </a>
+Now look at an actual line.
+</p>
+<a name="wp1074346"> </a><div class="pPreformattedRelative"><pre>140542. Message from TPSVRINIT in CSIMPSRV</pre></div></ol></div>
+<h3 class="pHeading2"><a name="wp1295988"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1295995"> </a><a href="../rfcm/rfcmd.html">tmshutdown(1)</a> in the<code class="cCode"> </code>Oracle Tuxedo Command Reference</li>
+<li><a name="wp1295999"> </a><a href="../rf3cbl/rf3cbl.html">USERLOG(3cbl)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em></li>
+</ul></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="tutcs.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="tutba.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="tutst.html"><img id="LongDescNotReq9" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

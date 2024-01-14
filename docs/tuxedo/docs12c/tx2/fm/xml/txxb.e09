@@ -1,0 +1,381 @@
+<?Fm Document txxb.fm?>
+<Appendix Id = "g1026316">
+<?Fm Condition HardcopyOnly Blue NO_OVERRIDE show?>
+
+<?Fm Condition SoftcopyOnly Magenta NO_OVERRIDE show?>
+
+<?Fm Condition Hide Blue NO_OVERRIDE show?>
+
+<?Fm Condition HardcopyHide Blue NO_OVERRIDE show?>
+
+<?Fm Condition RevRec Red NO_OVERRIDE hide?>
+
+<?Fm Condition BetaDraft Red NO_OVERRIDE show?>
+
+<?Fm Condition Comment Magenta NO_OVERRIDE show?>
+
+<?Fm Condition HTML Blue NO_OVERRIDE show?>
+
+<?Fm Condition PSPDF AsIs NO_OVERRIDE show?>
+
+<Title Id = "i1008588">A DCE-Gateway Application</Title>
+<Para>This topic includes the following sections:</Para>
+<ItemizedList mark = "Bullet"><ListItem><Para><XRef Role = "Section Head Number &#x0026; Title" Linkend = "i1008771"/></Para></ListItem>
+<ListItem><Para><XRef Role = "Section Head Number &#x0026; Title" Linkend = "i1008788"/></Para></ListItem>
+<ListItem><Para><XRef Role = "Section Head Number &#x0026; Title" Linkend = "i1008801"/></Para></ListItem>
+<ListItem><Para><XRef Role = "Section Head Number &#x0026; Title" Linkend = "i1008814"/></Para></ListItem></ItemizedList>
+<Sect1 Id = "i1008771"><Title>Appendix Contents</Title>
+<Para>This appendix builds on the <Emphasis Role = "CodeInline">rcpsimp</Emphasis> application described in <XRef Role = "Appendix Number &#x0026; Title (period)" Linkend = "g1027039"/> The server is changed to be an OSF&sol;DCE server and a gateway is used so that the Oracle Tuxedo ATMI client can communicate with the server using explicit binding and authenticated RPCs. The source files for this interactive application are distributed with the Oracle Tuxedo ATMI software development kit.</Para></Sect1>
+<Sect1 Id = "i1008788"><Title>Prerequisites</Title>
+<Para>This topic requires knowledge about DCE, and a DCE tutorial is beyond the scope of this document. For further reading, try <Emphasis Role = "Italic">Guide to Writing DCE Applications</Emphasis> by John Shirley, et. al., published by O'Reilly and Associates, Inc.</Para></Sect1>
+<Sect1 Id = "i1008801"><Title>What Is the DCE-Gateway Application?</Title>
+<Para>This application is an extension to the <Emphasis Role = "CodeInline">rpcsimp</Emphasis> application. As before, the client calls the remote procedure calls (operations) <Emphasis Role = "CodeInline">to&lowbar;upper</Emphasis>() and <Emphasis Role = "CodeInline">to&lowbar;lower</Emphasis>().</Para>
+<Para>In this case, the RPC goes from the Oracle Tuxedo ATMI client to the DCE Gateway process that forwards the request to a DCE server. To make this example more realistic, the communications from the Gateway process to the DCE server use explicit binding instead of automatic binding and an authenticated RPC.</Para>
+<Para>What follows is a procedure to build and run the example. The client can run on any platform described in <XRef Role = "Appendix Number &#x0026; Title (period)" Linkend = "g1027039"/> There is no difference in building or running the client and it will not be described further in this chapter. The gateway and DCE server must run on a POSIX platform that also has DCE software installed on it. This chapter will not discuss installation or compilation of the clients on the Workstation platforms.</Para>
+<Para>The sample programs work on platforms that conform to OSF&sol;DCE software standards.</Para></Sect1>
+<Sect1 Id = "i1008814"><Title>Installing, Configuring, and Running the rpcsimp Application</Title>
+<Para>The following steps provide you with the instructions for installing, configuring, and running the sample application. </Para>
+<Sect2><Title>Step 1: Create an Application Directory</Title>
+<Para>Make a directory for <Emphasis Role = "CodeInline">rpcsimp</Emphasis> and <Emphasis Role = "CodeInline">cd</Emphasis> to it:</Para>
+<InformalExample><ProgramListing>mkdir rpcsampdir</ProgramListing>
+<ProgramListing>cd rpcsampdir</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Note><InformalTable Colsep = "0" Frame = "Topbot" Rowsep = "0" Summary = "This is a layout table to format a note" Tabstyle = "Note" Title = "Note"><TGroup Cols = "1" Colsep = "0" Rowsep = "0" TGroupStyle = "Note">
+<ColSpec Colname = "1" Colnum = "1" Colsep = "0" Colwidth = "4.333313in"/>
+<TBody>
+<Row Rowsep = "0">
+<Entry Colname = "1"><Para>Note</Para>
+<Para>This is suggested so you will be able to see clearly the <Emphasis Role = "CodeInline">rpcsimp</Emphasis> files you have at the start and the additional files you create along the way. Use the standard shell (<Emphasis Role = "CodeInline">&sol;bin&sol;sh</Emphasis>) or the Korn shell; do not use the C shell (<Emphasis Role = "CodeInline">csh</Emphasis>).</Para></Entry>
+</Row>
+</TBody>
+</TGroup></InformalTable></Note></Sect2>
+<Sect2><Title>Step 2: Set Your Environment</Title>
+<Para>Set and export the necessary environment variables:</Para>
+<InformalExample><ProgramListing>TUXDIR&equals;&lt;<Emphasis Role = "Italic">pathname of the Oracle Tuxedo root directory</Emphasis>></ProgramListing>
+<ProgramListing>TUXCONFIG&equals;<Emphasis Role = "Italic">&lt;pathname of your present working directory></Emphasis>&sol;tuxconfig</ProgramListing>
+<ProgramListing>PATH&equals;&dollar;PATH:&dollar;TUXDIR&sol;bin</ProgramListing>
+<ProgramListing>&num; SVR4, Unixware</ProgramListing>
+<ProgramListing>LD&lowbar;LIBRARY&lowbar;PATH&equals;&dollar;LD&lowbar;LIBRARY&lowbar;PATH:&dollar;TUXDIR&sol;lib</ProgramListing>
+<ProgramListing>&num; HPUX</ProgramListing>
+<ProgramListing>SHLIB&lowbar;PATH&equals;&dollar;LD&lowbar;LIBRARY&lowbar;PATH:&dollar;TUXDIR&sol;lib</ProgramListing>
+<ProgramListing>&num; RS6000</ProgramListing>
+<ProgramListing>LIBPATH&equals;&dollar;LD&lowbar;LIBRARY&lowbar;PATH:&dollar;TUXDIR&sol;lib</ProgramListing>
+<ProgramListing>export TUXDIR TUXCONFIG PATH LD&lowbar;LIBRARY&lowbar;PATH SHLIB&lowbar;PATH LIBPATH</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Para>You need <Emphasis Role = "CodeInline">TUXDIR</Emphasis> and <Emphasis Role = "CodeInline">PATH</Emphasis> to be able to access files in the Oracle Tuxedo ATMI directory structure and to execute Oracle Tuxedo ATMI commands. You need to set <Emphasis Role = "CodeInline">TUXCONFIG</Emphasis> to be able to load the configuration file. It may also be necessary to set an environment variable (for example, <Emphasis Role = "CodeInline">LD&lowbar;LIBRARY&lowbar;PATH</Emphasis>) if shared objects are being used.</Para></Sect2>
+<Sect2><Title>Step 3: Copy the Files</Title>
+<Para>Copy the <Emphasis Role = "CodeInline">rpcsimp</Emphasis> files to the application directory:</Para>
+<InformalExample><ProgramListing>cp &dollar;TUXDIR&sol;apps&sol;rpcsimp&sol;&ast; .</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Para>You will be editing some of the files and making them executable, so it is best to begin with a copy of the files rather than with the originals delivered with the software.</Para></Sect2>
+<Sect2><Title>Step 4: List the Files</Title>
+<Para>List the files:</Para>
+<InformalExample><ProgramListing>&dollar; ls</ProgramListing>
+<ProgramListing>client.c</ProgramListing>
+<ProgramListing>dcebind.c</ProgramListing>
+<ProgramListing>dceepv.c</ProgramListing>
+<ProgramListing>dcemgr.c</ProgramListing>
+<ProgramListing>dceserver.c</ProgramListing>
+<ProgramListing>rpcsimp.mk</ProgramListing>
+<ProgramListing>simp.idl</ProgramListing>
+<ProgramListing>simpdce.acf</ProgramListing>
+<ProgramListing>ubbconfig</ProgramListing>
+<ProgramListing>&dollar;</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Para>(Some files that are not referenced in this section are omitted.)</Para>
+<Para>The files that make up the application are described in the following sections. The <Emphasis Role = "CodeInline">client.c</Emphasis>, <Emphasis Role = "CodeInline">simp.idl</Emphasis>, and <Emphasis Role = "CodeInline">ubbconfig</Emphasis> files described in <XRef Role = "Appendix Number &#x0026; Title (comma)" Linkend = "g1027039"/> are not discussed further. </Para>
+<Sect3><Title>IDL ACF File&mdash;simpdce.acf</Title>
+<Example><Title>simpdce.acf</Title>
+<InformalExample><ProgramListing>&lsqb;explicit&lowbar;handle&rsqb;interface changecase</ProgramListing>
+<ProgramListing>&lcub;</ProgramListing>
+<ProgramListing>&rcub;</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></Example>
+<Para>The <Emphasis Role = "CodeInline">simp.idl</Emphasis> file used in the earlier example will be used to build the gateway and the DCE server. However, since it is being compiled by both the DCE and Oracle Tuxedo IDL compilers, two different versions of the <Emphasis Role = "CodeInline">simp.h</Emphasis> header file are being generated with the same name. Additionally, we wish to use an ACF file in this example so that we can specify explicit binding for the server, but not for the client. The recommended approach is to link the IDL file to a second filename within the same directory, using one for TxRPC without binding and one for DCE&sol;RPC with an explicit handle. In this case, <Emphasis Role = "CodeInline">simp.idl</Emphasis> is renamed <Emphasis Role = "CodeInline">simpdce.idl</Emphasis> and the associated ACF file is <Emphasis Role = "CodeInline">simpdce.acf</Emphasis>. The makefile creates <Emphasis Role = "CodeInline">simpdce.idl</Emphasis> and when the IDL compiler is executed, it also will find <Emphasis Role = "CodeInline">simpdce.acf</Emphasis>. Note that the ACF file is used simply to indicate that all operations in the interface will use explicit handles. Because the operations are defined in the IDL file without &lsqb;handle&rsqb; parameters as the first parameter, one will be added automatically to the function prototype and to the stub function calls.</Para></Sect3>
+<Sect3><Title>Binding Function&mdash;dcebind.c</Title>
+<Para>In the interest of space, the source code for <Emphasis Role = "CodeInline">dcebind.c</Emphasis> is not included here but can be found in <Emphasis Role = "CodeInline">&dollar;TUXDIR&sol;apps&sol;rpcsimp</Emphasis>.</Para>
+<Para>This file has a function, <Emphasis Role = "CodeInline">dobind</Emphasis>(), that does the following three things: </Para>
+<ItemizedList mark = "Bullet"><ListItem><Para>It gets a binding handle for the DCE server with the desired interface specification and gets the associated endpoint for a fully resolved handle.</Para></ListItem>
+<ListItem><Para>It does some authentication of the server by getting the principal name for the server and checking the Security registry to see if the principal is a member of a specified group.</Para></ListItem>
+<ListItem><Para>It also annotates the binding handle so that an authenticated RPC is done. The protection level is packet level integrity (mutual authentication on every call with a packet <Emphasis Role = "CodeInline">checksum</Emphasis>) using DCE private key authentication and DCE PAC-based authorization.</Para></ListItem></ItemizedList>
+<Para>The following things need to be modified in <Emphasis Role = "CodeInline">dcebind.c</Emphasis>:</Para>
+<ItemizedList mark = "Bullet"><ListItem><Para>&lt;<Emphasis Role = "CodeInlineItalic">HOST</Emphasis>> needs to be changed to the name of the host machine where the DCE server will be run. This is part of the service name that is put into the directory and follows the convention that the service name ends with <Emphasis Role = "CodeInline">&lowbar;host</Emphasis>. You may choose to get rid of the suffix entirely (if you do, the same change needs to be made in <Emphasis Role = "CodeInline">dceserver.c</Emphasis>).</Para></ListItem>
+<ListItem><Para>&lt;<Emphasis Role = "CodeInlineItalic">SERVER&lowbar;PRINCIPAL&lowbar;GROUP</Emphasis>> must be changed to the group associated with the DCE principal running the server. It is used as part of the mutual authentication.</Para></ListItem>
+<ListItem><Para>The server principal group must be created by running <Emphasis Role = "CodeInline">rgy&lowbar;edit</Emphasis> as <Emphasis Role = "CodeInline">cell&lowbar;admin</Emphasis>, the server principal must be created, an account must be added for the principal with the group, and a key table must be created for the server. You must also create a principal and account for yourself to run the client. An example script to create these DCE entities is shown in Step 8: Configuring DCE.</Para></ListItem></ItemizedList></Sect3>
+<Sect3><Title>Entry Point Vector&mdash;dceepv.c</Title>
+<Example><Title>dceepv.c</Title>
+<InformalExample><ProgramListing>&num;include &lt;simpdce.h>   &sol;&ast; header generated by IDL compiler &ast;&sol;</ProgramListing>
+<ProgramListing>&num;include &lt;dce&sol;rpcexc.h> &sol;&ast; RAISE macro &ast;&sol;</ProgramListing>
+<ProgramListing>static void myto&lowbar;upper(rpc&lowbar;binding&lowbar;handle&lowbar;t hdl, idl&lowbar;char &ast;str);</ProgramListing>
+<ProgramListing>static void myto&lowbar;lower(rpc&lowbar;binding&lowbar;handle&lowbar;t hdl, idl&lowbar;char &ast;str);</ProgramListing>
+<ProgramListing>&sol;&ast;</ProgramListing>
+<ProgramListing> &ast; A manager entry point vector is defined so that we can generate</ProgramListing>
+<ProgramListing> &ast; a valid DCE binding handle to go to the DCE server.</ProgramListing>
+<ProgramListing> &ast; Note that the input handle to entry point functions will always</ProgramListing>
+<ProgramListing> &ast; be NULL since Tuxedo TxRPC doesn't support handles.</ProgramListing>
+<ProgramListing> &ast;&sol;</ProgramListing>
+<ProgramListing> &sol;&ast; Manager entry point vector with two operations &ast;&sol;</ProgramListing>
+<ProgramListing>changecase&lowbar;v1&lowbar;0&lowbar;epv&lowbar;t changecase&lowbar;v1&lowbar;0&lowbar;s&lowbar;epv &equals; &lcub;</ProgramListing>
+<ProgramListing>  myto&lowbar;upper,</ProgramListing>
+<ProgramListing>  myto&lowbar;lower</ProgramListing>
+<ProgramListing>&rcub;;</ProgramListing>
+<ProgramListing>int dobind(rpc&lowbar;binding&lowbar;handle&lowbar;t &ast;hdl);</ProgramListing>
+<ProgramListing></ProgramListing>
+<ProgramListing>void</ProgramListing>
+<ProgramListing>myto&lowbar;upper(rpc&lowbar;binding&lowbar;handle&lowbar;t hdl, idl&lowbar;char &ast;str)</ProgramListing>
+<ProgramListing>&lcub;</ProgramListing>
+<ProgramListing>  rpc&lowbar;binding&lowbar;handle&lowbar;t handle;</ProgramListing>
+<ProgramListing>  if (dobind(&amp;handle) 0) &lcub;  &sol;&ast; get binding handle for server &ast;&sol;</ProgramListing>
+<ProgramListing>   userlog("binding failed");</ProgramListing>
+<ProgramListing>   RAISE(rpc&lowbar;x&lowbar;invalid&lowbar;binding);</ProgramListing>
+<ProgramListing>  &rcub;</ProgramListing>
+<ProgramListing>  to&lowbar;upper(handle, str);   &sol;&ast; call DCE client stub &ast;&sol;</ProgramListing>
+<ProgramListing>&rcub;</ProgramListing>
+<ProgramListing></ProgramListing>
+<ProgramListing>void</ProgramListing>
+<ProgramListing>myto&lowbar;lower(rpc&lowbar;binding&lowbar;handle&lowbar;t hdl, idl&lowbar;char &ast;str)</ProgramListing>
+<ProgramListing>&lcub;</ProgramListing>
+<ProgramListing>  rpc&lowbar;binding&lowbar;handle&lowbar;t handle;</ProgramListing>
+<ProgramListing>  if (dobind(&amp;handle) 0) &lcub; &sol;&ast; get binding handle for server &ast;&sol;</ProgramListing>
+<ProgramListing>   userlog("binding failed");</ProgramListing>
+<ProgramListing>   RAISE(rpc&lowbar;x&lowbar;invalid&lowbar;binding);</ProgramListing>
+<ProgramListing>  &rcub;</ProgramListing>
+<ProgramListing>  to&lowbar;lower(handle, str);   &sol;&ast; call DCE client stub &ast;&sol;</ProgramListing>
+<ProgramListing>&rcub;</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></Example>
+<Para><Emphasis Role = "CodeInline">dceepv.c</Emphasis> contains the manager entry point vector used in the gateway. It is called by the Oracle Tuxedo ATMI server stub and calls the DCE client stub. The data type for the structure is defined in <Emphasis Role = "CodeInline">simpdce.h</Emphasis>, which is included in <Emphasis Role = "CodeInline">dceepv.c</Emphasis>, and it is initialized with the local functions <Emphasis Role = "CodeInline">myto&lowbar;upper()</Emphasis> and <Emphasis Role = "CodeInline">myto&lowbar;lower()</Emphasis>. Each of these functions simply calls <Emphasis Role = "CodeInline">dobind()</Emphasis> to get the binding handle that has been annotated for authenticated RPC and calls the associated client stub function. </Para></Sect3>
+<Sect3><Title>DCE Manager&mdash;dcemgr.c</Title>
+<Example><Title>dcemgr.c</Title>
+<InformalExample><ProgramListing>&num;include &lt;stdio.h></ProgramListing>
+<ProgramListing>&num;include &lt;ctype.h></ProgramListing>
+<ProgramListing>&num;include "simpdce.h"    &sol;&ast; header generated by IDL compiler &ast;&sol;</ProgramListing>
+<ProgramListing>&num;include &lt;dce&sol;rpcexc.h>  &sol;&ast; RAISE macro &ast;&sol;</ProgramListing>
+<ProgramListing>&num;include &lt;dce&sol;dce&lowbar;error.h> &sol;&ast; required to call dce&lowbar;error&lowbar;inq&lowbar;text &ast;&sol;</ProgramListing>
+<ProgramListing>&num;include &lt;dce&sol;binding.h>  &sol;&ast; binding to registry &ast;&sol;</ProgramListing>
+<ProgramListing>&num;include &lt;dce&sol;pgo.h>    &sol;&ast; registry i&sol;f &ast;&sol;</ProgramListing>
+<ProgramListing>&num;include &lt;dce&sol;secidmap.h> &sol;&ast; translate global name -> princ name &ast;&sol;</ProgramListing>
+<ProgramListing>void</ProgramListing>
+<ProgramListing>checkauth(rpc&lowbar;binding&lowbar;handle&lowbar;t handle)</ProgramListing>
+<ProgramListing>&lcub;</ProgramListing>
+<ProgramListing>  int error&lowbar;stat;</ProgramListing>
+<ProgramListing>  static unsigned char error&lowbar;string&lsqb;dce&lowbar;c&lowbar;error&lowbar;string&lowbar;len&rsqb;;</ProgramListing>
+<ProgramListing>  sec&lowbar;id&lowbar;pac&lowbar;t &ast;pac;           &sol;&ast; client pac &ast;&sol;</ProgramListing>
+<ProgramListing>  unsigned&lowbar;char&lowbar;t &ast;server&lowbar;principal&lowbar;name; &sol;&ast; requested server principal &ast;&sol;</ProgramListing>
+<ProgramListing>  unsigned32  protection&lowbar;level;     &sol;&ast; protection level &ast;&sol;</ProgramListing>
+<ProgramListing>  unsigned32  authn&lowbar;svc;         &sol;&ast; authentication service &ast;&sol;</ProgramListing>
+<ProgramListing>  unsigned32  authz&lowbar;svc;         &sol;&ast; authorization service &ast;&sol;</ProgramListing>
+<ProgramListing>  sec&lowbar;rgy&lowbar;handle&lowbar;t rgy&lowbar;handle;</ProgramListing>
+<ProgramListing>  error&lowbar;status&lowbar;t status;</ProgramListing>
+<ProgramListing>  &sol;&ast;</ProgramListing>
+<ProgramListing>   &ast; Check the authentication parameters that the client</ProgramListing>
+<ProgramListing>   &ast; selected for this call.</ProgramListing>
+<ProgramListing>   &ast;&sol;</ProgramListing>
+<ProgramListing>   rpc&lowbar;binding&lowbar;inq&lowbar;auth&lowbar;client(</ProgramListing>
+<ProgramListing>     handle,           &sol;&ast; input handle &ast;&sol;</ProgramListing>
+<ProgramListing>     (rpc&lowbar;authz&lowbar;handle&lowbar;t &ast;)&amp;pac,  &sol;&ast; returned client pac &ast;&sol;</ProgramListing>
+<ProgramListing>     &amp;server&lowbar;principal&lowbar;name,    &sol;&ast; returned requested server princ &ast;&sol;</ProgramListing>
+<ProgramListing>     &amp;protection&lowbar;level,      &sol;&ast; returned protection level &ast;&sol;</ProgramListing>
+<ProgramListing>     &amp;authn&lowbar;svc,          &sol;&ast; returned authentication service &ast;&sol;</ProgramListing>
+<ProgramListing>     &amp;authz&lowbar;svc,    &sol;&ast; returned authorization service &ast;&sol;</ProgramListing>
+<ProgramListing>     &amp;status);</ProgramListing>
+<ProgramListing>  if (status !&equals; rpc&lowbar;s&lowbar;ok) &lcub;</ProgramListing>
+<ProgramListing>     dce&lowbar;error&lowbar;inq&lowbar;text(status, error&lowbar;string, &amp;error&lowbar;stat);</ProgramListing>
+<ProgramListing>     fprintf(stderr, "&percnt;s &percnt;s&bsol;n", "inq&lowbar;auth&lowbar;client failed",</ProgramListing>
+<ProgramListing>       error&lowbar;string);</ProgramListing>
+<ProgramListing>     RAISE(rpc&lowbar;x&lowbar;invalid&lowbar;binding);</ProgramListing>
+<ProgramListing>     return;</ProgramListing>
+<ProgramListing>  &rcub;</ProgramListing>
+<ProgramListing>  &sol;&ast;</ProgramListing>
+<ProgramListing>   &ast; Make sure that the caller has specified the required</ProgramListing>
+<ProgramListing>   &ast; level of protection, authentication, and authorization.</ProgramListing>
+<ProgramListing>   &ast;&sol;</ProgramListing>
+<ProgramListing>  if (protection&lowbar;level !&equals; rpc&lowbar;c&lowbar;protect&lowbar;level&lowbar;pkt&lowbar;integ &boxv;&boxv;</ProgramListing>
+<ProgramListing>    authn&lowbar;svc !&equals; rpc&lowbar;c&lowbar;authn&lowbar;dce&lowbar;secret &boxv;&boxv;</ProgramListing>
+<ProgramListing>    authz&lowbar;svc !&equals; rpc&lowbar;c&lowbar;authz&lowbar;dce) &lcub;</ProgramListing>
+<ProgramListing>      fprintf(stderr, "not authorized");</ProgramListing>
+<ProgramListing>      RAISE(rpc&lowbar;x&lowbar;invalid&lowbar;binding);</ProgramListing>
+<ProgramListing>      return;</ProgramListing>
+<ProgramListing>    &rcub;</ProgramListing>
+<ProgramListing>    return;</ProgramListing>
+<ProgramListing>&rcub;</ProgramListing>
+<ProgramListing>void</ProgramListing>
+<ProgramListing>to&lowbar;upper(rpc&lowbar;binding&lowbar;handle&lowbar;t handle, idl&lowbar;char &ast;str)</ProgramListing>
+<ProgramListing>&lcub;</ProgramListing>
+<ProgramListing>  idl&lowbar;char &ast;p;</ProgramListing>
+<ProgramListing>  checkauth(handle);</ProgramListing>
+<ProgramListing>  &sol;&ast; Any ACL or reference monitor checking could be done here &ast;&sol;</ProgramListing>
+<ProgramListing>  </ProgramListing>
+<ProgramListing>  &sol;&ast; Convert to upper case &ast;&sol;</ProgramListing>
+<ProgramListing>  for (p&equals;str; &ast;p !&equals; '&bsol;0 '; p&plus;&plus;)</ProgramListing>
+<ProgramListing>    &ast;p &equals; toupper((int)&ast;p);</ProgramListing>
+<ProgramListing>  return;</ProgramListing>
+<ProgramListing>&rcub;</ProgramListing>
+<ProgramListing>void</ProgramListing>
+<ProgramListing>to&lowbar;lower(rpc&lowbar;binding&lowbar;handle&lowbar;t handle, idl&lowbar;char &ast;str)</ProgramListing>
+<ProgramListing>&lcub;</ProgramListing>
+<ProgramListing>  idl&lowbar;char &ast;p;</ProgramListing>
+<ProgramListing>  checkauth(handle);</ProgramListing>
+<ProgramListing>  &sol;&ast; Any ACL or reference monitor checking could be done here &ast;&sol;</ProgramListing>
+<ProgramListing>  &sol;&ast; Convert to lower case &ast;&sol;</ProgramListing>
+<ProgramListing>  for (p&equals;str; &ast;p !&equals; '&bsol;0 '; p&plus;&plus;)</ProgramListing>
+<ProgramListing>    &ast;p &equals; tolower((int)&ast;p);</ProgramListing>
+<ProgramListing>  return;</ProgramListing>
+<ProgramListing>&rcub;</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></Example>
+<Para><Emphasis Role = "CodeInline">dcemgr.c</Emphasis> has the manager code for the DCE server. The <Emphasis Role = "CodeInline">checkauth()</Emphasis> function is a utility function to check the authentication of the client (level of protection, authentication, and authorization). Each of the operations, <Emphasis Role = "CodeInline">to&lowbar;upper</Emphasis> and <Emphasis Role = "CodeInline">to&lowbar;lower</Emphasis>, calls this function to validate the client and then does the operation itself. In an application using access control lists, the ACL checking would be done after the authentication checking and before the work of the operation. </Para></Sect3>
+<Sect3><Title>DCE Server - dceserver.c</Title>
+<Para>In the interest of space, the source code for <Emphasis Role = "CodeInline">dceserver.c</Emphasis> is not included here. There are several modifications needed for this file based on your environment:</Para>
+<ItemizedList mark = "Bullet"><ListItem><Para><Emphasis Role = "CodeInline">&lt;</Emphasis><Emphasis Role = "CodeInlineItalic">HOST</Emphasis><Emphasis Role = "CodeInline">></Emphasis> needs to be changed to the name of the host machine where the DCE server will be run. This is part of the service name that is put into the directory and follows the convention that the service names ends with <Emphasis Role = "CodeInlineItalic">&lowbar;host</Emphasis>. You may choose to get rid of the suffix entirely (if you do, the same change needs to be made in <Emphasis Role = "CodeInline">dcebind.c</Emphasis>).</Para></ListItem>
+<ListItem><Para><Emphasis Role = "CodeInline">&lt;</Emphasis><Emphasis Role = "CodeInlineItalic">DIRECTORY</Emphasis><Emphasis Role = "CodeInline">></Emphasis> needs to be set to the full pathname of the directory where you will create the server key table. The key table is created by executing the following:</Para>
+<InformalExample><ProgramListing>rgy&lowbar;edit</ProgramListing>
+<ProgramListing>ktadd -p <Emphasis Role = "Italic">SERVER&lowbar;PRINCIPAL</Emphasis> -pw <Emphasis Role = "Italic">PASSWORD</Emphasis> -f <Emphasis Role = "Italic">SERVER&lowbar;KEYTAB</Emphasis></ProgramListing>
+<ProgramListing>q</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></ListItem></ItemizedList>
+<Para>where <Emphasis Role = "CodeInlineItalic">SERVER&lowbar;PRINCIPAL</Emphasis> is the DCE principal under which the server will be run, <Emphasis Role = "CodeInlineItalic">PASSWORD</Emphasis> is the password associated with the principal, and <Emphasis Role = "CodeInlineItalic">SERVER&lowbar;KEYTAB</Emphasis> is the name of the server key table.</Para>
+<Para><Emphasis Role = "CodeInline">&lt;</Emphasis><Emphasis Role = "CodeInlineItalic">PRINCIPAL</Emphasis><Emphasis Role = "CodeInline">></Emphasis> must be changed to the name of the DCE principal under which the server will be run.</Para>
+<Para>The <Emphasis Role = "CodeInlineItalic">ANNOTATION</Emphasis> can be changed to an annotation to be stored in the directory entry for the server.</Para>
+<Para><Emphasis Role = "CodeInline">dceserver.c</Emphasis> is actually used twice in the application: once as the <Emphasis Role = "CodeInline">main()</Emphasis> for the DCE server and again (linked to <Emphasis Role = "CodeInline">gwinit.c</Emphasis> and compiled with -<Emphasis Role = "CodeInline">DTPSVRINIT</Emphasis> in the makefile) as the <Emphasis Role = "CodeInline">tpsvrinit()</Emphasis> for the DCE gateway.</Para>
+<Para>When compiled without extra macro definitions, this file generates a <Emphasis Role = "CodeInline">main()</Emphasis> (with <Emphasis Role = "CodeInline">argc</Emphasis> and <Emphasis Role = "CodeInline">argv</Emphasis> command-line options) for a DCE server that does the following: </Para>
+<ItemizedList mark = "Bullet"><ListItem><Para>Registers its interfaces</Para></ListItem>
+<ListItem><Para>Creates its server binding information and endpoints</Para></ListItem>
+<ListItem><Para>Establishes its DCE login context for the server principal using information in the server key table</Para></ListItem>
+<ListItem><Para>Registers its authentication information</Para></ListItem>
+<ListItem><Para>Gets its bindings and registers the information in the endpoint map</Para></ListItem>
+<ListItem><Para>Exports the binding information to the directory name space</Para></ListItem>
+<ListItem><Para>Optionally, adds its name to a group in the name space</Para></ListItem>
+<ListItem><Para>Listens for requests</Para></ListItem>
+<ListItem><Para>Cleans up after <Emphasis Role = "CodeInline">rpc&lowbar;server&lowbar;listen</Emphasis> returns</Para></ListItem></ItemizedList>
+<Para>The program could be modified to look at and use its command&lowbar;line options.</Para>
+<Para>When compiled with -<Emphasis Role = "CodeInline">DTCLIENT</Emphasis>, this file generates a <Emphasis Role = "CodeInline">main()</Emphasis> as above but calls <Emphasis Role = "CodeInline">tpinit</Emphasis>() to join the Oracle Tuxedo ATMI application as a client, and calls <Emphasis Role = "CodeInline">tpterm</Emphasis>() before exiting. This would be used for a DCE gateway for calls coming from DCE to Oracle Tuxedo (such that the process is a DCE server and an Oracle Tuxedo ATMI client).</Para>
+<Para>When compiled with -<Emphasis Role = "CodeInline">DTPSVRINIT</Emphasis>, this file generates a <Emphasis Role = "CodeInline">tpsvrinit</Emphasis>() (with <Emphasis Role = "CodeInline">argc</Emphasis> and <Emphasis Role = "CodeInline">argv</Emphasis> server command-line options) for an Oracle Tuxedo server that does the following: </Para>
+<ItemizedList mark = "Bullet"><ListItem><Para>Establishes its DCE login for the principal using the information in the server key table</Para></ListItem>
+<ListItem><Para>Registers its authentication information</Para></ListItem>
+<ListItem><Para>Calls <Emphasis Role = "CodeInline">tx&lowbar;open</Emphasis> to open any resource managers associated with the server</Para></ListItem></ItemizedList>
+<Para>The program could be modified to look at and use its command-line options.</Para>
+<Para>In each of these cases, the login context is established by calling <Emphasis Role = "CodeInline">establish&lowbar;identity</Emphasis>, which gets the network identity for the server, uses the server's secret key from the key table file to unseal the identity, and sets the login context for the process. Two threads are started: one to refresh the login context just before it expires, and a second thread to periodically change the server's secret key. </Para></Sect3>
+<Sect3><Title>Makefile&mdash;rpcsimp.mk</Title>
+<Example><Title>rpcsimp.mk</Title>
+<InformalExample><ProgramListing>CC&equals;cc</ProgramListing>
+<ProgramListing>CFLAGS&equals;</ProgramListing>
+<ProgramListing>TIDL&equals;&dollar;(TUXDIR)&sol;bin&sol;tidl</ProgramListing>
+<ProgramListing>LIBTRPC&equals;-ltrpc</ProgramListing>
+<ProgramListing>all: client server</ProgramListing>
+<ProgramListing>&num; Tuxedo client</ProgramListing>
+<ProgramListing>client: simp.h simp&lowbar;cstub.o</ProgramListing>
+<ProgramListing>  CC&equals;&dollar;(CC) CFLAGS&equals;&dollar;(CFLAGS) &dollar;(TUXDIR)&sol;bin&sol;buildclient -oclient &bsol;</ProgramListing>
+<ProgramListing>    -fclient.c -fsimp&lowbar;cstub.o -f&dollar;(LIBTRPC)</ProgramListing>
+<ProgramListing>&num;</ProgramListing>
+<ProgramListing>&num; OMIT Tuxedo server</ProgramListing>
+<ProgramListing>&num;</ProgramListing>
+<ProgramListing>&num; Tuxedo Gateway example</ProgramListing>
+<ProgramListing>&num; Uses Tuxedo client above plus a gateway server and a DCE server</ProgramListing>
+<ProgramListing>&num;</ProgramListing>
+<ProgramListing>&num;</ProgramListing>
+<ProgramListing>&num; Alpha FLAGS&sol;LIBS</ProgramListing>
+<ProgramListing>&num;DCECFLAGS&equals;-D&lowbar;SHARED&lowbar;LIBRARIES -Dalpha -D&lowbar;REENTRANT -w -I. &bsol;</ProgramListing>
+<ProgramListing>  -I&sol;usr&sol;include&sol;dce -I&dollar;(TUXDIR)&sol;include</ProgramListing>
+<ProgramListing>&num;DCELIBS&equals;-ldce -lpthreads -lc&lowbar;r -lmach -lm</ProgramListing>
+<ProgramListing>&num;</ProgramListing>
+<ProgramListing>&num;</ProgramListing>
+<ProgramListing>&num; HPUX FLAGS&sol;LIBS</ProgramListing>
+<ProgramListing>&num;DCECFLAGS&equals;-Aa -D&lowbar;HPUX&lowbar;SOURCE -D&lowbar;REENTRANT -I. &bsol;</ProgramListing>
+<ProgramListing>  -I&sol;usr&sol;include&sol;reentrant -I&dollar;&lcub;TUXDIR&rcub;&sol;include</ProgramListing>
+<ProgramListing>&num;DCELIBS&equals;-Wl,-Bimmediate -Wl,-Bnonfatal -ldce -lc&lowbar;r -lm</ProgramListing>
+<ProgramListing>&num;</ProgramListing>
+<ProgramListing>IDL&equals;idl</ProgramListing>
+<ProgramListing>ALL2&equals;client simpgw dceserver</ProgramListing>
+<ProgramListing>all2: &dollar;(ALL2)</ProgramListing>
+<ProgramListing>&num; TUXEDO-to-DCE Gateway</ProgramListing>
+<ProgramListing>simpdce.idl: simp.idl</ProgramListing>
+<ProgramListing>  rm -f simpdce.idl</ProgramListing>
+<ProgramListing>  ln simp.idl simpdce.idl</ProgramListing>
+<ProgramListing>gwinit.c: dceserver.c</ProgramListing>
+<ProgramListing>  rm -f gwinit.c</ProgramListing>
+<ProgramListing>  ln dceserver.c gwinit.c</ProgramListing>
+<ProgramListing>gwinit.o: gwinit.c</ProgramListing>
+<ProgramListing>  &dollar;(CC) -c &dollar;(DCECFLAGS) -DTPSVRINIT gwinit.c</ProgramListing>
+<ProgramListing>dceepv.o: dceepv.c simpdce.h</ProgramListing>
+<ProgramListing>   &dollar;(CC) -c &dollar;(DCECFLAGS) dceepv.c</ProgramListing>
+<ProgramListing>dcebind.o: dcebind.c simpdce.h</ProgramListing>
+<ProgramListing>  &dollar;(CC) -c &dollar;(DCECFLAGS) dcebind.c</ProgramListing>
+<ProgramListing>simpgw: simpdce.idl gwinit.o dcebind.o dceepv.o</ProgramListing>
+<ProgramListing>  blds&lowbar;dce -i -no&lowbar;mepv -o simpgw -f -g -f gwinit.o -f &bsol; </ProgramListing>
+<ProgramListing>    dcebind.o -f dceepv.o simpdce.idl</ProgramListing>
+<ProgramListing>&num; DCE server</ProgramListing>
+<ProgramListing>simpdce&lowbar;sstub.o simpdce.h: simpdce.idl</ProgramListing>
+<ProgramListing>  &dollar;(IDL) -client none -keep object simpdce.idl</ProgramListing>
+<ProgramListing>dceserver.o: dceserver.c simpdce.h</ProgramListing>
+<ProgramListing>  &dollar;(CC) -c &dollar;(DCECFLAGS) dceserver.c</ProgramListing>
+<ProgramListing>dcemgr.o: dcemgr.c simpdce.h</ProgramListing>
+<ProgramListing>  &dollar;(CC) -c &dollar;(DCECFLAGS) dcemgr.c</ProgramListing>
+<ProgramListing>dceserver: simpdce&lowbar;sstub.o dceserver.o dcemgr.o</ProgramListing>
+<ProgramListing>  &dollar;(CC) dceserver.o simpdce&lowbar;sstub.o dcemgr.o -o dceserver &bsol; </ProgramListing>
+<ProgramListing>    &dollar;(DCELIBS)</ProgramListing>
+<ProgramListing>&num; Cleanup</ProgramListing>
+<ProgramListing>clean::</ProgramListing>
+<ProgramListing>  rm -f &ast;.o server &dollar;(ALL2) ULOG.&ast; TUXCONFIG</ProgramListing>
+<ProgramListing>  rm -f stderr stdout &ast;stub.c &ast;.h simpdce.idl gwinit.c</ProgramListing>
+<ProgramListing>clobber: clean</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></Example>
+<Para>The <Emphasis Role = "CodeInline">makefile</Emphasis> builds the executable client, gateway, and DCE server programs.</Para>
+<Para>Before building the software, <Emphasis Role = "CodeInline">rpcsimp.mk</Emphasis> must be modified to set the correct options and libraries for building the DCE server. As sent out, the makefile contains the proper settings for several platforms. Based on the platform that you are using, uncomment (delete the pound sign) in front of the correct pair of <Emphasis Role = "CodeInline">DCECFLAGS</Emphasis> and <Emphasis Role = "CodeInline">DCELIBS</Emphasis> variables, or add your own definitions for a different platform.</Para>
+<Para>Briefly reviewing the makefile, the client is built in the same fashion as in <XRef Role = "Appendix Number &#x0026; Title (period)" Linkend = "g1027039"/> The DCE gateway is built by passing <Emphasis Role = "CodeInline">simpdce.idl</Emphasis> to <Emphasis Role = "CodeInline">blds&lowbar;dce</Emphasis>, which builds an Oracle Tuxedo ATMI server that acts as a gateway to DCE. Also included are <Emphasis Role = "CodeInline">gwinit.o </Emphasis>(a version of <Emphasis Role = "CodeInline">dceserver.c</Emphasis> compiled with -<Emphasis Role = "CodeInline">DTPSVRINIT</Emphasis>), <Emphasis Role = "CodeInline">dobind.o</Emphasis> (to get the binding handle for the DCE server), and <Emphasis Role = "CodeInline">dceepv.o</Emphasis> (the manager entry point vector). Note that <Emphasis Role = "CodeInline">-i -no&lowbar;mepv</Emphasis> is specified so that the IDL compiler does not generate its own manager entry point vector. The DCE server is built compiling <Emphasis Role = "CodeInline">simpdce.idl</Emphasis> with the DCE IDL compiler, and including <Emphasis Role = "CodeInline">dceserver.o</Emphasis> and <Emphasis Role = "CodeInline">dcemgr.o</Emphasis>.</Para></Sect3></Sect2>
+<Sect2><Title>Step 5: Modify the Configuration</Title>
+<OrderedList><ListItem><Para>Modify the ASCII <Emphasis Role = "CodeInline">ubbconfig</Emphasis> configuration file as described in <XRef Role = "Appendix Number &#x0026; Title (period)" Linkend = "g1027039"/> (This step is mandatory.)</Para></ListItem>
+<ListItem><Para>In the <Emphasis Role = "CodeInline">SERVERS</Emphasis> section, comment out the <Emphasis Role = "CodeInlineItalic">server</Emphasis> line by putting a pound sign (<Emphasis Role = "CodeInline">&num;</Emphasis>) at the beginning of the line. (Do not comment out the <Emphasis Role = "CodeInlineItalic">dceserver</Emphasis> line.)</Para></ListItem></OrderedList></Sect2>
+<Sect2><Title>Step 6: Build the Application</Title>
+<OrderedList><ListItem><Para>Before building the software, you must modify <Emphasis Role = "CodeInline">rpcsimp.mk</Emphasis> to set the correct options and libraries for building the DCE server, as described above.</Para></ListItem>
+<ListItem><Para>Build the client and server programs by running the following:</Para>
+<InformalExample><ProgramListing>make -f rpcsimp.mk TUXDIR&equals;&dollar;TUXDIR all2</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></ListItem></OrderedList></Sect2>
+<Sect2><Title>Step 7: Load the Configuration</Title>
+<Para>Load the binary <Emphasis Role = "CodeInline">TUXCONFIG</Emphasis> configuration file by running the following:</Para>
+<InformalExample><ProgramListing>tmloadcf -y ubbconfig</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></Sect2>
+<Sect2><Title>Step 8: Configuring DCE</Title>
+<Para>To set up DCE entities for running this example, as described earlier, you must customize (for your environment) identifiers in all capital letters.</Para>
+<ItemizedList mark = "Bullet"><ListItem><Para>If you already have a DCE principal for yourself, you do not need to create <Emphasis Role = "CodeInline">MYGROUP</Emphasis>, <Emphasis Role = "CodeInline">MYPRINCIPAL</Emphasis>, or the associated account. </Para></ListItem>
+<ListItem><Para>This example assumes that the <Emphasis Role = "CodeInline">cell&lowbar;admin</Emphasis> password is the default <Emphasis Role = "CodeInline">-dce</Emphasis>. (You can change this password as necessary.)</Para></ListItem>
+<ListItem><Para>The <Emphasis Role = "CodeInlineItalic">SERVER&lowbar;PRINCIPAL</Emphasis> must be the same as the Oracle Tuxedo administrator identifier, because the server must be booted as the Oracle Tuxedo administrator and the server must be able to read the server key table.</Para></ListItem></ItemizedList>
+<Example><Title>DCE Configuration</Title>
+<InformalExample><ProgramListing>&dollar; dce&lowbar;login cell&lowbar;admin -dce-</ProgramListing>
+<ProgramListing>&dollar; rgy&lowbar;edit</ProgramListing>
+<ProgramListing>> domain group</ProgramListing>
+<ProgramListing>> add SERVER&lowbar;PRINCIPAL&lowbar;GROUP</ProgramListing>
+<ProgramListing>> add MYGROUP</ProgramListing>
+<ProgramListing>> domain principal</ProgramListing>
+<ProgramListing>> add SERVER&lowbar;PRINCIPAL</ProgramListing>
+<ProgramListing>> add MYPRINCIPAL</ProgramListing>
+<ProgramListing>> domain account</ProgramListing>
+<ProgramListing>> add SERVER&lowbar;PRINCIPAL -g SERVER&lowbar;PRINCIPAL&lowbar;GROUP -o none -pw &bsol; </ProgramListing>
+<ProgramListing>    SERVERPASSWORD -mp -dce-</ProgramListing>
+<ProgramListing>> add MYPRINCIPAL -g MYGROUP -o none -pw MYPASSWORD -mp -dce-</ProgramListing>
+<ProgramListing>> ktadd -p SERVER&lowbar;PRINCIPAL -pw SERVERPASSWORD -f SERVER&lowbar;KEYTAB</ProgramListing>
+<ProgramListing>> q</ProgramListing>
+<ProgramListing>&dollar; chown SERVER&lowbar;PRINCIPAL SERVER&lowbar;KEYTAB</ProgramListing>
+<ProgramListing>&dollar; chmod 0600 SERVER&lowbar;KEYTAB</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></Example></Sect2>
+<Sect2><Title>Step 9: Boot the Configuration</Title>
+<OrderedList><ListItem><Para>Log in as <Emphasis Role = "CodeInlineItalic">SERVER&lowbar;PRINCIPAL</Emphasis> (the owner of the server key table).</Para></ListItem>
+<ListItem><Para>Start the DCE server by running the following:</Para>
+<InformalExample><ProgramListing>dceserver &amp;</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Para>The message <Emphasis Role = "CodeInline">Server ready</Emphasis> is displayed just before the DCE server starts listening for requests.</Para></ListItem>
+<ListItem><Para>Boot the Oracle Tuxedo ATMI application by running the following:</Para>
+<InformalExample><ProgramListing>tmboot -y</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></ListItem></OrderedList></Sect2>
+<Sect2><Title>Step 10: Run the Client</Title>
+<Para>The client program can be run by optionally specifying a string to be converted, first to uppercase, and then to lowercase:</Para>
+<InformalExample><ProgramListing>&dollar; client HeLlO</ProgramListing>
+<ProgramListing>to&lowbar;upper returns: HELLO</ProgramListing>
+<ProgramListing>to&lowbar;lower returns: hello</ProgramListing>
+<ProgramListing>&dollar;</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></Sect2>
+<Sect2><Title>Step 11: Shut Down the Configuration</Title>
+<OrderedList><ListItem><Para>Shut down the application by running the following:</Para>
+<InformalExample><ProgramListing>tmshutdown -y</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></ListItem>
+<ListItem><Para>Stop the DCE server.</Para></ListItem></OrderedList></Sect2>
+<Sect2><Title>Step 12: Clean Up the Created Files</Title>
+<Para>Clean up the created files by running the following:</Para>
+<InformalExample><ProgramListing>make -f rpcsimp.mk clean</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></Sect2></Sect1></Appendix>

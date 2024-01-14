@@ -1,0 +1,126 @@
+<?Fm Document txc02.fm?>
+<Chapter Id = "g1011886">
+<?Fm Condition HardcopyHide Blue NO_OVERRIDE show?>
+
+<?Fm Condition HardcopyOnly Blue NO_OVERRIDE show?>
+
+<?Fm Condition SoftcopyOnly Magenta NO_OVERRIDE show?>
+
+<?Fm Condition Hide Blue NO_OVERRIDE show?>
+
+<?Fm Condition RevRec Red NO_OVERRIDE hide?>
+
+<?Fm Condition BetaDraft Red NO_OVERRIDE show?>
+
+<?Fm Condition Comment Magenta NO_OVERRIDE show?>
+
+<?Fm Condition HTML Blue NO_OVERRIDE show?>
+
+<?Fm Condition PSPDF AsIs NO_OVERRIDE show?>
+
+<Title Id = "i1008718">Using the Interface Definition Language (IDL)</Title>
+<Para>This topic includes the following sections:</Para>
+<ItemizedList mark = "Bullet"><ListItem><Para><XRef Role = "Section Head Number &#x0026; Title" Linkend = "i1002601"/></Para></ListItem>
+<ListItem><Para><XRef Role = "Section Head Number &#x0026; Title" Linkend = "i1002809"/></Para></ListItem>
+<ListItem><Para><XRef Role = "Section Head Number &#x0026; Title" Linkend = "i1002830"/></Para></ListItem>
+<ListItem><Para><XRef Role = "Section Head Number &#x0026; Title" Linkend = "i1002693"/></Para></ListItem>
+<ListItem><Para><XRef Role = "Section Head Number &#x0026; Title" Linkend = "i1002708"/></Para></ListItem>
+<ListItem><Para><XRef Role = "Section Head Number &#x0026; Title" Linkend = "i1002616"/></Para></ListItem>
+<ListItem><Para><XRef Role = "Section Head Number &#x0026; Title" Linkend = "i1002733"/></Para></ListItem></ItemizedList>
+<Sect1 Id = "i1002601"><Title>References</Title>
+<Para>Oracle Tuxedo TxRPC supports the IDL grammar and associated functionality as described in Chapter 3 ("Interface Definition Language") of <Emphasis Role = "Italic">DCE: REMOTE PROCEDURE CALL</Emphasis> (Doc Code: P312 ISBN 1-872630-95-2). This book is available from the following.</Para>
+<Para>X&sol;OPEN Company Ltd (Publications)</Para>
+<Para>P O Box 109</Para>
+<Para>Penn</Para>
+<Para>High Wycombe</Para>
+<Para>Bucks HP10 8NP</Para>
+<Para>United Kingdom</Para>
+<Para>Tel: &plus;44 (0) 494 813844</Para>
+<Para>Fax: &plus;44 (0) 494 814989</Para>
+<Para>The X&sol;OPEN document is the ultimate authority on the language and rules adhered to for the Oracle Tuxedo product in an ATMI environment. Note that the X&sol;OPEN TxRPC IDL-only interface is supported (parts of the document concerning the DCE binding and run time do not apply). The X&sol;OPEN document is based on the OSF DCE AES&sol;RPC document. There are several books containing tutorials and programmer's guides that can be used, although most will not contain the latest features. The programmer's guide available from OSF is <Emphasis Role = "Italic">OSF DCE Application Development Guide</Emphasis>, published by Prentice-Hall (Englewood Cliffs, New Jersey, 07632).</Para>
+<Para>The <Emphasis Role = "Italic">X&sol;OPEN Preliminary Specification for TxRPC Communication Application Programming Interface</Emphasis> is also available from X&sol;OPEN (see above). TxRPC adds transaction support for RPCs to the original X&sol;OPEN RPC interface.</Para></Sect1>
+<Sect1 Id = "i1002809"><Title>Using uuidgen to Create an IDL Template</Title>
+<Para>A Universal Unique Identifier (UUID) is used to uniquely identify an interface. The <Emphasis Role = "CodeInline">uuidgen</Emphasis> command is used to generate UUIDs. The output might look something like the following:</Para>
+<InformalExample><ProgramListing>&dollar; uuidgen -i > simp.idl</ProgramListing>
+<ProgramListing>&dollar; cat simp.idl</ProgramListing>
+<ProgramListing>&lsqb;uuid(816A4780-A76B-110F-9B3F-930269220000)&rsqb;</ProgramListing>
+<ProgramListing>interface INTERFACE</ProgramListing>
+<ProgramListing>&lcub;</ProgramListing>
+<ProgramListing>&rcub;</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Para>This template is then used to create the IDL input file for the application (adding type definitions, constants, and operations).</Para>
+<Para>If both the ATMI and DCE <Xulink Url = "../../rfcm/rfcmd.html"><Emphasis Role = "CodeInline">uuidgen(1)</Emphasis></Xulink> commands are available, the DCE command can and should be used to generate the template (the DCE version will most likely have a machine-specific approach to getting the node address, as described below).</Para>
+<Para>The ATMI <Emphasis Role = "CodeInline">uuidgen</Emphasis> command is similar to the DCE command with the exception that the <Emphasis Role = "CodeInline">-s</Emphasis> option (which generates a UUID string as an initialized C structure), and the <Emphasis Role = "CodeInline">-t</Emphasis> option (which translates an old style UUID string to the new format) are not supported. See the <Emphasis Role = "CodeInline">uuidgen(1)</Emphasis> reference page for details of the interface.</Para>
+<Para>The <Emphasis Role = "CodeInline">uuidgen</Emphasis> command requires a 48-bit node address as described in ISO&sol;IEC 8802-3 (ANSI&sol;IEEE 802.3). There is no platform-independent way to determine this value, and it may not be available at all on some machines (a workstation, for example). The following approach is used for the ATMI <Emphasis Role = "CodeInline">uuidgen</Emphasis> command: </Para>
+<ItemizedList mark = "Bullet"><ListItem><Para>If the <Emphasis Role = "CodeInline">NADDR</Emphasis> environment variable is set to a value of the form <Emphasis Role = "CodeInlineItalic">num.num.num.num.num.num</Emphasis> where <Emphasis Role = "CodeInlineItalic">num</Emphasis> is between 0 and 255, inclusive, it is taken to be an Internet-style address and converted to a 48-bit node address. This allows conformance with the use of the 8802-3 node address. It also allows users who do not have access to this address to use another value, most likely the Internet address (which is <Emphasis Role = "Italic">not</Emphasis> the same as the 8802-3 address). If the Internet address is used, the last <Emphasis Role = "CodeInlineItalic">num.num</Emphasis> should be 0.0 (because Internet addresses are only 32-bit addresses).</Para></ListItem>
+<ListItem><Para>If the <Emphasis Role = "CodeInline">NADDR</Emphasis> environment variable is not set and if the <Emphasis Role = "CodeInline">WSNADDR</Emphasis> environment variable is set to a value of the form <Emphasis Role = "CodeInlineItalic">0xnnnnnnnnnnnnnnnn</Emphasis> it is taken to be a hexadecimal network address, as used in Workstation. Again note that this is <Emphasis Role = "Italic">not</Emphasis> the 8802-3 address, and the last 16 bits will be treated as zeros.</Para></ListItem>
+<ListItem><Para>If neither the <Emphasis Role = "CodeInline">NADDR</Emphasis> nor the <Emphasis Role = "CodeInline">WSNADDR</Emphasis> environment variable is set (and if not Windows), the <Emphasis Role = "CodeInline">uname</Emphasis> for the machine is used to look up the machine entry in <Emphasis Role = "CodeInline">&sol;etc&sol;hosts</Emphasis> to get the Internet-style address.</Para></ListItem>
+<ListItem><Para>If the first three choices are not available, a warning is printed and 00.00.00.00.00.00 is used. This is not desirable because it reduces the chance of generating a unique UUID.</Para></ListItem></ItemizedList></Sect1>
+<Sect1 Id = "i1002830"><Title>Changes in the Language</Title>
+<Para>The IDL compiler recognizes the IDL grammar and generates stub functions based on the input. The grammar and its semantics are fully described in both the X&sol;OPEN and OSF&sol;DCE references listed earlier in this chapter. The grammar will be recognized in its entirety with some changes as described in the following sections.</Para></Sect1>
+<Sect1 Id = "i1002693"><Title>Changes Based on the TxRPC Specification</Title>
+<Para>The following are changes to the base X&sol;OPEN RPC specification that are defined by the X&sol;OPEN TxRPC specification: </Para>
+<ItemizedList mark = "Bullet"><ListItem><Para>The most important enhancement from the TxRPC specification is the addition of the <Emphasis Role = "CodeInline">&lsqb;transaction&lowbar;optional&rsqb;</Emphasis> and <Emphasis Role = "CodeInline">&lsqb;transaction&lowbar;mandatory&rsqb;</Emphasis> attributes in the interface and operation attributes in the IDL file. <Emphasis Role = "CodeInline">&lsqb;transaction&lowbar;optional&rsqb;</Emphasis> indicates that if the RPC is done while in a transaction, the remote service is done as part of the transaction. The <Emphasis Role = "CodeInline">&lsqb;transaction&lowbar;mandatory&rsqb;</Emphasis> attribute requires that the RPC be done within a transaction. Without these attributes, the remote service is not part of any transaction of which the client may be part.</Para></ListItem>
+<ListItem><Para>Binding types and attributes are not required by X&sol;OPEN TxRPC IDL-only. The binding attributes are <Emphasis Role = "CodeInline">&lsqb;handle&rsqb;</Emphasis>, <Emphasis Role = "CodeInline">&lsqb;endpoint&rsqb;</Emphasis>, <Emphasis Role = "CodeInline">&lsqb;auto&lowbar;handle&rsqb;</Emphasis>, <Emphasis Role = "CodeInline">&lsqb;implicit&lowbar;handle&rsqb;</Emphasis>, and <Emphasis Role = "CodeInline">&lsqb;explicit&lowbar;handle&rsqb;</Emphasis>. They are recognized by <Xulink Url = "../../rfcm/rfcmd.html"><Emphasis Role = "CodeInline">tidl(1)</Emphasis></Xulink> but not supported (these attributes are ignored). Also the <Emphasis Role = "CodeInline">handle&lowbar;t</Emphasis> type is not treated specially (it is transmitted as any other defined type is transmitted, without treatment as a handle).</Para></ListItem>
+<ListItem><Para>Pipes are not required by X&sol;OPEN TxRPC IDL-only. <Emphasis Role = "CodeInline">tidl</Emphasis> supports pipes only in <Emphasis Role = "CodeInline">&lsqb;local&rsqb;</Emphasis> mode; that is, they can be specified for header file, but not stub, generation.</Para></ListItem>
+<ListItem><Para>The <Emphasis Role = "CodeInline">&lsqb;idempotent&rsqb;</Emphasis>, <Emphasis Role = "CodeInline">&lsqb;maybe&rsqb;</Emphasis>, and <Emphasis Role = "CodeInline">&lsqb;broadcast&rsqb;</Emphasis> attributes are not required by X&sol;OPEN TxRPC IDL-only. They are ignored by <Xulink Url = "../../rfcm/rfcmd.html"><Emphasis Role = "CodeInline">tidl(1)</Emphasis></Xulink>.</Para></ListItem></ItemizedList></Sect1>
+<Sect1 Id = "i1002708"><Title>Enhancements to the Language</Title>
+<Para>The following are enhancements to the X&sol;OPEN RPC specification. In most cases, the language has been enhanced to more closely follow the C language, simplifying the porting of existing interfaces (converting from ANSI C to IDL prototypes). </Para>
+<ItemizedList mark = "Bullet"><ListItem><Para>In the X&sol;OPEN specification, character constants and character strings are limited to the portable set, that is <Emphasis Role = "CodeInline">space</Emphasis> (0x20) through <Emphasis Role = "CodeInline">tilde</Emphasis> (0x7e). Other characters in the character set (0x01 through 0xff) are allowed, as in OSF DCE RPC.</Para></ListItem>
+<ListItem><Para>As in C, the following operators are treated as punctuators.</Para>
+<InformalExample><ProgramListing>&boxv;&boxv; &amp;&amp; ? &boxv; &amp; &lowbar; &equals;&equals; !&equals; &equals; &lt;&lt; >> &lt;&equals; >&equals; &lt; > &plus; - &percnt; ! ~</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Para>This means that white space need not follow or precede identifiers or numbers if preceded or followed by one of these tokens. (The IDL specification requires white space, as in <Emphasis Role = "CodeInline">a &equals; b &plus; 3</Emphasis>, instead of allowing <Emphasis Role = "CodeInline">a&equals;b&plus;3</Emphasis>.) This also seems to be the behavior of the OSF DCE IDL compiler.</Para></ListItem>
+<ListItem><Para>The published X&sol;OPEN specification restricts field and parameter names from matching type names. This restriction effectively puts all names in a single name space. This restriction does not match C, C&plus;&plus;, or the OSF IDL compiler, and is not enforced.</Para></ListItem>
+<ListItem><Para>The X&sol;OPEN specification does not allow anonymous enumerations as parameter or function results and does not allow anonymous structures or unions as the targets of pointers. Each of these is allowed by the OSF DCE IDL compiler. These restrictions are not enforced; in each case, a name, based on the interface name and version, is generated for use during marshalling.</Para></ListItem>
+<ListItem><Para>Enumeration values (constants) may be used in integer constant expressions (as in C). This also seems to be the behavior of the DCE IDL compiler.</Para></ListItem>
+<ListItem><Para>As currently defined in the X&sol;OPEN RPC specification, the grammar does not allow for a pointer in front of an operation declaration, for example: </Para>
+<InformalExample><ProgramListing>long &ast;op(void);</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Para>nor does it allow for structure or union returns. While this could be considered correct (everything could be hidden in a defined type), the DCE IDL compiler and, of course, C compiler allow a much richer operation return. The supported grammar will be the following:</Para>
+<InformalExample><ProgramListing>&lsqb;<Emphasis Role = "Italic">operation&lowbar;attributes</Emphasis>&rsqb; &lt;<Emphasis Role = "Italic">type&lowbar;spec</Emphasis>> &lt;<Emphasis Role = "Italic">declarator</Emphasis>></ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Para>where <Emphasis Role = "CodeInlineItalic">&lt;declarator></Emphasis> must contain a <Emphasis Role = "CodeInlineItalic">&lt;function&lowbar;declarator></Emphasis>. (If a <Emphasis Role = "CodeInlineItalic">&lt;function&lowbar;declarator></Emphasis> does not exist, then a variable is declared, which results in an error.) Declaring an array of operations or an operation returning an array (both allowed by this grammar) will be detected and flagged as an error.</Para></ListItem>
+<ListItem><Para>The <Emphasis Role = "CodeInlineItalic">&lt;ACS&lowbar;type&lowbar;declaration></Emphasis> takes <Emphasis Role = "CodeInlineItalic">&lt;ACS&lowbar;named&lowbar;type></Emphasis> values, just as the IDL <Emphasis Role = "CodeInlineItalic">&lt;type&lowbar;declaration></Emphasis> takes a list of declarators. This seems to be the behavior of the DCE IDL compiler.</Para></ListItem>
+<ListItem><Para>Fielded buffers created and manipulated with the Field Manipulation Language (FML) are an integral part of many Oracle Tuxedo ATMI applications. Fielded buffers are supported as a new base type in the IDL. They are indicated by the keywords <Emphasis Role = "CodeInline">FBFR</Emphasis> for 16-bit buffers and <Emphasis Role = "CodeInline">FBFR32</Emphasis> for 32-bit buffers and must always be defined as a pointer (for example, <Emphasis Role = "CodeInline">FBFR &ast;</Emphasis> or <Emphasis Role = "CodeInline">FBFR32 &ast;</Emphasis>). A fielded buffer cannot be defined as the base type in a <Emphasis Role = "CodeInline">typedef</Emphasis>. They can be used in structure fields and as parameters. They can be used as the base type in an array or pointer (either full or reference pointer). However, conformant and varying arrays of fielded buffers are not supported.</Para></ListItem>
+<ListItem><Para>There are several restrictions in the OSF IDL compiler that are not documented in the AES or X&sol;OPEN RPC specification. These are enforced in the Oracle Tuxedo IDL compiler: </Para>
+<ItemizedList mark = "Dash"><ListItem><Para>A transmitted type used in &lsqb;<Emphasis Role = "CodeInline">transmit&lowbar;as()</Emphasis>&rsqb; cannot have the &lsqb;<Emphasis Role = "CodeInline">represent&lowbar;as</Emphasis>&rsqb; attribute.</Para></ListItem>
+<ListItem><Para>A union arm may not be or contain a &lsqb;<Emphasis Role = "CodeInline">ref</Emphasis>&rsqb; pointer.</Para></ListItem>
+<ListItem><Para>If a conformant and&sol;or varying array appears in a structure, the array size attribute variable may not be a pointer (that is, it must be a non-pointer, integer element within the structure).</Para></ListItem></ItemizedList></ListItem></ItemizedList>
+<Sect2><Title>Enhancements that May Limit Portability</Title>
+<Para>There are four additional Oracle Tuxedo ATMI enhancements to the X&sol;OPEN RPC specification that, while making the specification more C-like, are not supported in the OSF DCE IDL compiler and thus have the effect of limiting portability of the IDL file: </Para>
+<ItemizedList mark = "Bullet"><ListItem><Para>String concatenation is supported (as in ANSI C). That is:</Para>
+<InformalExample><ProgramListing>const char &ast;str &equals; "abc" "def";</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Para>is treated the same as </Para>
+<InformalExample><ProgramListing>const char &ast;str &equals; "abcdef";</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></ListItem>
+<ListItem><Para>Escaped newlines are allowed in string constants. That is:</Para>
+<InformalExample><ProgramListing>const char &ast;str &equals; "abc&bsol;</ProgramListing>
+<ProgramListing> def";</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample>
+<Para>is treated the same as </Para>
+<InformalExample><ProgramListing>const char &ast;str &equals; "abcdef";</ProgramListing>
+<ProgramListing></ProgramListing></InformalExample></ListItem>
+<ListItem><Para>Enumeration values may also be used in union cases and are treated as integers (that is, automatic conversion is provided as in C).</Para></ListItem>
+<ListItem><Para>The restriction that the type of each <Emphasis Role = "CodeInlineItalic">&lt;union&lowbar;case&lowbar;label></Emphasis> must be that specified by the <Emphasis Role = "CodeInlineItalic">&lt;switch&lowbar;type&lowbar;spec></Emphasis> will not be enforced. Instead, the type will be coerced as is done with case statements in a C switch statement.</Para></ListItem></ItemizedList></Sect2></Sect1>
+<Sect1 Id = "i1002616"><Title>Unsupported Features</Title>
+<Para>The following seven features are not supported in the <Emphasis Role = "CodeInline">tidl</Emphasis> compiler: </Para>
+<ItemizedList mark = "Bullet"><ListItem><Para>The migration attributes <Emphasis Role = "CodeInline">&lsqb;v1&lowbar;struct&rsqb;</Emphasis>, <Emphasis Role = "CodeInline">&lsqb;v1&lowbar;enum&rsqb;</Emphasis>, <Emphasis Role = "CodeInline">&lsqb;v1&lowbar;string&rsqb;</Emphasis>, and <Emphasis Role = "CodeInline">&lsqb;v1&lowbar;array&rsqb;</Emphasis> are recognized but not supported (these appear in the OSF IDL specification but not the X&sol;OPEN specification).</Para></ListItem>
+<ListItem><Para>Function pointers (defined in the OSF&sol;DCE document) are supported only in <Emphasis Role = "CodeInline">&lsqb;local&rsqb;</Emphasis> mode (as in OSF&sol;DCE).</Para></ListItem>
+<ListItem><Para>An exact match is required on interface version minor between the client and the server (the X&sol;OPEN RPC specification allows for the server version minor to be greater than or equal to the version minor specified by the client).</Para></ListItem>
+<ListItem><Para>On machines with 32-bit longs, integer literal values are limited to -2&ast;&ast;31 to 2&ast;&ast;31. This means that unsigned long integer values in the range 2&ast;&ast;31&plus;1 to 2&ast;&ast;32-1 are not supported. This also seems to be the behavior of the DCE IDL compiler.</Para></ListItem>
+<ListItem><Para>Context handles are supported only in <Emphasis Role = "CodeInline">&lsqb;local&rsqb;</Emphasis> mode. Interfaces cannot be written that use context handles to maintain state across operations.</Para></ListItem>
+<ListItem><Para>The <Emphasis Role = "CodeInline">&lsqb;out-of-line&rsqb;</Emphasis> ACS attribute is ignored. This feature is not defined in a way that will support interoperation between different implementations (e.g., with the OSF IDL compiler).</Para></ListItem>
+<ListItem><Para>The <Emphasis Role = "CodeInline">&lsqb;heap&rsqb;</Emphasis> ACS attribute is ignored.</Para></ListItem></ItemizedList></Sect1>
+<Sect1 Id = "i1002733"><Title>Using tidl, the IDL Compiler</Title>
+<Para>The interface for the IDL compiler is not specified in any X&sol;OPEN specification.</Para>
+<Para>For DCE application portability, the Oracle Tuxedo ATMI IDL compiler has a similar interface to the DCE IDL compiler, with the following exceptions: </Para>
+<ItemizedList mark = "Bullet"><ListItem><Para>The command name is <Emphasis Role = "CodeInline">tidl</Emphasis> instead of <Emphasis Role = "CodeInline">idl</Emphasis> so an application can easily reference either when both appear in the same environment.</Para></ListItem>
+<ListItem><Para>The <Emphasis Role = "CodeInline">-bug</Emphasis> option, which generates buggy behavior for interoperability with earlier versions of the software, has no effect. The <Emphasis Role = "CodeInline">-no&lowbar;bug</Emphasis> option also has no effect.</Para></ListItem>
+<ListItem><Para>The <Emphasis Role = "CodeInline">-space&lowbar;opt</Emphasis> option, which optimizes the code for space, is ignored. Space is always optimized.</Para></ListItem>
+<ListItem><Para>A new option, <Emphasis Role = "CodeInline">-use&lowbar;const</Emphasis>, is supported. <Emphasis Role = "CodeInline">-use&lowbar;const</Emphasis> generates ANSI C <Emphasis Role = "CodeInline">const</Emphasis> statements instead of <Emphasis Role = "CodeInline">&num;define</Emphasis> statements for constant definitions. This gets around an annoying problem where a constant defined in the IDL file collides with another name in the file using a C-preprocessor definition, but is properly in another name space when defined as a C constant. Use of this feature will limit portability of the IDL file.</Para></ListItem>
+<ListItem><Para>By default, <Emphasis Role = "CodeInline">&sol;lib&sol;cpp</Emphasis>, <Emphasis Role = "CodeInline">&sol;usr&sol;ccs&sol;lib&sol;cpp</Emphasis>, or <Emphasis Role = "CodeInline">&sol;usr&sol;lib&sol;cpp</Emphasis> (whichever is found first) is the command used to preprocess the input IDL and ACF files.</Para></ListItem></ItemizedList>
+<Para>By default, the IDL compiler takes an input IDL file and generates the client and server stub object files. The <Emphasis Role = "CodeInline">-keep c&lowbar;source</Emphasis> option generates only the C source files, and the <Emphasis Role = "CodeInline">-keep all</Emphasis> option keeps both the C source and object files. The sample RPC application, listed in <XRef Role = "Appendix Number &#x0026; Title (comma)" Linkend = "g1027039"/> uses the <Emphasis Role = "CodeInline">-keep object</Emphasis> option to generate the object files.</Para>
+<Para>By default, at most 50 errors are printed by <Emphasis Role = "CodeInline">tidl</Emphasis>. If you want to see them all (and have more than 50 errors), use the <Emphasis Role = "CodeInline">-error all</Emphasis> option. The error output is printed to the <Emphasis Role = "CodeInline">stderr</Emphasis>.</Para>
+<Para>See <Xulink Url = "../../rfcm/rfcmd.html"><Emphasis Role = "CodeInline">tidl(1)</Emphasis></Xulink> in the &ref1; for details on the many other options that are available.</Para></Sect1></Chapter>

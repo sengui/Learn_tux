@@ -1,0 +1,461 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="40264" />
+<meta name="LOC_US_SRCFILE" content="//depot/ecs/eam/v11gr1/crm/fm/appb.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="08/24/10 04:13:23" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Sample JCL for an MVS Platform</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">CRM Administration Guide
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="appa.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="appc.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/crm.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1166197"> </a>
+Sample JCL for an MVS Platform
+</h1>
+<p class="pBody"><a name="wp1163984"> </a>
+Job Control Language (JCL) is used on a z/OS Multiple Virtual Storage (MVS) platform to set the environment and invoke CRM commands. The following sections provide samples of JCL that may be used for your MVS operating system. The sample <code class="cCode">SET</code> commands may not reflect the configuration of your system. You must customize the <code class="cCode">SET</code> commands for your environment. Refer to your System Administrator for more information about your particular setup. Refer to <a href="appa.html">Command Reference Pages,</a> for more information about the <code class="cCode">CRM</code>, <code class="cCode">CRMLKON</code>, <code class="cCode">CRMLKOFF, CRMDOWN, </code>and<code class="cCode"> CRMLOGS</code> commands.
+</p>
+<p class="pBody"><a name="wp1163991"> </a>
+This section discusses the following topics:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1163995"> </a><a href="appb.html#wp1164013"><span class="cHyperlink">
+Sample JCL for the CRM Command</span></a></li>
+<li><a name="wp1163999"> </a><a href="appb.html#wp1164331"><span class="cHyperlink">
+Sample JCL for the crmlkon Command</span></a></li>
+<li><a name="wp1164003"> </a><a href="appb.html#wp1164089"><span class="cHyperlink">
+Sample JCL for the crmlkoff Command</span></a></li>
+<li><a name="wp1164007"> </a><a href="appb.html#wp1164124"><span class="cHyperlink">
+Sample JCL for the CRMDOWN Command</span></a><span class="cHyperlink">
+ </span></li>
+<li><a name="wp1164011"> </a><a href="appb.html#wp1164160"><span class="cHyperlink">
+Sample JCL for the CRMLOGS Command</span></a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1164013"> </a>
+Sample JCL for the CRM Command
+</h2><p class="pBody"><a name="wp1164015"> </a>
+This section provides an explanation of the <code class="cCode">SET</code> commands and an example of JCL that can be used when you run the <code class="cCode">CRM </code>command. 
+</p>
+<h4 class="pHeading3"><a name="wp1164019"> </a>
+SET STARTCMD
+</h4>
+<p class="pBody"><a name="wp1164023"> </a>
+Sets the <code class="cCode">CRM </code>command line parameters. Refer to <a href="appa.html#wp142579"><span class="cHyperlink">
+CRM</span></a> for more information about the command line parameters.
+</p>
+<h4 class="pHeading3"><a name="wp1164026"> </a>
+SET OBJLIB
+</h4>
+<p class="pBody"><a name="wp1164027"> </a>
+Indicates the name of the PDSE library where the <code class="cCode">CRM</code> executable is installed.
+</p>
+<h4 class="pHeading3"><a name="wp1164029"> </a>
+SET DATA
+</h4>
+<p class="pBody"><a name="wp1164030"> </a>
+Indicates the dataset containing the <code class="cCode">ENVFILE</code>.
+</p>
+<h4 class="pHeading3"><a name="wp1164032"> </a>
+SET ENVFILE
+</h4>
+<p class="pBody"><a name="wp1164033"> </a>
+Indicates the name of the PDS member that contains the environment variables for the CRM. A sample member, <code class="cCode">ENV</code>, is delivered with your product.
+</p>
+<h4 class="pHeading3"><a name="wp1164035"> </a>
+SET SIZE
+</h4>
+<p class="pBody"><a name="wp1164036"> </a>
+Defines the region size for the running <code class="cCode">CRM</code> task. The recommended setting for this option is <code class="cCode">0M</code> to allow the <code class="cCode">CRM</code> to start up and level out to the size it requires.
+</p>
+<h4 class="pHeading3"><a name="wp1164038"> </a>
+SET ENV
+</h4>
+<p class="pBody"><a name="wp1164039"> </a>
+Indicates the <code class="cCode">ENVFILE</code> DD name. This value is pre-set and should not be changed.
+</p>
+<h4 class="pHeading3"><a name="wp1164041"> </a>
+SET CEE
+</h4>
+<p class="pBody"><a name="wp1164042"> </a>
+Specifies the high-level qualifier for the LE runtime library. <code class="cCode">CEE</code> should be set to the prefix of the IBM Language Environment data sets. Language Environment is required to run the CRM.
+</p>
+<h4 class="pHeading3"><a name="wp1164045"> </a>
+SET CBC
+</h4>
+<p class="pBody"><a name="wp1164046"> </a>
+Specifies the high-level qualifier for the C/C++ runtime library. CBC should be set to the prefix of the IBM C++ data sets. 
+</p>
+<a name="wp1165632"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Uncomment the <code class="cCode">SET CBC</code> line and tailor the <code class="cCode">STEPLIB</code> concatenation if these libraries are not in your system link library concatenation.</td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1164047"> </a>
+Listing B-1	   Sample JCL for CRM Command
+</div> <a name="wp1164328"> </a><div class="pPreformatted"><pre>//***************************************************************<br />//*  THIS JOB IS USED TO RUN THE CRM PROCESS.                   *<br />//*                                                             *<br />//* @(#)$Id: crmstart.jcl,v 1.3 2001/05/07 23:41:27 crount Exp $*<br />//* Copyright (c)2000 BEA Systems, Inc., all rights reserved.   *<br />//***************************************************************<br />//*  YOU MUST SET THE ENVIRONMENT VARIABLES NEEDED BY CRM       *<br />//***************************************************************<br />//***************************************************************<br />//*  USE THE SET STATEMENTS TO SET THE APPROPRIATE VALUES         *<br />//*  STARTCMD IS THE CRM COMMAND LINE                             *<br />//*  OBJLIB IS THE LOAD LIBRARY CONTAINING THE PROGRAM EXECUTABLES*<br />//*  DATA IS THE DATASET THAT CONTAINS THE ENVIRONMENT VARIABLES  *<br />//*  ENVFILE NAMES THE MEMBER THAT CONTAINS THE ENVIRONMENT VARS  *<br />//*  RUNOPTS SETS ANY DESIRED LE RUNTIME OPTIONS (OPTIONAL)       *<br />//*  SIZE SETS THE REGION SIZE FOR THE SNACRM PROCESS. 0M SETS NO *<br />//*       LIMITS ON THE REGION SIZE                               *<br />//*  TAILOR YOUR JCL FOR THE BELOW IF THESE LIBRARIES ARE NOT     *<br />//*  IN YOUR SYSTEM LINK LOAD LIBRARY CONCATENATION               *<br />//*  CEE IS THE HLQ FOR THE LE RUNTIME LIBRARY                    *<br />//*  CBC IS THE HLQ FOR THE C/C++ RUNTIME LIBRARY                 *<br />//***************************************************************<br />//  SET STARTCMD=&#39;&quot;//&lt;address&gt;:&lt;port&gt;&quot; &lt;group&gt;&#39;<br />//  SET OBJLIB=<br />//  SET DATA=<br />//  SET ENVFILE=ENV<br />//  SET RUNOPTS=<br />//  SET SIZE=0M<br />//  SET ENV=&#39;ENVAR(&quot;_CEE_ENVFILE=DD:ENV&quot;)&#39;<br />//* SET CEE=CEE,CBC=CBC<br />//CRM      EXEC  PGM=CRM,REGION=&amp;SIZE,<br />//  PARM=&#39;POSIX(ON) &amp;ENV &amp;RUNOPTS/&amp;STARTCMD&#39;<br />//STEPLIB  DD  DSN=&amp;OBJLIB,DISP=SHR<br />//*        DD  DSN=&amp;CEE..SCEERUN,DISP=SHR<br />//*        DD  DSN=&amp;CBC..SCLBDLL,DISP=SHR<br />//MSGFILE  DD  SYSOUT=*<br />//TRACE    DD  SYSOUT=*<br />//SYSPRINT DD  SYSOUT=*<br />//ENV      DD  DSN=&amp;DATA(&amp;ENVFILE),DISP=SHR</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1164331"> </a>
+Sample JCL for the crmlkon Command
+</h2><p class="pBody"><a name="wp1164052"> </a>
+This section provides an explanation of the <code class="cCode">SET</code> commands and an example of JCL that can be used when you run the <code class="cCode">crmlkon </code>command. The sample <code class="cCode">SET</code> commands may not reflect the configuration of your system. You must customize the <code class="cCode">SET</code> commands for your environment. Refer to your System Administrator for more information about your particular setup. 
+</p>
+<h4 class="pHeading3"><a name="wp1164054"> </a>
+SET LINKCMD
+</h4>
+<p class="pBody"><a name="wp1164058"> </a>
+Sets the <code class="cCode">crmlkon </code>command line parameters. Refer to <a href="appa.html#wp137058"><span class="cHyperlink">
+crmlkon</span></a> for more information about the command line parameters.
+</p>
+<h4 class="pHeading3"><a name="wp1164060"> </a>
+SET OBJLIB
+</h4>
+<p class="pBody"><a name="wp1164061"> </a>
+Indicates the name of the PDSE library where the <code class="cCode">crmlkon</code> executable is installed.
+</p>
+<h4 class="pHeading3"><a name="wp1164066"> </a>
+SET DATA
+</h4>
+<p class="pBody"><a name="wp1164067"> </a>
+Indicates the dataset containing the <code class="cCode">ENVFILE</code>.
+</p>
+<h4 class="pHeading3"><a name="wp1164069"> </a>
+SET ENVFILE
+</h4>
+<p class="pBody"><a name="wp1164070"> </a>
+Indicates the name of the PDS member that contains the environment variables for the <code class="cCode">CRMLKON</code>. A sample member, <code class="cCode">ENV</code>, is delivered with your product.
+</p>
+<h4 class="pHeading3"><a name="wp1164072"> </a>
+SET SIZE
+</h4>
+<p class="pBody"><a name="wp1164073"> </a>
+Defines the region size for the running <code class="cCode">crmlkon</code> task.
+</p>
+<h4 class="pHeading3"><a name="wp1164075"> </a>
+SET ENV
+</h4>
+<p class="pBody"><a name="wp1164076"> </a>
+Indicates the <code class="cCode">ENVFILE</code> DD name. This value is pre-set.
+</p>
+<h4 class="pHeading3"><a name="wp1164078"> </a>
+SET CEE
+</h4>
+<p class="pBody"><a name="wp1164079"> </a>
+Specifies the high-level qualifier for the LE runtime library. CEE should be set to the prefix of the IBM Language Environment data sets. Language Environment is required to run <code class="cCode">crmlkon</code>.
+</p>
+<h4 class="pHeading3"><a name="wp1164081"> </a>
+SET CBC
+</h4>
+<p class="pBody"><a name="wp1164082"> </a>
+Specifies the high-level qualifier for the C/C++ runtime library. <code class="cCode">CBC</code> should be set to the prefix of the IBM C++ data sets. 
+</p>
+<a name="wp1164083"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Uncomment the <code class="cCode">SET CBC</code> line and tailor the <code class="cCode">STEPLIB</code> concatenation if these libraries are not in your system link library concatenation.</td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1164084"> </a>
+Listing B-2	   Sample JCL for crmlkon Command
+</div> <a name="wp1164085"> </a><div class="pPreformatted"><pre>//***************************************************************<br />//*  THIS JOB IS USED FOR THE STAND-ALONE LINK COMMAND            *<br />//*  TO ACTIVATE A REMOTE LINK. SEE USER GUIDE FOR MORE INFO      *<br />//*                                                               *<br />//* @(#)$Id: crmlkon.jcl,v 1.10 2001/05/07 23:41:27 crount Exp $ *<br />//* Copyright (c)2000 BEA Systems, Inc., all rights reserved.     *<br />//***************************************************************<br />//*  YOU MUST SET THE ENVIRONMENT VARIABLES NEEDED BY CRMLKON     *<br />//***************************************************************<br />//***************************************************************<br />//*  LINKCMD INDICATES THE DISTRIBUTED SNACRM ADDRESS AND LINKNAME*<br />//*  OBJLIB IS THE LOAD LIBRARY CONTAINING THE TUXEDO MAINFRAME *<br />//*  ADAPTER FOR SNA PROGRAM OBJECTS										 *<br />//*  RUNOPTS SETS ANY DESIRED LE RUNTIME OPTIONS                  *<br />//*  DATA IS THE DATASET THAT CONTAINS THE ENVIRONMENT VARIABLES  *<br />//*  ENVFILE NAMES THE MEMBER THAT CONTAINS THE ENVIRONMENT VARS  *<br />//*  SIZE SETS THE REGION SIZE FOR THE SNACRM PROCESS             *<br />//*  TAILOR YOUR JCL FOR THE BELOW IF THESE LIBRARIES ARE NOT     *<br />//*  IN YOUR SYSTEM LINK LOAD LIBRARY CONCATENATION               *<br />//*  CEE IS THE HLQ FOR THE LE RUNTIME LIBRARY                    *<br />//*  CBC IS THE HLQ FOR THE C/C++ RUNTIME LIBRARY                 *<br />//***************************************************************<br />//  SET LINKCMD=&#39;-n&lt;host name&gt;:&lt;port&gt; &lt;linkname&gt;&#39;<br />//  SET OBJLIB=<br />//  SET RUNOPTS=<br />//  SET DATA=<br />//  SET ENVFILE=ENV<br />//  SET SIZE=1M<br />//  SET ENV=&#39;ENVAR(&quot;_CEE_ENVFILE=DD:ENV&quot;)&#39;<br />//* SET CEE=CEE,CBC=CBC<br />//CRMLKON  EXEC  PGM=CRMLKON,REGION=&amp;SIZE,<br />//  PARM=&#39;POSIX(ON) &amp;ENV &amp;RUNOPTS/&amp;LINKCMD&#39;<br />//STEPLIB  DD  DSN=&amp;OBJLIB,DISP=SHR<br />//*        DD  DSN=&amp;CEE..SCEERUN,DISP=SHR<br />//*        DD  DSN=&amp;CBC..SCLBDLL,DISP=SHR<br />//ENV      DD  DSN=&amp;DATA(&amp;ENVFILE),DISP=SHR<br />//MSGFILE  DD  SYSOUT=*<br />//SYSPRINT DD  SYSOUT=*<br />//</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1164089"> </a>
+Sample JCL for the crmlkoff Command
+</h2><p class="pBody"><a name="wp1164090"> </a>
+This section provides an explanation of the <code class="cCode">SET</code> commands and an example of JCL that can be used when you run the <code class="cCode">crmlkoff </code>command. The sample <code class="cCode">SET</code> commands may not reflect the configuration of your system. You must customize the <code class="cCode">SET</code> commands for your environment. Refer to your System Administrator for more information about your particular setup. 
+</p>
+<h4 class="pHeading3"><a name="wp1164092"> </a>
+SET LINKCMD
+</h4>
+<p class="pBody"><a name="wp1164096"> </a>
+Sets the <code class="cCode">crmlkoff </code>command line parameters. Refer to <a href="appa.html#wp137329"><span class="cHyperlink">
+crmlkoff</span></a> for more information about the command line parameters.
+</p>
+<h4 class="pHeading3"><a name="wp1164098"> </a>
+SET OBJLIB
+</h4>
+<p class="pBody"><a name="wp1164099"> </a>
+Indicates the name of the PDSE library where the <code class="cCode">crmlkoff</code> executable is installed.
+</p>
+<h4 class="pHeading3"><a name="wp1164101"> </a>
+SET DATA
+</h4>
+<p class="pBody"><a name="wp1164102"> </a>
+Indicates the dataset containing the <code class="cCode">ENVFILE</code>.
+</p>
+<h4 class="pHeading3"><a name="wp1164104"> </a>
+SET ENVFILE
+</h4>
+<p class="pBody"><a name="wp1164105"> </a>
+Indicates the name of the PDS member that contains the environment variables for the <code class="cCode">crmlkoff</code>. A sample member, <code class="cCode">ENV</code>, is delivered with your product.
+</p>
+<h4 class="pHeading3"><a name="wp1164107"> </a>
+SET SIZE
+</h4>
+<p class="pBody"><a name="wp1164108"> </a>
+Defines the region size for the running <code class="cCode">crmlkoff</code> task. 
+</p>
+<h4 class="pHeading3"><a name="wp1164110"> </a>
+SET ENV
+</h4>
+<p class="pBody"><a name="wp1164111"> </a>
+Indicates the <code class="cCode">ENVFILE</code> DD name.
+</p>
+<h4 class="pHeading3"><a name="wp1164113"> </a>
+ SET CEE
+</h4>
+<p class="pBody"><a name="wp1164114"> </a>
+Specifies the high-level qualifier for the Language Environment (LE) runtime library. CEE should be set to the prefix of the IBM LE data sets. Language Environment is required to run <code class="cCode">crmlkoff</code>.
+</p>
+<h4 class="pHeading3"><a name="wp1164116"> </a>
+SET CBC
+</h4>
+<p class="pBody"><a name="wp1164117"> </a>
+Specifies the high-level qualifier for the C/C++ runtime library. CBC should be set to the prefix of the IBM C++ data sets. 
+</p>
+<a name="wp1164118"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Uncomment the SET CBC line and tailor the STEPLIB concatenation if these libraries are not in your system link library concatenation.</td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1164119"> </a>
+Listing B-3	   Sample JCL for crmlkoff Command
+</div> <a name="wp1164120"> </a><div class="pPreformatted"><pre>//***************************************************************<br />//*  THIS JOB IS USED FOR THE STAND-ALONE LINK COMMAND            *<br />//*  TO DEACTIVATE A REMOTE LINK. SEE USER GUIDE FOR MORE INFO    *<br />//*                                                               *<br />//* @(#)$Id: crmlkoff.jcl,v 1.10 2001/05/07 23:41:27 crount Exp $ *<br />//* Copyright (c)2000 BEA Systems, Inc., all rights reserved.     *<br />//***************************************************************<br />//*  YOU MUST SET THE ENVIRONMENT VARIABLES NEEDED BY CRMLKOFF    *<br />//***************************************************************<br />//***************************************************************<br />//*  LINKCMD INDICATES THE DISTRIBUTED SNACRM ADDRESS AND LINKNAME*<br />//*  OBJLIB IS THE LOAD LIBRARY CONTAINING THE TUXEDO MAINFRAME *<br />//*  ADAPTER FOR SNA PROGRAM OBJECTS 										 *<br />//*  RUNOPTS SETS ANY DESIRED LE RUNTIME OPTIONS                  *<br />//*  DATA IS THE DATASET THAT CONTAINS THE ENVIRONMENT VARIABLES  *<br />//*  ENVFILE NAMES THE MEMBER THAT CONTAINS THE ENVIRONMENT VARS  *<br />//*  SIZE SETS THE REGION SIZE FOR THE SNACRM PROCESS             *<br />//*  TAILOR YOUR JCL FOR THE BELOW IF THESE LIBRARIES ARE NOT     *<br />//*  IN YOUR SYSTEM LINK LOAD LIBRARY CONCATENATION               *<br />//*  CEE IS THE HLQ FOR THE LE RUNTIME LIBRARY                    *<br />//*  CBC IS THE HLQ FOR THE C/C++ RUNTIME LIBRARY                 *<br />//***************************************************************<br />//  SET LINKCMD=&#39;-n&lt;host name&gt;:&lt;port&gt; &lt;linkname&gt;&#39;<br />//  SET OBJLIB=<br />//  SET RUNOPTS=<br />//  SET DATA=<br />//  SET ENVFILE=ENV<br />//  SET SIZE=1M<br />//  SET ENV=&#39;ENVAR(&quot;_CEE_ENVFILE=DD:ENV&quot;)&#39;<br />//* SET CEE=CEE,CBC=CBC<br />//CRMLKOFF EXEC  PGM=CRMLKOFF,REGION=&amp;SIZE,<br />//  PARM=&#39;POSIX(ON) &amp;ENV &amp;RUNOPTS/&amp;LINKCMD&#39;<br />//STEPLIB  DD  DSN=&amp;OBJLIB,DISP=SHR<br />//*        DD  DSN=&amp;CEE..SCEERUN,DISP=SHR<br />//*        DD  DSN=&amp;CBC..SCLBDLL,DISP=SHR<br />//ENV      DD  DSN=&amp;DATA(&amp;ENVFILE),DISP=SHR<br />//MSGFILE  DD  SYSOUT=*<br />//SYSPRINT DD  SYSOUT=*<br />//</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1164124"> </a>
+Sample JCL for the CRMDOWN Command
+</h2><p class="pBody"><a name="wp1164126"> </a>
+This section provides an explanation of the <code class="cCode">SET</code> commands and an example of JCL that can be used when you run the <code class="cCode">crmdown </code>command.
+</p>
+<h4 class="pHeading3"><a name="wp1164128"> </a>
+SET STOPCMD
+</h4>
+<p class="pBody"><a name="wp1164132"> </a>
+Sets the <code class="cCode">crmdown </code>command line parameters. Refer to <a href="appa.html#wp136420"><span class="cHyperlink">
+crmdown</span></a> for more information about the command line parameters. 
+</p>
+<h4 class="pHeading3"><a name="wp1164134"> </a>
+SET OBJLIB
+</h4>
+<p class="pBody"><a name="wp1164135"> </a>
+Indicates the name of the PDSE library where the <code class="cCode">crmdown</code> executable is installed.
+</p>
+<h4 class="pHeading3"><a name="wp1164137"> </a>
+SET DATA
+</h4>
+<p class="pBody"><a name="wp1164138"> </a>
+Indicates the dataset containing the <code class="cCode">ENVFILE</code>.
+</p>
+<h4 class="pHeading3"><a name="wp1164140"> </a>
+SET ENVFILE
+</h4>
+<p class="pBody"><a name="wp1164141"> </a>
+Indicates the name of the PDS member that contains the environment variables for the <code class="cCode">crmdown</code>. A sample member, <code class="cCode">ENV</code>, is delivered with your product.
+</p>
+<h4 class="pHeading3"><a name="wp1164143"> </a>
+SET SIZE
+</h4>
+<p class="pBody"><a name="wp1164144"> </a>
+Defines the region size for the running <code class="cCode">crmdown</code> task. 
+</p>
+<h4 class="pHeading3"><a name="wp1164146"> </a>
+SET ENV
+</h4>
+<p class="pBody"><a name="wp1164147"> </a>
+Indicates the <code class="cCode">ENVFILE</code> DD name.
+</p>
+<h4 class="pHeading3"><a name="wp1164149"> </a>
+SET CEE
+</h4>
+<p class="pBody"><a name="wp1164150"> </a>
+Specifies the high-level qualifier for the LE runtime library. CEE should be set to the prefix of the IBM Language Environment data sets. Language Environment is required to run <code class="cCode">crmdown</code>.
+</p>
+<h4 class="pHeading3"><a name="wp1164152"> </a>
+SET CBC
+</h4>
+<p class="pBody"><a name="wp1164153"> </a>
+Specifies the high-level qualifier for the C/C++ runtime library. CBC should be set to the prefix of the IBM C++ data sets. 
+</p>
+<a name="wp1164154"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Uncomment the <code class="cCode">SET CBC</code> line and tailor the <code class="cCode">STEPLIB</code> concatenation if these libraries are not in your system link library concatenation.</td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1164155"> </a>
+Listing B-4	   Sample JCL for CRMDOWN Command
+</div> <a name="wp1164156"> </a><div class="pPreformatted"><pre>//***************************************************************<br />//*  THIS JOB IS USED FOR THE STAND-ALONE COMMAND USED            *<br />//*  TO SHUTDOWN THE SNACRM PROCESS. SEE USER GUIDE FOR MORE INFO *<br />//*                                                               *<br />//* @(#)$Id: crmdown.jcl,v 1.5 2001/05/07 23:41:27 crount Exp $  *<br />//* Copyright (c)2000 BEA Systems, Inc., all rights reserved.     *<br />//***************************************************************<br />//*  YOU MUST SET THE ENVIRONMENT VARIABLES NEEDED BY CRMDOWN     *<br />//***************************************************************<br />//***************************************************************<br />//*  STOPCMD INDICATES THE COMMAND LINE FOR CRMDOWN               *<br />//*  OBJLIB IS THE LOAD LIBRARY CONTAINING THE PROGRAM EXECUTABLES*<br />//*  RUNOPTS SETS ANY DESIRED LE RUNTIME OPTIONS (OPTIONAL)       *<br />//*  DATA IS THE DATASET THAT CONTAINS THE ENVIRONMENT VARIABLES  *<br />//*  ENVFILE NAMES THE MEMBER THAT CONTAINS THE ENVIRONMENT VARS  *<br />//*  SIZE SETS THE REGION SIZE FOR THE SNACRM PROCESS             *<br />//*                                                               *<br />//*  TAILOR YOUR JCL FOR THE BELOW IF THESE LIBRARIES ARE NOT     *<br />//*  IN YOUR SYSTEM LINK LOAD LIBRARY CONCATENATION               *<br />//*  CEE IS THE HLQ FOR THE LE RUNTIME LIBRARY                    *<br />//*  CBC IS THE HLQ FOR THE C/C++ RUNTIME LIBRARY                 *<br />//***************************************************************<br />//  SET STOPCMD=&#39;-n&lt;host name&gt;:&lt;port&gt;&#39;<br />//  SET OBJLIB=<br />//  SET RUNOPTS=<br />//  SET DATA=<br />//  SET ENVFILE=ENV<br />//  SET SIZE=1M<br />//  SET ENV=&#39;ENVAR(&quot;_CEE_ENVFILE=DD:ENV&quot;)&#39;<br />//* SET CEE=CEE,CBC=CBC<br />//CRMDOWN  EXEC  PGM=CRMDOWN,REGION=&amp;SIZE,<br />//  PARM=&#39;POSIX(ON) &amp;ENV &amp;RUNOPTS/&amp;STOPCMD&#39;<br />//STEPLIB  DD  DSN=&amp;OBJLIB,DISP=SHR<br />//*        DD  DSN=&amp;CEE..SCEERUN,DISP=SHR<br />//*        DD  DSN=&amp;CBC..SCLBDLL,DISP=SHR<br />//ENV      DD  DSN=&amp;DATA(&amp;ENVFILE),DISP=SHR<br />//MSGFILE  DD  SYSOUT=*<br />//SYSPRINT DD  SYSOUT=*</pre></div><a name="wp1164157"> </a><div class="pPreformatted"><pre>//</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1164160"> </a>
+Sample JCL for the CRMLOGS Command
+</h2><p class="pBody"><a name="wp1164161"> </a>
+The following section is an explanation of the <code class="cCode">SET</code> commands and an example of JCL that can be used when you run the <code class="cCode">CRMLOGS </code>command.
+</p>
+<h4 class="pHeading3"><a name="wp1164163"> </a>
+SET LOGSCMD
+</h4>
+<p class="pBody"><a name="wp1164167"> </a>
+Sets the <code class="cCode">CRMLOGS</code> command line parameters. Refer to <a href="appa.html#wp122468"><span class="cHyperlink">
+CRMLOGS</span></a> for more information about the command line parameters.
+</p>
+<h4 class="pHeading3"><a name="wp1164169"> </a>
+SET OBJLIB
+</h4>
+<p class="pBody"><a name="wp1164625"> </a>
+Indicates the name of the PDSE library where the <code class="cCode">CRMLOGS</code> executable is installed.
+</p>
+<h4 class="pHeading3"><a name="wp1164627"> </a>
+SET DATA
+</h4>
+<p class="pBody"><a name="wp1164884"> </a>
+Indicates the dataset containing the <code class="cCode">ENVFILE</code>.
+</p>
+<h4 class="pHeading3"><a name="wp1164630"> </a>
+SET ENVFILE
+</h4>
+<p class="pBody"><a name="wp1164179"> </a>
+Indicates the dataset containing the <code class="cCode">ENVFILE</code>.
+</p>
+<h4 class="pHeading3"><a name="wp1164181"> </a>
+SET SIZE
+</h4>
+<p class="pBody"><a name="wp1164182"> </a>
+Defines the region size for the running <code class="cCode">CRMLOGS</code> task. 
+</p>
+<h4 class="pHeading3"><a name="wp1164184"> </a>
+SET ENV
+</h4>
+<p class="pBody"><a name="wp1164185"> </a>
+Indicates the <code class="cCode">ENVFILE</code> DD name.
+</p>
+<h4 class="pHeading3"><a name="wp1164187"> </a>
+ SET CEE
+</h4>
+<p class="pBody"><a name="wp1164188"> </a>
+Specifies the high-level qualifier for the LE runtime library. CEE should be set to the prefix of the IBM Language Environment data sets. Language Environment is required to run <code class="cCode">CRMLOGS</code>.
+</p>
+<h4 class="pHeading3"><a name="wp1164190"> </a>
+SET CBC
+</h4>
+<p class="pBody"><a name="wp1164191"> </a>
+Specifies the high-level qualifier for the C/C++ runtime library. CBC should be set to the prefix of the IBM C++ data sets. 
+</p>
+<a name="wp1164890"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Uncomment the <code class="cCode">SET CBC</code> line and tailor the <code class="cCode">STEPLIB</code> concatenation if these libraries are not in your system link library concatenation.</td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1164192"> </a>
+Listing B-5	   Sample JCL for CRMLOGS Command
+</div> <a name="wp1164480"> </a><div class="pPreformatted"><pre>//***************************************************************<br />//*  THIS JOB IS USED TO CHECK THE RECOVERY LOGS FOR              *<br />//*  OUTSTANDING TRANSACTION DATA. SEE USER GUIDE FOR MORE INFO   *<br />//*                                                               *<br />//* @(#)$Id: crmlogs.jcl,v 1.6 2001/05/07 23:41:27 crount Exp $  *<br />//* Copyright (c)2000 BEA Systems, Inc., all rights reserved.     *<br />//***************************************************************<br />//*  YOU MUST SET THE ENVIRONMENT VARIABLES NEEDED BY CRMLOGS     *<br />//***************************************************************<br />//***************************************************************<br />//*  SNACMD IS USED TO SET THE DESIRED SNACRM GROUP NAME          *<br />//*  OBJLIB IS THE LOAD LIBRARY CONTAINING THE TMA SNA PROGRAM 		 *<br />//*  OBJECTS RUNOPTS SETS ANY DESIRED LE RUNTIME OPTIONS (OPTIONAL)*<br />//*  DATA IS THE DATASET THAT CONTAINS THE ENVIRONMENT VARIABLES  *<br />//*  ENVFILE NAMES THE MEMBER THAT CONTAINS THE ENVIRONMENT VARS  *<br />//*  SIZE SETS THE REGION SIZE FOR THE SNACRM PROCESS             *<br />//*  ENV SETS THE ENVIRONMENT VARIABLES DD NAME                  *<br />//*  TAILOR YOUR JCL FOR THE BELOW IF THESE LIBRARIES ARE NOT     *<br />//*  IN YOUR SYSTEM LINK LOAD LIBRARY CONCATENATION               *<br />//*  CEE IS THE HLQ FOR THE LE RUNTIME LIBRARY                    *<br />//*  CBC IS THE HLQ FOR THE C/C++ RUNTIME LIBRARY                 *<br />//***************************************************************<br />//  SET LOGSCMD=&lt;group&gt;<br />//  SET OBJLIB=<br />//  SET DATA=<br />//  SET ENVFILE=ENV<br />//  SET RUNOPTS=<br />//  SET SIZE=10M<br />//  SET ENV=&#39;ENVAR(&quot;_CEE_ENVFILE=DD:ENV&quot;)&#39;<br />//* SET CEE=CEE,CBC=CBC<br />//CRMLOGS  EXEC  PGM=CRMLOGS,REGION=&amp;SIZE,<br />//  PARM=&#39;POSIX(ON) &amp;ENV &amp;RUNOPTS/&amp;LOGSCMD&#39;<br />//STEPLIB  DD  DSN=&amp;OBJLIB,DISP=SHR<br />//*        DD  DSN=&amp;CEE..SCEERUN,DISP=SHR<br />//*        DD  DSN=&amp;CBC..SCLBDLL,DISP=SHR<br />//MSGFILE  DD  SYSOUT=*<br />//SYSPRINT DD  SYSOUT=*<br />//ENV      DD  DSN=&amp;DATA(&amp;ENVFILE),DISP=SHR<br />//</pre></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="appb.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="appa.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="appc.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>Monitoring Tuxedo Job Enqueueing Service</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = ohj/ohw) - Version 5.1.2 Build 050" />
+<meta name="date" content="2013-02-27T17:52:29Z" />
+<meta name="robots" content="noarchive" />
+<meta name="doctitle" content="Monitoring Tuxedo Job Enqueueing Service" />
+<meta name="relnum" content="" />
+<meta name="partnum" content="" />
+<meta name="topic-id" content="/txdo/txdo/JESAdminHome" />
+<link rel="copyright" href="./dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+<link rel="stylesheet" href="./dcommon/css/blafdoc.css" title="Oracle BLAFDoc" type="text/css" />
+<link rel="contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="prev" href="tuxjes.htm" title="Previous" type="text/html" />
+<link rel="next" href="resbroker.htm" title="Next" type="text/html" />
+</head>
+<body>
+<div class="zz-skip-header"><a href="#BEGIN">Skip Headers</a></div>
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<col width="86%" />
+<col width="*" />
+<tr valign="bottom">
+<td align="left"></td>
+<td align="center"><a href="tuxjes.htm"><img src="./dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="resbroker.htm"><img src="./dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+<p><a id="/txdo/txdo/JESAdminHome" name="/txdo/txdo/JESAdminHome"></a></p>
+<div class="sect1"><!-- infolevel="all" infotype="General" --><a id="sthref59" name="sthref59"></a>
+<h1>Monitoring Tuxedo Job Enqueueing Service</h1>
+<a name="BEGIN" id="BEGIN"></a>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="sthref60" name="sthref60"></a>
+<h2>JES Job Operations</h2>
+<p>You can view all available jobs and perform a set of Job operations by clicking the JES Jobs tag from the Tuxedo JES Admin target homepage.</p>
+<div class="sect3"><a id="sthref61" name="sthref61"></a>
+<h3>Querying a Job</h3>
+<p>From the Query area on the left of the page, you can search jobs by either the combined query conditions or job ID.</p>
+<p>The filter conditions can be JES application, job name, job owner, job priority, job class, job status, and the submitted time range. After specifying query condition and clicking <span class="bold">Query</span>, the searched job result shows on the page. Clicking on a job item, detailed job information is displayed under the query list.</p>
+<p>To avoid displaying of large number queried results on the screen that decreases system performance, you can specify the maximum number of records that can be returned. Default is 1000.</p>
+</div>
+<!-- class="sect3" -->
+<div class="sect3"><a id="sthref62" name="sthref62"></a>
+<h3>Viewing and Managing Jobs</h3>
+<p>The jobs searched out by the query conditions are listed in the Jobs Query Result List. Click a job item in the list and then you are able to mange the job with the following action buttons:</p>
+<ul>
+<li>
+<p>Cancel: Cancel the selected job.</p>
+</li>
+<li>
+<p>Purge: Purge the selected job.</p>
+</li>
+<li>
+<p>Hold: Hold the selected job which is in <code>CONVING</code> or <code>WAITING</code> status.</p>
+</li>
+<li>
+<p>Release: Release the selected job which is in <code>HOLD_WAITING</code> or <code>HOLD_CONVING</code> status.</p>
+</li>
+<li>
+<p>Job Logs: Show the content of selected job. It displays the last 4 KB content of the log file.</p>
+</li>
+<li>
+<p>Job Sysouts: Show the output information of selected job . It displays the last 4 KB content of the log file.</p>
+</li>
+<li>
+<p>Refresh: Refresh the job list. Once you click <span class="bold">Refresh</span>, job query executes again with previous specified query condition and shows query result on screen.</p>
+</li>
+<li>
+<p>Submit: Submit the selected job. You can fill out EJR and Shell options before submitting, if needed.</p>
+</li>
+</ul>
+</div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" -->
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="sthref63" name="sthref63"></a>
+<h2>GDG Management</h2>
+<p>You can manage Generation Data Group (GDG) files by clicking the GDG tag from the Tuxedo JES Admin target homepage.</p>
+<div class="sect3"><a id="sthref64" name="sthref64"></a>
+<h3>Creating a GDG</h3>
+<p>You can create a GDG with specified base name and max generation by clicking <span class="bold">Add</span>. You need to specify the following parameters:</p>
+<ul>
+<li>
+<p><span class="bold">Base Name</span>: It contains the path info of a GDG, e.g. /testarea/em/ em.gdg</p>
+</li>
+<li>
+<p><span class="bold">Max Generations</span>: Specifies the maximum number of generations that the GDG can contain.</p>
+</li>
+</ul>
+</div>
+<!-- class="sect3" -->
+<div class="sect3"><a id="sthref65" name="sthref65"></a>
+<h3>Querying GDG</h3>
+<p>GDG can be queried by their base name.</p>
+<p>If you are not sure about the GDG base name, you can use the wildcard "*" to substitute for zero or more characters, or "?" to substitute for exactly one character in base name.</p>
+</div>
+<!-- class="sect3" -->
+<div class="sect3"><a id="sthref66" name="sthref66"></a>
+<h3>Deleting GDG</h3>
+<p>To delete a GDG, select one row of them and click <span class="bold">Delete</span>. You can select multiple GDG items to delete at a time. All the information and files under this GDG are deleted. It is not supported to delete one generation of a GDG.</p>
+</div>
+<!-- class="sect3" -->
+<div class="sect3"><a id="sthref67" name="sthref67"></a>
+<h3>Viewing List&amp;Check Result</h3>
+<p>When you choose one of the GDG row in GDG table, the GDG File table displays all the differences between the GDG located in file system and management information stored in DB. Two kinds of data are collected:</p>
+<ul>
+<li>
+<p>The information read from disk, which shows generation name with path information in the last column.</p>
+</li>
+<li>
+<p>The information read from <code>GDG_DETAIL</code> table, which shows the information in other columns.</p>
+</li>
+</ul>
+</div>
+<!-- class="sect3" -->
+<div class="sect3"><a id="sthref68" name="sthref68"></a>
+<h3>Reconcile</h3>
+<p>You can reconcile the differences between the GDG located in file system and management information stored in DB. After clicking the <span class="bold">Reconcile</span> button, A JES job is submitted to process this request and the Job ID is returned for tracking the reconcile result. If the data in DB is already broken, the reconcile will not be done.</p>
+</div>
+<!-- class="sect3" -->
+<div class="sect3"><a id="sthref69" name="sthref69"></a>
+<h3>Viewing GDG File Content</h3>
+<p>To view the GDG file content, click on its base name in the first cell in the GDG File table.</p>
+<p>If no content contained in the file , "No content found" message is showed.</p>
+</div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<!-- Start Footer -->
+<div class="footer">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<col width="86%" />
+<col width="*" />
+<tr>
+<td align="left"><span class="copyrightlogo">Copyright&nbsp;&copy;&nbsp;2013,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span><br />
+<a href="./dcommon/html/cpyr.htm"><span class="copyrightlogo">Legal Notices</span></a></td>
+<td align="center"><a href="tuxjes.htm"><img src="./dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="resbroker.htm"><img src="./dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</div>
+<!-- class="footer" -->
+</body>
+</html>

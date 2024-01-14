@@ -1,0 +1,1385 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="40264" />
+<meta name="LOC_US_SRCFILE" content="//depot/ecs/tcp/v11gr1/tuxug/fm/tuxdmp.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="08/24/10 07:30:34" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Configuring Oracle TMA TCP Gateway for Data Mapping</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Gateway User Guide
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="tuxundr.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="tuxsec.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/tuxug.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1029617"> </a>
+Configuring Oracle TMA TCP Gateway for Data Mapping
+</h1>
+<p class="pBody"><a name="wp1023855"> </a>
+The key to the high degree of transparency between systems is the Tuxedo Mainframe Adapter for TCP Gateway (hereafter referenced as TMA TCP Gateway) configuration. Environmental differences, such as data formats, are concealed from programmers and programs through this mechanism.
+</p>
+<p class="pBody"><a name="wp1023860"> </a>
+This document provides information about the following topics:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023864"> </a><a href="tuxdmp.html#wp1023905"><span class="cHyperlink">
+Converting Input and Output Data</span></a> </li>
+<li><a name="wp1023868"> </a><a href="tuxdmp.html#wp1023984"><span class="cHyperlink">
+Managing Parameters for Buffer and Record Conversion</span></a> </li>
+<li><a name="wp1023872"> </a><a href="tuxdmp.html#wp1024682"><span class="cHyperlink">
+Translating Data</span></a> </li>
+<li><a name="wp1023876"> </a><a href="tuxdmp.html#wp1024809"><span class="cHyperlink">
+Encoding COBOL Data Types</span></a> </li>
+<li><a name="wp1023880"> </a><a href="tuxdmp.html#wp1024835"><span class="cHyperlink">
+Using Code Page Translation Tables</span></a> </li>
+</ul></div>
+<p class="pBody"><a name="wp1023885"> </a>
+This document also provides information about creating <code class="cCode">VIEW</code> definitions. <code class="cCode">VIEW</code> definitions are descriptions of data structures that are used for input and output in the Oracle Tuxedo environment. The TMA TCP Gateway product uses <code class="cCode">VIEW</code> definitions to determine how to convert input data and output data into formats that are acceptable to target systems.
+</p>
+<p class="pBody"><a name="wp1023895"> </a>
+For detailed information about updating the TMA TCP Gateway configuration files (<code class="cCode">GWICONFIG</code> and <code class="cCode">DMCONFIG</code>), see the <a href="tuxconf.html"><span class="cHyperlink">
+Configuring Oracle&#160;TMA TCP Gateway</span></a> section. 
+</p>
+<a name="wp1023899"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The task of configuring data mappings could be considered a programming activity because it requires knowledge of the Oracle Tuxedo programming environment. However, because configuration parameters affect many application programs, configuration is usually an administrator&#39;s responsibility.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023905"> </a>
+Converting Input and Output Data
+</h2><p class="pBody"><a name="wp1023909"> </a>
+This section introduces procedures that&#160;TMA TCP Gateway follows to process and convert input and output data. 
+</p>
+<h3 class="pHeading2"><a name="wp1023911"> </a>
+Buffers and Records
+</h3>
+<p class="pBody"><a name="wp1023912"> </a>
+In this guide, the following terms are used to describe input and output data.
+</p>
+<h4 class="pDefTerm"><a name="wp1023914"> </a>
+Buffer
+</h4><div class="pDefPara"><a name="wp1023918"> </a>
+Input or output data as it exists inside the local Oracle Tuxedo region. This definition includes all the buffer types that Oracle Tuxedo software supports&#8212;both Oracle Tuxedo ATMI buffer types and X/Open XATMI buffer types.
+</div>
+<h4 class="pDefTerm"><a name="wp1023926"> </a>
+Record
+</h4><div class="pDefPara"><a name="wp1023930"> </a>
+Input or output data as it exists outside the local Oracle Tuxedo region&#8212;on different kinds of systems.
+</div>
+<p class="pBody"><a name="wp1023934"> </a>
+These terms make it easier to understand how TMA TCP Gateway handles input and output data.
+</p>
+<h3 class="pHeading2"><a name="wp1023936"> </a>
+Buffers Received from Local Programs
+</h3>
+<p class="pBody"><a name="wp1023940"> </a>
+The TMA TCP Gateway processes buffers from local programs in the following manner. 
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023944"> </a>When TMA TCP Gateway receives a buffer from a local program, it automatically determines the buffer&#39;s type. </li>
+<p class="pBodyRelative"><a name="wp1023948"> </a>
+The TMA TCP Gateway product automatically &#8220;types&#8221; input buffers that local client programs send to remote services.
+</p>
+<p class="pBodyRelative"><a name="wp1023952"> </a>
+The TMA TCP Gateway product automatically &#8220;types&#8221; output buffers that local services return to remote client programs.
+</p>
+<li><a name="wp1023956"> </a>After TMA TCP Gateway determines a buffer&#8217;s type, it consults the configuration file (<code class="cCode">GWICONFIG</code>) to determine whether the buffer needs to be converted to a different format.</li>
+<p class="pBodyRelative"><a name="wp1023958"> </a>
+Client requests sent to remote services may need to be converted to record formats that are meaningful to those services.
+</p>
+<p class="pBodyRelative"><a name="wp1023959"> </a>
+Server responses returned to remote client programs may need to be converted to record formats that are meaningful to those programs.
+</p>
+<li><a name="wp1023962"> </a>If the configuration indicates that conversion is required, TMA TCP Gateway transforms the buffer into the record format that is specified in the configuration.</li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1023964"> </a>
+Records Received from Remote Programs
+</h3>
+<p class="pBody"><a name="wp1023968"> </a>
+The TMA TCP Gateway processes buffers from remote programs in the following manner. 
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023972"> </a>When TMA TCP Gateway receives a record from a remote system, it consults the configuration file (<code class="cCode">GWICONFIG</code>) to determine the record&#8217;s type. </li>
+<li><a name="wp1023976"> </a>After TMA TCP Gateway determines a record&#8217;s type, it consults the domain configuration (<code class="cCode">DMCONFIG</code>) to determine whether the record needs to be converted to a different format.</li>
+<p class="pBodyRelative"><a name="wp1023977"> </a>
+Client requests from remote client programs may need to be converted to buffer formats that are acceptable to local service routines.
+</p>
+<p class="pBodyRelative"><a name="wp1023978"> </a>
+Server responses returned from remote services may need to be converted to buffer formats that are acceptable to local client programs.
+</p>
+<li><a name="wp1023981"> </a>If the configuration indicates that conversion is required, TMA TCP Gateway transforms the record into the buffer format that is specified in the configuration.</li>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023984"> </a>
+Managing Parameters for Buffer and Record Conversion
+</h2><p class="pBody"><a name="wp1023988"> </a>
+The TMA TCP Gateway product provides four configuration parameters you can use to map buffers and records. For more information about buffers and records, see the <a href="tuxdmp.html#wp1023911"><span class="cHyperlink">
+Buffers and Records</span></a> section.
+</p>
+<p class="pBody"><a name="wp1023994"> </a>
+Specify the following buffer configuration parameters in the domain configuration file (<code class="cCode">DMCONFIG</code>). 
+</p>
+<h4 class="pDefTerm"><a name="wp1023996"> </a>
+<code class="cCode">INBUFTYPE</code> 
+</h4><div class="pDefPara"><a name="wp1026030"> </a>
+Identifies the type, and in some cases the format, of a buffer received from a Tuxedo client or server
+</div>
+<h4 class="pDefTerm"><a name="wp1026032"> </a>
+<code class="cCode">OUTBUFTYPE</code> 
+</h4><div class="pDefPara"><a name="wp1024000"> </a>
+Identifies the type, and in some cases the format, of a buffer to be sent to a Tuxedo client or server
+</div>
+<p class="pBody"><a name="wp1024001"> </a>
+Specify the following record configuration parameters in the gateway configuration file (<code class="cCode">GWICONFIG</code>). 
+</p>
+<h4 class="pDefTerm"><a name="wp1024003"> </a>
+<code class="cCode">INRECTYPE</code>
+</h4><div class="pDefPara"><a name="wp1024004"> </a>
+Identifies the type, and in some cases the format, of a buffer to be sent to a remote gateway
+</div>
+<h4 class="pDefTerm"><a name="wp1024006"> </a>
+<code class="cCode">OUTRECTYPE</code>
+</h4><div class="pDefPara"><a name="wp1024007"> </a>
+Identifies the type, and in some cases the format, of a buffer received from a remote gateway
+</div>
+<p class="pBody"><a name="wp1024008"> </a>
+Each of these four parameters has two possible meanings or interpretations&#8212;one for service requests that originate locally, and one for service requests that originate on remote systems.
+</p>
+<p class="pBody"><a name="wp1024014"> </a>
+The following sections, <a href="tuxdmp.html#wp1024018"><span class="cHyperlink">
+Parameters for Locally Originated Calls</span></a> and <a href="tuxdmp.html#wp1024164"><span class="cHyperlink">
+Parameters for Remotely Originated Calls</span></a>, explore these different meanings in detail.
+</p>
+<h3 class="pHeading2"><a name="wp1024018"> </a>
+Parameters for Locally Originated Calls
+</h3>
+<p class="pBody"><a name="wp1024022"> </a>
+This section takes a closer look at how TMA TCP Gateway handles service calls that originate locally, within the immediate Oracle Tuxedo region. Also, it explains how the <code class="cCode">INBUFTYPE</code>, <code class="cCode">INRECTYPE</code>, <code class="cCode">OUTRECTYPE</code>, and <code class="cCode">OUTBUFTYPE</code> parameters can be used to manage the conversion of buffers and records that flow between local client programs and remote services. 
+</p>
+<p class="pBody"><a name="wp1024032"> </a>
+In the following figure, a local Oracle Tuxedo client program issues a service call that a local TMA TCP Gateway routes to a remote server through TMA TCP Gateway.
+</p>
+<div class="pFigureTitle"><a name="wp1024040"> </a>
+Figure&#160;3-1  How Parameters Are Mapped During Locally Originated Calls
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1024072"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/tuxug-3-1-1.gif" height="240" width="528" alt="How Parameters Are Mapped During Locally Originated Calls" id="wp1024042"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1024073"> </a>
+In this situation, the four configuration parameters that are shown in the figure have the following meanings:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024077"> </a>The <code class="cCode">INBUFTYPE</code> parameter describes the Oracle Tuxedo input buffer that the local client program provides to the TMA TCP Gateway through Oracle Tuxedo software. </li>
+<li><a name="wp1024084"> </a>The <code class="cCode">INRECTYPE</code> parameter describes the input record that is sent to the service on the remote system. </li>
+<li><a name="wp1024085"> </a>The <code class="cCode">OUTRECTYPE</code> parameter describes the output record that is received from the service on the remote system.</li>
+<li><a name="wp1024089"> </a>The <code class="cCode">OUTBUFTYPE</code> parameter describes the Oracle Tuxedo output buffer that is returned to the local client program. </li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1024091"> </a>
+Guidelines for Mapping Input Buffers to Input Records
+</h4>
+<p class="pBody"><a name="wp1024092"> </a>
+The following sections provide detailed information explaining how to use the <code class="cCode">INBUFTYPE</code> and <code class="cCode">INRECTYPE</code> parameters for service calls that originate locally (where local client programs call remote services).
+</p>
+<h4 class="pDefTerm"><a name="wp1024095"> </a>
+<code class="cCode">INBUFTYPE</code>
+</h4><div class="pDefPara"><a name="wp1024096"> </a>
+The <code class="cCode">INBUFTYPE</code> parameter is used to specify the request buffer type that is provided to a local TMA TCP Gateway when a local client program issues a service request.
+</div>
+<div class="pDefParaCont"><a name="wp1024100"> </a>
+Because the gateway determines the type of client request buffers automatically at runtime, this parameter is described here for conceptual completeness only.
+</div>
+<h4 class="pDefTerm"><a name="wp1024101"> </a>
+<code class="cCode">INRECTYPE</code>
+</h4><div class="pDefPara"><a name="wp1024102"> </a>
+The <code class="cCode">INRECTYPE</code> parameter is used to specify the type, and in some cases the format, of the request record that a particular remote service requires. The TMA TCP Gateway uses this information to convert Oracle Tuxedo request buffers into records that remote services can process. 
+</div>
+<div class="pDefParaCont"><a name="wp1030310"> </a>
+You must specify the <code class="cCode">INRECTYPE</code> parameter when one of the circumstances described in the following table is true. 
+<p class="pGraphic"><a name="wp1030327"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1030313table1030311">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1030313"> </a>
+Circumstance
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1030315"> </a>
+Explanation
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030317"> </a>
+The remote service uses an input record that is structured differently than the client program&#39;s request buffer.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030319"> </a>
+In this circumstance, the remote service uses a record that is structured differently than the client program&#39;s <code class="cCode">VIEW, X_C_TYPE, or X_COMMON</code> buffer. For example, the remote service may expect structure members to be sequenced differently.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030321"> </a>
+The remote service uses a request record that differs from the client program&#39;s request buffer in both type and structure.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030326"> </a>
+In this case, the client program uses an Oracle Tuxedo FML buffer and the remote service expects a corresponding record with an appropriate structure.
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+<a name="wp1030328"> </a>
+The <code class="cCode">INRECTYPE</code> parameter may be omitted if the request buffer is identical, in type and structure, to the request record the remote service expects.
+</div>
+<h4 class="pHeading3"><a name="wp1024129"> </a>
+Guidelines for Mapping Output Records to Output Buffers
+</h4>
+<p class="pBody"><a name="wp1024130"> </a>
+The following sections provide detailed information explaining how to use the <code class="cCode">OUTRECTYPE</code> and <code class="cCode">OUTBUFTYPE</code> parameters for service calls that originate locally (where local client programs call remote services and receive output from those services).
+</p>
+<h4 class="pDefTerm"><a name="wp1024132"> </a>
+<code class="cCode">OUTBUFTYPE</code>
+</h4><div class="pDefPara"><a name="wp1024133"> </a>
+The <code class="cCode">OUTBUFTYPE</code> parameter is used to specify the type, and in some cases the structure, of the reply buffer that a local client program expects. The TMA TCP Gateway uses this information to map reply records from remote services to the appropriate kinds of reply buffers. 
+</div>
+<h4 class="pDefTerm"><a name="wp1024138"> </a>
+<code class="cCode">OUTRECTYPE</code>
+</h4><div class="pDefPara"><a name="wp1024139"> </a>
+The <code class="cCode">OUTRECTYPE</code> parameter is used to specify the type, and in some cases the format, of the reply record that a particular remote service returns to the local TMA TCP Gateway.
+</div>
+<div class="pDefParaCont"><a name="wp1024143"> </a>
+You must specify the <code class="cCode">OUTRECTYPE</code> parameter when one of the circumstances described in the following table is true.
+<p class="pGraphic"><a name="wp1024160"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024146table1024144">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1024146"> </a>
+Circumstance
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024148"> </a>
+Explanation
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024150"> </a>
+The remote service returns a reply record that is structured differently than the reply buffer the local client program expects.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024152"> </a>
+In this circumstance, the remote service returns a record that is structured differently than the client program&#39;s <code class="cCode">VIEW</code>, <code class="cCode">X_C_TYPE</code>, or <code class="cCode">X_COMMON</code> buffer. For example, the structure members of the output record may be sequenced differently than the structure members of the output buffer.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024154"> </a>
+The remote service returns a reply record that differs in both type and structure from the reply buffer the client program expects.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024156"> </a>
+In this case, the remote service returns a particular record and the local client program expects a corresponding Oracle Tuxedo FML buffer.
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+<a name="wp1024161"> </a>
+The <code class="cCode">OUTRECTYPE</code> parameter may be omitted if the remote service returns a reply record that is identical, in type and structure, to the reply buffer the local client program expects.
+</div>
+<h3 class="pHeading2"><a name="wp1024164"> </a>
+Parameters for Remotely Originated Calls
+</h3>
+<p class="pBody"><a name="wp1024168"> </a>
+This section takes a closer look at how TMA TCP Gateway handles service calls that originate on remote computers, outside the local Oracle Tuxedo region. Also, it explains how the <code class="cCode">INRECTYPE</code>, <code class="cCode">INBUFTYPE</code>, <code class="cCode">OUTBUFTYPE</code>, and <code class="cCode">OUTRECTYPE</code> parameters can be used to manage the conversion of buffers and records that flow between remote client programs and local services. 
+</p>
+<p class="pBody"><a name="wp1024175"> </a>
+In the following figure, a remote client program issues a service request that a remote TMA&#160;TCP gateway routes to the local TMA TCP Gateway. The gateway receives the request from the network and passes the request to a local Oracle Tuxedo server.
+</p>
+<div class="pFigureTitle"><a name="wp1024186"> </a>
+Figure&#160;3-2  How Parameters Are Mapped During Remotely Originated Calls
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1024218"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/tuxug-3-1-2.gif" height="240" width="526" alt="How Parameters Are Mapped During Remotely Originated Calls" id="wp1024188"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1024220"> </a>
+In this situation, the four configuration parameters that are shown in the figure have the following meanings:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024222"> </a>The <code class="cCode">OUTRECTYPE</code> parameter describes the output record that the remote client sends to the TMA TCP Gateway. </li>
+<li><a name="wp1024230"> </a>The <code class="cCode">OUTBUFTYPE</code> parameter describes the Oracle Tuxedo output buffer that is provided to the local server. </li>
+<li><a name="wp1024235"> </a>The <code class="cCode">INBUFTYPE</code> parameter describes the Oracle Tuxedo input buffer that the local server returns to the TMA TCP Gateway. </li>
+<li><a name="wp1024242"> </a>The <code class="cCode">INRECTYPE</code> parameter describes the input record that the local TMA TCP Gateway returns to the remote client program. </li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1024245"> </a>
+Guidelines for Mapping Input Records to Input Buffers
+</h4>
+<p class="pBody"><a name="wp1024246"> </a>
+The following sections provide detailed information explaining how to use the <code class="cCode">INRECTYPE</code> and <code class="cCode">INBUFTYPE</code> parameters for service calls that originate on remote systems (where remote client programs call local services).
+</p>
+<h4 class="pDefTerm"><a name="wp1024248"> </a>
+<code class="cCode">INBUFTYPE</code>
+</h4><div class="pDefPara"><a name="wp1024249"> </a>
+The <code class="cCode">INBUFTYPE</code> parameter is used to specify the type, and in some cases the structure, of the reply buffer that the TMA TCP Gateway expects from a local server. The TMA TCP Gateway uses this information to map reply buffers from local server programs to the appropriate kind of reply records.
+</div>
+<div class="pDefParaCont"><a name="wp1024256"> </a>
+Because the gateway determines the type of incoming buffers automatically at runtime, this parameter is described here for conceptual completeness only.
+</div>
+<h4 class="pDefTerm"><a name="wp1024258"> </a>
+<code class="cCode">INRECTYPE</code>
+</h4><div class="pDefPara"><a name="wp1024259"> </a>
+The <code class="cCode">INRECTYPE</code> parameter is used to specify the type, and in some cases the format, of the reply record that the local TMA TCP Gateway sends to the remote client. 
+</div>
+<div class="pDefParaCont"><a name="wp1024263"> </a>
+You must specify the <code class="cCode">INRECTYPE</code> parameter when one of the circumstances described in the following table is true.
+<p class="pGraphic"><a name="wp1024280"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024266table1024264">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1024266"> </a>
+Circumstance
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024268"> </a>
+Explanation
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024270"> </a>
+The remote client program requires a reply record that is structured differently than the reply buffer the local service provides.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024272"> </a>
+In this circumstance, the remote client program sends a record that is structured differently than the local service&#39;s <code class="cCode">VIEW</code>, <code class="cCode">X_C_TYPE</code>, or <code class="cCode">X_COMMON</code> buffer. For example, the structure members of the input record may be sequenced differently than the structure members of the input buffer.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024274"> </a>
+The remote client program requires a reply record that differs in both type and structure from the reply buffer the local service provides.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024276"> </a>
+In this case, the remote client program requires a particular record and the local service provides a corresponding Oracle Tuxedo FML buffer.
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+<a name="wp1024281"> </a>
+You can omit the <code class="cCode">INRECTYPE</code> parameter if the local server program sends a reply buffer that is identical in type and structure to the reply record the remote client expects.
+</div>
+<h4 class="pHeading3"><a name="wp1024283"> </a>
+Guidelines for Mapping Output Buffers to Output Records
+</h4>
+<p class="pBody"><a name="wp1024284"> </a>
+The following sections provide detailed information explaining how to use the <code class="cCode">OUTBUFTYPE</code> and <code class="cCode">OUTRECTYPE</code> parameters for service calls that originate on remote computers (where remote client programs call local services and receive output from those services).
+</p>
+<h4 class="pDefTerm"><a name="wp1024286"> </a>
+<code class="cCode">OUTBUFTYPE</code>
+</h4><div class="pDefPara"><a name="wp1024287"> </a>
+The <code class="cCode">OUTBUFTYPE</code> parameter specifies the request buffer type that the local TMA TCP Gateway provides to the local server.
+</div>
+<h4 class="pDefTerm"><a name="wp1024292"> </a>
+<code class="cCode">OUTRECTYPE</code>
+</h4><div class="pDefPara"><a name="wp1024293"> </a>
+The <code class="cCode">OUTRECTYPE</code> parameter is used to specify the type, and in some cases the format, of the request record a particular remote client program sends to the TMA TCP Gateway. The TMA TCP Gateway uses this information to convert request records from remote clients into buffers that local server programs can process.
+</div>
+<div class="pDefParaCont"><a name="wp1024300"> </a>
+You must specify the <code class="cCode">OUTRECTYPE</code> parameter when one of the circumstances described in the following table is true.
+<p class="pGraphic"><a name="wp1024317"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024303table1024301">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1024303"> </a>
+Circumstance
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024305"> </a>
+Explanation
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024307"> </a>
+The remote client program provides a request record that is structured differently than the local service&#39;s request buffer.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024309"> </a>
+In this circumstance, the remote client program provides a record that is structured differently than the local service&#39;s <code class="cCode">VIEW</code>, <code class="cCode">X_C_TYPE</code>, or <code class="cCode">X_COMMON</code> buffer. For example, the local server program may expect structure members to be sequenced differently.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024311"> </a>
+The remote client program provides an request record that differs from the local service&#39;s request buffer in both type and structure. 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024313"> </a>
+In this case, the remote client outputs a record and the local client program expects a corresponding Oracle Tuxedo FML buffer.
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+<a name="wp1024318"> </a>
+The <code class="cCode">OUTRECTYPE</code> parameter may be omitted if the local service&#39;s request buffer is identical, in type and structure, to the request record the remote client program provides.
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024321"> </a>
+Mapping Buffers to Records
+</h2><p class="pBody"><a name="wp1024327"> </a>
+The following figure shows all the possibilities for mapping buffers to records. The TMA TCP Gateway is responsible for mapping buffers to records, based on information it finds in the TMA TCP Gateway configuration. This mapping occurs for Tuxedo client requests and Tuxedo server responses.
+</p>
+<div class="pFigureTitle"><a name="wp1024333"> </a>
+Figure&#160;3-3  Buffer to Record Mappings
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1024409"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/tuxug-3-1-3.gif" height="326" width="461" alt="Buffer to Record Mappings" id="wp1024335"/></div><p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1024412"> </a>
+Setting the INBUFTYPE and INRECTYPE Parameters
+</h3>
+<p class="pBody"><a name="wp1024416"> </a>
+The following table lists some of the mapping possibilities that are shown in the previous figure and some suggestions for setting the <code class="cCode">INBUFTYPE</code> and <code class="cCode">INRECTYPE</code> parameters.
+</p>
+<p class="pGraphic"><a name="wp1024468"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024419table1024417">
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024419"> </a>
+1
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024421"> </a>
+Oracle Tuxedo <code class="cCode">CARRAY</code> input buffers can be copied to <code class="cCode">CARRAY</code> input records. A <code class="cCode">CARRAY</code> buffer contains raw data that is not converted or translated. Set the <code class="cCode">INBUFTYPE</code> parameter to <code class="cCode">CARRAY</code>, and omit the <code class="cCode">INRECTYPE</code> parameter.
+</div>
+<div class="pCellBody"><a name="wp1024422"> </a>
+<code class="cCode">CARRAY</code> input buffers can also be copied to <code class="cCode">STRING</code> input records. This creates a string that goes through no conversion and no translation. The resultant buffer is the length of the original <code class="cCode">CARRAY</code> buffer. Since all characters are copied, if the <code class="cCode">CARRAY</code> buffer contains null characters, it affects the buffer when later handled as a <code class="cCode">STRING</code>. The <code class="cCode">INBUFTYPE</code> parameter should be set to <code class="cCode">CARRAY</code> and the <code class="cCode">INRECTYPE</code> parameter should be set to <code class="cCode">STRING</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024424"> </a>
+2
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024429"> </a>
+Oracle Tuxedo <code class="cCode">STRING</code> input buffers can be mapped to <code class="cCode">CARRAY</code> input records. No data conversion or translation is performed. The <code class="cCode">STRING</code> buffer is copied through the leftmost null character only. Set the <code class="cCode">INBUFTYPE</code> parameter to <code class="cCode">STRING</code> and the <code class="cCode">INRECTYPE</code> parameter to <code class="cCode">CARRAY</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024431"> </a>
+3
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024436"> </a>
+Oracle Tuxedo <code class="cCode">STRING</code> input buffers can be mapped to <code class="cCode">STRING</code> input records. The buffer goes through data type translation (such as ASCII to EBCDIC). Set the <code class="cCode">INBUFTYPE</code> parameter to <code class="cCode">STRING</code>, and omit the <code class="cCode">INRECTYPE</code> parameter.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024438"> </a>
+4
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024443"> </a>
+Oracle Tuxedo <code class="cCode">VIEW</code> input buffers can be mapped to identical Oracle Tuxedo <code class="cCode">VIEW</code> input records. In this situation, the data structure that the remote service expects is identical to the data structure the client program uses. There is no need to create a new <code class="cCode">VIEW</code> definition. Instead, specify the input record type (<code class="cCode">VIEW</code>) and the name of the existing VIEW definition (the one the client program currently uses) for both the <code class="cCode">INBUFTYPE</code> parameter, and omit the <code class="cCode">INRECTYPE</code> parameter.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024445"> </a>
+5
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024450"> </a>
+Oracle Tuxedo <code class="cCode">VIEW</code> input buffers can be mapped to <code class="cCode">VIEW</code> input records&#8212;in any combination. However, in this situation, the data structure that the remote service expects (designated as <code class="cCode">VIEW</code> ‘B&#8217; mapping possibilities in <a href="tuxdmp.html#wp1024333">Figure&#160;3-3</a>) differs from the data structure the client program uses (designated as <code class="cCode">VIEW</code> ‘A&#8217; in <a href="tuxdmp.html#wp1024333">Figure&#160;3-3</a>). Consequently, you must
+</div>
+<div class="pSmartList1Table"><ol type="1" class="pSmartList1Table">
+<li value="1"><a name="wp1024457"> </a>Create a <code class="cCode">VIEW</code> definition for the data structure that the remote service expects.</li>
+<li value="2"><a name="wp1024458"> </a>Specify the desired record type and the name of this <code class="cCode">VIEW</code> definition with the <code class="cCode">INRECTYPE</code> parameter.</li>
+<li value="3"><a name="wp1024459"> </a>Set the <code class="cCode">INBUFTYPE</code> parameter to <code class="cCode">VIEW:</code><code class="cCodeEmphasis">original-viewname</code>.</li>
+</ol></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024461"> </a>
+6
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024466"> </a>
+Before an Oracle Tuxedo FML input buffer can be sent to a remote service that does not support FML, it must be mapped to one of the following input record types: <code class="cCode">VIEW</code>, <code class="cCode">X_C_TYPE</code>, or <code class="cCode">X_COMMON</code>. Also, you must create a <code class="cCode">VIEW</code> definition for the input data structure that the remote service expects. Set <code class="cCode">INBUFTYPE</code> to FML and <code class="cCode">INRECTYPE</code> to <code class="cCode">VIEW</code>:<span style="font-style: italic">viewname.</span>
+</div>
+<p class="pTableNote"><a name="wp1024467"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>In the <code class="cCode">DMCONFIG</code> file, if FML or FML32 are specified as <code class="cCode">INBUFTYPE</code> or <code class="cCode">OUTBUFTYPE</code>, the type must be followed by a colon (:). (Example: <code class="cCode">INBUFTYPE=&quot;FML32:&quot;</code>)</td></tr>
+</table>
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024470"> </a>
+Mapping Records to Buffers
+</h2><p class="pBody"><a name="wp1024476"> </a>
+The following figure shows all the possibilities for mapping records to buffers. The&#160;TMA TCP Gateway is responsible for mapping records to buffers, based on information it finds in the TMA TCP Gateway configuration. This mapping occurs for remote client requests and remote server responses.
+</p>
+<div class="pFigureTitle"><a name="wp1024482"> </a>
+Figure&#160;3-4  Record to Buffer Mappings
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1024558"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/tuxug-3-1-4.gif" height="328" width="464" alt="Record to Buffer Mappings" id="wp1024484"/></div><p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1024562"> </a>
+Setting the OUTRECTYPE and OUTBUFTYPE Parameters
+</h3>
+<p class="pBody"><a name="wp1024566"> </a>
+The following table lists some of the mapping possibilities that are shown in the previous figure and some suggestions for setting the <code class="cCode">OUTRECTYPE</code> and <code class="cCode">OUTBUFTYPE</code> parameters (for service calls that originate locally).
+</p>
+<p class="pGraphic"><a name="wp1024636"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024569table1024567">
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024569"> </a>
+1
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024574"> </a>
+Oracle Tuxedo <code class="cCode">CARRAY</code> output records can be copied to <code class="cCode">CARRAY</code> output buffers. A <code class="cCode">CARRAY</code> buffer contains raw data that is not converted or translated. Set the <code class="cCode">OUTBUFTYPE</code> parameter to <code class="cCode">CARRAY</code>. The <code class="cCode">OUTRECTYPE</code> parameters need not be set. 
+</div>
+<div class="pCellBody"><a name="wp1024578"> </a>
+Oracle Tuxedo <code class="cCode">CARRAY</code> output records can also be copied to <code class="cCode">STRING</code> output buffers. This creates a string that goes through no conversion and no translation. The resultant buffer is the length of the original <code class="cCode">CARRAY</code> buffer. Since all characters are copied, if the <code class="cCode">CARRAY</code> buffer contains null characters, it affects the buffer when later handled as a <code class="cCode">STRING</code>. The <code class="cCode">OUTRECTYPE</code> should be set to <code class="cCode">CARRAY</code> and <code class="cCode">OUTBUFTYPE</code> should be set to <code class="cCode">STRING</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024580"> </a>
+2
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024585"> </a>
+Oracle Tuxedo <code class="cCode">STRING</code> output records can be mapped to <code class="cCode">CARRAY</code> output buffers. There is no data conversion or translation performed. The <code class="cCode">STRING</code> buffer is copied through the leftmost null characters only. Set <code class="cCode">OUTRECTYPE</code> to <code class="cCode">STRING</code> and <code class="cCode">OUTBUFTYPE</code> to <code class="cCode">CARRAY</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024587"> </a>
+3
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024592"> </a>
+Oracle Tuxedo <code class="cCode">STRING</code> output records can be mapped to <code class="cCode">STRING</code> output buffers. The buffer goes through datatype translation (such as ASCII to EBCDIC). <code class="cCode">OUTBUFTYPE</code> and <code class="cCode">OUTRECTYPE</code> parameters are set to <code class="cCode">STRING</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024594"> </a>
+4
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024602"> </a>
+Oracle Tuxedo <code class="cCode">VIEW</code> output records can be mapped to identical Oracle Tuxedo <code class="cCode">VIEW</code> output buffers. In this situation, the data structure that the remote service returns is identical to the data structure the local client program expects. There is no need to create a new <code class="cCode">VIEW</code> definition. Instead, specify the <code class="cCode">VIEW</code> buffer type and the name of the existing <code class="cCode">VIEW</code> definition with the <code class="cCode">OUTBUFTYPE</code> parameter. The <code class="cCode">OUTRECTYPE</code> parameter can be set to <code class="cCode">VIEW:</code><code style="font-style: italic" class="cCodeEmphasis">viewname</code><span style="font-style: italic">,</span> but it is not mandatory.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024604"> </a>
+5
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024609"> </a>
+Oracle Tuxedo <code class="cCode">VIEW</code> output records can be mapped to <code class="cCode">VIEW</code> output buffers&#8212;in any combination. However, in this situation, the data structure that the remote service returns (designated as <code class="cCode">VIEW</code> ‘B&#8217; in <a href="tuxdmp.html#wp1024482">Figure&#160;3-4</a>) differs from the data structure the client program expects (designated as <code class="cCode">VIEW</code> ‘A&#8217; in <a href="tuxdmp.html#wp1024482">Figure&#160;3-4</a>). To facilitate the conversion process, perform the following tasks.
+</div>
+<div class="pSmartList1Table"><ol type="1" class="pSmartList1Table">
+<li value="1"><a name="wp1024616"> </a>Create a <code class="cCode">VIEW</code> definition for the data structure that the remote service returns.</li>
+<li value="2"><a name="wp1024617"> </a>If the name given to the <code class="cCode">VIEW</code> definition is different than the name that the remote service returns (that is, ATMI buffer subtype), specify the output record type and the name of <code class="cCode">VIEW</code> ‘B&#8217; with the <code class="cCode">OUTRECTYPE</code> parameter. (By doing this, you override the value the TMA TCP Gateway requester automatically detects.)</li>
+<li value="3"><a name="wp1024621"> </a>Specify the output buffer type and the name of an existing view (<code class="cCode">VIEW</code> ‘A&#8217; in the figure) specified in the <code class="cCode">OUTBUFTYPE</code> parameter.</li>
+</ol></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024623"> </a>
+6
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024628"> </a>
+Oracle Tuxedo <code class="cCode">VIEW</code> output records can be mapped to FML output buffers. To facilitate the conversion process, you must perform the following tasks.
+</div>
+<div class="pSmartList1Table"><ol type="1" class="pSmartList1Table">
+<li value="1"><a name="wp1024629"> </a>Create a <code class="cCode">VIEW</code> definition that describes the data structure that the remote service returns.</li>
+<li value="2"><a name="wp1024630"> </a>If the name given to the <code class="cCode">VIEW</code> definition is different than the name that the remote service returns (that is, the ATMI buffer subtype), specify the output record type and the name of your VIEW definition with the <code class="cCode">OUTRECTYPE</code> parameter. (By doing this, you override the value the TMA TCP Gateway requester automatically detects.)</li>
+<li value="3"><a name="wp1024634"> </a>Set the <code class="cCode">OUTBUFTYPE</code> parameter to FML.</li>
+</ol></div>
+<p class="pTableNote"><a name="wp1024635"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>In the <code class="cCode">DMCONFIG</code> file, if FML or FML32 are specified as <code class="cCode">INBUFTYPE</code> or <code class="cCode">OUTBUFTYPE</code>, the type must be followed by a colon (:). (Example: <code class="cCode">INBUFTYPE=&quot;FML32:&quot;</code>)</td></tr>
+</table>
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024638"> </a>
+Creating VIEW Definitions to Facilitate Buffer Conversion
+</h2><p class="pBody"><a name="wp1024639"> </a>
+<code class="cCode">VIEW</code> definitions are used to describe input and output records that are sent to and received from remote systems. They describe data elements and indicate how data elements are typed and sequenced. Based on these descriptions, TMA TCP Gateway translates field data types as required to maintain transparency between dissimilar systems.
+</p>
+<p class="pBody"><a name="wp1024646"> </a>
+You should create <code class="cCode">VIEW</code> definitions before you configure TMA TCP Gateway. For complete information about <code class="cCode">VIEW</code> definitions and related topics, see the <span style="font-style: italic">Oracle Tuxedo Programmer&#8217;s Guide.</span>
+</p>
+<p class="pBody"><a name="wp1024650"> </a>
+The TMA TCP Gateway buffer and record conversion capabilities are extremely powerful and flexible. The key to maximizing these capabilities is to thoroughly understand the Oracle Tuxedo <code class="cCode">VIEW</code> definition mechanism.
+</p>
+<p class="pBody"><a name="wp1024654"> </a>
+<code class="cCode">VIEW</code> definitions make it possible to specify composite data structures that can be used: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024655"> </a>On different kinds of machines</li>
+<li><a name="wp1024656"> </a>With different programming languages</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1024657"> </a>
+Preparing VIEW Definitions
+</h3>
+<p class="pBody"><a name="wp1024658"> </a>
+After determining the input and output record layouts for the remote application programs you are working with, you need to prepare <code class="cCode">VIEW</code> definitions and specify these definitions in the configuration files. 
+</p>
+<a name="wp1024662"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>FML fields must be specified for all <code class="cCode">VIEW</code>s that TMA TCP Gateway converts. In other words, any <code class="cCode">VIEW</code> that you specify as an <code class="cCode">INRECTYPE</code>, <code class="cCode">OUTRECTYPE</code>, <code class="cCode">INBUFTYPE</code>, or <code class="cCode">OUTBUFTYPE</code> must be defined with appropriate FML fields (no dashes in the <code class="cCode">FNAME</code> column of the <code class="cCode">VIEW</code> definition). For the FML fields to match, you must compile these <code class="cCode">VIEW</code>s without the <code class="cCode">-n</code> option specified.</td>
+</tr>
+</table>
+
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1024666"> </a>Create standard Oracle Tuxedo <code class="cCode">VIEW</code> definitions in files.</li>
+<li><a name="wp1024667"> </a>Run the <code class="cCode">viewc</code> or <code class="cCode">viewc32</code> <code class="cCode">VIEW</code> compiler.</li>
+<li><a name="wp1024668"> </a>Set the <code class="cCode">VIEWFILES</code>, <code class="cCode">VIEWDIR</code>, <code class="cCode">FIELDTBLS</code>, and <code class="cCode">FLDTBLDIR</code> environment variables, using a Oracle Tuxedo <code class="cCode">ENVFILE</code> if necessary (so that TMA TCP Gateway servers can locate binary <code class="cCode">VIEW</code> files and field table files at runtime).</li>
+<li><a name="wp1024672"> </a>After these tasks are complete, you can specify <code class="cCode">VIEW</code> definitions in the <code class="cCode">GWICONFIG</code> and <code class="cCode">DMCONFIG</code> files (by associating names of <code class="cCode">VIEW</code> definitions with the <code class="cCode">INRECTYPE</code>, <code class="cCode">OUTRECTYPE</code>, <code class="cCode">INBUFTYPE</code>, and <code class="cCode">OUTBUFTYPE</code> parameters, as required).</li>
+<p class="pBodyRelative"><a name="wp1024676"> </a>
+For detailed information about configuring TMA TCP Gateway, see the <a href="tuxconf.html"><span class="cHyperlink">
+Configuring Oracle&#160;TMA TCP Gateway</span></a> section.
+</p>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024682"> </a>
+Translating Data
+</h2><p class="pBody"><a name="wp1024683"> </a>
+When a local client program sends data to (or receives data from) a service routine on a different kind of computer, TMA TCP Gateway automatically translates data as required. Translation involves changing the representation of intrinsic data types by changing attributes such as word length and byte order.
+</p>
+<p class="pBody"><a name="wp1024690"> </a>
+The TMA TCP Gateway automatically translates input and output data as required, following rules that are described in the following section. Read the information carefully before you create <code class="cCode">VIEW</code> definitions (to facilitate buffer conversion) and configure TMA TCP Gateway.
+</p>
+<p class="pBody"><a name="wp1024697"> </a>
+Basic rules for how TMA TCP Gateway translates data are described in the following subsection. For detailed information about how TMA TCP Gateway handles string and numeric data, refer to the <a href="tuxdmp.html#wp1024785"><span class="cHyperlink">
+NULL Characters in String Length Calculations (C&#160;Programs)</span></a> section.
+</p>
+<h3 class="pHeading2"><a name="wp1024704"> </a>
+Data Translation Rules
+</h3>
+<p class="pBody"><a name="wp1024707"> </a>
+The following information outlines the data translation rules that TMA TCP Gateway follows:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024709"> </a><code class="cCode">CARRAY</code> fields are passed untranslated as sequences of bytes.</li>
+<li><a name="wp1024710"> </a><code class="cCode">STRING</code> and <code class="cCode">CHAR</code> fields undergo ASCII-to-EBCDIC translation, if needed.</li>
+<li><a name="wp1024711"> </a><code class="cCode">SHORT</code> and <code class="cCode">LONG</code> fields are translated to S9(4) <code class="cCode">COMP</code> and S9(9) <code class="cCode">COMP</code>, respectively.</li>
+<li><a name="wp1024712"> </a><code class="cCode">FLOAT</code> and <code class="cCode">DOUBLE</code> fields translate to <code class="cCode">COMP-1</code> and <code class="cCode">COMP-2</code>, respectively.</li>
+<li><a name="wp1027357"> </a>XML fields undergo ASCII-to-EBCDIC translation, if needed.</li>
+</ul></div>
+<a name="wp1024713"> </a>
+<table class="Note">
+<tr>
+<td valign="top"><strong>WARNING:</strong></td>
+<td><code class="cCode">dec_t</code> cannot be used with <code class="cCode">VIEW</code> translations. </td>
+</tr>
+</table>
+
+<a name="wp1024717"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Oracle Tuxedo provides a field type named <code class="cCode">dec_t</code> that supports decimal values within <code class="cCode">VIEW</code>s. The TMA TCP Gateway translates these fields into machine independent representations of packed decimals. For example, <code class="cCode">dec_t(m,n)</code> becomes <code class="cCode">S9(2*m-(n+1))V9(n) COMP-3</code>. Therefore, a decimal field with a size of 8,5 corresponds to <code class="cCode">S9(10)V9(5) COMP-3</code>.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1024721"> </a>
+The following table summarizes the relationships. 
+</p>
+<p class="pGraphic"><a name="wp1024783"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1030631table1024722"><caption><a name="wp1030631"> </a>
+Table 3-1  Data Translation Relationships
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1024724"> </a>
+Remote Data Type
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024726"> </a>
+Description
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024728"> </a>
+View Field<br />Type/Length
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024730"> </a>
+<code class="cCode">PIC X(n)</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024732"> </a>
+Alphanumeric characters
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024734"> </a>
+string / n
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024736"> </a>
+<code class="cCode">PIC X</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024738"> </a>
+Single alphanumeric character
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024740"> </a>
+char
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024742"> </a>
+<code class="cCode">PIC X(n)</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024744"> </a>
+Raw bytes
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024746"> </a>
+carray / n
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024748"> </a>
+<code class="cCode">PIC 9</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024750"> </a>
+Single numeric byte
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024752"> </a>
+carray / 1
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024754"> </a>
+<code class="cCode">PIC S9(4) COMP</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024756"> </a>
+16-bit integer
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024758"> </a>
+short
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024760"> </a>
+<code class="cCode">PIC S9(9) COMP</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024762"> </a>
+32-bit integer
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024764"> </a>
+long
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024766"> </a>
+<code class="cCode">COMP-1</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024768"> </a>
+Single-precision floating point
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024770"> </a>
+float
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024772"> </a>
+<code class="cCode">COMP-2</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024774"> </a>
+Double-precision floating point
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024776"> </a>
+double
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024778"> </a>
+<code class="cCode">PIC<br />S9((m+(n+1))/2)V9(n)<br />COMP-3</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024780"> </a>
+Packed decimal
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024782"> </a>
+dec_t / m,n
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1024785"> </a>
+NULL Characters in String Length Calculations (C&#160;Programs)
+</h3>
+<p class="pBody"><a name="wp1024786"> </a>
+When you create <code class="cCode">VIEW</code> definitions for input and output buffers that are used by C language applications, you must specify extra characters for terminating NULL characters that are used in string fields.
+</p>
+<p class="pBody"><a name="wp1024787"> </a>
+For example, when a local application program expects a 10-byte string in an output buffer, you would specify 11 for that field&#8212;10 for the string plus 1 for the terminating NULL character.
+</p>
+<h3 class="pHeading2"><a name="wp1024788"> </a>
+NULL Characters in String Length Calculations (COBOL Programs)
+</h3>
+<p class="pBody"><a name="wp1024789"> </a>
+When you create <code class="cCode">VIEW</code> definitions for input and output buffers that are used by COBOL language applications, do not specify extra characters for terminating NULL characters that are used in string fields.
+</p>
+<p class="pBody"><a name="wp1024790"> </a>
+For example, when a remote COBOL application program expects 10 characters in an input record, you would specify 10 for that field, not 10 plus 1 (for the terminating NULL character).
+</p>
+<a name="wp1024794"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Although TMA TCP Gateway does not require strings to be NULL-terminated, it respects NULL termination. Therefore, when TMA TCP Gateway detects a NULL (zero) character within a string, it does not process any subsequent characters. To pass full 8-bit data that contains embedded NULL values, use a <code class="cCode">CARRAY</code> type field or buffer.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1024801"> </a>
+The TMA TCP Gateway product provides standard character translation from ASCII-to-EBCDIC and EBCDIC-to-ASCII. TMA TCP Gateway automatically performs this translation on the <code class="cCode">STRING</code> data type.
+</p>
+<h3 class="pHeading2"><a name="wp1024805"> </a>
+Converting Numeric Data
+</h3>
+<p class="pBody"><a name="wp1024806"> </a>
+Numeric data can easily be converted into different data types, provided that you have enough range in the intermediate and destination types to handle the maximum value you need to represent.
+</p>
+<p class="pBody"><a name="wp1024807"> </a>
+For example, you can convert numeric values into strings (and the reverse). For example, while FML buffers do not directly support the <code class="cCode">dec_t</code> type, you can place decimal values in <code class="cCode">STRING</code> fields and map these to <code class="cCode">dec_t</code> fields within <code class="cCode">VIEW</code> definitions.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024809"> </a>
+Encoding COBOL Data Types
+</h2><p class="pBody"><a name="wp1024810"> </a>
+An additional encoding library, <code class="cCode">ConvMVSC</code>, has been included for Tuxedo clients using COBOL data types. This library, <code class="cCode">ConvMVSC</code>, is similar to the default library, <code class="cCode">ConvMVS</code>, but differs in the following ways:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024812"> </a>For the <code class="cCode">STRING</code> data type, both <code class="cCode">ConvMVSC</code> and <code class="cCode">ConvMVS</code> perform ASCII-to-EBCDIC and EBCDIC-to-ASCII translation. </li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1024813"> </a>For strings sent to a remote gateway, both libraries perform ASCII-to-EBCDIC conversion, and forward the string to the mainframe. </li>
+<li><a name="wp1024814"> </a>For strings received from a remote gateway, the <code class="cCode">ConvMVS</code> library performs EBCDIC-to-ASCII translation, truncates any trailing space characters and adds a NULL terminator. The <code class="cCode">ConvMVSC</code> library performs the translation, but does not truncate spaces or add the terminator.</li>
+</ul></div>
+<li><a name="wp1024815"> </a>For the <code class="cCode">VIEW</code> data type, the <code class="cCode">ConvMVS</code> and <code class="cCode">ConvMVSC</code> libraries treat all field types except <code class="cCode">STRING</code> the same. </li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1024816"> </a>For <code class="cCode">STRING</code> fields within a view sent to a remote gateway, <code class="cCode">ConvMVS</code> performs ASCII-to-EBCDIC conversion and appends space to ‘pad&#8217; the string with space characters to the size of the field. <code class="cCode">ConvMVSC</code> performs the character conversion, but does not perform any ‘padding&#8217;. </li>
+<li><a name="wp1024817"> </a>For <code class="cCode">STRING</code> fields within a view received from a remote gateway, <code class="cCode">ConvMVS</code> performs EBCDIC-to-ASCII conversion, truncates any trailing space characters, and adds a NULL terminator. The <code class="cCode">ConvMVSC</code> library performs the character conversion, but does not truncate spaces or add the terminator.</li>
+</ul></div>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1024818"> </a>
+Using the COBOL Data Encoding Library
+</h3>
+<p class="pBody"><a name="wp1024819"> </a>
+There are two methods for enabling the COBOL data encoding library:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024820"> </a>COBOL data encoding for all services</li>
+<li><a name="wp1024821"> </a>COBOL data encoding for messages to and from a specific host</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1024822"> </a>
+Encoding for All Services
+</h4>
+<p class="pBody"><a name="wp1024824"> </a>
+To enable COBOL data encoding for every service in the gateway, set the parameter <code class="cCode">DFLTTYPE=&quot;MVSC&quot;</code> in the <code class="cCode">GLOBAL</code> section of the <code class="cCode">GWICONFIG</code> file.
+</p>
+<div class="pCodeTitle"><a name="wp1024825"> </a>
+Listing&#160;3-1	   Encoding for All Services
+</div> <a name="wp1024826"> </a><div class="pPreformatted"><pre>*GLOBAL<br /><br />DFLTTYPE=&#8221;MVSC&#8221;<br /></pre></div><h4 class="pHeading3"><a name="wp1024828"> </a>
+Encoding Messages To and From a Specific Host
+</h4>
+<p class="pBody"><a name="wp1024830"> </a>
+To enable COBOL data encoding for messages to and from a specific host, set the parameter <code class="cCode">TYPE=&quot;MVSC&quot;</code> for that hosts <code class="cCode">FOREIGN</code> entry in the <code class="cCode">GWICONFIG</code> file.
+</p>
+<div class="pCodeTitle"><a name="wp1024831"> </a>
+Listing&#160;3-2	   Encoding for Messages To and From a Specific Host
+</div> <a name="wp1024832"> </a><div class="pPreformatted"><pre>*FOREIGN<br /><br />HOST_NAME<br />TYPE=&#8221;MVSC&#8221;<br /></pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024835"> </a>
+Using Code Page Translation Tables
+</h2><p class="pBody"><a name="wp1024839"> </a>
+The TMA&#160;TCP software includes translation tables which enable conversions of single byte character sets (<code class="cCode">SBCS</code>) between ASCII and EBCDIC. These tables are based on IBM-defined code sets and include the default Tuxedo code page, which is the default code page translation table used in previous releases of TMA&#160;TCP. 
+</p>
+<p class="pBody"><a name="wp1026925"> </a>
+Each translation table consists of two mapping tables, one for outbound conversions (Tuxedo to mainframe) and one for inbound conversions (mainframe to Tuxedo). You do not have to specify the direction of a translation; however, you must determine the national language in which the host application is written. The following figure illustrates code page translation.
+</p>
+<div class="pFigureTitle"><a name="wp1024861"> </a>
+Figure&#160;3-5  TMA&#160;TCP Code Page Translation
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1024926"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/tuxug-3-1-5.gif" height="356" width="401" alt="TMA&#160;TCP Code Page Translation" id="wp1024863"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1024927"> </a>
+The figure demonstrates how a Tuxedo application using the Latin-1 ASCII code page CP-00819 character set operates with a host application using German EBCDIC code page CP-00273. The TMA&#160;TCP translation table 00819x00273 provides both the inbound and outbound conversions.
+</p>
+<h4 class="pHeading3"><a name="wp1024931"> </a>
+Specifying a Translation Table
+</h4>
+<p class="pBody"><a name="wp1024933"> </a>
+To designate the translation table for your applications, make an entry in the <code class="cCode">DMCONFIG</code> file definition for each remote domain. Use the <code class="cCode">CODEPAGE</code> parameter in the <code class="cCode">DM_REMOTE_DOMAINS</code> section of the <code class="cCode">DMCONFIG</code> file. Specify the translation table to use.
+</p>
+<p class="pBody"><a name="wp1024934"> </a>
+To specify a default code page translation for remote hosts to use, specify the translation table filename in the <code class="cCode">CODEPAGE</code> parameter for the local gateway entry in the <code class="cCode">DM_LOCAL_DOMAINS</code> section of the <code class="cCode">DMCONFIG</code> file.
+</p>
+<p class="pBody"><a name="wp1024945"> </a>
+The following table lists the translation tables provided with the TMA&#160;TCP software.
+</p>
+<p class="pGraphic"><a name="wp1025056"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1030517table1024951"><caption><a name="wp1030517"> </a>
+Table 3-2  TMA&#160;TCP Code Page Translation Tables
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1030525"> </a>
+Country
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1030527"> </a>
+File Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1030529"> </a>
+ASCII Code Set
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1030531"> </a>
+EBCDIC Code Set
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030533"> </a>
+Tuxedo default
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030535"> </a>
+TUXEDO
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030537"> </a>
+TUXEDO-ASCII
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030539"> </a>
+TUXEDO-EBCDIC
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030541"> </a>
+United States
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030543"> </a>
+00819x00037
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030545"> </a>
+CP-00819
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030547"> </a>
+CP-00037
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030549"> </a>
+Great Britain
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030551"> </a>
+00819x00285
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030553"> </a>
+CP-00819
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030555"> </a>
+CP-00285
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030557"> </a>
+France
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030559"> </a>
+00819x00297
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030561"> </a>
+CP-00819
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030563"> </a>
+CP-00297
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030565"> </a>
+Portugal
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030567"> </a>
+00819x00860
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030569"> </a>
+CP-00819
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030571"> </a>
+CP-00860
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030573"> </a>
+Spain
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030575"> </a>
+00819x00284
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030577"> </a>
+CP-00819
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030579"> </a>
+CP-00284
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030581"> </a>
+Belgium
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030583"> </a>
+00819x00500
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030585"> </a>
+CP-00819
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030587"> </a>
+CP-00500
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030589"> </a>
+Germany
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030591"> </a>
+00819x00273
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030593"> </a>
+CP-00819
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030595"> </a>
+CP-00273
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030597"> </a>
+Finland
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030599"> </a>
+00819x00278
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030601"> </a>
+CP-00819
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030603"> </a>
+CP-00278
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030605"> </a>
+Sweden
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030607"> </a>
+00819x00278
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030609"> </a>
+CP-00819
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030611"> </a>
+CP-00278
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030613"> </a>
+Latin-1
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030615"> </a>
+00819x01047
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030617"> </a>
+CP-00819
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030619"> </a>
+CP-01047
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030621"> </a>
+Latin-2
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030623"> </a>
+00912x00870
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030625"> </a>
+CP-00912
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030627"> </a>
+CP-00870
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<a name="wp1025057"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The Tuxedo default ASCII and EBCDIC code pages differ slightly from CP-00819 and CP-00037.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp1025058"> </a>
+How the Translation Tables Work
+</h4>
+<p class="pBody"><a name="wp1025062"> </a>
+At start up, the TMA TCP Gateway loads a translation table for each remote domain.
+</p>
+<p class="pBody"><a name="wp1025063"> </a>
+You can modify any of the tables to suit your application translation needs, except the default Tuxedo tables, which are hard-coded. You must restart the gateway to change any translation table definitions. The TMA&#160;TCP translation tables are located in <code class="cCode">$TUXDIR/udataobj/codepage</code>. For table contents, refer to the <a href="tuxapcde.html"><span class="cHyperlink">
+Code Page Translation Tables</span></a> section. 
+</p>
+<p class="pBody"><a name="wp1025073"> </a>
+If no <code class="cCode">CODEPAGE</code> specification is made for a remote domain, the TMA TCP Gateway software uses the Tuxedo default translation tables. 
+</p>
+<a name="wp1025075"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Copies of the default Tuxedo translation tables are included with your product software in <code class="cCode">$TUXDIR/udataobj/codepage</code>. These copies are provided for you to apply modifications if necessary for your applications. These copies are not the actual default tables used by the gateway. You cannot modify the default Tuxedo tables because they are hard-coded.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp1025077"> </a>
+Troubleshooting Translation Table Errors
+</h4>
+<p class="pBody"><a name="wp1025078"> </a>
+The following information assists you in resolving errors associated with translation tables that cause the gateway to fail. The gateway issues the following message when encountering an error associated with the specified translation table. 
+</p>
+<a name="wp1025079"> </a><div class="pPreformatted"><pre>1072:ERROR Cannot read CODEPAGE &lt;<code class="cCodeEmphasis">filename</code>&gt; for &lt;LOCAL | REMOTE&gt; DOMAIN &lt;<code class="cCodeEmphasis">domainname</code>&gt;</pre></div><p class="pBody"><a name="wp1025083"> </a>
+For a description of error messages, refer to the <a href="tuxaper.html"><span class="cHyperlink">
+Error and Information Messages</span></a> section. The following causes may be responsible for the gateway issuing the previous error.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1025084"> </a>The gateway cannot find the translation table file.</li>
+<p class="pBodyRelative"><a name="wp1025085"> </a>
+Verify that you specified the correct codepage name in the <code class="cCode">CODEPAGE</code> parameter in the <code class="cCode">DM_REMOTE_DOMAIN</code> section of the <code class="cCode">DMCONFIG</code> file and that the file resides in <code class="cCode">$TUXDIR/udataobj/codepage</code>.
+</p>
+<li><a name="wp1025086"> </a>The software cannot read the translation table file.</li>
+<p class="pBodyRelative"><a name="wp1025087"> </a>
+Verify that the file name specified for the <code class="cCode">CODEPAGE</code> parameter is valid. Also, verify that the specified file is not corrupt.
+</p>
+<li><a name="wp1025088"> </a>The software cannot read the translation table file because of access permissions.</li>
+<p class="pBodyRelative"><a name="wp1025089"> </a>
+Verify that the specified translation table file in the <code class="cCode">$TUXDIR/udataobj/codepage</code> directory has read permissions.
+</p>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1025090"> </a>
+Sample DMCONFIG Definition for ASCII to EBCDIC Translations
+</h4>
+<p class="pBody"><a name="wp1025094"> </a>
+The following listing shows entries defining one local domain (<code class="cCode">CIXA</code>) and two remote domains (<code class="cCode">CISA</code> and <code class="cCode">IMSA</code>). In the following example, it is assumed that the local domain uses ASCII code page CP-00819 and the two remote domains use the German and French EBCDIC code pages CP-00273 and CP-00297, respectively. 
+</p>
+<div class="pCodeTitle"><a name="wp1025096"> </a>
+Listing&#160;3-3	   Code Page Definition Example
+</div> <a name="wp1025097"> </a><div class="pPreformatted"><pre># DMCONFIG</pre></div><a name="wp1025098"> </a><div class="pPreformatted"><pre>*DM_LOCAL_DOMAINS<br />CIXA<br />     TYPE=IDOMAIN<br /></pre></div><a name="wp1025099"> </a><div class="pPreformatted"><pre>*DM_REMOTE_DOMAINS<br />CISA <br />     TYPE=IDOMAIN <br />     CODEPAGE=00819X00273<br />IMSA <br />     TYPE=IDOMAIN <br />     CODEPAGE=&#8220;00819X00297&#8221;<br /></pre></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="tuxdmp.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="tuxundr.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="tuxsec.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

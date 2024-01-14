@@ -1,0 +1,498 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/security/fm/writewle.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:41:43" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Writing a CORBA Application That Implements Security</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Using Security in CORBA Applications
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="secur3.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="samples.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/security.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1048250"> </a>
+Writing a CORBA Application That Implements Security
+</h1>
+<p class="pBody"><a name="wp1032862"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1038019"> </a><a href="writewle.html#wp1049897">Using the Bootstrapping Mechanism</a></li>
+<li><a name="wp1038024"> </a><a href="writewle.html#wp1045328">Using Password Authentication</a></li>
+<li><a name="wp1038029"> </a><a href="writewle.html#wp1049774">Using Certificate Authentication</a></li>
+<li><a name="wp1046100"> </a><a href="writewle.html#wp1046315">Using the Interoperable Naming Service Mechanism</a></li>
+<li><a name="wp1049894"> </a><a href="writewle.html#wp1035841">Using the Invocations_Options_Required() Method</a></li>
+</ul></div>
+<a name="wp1050115"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Notes:</strong></td>
+<td>The Oracle Tuxedo CORBA Java client and Oracle Tuxedo CORBA Java client ORB were deprecated in Tuxedo 8.1 and are no longer supported. All Oracle Tuxedo CORBA Java client and Oracle Tuxedo CORBA Java client ORB text references, associated code samples, should only be used to help implement/run third party Java ORB libraries, and for programmer reference only.</td></tr>
+</table>
+
+<a name="wp1050116"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>Technical support for third party CORBA Java ORBs should be provided by their respective vendors. Oracle Tuxedo does not provide any technical support or documentation for third party CORBA Java ORBs.</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1049897"> </a>
+Using the Bootstrapping Mechanism
+</h2><a name="wp1045546"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This mechanism should be used with the Oracle CORBA client applications.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1033140"> </a>
+The Bootstrap object in the Oracle Tuxedo CORBA environment has been enhanced so that users can specify that all communication to a given IIOP Listener/Handler be protected. The Bootstrap object supports <code class="cCode">corbaloc</code> and<code class="cCode"> corbalocs</code> Uniform Resource Locator (URL) address formats to be used when specifying the location of the IIOP Listener/Handler. The type of security provided depends on the format of URL used to specify the location of the IIOP Listener/Handler. 
+</p>
+<p class="pBody"><a name="wp1033704"> </a>
+As with the Host and Port address format, you use the URL address formats to specify the location of the IIOP Listener/Handler, but the bootstrapping process behaves differently. When using the <code class="cCode">corbaloc</code> or <code class="cCode">corbalocs</code> URL address format, the initial connection to the IIOP Listener/Handler is deferred until either:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1037050"> </a>The principal uses password authentication with either the <code class="cCode">Tobj::PrincipalAuthenticator::logon</code> or the <code class="cCode">SecurityLevel2::PrincipalAuthenticator::authenticate</code> methods.</li>
+<li><a name="wp1037051"> </a>The principal calls the<code class="cCode"> Tobj_Bootstrap::resolve_initial_references</code> method using an object ID value other than SecurityCurrent.</li>
+</ul></div>
+<p class="pBody"><a name="wp1037060"> </a>
+Using the <code class="cCode">corbalocs</code> URL address format indicates that the SSL protocol is used to protect at least the integrity of the connection between the principal and the IIOP Listener/Handler. 
+</p>
+<p class="pBody"><a name="wp1033755"> </a>
+<a href="writewle.html#wp1042574">Table&#160;9-1</a> highlights the differences between the two URL address formats.
+</p>
+<p class="pGraphic"><a name="wp1042329"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1042574table1042572"><caption><a name="wp1042574"> </a>
+Table 9-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Differences Between corbaloc and corbalocs URL Address Formats</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1042590"> </a>
+URL Address Formats
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1042592"> </a>
+Functionality
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1042595"> </a>
+<code class="cCode">corbaloc</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1042597"> </a>
+By default, invocations on the IIOP Listener/Handler are unprotected. Configuring the IIOP Listener/Handler for the SSL protocol is optional.
+</div>
+<div class="pCellBody"><a name="wp1042598"> </a>
+A principal can secure the bootstrapping process by using the<code class="cCode"> authenticate()</code> method of the <code class="cCode">SecurityLevel2::PrincipalAuthenticator</code> interface and  the  <code class="cCode">invocation_options_required()</code> method of the <code class="cCode">SecurityLeve12::Credentials</code> interface to specify that certificate authentication is to be used.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1042600"> </a>
+<code class="cCode">corbalocs</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1042602"> </a>
+Invocations on the IIOP Listener/Handler are protected and the IIOP Listener/Handler or the CORBA C++ ORB must be configured to enable the use of the SSL protocol. For more information, see <a href="config.html"><span class="cHyperlink">
+Configuring the SSL Protocol on page&#160;6-1</span></a>.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1033691"> </a>
+Both the <code class="cCode">corbaloc </code>and <code class="cCode">corbalocs</code> URL address formats provide stringified object references that are easily manipulated in both TCP/IP and Domain Name System (DNS) environments. The <code class="cCode">corbaloc</code> and <code class="cCode">corbalocs</code> URL address formats contain a DNS-style host name or an IP address and port.
+</p>
+<p class="pBody"><a name="wp1033595"> </a>
+The URL address formats follow and extend the definition of object URLs adopted by the Object Management Group (OMG) as part of the Interoperable Naming Service submission. The Oracle Tuxedo software also extends the URL format described in the OMG Interoperable Naming Service submission to support a secure form that is modeled after the URL for secure HTTP, as well as to support functionality in previous releases of the WebLogic Enterprise product.
+</p>
+<p class="pBody"><a name="wp1033656"> </a>
+<a href="writewle.html#wp1033665">Listing&#160;9-1</a> contains examples of the new URL address formats.
+</p>
+<div class="pCodeTitle"><a name="wp1033665"> </a>
+Listing&#160;9-1	   Examples of the corbaloc and corbalocs URL Address Formats
+</div> <a name="wp1033597"> </a><div class="pPreformatted"><pre><code class="cCode">corbaloc://555xyz.com:1024,corbaloc://555backup.com:1022,<br />corbaloc://555last.com:1999<br />corbalocs://555xyz.com:1024,(corbalocs://555backup.com:1022|corbalocs://555last.com:1999)<br />corbaloc://555xyz.com:1111<br />corbalocs://24.128.122.32:1011, corbalocs://24.128.122.34</code></pre></div><p class="pBody"><a name="wp1033599"> </a>
+As an enhancement to the URL syntax described in the OMG Interoperable Naming Service submission, the Oracle Tuxedo product extends the syntax to support a list of multiple URLs, each with a different scheme. <a href="writewle.html#wp1033802">Listing&#160;9-2</a> contains examples of specifying multiple URLs.
+</p>
+<div class="pCodeTitle"><a name="wp1033802"> </a>
+Listing&#160;9-2	   Examples of Specifying Multiple URL Address Formats
+</div> <a name="wp1033603"> </a><div class="pPreformatted"><pre>corba<code class="cCode">locs://555xyz.com:1024,corbaloc://555xyz.com:1111<br />corbalocs://ctxobj.com:3434,corbalocs://mthd.com:3434,corbaloc://force.com:1111</code></pre></div><p class="pBody"><a name="wp1033604"> </a>
+In the examples in <a href="writewle.html#wp1033802">Listing&#160;9-2</a>, if the parser reaches the URL<code class="cCode"> corbaloc://force.com:1111</code>, it resets its internal state as if it had never attempted secure connections, and then begins attempting unprotected connections. This situation occurs if the client application has not set any SSL parameters on the Credentials object.
+</p>
+<p class="pBody"><a name="wp1033803"> </a>
+The following sections describe the behavior when using the different address formats of the Bootstrap object.
+</p>
+<h3 class="pHeading2"><a name="wp1033217"> </a>
+Using the Host and Port Address Format
+</h3>
+<p class="pBody"><a name="wp1033224"> </a>
+If a CORBA client application uses the Host and Port address format of the Bootstrap object, the constructor method of the Bootstrap object constructs an object reference using the specified host name and port number. The invocation to the IIOP Listener/Handler is made without the protections offered by the SSL protocol. 
+</p>
+<p class="pBody"><a name="wp1033310"> </a>
+The client application can still authenticate using password authentication. However, since the bootstrapping process is performed over an unprotected and unverified link, all communications are vulnerable to the following security attacks:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1033323"> </a>The Man-in-the-Middle attack, because there was no verification that the principal to which the connection was made was the desired principal.</li>
+<li><a name="wp1033324"> </a>The Denial of Service attack, because no object references were returned, the object references returned were invalid, or the security token was invalid.</li>
+<li><a name="wp1033325"> </a>The Sniffer attack, because the information was sent in the clear so that anyone with a packet sniffer can see the content of a message that was not encrypted (for example, only the username/password information is encrypted).</li>
+<li><a name="wp1033326"> </a>The Tamper attack, because the integrity of the information is not protected. The contents of the message could be changed and the change would not be detected.</li>
+<li><a name="wp1033327"> </a>The Replay attack, because the same request can be sent repeatedly without detection.</li>
+</ul></div>
+<a name="wp1037134"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If the IIOP Listener/Handler is configured for the SSL protocol and the Host and Port address format of the Bootstrap object is used, the invocation on the specified CORBA object results in a <code class="cCode">INVALID_DOMAIN</code> exception.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1037135"> </a>
+Using the corbaloc URL Address Format
+</h3>
+<p class="pBody"><a name="wp1037477"> </a>
+By default, the invocation on the IIOP Listener/Handler is unprotected when using the <code class="cCode">corbaloc</code> URL address format and password authentication. Therefore, all communications are vulnerable to the following security attacks:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1037478"> </a>The Man-in-the-Middle attack, because there was no verification that the principal to which the connection was made was the desired principal.</li>
+<li><a name="wp1037479"> </a>The Denial of Service attack, because no object references were returned, the object references returned were invalid, or the security token was invalid.</li>
+<li><a name="wp1037480"> </a>The Sniffer attack, because the information was sent in the clear so that anyone with a packet sniffer can see the content of a message that was not encrypted (for example, only the username/password information is encrypted).</li>
+<li><a name="wp1037481"> </a>The Tamper attack, because the integrity of the information is not protected. The content of the message could be changed and the change would not be detected.</li>
+<li><a name="wp1037482"> </a>The Replay attack, because the same request can be sent repeatedly without detection.</li>
+</ul></div>
+<p class="pBody"><a name="wp1033469"> </a>
+You can protect the bootstrapping process when using the <code class="cCode">corbaloc</code> URL address format by using the <code class="cCode">SecurityLevel2::PrincipalAuthenticator::authenticate()</code> method, specifying that certificate authentication is to be used, and setting<span style="font-weight: bold"> </span>the <code class="cCode">invocation_methods_required</code> method on the Credentials object.
+</p>
+<a name="wp1033957"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If the IIOP Listener/Handler  is configured for the SSL protocol but not configured for certificate authentication and the <code class="cCode">corbaloc</code> URL address format is used, the invocation on the specified CORBA object results in an <code class="cCode">INVALID_DOMAIN</code> exception.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1034095"> </a>
+Oracle recommends that existing CORBA applications migrate to the <code class="cCode">corbaloc</code> URL address format instead of using the Host and Port Address format.
+</p>
+<h3 class="pHeading2"><a name="wp1034155"> </a>
+Using the corbalocs URL Address Format
+</h3>
+<p class="pBody"><a name="wp1034233"> </a>
+The <code class="cCode">corbalocs</code> URL address format is the recommended format to use to ensure that communications between principals and the IIOP Listener/Handler are protected. The <code class="cCode">corbalocs</code> URL address format functions in the same way as the <code class="cCode">corbaloc</code> URL address format, except the SSL protocol is used to protect all communications with the IIOP Listener/Handler or the CORBA C++ ORB regardless of the type of authentication used<span style="font-weight: bold">.</span> 
+</p>
+<p class="pBody"><a name="wp1038707"> </a>
+When the defaults are used with the <code class="cCode">corbalocs</code> URL address format, communications are vulnerable only to Denial of Service security attacks. Using the SSL protocol and certificate authentication guards against Sniffer, Tamper, and Replay attacks. In addition, the validation check of the host specified in the digital certificate guards against Man-in-the-Middle attacks.
+</p>
+<p class="pBody"><a name="wp1045323"> </a>
+To use the <code class="cCode">corbalocs</code> URL address format, the IIOP Listener/Handler or the CORBA C++ ORB must be configured to enable the use of the SSL protocol. For more information about configuring the IIOP Listener/Handler or the CORBA C++ ORB for the SSL protocol, see <a href="config.html"><span class="cHyperlink">
+Configuring the SSL Protocol on page&#160;6-1</span></a>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1045328"> </a>
+Using Password Authentication
+</h2><p class="pBody"><a name="wp1045329"> </a>
+This section describes implementing password authentication in a CORBA applications.
+</p>
+<h3 class="pHeading2"><a name="wp1032868"> </a>
+The Security Sample Application
+</h3>
+<p class="pBody"><a name="wp1034641"> </a>
+The Security sample application demonstrates password authentication. The Security sample application requires each student using the application to have an ID and a password. The Security sample application works in the following manner:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1034643"> </a>The client application has a logon method. This method invokes operations on the PrincipalAuthenticator object, which is obtained as part of the process of logging on to access the domain.</li>
+<li><a name="wp1034645"> </a>The server application implements a <code class="cCode">get_student_details()</code> method on the <code class="cCode">Registrar</code> object to return information about a student. After the user is authenticated and the logon is complete, the <code class="cCode">get_student_details()</code> method accesses the student information in the database to obtain the student information needed by the client logon method.</li>
+<li><a name="wp1034646"> </a>The database in the Security sample application contains course and student information.</li>
+</ol></div>
+<p class="pBody"><a name="wp1034651"> </a>
+<a href="writewle.html#wp1034653">Figure&#160;9-1</a> illustrates the Security sample application.
+</p>
+<div class="pFigureTitle"><a name="wp1034653"> </a>
+Figure&#160;9-1  Security Sample Application
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1034659"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/security_app.gif" height="316" width="534" alt="Security Sample Application" id="wp1043530"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1047330"> </a>
+The source files for the Security sample application are located in the <code class="cCode">\samples\corba\university </code>directory in the Oracle Tuxedo software. For information about building and running the Security sample application, see the <a href="../usamples/index.html">Guide to the CORBA University Sample Applications</a>.
+</p>
+<h3 class="pHeading2"><a name="wp1032874"> </a>
+Writing the Client Application
+</h3>
+<p class="pBody"><a name="wp1035138"> </a>
+When using password authentication, write client application code that does the following:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1035139"> </a>Uses the Bootstrap object to obtain a reference to the SecurityCurrent object for the specific Oracle Tuxedo domain. You can use the Host and Port Address format, the <code class="cCode">corbaloc</code> URL address format, or the <code class="cCode">corbalocs</code> URL address format.</li>
+<li><a name="wp1035143"> </a>Gets the PrincipalAuthenticator object from the SecurityCurrent object.</li>
+<li><a name="wp1035197"> </a>Uses one of the following methods to authenticate the principal:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1035316"> </a>C++&#8212;<code class="cCode">SecurityLevel2::PrincipalAuthenticator::authenticate() </code>using<code class="cCode"> Tobj::TuxedoSecurity</code></li>
+<li><a name="wp1035227"> </a>C++&#8212;<code class="cCode">Tobj::PrincipalAuthenticator::logon()</code></li>
+</ul></div>
+</ol></div>
+<p class="pBody"><a name="wp1035683"> </a>
+The <code class="cCode">SecurityLevel2::PrincipalAuthenticator</code> interface is defined in the CORBAservices Security Service specification. This interface contains two methods that are used to accomplish the authentication of the principal. There are two methods because authentication of principals may require more than one step. The <code class="cCode">authenticate()</code> method allows the caller to authenticate and optionally select attributes for the principal of this session.
+</p>
+<p class="pBody"><a name="wp1041205"> </a>
+The CORBA environment extends the PrincipalAuthenticator object with functionality to support similar security to that found in the ATMI environment in the Oracle Tuxedo product. The enhanced functionality is provided by the <code class="cCode">Tobj::PrincipalAuthenticator</code> interface.
+</p>
+<p class="pBody"><a name="wp1041209"> </a>
+The methods defined for the <code class="cCode">Tobj::PrincipalAuthenticator</code> interface provide a focused, simplified form of the equivalent CORBA-defined interface. You can use either the CORBA-defined or the Oracle Tuxedo extensions when developing a CORBA application.
+</p>
+<p class="pBody"><a name="wp1046263"> </a>
+The <code class="cCode">Tobj::PrincipalAuthenticator</code> interface provides the same functionality as the <code class="cCode">SecurityLevel2::PrincipalAuthenticator</code> interface. However, unlike the <code class="cCode">SecurityLevel2::PrincipalAuthenticator::authenticate()</code> method, the <code class="cCode">logon() </code>method of the<code class="cCode"> Tobj::PrincipalAuthenticator</code> interface does not return a Credentials object. As a result, CORBA applications that need to use more than one principal identity are required to call the <code class="cCode">Current::get_credentials()</code> method immediately after the<code class="cCode"> logon() </code>method to retrieve the Credentials object as a result of the logon. Retrieval of the Credentials object directly after a logon method should be protected with serialized access.
+</p>
+<a name="wp1046264"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The user data specified as part of the logon cannot contain embedded NULLs.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1046265"> </a>
+The following sections contain C++ code examples that illustrate implementing password authentication. For a Visual Basic code example, see <a href="auto.html"><span class="cHyperlink">
+Automation Security Reference on page&#160;16-1</span></a>.
+</p>
+<h4 class="pHeading3"><a name="wp1037876"> </a>
+C++ Code Example That Uses the  SecurityLevel2::PrincipalAuthenticator::authenticate() Method
+</h4>
+<p class="pBody"><a name="wp1037881"> </a>
+<a href="writewle.html#wp1035156">Listing&#160;9-3</a> contains C++ code that performs password authentication using the <code class="cCode">SecurityLevel2::PrincipalAuthenticator::authenticate()</code>method. 
+</p>
+<div class="pCodeTitle"><a name="wp1035156"> </a>
+Listing&#160;9-3	   C++ Client Application That Uses the SecurityLevel2::PrincipalAuthenticator::authenticate() Method
+</div> <a name="wp1035157"> </a><div class="pPreformatted"><pre><code class="cCode">...<br />//Create Bootstrap object<br /></code>&#160;&#160;&#160;&#160;&#160;<code class="cCode">Tobj_Bootstrap* bootstrap = new Tobj_Bootstrap</code>(orb, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;corbalocs://sling.com:2143);<br />//Get SecurityCurrent object<br />CORBA::Object_var var_security_current_oref =   <br />&#160;&#160;&#160;&#160;&#160;bootstrap.resolve_initial_references(&#8220;SecurityCurrent&#8221;);<br />SecurityLevel2::Current_var var_security_current_ref = <br />&#160;&#160;&#160;&#160;&#160;SecurityLevel2::Current::_narrow(var_security_current_oref.in());<br />//Get the PrincipalAuthenticator<br />SecurityLevel2::PrincipalAuthenticator_var var_principal_authenticator =<br />&#160;&#160;&#160;&#160;&#160;var_security_current_oref-&gt;principal_authenticator();<br /><br />const char * user_name = &#8220;john&#8221;<br />const char * client_name = &#8220;university&#8221;;<br />char system_password[31] = {‘\0&#8217;};<br />char user_password[31] = {‘\0&#8217;};<br /><br />Tobj::PrincipalAuthenticator_ptr var_bea_principal_authenticator =<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;	&#160;&#160;&#160;Tobj::PrincipalAuthenticator::_narrow(var_bea_principal_authenticator.in());<br /><br />//Determine the security level<br />Tobj::AuthType auth_type = var_bea_principal_authenticator-&gt;get_auth_type();<br />switch (auth_type)<br />{<br />&#160;&#160;&#160;case Tobj::TOBJ_NOAUTH;<br />&#160;&#160;&#160;break;<br /><br />&#160;&#160;&#160;case Tobj::TOBJ_SYSAUTH<br />&#160;&#160;&#160;strcpy(system_password, &#8220;sys_pw&#8221;);<br /><br />&#160;&#160;&#160;case Tobj::TOBJ_APPAUTH<br />&#160;&#160;&#160;strcpy(system_password, &#8220;sys_pw&#8221;);<br />&#160;&#160;&#160;strcpy(user_password, &#8220;john_pw&#8221;);<br />&#160;&#160;&#160;break;<br />}<br />if (auth_type != Tobj::TOBJ_NOAUTH)<br /><br />{<br />&#160;&#160;&#160;SecurityLevel2::Credentials_var					&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;creds;<br />&#160;&#160;&#160;&#160;&#160;Security::Opaque_var&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;auth_data;<br />&#160;&#160;&#160;&#160;&#160;Security::AttributeList_var&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;privileges;<br />&#160;&#160;&#160;&#160;&#160;Security::Opaque_var&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;cont_data;<br />&#160;&#160;&#160;&#160;&#160;Security::Opaque_var&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;auth_spec_data;<br /><br />var_bea_principalauthenticator-&gt;build_auth_data(user_name,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;client_name,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;system_password,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;user_password,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;auth_data,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;privileges);<br />Security::AuthenticationStatus status = <br />&#160;&#160;&#160;&#160;&#160;&#160;var_bea_principalauthenticator-&gt;authenticate(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Tobj::TuxedoSecurity,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;user_name,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;auth_data,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;privileges,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;creds,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;cont_data, auth_spec_data);<br /><br />if (status != Security::SecAuthSuccess)<br />&#160;{<br />&#160;&#160;&#160;&#160;//Failed authentication<br />&#160;&#160;&#160;&#160;return;<br />&#160;}<br />}<br />// Proceed with application<br />...<br /></pre></div><h4 class="pHeading3"><a name="wp1035360"> </a>
+C++ Code Example That Uses the Tobj::PrincipalAuthenticator::logon() Method
+</h4>
+<p class="pBody"><a name="wp1037921"> </a>
+<a href="writewle.html#wp1035182">Listing&#160;9-4</a> contains C++ code that performs password authentication using the <code class="cCode">Tobj::PrincipalAuthenticator::logon()</code>method.
+</p>
+<div class="pCodeTitle"><a name="wp1035182"> </a>
+Listing&#160;9-4	   C++ Client Application That Uses the Tobj::PrincipalAuthenticator::logon() Method
+</div> <a name="wp1035183"> </a><div class="pPreformatted"><pre><code class="cCode">...<br /></code>CORBA::Object_var var_security_current_oref =   <br />&#160;&#160;&#160;&#160;&#160;bootstrap.resolve_initial_references(&#8220;SecurityCurrent&#8221;);<br />SecurityLevel2::Current_var var_security_current_ref = <br />&#160;&#160;&#160;&#160;&#160;SecurityLevel2::Current::_narrow(var_security_current_oref.in());<br />//Get the PrincipalAuthenticator<br />SecurityLevel2::PrincipalAuthenticator_var var_principal_authenticator_oref =<br />&#160;&#160;&#160;&#160;&#160;var_security_current_oref-&gt;principal_authenticator();<br /><br /><code class="cCode">//Narrow the PrincipalAuthenticator<br />Tobj::PrincipalAuthenticator_var var_bea_principal_authenticator =<br /></code>&#160;&#160;&#160;&#160;&#160;<code class="cCode">Tobj::PrincipalAuthenticator::_narrow <br /></code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<code class="cCode">var_principal_authenticator_oref.in());<br /></code><br />const char * user_name = &#8220;john&#8221;<br />const char * client_name = &#8220;university&#8221;;<br />char system_password[31] = {‘\0&#8217;};<br />char user_password[31] = {‘\0&#8217;};<br /><br />//Determine the security level<br />Tobj::AuthType auth_type = var_bea_principal_authenticator-&gt;get_auth_type();<br />switch (auth_type)<br />{<br />&#160;&#160;&#160;case Tobj::TOBJ_NOAUTH;<br />&#160;&#160;&#160;break;<br /><br />&#160;&#160;&#160;case Tobj::TOBJ_SYSAUTH<br />&#160;&#160;&#160;strcpy(system_password, &#8220;sys_pw&#8221;);<br /><br />&#160;&#160;&#160;case Tobj::TOBJ_APPAUTH<br />&#160;&#160;&#160;&#160;strcpy(system_password, &#8220;sys_pw&#8221;);<br />&#160;&#160;&#160;&#160;strcpy(user_password, &#8220;john_pw&#8221;);<br />&#160;&#160;&#160;&#160;break;<br />}<br />if (auth_type != Tobj::TOBJ_NOAUTH)<br /><br />{<br />&#160;&#160;&#160;&#160;SecurityLevel2::Credentials_var					 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;creds;<br />&#160;&#160;&#160;&#160;&#160;Security::Opaque_var&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;auth_data;<br />&#160;&#160;&#160;&#160;&#160;Security::AttributeList_var&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;privileges;<br />&#160;&#160;&#160;&#160;&#160;Security::Opaque_var&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;cont_data;<br />&#160;&#160;&#160;&#160;&#160;Security::Opaque_var&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<b class="cBold">&#160;</b>auth_spec_data;<br /><br />//Determine the security level<br /><b class="cBold">Tobj::AuthType auth_type = var_bea_principal_authenticator-&gt;get_auth_type();<br />Security::AuthenticationStatus status = var_bea_principal_authenticator-&gt;logon(<br /></b>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<b class="cBold">&#160;user_name,<br /></b>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<b class="cBold">&#160;client_name,<br /></b>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<b class="cBold">&#160;system_password,<br /></b>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<b class="cBold">&#160;user_password,<br /></b>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<b class="cBold">&#160;0);<br /></b><br />if (status != Security::SecAuthSuccess)<br /> {<br />&#160;&#160;&#160;&#160;//Failed authentication<br />&#160;&#160;&#160;&#160;return;<br />&#160;}<br />}<br /><code class="cCode">// Proceed with application<br />...<br /></code><code class="cCodeBold">// Log off<br /></code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<code class="cCodeBold">try <br /></code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<code class="cCodeBold">{<br /></code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<code class="cCodeBold">logoff();<br /></code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<code class="cCodeBold">}<br /></code><code class="cCode">...</code></pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1049774"> </a>
+Using Certificate Authentication
+</h2><p class="pBody"><a name="wp1035691"> </a>
+This section describes implementing certificate authentication in CORBA applications.
+</p>
+<h3 class="pHeading2"><a name="wp1032908"> </a>
+The Secure Simpapp Sample Application
+</h3>
+<p class="pBody"><a name="wp1035756"> </a>
+The Secure Simpapp sample application uses the existing Simpapp sample application and modifies the code and configuration files to support secure communications through the SSL protocol and certificate authentication. 
+</p>
+<p class="pBody"><a name="wp1035765"> </a>
+The server application in the Secure Simpapp sample application provides an implementation of a CORBA object that has the following two methods:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1035766"> </a>The <code class="cCode">upper</code> method accepts a string from the client application and converts the string to uppercase letters. </li>
+<li><a name="wp1035767"> </a>The <code class="cCode">lower</code> method accepts a string from the client application and converts the string to lowercase letters.</li>
+</ul></div>
+</ul></div>
+<p class="pBody"><a name="wp1036497"> </a>
+The Simpapp sample application was modified in the following ways to support certificate authentication and the SSL protocol:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1036540"> </a>In the <code class="cCode">ISL</code> section of the <code class="cCode">UBBCONFIG</code> file, the <code class="cCode">-a</code>, <code class="cCode">-S</code>, <code class="cCode">-z</code>, and <code class="cCode">-Z</code> options of the ISL command are specified to configure the IIOP Listener/Handler for the SSL protocol.</li>
+<li><a name="wp1036541"> </a>In the<code class="cCode"> ISL</code> section of the <code class="cCode">UBBCONFIG</code> file, the <code class="cCode">SEC_PRINCIPAL_NAME</code>, the <code class="cCode">SEC_PRINCIPAL_LOCATION</code>, and the <code class="cCode">SEC_PRINCIPAL_PASSVAR</code> parameters are defined to specify proof material for the IIOP Listener/Handler.</li>
+<li><a name="wp1036549"> </a>The code for the CORBA client application uses the <code class="cCode">corbalocs</code> URL address format.</li>
+<li><a name="wp1036550"> </a>The code for the CORBA client application uses the <code class="cCode">authenticate()</code> method of the <code class="cCode">SecurityLevel2:PrincipalAuthenticator</code> interface to authenticate the principal and obtain credentials for the principals.</li>
+</ul></div>
+<p class="pBody"><a name="wp1036530"> </a>
+The source files for the C++ Secure Simpapp sample application are located in the <code style="font-weight: normal" class="cCode">\samples\corba\simpappSSL</code><span style="font-weight: bold"> </span>directory of the Oracle Tuxedo software. For instructions for building and running the Secure Simpapp sample application, see <a href="samples.html"><span class="cHyperlink">
+Building and Running the CORBA Sample Applications on page&#160;10-1</span></a>.
+</p>
+<h3 class="pHeading2"><a name="wp1032909"> </a>
+Writing the CORBA Client Application
+</h3>
+<p class="pBody"><a name="wp1035809"> </a>
+When using certificate authentication, write CORBA client application code that does the following:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1035822"> </a>Uses the Bootstrap object to obtain a reference to the SecurityCurrent object for the specific Oracle Tuxedo domain. Use the <code class="cCode">corbalocs</code> URL address format.</li>
+<li><a name="wp1035826"> </a>Gets the PrincipalAuthenticator object from the SecurityCurrent object.</li>
+<li><a name="wp1035829"> </a>Uses the <code class="cCode">authenticate()</code> method of the <code class="cCode">SecurityLevel2:PrincipalAuthenticator</code> interface to authenticate the principals and obtain credentials for the principals. When using certificate authentication, specify <code class="cCode">Tobj::CertificateBased</code> for the <code class="cCode">method</code> argument and the pass phrase for the private key as the <code class="cCode">auth_data</code> argument for<code class="cCode"> Security::Opaque</code>.</li>
+</ol></div>
+<p class="pBody"><a name="wp1032882"> </a>
+The following sections contain C++ code examples that illustrate implementing certificate authentication. 
+</p>
+<h4 class="pHeading3"><a name="wp1035836"> </a>
+C++ Code Example of Certificate Authentication
+</h4>
+<p class="pBody"><a name="wp1035885"> </a>
+<a href="writewle.html#wp1035887">Listing&#160;9-5</a> illustrates using certificate authentication in a CORBA C++ client application.
+</p>
+<div class="pCodeTitle"><a name="wp1035887"> </a>
+Listing&#160;9-5	   CORBA C++ Client Application That Uses Certificate Authentication
+</div> <a name="wp1035888"> </a><div class="pPreformatted"><pre>....<br />// Initialize the ORB<br />CORBA::ORB_var v_orb = CORBA::ORB_init(argc, argv, &quot;&quot;);<br />// Create the bootstrap object<br />Tobj_Bootstrap bootstrap(v_orb.in(), corbalocs://sling.com:2143);<br />// Resolve SecurityCurrent<br />CORBA::Object_ptr seccurobj = <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;bootstrap.resolve_initial_references(&quot;SecurityCurrent&quot;);<br />SecurityLevel2::Current_ptr seccur = <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SecurityLevel2::Current::_narrow(seccurobj);<br />// Perform certificate-based authentication<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;SecurityLevel2::Credentials_ptr						the_creds;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;Security::AttributeList_var					privileges;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Security::Opaque_var continuation_data;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Security::Opaque_var auth_specific_data;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Security::Opaque_var response_data;<br />//Principal email address<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;char emailAddress[] = &#8220;milozzi@bigcompany.com;&#8221;<br />// Pass phrase for principal&#8217;s digital certificate<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;char password[] = &#8220;asdawrewe98infldi7;&#8221;<br />// Convert the certificate private key password to opaque<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;unsigned long password_len = strlen(password);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Security::Opaque ssl_auth_data(password_len);<br />// Authenticate principal certificate with principal authenticator<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;for(int i = 0; (unsigned long) i &lt; password_len; i++)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ssl_auth_data[i] = password[i];<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Security::AuthenticationStatus auth_status;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SecurityLevel2::PrincipalAuthenticator_var PA = <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;seccur-&gt;principal_authenticator();<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;auth_status = PA-&gt;authenticate(Tobj::CertificateBased, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;emailAddress, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ssl_auth_data,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;privileges, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;the_creds, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;continuation_data, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;auth_specific_data);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;while(auth_status == Security::SecAuthContinue) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;auth_status = PA-&gt;continue_authentication(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;response_data,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;the_creds,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;continuation_data,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;auth_specific_data);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br />...</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1046315"> </a>
+Using the Interoperable Naming Service Mechanism
+</h2><a name="wp1046316"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This mechanism should be used with third-party client ORBs.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1046317"> </a>
+To use the Interoperable Naming Service mechanism to access the Oracle Tuxedo domain with the proper credentials, perform the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1046318"> </a>Use the <code class="cCode">ORB::resolve_initial_references()</code> operation to get a <code class="cCode">SecurityLevel2::PrincipalAuthenticator</code> object for the Oracle Tuxedo domain. The <code class="cCode">SecurityLevel2::PrincipalAuthenticator</code> object adheres to the standard CORBAservices Security Service instead of the proprietary Oracle delegated interfaces and contains methods for the purpose of authenticating principals.</li>
+<li><a name="wp1046319"> </a>Use the <code class="cCode">authenticate()</code> method of the <code class="cCode">SecurityLevel2::PrincipalAuthenticator</code> object to log on to the Oracle Tuxedo domain and authenticate the client ORB to the Oracle Tuxedo domain. If security credentials are required to access the Oracle Tuxedo domain, the <code class="cCode">authenticate()</code> method will return a status indicating that continued authentication is required.</li>
+<li><a name="wp1046320"> </a>Use the <code class="cCode">continue_authentication()</code> method of the <code class="cCode">SecurityLevel2::PrincipalAuthenticator</code> object to pass encyrpted logon and credential information to the Oracle Tuxedo domain.</li>
+</ol></div>
+<p class="pBody"><a name="wp1046321"> </a>
+For more information about using the CORBA Interoperable Naming Service (INS) mechanism, see the <span style="font-style: italic">CORBA Bootstrap Object Programming Reference</span><span style="font-style: normal"> </span>for the  <code class="cCode">SecurityLevel2::PrincipalAuthenticator</code> interface.
+</p>
+<h3 class="pHeading2"><a name="wp1048510"> </a>
+Protecting the Client Credentials
+</h3>
+<p class="pBody"><a name="wp1048511"> </a>
+The following information provides a sample that protects the client credentials before performing the step of continuing authentication. 
+</p>
+<p class="pBody"><a name="wp1048949"> </a>
+The following example assumes a Java client using J2SE v 1.4, accessing an Oracle Tuxedo application.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1048950"> </a>Add <code class="cCode">$TUXDIR/udataobj/java/jdk/tuxsecenv.jar</code> to your <code class="cCode">CLASSPATH</code>. </li>
+<li><a name="wp1048951"> </a>In your client code, call <code class="cCode">com.bea.protectLogonData()</code> before you call the <code class="cCode">PrincipalAuthenticator continue_authentication()</code> method. </li>
+<li><a name="wp1048952"> </a>The following is sample code that shows a <code class="cCode">protectLogonData()</code> call. This code depends on Java classes that are generated from these IDL files in <code class="cCode">$TUXDIR/include: security.idl, lcs.idl, ns.idl, tobj.idl</code>. </li>
+<div class="pCodeTitle"><a name="wp1048518"> </a>
+Listing 9-6	   Sample Client Code Using CORBA INS
+</div> <a name="wp1051536"> </a><div class="pPreformatted"><pre>&#160;&#160;try {<br />&#160;&#160;&#160;&#160;&#160;&#160;// Initialize the ORB.<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;ORB orb = ORB.init(args, null);<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;// Authentication<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;org.omg.CORBA.Object sec_obj =<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;orb.resolve_initial_references(&quot;PrincipalAuthenticator&quot;);<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;org.omg.SecurityLevel2.PrincipalAuthenticator pa =<br />&#160;&#160;&#160;&#160;&#160;&#160;org.omg.SecurityLevel2.PrincipalAuthenticatorHelper.narrow(sec_obj);<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;String userName = &quot;geni&quot;;<br />&#160;&#160;&#160;&#160;&#160;&#160;String clientName  = &quot;SimpleClient&quot;;<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;org.omg.Security.SecAttribute[] privilege =<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;new org.omg.Security.SecAttribute[1];<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;org.omg.SecurityLevel2.CredentialsHolder myCreds =<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;new org.omg.SecurityLevel2.CredentialsHolder();<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;org.omg.Security.OpaqueHolder cont_data =         // continuation data<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;new org.omg.Security.OpaqueHolder();<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;org.omg.Security.OpaqueHolder auth_data =         // auth specific data<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;new org.omg.Security.OpaqueHolder();<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;org.omg.Security.AuthenticationStatus status = pa.authenticate(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;1, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;userName, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;clientName.getBytes(), <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;privilege, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;myCreds,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;cont_data, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;auth_data<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;);<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;if (status.value() == 2) {<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// further authentication required<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;org.omg.SecurityLevel2.Credentials creds = myCreds.value;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;String secUid = new String(cont_data.value);<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;org.omg.Security.OpaqueHolder cont_data_2 =<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;new org.omg.Security.OpaqueHolder();<br />&#160;&#160;&#160;&#160;&#160;&#160;org.omg.Security.OpaqueHolder auth_data_2 =<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;new org.omg.Security.OpaqueHolder();<br />&#160;&#160;&#160;&#160;&#160;&#160;org.omg.Security.OpaqueHolder opqholder =<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;new org.omg.Security.OpaqueHolder();<br />&#160;&#160;&#160;&#160;&#160;&#160;byte[] ba0 = new byte[0];<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;String userPasswd = new String(&quot;abc123&quot;);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;String domainPasswd = new String(&quot;abc123&quot;);<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;//  encrypt the logon data<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;com.bea.LogonData td = new com.bea.LogonData();<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int rc = td.protectLogonData(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;userName, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;clientName, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;domainPasswd,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;userPasswd, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;secUid, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ba0, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;opqholder<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;);<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// continue authentication<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;status = pa.continue_authentication(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;opqholder.value, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;creds,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;cont_data_2, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;auth_data_2<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;);<br />&#160;&#160;&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;&#160;&#160;else {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;System.out.println(&quot;No security required&quot;);<br />&#160;&#160;&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;.<br /></pre></div></ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1035841"> </a>
+Using the Invocations_Options_Required() Method
+</h2><p class="pBody"><a name="wp1038592"> </a>
+When using certificate authentication, it may be necessary for a principal to explicitly define the security attributes it requires. For example, a bank application may have specific security requirements it needs to meet before the bank application can transfer data to a database. The <code class="cCode">invocation_options_required()</code> method of the <code class="cCode">SecurityLevel2::Credentials</code> interface allows the principal to explicitly control the security characteristics of the SSL connection. When using the <code class="cCode">corbaloc</code> URL address format, you can secure the bootstrapping process by using the <code class="cCode">authenticate()</code>and <code class="cCode">invocation_options_required()</code> methods of the <code class="cCode">SecurityLevel2::Credentials</code> interface.
+</p>
+<p class="pBody"><a name="wp1038605"> </a>
+To use the <code class="cCode">invocation_options_required()</code> method, complete the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1038593"> </a>Write application code that uses the <code class="cCode">authenticate() </code>method of the <code class="cCode">SecurityLevel2::PrincipalAuthenticator</code> object to specify certificate authentication is being used.</li>
+<li><a name="wp1038598"> </a>Use the<code class="cCode"> invocation_options_required()</code> method to specify the security attributes the principal requires. See the description of the <code class="cCode">invocation_options_required()</code> method in the <a href="cplus.html"><span class="cHyperlink">
+C++ Security Reference on page&#160;14-1</span></a> and <a href="javaref.html"><span class="cHyperlink">
+Java Security Reference on page&#160;15-1</span></a> for a complete list of security options.</li>
+</ol></div>
+<p class="pBody"><a name="wp1038603"> </a>
+<a href="writewle.html#wp1038614">Listing&#160;9-7</a> provides a C++ example that uses the <code class="cCode">invocation_options_required()</code> method.
+</p>
+<div class="pCodeTitle"><a name="wp1038614"> </a>
+Listing&#160;9-7	   C++ Example That Uses the invocation_options_required() Method
+</div> <a name="wp1040521"> </a><div class="pPreformatted"><pre>// Initialize the ORB<br />CORBA::ORB_var v_orb = CORBA::ORB_init(argc, argv, &quot;&quot;);<br />// Create the bootstrap object<br />Tobj_Bootstrap bootstrap(v_orb.in(), corbalocs://sling.com:2143);<br />// Resolve SecurityCurrent<br />CORBA::Object_ptr seccurobj = <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;bootstrap.resolve_initial_references(&quot;SecurityCurrent&quot;);<br />SecurityLevel2::Current_ptr seccur = <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SecurityLevel2::Current::_narrow(seccurobj);<br />// Perform certificate-based authentication<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SecurityLevel2::Credentials_ptr						the_creds;<br />Security::AttributeList_var					privileges;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Security::Opaque_var continuation_data;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Security::Opaque_var auth_specific_data;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Security::Opaque_var response_data;<br />//Principal email address<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;char emailAddress[] = &#8220;milozzi@bigcompany.com;&#8221;<br />// Pass phrase for principal&#8217;s digital certificate<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;char password[] = &#8220;asdawrewe98infldi7;&#8221;<br />// Convert the certificate private key password to opaque<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;unsigned long password_len = strlen(password);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Security::Opaque ssl_auth_data(password_len);<br />// Authenticate principal certificate with principal authenticator<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;for(int i = 0; (unsigned long) i &lt; password_len; i++)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ssl_auth_data[i] = password[i];<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Security::AuthenticationStatus auth_status;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SecurityLevel2::PrincipalAuthenticator_var PA = <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;seccur-&gt;principal_authenticator();<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;auth_status = PA-&gt;authenticate(Tobj::CertificateBased, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;emailAddress, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ssl_auth_data,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;privileges, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;the_creds, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;continuation_data, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;auth_specific_data);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<code style="font-weight: bold" class="cCodeBold">the_cre</code><span style="font-weight: bold">ds-&gt;invocation_options_required(<br /></span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-weight: bold">&#160;</span><span style="font-weight: bold">Security::Integrity|<br /></span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-weight: bold">&#160;</span><span style="font-weight: bold">Security::DetectReplay|<br /></span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-weight: bold">&#160;</span><span style="font-weight: bold">Security::DetectMisordering|<br /></span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-weight: bold">&#160;</span><span style="font-weight: bold">Security::EstablishTrustInTarget|<br /></span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-weight: bold">&#160;</span><span style="font-weight: bold">Security::EstalishTrustInClient|<br /></span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-weight: bold">&#160;</span><span style="font-weight: bold">Security::SimpleDelegation);<br /></span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;while(auth_status == Security::SecAuthContinue) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;auth_status = PA-&gt;continue_authentication(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;response_data,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;the_creds,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;continuation_data,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;auth_specific_data);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}</pre></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="writewle.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="secur3.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="samples.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

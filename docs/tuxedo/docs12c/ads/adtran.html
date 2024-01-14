@@ -1,0 +1,913 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="11" />
+<meta name="LOC_US_CHANGE" content="42015" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/ads/fm/adtran.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/29/12 11:10:26" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Configuring Your ATMI Application to Use Transactions</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Setting Up an Oracle Tuxedo Application
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="adtrn.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="adorac.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/ads.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1031878"> </a>
+Configuring Your ATMI Application to Use Transactions
+</h1>
+<p class="pBody"><a name="wp1028925"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023295"> </a><a href="adtran.html#wp1015807">Modifying the UBBCONFIG File to Accommodate ATMI Transactions</a></li>
+<li><a name="wp1024675"> </a><a href="adtran.html#wp1015279">Specifying Global Transaction Parameters in the RESOURCES Section</a></li>
+<li><a name="wp1024703"> </a><a href="adtran.html#wp1015299">Creating a Transaction Log (TLOG) in the MACHINES Section</a></li>
+<li><a name="wp1024753"> </a><a href="adtran.html#wp1027806">Defining Resource Managers and the Transaction Manager Server in the GROUPS Section</a></li>
+<li><a name="wp1024763"> </a><a href="adtran.html#wp1020406">Enabling a Service to Begin a Transaction in the SERVICES Section</a></li>
+<li><a name="wp1024784"> </a><a href="adtran.html#wp1015416">Modifying the Domains Configuration File to Support Transactions</a></li>
+<li><a name="wp1024804"> </a><a href="adtran.html#wp1030202">Example: A Distributed Application with Transactions</a></li>
+</ul></div>
+<a name="wp1028901"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For information about using transactions in an Oracle Tuxedo CORBA environment, refer to <em class="cEmphasis">Using CORBA Transactions</em>.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1015807"> </a>
+Modifying the UBBCONFIG File to Accommodate ATMI Transactions
+</h2><p class="pBody"><a name="wp1015274"> </a>
+To accommodate transactions, you must modify the <code class="cCode">RESOURCES</code>, <code class="cCode">MACHINES</code>, <code class="cCode">GROUPS</code>, and <code class="cCode">SERVICES</code> sections of the application <code class="cCode">UBBCONFIG</code> file in the following ways.
+</p>
+<p class="pGraphic"><a name="wp1015275"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025004table1025002">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1025004"> </a>
+In This Section . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1025006"> </a>
+Specify . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025008"> </a>
+<code class="cCode">RESOURCES</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025011"> </a>
+The number of transactions allowed in the application, and the value of the commit control flag.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025212"> </a>
+<code class="cCode">MACHINES</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025214"> </a>
+The <code class="cCode">TLOG</code> information for each machine.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025013"> </a>
+<code class="cCode">GROUPS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025018"> </a>
+Information about each resource manager, and about the Transaction Manager Server.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025247"> </a>
+<code class="cCode">SERVICES</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025249"> </a>
+Enabling of the automatic transaction option.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1015279"> </a>
+Specifying Global Transaction Parameters in the RESOURCES Section
+</h2><p class="pBody"><a name="wp1015280"> </a>
+The following table describes the transaction-related parameters in the <code class="cCode">RESOURCES</code> section.
+</p>
+<p class="pGraphic"><a name="wp1015298"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1015283table1015281">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1015283"> </a>
+<span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Set This Parameter . . .</span>
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1015285"> </a>
+<br />To . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015287"> </a>
+<code class="cCode">MAXGTT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015289"> </a>
+Limit the total number of global transaction identifiers (<code class="cCode">GTRID</code>s) allowed on one machine at one time. The maximum value allowed is <code class="cCode">2048</code>; the minimum, <code class="cCode">0</code>; and the default, <code class="cCode">100</code>. You can override the value of <code class="cCode">MAXGTT</code> on a per-machine basis in the <code class="cCode">MACHINES</code> section.
+</div>
+<div class="pCellBody"><a name="wp1015290"> </a>
+Entries remain in the table only while a global transaction is active, so this parameter has the effect of setting a limit on the number of simultaneous transactions.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015292"> </a>
+<code class="cCode">CMTRET</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015294"> </a>
+Indicate the initial setting of the <code class="cCode">TP_COMMIT_CONTROL</code> characteristic as one of the following:
+</div>
+<div class="pSmartList1TableBullet"><ul class="SmartList1TableBullet">
+<li><a name="wp1015295"> </a><code class="cCode">LOGGED</code>&#8212;the <code class="cCode">TP_COMMIT_CONTROL</code> characteristic is set to <code class="cCode">TP_CMT_LOGGED</code>, which means that <code class="cCode">tpcommit()</code> returns when all the participants have successfully pre-committed.</li>
+<li><a name="wp1020004"> </a><code class="cCode">COMPLETE</code>&#8212;the <code class="cCode">TP_COMMIT_CONTROL</code> characteristic is set to <code class="cCode">TP_CMT_COMPLETE</code>, which means that <code class="cCode">tpcommit()</code> does not return until all the participants have successfully committed. </li>
+</ul></div>
+<div class="pCellBody"><a name="wp1025346"> </a>
+The default is <code class="cCode">COMPLETE</code>.
+</div>
+<div class="pCellBody"><a name="wp1020005"> </a>
+To determine the appropriate setting, consult your resource manager (RM) vendors. If any RM in the application uses the<em class="cEmphasis"> late commit</em> implementation of the XA standard, the setting should be <code class="cCode">COMPLETE</code>. If all RMs use the <em class="cEmphasis">early commit</em> implementation, the setting should be <code class="cCode">LOGGED</code> for performance reasons. (You can override this setting with <code class="cCode">tpscmt()</code>.)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030073"> </a>
+<code class="cCode">MAXTRANTIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030114"> </a>
+Specify the maximum length of the timeout for the transactions.
+</div>
+<div class="pCellBody"><a name="wp1030115"> </a>
+Valid values are between 0 and 2,147,483,647 inclusive.
+</div>
+<div class="pCellBody"><a name="wp1030116"> </a>
+0 represents no limitation on transaction timeout value occurs.
+</div>
+<div class="pCellBody"><a name="wp1030075"> </a>
+Default is 0.
+</div>
+<p class="pTableNote"><a name="wp1030185"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For more information about <code class="cCode">MAXTRANTIME</code>, see <code class="cCode">MAXTRANTIME</code> in the <code class="cCode">RESOURCES</code> section in <code class="cCode">UBBCONFIG(5)</code> or <code class="cCode">TA_MAXTRANTIME</code> in the <code class="cCode">T_DOMAIN</code> class in <code class="cCode">TM_MIB(5)</code>.</td></tr>
+</table>
+</p>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1015299"> </a>
+Creating a Transaction Log (TLOG) in the MACHINES Section
+</h2><p class="pBody"><a name="wp1020297"> </a>
+To create a <code class="cCode">TLOG</code>, complete the following tasks:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1022492"> </a>Create a Universal Device List (UDL).</li>
+<li><a name="wp1022550"> </a>Define transaction-related parameters in the <code class="cCode">MACHINES</code> section.</li>
+<li><a name="wp1022571"> </a>Create a Domains transaction log.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1018941"> </a>
+Creating the UDL
+</h3>
+<p class="pBody"><a name="wp1018942"> </a>
+The Universal Device List (UDL) is a map of the Oracle Tuxedo filesystem. The UDL gets loaded into shared memory when an application is booted. The <code class="cCode">TLOG</code> refers to a log in which information about transactions is kept until the transaction is completed. To create an entry in the UDL for the <code class="cCode">TLOG</code> device, create a UDL on each machine using global transactions. (If the <code class="cCode">TLOGDEVICE</code> is mirrored between two machines, it is unnecessary to do this on the paired machine.) The Bulletin Board Liaison (BBL) then initializes and opens the <code class="cCode">TLOG</code> during the boot process.
+</p>
+<p class="pBody"><a name="wp1017735"> </a>
+To create a UDL, enter the following command before the application is booted:
+</p>
+<p class="pBody"><a name="wp1020300"> </a>
+<code class="cCode">tmadmin -c crdl -z </code><code class="cCodeEmphasis">config</code><code class="cCode"> -b </code><code class="cCodeEmphasis">blocks</code>
+</p>
+<a name="wp1027724"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The command fails if the device already exists.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1020301"> </a>
+The value of <code class="cCodeEmphasis">config</code><code class="cCode"> </code>must be the full pathname of the device on which you create the UDL. It should match the value of the <code class="cCode">TLOGDEVICE</code> parameter in the <code class="cCode">MACHINES</code> section of the configuration file. The value of <code class="cCodeEmphasis">blocks</code> must be the number of blocks to be allocated on the device.
+</p>
+<a name="wp1020400"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If the value of <code class="cCodeEmphasis">blocks</code> is less than the value of <code class="cCode">TLOGSIZE</code>, you risk a performance degradation. Therefore, you should specify a value for <code class="cCodeEmphasis">blocks</code> that is greater than that of <code class="cCode">TLOGSIZE</code>. For example, if <code class="cCode">TLOGSIZE</code> is specified as 200 blocks, specifying <code class="cCode">-b</code> <code class="cCode">500</code> does not cause a degradation.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1032457"> </a>
+For more information about storing the <code class="cCode">TLOG</code>, see <em class="cEmphasis">Installing the Oracle Tuxedo System</em>.
+</p>
+<h3 class="pHeading2"><a name="wp1032459"> </a>
+Defining Transaction-related Parameters in the MACHINES Section
+</h3>
+<p class="pBody"><a name="wp1018920"> </a>
+To define a global transaction log (<code class="cCode">TLOG</code>), you must set several parameters in the <code class="cCode">MACHINES</code> section of the <code class="cCode">UBBCONFIG</code> file. 
+</p>
+<p class="pBody"><a name="wp1032479"> </a>
+For one of these parameters, <code class="cCode">TLOGDEVICE</code>, you must manually create a device list entry for the <code class="cCode">TLOGDEVICE</code> on each machine where a <code class="cCode">TLOG</code> is needed. You can do this either before or after <code class="cCode">TUXCONFIG</code> has been loaded, but you must complete this step before the system is booted. 
+</p>
+<p class="pBody"><a name="wp1032480"> </a>
+The following table describes the transaction-related parameters in the <code class="cCode">MACHINES</code> section.
+</p>
+<p class="pGraphic"><a name="wp1032503"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1032483table1032481">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1032483"> </a>
+Set This Parameter . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1032485"> </a>
+To Specify . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032487"> </a>
+<code class="cCode">TLOGNAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032489"> </a>
+The name of the <code class="cCode">DTP</code> transaction log for the machine.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032491"> </a>
+<code class="cCode">TLOGDEVICE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032493"> </a>
+The Oracle Tuxedo filesystem that contains the <code class="cCode">DTP</code> transaction log (<code class="cCode">TLOG</code>) for the machine. If this parameter is not specified, it is assumed that there is no <code class="cCode">TLOG</code> on the machine. The value may contain a maximum of <code class="cCode">64</code> characters.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032495"> </a>
+<code class="cCode">TLOGSIZEE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032497"> </a>
+The size, in physical pages, of the <code class="cCode">TLOG</code> file. The value must be between <code class="cCode">1</code> and <code class="cCode">2048</code>; the default, <code class="cCode">100</code>. Assign a value that is large enough to hold the number of outstanding transactions on the machine at a given time. One transaction is logged per page. The default should be enough for most applications.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032499"> </a>
+<code class="cCode">TLOGOFFSET</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032501"> </a>
+The offset, in pages, from the beginning of the <code class="cCode">TLOGDEVICE</code> to the start of the <code class="cCode">VTOC</code> that contains the transaction log for the machine.The value must be greater than or equal to <code class="cCode">0</code>, and less than the number of pages on the device. The default is <code class="cCode">0</code>.
+</div>
+<div class="pCellBody"><a name="wp1032502"> </a>
+<code class="cCode">TLOGOFFSET</code> is rarely necessary. However, if two <code class="cCode">VTOCs</code> share the same device, or if a <code class="cCode">VTOC</code> is stored on a device (such as a filesystem) that is shared with another application, you can use <code class="cCode">TLOGOFFSET</code> to indicate a starting address relative to the address of the device.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1032519"> </a>
+Writing TLOG to an Oracle Database
+</h4>
+<p class="pBody"><a name="wp1032520"> </a>
+If you want to write tlog into an Oracle database, you <span style="font-style: italic">do not </span>need to create a UDL.<br />You must do the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1032521"> </a>Install Oracle database 10g client (or later), create link <code class="cCode">libclntsh.so</code> for <code class="cCode">libclntsh.so.x.x</code> (for example,<code class="cCode"> libclntsh.so.10.1</code>) and set <code class="cCode">LD_LIBRARY_PATH</code> for link<code class="cCode"> libclntsh.so</code> on Linux platform.</li>
+<li><a name="wp1032544"> </a>Set <code class="cCode">UBBCONFIG(5) TLOGDEVICE</code> or <code class="cCode">DMCONFIG(5) DMTLOGDEV </code>using the following format: &quot;<code class="cCode">DB:Oracle_XA: …</code>.&quot;.</li>
+<li><a name="wp1032522"> </a>Create tlog using the<code class="cCode"> tmadmin</code> and <code class="cCode">dmadmin</code> commands.</li>
+</ol></div>
+<a name="wp1032523"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>You can only write tlog to an Oracle database. Third party databases are not supported.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1032506"> </a>
+Creating the Domains Transaction Log
+</h3>
+<p class="pBody"><a name="wp1020305"> </a>
+Before starting a Domains gateway group, you must create a Domains transaction log. Specifically, you must create a Domains transaction log for the named local domain on the current machine (that is, the machine on which <code class="cCode">DMADM</code> is running). To create a log, enter the following command:
+</p>
+<p class="pBody"><a name="wp1025814"> </a>
+<code class="cCode">dmadmin </code><code class="cCodeEmphasis">crdmlog</code><code class="cCode"> </code><code class="cCodeEmphasis">crdlog</code><code class="cCode"> -d </code><code class="cCodeEmphasis">local_domain_name</code>
+</p>
+<p class="pBody"><a name="wp1025831"> </a>
+The command uses the parameters specified in the <code class="cCode">DMCONFIG</code> file. This command fails if the named local domain is active on the current machine or if a log already exists. If a transaction log has not been created, the Domains gateway group creates one when that group starts.
+</p>
+<h3 class="pHeading2"><a name="wp1027008"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1027803"> </a><span class="cHyperlink">
+<a href="../ada/admon.html">&#8220;What Is the Transaction Log (TLOG)?&#8221; </a></span>in <em class="cEmphasis">Administering an Oracle Tuxedo Application at Run Time</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1027806"> </a>
+Defining Resource Managers and the Transaction Manager Server in the GROUPS Section
+</h2><p class="pBody"><a name="wp1015325"> </a>
+The parameters available for <code class="cCode">GROUPS</code> section entries allow you to define the attributes of transaction manager servers (TMSs) and resource managers (RMs) for a particular group.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1015326"> </a>For a TMS, a server that performs most of the work that controls global transactions, you can define the following parameters:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1027133"> </a><code class="cCode">TMSNAME</code> contains the name of the executable for the transaction manager server associated with the group defined in the entry. The Oracle Tuxedo system provides a null transaction manager server called TMS, which is used by groups that participate in transactions, but do not use an RM. This TMS server does not communicate with any resource manager; it simply manages transactions without communicating with an RM.</li>
+<li><a name="wp1027134"> </a><code class="cCode">TMSCOUNT</code> contains the number of TMSs to be booted (minimum of 2, maximum of 10, default of 3).</li>
+</ul></div>
+<li><a name="wp1015327"> </a>For each resource manager you can define the <code class="cCode">OPENINFO</code> and <code class="cCode">CLOSEINFO</code> parameters. The value of each is a string that contains information needed to open or close a resource manager, respectively. Appropriate values for these parameters are supplied by RM vendors. For example, if you are using an Oracle database as your RM, you might supply the value shown in the following entry:</li>
+<a name="wp1028637"> </a><div class="pPreformattedRelative"><pre>OPENINFO=&#8221;ORACLE_XA:</pre></div><a name="wp1028657"> </a><div class="pPreformattedRelative"><pre>Oracle_XA+Acc=P/Scott/*****+SesTm=30+LogDit=/tmp&#8221;</pre></div></ul></div>
+<h3 class="pHeading2"><a name="wp1015328"> </a>
+Sample of the GROUPS Section
+</h3>
+<p class="pBody"><a name="wp1015329"> </a>
+The following sample entry is from the <code class="cCode">GROUPS</code> section in <code class="cCode">bankapp</code>, the sample banking application you received with the Oracle Tuxedo system.
+</p>
+<a name="wp1022857"> </a><div class="pPreformatted"><pre><code class="cCode">BANKB1 GRPNO=1 TMSNAME=TMS_SQL TMSCOUNT=2<br />OPENINFO=&#8221;TUXEDO/SQL:</code><code class="cCodeEmphasis">APPDIR</code><code class="cCode">/bankdl1:bankdb:readwrite&#8221;</code></pre></div><h4 class="pHeading3"><a name="wp1022858"> </a>
+Description of Transaction Values in the Sample GROUPS Section
+</h4>
+<p class="pBody"><a name="wp1020938"> </a>
+This table describes the transaction values shown in the sample GROUPS entry.
+</p>
+<p class="pGraphic"><a name="wp1015358"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1015335table1015333">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1015335"> </a>
+Transaction Value
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1015337"> </a>
+Purpose
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015339"> </a>
+<code class="cCode">BANKB1 GRPNO=1 TMSNAME=TMS_SQL TMSCOUNT=2 </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015341"> </a>
+Contains the name of the transaction manager server (<code class="cCode">TMS_SQL</code>), and the number (<code class="cCode">2</code>) of these servers to be booted in the group <code class="cCode">BANKB1</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015343"> </a>
+<code class="cCode">TUXEDO/SQL</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015345"> </a>
+Published name of the resource manager
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015347"> </a>
+<code class="cCodeEmphasis">APPDIR</code><code class="cCode">/bankdl1</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015349"> </a>
+Device name
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015351"> </a>
+<code class="cCode">bankdb</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015353"> </a>
+Database name
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015355"> </a>
+<code class="cCode">readwrite</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015357"> </a>
+Access mode
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1015359"> </a>
+Characteristics of the TMSNAME, TMSCOUNT, OPENINFO, and CLOSEINFO Parameters
+</h4>
+<p class="pBody"><a name="wp1020939"> </a>
+The following table lists the characteristics of the TMSNAME, TMSCOUNT, OPENINFO, and CLOSEINFO parameters.
+</p>
+<p class="pGraphic"><a name="wp1015383"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1015362table1015360">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1015362"> </a>
+Set This Parameter . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1015364"> </a>
+<br />To Specify the . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015366"> </a>
+<code class="cCode">TMSNAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015368"> </a>
+Name of the transaction manager server executable.
+</div>
+<div class="pCellBody"><a name="wp1015369"> </a>
+Required parameter for applications with transactions.
+</div>
+<div class="pCellBody"><a name="wp1015370"> </a>
+<code class="cCode">TMS</code> is a null transactional manager server.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015372"> </a>
+<code class="cCode">TMSCOUNT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015374"> </a>
+Number of transaction manager servers (must be between 2 and 10).
+</div>
+<div class="pCellBody"><a name="wp1015375"> </a>
+Default is 3. This parameter is optional.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015377"> </a>
+<code class="cCode">OPENINFO, CLOSEINFO</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015379"> </a>
+Information needed to open or close a resource manager.
+</div>
+<div class="pCellBody"><a name="wp1015380"> </a>
+Content depends on the resource manager.
+</div>
+<div class="pCellBody"><a name="wp1015381"> </a>
+Value starts with the name of the resource manager.
+</div>
+<div class="pCellBody"><a name="wp1015382"> </a>
+Omission means the RM needs no information to open or close.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1020406"> </a>
+Enabling a Service to Begin a Transaction in the SERVICES Section
+</h2><p class="pBody"><a name="wp1026105"> </a>
+In certain situations, you may want to set three transaction-related parameters&#8212;<code class="cCode">AUTOTRAN</code>, <code class="cCode">TRANTIME</code>, and <code class="cCode">ROUTING</code>&#8212;in the <code class="cCode">SERVICES</code> section.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1015386"> </a>If you want a transaction to be started by a service instead of a client, you must set the <code class="cCode">AUTOTRAN</code> flag to <code class="cCode">Y</code>. This setting is useful if a service is not needed as part of any larger transaction, and if the application wants to relieve the client of making transaction decisions. If the service is called when a transaction already exists, this call becomes part of it. (The default is <code class="cCode">N</code>.)</li>
+<a name="wp1015387"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Generally, clients are the best initiators of transactions because a service can participate in a larger transaction.</td>
+</tr>
+</table>
+
+<li><a name="wp1015388"> </a>If <code class="cCode">AUTOTRAN</code> is set to <code class="cCode">Y</code>, you must set the <code class="cCode">TRANTIME</code> parameter, which is the length of the timeout for transactions to be created. The value must be greater than or equal to <code class="cCode">0</code>, and must not exceed <code class="cCode">2,147,483,647</code> (th<span style="vertical-align: baseline">at is, 2</span><span style="vertical-align: super">31</span> - 1, or about 70 years). A value of zero implies there is no timeout for the transaction. (The default is <code class="cCode">30</code> seconds.)</li>
+<li><a name="wp1015389"> </a>You must define the <code class="cCode">ROUTING</code> parameter for transactions that use data-dependent routing.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1015390"> </a>
+Characteristics of the AUTOTRAN, TRANTIME, and ROUTING Parameters
+</h3>
+<p class="pBody"><a name="wp1020947"> </a>
+The following table lists the characteristics of the <code class="cCode">AUTOTRAN</code>, <code class="cCode">TRANTIME</code>, and <code class="cCode">ROUTING</code> parameters.
+</p>
+<p class="pGraphic"><a name="wp1015414"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1015393table1015391">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1015393"> </a>
+Set This Parameter . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1015395"> </a>
+<br />To . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015397"> </a>
+<code class="cCode">AUTOTRAN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015399"> </a>
+Make a service the initiator of a transaction.
+</div>
+<div class="pCellBody"><a name="wp1015400"> </a>
+To work properly, may be dependent on personal communication between the application designer and the application administrator. If the administrator sets this value to Y without prior knowledge of the ICF parameters set by the developer, the wrong application behavior, or failure of the application might be observed.
+</div>
+<div class="pCellBody"><a name="wp1027438"> </a>
+If a transaction already exists, a new one is not started. 
+</div>
+<div class="pCellBody"><a name="wp1015402"> </a>
+Default is <code class="cCode">N</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015404"> </a>
+<code class="cCode">TRANTIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015406"> </a>
+Specify the length of the timeout for the <code class="cCode">AUTOTRAN</code> transactions.
+</div>
+<div class="pCellBody"><a name="wp1015407"> </a>
+Valid values are between 0 and 2,147,483,647 inclusive.
+</div>
+<div class="pCellBody"><a name="wp1015408"> </a>
+0 represents no timeout.
+</div>
+<div class="pCellBody"><a name="wp1015409"> </a>
+Default is 30 seconds.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015411"> </a>
+<code class="cCode">ROUTING</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015413"> </a>
+Point to an entry in the <code class="cCode">ROUTING</code> section where data-dependent routing is specified for transactions that request this service.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1015416"> </a>
+Modifying the Domains Configuration File to Support Transactions
+</h2><p class="pBody"><a name="wp1020672"> </a>
+To enable transactions across domains, you need to set parameters in both the <code class="cCode">DM_LOCAL</code> and the <code class="cCode">DM_IMPORT</code> sections of the Domains configuration file (<code class="cCode">DMCONFIG</code>). Entries in the <code class="cCode">DM_LOCAL</code> section define local domain characteristics. Entries in the <code class="cCode">DM_IMPORT</code> section define services that are <em class="cEmphasis">imported</em>, or available from remote domains.
+</p>
+<h3 class="pHeading2"><a name="wp1015418"> </a>
+Characteristics of the DMTLOGDEV, DMTLOGNAME, DMTLOGSIZE, MAXRAPTRAN, and MAXTRAN Parameters
+</h3>
+<p class="pBody"><a name="wp1015419"> </a>
+The <code class="cCode">DM_LOCAL</code> section of the Domains configuration file identifies local domains and the gateway groups associated with them. For each gateway group (Local Domain), you must create an entry that specifies the parameters required for the Domains gateway processes running in that group. 
+</p>
+<p class="pBody"><a name="wp1019960"> </a>
+The following table describes the five transaction-related parameters in this section: <code class="cCode">DMTLOGDEV</code>, <code class="cCode">DMTLOGNAME</code>, <code class="cCode">DMTLOGSIZE</code>, <code class="cCode">MAXRAPTRAN</code>, and <code class="cCode">MAXTRAN</code>.
+</p>
+<p class="pGraphic"><a name="wp1015446"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1015422table1015420">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1015422"> </a>
+Set This Parameter . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1015424"> </a>
+<br />To Specify . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015426"> </a>
+<code class="cCode">DMTLOGDEV</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015428"> </a>
+The Oracle Tuxedo filesystem that contains the Domains transaction log (<code class="cCode">DMTLOG</code>) for this machine. The <code class="cCode">DMTLOG</code> is stored as an Oracle Tuxedo <code class="cCode">VTOC</code> table on the <code class="cCode">TLOGDEVICE</code> (an Oracle Tuxedo filesystem). If this parameter is not specified, the Domains gateway group is not allowed to process requests in transaction mode. Local domains running on the same machine can share the same <code class="cCode">DMTLOGDEV</code> filesystem, but a separate log (a table in the <code class="cCode">DMTLOGDEV</code>) must be created for each local domain. The name of each log is determined by the <code class="cCode">DMTLOGNAME</code> parameter.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015430"> </a>
+<code class="cCode">DMTLOGNAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015432"> </a>
+The name of the Domains transaction log for this domain. If this domain resides on the same filesystem as other local domains (as reflected by a common value for <code class="cCode">DMTLOGDEV</code>), then the value of <code class="cCode">DMTLOGNAME</code> must be unique for each log. The value may contain a maximum of 30 characters. The default is <code class="cCode">DMTLOG</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015434"> </a>
+<code class="cCode">DMTLOGSIZE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015436"> </a>
+The size, in pages, of the Domains transaction log for this machine. The value must be greater than zero and less than the amount of available space on the Oracle Tuxedo filesystem. The default is 100 pages. 
+</div>
+<p class="pTableNote"><a name="wp1015437"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The number of domains in a transaction determines the number of pages you must specify in the <code class="cCode">DMTLOGSIZE</code> parameter. There is no one-to-one mapping between transactions and log pages.</td></tr>
+</table>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015439"> </a>
+<code class="cCode">MAXRAPTRAN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015441"> </a>
+The maximum number of domains that can be involved in a transaction. It must be greater than zero and less than 32,768. The default is 16. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015443"> </a>
+<code class="cCode">MAXTRAN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1015445"> </a>
+The maximum number of simultaneous global transactions allowed in this local domain. It must be greater than or equal to zero, and less than or equal to the <code class="cCode">MAXGTT</code> parameter (which is defined in the configuration file). The default is the value of <code class="cCode">MAXGTT</code>.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1015447"> </a>
+Characteristics of the AUTOTRAN and TRANTIME Parameters
+</h3>
+<p class="pBody"><a name="wp1015448"> </a>
+The <code class="cCode">DM_IMPORT</code> section of the Domains configuration file provides information about services that are <em class="cEmphasis">imported</em> and thus available from remote domains. Each remote service is associated with a particular remote domain. 
+</p>
+<p class="pBody"><a name="wp1019973"> </a>
+You have the option of setting two parameters in the <code class="cCode">DM_IMPORT</code> section that support transactions: <code class="cCode">AUTOTRAN</code> and <code class="cCode">TRANTIME</code>. The following table describes these parameters.
+</p>
+<p class="pGraphic"><a name="wp1030517"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1030533table1030519">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1030533"> </a>
+This Parameter . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1030523"> </a>
+Is Used . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030525"> </a>
+<code class="cCode">AUTOTRAN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030527"> </a>
+By gateways to automatically start and terminate transactions for remote services. This capability is required if you want to enforce reliable network communication with remote services. To request this capability, set the <code class="cCode">AUTOTRAN</code> parameter to <code class="cCode">Y</code> in the entry for the appropriate remote service.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030529"> </a>
+<code class="cCode">TRANTIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030531"> </a>
+To specify the default timeout, in seconds, for a transaction automatically started for the service being defined. The value must be greater than or equal to zero, and less than 2147483648. A value of zero implies the maximum timeout value for the machine. The default is 30 seconds.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1030310"> </a>
+An additional transaction-timeout property named <code class="cCode">MAXTRANTIME</code> from the <code class="cCode">RESOURCES</code> section of the <code class="cCode">UBBCONFIG</code> file is also available. If the <code class="cCode">MAXTRANTIME</code> timeout value is less than the <code class="cCode">TRANTIME</code> timeout value or the timeout value passed in a <code class="cCode">tpbegin(3c)</code> call to start a transaction, the timeout for a transaction is reduced to the <code class="cCode">MAXTRANTIME</code> value. <code class="cCode">MAXTRANTIME</code> has no effect on a transaction started on a machine running Oracle Tuxedo 8.0 or earlier, except that when a machine running Oracle 8.1 or later is infected by the transaction, the transaction timeout value is capped&#8212;reduced if necessary&#8212;to the <code class="cCode">MAXTRANTIME</code> value configured for that node.
+</p>
+<p class="pBody"><a name="wp1030642"> </a>
+For a Domains configuration, the following transaction-handling scenarios are possible:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1030578"> </a>If an interdomain transaction infects a node that does not understand the <code class="cCode">MAXTRANTIME</code> parameter, or the node understands the <code class="cCode">MAXTRANTIME</code> parameter but the parameter is not set, the timeout value for the transaction is determined by <code class="cCode">TRANTIME</code> or by the timeout value passed in the <code class="cCode">tpbegin()</code> call that started the transaction. If the <code class="cCode">TRANTIME</code> or <code class="cCode">tpbegin()</code> timeout value is exceeded, all Oracle nodes infected with the transaction&#8212;including the node that started the transaction&#8212;generate a TMS timeout message.</li>
+<li><a name="wp1030314"> </a>If an interdomain transaction infects a node that understands the <code class="cCode">MAXTRANTIME</code> parameter and the parameter is set for that node, the timeout value for the transaction is reduced to no greater than the <code class="cCode">MAXTRANTIME</code> value on that node.</li>
+<p class="pBodyRelative"><a name="wp1030315"> </a>
+If the <code class="cCode">TRANTIME</code> or <code class="cCode">tpbegin()</code> timeout value is less than or equal to <code class="cCode">MAXTRANTIME</code>, the transaction-handling scenario becomes the one previously described.
+</p>
+<p class="pBodyRelative"><a name="wp1030316"> </a>
+If the <code class="cCode">TRANTIME</code> or <code class="cCode">tpbegin()</code> timeout value is greater than <code class="cCode">MAXTRANTIME</code>, the infected node reduces the timeout value for the transaction to <code class="cCode">MAXTRANTIME</code>. If the <code class="cCode">MAXTRANTIME</code> timeout value is exceeded, the infected node generates a TMS timeout message.
+</p>
+</ul></div>
+<p class="pBody"><a name="wp1030386"> </a>
+For more information about <code class="cCode">MAXTRANTIME</code>, see <code class="cCode">MAXTRANTIME</code> in the <code class="cCode">RESOURCES</code> section in <code class="cCode">UBBCONFIG(5)</code> or <code class="cCode">TA_MAXTRANTIME</code> in the <code class="cCode">T_DOMAIN</code> class in <code class="cCode">TM_MIB(5)</code>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1030202"> </a>
+Example: A Distributed Application with Transactions
+</h2><p class="pBody"><a name="wp1015464"> </a>
+This section provides sample entries from a configuration file that defines bankapp as an application that supports transactions and is distributed over three sites. The application is characterized by the following: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1020958"> </a>Data-dependent routing on <code class="cCode">ACCOUNT_ID</code></li>
+<li><a name="wp1020967"> </a>Data distributed over three databases</li>
+<li><a name="wp1020968"> </a><code class="cCode">BRIDGE</code> processes communicating with the system via the <code class="cCode">ATMI</code> interface</li>
+<li><a name="wp1020969"> </a>Application administration from one site</li>
+</ul></div>
+<p class="pBody"><a name="wp1020963"> </a>
+The file includes seven sections: <code class="cCode">RESOURCES</code>, <code class="cCode">MACHINES</code>, <code class="cCode">GROUPS</code>, <code class="cCode">NETWORK</code>, <code class="cCode">SERVERS</code>, <code class="cCode">SERVICES</code>, and <code class="cCode">ROUTING</code>. 
+</p>
+<h3 class="pHeading2"><a name="wp1015465"> </a>
+Sample RESOURCES Section
+</h3>
+<p class="pBody"><a name="wp1015466"> </a>
+The following listing shows a sample <code class="cCode">RESOURCES</code> section.
+</p>
+<div class="pCodeTitle"><a name="wp1021021"> </a>
+Listing&#160;4-1	   Sample RESOURCES Section
+</div> <a name="wp1021000"> </a><div class="pPreformatted"><pre><code class="cCode">*RESOURCES<br />#<br />IPCKEY       99999<br />UID          1<br />GID          0<br />PERM         0660<br />MAXACCESSERS 25<br />MAXSERVERS   25<br />MAXSERVICES  40<br />MAXGTT       20<br />MASTER       SITE3, SITE1<br />SCANUNIT     10<br />SANITYSCAN   12<br />BBLQUERY     180<br />BLOCKTIME    30<br />DBBLWAIT     6<br />OPTIONS      LAN, MIGRATE<br />MODEL        MP<br />LDBAL        Y</code></pre></div><p class="pBody"><a name="wp1015489"> </a>
+In the preceding listing, note the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1026652"> </a><code class="cCode">MAXSERVERS</code>, <code class="cCode">MAXSERVICES</code>, and <code class="cCode">MAXGTT</code> are set to values that are smaller than the defaults, which reduces the size of the bulletin board.</li>
+<li><a name="wp1026653"> </a>The <code class="cCode">MASTER</code> is <code class="cCode">SITE3</code> and the backup master is <code class="cCode">SITE1</code>.</li>
+<li><a name="wp1026654"> </a>It is possible to use a networked configuration with migration because <code class="cCode">MODEL</code> is set to <code class="cCode">MP</code> and <code class="cCode">OPTIONS</code> is set to <code class="cCode">LAN</code>, <code class="cCode">MIGRATE</code>.</li>
+<li><a name="wp1026680"> </a>Because <code class="cCode">BBLQUERY</code> is set to <code class="cCode">180</code> and <code class="cCode">SCANUNIT</code> is set to <code class="cCode">10</code>, the <code class="cCode">DBBL</code> will check the remote <code class="cCode">BBL</code>s every <code class="cCode">1800</code> seconds (that is, every half hour).</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1026646"> </a>
+Sample MACHINES Section
+</h3>
+<p class="pBody"><a name="wp1015490"> </a>
+The following listing shows a sample <code class="cCode">MACHINES</code> section.
+</p>
+<div class="pCodeTitle"><a name="wp1020012"> </a>
+Listing&#160;4-2	   Sample MACHINES Section 
+</div> <a name="wp1027069"> </a><div class="pPreformatted"><pre>*MACHINES<br />giselle      LMID=SITE1<br />             TUXDIR=&#8221;/usr/tuxedo&#8221;<br />             APPDIR=&#8221;/usr/home&#8221;<br />             ENVFILE=&#8221;/usr/home/ENVFILE&#8221;<br />             TLOGDEVICE=&#8221;/usr/home/TLOG&#8221;<br />             TLOGNAME=TLOG<br />             TUXCONFIG=&#8221;/usr/home/tuxconfig&#8221;<br />             TYPE=&#8221;3B600&#8221;<br /><br />romeo        LMID=SITE2<br />             TUXDIR=&#8221;/usr/tuxedo&#8221;<br />             APPDIR=&#8221;/usr/home&#8221;<br />             ENVFILE=&#8221;/usr/home/ENVFILE&#8221;<br />             TLOGDEVICE=&#8221;/usr/home/TLOG&#8221;<br />             TLOGNAME=TLOG<br />             TUXCONFIG=&#8221;/usr/home/tuxconfig&#8221;<br />             TYPE=&#8221;SEQUENT&#8221;<br /><br />juliet       LMID=SITE3<br />             TUXDIR=&#8221;/usr/tuxedo&#8221;<br />             APPDIR=&#8217;/usr/home&#8221;<br />             ENVFILE=&#8221;/usr/home/ENVFILE&#8221;<br />             TLOGDEVICE=&#8221;/usr/home/TLOG&#8221;<br />             TLOGNAME=TLOG<br />             TUXCONFIG=&#8221;/usr/home/tuxconfig&#8221;<br />             TYPE=&#8221;AMDAHL&#8221;<br /></pre></div><p class="pBody"><a name="wp1026783"> </a>
+In the preceding listing, note the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1026806"> </a><code class="cCode">TLOGDEVICE</code> and <code class="cCode">TLOGNAME</code> are specified, which implies that transactions will be done.</li>
+<li><a name="wp1026801"> </a>The <code class="cCode">TYPE</code> parameters are all different, which indicates that all messages sent between machines will be encoded and decoded.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1026753"> </a>
+Sample GROUPS and NETWORK Sections
+</h3>
+<p class="pBody"><a name="wp1026740"> </a>
+The following listing shows sample <code class="cCode">GROUPS</code> and <code class="cCode">NETWORK</code> sections.
+</p>
+<div class="pCodeTitle"><a name="wp1020171"> </a>
+Listing&#160;4-3	   Sample GROUPS and NETWORK Sections 
+</div> <a name="wp1015524"> </a><div class="pPreformatted"><pre>*GROUPS<br />DEFAULT:        TMSNAME=TMS_SQL       TMSCOUNT=2<br />BANKB1          LMID=SITE1            GRPNO=1<br /> OPENINFO=&#8221;TUXEDO/SQL:/usr/home/bankdl1:bankdb:readwrite&#8221;<br />BANKB2          LMID=SITE2            GRPNO=2<br /> OPENINFO=&#8221;TUXEDO/SQL:/usr/home/bankdl2:bankdb:readwrite&#8221;<br />BANKB3           LMID=SITE3            GRPNO=3<br /> OPENINFO=&#8221;TUXEDO/SQL:/usr/home/bankdl3:bankdb:readwrite&#8221;<br /><br />*NETWORK<br />SITE1            NADDR=&#8221;0X0002ab117B2D4359&#8221;<br />                 BRIDGE=&#8221;/dev/tcp&#8221;<br />                 NLSADDR=&#8221;0X0002ab127B2D4359&#8221;<br /><br />SITE2            NADDR=&#8221;0X0002ab117B2D4360&#8221;<br />                 BRIDGE=&#8221;/dev/tcp&#8221;<br />                 NLSADDR=&#8221;0X0002ab127B2D4360&#8221;<br /><br />SITE3            NADDR=&#8221;0X0002ab117B2D4361&#8221;<br />                 BRIDGE=&#8221;/dev/tcp&#8221;<br />                 NLSADDR=&#8221;0X0002ab127B2D4361&#8221;<br /></pre></div><p class="pBody"><a name="wp1017067"> </a>
+In the preceding listing, note the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1026837"> </a>The <code class="cCode">TMSCOUNT</code> is set to <code class="cCode">2</code>, which means that only two <code class="cCode">TMS_SQL</code> transaction manager servers will be booted per group.</li>
+<li><a name="wp1026863"> </a>The <code class="cCode">OPENINFO</code> string indicates that the application will perform database access.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1026831"> </a>
+Sample SERVERS, SERVICES, and ROUTING Sections
+</h3>
+<p class="pBody"><a name="wp1015546"> </a>
+The following listing shows sample <code class="cCode">SERVERS</code>, <code class="cCode">SERVICES</code>, and <code class="cCode">ROUTING</code> sections.
+</p>
+<div class="pCodeTitle"><a name="wp1020178"> </a>
+Listing&#160;4-4	   Sample SERVERS, SERVICES, and ROUTING Sections
+</div> <a name="wp1015550"> </a><div class="pPreformatted"><pre>*SERVERS<br />DEFAULT: RESTART=Y MAXGEN=5 REPLYQ=N CLOPT=&#8221;-A&#8221;<br />TLR      SRVGRP=BANKB1    SRVID=1    CLOPT=&#8221;-A -- -T 100&quot;<br />TLR      SRVGRP=BANKB2    SRVID=3    CLOPT=&#8221;-A -- -T 400&quot;<br />TLR      SRVGRP=BANKB3    SRVID=4    CLOPT=&#8221;-A -- -T 700&quot;<br />XFER     SRVGRP=BANKB1    SRVID=5    REPLYQ=Y<br />XFER     SRVGRP=BANKB2    SRVID=6    REPLYQ=Y<br />XFER     SRVGRP=BANKB3    SRVID=7    REPLYQ=Y<br /><br />*SERVICES<br />DEFAULT:    AUTOTRAN=N<br />WITHDRAW        ROUTING=ACCOUNT_ID<br />DEPOSIT         ROUTING=ACCOUNT_ID<br />TRANSFER        ROUTING=ACCOUNT_ID<br />INQUIRY         ROUTING=ACCOUNT_ID<br /><br />*ROUTING<br />ACCOUNT_ID      FIELD=ACCOUNT_ID     BUFTYPE=&#8221;FML&#8221;<br />                     RANGES=&#8221;MON - 9999:*,<br />                     10000 - 39999:BANKB1<br />                     40000 - 69999:BANKB2<br />                     70000 - 100000:BANKB3<br />                        &#8220;&#8221;</pre></div><p class="pBody"><a name="wp1027522"> </a>
+In the preceding listing, note the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1027523"> </a>Calls to the <code class="cCode">tpsvrinit()</code> function by <code class="cCode">TLR</code> servers will include a number (100, 400, or 700) specified with the <code class="cCode">-T</code> option.</li>
+<li><a name="wp1026917"> </a>All service requests are routed on the <code class="cCode">ACCOUNT_ID</code> field.</li>
+<li><a name="wp1026923"> </a>No services are performed in <code class="cCode">AUTOTRAN</code> mode.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1026910"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024896"> </a><a href="adtrn.html#wp1038681">What Is a Transaction?</a></li>
+<li><a name="wp1032245"> </a><a href="adorac.html">Using Tuxedo with Oracle Real Application Clusters (RAC)</a></li>
+<li><a name="wp1032248"> </a><span class="cHyperlink">
+<a href="../pgc/pgglob.html">&#8220;Writing Global Transactions&#8221; </a></span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em></li>
+<li><a name="wp1024988"> </a><span class="cHyperlink">
+&#8220;What You Can Do Usi</span><a href="../int/intatm.html"></a>ng the ATMI&#8221; in <em class="cEmphasis">Introducing Oracle Tuxedo ATMI</em></li>
+<li><a name="wp1028936"> </a>For more information about using transactions in an Oracle Tuxedo CORBA environment, refer to <em class="cEmphasis">Using CORBA Transactions</em></li>
+</ul></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="adtran.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="adtrn.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="adorac.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

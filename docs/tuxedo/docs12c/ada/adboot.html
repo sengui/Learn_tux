@@ -1,0 +1,594 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="5" />
+<meta name="LOC_US_CHANGE" content="41998" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/ada/fm/adboot.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/28/12 11:40:29" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Starting Up and Shutting Down an Application</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Administering an Oracle Tuxedo Application at Run Time
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="index.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="admon.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/ada.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1034924"> </a>
+Starting Up and Shutting Down an Application
+</h1>
+<p class="pBody"><a name="wp1033085"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024267"> </a><a href="adboot.html#wp1026188">The Tasks Involved in Starting Up and Shutting Down an Application</a></li>
+<li><a name="wp1026560"> </a><a href="adboot.html#wp1026604">How to Set Your Environment</a></li>
+<li><a name="wp1026388"> </a><a href="adboot.html#wp1026197">How to Create the TUXCONFIG File</a></li>
+<li><a name="wp1035551"> </a><a href="adboot.html#wp1033802">How to Start tlisten at All Sites</a></li>
+<li><a name="wp1026427"> </a><a href="adboot.html#wp1026209">How to Manually Propagate the Application-Specific Directories and Files</a></li>
+<li><a name="wp1026448"> </a><a href="adboot.html#wp1026237">How to Create a TLOG Device</a></li>
+<li><a name="wp1026460"> </a><a href="adboot.html#wp1026260">How to Boot the Application</a></li>
+<li><a name="wp1026484"> </a><a href="adboot.html#wp1026315">How to Shut Down Your Application</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1026188"> </a>
+The Tasks Involved in Starting Up and Shutting Down an Application
+</h2><p class="pBody"><a name="wp1026613"> </a>
+<a href="adboot.html#wp1026649">Figure&#160;1-1</a> illustrates the tasks required to start up and shut down your Oracle Tuxedo application.
+</p>
+<p class="pBody"><a name="wp1029521"> </a>
+Click on each of the following tasks for instructions on completing that task.
+</p>
+<div class="pFigureTitle"><a name="wp1026649"> </a>
+Figure&#160;1-1  Startup and Shutdown Tasks
+</div>
+
+ 
+ <p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1026604"> </a>
+How to Set Your Environment
+</h2><p class="pBody"><a name="wp1030074"> </a>
+Being able to access the Oracle Tuxedo executables and data libraries is essential to the job of managing a Oracle Tuxedo application. For example, the commands needed to start up or shut down an application are located in <code class="cCode">%TUXDIR%\bin</code> on a Windows<code class="cCode"> </code>host machine, and in <code class="cCode">$TUXDIR/bin</code> on a UNIX host machine.
+</p>
+<h3 class="pHeading2"><a name="wp1033568"> </a>
+On Windows
+</h3>
+<p class="pBody"><a name="wp1033707"> </a>
+On a Windows host machine, enter the following commands at the command prompt to set up your environment:
+</p>
+<a name="wp1033569"> </a><div class="pPreformatted"><pre>set TUXCONFIG=<code class="cCodeEmphasis">path_name_of_TUXCONFIG_file<br /></code>set TUXDIR=<code class="cCodeEmphasis">path_name_of_BEA_Tuxedo_system_root_directory<br /></code>set APPDIR=<code class="cCodeEmphasis">path_name_of_BEA_Tuxedo_application_root_directory<br /></code>set PATH=%APPDIR<code class="cCode">%</code>;%TUXDIR<code class="cCode">%</code>\bin;%PATH%</pre></div><p class="pBody"><a name="wp1033570"> </a>
+Replace the substitutable strings (italicized) with the absolute pathnames appropriate for your installation.
+</p>
+<p class="pBody"><a name="wp1033571"> </a>
+Windows accesses the required dynamically loadable library files through its <code class="cCode">PATH</code> variable setting. Specifically, Windows searches for dynamically loadable library files in the following order:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1033572"> </a>The directory from which the Oracle Tuxedo application was loaded</li>
+<li><a name="wp1033573"> </a>The current directory</li>
+<li><a name="wp1033574"> </a>The Windows system directory (for example, <code class="cCode">C:\Win2003\System32</code>)</li>
+<li><a name="wp1033575"> </a>The Windows directory (for example, <code class="cCode">C:\Win2003</code>)</li>
+<li><a name="wp1033576"> </a>The directories listed in the <code class="cCode">PATH</code> environment variable</li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1033738"> </a>
+On UNIX
+</h3>
+<p class="pBody"><a name="wp1029756"> </a>
+On a UNIX host machine, set and export the following environment variables to set up your environment:
+</p>
+<a name="wp1029757"> </a><div class="pPreformatted"><pre>TUXCONFIG=<code class="cCodeEmphasis">path_name_of_TUXCONFIG_file<br /></code>TUXDIR=<code class="cCodeEmphasis">path_name_of_BEA_Tuxedo_system_root_directory<br /></code>APPDIR=<code class="cCodeEmphasis">path_name_of_BEA_Tuxedo_application_root_directory<br /></code>PATH=$APPDIR:$TUXDIR/bin:/bin:$PATH<br />LD_LIBRARY_PATH=$APPDIR:$TUXDIR/lib:/lib:/usr/lib:$LD_LIBRARY_PATH<br />export TUXCONFIG TUXDIR APPDIR PATH LD_LIBRARY_PATH</pre></div><p class="pGraphic"><a name="wp1032633"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1029760table1029758">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1029760"> </a>
+On This Platform . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1029762"> </a>
+Make This change . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029772"> </a>
+HP-UX on the HP 9000
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029774"> </a>
+Use <code class="cCode">SHLIB_PATH</code> instead of <code class="cCode">LD_LIBRARY_PATH</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034217"> </a>
+AIX on the RS/6000
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034219"> </a>
+Use <code class="cCode">LIBPATH</code> instead of <code class="cCode">LD_LIBRARY_PATH</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1030136"> </a>
+Replace the substitutable strings (italicized) with the absolute pathnames appropriate for your installation.
+</p>
+<a name="wp1030338"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The application administrator defines the <code class="cCode">TUXCONFIG</code>, <code class="cCode">TUXDIR</code>, and <code class="cCode">APPDIR</code> environment variables in the <code class="cCode">MACHINES</code> section of the <code class="cCode">UBBCONFIG</code> file or the <code class="cCode">T_MACHINE</code> class of the <code class="cCode">TM_MIB</code> for each machine in an application. See the <a href="../rf5/rf5.html">UBBCONFIG(5)</a> or <a href="../rf5/rf5.html">TM_MIB(5)</a> reference page for a description of these environment variables.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1026197"> </a>
+How to Create the TUXCONFIG File
+</h2><p class="pBody"><a name="wp1034133"> </a>
+Each Oracle Tuxedo domain is controlled by a configuration file in which installation-dependent parameters are defined. The text version of the configuration file is referred to as <code class="cCode">UBBCONFIG.</code>The binary version of the <code class="cCode">UBBCONFIG</code> file is referred to as <code class="cCode">TUXCONFIG</code>. As with <code class="cCode">UBBCONFIG</code>, the <code class="cCode">TUXCONFIG</code> file may be given any name; the actual name is the device or system filename specified in the <code class="cCode">TUXCONFIG</code> environment variable.
+</p>
+<a name="wp1034162"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For information about the configuration file, refer to <a href="../rf5/rf5.html">UBBCONFIG(5)</a> in File Formats, Data Descriptions, MIBs, and System Processes Reference.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1034127"> </a>
+The <a href="../rfcm/rfcmd.html">tmloadcf(1)</a> command converts the text configuration file to a binary file called <code class="cCode">TUXCONFIG</code> and writes the new file to the location given in the <code class="cCode">TUXCONFIG</code> variable. Run the command as follows:
+</p>
+<a name="wp1026199"> </a><div class="pPreformatted"><pre>$ tmloadcf [-n] [-y] [-c] [-b <code class="cCodeEmphasis">blocks</code>] {<code class="cCodeEmphasis">UBBCONFIG_file</code> | - }</pre></div><a name="wp1026200"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>You must be logged in on the <code class="cCode">MASTER</code> machine and have the effective user ID of the configuration file owner.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1026201"> </a>
+The options shown here perform the following functions:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1026202"> </a><code class="cCode">-n</code> performs a syntax check only; reports errors</li>
+<li><a name="wp1026203"> </a><code class="cCode">-y</code> overwrites the existing <code class="cCode">TUXCONFIG</code> file without asking</li>
+<li><a name="wp1026204"> </a><code class="cCode">-c</code> calculates minimum interprocess communication (IPC) resources of the configuration.</li>
+<li><a name="wp1026205"> </a><code class="cCode">-b</code> limits the size of the <code class="cCode">TUXCONFIG</code> file</li>
+</ul></div>
+<p class="pBody"><a name="wp1026206"> </a>
+The <code class="cCode">-c</code> and <code class="cCode">-n</code> options do not load the <code class="cCode">TUXCONFIG</code> file. IPC resources are platform specific. If you use the <code class="cCode">-c</code> option, check the data sheet for your platform in the <em class="cEmphasis">Oracle Tuxedo Installation Guide</em> to judge whether you must make changes. If you do want to change IPC resources, check the administration documentation for your platform. If the <code class="cCode">-n</code> option checks for syntax errors in the configuration file, correct the errors before you proceed. (For <code class="cCodeEmphasis">UBBCONFIG_file</code>, substitute the fully qualified name of your configuration file.) 
+</p>
+<p class="pBody"><a name="wp1026207"> </a>
+The <code class="cCode">-b</code> option takes an argument that limits the number of blocks used to store the <code class="cCode">TUXCONFIG</code> file. Use it if you are installing <code class="cCode">TUXCONFIG</code> on a raw disk device that has not been initialized. The option is not recommended if <code class="cCode">TUXCONFIG</code> is stored in a regular UNIX system file.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1033802"> </a>
+How to Start tlisten at All Sites
+</h2><p class="pBody"><a name="wp1033803"> </a>
+For a networked application, a listener process must be running on each machine. A networked application is an application that runs on more than one machine, as established by the <code class="cCode">MODEL</code> <code class="cCode">MP</code> parameter in the <code class="cCode">RESOURCES</code> section of the application&#8217;s <code class="cCode">UBBCONFIG</code> file. 
+</p>
+<a name="wp1033804"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>You must define <code class="cCode">TUXDIR</code>, <code class="cCode">TUXCONFIG</code>, <code class="cCode">APPDIR</code>, and other relevant environment variables before starting <code class="cCode">tlisten</code>. </td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1033805"> </a>
+The port on which the process is listening must be the same as the port specified for <code class="cCode">NLSADDR</code> in the <code class="cCode">NETWORK</code> section of the configuration file. On each machine, use the <a href="../rfcm/rfcmd.html">tlisten(1)</a> command, as follows:
+</p>
+<a name="wp1033809"> </a><div class="pPreformatted"><pre>tlisten [ -d <code class="cCodeEmphasis">device</code> ] -l <code class="cCodeEmphasis">nlsaddr</code> [-u {<code class="cCodeEmphasis">uid-#</code> | <code class="cCodeEmphasis">uid-name</code>}] [ -z <code class="cCodeEmphasis">bits</code> ] [ -Z <code class="cCodeEmphasis">bits</code> ]</pre></div><p class="pBody"><a name="wp1033810"> </a>
+Example: <code class="cCode">tlisten -l //machine1:6500</code>
+</p>
+<h3 class="pHeading2"><a name="wp1033811"> </a>
+tlisten Command Options 
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1033812"> </a><code class="cCode">-d </code><code class="cCodeEmphasis">device</code>&#8212;the full pathname of the network device. For Oracle Tuxedo release 6.4 or later, this option is not required. For earlier versions of the Oracle Tuxedo system (up to release 6.3), some network providers (for example, TCP/IP) require this information.</li>
+<li><a name="wp1033813"> </a><code class="cCode">-l </code><code class="cCodeEmphasis">nlsaddr</code>&#8212;network address at which the process listens for connections. TCP/IP addresses may be specified in the following forms:   </li>
+<a name="wp1033814"> </a><div class="pPreformattedRelative"><pre>&quot;//hostname:port_number&quot;<br /><br />&quot;//#.#.#.#:port_number&quot; </pre></div><p class="pBodyRelative"><a name="wp1033815"> </a>
+In the first example, <code class="cCode">tlisten</code> finds an address for <code class="cCode">hostname</code> using the local name resolution facilities (usually DNS). <code class="cCode">hostname</code> must be the local machine, and the local name resolution facilities must unambiguously resolve <code class="cCode">hostname</code> to the address of the local machine.<br /><br />In the second example, the <code class="cCode">#.#.#.#</code> is in dotted decimal format. In dotted decimal format, each <code class="cCode">#</code> should be a number from 0 to 255. This dotted decimal number represents the IP address of the local machine. In both of the above formats, <code class="cCode">port_number</code> is the TCP port number at which the <code class="cCode">tlisten</code> process listens for incoming requests. <code class="cCode">port_number</code> can either be a number between 0 and 65535 or a name. If <code class="cCode">port_number</code> is a name, then it must be found in the network services database on your local machine. The address can also be specified in hexadecimal format when preceded by the characters <code class="cCode">0x</code>. Each character after the initial <code class="cCode">0x</code> is a number between 0 and 9 or a letter between A and F (case insensitive). The hexadecimal format is useful for arbitrary binary network addresses such as <code class="cCode">IPX/SPX</code> or <code class="cCode">TCP/IP</code>. The address can also be specified as an arbitrary string.The value should be the same as that specified for the <code class="cCode">NLSADDR</code> parameter in the <code class="cCode">NETWORK</code> section of the configuration file. 
+</p>
+<p class="pBodyRelative"><a name="wp1033819"> </a>
+<a href="../rfcm/rfcmd.html">tmloadcf(1)</a> prints an error if <code class="cCode">nlsaddr</code> is missing from any entry&#8212;except the entry for the <code class="cCode">MASTER</code> <code class="cCode">LMID</code>, for which it will print a warning. However, if <code class="cCode">nlsaddr</code> is missing from the <code class="cCode">MASTER</code> <code class="cCode">LMID</code> entry, <a href="../rfcm/rfcmd.html">tmadmin(1)</a> cannot be run in administrator mode on remote machines; it is limited to read-only operations. This also means that a backup site is unable to reboot the <code class="cCode">MASTER</code> site after failure. 
+</p>
+<li><a name="wp1033823"> </a><code class="cCode">-u </code><code class="cCodeEmphasis">uid-#</code> or <code class="cCodeEmphasis">uid-name</code>&#8212;used to run the <code class="cCode">tlisten</code> process as the indicated user. This option is required if the <a href="../rfcm/rfcmd.html">tlisten(1)</a> command is run by root on a remote machine. </li>
+<li><a name="wp1033827"> </a><code class="cCode">-z [</code><code class="cCodeEmphasis">bits</code><code class="cCode">]</code>&#8212;specifies the minimum level of encryption required when establishing a network link between a Oracle Tuxedo system administrative process and <code class="cCode">tlisten</code>. Zero (0) means no encryption, while 56 and 128 specify the length (in bits) of the encryption key. If this minimum level of encryption cannot be met, link establishment fails. The default is zero. </li>
+<li><a name="wp1033828"> </a><code class="cCode">-Z [</code><code class="cCodeEmphasis">bits</code><code class="cCode">]</code>&#8212;specifies the maximum level of encryption allowed when establishing a network link between a Oracle Tuxedo system administrative process and <code class="cCode">tlisten</code>. Zero (0) means no encryption, while 56 and 128 specify the length (in bits) of the encryption key. The default is 128. </li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1026209"> </a>
+How to Manually Propagate the Application-Specific Directories and Files
+</h2><p class="pBody"><a name="wp1026210"> </a>
+<code class="cCode">TUXCONFIG</code> is propagated automatically to all machines in your configuration by the Oracle Tuxedo system when you run <a href="../rfcm/rfcmd.html">tmboot(1)</a>. There are, however, other files that you need to propagate manually. Following is a list of the files and directories that you need to create for a networked application. First, install the Oracle Tuxedo system on the machine.
+</p>
+<a name="wp1033950"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The <code class="cCode">tlisten</code> process must be started on each machine of a networked Oracle Tuxedo application before the application is booted. Refer to the <a href="../rfcm/rfcmd.html">tlisten(1)</a> reference page.</td>
+</tr>
+</table>
+
+<a name="wp1033910"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>You must define <code class="cCode">TUXDIR</code>, <code class="cCode">TUXCONFIG</code>, <code class="cCode">APPDIR</code>, and other relevant environment variables before starting <code class="cCode">tlisten</code>.</td>
+</tr>
+</table>
+<p class="pBody"><a name="wp1035493"> </a>
+<a href="adboot.html#wp40712">Table&#160;1-1</a> shows the directories and files to propagate.
+</p>
+<p class="pGraphic"><a name="wp1026234"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp40712table1026212"><caption><a name="wp40712"> </a>
+Table 1-1  Directories and Files to Propagate
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1026214"> </a>
+Directory/File
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1026216"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026218"> </a>
+<code class="cCode">APPDIR</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026220"> </a>
+You must create the directory named in the <code class="cCode">APPDIR</code> variable on each node. It is easier if this directory has the same pathname on all nodes.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026222"> </a>
+Executables
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026224"> </a>
+You must build one set of application servers for each platform, and manually propagate the appropriate set to all machines running on each platform (that is, the Oracle Tuxedo system does not do this automatically). Store the executables in <code class="cCode">APPDIR</code>, or in a directory specified in a <code class="cCode">PATH</code> variable in <code class="cCode">ENVFILES</code> in the <code class="cCode">MACHINES</code> section of your configuration file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026226"> </a>
+Field tables<br /><code class="cCode">VIEW</code> tables
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026228"> </a>
+If <code class="cCode">FML</code> or <code class="cCode">VIEWS</code> buffer types are used, field tables and <code class="cCode">VIEW</code> description files must be manually propagated to the machines where they are used, and then recompiled. Use <a href="../rfcm/rfcmd.html">mkfldhdr, mkfldhdr32(1)</a> to make a header file out of a field table file; use <a href="../rfcm/rfcmd.html">viewc, viewc3</a><a href="../rfcm/rfcmd.html">2(1)</a> to compile a <code class="cCode">VIEW</code> file. The <code class="cCode">FML</code> field tables and <code class="cCode">VIEW</code> description files should be available through the environment variables <code class="cCode">FLDTBLDIR</code>, <code class="cCode">FIELDTBLS</code>, <code class="cCode">VIEWDIR</code>, and <code class="cCode">VIEWFILES</code>, or their 32-bit equivalents.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1026237"> </a>
+How to Create a TLOG Device
+</h2><p class="pBody"><a name="wp1026238"> </a>
+To create distributed transaction processing, you must have created a global transaction log (<code class="cCode">TLOG</code>) on each participating machine. To define a <code class="cCode">TLOG</code>, complete the following steps.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1027344"> </a>You must first set several parameters in the <code class="cCode">MACHINES</code> section of the configuration file: <code class="cCode">TLOGDEVICE</code>, <code class="cCode">TLOGOFFSET</code>, <code class="cCode">TLOGNAME</code>, and <code class="cCode">TLOGSIZE</code>.</li>
+<li><a name="wp1027373"> </a>You must also create a universal device list entry (UDL) for the <code class="cCode">TLOGDEVICE</code> on each participating machine. (You can do this task before or after loading <code class="cCode">TUXCONFIG</code>, but you must do so before booting the system.) To create an entry in the UDL for the <code class="cCode">TLOG</code> device, invoke <code class="cCode">tmadmin -c</code> on the <code class="cCode">MASTER</code> machine with the application inactive. (The <code class="cCode">-c</code> option invokes <code class="cCode">tmadmin</code> in configuration mode.)</li>
+<li><a name="wp1026240"> </a>Enter the command: </li>
+<a name="wp1026241"> </a><div class="pPreformattedRelative"><pre>crdl -z <code class="cCodeEmphasis">config</code> -b <code class="cCodeEmphasis">blocks</code></pre></div><p class="pBodyRelative"><a name="wp1026242"> </a>
+where <code class="cCode">-z </code><code class="cCodeEmphasis">config</code> specifies the full pathname for the device on which the UDL should be created (that is, where the <code class="cCode">TLOG</code> will reside) and <code class="cCode">-b </code><code class="cCodeEmphasis">blocks</code> specifies the number of blocks to be allocated on the device. The value of <code class="cCodeEmphasis">config</code> should match the value of the <code class="cCode">TLOGDEVICE</code> parameter in the <code class="cCode">MACHINES</code> section. The blocks must be larger than the <code class="cCode">TLOGSIZE</code>. If -<code class="cCode">z</code> is not specified, the value of <code class="cCodeEmphasis">config</code> defaults to the value of the variable <code class="cCode">FSCONFIG</code> (which points to the application&#8217;s databases).
+</p>
+<li><a name="wp1026243"> </a>Repeat steps 1 and 2 on each machine in your application that will use global transactions. </li>
+</ol></div>
+<p class="pBody"><a name="wp1026244"> </a>
+If the <code class="cCode">TLOGDEVICE</code> is mirrored between two machines, step 4 is not required on the paired machine. To be recoverable, the <code class="cCode">TLOG</code> should reside on a device that can be mirrored. Because the <code class="cCode">TLOG</code> is too small (typically, 100 pages) to warrant the allocation of a whole disk partition, the <code class="cCode">TLOG</code> is commonly stored on the same raw disk slice as the Oracle Tuxedo /Q database.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1026260"> </a>
+How to Boot the Application
+</h2><p class="pBody"><a name="wp1026261"> </a>
+Once all prerequisites have been completed successfully, you can bring up the application using <code class="cCode">tmboot</code>. Only the administrator who created the <code class="cCode">TUXCONFIG</code> file can execute <a href="../rfcm/rfcmd.html">tmboot(1)</a>. 
+</p>
+<p class="pBody"><a name="wp1026262"> </a>
+The application is generally booted from the machine designated as <code class="cCode">MASTER</code> in the <code class="cCode">RESOURCES</code> section of the configuration file or the <code class="cCode">BACKUP</code> acting as the <code class="cCode">MASTER</code>. The <code class="cCode">-b</code> option allows some deviation from this rule. For <code class="cCode">tmboot</code> to find executables, Oracle Tuxedo system processes such as the Bulletin Board Liason (BBL) must be located in <code class="cCode">$TUXDIR/bin</code>. Application servers should be in the directory defined by the <code class="cCode">APPDIR</code> variable, as specified in the configuration file. 
+</p>
+<p class="pBody"><a name="wp1033211"> </a>
+When booting application servers, <code class="cCode">tmboot</code> uses the <code class="cCode">CLOPT</code>, <code class="cCode">SEQUENCE</code>, <code class="cCode">SRVGRP</code>, <code class="cCode">SRVID</code>, and <code class="cCode">MIN</code> parameters from the configuration file. Application servers are booted in the order specified by the <code class="cCode">SEQUENCE</code> parameter, if <code class="cCode">SEQUENCE</code> is used. If <code class="cCode">SEQUENCE</code> is not specified, servers are booted in the order in which they appear in the configuration file. The command line should look something like the following: 
+</p>
+<a name="wp1033212"> </a><div class="pPreformatted"><pre>$ tmboot  [-g <code class="cCodeEmphasis">grpname</code>] [-o <code class="cCodeEmphasis">sequence</code>] [-S] [-A] [-y]</pre></div><p class="pBody"><a name="wp1035507"> </a>
+<a href="adboot.html#wp40758">Table&#160;1-2</a> lists the tmboot options.
+</p>
+<p class="pGraphic"><a name="wp1026295"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp40758table1026266"><caption><a name="wp40758"> </a>
+Table 1-2  tmboot Options
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1026268"> </a>
+This Option
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1026270"> </a>
+Performs This Function
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026272"> </a>
+<code class="cCode">-g </code><code class="cCodeEmphasis">grpname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026274"> </a>
+Boots all TMS and application servers in groups using this <code class="cCodeEmphasis">grpname</code> parameter.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026276"> </a>
+<code class="cCode">-o </code><code class="cCodeEmphasis">sequence</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026278"> </a>
+Boots all servers in the order shown in the <code class="cCode">SEQUENCE</code> parameter.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026280"> </a>
+<code class="cCode">-s </code><code class="cCodeEmphasis">server-name</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026282"> </a>
+Boots an individual server.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026284"> </a>
+<code class="cCode">-S</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026286"> </a>
+Boots all servers listed in the <code class="cCode">SERVERS</code> section.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026288"> </a>
+<code class="cCode">-A</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026290"> </a>
+Boots all administrative servers for machines listed in the <code class="cCode">MACHINES</code> section. This option ensures that the <code class="cCode">DBBL</code>, <code class="cCode">BBL</code>, and <code class="cCode">BRIDGE</code> processes are started in the proper order.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026292"> </a>
+ <code class="cCode">-y</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026294"> </a>
+Provides an automatic &#8220;yes&#8221; response to the prompt that asks whether all administrative and application servers should be booted. This prompt is displayed only if no options that limit the scope of the command (<code class="cCode">-g</code> <code class="cCodeEmphasis">grpname</code>, for example) are specified.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<a name="wp1026296"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For a complete list of <code class="cCode">tmboot</code> options, see the <a href="../rfcm/rfcmd.html">tmboot(1)</a> reference page. </td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1026297"> </a>
+Sequence of tmboot Tasks for a 2-Machine Configuration
+</h3>
+<p class="pBody"><a name="wp1026298"> </a>
+To boot the entire configuration, enter the following command: 
+</p>
+<a name="wp1033241"> </a><div class="pPreformatted"><pre><code class="cCodeEmphasis">prompt</code>&gt; <code class="cCode">tmboot -y</code></pre></div><p class="pBody"><a name="wp1026299"> </a>
+<code class="cCode">tmboot</code> performs the following tasks:
+</p>
+<p class="pBody"><a name="wp1035515"> </a>
+<a href="adboot.html#wp1026300">Figure&#160;1-2</a> lists the default boot sequence for a small application.
+</p>
+<div class="pFigureTitle"><a name="wp1026300"> </a>
+Figure&#160;1-2  Default Boot Sequence for a Small Application
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1026304"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/tmboot.gif" alt="Default Boot Sequence for a Small Application" id="wp1026302"/></div><p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1026305"> </a>
+Sequence of tmboot Tasks for Large Applications (Over 50 Machines)
+</h3>
+<p class="pBody"><a name="wp1026306"> </a>
+For relatively large applications (that is, those consisting of over 50 machines), <code class="cCode">tmboot</code> boots entire machines in a single step rather than performing all the steps used to boot two machines in the default sequence.<a href="adboot.html#wp1026307">Figure&#160;1-3</a> is the optimized sequence of tasks.
+</p>
+<div class="pFigureTitle"><a name="wp1026307"> </a>
+Figure&#160;1-3  Boot Sequence for a Large Application
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1026311"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/tmboot1.gif" alt="Boot Sequence for a Large Application" id="wp1026309"/></div><p class="pGraphic">
+
+</p>
+<a name="wp1026312"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The boot sequence is much faster for large applications because the number of system messages is far smaller. This method generally reduces boot time by 50%. In a configuration running on a slow network, boot time can be improved by booting machines with higher speed connections to the <code class="cCode">MASTER</code> machine first.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1026315"> </a>
+How to Shut Down Your Application
+</h2><p class="pBody"><a name="wp1026316"> </a>
+Use the <a href="../rfcm/rfcmd.html">tmshutdown(1)</a> command to shut down all or part of a Oracle Tuxedo application. The rules for running this command are similar to those for running <a href="../rfcm/rfcmd.html">tmboot(1)</a>; <code class="cCode">tmshutdown</code> is the inverse of <code class="cCode">tmboot</code>.
+</p>
+<p class="pBody"><a name="wp1026317"> </a>
+When the entire application is shut down, <code class="cCode">tmshutdown</code> removes the interprocess communication (IPC) resources associated with the Oracle Tuxedo system. The options used by <code class="cCode">tmboot</code> for partial booting (-<code class="cCode">A</code>, -<code class="cCode">g</code>, -<code class="cCode">I</code>, -<code class="cCode">S</code>, -<code class="cCode">s</code>, -<code class="cCode">l</code>, -<code class="cCode">M</code>, -<code class="cCode">B</code>) are supported in <code class="cCode">tmshutdown</code>. The -<code class="cCode">b</code> option (allowing <code class="cCode">tmboot</code> to be used from a non-<code class="cCode">MASTER</code> machine) is not supported for <code class="cCode">tmshutdown</code>; you must enter the <code class="cCode">tmshutdown</code> command from the <code class="cCode">MASTER</code> (or <code class="cCode">BACKUP</code> <code class="cCode">MASTER</code>) machine. 
+</p>
+<p class="pBody"><a name="wp1026318"> </a>
+To migrate servers, use the -<code class="cCode">R</code> option. This option shuts down the servers without removing bulletin board entries for them. If a machine is partitioned, run <code class="cCode">tmshutdown</code> with the -<code class="cCode">P</code> <code class="cCode">LMID</code> option on the partitioned machine to shut down the servers on that machine. 
+</p>
+<p class="pBody"><a name="wp1026319"> </a>
+<code class="cCode">tmshutdown</code> does not shut down the administrative server BBL on a machine to which clients are attached. You can use the -<code class="cCode">c</code> option to override this feature. You need this option for occasions when you must bring down a machine immediately and you cannot contact the clients.
+</p>
+<p class="pBody"><a name="wp1026320"> </a>
+You can use the -<code class="cCode">w</code> <code class="cCode">delay</code> option to force a hard shutdown after <code class="cCodeEmphasis">delay</code> seconds. This option suspends all servers immediately so that additional work cannot be queued. The value of <code class="cCodeEmphasis">delay</code> should allow time for requests already queued to be serviced. After <code class="cCodeEmphasis">delay</code> seconds, a <code class="cCode">SIGKILL</code> signal is sent to the servers. This option enables the administrator to shut down servers that are looping or blocked in application code. 
+</p>
+<h3 class="pHeading2"><a name="wp1026321"> </a>
+Running tmshutdown 
+</h3>
+<p class="pBody"><a name="wp1026322"> </a>
+Only the administrator who has written the <code class="cCode">TUXCONFIG</code> file can execute <a href="../rfcm/rfcmd.html">tmshutdown(1)</a>. The application can be shut down only from the machine designated as <code class="cCode">MASTER</code> in the configuration file. When the <code class="cCode">BACKUP</code> acts as <code class="cCode">MASTER</code>, it is considered to be the <code class="cCode">MASTER</code> for shutdown purposes. (The only exception to this rule is a partitioned machine. By using the -<code class="cCode">p</code> option, an administrator can run the <code class="cCode">tmshutdown</code> command from a partitioned machine to shut down the application at that site.) 
+</p>
+<p class="pBody"><a name="wp1027611"> </a>
+The order in which application servers are shut down is the reverse of the order specified by the <code class="cCode">SEQUENCE</code> parameter for them, or the reverse order in which they are listed in the configuration file. If some servers have <code class="cCode">SEQUENCE</code> numbers and others do not, the unnumbered servers are the first to be shut down, followed by the application servers with <code class="cCode">SEQUENCE</code> numbers (in reverse order). Finally, administrative servers are shut down. 
+</p>
+<p class="pBody"><a name="wp1027612"> </a>
+When an application is shut down, all the IPC resources allocated by the Oracle Tuxedo system are removed; <code class="cCode">tmshutdown</code> does not remove IPC resources allocated by the DBMS.
+</p>
+<h3 class="pHeading2"><a name="wp1027599"> </a>
+Using the IPC Tool When an Application Fails to Shut Down Properly
+</h3>
+<p class="pBody"><a name="wp1027567"> </a>
+IPC resources are operating system resources, such as message queues, shared memory, and semaphores. When a Oracle Tuxedo application shuts down properly with the <code class="cCode">tmshutdown</code> command, all IPC resources used by the Oracle Tuxedo application are removed from the system. In some cases, however, an application may fail to shut down properly and stray IPC resources may remain on the system. When this happens, it may not be possible to reboot the application. 
+</p>
+<p class="pBody"><a name="wp1027628"> </a>
+One way to address this problem is to remove IPC resources with a script that invokes the system <code class="cCode">IPCS</code> command and scan for all IPC resources owned by a particular user account. However, with this method, it is difficult to distinguish among different sets of IPC resources; some may belong to a particular Oracle Tuxedo application; and others to applications unrelated to the Oracle Tuxedo system. It is important to be able to distinguish among these sets of resources; unintentional removal of IPC resources can severely damage an application.
+</p>
+<p class="pBody"><a name="wp1027615"> </a>
+The Oracle Tuxedo IPC tool (that is, the tmipcrm(1) command) enables you to remove IPC resources allocated by the Oracle Tuxedo system (that is, for core Oracle Tuxedo and Workstation components only) in an active application. 
+</p>
+<p class="pBody"><a name="wp1027734"> </a>
+The command to remove IPC resources, tmipcrm(1), resides in <code class="cCode">TUXDIR/bin</code>. This command reads the binary configuration file (<code class="cCode">TUXCONFIG</code>), and attaches to the bulletin board using the information in this file. <code class="cCode">tmipcrm</code> works only on the local server machine; it does not clean up IPC resources on remote machines in a Oracle Tuxedo configuration.
+</p>
+<p class="pBody"><a name="wp1027781"> </a>
+To run this command, enter it as follows on the command line:
+</p>
+<a name="wp1027735"> </a><div class="pPreformatted"><pre>tmipcrm [-y] [-n] [<code class="cCodeEmphasis">TUXCONFIG_file</code>]</pre></div><p class="pBody"><a name="wp1026186"> </a>
+The IPC tool lists all IPC resources used by the Oracle Tuxedo system and gives you the option of removing them.
+</p>
+<a name="wp1027755"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td> This command will not work unless you have set the <code class="cCode">TUXCONFIG</code> environment variable correctly or specified the appropriate <code class="cCode">TUXCONFIG</code> file on the command line. </td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1029550"> </a>
+To remove /Q IPC resources, use the qmadmin(1) <code class="cCode">ipcrm</code> command.
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="adboot.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="index.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="admon.html"><img id="LongDescNotReq9" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

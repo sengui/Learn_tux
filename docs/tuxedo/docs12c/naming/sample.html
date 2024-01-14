@@ -1,0 +1,790 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/naming/fm/sample.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:17:57" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Using the CORBA Name Service Sample Application</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Using the CORBA Name Service
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="manage.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="prog.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/naming.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1028859"> </a>
+Using the CORBA Name Service Sample Application
+</h1>
+<p class="pBody"><a name="wp1022423"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1022994"> </a><a href="sample.html#wp1023060">How the Name Service Sample Application Works</a></li>
+<li><a name="wp1024122"> </a><a href="sample.html#wp1023055">Building and Running the Name Service Sample Application</a></li>
+</ul></div>
+<a name="wp1029393"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The Oracle Tuxedo CORBA Java client and Oracle Tuxedo CORBA Java client ORB were deprecated in Tuxedo 8.1 and are no longer supported. All Oracle Tuxedo CORBA Java client and Oracle Tuxedo CORBA Java client ORB text references, associated code samples, should only be used to help implement/run third party Java ORB libraries, and for programmer reference only.</td>
+</tr>
+</table>
+
+<a name="wp1029467"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>Technical support for third party CORBA Java ORBs should be provided by their respective vendors. Oracle Tuxedo does not provide any technical support or documentation for third party CORBA Java ORBs.</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023060"> </a>
+How the Name Service Sample Application Works
+</h2><p class="pBody"><a name="wp1023274"> </a>
+The CORBA Name Service sample application is a modification of the Simpapp sample application. This sample application provides a CORBA C++ client and server. The Name Service sample application uses a namespace to store the <code class="cCode">SimpleFactory</code> object. The server application creates the <code class="cCode">SimpleFactory</code> object and binds the object to the namespace. The client application connects to the namespace, resolves the name of the <code class="cCode">SimpleFactory</code> object, and then invokes methods on the <code class="cCode">SimpleFactory</code>. <a href="sample.html#wp1023070">Figure&#160;4-1</a> illustrates how the Name Service sample application works.
+</p>
+<div class="pFigureTitle"><a name="wp1023070"> </a>
+Figure&#160;4-1  The Name Service Sample Application
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1025172"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/nameapp.gif" height="259" width="530" alt="The Name Service Sample Application" id="wp1027536"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1023081"> </a>
+The Name Service sample application implements the CORBA interfaces listed in <a href="sample.html#wp1023088">Table&#160;4-1</a>:
+</p>
+<p class="pGraphic"><a name="wp1023112"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1023088table1023085"><caption><a name="wp1023088"> </a>
+Table 4-1  CORBA Interfaces for the Name Service Sample Application
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1023094"> </a>
+Interface
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023096"> </a>
+Description
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023098"> </a>
+Operation
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023100"> </a>
+<code class="cCode">SimpleFactory</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023102"> </a>
+Creates object references to the <code class="cCode">Simple</code> object
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023104"> </a>
+<code class="cCode">find_simple()</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023106"> </a>
+<code class="cCode">Simple</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023108"> </a>
+Converts the case of a string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023110"> </a>
+<code class="cCode">to_upper()</code>
+</div>
+<div class="pCellBody"><a name="wp1023111"> </a>
+<code class="cCode">to_lower()</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1023116"> </a>
+<a href="sample.html#wp1029503">Listing&#160;4-1</a> shows the <code class="cCode">simple.idl</code> file that defines the CORBA interfaces in the Name Service sample application.
+</p>
+<div class="pCodeTitle"><a name="wp1029503"> </a>
+Listing&#160;4-1	   OMG IDL Code for the Name Service Sample Application
+</div> <a name="wp1029504"> </a><div class="pPreformatted"><pre>#pragma prefix &quot;beasys.com&quot;<br />interface Simple<br />{<br />&#160;&#160;&#160;&#160;&#160;//Convert a string to lower case (return a new string)<br />&#160;&#160;&#160;&#160;&#160;string to_lower(in     string val);<br />&#160;&#160;&#160;&#160;&#160;//Convert a string to upper case (in place)<br />&#160;&#160;&#160;&#160;&#160;void to_upper(inout string val);<br />};<br />interface SimpleFactory<br />{<br />&#160;&#160;&#160;&#160;&#160;Simple find_simple();<br />};</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023055"> </a>
+Building and Running the Name Service Sample Application
+</h2><p class="pBody"><a name="wp1022425"> </a>
+To build and run the Name Service sample application, complete the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1022426"> </a>Copy the files for the Name Service sample application into a work directory.</li>
+<li><a name="wp1022427"> </a>Change the permissions on the files in the work directory.</li>
+<li><a name="wp1022428"> </a>Verify the locations defined in environment variables.</li>
+<li><a name="wp1022429"> </a>Execute the <code class="cCode">runme</code> command.</li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1022433"> </a>
+Step 1: Copy the Files for the Name Service Sample Application into a Work Directory
+</h3>
+<p class="pBody"><a name="wp1022434"> </a>
+Copy the files for the Name Service sample application into a work directory on your local machine. Running the sample application in a work directory allows you to identify the files that are created when the sample is executed. The following sections detail the directory location and sources files for the the Name Service sample application.
+</p>
+<h4 class="pHeading3"><a name="wp1022435"> </a>
+CORBA C++ Client and Server Version of the Name Service Sample Application
+</h4>
+<p class="pBody"><a name="wp1022437"> </a>
+The files for the Name Service sample application are located in the following directories:
+</p>
+<p class="pBody"><a name="wp1022439"> </a>
+<b class="cBold">Windows</b>
+</p>
+<p class="pBody"><a name="wp1022440"> </a>
+<code class="cCodeEmphasis">drive</code><code class="cCode">:</code><code class="cCodeEmphasis">\tuxdir</code><code class="cCode">\samples\corba\cnssimpapp</code>
+</p>
+<p class="pBody"><a name="wp1022441"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<p class="pBody"><a name="wp1022442"> </a>
+<code class="cCodeEmphasis">/usr/local/tuxdir</code><code class="cCode">/samples/corba/cnssimpapp</code>
+</p>
+<p class="pBody"><a name="wp1024342"> </a>
+Use the files listed in <a href="sample.html#wp1024346">Table&#160;4-2</a> to build and run the Name Service sample application.
+</p>
+<p class="pGraphic"><a name="wp1024393"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024346table1024343"><caption><a name="wp1024346"> </a>
+Table 4-2  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Files Included in the Name Service Sample Application&#160;</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1024350"> </a>
+File
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024352"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024354"> </a>
+<code class="cCode">simple.idl</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024356"> </a>
+The OMG IDL code that declares the <code class="cCode">Simple</code> and <code class="cCode">SimpleFactory</code> interfaces.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024358"> </a>
+<code class="cCode">simples.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024360"> </a>
+The C++ source code for the CORBA server application in the Name Service sample application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024362"> </a>
+<code class="cCode">simplec.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024364"> </a>
+The C++ source code for the CORBA client application in the  Name Service sample application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024366"> </a>
+<code class="cCode">simple_i.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024368"> </a>
+The C++ source code that implements the <code class="cCode">Simple</code> and <code class="cCode">SimpleFactory</code> methods.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024370"> </a>
+<code class="cCode">simple_i.h</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024372"> </a>
+The C++ header file that defines the implementation of the <code class="cCode">Simple</code> and <code class="cCode">SimpleFactory</code> methods.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024374"> </a>
+<code class="cCode">Readme.txt</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024376"> </a>
+Provides  information about building and running the C++ client and server of the Name Service sample application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024378"> </a>
+<code class="cCode">runme.cmd</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024380"> </a>
+The Windows command file that builds and runs the  Name Service sample application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024382"> </a>
+<code class="cCode">runme.ksh</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024384"> </a>
+The UNIX Korn shell script that builds and executes the Name Service sample application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024386"> </a>
+<code class="cCode">makefile.mk</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024388"> </a>
+The makefile for the Name Service sample application on UNIX operating systems. This file is used to build the Name Service sample application manually. See the <code class="cCode">Readme.txt</code> file for additional information. The location of the executable UNIX <code class="cCode">make</code> command must be defined in the PATH environment variable.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024390"> </a>
+<code class="cCode">makefile.nt</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024392"> </a>
+The makefile for the Name Service sample application on the Windows operating system. This makefile can be used directly by the Visual C++<code class="cCode"> nmake</code> command. This file is used to manually build the Name Service sample application. See the <code class="cCode">Readme.txt</code> file for more information. The location of the executable Windows <code class="cCode">nmake</code> command must be defined in the PATH environment variable.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1024929"> </a>
+Step 2: Change the Protection Attribute on the Files for the Name Service Sample Application
+</h3>
+<p class="pBody"><a name="wp1024930"> </a>
+The files for the sample application are installed with a permission level of read only. Before you can edit or build the files in the Name Service sample application, you must change the protection attribute of the files you copied into your work directory, as follows:
+</p>
+<p class="pBody"><a name="wp1022579"> </a>
+<b class="cBold">Windows</b>
+</p>
+<p class="pBody"><a name="wp1022580"> </a>
+<code class="cCode">prompt&gt; attrib -r</code><em class="cEmphasis"> </em><code class="cCodeEmphasis">drive</code><code class="cCode">:</code><em class="cEmphasis">\</em><code class="cCodeEmphasis">workdirectory</code><code class="cCode">\*.*</code>
+</p>
+<p class="pBody"><a name="wp1022581"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1022582"> </a><code class="cCode">prompt&gt; /bin/ksh</code></li>
+<li><a name="wp1022583"> </a><code class="cCode">ksh prompt&gt; chmod u+w /</code><code class="cCodeEmphasis">workdirectory</code><code class="cCode">/*.*</code></li>
+</ol></div>
+<p class="pBody"><a name="wp1022584"> </a>
+On UNIX platforms, you also need to change the permission of <code class="cCode">runme.ksh</code> to allow execute permission, as follows:
+</p>
+<p class="pBody"><a name="wp1022585"> </a>
+<code class="cCode">ksh prompt&gt; chmod +x runme.ksh</code>
+</p>
+<h3 class="pHeading2"><a name="wp1022588"> </a>
+Step 3: Verify the Settings of the Environment Variables
+</h3>
+<p class="pBody"><a name="wp1022590"> </a>
+Before running the Name Service sample application, you need to verify that certain environment variables are defined to correct locations. In most cases, these environment variables are set as part of the installation procedure. Some environment variables are set when you execute the <code class="cCode">runme</code> command. You need to check the environment variables to ensure they reflect correct information. 
+</p>
+<p class="pBody"><a name="wp1022594"> </a>
+<a href="sample.html#wp1022598">Table&#160;4-3</a> lists the environment variables required to run the Name Service sample application.
+</p>
+<p class="pGraphic"><a name="wp1022660"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1022598table1022595"><caption><a name="wp1022598"> </a>
+Table 4-3  Required Environment Variables for the Name Service Sample Application &#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1022602"> </a>
+Environment Variable
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1022604"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022606"> </a>
+<code class="cCode">APPDIR</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022608"> </a>
+Execution of the <code class="cCode">runme</code> command sets this environment variable to the absolute path name of the current directory. Execute the <code class="cCode">runme</code> command from the directory to which you copied the sample application files. For example:
+</div>
+<div class="pCellBody"><a name="wp1022609"> </a>
+<b class="cBold">Windows</b>
+</div>
+<div class="pCellBody"><a name="wp1022610"> </a>
+<code class="cCode">APPDIR=C:\workdirectory\cnssimpapp</code>
+</div>
+<div class="pCellBody"><a name="wp1022611"> </a>
+<b class="cBold">UNIX</b>
+</div>
+<div class="pCellBody"><a name="wp1022612"> </a>
+<code class="cCode">APPDIR=/usr/workdirectory/cnssimpapp</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022652"> </a>
+<code class="cCode">RESULTSDIR</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022654"> </a>
+Execution of the <code class="cCode">runme</code> command sets this environment variable to the <code class="cCode">results</code> directory, subordinate to the location defined by the <code class="cCode">APPDIR</code> environment variable.
+</div>
+<div class="pCellBody"><a name="wp1022655"> </a>
+<b class="cBold">Windows</b>
+</div>
+<div class="pCellBody"><a name="wp1022656"> </a>
+<code class="cCode">RESULTSDIR=%APPDIR%</code><code class="cCodeEmphasis">\</code><code class="cCode">results</code>
+</div>
+<div class="pCellBody"><a name="wp1022657"> </a>
+<b class="cBold">UNIX</b>
+</div>
+<div class="pCellBody"><a name="wp1025451"> </a>
+<code class="cCode">RESULTSDIR=$APPDIR</code><code class="cCodeEmphasis">\</code><code class="cCode">results</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026221"> </a>
+<code class="cCode">TUXCONFIG</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026224"> </a>
+Execution of the <code class="cCode">runme</code> command sets this environment variable to the directory path and filename of the configuration file.
+</div>
+<div class="pCellBody"><a name="wp1026225"> </a>
+<b class="cBold">Windows</b>
+</div>
+<div class="pCellBody"><a name="wp1026226"> </a>
+<code class="cCode">TUXCONFIG=%RESULTSDIR%\tuxconfig</code>
+</div>
+<div class="pCellBody"><a name="wp1026227"> </a>
+<b class="cBold">UNIX</b>
+</div>
+<div class="pCellBody"><a name="wp1026228"> </a>
+<code class="cCode">TUXCONFIG=$RESULTSDIR/tuxconfig</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1022661"> </a>
+To verify that the information for the environment variables defined during installation is correct, complete the following steps:
+</p>
+<p class="pBody"><a name="wp1022662"> </a>
+<b class="cBold">Windows</b>
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1022663"> </a>From the Start menu, select Settings.</li>
+<li><a name="wp1022664"> </a>From the Settings menu, select the Control Panel.</li>
+<p class="pBodyRelative"><a name="wp1022665"> </a>
+The Control Panel appears.
+</p>
+<li><a name="wp1022666"> </a>Click the System icon.</li>
+<p class="pBodyRelative"><a name="wp1022667"> </a>
+The System Properties window appears.
+</p>
+<li><a name="wp1022668"> </a>Click the Environment tab.</li>
+<p class="pBodyRelative"><a name="wp1022669"> </a>
+The Environment page appears.
+</p>
+<li><a name="wp1022670"> </a>Check the settings of the environment variables. </li>
+</ol></div>
+<p class="pBody"><a name="wp1022671"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<p class="pBody"><a name="wp1022672"> </a>
+<code class="cCode">ksh prompt&gt; printenv TUXDIR</code>
+</p>
+<p class="pBody"><a name="wp1022674"> </a>
+To change the settings, complete the following steps:
+</p>
+<p class="pBody"><a name="wp1022675"> </a>
+<b class="cBold">Windows</b>
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1022676"> </a>On the Environment page in the System Properties window, click the environment variable you want to change or enter the name of the environment variable in the <code class="cCode">Variable</code> field.</li>
+<li><a name="wp1022677"> </a>Enter the correct information for the environment variable in the<code class="cCode"> Value </code>field.</li>
+<li><a name="wp1022678"> </a>Click OK to save the changes.</li>
+</ol></div>
+<p class="pBody"><a name="wp1022679"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<p class="pBody"><a name="wp1022680"> </a>
+<code class="cCode">ksh prompt&gt; export TUXDIR=</code><code class="cCodeEmphasis">directorypath</code>
+</p>
+<h3 class="pHeading2"><a name="wp1022684"> </a>
+Step 4: Execute the runme Command
+</h3>
+<p class="pBody"><a name="wp1022686"> </a>
+The<code class="cCode"> runme</code> command completes the following steps end-to-end:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1022687"> </a>Sets the system environment variables.</li>
+<li><a name="wp1022691"> </a>Loads the <code class="cCode">UBBCONFIG</code> file.</li>
+<li><a name="wp1022693"> </a>Compiles the code for the client application.</li>
+<li><a name="wp1022696"> </a>Compiles the code for the server application.</li>
+<li><a name="wp1022697"> </a>Starts the server application using the <code class="cCode">tmboot</code> command.</li>
+<li><a name="wp1022699"> </a>Starts the client application.</li>
+<li><a name="wp1022700"> </a>Stops the server application using the <code class="cCode">tmshutdown</code> command.</li>
+</ol></div>
+<a name="wp1022701"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>You can also run the Name Service sample application manually. The steps for manually running the Name Service sample application are described in the <code class="cCode">Readme.txt</code> file.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1022702"> </a>
+To build and run the Name Service sample application, enter the <code class="cCode">runme</code> command, as follows:
+</p>
+<p class="pBody"><a name="wp1022703"> </a>
+<b class="cBold">Windows</b>
+</p>
+<p class="pBody"><a name="wp1022704"> </a>
+<code class="cCode">prompt&gt; cd </code><code class="cCodeEmphasis">workdirectory</code>
+</p>
+<p class="pBody"><a name="wp1022705"> </a>
+<code class="cCode">prompt&gt; runme</code>
+</p>
+<p class="pBody"><a name="wp1022706"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<p class="pBody"><a name="wp1022707"> </a>
+<code class="cCode">ksh prompt&gt; cd </code><code class="cCodeEmphasis">workdirectory</code>
+</p>
+<p class="pBody"><a name="wp1022708"> </a>
+<code class="cCode">ksh prompt&gt; ./runme.ksh</code>
+</p>
+<p class="pBody"><a name="wp1022709"> </a>
+When the Name Service sample application runs successfully from start to finish, this series of messages is printed:
+</p>
+<a name="wp1022710"> </a><div class="pPreformatted"><pre>Testing NameService simpapp<br />    cleaned up<br />    prepared<br />    built<br />    loaded ubb<br />    booted<br />    ran<br />    shutdown<br />    saved results<br />  PASSED</pre></div><p class="pBody"><a name="wp1022716"> </a>
+<a href="sample.html#wp1022720">Table&#160;4-4</a> lists the files in the work directory generated by the <code class="cCode">runme</code> command.
+</p>
+<p class="pGraphic"><a name="wp1022751"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1022720table1022717"><caption><a name="wp1022720"> </a>
+Table 4-4  C++ Files Generated by the runme Command
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1022724"> </a>
+File
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1022726"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022728"> </a>
+<code class="cCode">simple_c.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022730"> </a>
+Generated by the <code class="cCode">idl</code> command, this file contains the client stubs for the <code class="cCode">SimpleFactory</code> and <code class="cCode">Simple</code> interfaces.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022732"> </a>
+<code class="cCode">simple_c.h</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022734"> </a>
+Generated by the <code class="cCode">idl</code> command, this file contains the client definitions of the <code class="cCode">SimpleFactory</code> and <code class="cCode">Simple</code> interfaces. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022736"> </a>
+<code class="cCode">simple_s.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022738"> </a>
+Generated by the <code class="cCode">idl</code> command, this file contains the server skeletons for the <code class="cCode">SimpleFactory</code> and <code class="cCode">Simple</code> interfaces. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022740"> </a>
+<code class="cCode">simple_s.h</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022742"> </a>
+Generated by the <code class="cCode">idl</code> command, this file contains the server definition for the <code class="cCode">SimpleFactory</code> and <code class="cCode">Simple</code> interfaces.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022744"> </a>
+<code class="cCode">.adm/.keybd</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022746"> </a>
+A file that contains the security encryption key database. The subdirectory is created by the <code class="cCode">tmloadcf </code>command in the <code class="cCode">runme</code> command.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026118"> </a>
+<code class="cCode">results</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026120"> </a>
+A directory created by the <code class="cCode">runme</code> command, subordinate to the location defined by the APPDIR environment variable.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1022827"> </a>
+<a href="sample.html#wp1022831">Table&#160;4-5</a> lists files in the <code class="cCode">results</code> directory generated by the <code class="cCode">runme</code> command.
+</p>
+<p class="pGraphic"><a name="wp1022886"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1022831table1022828"><caption><a name="wp1022831"> </a>
+Table 4-5  Files in the results Directory Generated by the runme Command&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1022835"> </a>
+File
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1022837"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022839"> </a>
+<code class="cCode">input</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022841"> </a>
+Contains the input that the <code class="cCode">runme</code> command provides to the Java client application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022843"> </a>
+<code class="cCode">output</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022845"> </a>
+Contains the output produced when the<code class="cCode"> runme</code> command executes the Java client application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022847"> </a>
+<code class="cCode">expected_output</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022849"> </a>
+Contains the output that is expected when the Java client application is executed by the <code class="cCode">runme</code> command. The data in the <code class="cCode">output</code> file is compared to the data in the <code class="cCode">expected_output</code> file to determine whether or not the test passed or failed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022851"> </a>
+<code class="cCode">log</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022853"> </a>
+Contains the output generated by the <code class="cCode">runme</code> command. If the <code class="cCode">runme</code> command fails, check this file for errors.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022855"> </a>
+<code class="cCode">setenv.cmd</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022857"> </a>
+Contains the commands to set the environment variables needed to build and run the Java Name Service sample application on the Windows operating system platform.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022859"> </a>
+<code class="cCode">setenv.ksh</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022861"> </a>
+Contains the commands to set the environment variables needed to build and run the Java Name Service sample application on UNIX operating system platforms.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022863"> </a>
+<code class="cCode">stderr</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022865"> </a>
+Output from commands generated by the <code class="cCode">tmboot</code> command, which is executed by the <code class="cCode">runme</code> command. If the -noredirect JavaServer option is specified in the UBBCONFIG file, the System.err.println method sends the output to the stderr file instead of to the ULOG file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022867"> </a>
+<code class="cCode">stdout</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022869"> </a>
+Output generated by the <code class="cCode">tmboot</code> command, which is executed by the <code class="cCode">runme</code> command. If the -noredirect JavaServer option is specified in the UBBCONFIG file, the System.out.println method sends the output to the stdout file instead of to the ULOG file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022871"> </a>
+<code class="cCode">tmsysevt.dat</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022873"> </a>
+Contains filtering and notification rules used by the <code class="cCode">TMSYSEVT</code> (system event reporting) process. This file is generated by the <code class="cCode">tmboot</code> command in the <code class="cCode">runme</code> command.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022875"> </a>
+<code class="cCode">tuxconfig</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022877"> </a>
+A binary version of the <code class="cCode">UBBCONFIG</code> file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022879"> </a>
+<code class="cCode">ubb</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022881"> </a>
+The <code class="cCode">UBBCONFIG</code> file for the Java Name Service sample application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022883"> </a>
+<code class="cCode">ULOG.</code><code class="cCodeEmphasis">date</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022885"> </a>
+A log file that contains messages generated by the <code class="cCode">tmboot</code> command.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="sample.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="manage.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="prog.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

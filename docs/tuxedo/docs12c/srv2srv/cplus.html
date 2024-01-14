@@ -1,0 +1,1071 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/srv2srv/fm/cplus.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:45:57" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Developing C++ Joint Client/Server Applications</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Using CORBA Server-to-Server Communication
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="over.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="java.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/srv2srv.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1057845"> </a>
+Developing C++ Joint Client/Server Applications
+</h1>
+<p class="pBody"><a name="wp1020919"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1041834"> </a><a href="cplus.html#wp1020920">Development Process</a></li>
+<li><a name="wp1041853"> </a><a href="cplus.html#wp1037882">Chat Room Sample Application</a></li>
+<li><a name="wp1041872"> </a><a href="cplus.html#wp1020922">Step 1: Writing the OMG IDL</a></li>
+<li><a name="wp1054231"> </a><a href="cplus.html#wp1020923">Step 2: Generating Skeletons and Client Stubs</a></li>
+<li><a name="wp1054232"> </a><a href="cplus.html#wp1035361">Step 3: Writing the Methods That Implement the Operations for Each Object</a></li>
+<li><a name="wp1054236"> </a><a href="cplus.html#wp1023318">Step 4: Writing the Client Portion of the Joint Client/Server Application</a></li>
+<li><a name="wp1041948"> </a><a href="cplus.html#wp1032005">Step 5: Creating a Callback Object Using the Callbacks Wrapper Object</a></li>
+<li><a name="wp1041967"> </a><a href="cplus.html#wp1023645">Step 6: Invoking Operations on an Object by Passing a Reference to the Callback Object</a></li>
+<li><a name="wp1042292"> </a><a href="cplus.html#wp1033267">Step 7: Specifying Configuration Information</a></li>
+<li><a name="wp1042609"> </a><a href="cplus.html#wp1033275">Step 8: Compiling Joint Client/Server Applications</a></li>
+<li><a name="wp1042926"> </a><a href="cplus.html#wp1033317">Using the POA to Create a Callback Object</a></li>
+<li><a name="wp1043243"> </a><a href="cplus.html#wp1028617">Threading Considerations for C++ Joint Client/Server Applications</a></li>
+<li><a name="wp1030634"> </a><a href="cplus.html#wp1021021">Building and Running the Chat Room Sample Application</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1020920"> </a>
+Development Process
+</h2><p class="pBody"><a name="wp1027608"> </a>
+<a href="cplus.html#wp13069">Table&#160;2-1</a> outlines the development process for C++ joint client/server applications.
+</p>
+<p class="pGraphic"><a name="wp1021312"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp13069table1021329"><caption><a name="wp13069"> </a>
+Table 2-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Development Process for C++ Joint Client/Server Applications</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1021331"> </a>
+Step
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1021333"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1021335"> </a>
+1
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1021337"> </a>
+Write the OMG IDL for the callback interface and for the CORBA interfaces you want to use in your Oracle Tuxedo application. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1021339"> </a>
+2
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1021341"> </a>
+Generate the skeletons and client stubs. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031234"> </a>
+3
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031236"> </a>
+Write the methods that implement the operations for each object.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1021343"> </a>
+4
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1021345"> </a>
+Write the client portion of the joint client/server application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1021347"> </a>
+5
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1021349"> </a>
+Create a callback object using the Callbacks Wrapper object.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030964"> </a>
+6
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030966"> </a>
+Invoke operations on an Oracle Tuxedo object by passing the object reference for the callback object.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030912"> </a>
+7
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1021353"> </a>
+Specify configuration information.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027653"> </a>
+8
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027655"> </a>
+Compile the joint client/server application.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1035436"> </a>
+These steps are explained in detail in subsequent topics.
+</p>
+<p class="pBody"><a name="wp1043567"> </a>
+Because the callback object in a joint client/server application is not transactional and has no object management capabilities, you do not need to create an Implementation Configuration File (<code class="cCodeEmphasis">filename</code><code class="cCode">.icf</code>) for it. However, you still need to create an ICF file for the Oracle Tuxedo objects in your Oracle Tuxedo application. For information about writing an ICF file, see <a href="../cservers/index.html">Creating CORBA Server Applications</a>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1037882"> </a>
+Chat Room Sample Application
+</h2><p class="pBody"><a name="wp1021492"> </a>
+Throughout this topic, the Chat Room sample application is used to demonstrate the development steps. A chat room is an application that allows several people at different locations to communicate with each other. Think of the chat room as a moderator whose job it is to keep track of client applications that have logged in, and to distribute messages to those client applications. 
+</p>
+<p class="pBody"><a name="wp1043653"> </a>
+A client application logs in to the moderator, supplying a username. When messages are entered at the keyboard, the client application invokes the moderator, and passes the messages to the moderator. The moderator then distributes the messages to all the other client applications by making an invocation on the callback object. 
+</p>
+<p class="pBody"><a name="wp1021655"> </a>
+The Chat Room sample application consists of a C++ joint client/server application and an Oracle Tuxedo server application. The joint client/server application receives keyboard input and makes invocations on the moderator. The joint client/server application also sets up the callback object to listen for messages from the moderator (that is, to receive invocations from the moderator). The Oracle Tuxedo server application in the Chat Room sample application implements the moderator.
+</p>
+<p class="pBody"><a name="wp1021696"> </a>
+<a href="cplus.html#wp1047273">Figure&#160;2-1</a> illustrates how the Chat Room sample application works.
+</p>
+<div class="pFigureTitle"><a name="wp1047273"> </a>
+Figure&#160;2-1  How the Chat Room Sample Application Works
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1047274"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/chatroom.gif" alt="How the Chat Room Sample Application Works" id="wp1055764"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1055760"> </a>
+The Chat Room sample application works as follows:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1044060"> </a>The joint client/server application implements the logic for the callback object (the Listener object), creates a servant for the Listener object, and activates the Listener object. </li>
+<li><a name="wp1021763"> </a>The joint client/server application creates an object reference for the Listener object and passes it to the Moderator object as part of the <code class="cCode">signon</code> operation.</li>
+<li><a name="wp1021796"> </a>The server application in the Chat Room sample application checks the keyboard for messages.</li>
+<li><a name="wp1021813"> </a>When messages are generated at the keyboard, the Chat Room sample application sends the messages to the Moderator object via the <code class="cCode">send </code>operation.</li>
+<li><a name="wp1021830"> </a>The Chat Room sample application temporarily passes control over to the ORB to allow the Listener object in the joint client/server application to receive <code class="cCode">post</code> invocations from the Moderator object.</li>
+<li><a name="wp1021918"> </a>The Listener object in the joint client/server application saves the posted messages until a client application requests them.</li>
+</ol></div>
+<p class="pBody"><a name="wp1023654"> </a>
+The source files for the Chat Room sample application are located in the <code class="cCodeEmphasis">TUXDIR\</code><code class="cCode">samples\corba\chatroom </code>directory in the Oracle Tuxedo software directory. See <a href="cplus.html#wp1021021">&quot;Building and Running the Chat Room Sample Application&quot; on page&#160;-23</a> for more information.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1020922"> </a>
+Step 1: Writing the OMG IDL
+</h2><p class="pBody"><a name="wp1030828"> </a>
+You use Object Management Group (OMG) Interface Definition Language (IDL) to describe available CORBA interfaces to client applications. An interface definition written in OMG IDL completely defines the CORBA interface and fully specifies each operation&#8217;s arguments. OMG IDL is a purely declarative language. This means that it contains no implementation details. For more information about OMG IDL, see <a href="../creclient/index.html"><em class="cEmphasis">Creating CORBA Client Applications</em></a>.
+</p>
+<p class="pBody"><a name="wp1030822"> </a>
+The Chat Room sample application implements the CORBA interfaces listed in <a href="cplus.html#wp1022285">Table&#160;2-2</a>.
+</p>
+<p class="pGraphic"><a name="wp1022275"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1022285table1022283"><caption><a name="wp1022285"> </a>
+Table 2-2  CORBA Interfaces for the Chat Room Sample Application
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1022291"> </a>
+Interface
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1022293"> </a>
+Description
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1022295"> </a>
+Operation
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022297"> </a>
+<code class="cCode">Listener</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022299"> </a>
+The callback object
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022301"> </a>
+<code class="cCode">post()</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022303"> </a>
+<code class="cCode">Moderator</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022305"> </a>
+Receives input from client applications and uses the callback object to forward messages back to the joint client/server application
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022307"> </a>
+<code class="cCode">signon()</code>
+</div>
+<div class="pCellBody"><a name="wp1022462"> </a>
+<code class="cCode">send()</code>
+</div>
+<div class="pCellBody"><a name="wp1022463"> </a>
+<code class="cCode">signoff()</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022309"> </a>
+<code class="cCode">ModeratorFactory</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022311"> </a>
+Creates object references to the Moderator object
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022313"> </a>
+<code class="cCode">get_moderator()</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1022625"> </a>
+<a href="cplus.html#wp1022630">Listing&#160;2-1</a> shows the <code class="cCode">chatclient.idl </code>that defines the <code class="cCode">Listener</code> interface.
+</p>
+<div class="pCodeTitle"><a name="wp1022630"> </a>
+Listing&#160;2-1	   OMG IDL for the Listener Interface
+</div> <a name="wp1058741"> </a><div class="pPreformatted"><pre>module ChatClient{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;interface Listener  {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;oneway void post (in string from,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in string output_line);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;};<br />};</pre></div><p class="pBody"><a name="wp1022753"> </a>
+<a href="cplus.html#wp1022703">Listing&#160;2-2</a> shows the <code class="cCode">chatroom.idl</code> that defines the <code class="cCode">Moderator</code> and <code class="cCode">ModeratorFactory</code> interfaces for the Chat Room sample application. The<code class="cCode"> #include</code> is used to resolve references to interfaces in another OMG IDL file. In the Chat Room sample application, the <code class="cCode">signon</code> method requires a Listener object as a parameter and its IDL file must <code class="cCode">#include</code> the OMG IDL file that defines the Listener interface.
+</p>
+<div class="pCodeTitle"><a name="wp1022703"> </a>
+Listing&#160;2-2	   OMG IDL for the Moderator and ModeratorFactory Interfaces
+</div> <a name="wp1022830"> </a><div class="pPreformatted"><pre>#include &quot;ChatClient.idl&quot;<br /><br />module ChatRoom {<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;interface Moderator {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exception IdAlreadyUsed{};<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exception NoRoomLeft{};<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exception IdNotKnown{};<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void signon( in string who,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in ChatClient::Listener callback_ref )<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises( IdAlreadyUsed, NoRoomLeft );<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void send  (in string who, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in string input_line )<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises( IdNotKnown );<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void signoff(in string who )<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises( IdNotKnown );<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;};<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;interface ModeratorFactory {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Moderator get_moderator( in string chatroom_name );<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;};<br />};</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1020923"> </a>
+Step 2: Generating Skeletons and Client Stubs
+</h2><p class="pBody"><a name="wp1022856"> </a>
+The interface specification defined in OMG IDL is used by the IDL compiler to generate skeletons and client stubs. Note that a joint client/sever application uses the client stub for the Oracle Tuxedo object and the skeleton and client stub for the callback object. 
+</p>
+<p class="pBody"><a name="wp1038077"> </a>
+For example, in the Chat Room sample application, the joint client/server application uses the skeleton and client stub for the Listener object (that is, the callback object) to implement the object. The joint client/server application also uses the client stubs for the <code class="cCode">Moderator</code> and <code class="cCode">ModeratorFactory</code> interfaces to invoke operations on the objects. The Oracle Tuxedo server application uses the skeletons for the Moderator and ModeratorFactory objects to implement the objects and the client stub for the Listener object to invoke operations on the object.
+</p>
+<p class="pBody"><a name="wp1022951"> </a>
+During the development process, use the <code class="cCode">idl </code>command with the <code class="cCode">-P</code> and <code class="cCode">-i </code>options to compile the OMG IDL file that defines the callback object (for example, the <code class="cCode">chatclient.idl</code> file in the Chat Room sample application). The options work as follows: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023200"> </a>The<code class="cCode"> -P </code>option creates a skeleton class that inherits directly from the <code class="cCode">PortableServer::ServantBase</code> class. Inheriting from <code class="cCode">PortableServer::ServantBase</code> means the joint client/server application must explicitly create a servant for the callback object and initialize the servant&#8217;s state. The servant for the callback object cannot use the <code class="cCode">activate_object</code> and <code class="cCode">deactivate_object</code> methods as they are members of the <code class="cCode">PortableServer::ServantBase</code> class.</li>
+<li><a name="wp1023099"> </a>The <code class="cCode">-i</code> option results in the generation of an implementation template file. This file is a template for the code that implements the interfaces defined in the OMG IDL for the Listener object.</li>
+</ul></div>
+<p class="pBody"><a name="wp1023223"> </a>
+You then need to compile the OMG IDL file that defines the interfaces in the Oracle Tuxedo server application (for example, the <code class="cCode">chatroom.idl</code> file in the Chat Room sample application). Use the <code class="cCode">idl</code> command with only the <code class="cCode">-i</code> option to compile that OMG IDL file.
+</p>
+<p class="pBody"><a name="wp1022863"> </a>
+<a href="cplus.html#wp1053639">Table&#160;2-3</a> lists the files that are created by the <code class="cCode">idl</code> command.
+</p>
+<a name="wp1035421"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>In the Chat Room sample application, the generated template files for the <code class="cCode">ChatClient.idl </code>and <code class="cCode">ChatRoom.idl </code>files have been renamed to reflect the objects (Listener and Moderator) they implement. In addition, the template file for the Moderator object includes the implementation for the ModeratorFactory object.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1035361"> </a>
+Step 3: Writing the Methods That Implement the Operations for Each Object
+</h2><p class="pBody"><a name="wp1032963"> </a>
+After you compile each of the OMG IDL files, you need to write methods that implement the operations for each object. In a joint client/server application, you write the implementation file for the callback object (that is, the Listener object). You write the implementation for a callback object as you would write the implementation for any other CORBA object, except that you use the POA instead of the TP Framework.  You also write implementation files for the Oracle Tuxedo objects (that is, the Moderator and ModeratorFactory objects) in the Oracle Tuxedo server application.
+</p>
+<p class="pBody"><a name="wp1032935"> </a>
+An implementation file contains the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1031397"> </a>Method declarations for each operation specified in the OMG IDL file</li>
+<li><a name="wp1031398"> </a>Business logic for your application</li>
+<li><a name="wp1031399"> </a>Constructors for each interface implementation (implementing these is optional)</li>
+<li><a name="wp1031400"> </a>Optionally, for Oracle Tuxedo objects, the <code class="cCode">com.beasys.Tobj_Servant.activate_object</code> and <code class="cCode">com.beasys.Tobj_Servant.deactivate_object</code> methods</li>
+<p class="pBodyRelative"><a name="wp1031401"> </a>
+Within the <code class="cCode">activate_object</code> and <code class="cCode">deactivate_object</code> methods, you write code that performs any particular steps related to activating or deactivating an object. 
+</p>
+</ul></div>
+<p class="pBody"><a name="wp1031403"> </a>
+<a href="cplus.html#wp1031405">Listing&#160;2-3</a> includes the implemention file for the Listener object, and <a href="cplus.html#wp1031409">Listing&#160;2-4</a> includes the implementation file for the Moderator and ModeratorFactory objects. 
+</p>
+<a name="wp1041336"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Additional methods and data were added to the implementation file for the Moderator and ModeratorFactory objects. The template for the implementation file was created by the<code class="cCode"> idl -i </code>command.</td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1031405"> </a>
+Listing&#160;2-3	   Implementation File for the Listener Object
+</div> <a name="wp1031406"> </a><div class="pPreformatted"><pre>// This module contains the definition of the implementation class<br />// Listener_i<br />#ifndef _Listener_i_h<br />#define _Listener_i_h<br /><br />#include &quot;ChatClient_s.h&quot;<br />class Listener_i : public POA_ChatClient::Listener {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;public:<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Listener_i ();<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;virtual ~Listener_i();<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void post (<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;const char * from,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;const char * output_line); <br />...<br />};<br />#endif</pre></div><div class="pCodeTitle"><a name="wp1031409"> </a>
+Listing&#160;2-4	   Implementation File for Moderator and ModeratorFactory Objects
+</div> <a name="wp1031410"> </a><div class="pPreformatted"><pre>// This module contains the definitions of the implementation class<br />// Moderator and ModeratorFactory<br />#ifndef _Moderator_i_h<br />#define _Moderator_i_h<br /><br />#include &quot;ChatRoom_s.h&quot;<br /><br />const int CHATTER_LIMIT = 5;<br />// the most chatters allowed<br /><br />class Moderator_i : public POA_ChatRoom::Moderator {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;public:<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;//Define the operations<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;void signon ( const char*      who,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ChatClient::Listener_ptr   	callback_ref); <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;void send ( const char *       who,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;const char *       input_line); <br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;void signoff ( const char * who); <br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;//Define the Framework functions<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;virtual void activate_object  ( const char* stroid );<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;virtual void deactivate_object( const char* stroid,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TobjS::DeactivateReasonValue <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;reason);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;private:<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Define function to find name on list<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;int find( const char * handle ); <br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Define name of the chat room overseen by the Moderator<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;char* m_chatroom_name;<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Data for maintaining list<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Chatter[n] id<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;CORBA::String&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;chatters[CHATTER_LIMIT];  <br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Chatter[n] callback ref<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;ChatClient::Listener_var callbacks[CHATTER_LIMIT]; <br />};<br /><br />class ModeratorFactory_i : public POA_ChatRoom::ModeratorFactory { <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;public:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ChatRoom::Moderator_ptr get_moderator ( const char* <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;chatroom_name ); <br />};<br />#endif</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023318"> </a>
+Step 4: Writing the Client Portion of the Joint Client/Server Application
+</h2><p class="pBody"><a name="wp1031621"> </a>
+During development of a joint client/server application, you write the client portion of the joint client/server application as you would write any Oracle Tuxedo client application. The client application needs to include code that does the following: 
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1031622"> </a>Initializes the ORB. The Oracle Tuxedo system activates an ORB using the correct protocol (in this case, IIOP).</li>
+<li><a name="wp1031624"> </a>Uses the Bootstrap object to establish communication with the Oracle Tuxedo domain.</li>
+<li><a name="wp1031628"> </a>Resolves initial references to the FactoryFinder object.</li>
+<li><a name="wp1031629"> </a>Uses a factory to get an object reference for the desired Oracle Tuxedo object (that is, the Moderator object).</li>
+</ol></div>
+<a name="wp1053129"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Release 8.0 of the CORBA environment of the Oracle Tuxedo product continues to include the Oracle client environmental objects provided in earlier releases of Oracle WebLogic Enterprise for use with the Oracle Tuxedo 8.0 CORBA clients. Oracle Tuxedo 8.0 clients should use these environmental objects to resolve initial references to bootstrapping, security, and transaction objects. In this release, support has been added for using the OMG Interoperable Naming Service (INS) to resolve initial references to bootstrapping, security, and transaction objects. For information on INS, see Chapter 4, &#8220;CORBA Bootstrapping Programming Reference&#8221; in the <a href="../CORBA_ref/index.html">CORBA Programming Reference</a>.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1053148"> </a>
+The client development steps are illustrated in <a href="cplus.html#wp1044714">Listing&#160;2-5</a>, which includes code from the Chat Room sample application. In the Chat Room sample application, the client portion of the joint client/server application uses a factory to get an object reference to the Moderator object, and then invokes the <code class="cCode">signon</code>, <code class="cCode">send</code>, and <code class="cCode">signoff</code> methods on the Moderator object.
+</p>
+<div class="pCodeTitle"><a name="wp1044714"> </a>
+Listing&#160;2-5	   Client Portion of the Chat Room Joint Client/Server Application
+</div> <a name="wp1044715"> </a><div class="pPreformatted"><pre>...<br />// Initialize the ORB<br /><br />orb_ptr = CORBA::ORB_init(argc, argv, &quot;BEA_IIOP&quot;);<br />// Create a Bootstrap object to establish communication with the<br />// domain<br /><br />bootstrap = new Tobj_Bootstrap(orb_ptr,&quot;&quot;);<br /><br />// Get a FactoryFinder object, use it to find a Moderator factory,<br />// and get a Moderator.<br /><br />// Use the Bootstrap object to find the FactoryFinder object<br /><br />CORBA::Object_var var_factory_finder_oref =<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;bootstrap-&gt;resolve_initial_references(&quot;FactoryFinder&quot;);<br /><br />// Narrow the FactoryFinder object<br /><br />Tobj::FactoryFinder_var var_factory_finder =<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;Tobj::FactoryFinder::_narrow(var_factory_finder_oref.in());<br /><br />// Use the FactoryFinder object to find a factory for the Moderator<br /><br />CORBA::Object_var var_moderator_factory_oref =<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;var_factory_finder-&gt;find_one_factory_by_id( <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;ModeratorFactory&quot; );<br /><br />// Narrow the Moderator Factory<br /><br />ChatRoom::ModeratorFactory_var var_moderator_factory =<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;ChatRoom::ModeratorFactory::_narrow( <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;var_moderator_factory_oref.in() );<br /><br />// Get a Moderator<br />// The chatroom name is passed as a command line parameter<br /><br />var_moderator_oref =<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;var_moderator_factory-&gt;get_moderator<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(var_chat_room_name.in() );   <br />...</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1032005"> </a>
+Step 5: Creating a Callback Object Using the Callbacks Wrapper Object
+</h2><p class="pBody"><a name="wp1032180"> </a>
+Since the basic steps for creating a callback object are always the same, the Oracle Tuxedo product provides a Callbacks Wrapper object that simplifies the development of callback objects. 
+</p>
+<p class="pBody"><a name="wp1044725"> </a>
+The Callbacks Wrapper object does the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1037243"> </a>Defines the object policy for the callback object. The following object policies are supported:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1037244"> </a>Transient/System ID <code class="cCode">(_transient)</code></li>
+<li><a name="wp1037245"> </a>Persistent/System ID <code class="cCode">(_persistent/systemid)</code></li>
+<li><a name="wp1037246"> </a>Persistent/User ID <code class="cCode">(_persistent/userid)</code></li>
+<p class="pBodyRelative"><a name="wp1037247"> </a>
+For a complete description of the object policies for callback objects, see <a href="over.html#wp1025930">&quot;Object Policies for Callback Objects&quot; on page&#160;-5</a>.
+</p>
+</ul></div>
+<li><a name="wp1037372"> </a>Creates a servant for the callback object.</li>
+<li><a name="wp1037373"> </a>Sets the ORB and the POA to the state in which they will accept requests on the callback object.</li>
+<li><a name="wp1037404"> </a>Returns an object reference to the activated callback object. The object ID can be generated by the system or supplied by the user.</li>
+<li><a name="wp1032188"> </a>Tells the ORB to stop accepting requests on either a single servant or all the active servants.</li>
+</ul></div>
+<p class="pBody"><a name="wp1032190"> </a>
+For a complete description of the Callbacks Wrapper object and its methods, see the <a href="../CORBA_ref/index.html">CORBA Programming Reference</a>.
+</p>
+<p class="pBody"><a name="wp1032191"> </a>
+<a href="cplus.html#wp1032192">Listing&#160;2-6</a> shows how a Callbacks Wrapper object is used in the Chat Room sample application.
+</p>
+<div class="pCodeTitle"><a name="wp1032192"> </a>
+Listing&#160;2-6	   Using the Callbacks Wrapper Object in the Chat Room Sample Application
+</div> <a name="wp1032193"> </a><div class="pPreformatted"><pre>...<br />// Use the Callbacks object to create a servant for the <br />// Listener object, activate the Listener object, and create an <br />// object reference for the Listener object.<br />BEAWrapper::Callbacks* callbacks = <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;new BEAWrapper::Callbacks( orb_ptr );<br />Listener_i * listener_callback_servant = new Listener_i();<br />CORBA::Object_var v_listener_oref=callbacks-&gt;start_transient(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;listener_callback_servant,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ChatClient::_tc_Listener-&gt;id());<br />ChatClient::Listener_var v_listener_callback_oref =<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ChatClient::Listener::_narrow(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;var_listener_oref.in());<br />...</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023645"> </a>
+Step 6: Invoking Operations on an Object by Passing a Reference to the Callback Object
+</h2><p class="pBody"><a name="wp1032399"> </a>
+Once you have an object reference to a callback object, you can pass the callback object reference as a parameter to a method of an Oracle Tuxedo object. In the Chat Room sample application, the Moderator object uses an object reference to the Listener object as a parameter to the <code class="cCode">signon</code> method. <a href="cplus.html#wp1032808">Listing&#160;2-7</a> illustrates this step.
+</p>
+<div class="pCodeTitle"><a name="wp1032808"> </a>
+Listing&#160;2-7	   Invoking the signon Method
+</div> <a name="wp1032992"> </a><div class="pPreformatted"><pre>// Sign on to the Chat room using a user-defined handle and a<br />// reference to the Listener object (the callback object) to receive<br />// input from other client applications logged into the Chat room.<br /><br />var_moderator_reference-&gt;signon(handle,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;var_listener_callback_oref.in() );</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1033267"> </a>
+Step 7: Specifying Configuration Information
+</h2><p class="pBody"><a name="wp1033268"> </a>
+When running remote joint client/server applications that use IIOP, the object references for the callback object must contain a host and port number, as follows. 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1035568"> </a>For transient callback objects, any valid port number (as defined by TCP/IP) can be used, and it can be obtained dynamically by the ORB. </li>
+<li><a name="wp1035577"> </a>For persistent callback objects, the ORB must be configured to accept requests for the callback object on the same port on which the object reference for the callback object was created. </li>
+</ul></div>
+<p class="pBody"><a name="wp1035582"> </a>
+The user specifies the port number from the user range of port numbers, rather than from the dynamic range. Assigning port numbers from the user range prevents joint client/server applications from using conflicting ports. To specify a particular port for the joint client/server application to use, include the following on the command line that starts the process for the joint client/server application:
+</p>
+<p class="pBody"><a name="wp1033743"> </a>
+<code class="cCode">-ORBport </code><code class="cCodeEmphasis">nnn</code> 
+</p>
+<p class="pBody"><a name="wp1033744"> </a>
+where <code class="cCodeEmphasis">nnn</code> is the number of the port to be used by the ORB when creating invocations and listening for invocations on the callback object in the joint client/server application. 
+</p>
+<p class="pBody"><a name="wp1046462"> </a>
+Use this command when you want the object reference for the callback object in a joint client/server application to be persistent and when you want to stop and restart the joint client/server application. If this command is not used, the ORB uses a random port. If the joint client/server application is stopped and then started, invocations to callback objects in the the joint client/server application will fail.
+</p>
+<p class="pBody"><a name="wp1040443"> </a>
+The port number is part of the input to the <code class="cCode">argv </code>argument of the <code class="cCode">CORBA::orb_init</code> member function. When the <code class="cCode">argv</code> argument is passed, the ORB reads that information, establishing the port for any object references created in that process. You can also use the bootstrap object&#8217;s <code class="cCode">register_callback_port</code> operation for the same purpose.
+</p>
+<p class="pBody"><a name="wp1033828"> </a>
+For a joint client/server application to communicate with an Oracle Tuxedo object in the same domain, a configuration file for the server application is needed. The configuration file should be written as part of the development of the server application. The binary version of the configuration file, the <code class="cCode">TUXCONFIG</code> file, must exist before the joint client/server application is started. The <code class="cCode">TUXCONFIG</code> file is created using the <code class="cCode">tmloadcf</code> command. For information about creating a <code class="cCode">TUXCONFIG</code> file, see <a href="../getstart/index.html">Getting Started with Oracle Tuxedo CORBA Applications</a> and <a href="">Setting Up an Oracle Tuxedo Application</a>.
+</p>
+<p class="pBody"><a name="wp1052466"> </a>
+If you are using a joint client/server application that uses IIOP version 1.0 or 1.1, the administrator needs to boot the IIOP Server Listener (ISL) with startup parameters that enable outbound IIOP to invoke callback objects not connected to an IIOP Server Handler (ISH). The <code class="cCode">-O</code> option of the ISL command enables outbound IIOP. Additional parameters allow administrators to obtain the optimum configuration for their Oracle Tuxedo application. For more information about the ISL command, see the <a href="../rfcm/index.html">Oracle Tuxedo Command Reference</a>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1033275"> </a>
+Step 8: Compiling Joint Client/Server Applications
+</h2><p class="pBody"><a name="wp1033277"> </a>
+The final step in the development of a joint client/server application is to produce the executable program. To do this, you need to compile the code and link against the skeleton and client stub.
+</p>
+<p class="pBody"><a name="wp1033280"> </a>
+Use the <code class="cCode">buildobjclient</code> command with the <code class="cCode">-P </code>option to construct a joint client/server application executable. To build an executable program, the command combines the client stub for the Oracle Tuxedo object, the client stub for the callback object, the skeleton for the callback object, and the implementation for the callback object with the appropriate POA libraries.
+</p>
+<a name="wp1033370"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Before you can use the<code class="cCode"> -P</code> option of the <code class="cCode">buildobjclient</code> command, you must have used the <code class="cCode">-P</code> option of the <code class="cCode">idl </code>command when you created the skeleton and client stub for the callback object.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1033317"> </a>
+Using the POA to Create a Callback Object
+</h2><p class="pBody"><a name="wp1033479"> </a>
+You can use the POA directly to create a callback object. You would use the POA directly when you want to use POA features and object policies not available through the Callbacks Wrapper object. For example, if you want to use the POA optimization features, you need to use the POA directly. The following topics describe how to use the POA to create callback objects with the supported object policies.
+</p>
+<a name="wp1037561"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Only a subset of the POA interfaces are supported in this version of the Oracle Tuxedo product. For a list of supported interfaces, see the <a href="../CORBA_ref/index.html">CORBA Programming Reference</a>.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1033970"> </a>
+Creating a Callback Object with a Transient Object Policy
+</h3>
+<p class="pBody"><a name="wp1041495"> </a>
+To use the POA to create a callback object with a transient object policy, you need to write code that does the following:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1033996"> </a>Establishes a connection with a POA.</li>
+<li><a name="wp1035354"> </a>Creates a child POA. </li>
+<p class="pBodyRelative"><a name="wp1046476"> </a>
+Since the root POA does not allow use of bidirectional IIOP, you need to create a child POA. The child POA can use the defaults for <code class="cCode">LifespanPolicy</code> <code class="cCode">(TRANSIENT)</code> and <code class="cCode">IDAssignmentPolicy</code> (<code class="cCode">SYSTEM</code>). You must specify a <code class="cCode">BiDirPolicy</code> policy of <code class="cCode">BOTH</code>.
+</p>
+<p class="pBodyRelative"><a name="wp1034186"> </a>
+IIOP version 1.2 supports reuse of the TCP/IP connection for both incoming and outgoing requests. Allowing reuse of a TCP/IP connection is the choice of the ORB. To allow reuse, you create an ORB policy object that allows reuse of a TCP/IP connection, and you use that policy object in the list of policies when initializing an ORB. The policy object is created using the <code class="cCode">CORBA::ORB::create_policy</code> operation. For more information about the <code class="cCode">CORBA::ORB::create_policy </code>operation, see the <a href="../CORBA_ref/index.html">CORBA Programming Reference</a>.
+</p>
+<li><a name="wp1034009"> </a>Creates a servant for the callback object.</li>
+<li><a name="wp1034255"> </a>Informs the POA that the servant is ready to accept requests for the callback object. </li>
+<p class="pBodyRelative"><a name="wp1046484"> </a>
+In this step, the joint client/server application activates the callback object in the POA using an object ID.
+</p>
+<li><a name="wp1034302"> </a>Activates the POA.</li>
+<li><a name="wp1034311"> </a>Creates an object reference for the callback object.</li>
+<li><a name="wp1034312"> </a>Makes an invocation on an Oracle Tuxedo object using the object reference for the callback object as a parameter to one of the methods of the Oracle Tuxedo object.</li>
+</ol></div>
+<p class="pBody"><a name="wp1024554"> </a>
+<a href="cplus.html#wp1024497">Listing&#160;2-8</a> shows the portion of the Chat Room sample application that uses the POA to create the Listener object.
+</p>
+<div class="pCodeTitle"><a name="wp1024497"> </a>
+Listing&#160;2-8	   Using the POA to Create the Listener Object
+</div> <a name="wp1024812"> </a><div class="pPreformatted"><pre>// Establish communication with the POA<br /><br />orb_ptr = CORBA::ORB_init(argc, argv, &quot;BEA_IIOP&quot;);<br />CORBA::PolicyList policy_list(1);<br />CORBA::Any val;<br /><br />CORBA::Object_ptr o_init_poa;<br />o_init_poa = orb_ptr-&gt;resolve_initial_references(&quot;RootPOA&quot;);<br />// Narrow to get the Root POA<br /><br />root_poa_ptr = PortableServer::POA::_narrow(o_init_poa);<br />CORBA::release(o_init_poa);<br /><br />// Specify an IIOP Policy of Bidirectional for the POA<br /><br />val &lt;&lt;= BiDirPolicy::BOTH;<br />CORBA::Policy_ptr bidir_pol_ptr = 	orb_ptr-&gt;create_policy(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;BiDirPolicy::BIDIRECTIONAL_POLICY_TYPE, val);<br />policy_list.length ( 1 );<br />policy_list[0] = bidir_pol_ptr;<br /><br />// Create the BiDirectional POA<br /><br />bidir_poa_ptr = root_poa_ptr-&gt;create_POA(&quot;BiDirPOA&quot;, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;root_poa_ptr-&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;the_POAManager(),<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;policy_list);<br />// Activate the POA<br /><br />root_poa_ptr-&gt;the_POAManager()-&gt;activate();<br /><br />// Create the Listener object<br /><br />ChatClient::Listener_var v_listener_callback_ref;<br /><br />// Create a servant for Listener object and activate it<br /><br />listener_callback_servant = new Listener_i();<br />&#160;&#160;CORBA::Object_var           v_listener_oref;<br />&#160;&#160;PortableServer::ObjectId_var temp_OId =<br />&#160;&#160;&#160;&#160;&#160;bidir_poa_ptr -&gt;activate_object(listener_callback_servant );<br /><br />// Create object reference for the Listener object with a </pre></div><a name="wp1034675"> </a><div class="pPreformatted"><pre>// system generated Object Id<br /><br />v_listener_oref = bidir_poa_ptr-&gt;create_reference_with_id<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(temp_OId, 		   <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ChatClient::_tc_Listener-&gt;id() );<br />v_listener_callback_ref = ChatClient::Listener::_narrow<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;( v_listener_oref.in() );</pre></div><h3 class="pHeading2"><a name="wp1041548"> </a>
+Creating a Callback Object with a Persistent/User ID Object Policy
+</h3>
+<p class="pBody"><a name="wp1041549"> </a>
+To use the POA to create a callback object with a Persistent/User ID object policy, you must write code that does the following:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1025015"> </a>Uses a string to store the user ID and converts the string to the object ID.</li>
+<li><a name="wp1039376"> </a>Creates a child POA with a <code class="cCode">LifespanPolicy </code>set to <code class="cCode">PERSISTENT </code>and <code class="cCode">IDAssignmentPolicy</code> set to <code class="cCode">USERID</code>.</li>
+<li><a name="wp1046109"> </a>Creates a servant for the Listener object.</li>
+<li><a name="wp1025021"> </a>Creates an object reference for the Listener object using the stringified object ID and the repository ID of the Listener object.</li>
+<li><a name="wp1025022"> </a>Activates the Listener object.</li>
+</ol></div>
+<a name="wp1041712"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The Persistent/User ID object policy is only used with remote joint client/server applications (that is, a joint client/server application that is not in an Oracle Tuxedo domain).</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1025027"> </a>
+<a href="cplus.html#wp1025032">Listing&#160;2-9</a> shows code that performs these steps.
+</p>
+<a name="wp1039389"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The code example does not use bidirectional IIOP.</td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1025032"> </a>
+Listing&#160;2-9	   Example Code for Listener Object with Persistent/User ID Object Policy
+</div> <a name="wp1025063"> </a><div class="pPreformatted"><pre>// Declare a string and convert it to an object Id.<br />const char* oid_string = &quot;783&quot;;<br />PortableServer::ObjectID_var oid=<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PortableServer::string_to_ObjectId(oid_string);<br />// Find the root POA<br />CORBA::Object_var oref =<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;orb_ptr-&gt;resolve_initial_references(&quot;RootPOA&quot;);<br />PortableServer::POA_var root_poa =<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PortableServer::POA::_narrow(oref);<br /><br />// Create and activate a Persistent/UserID POA<br />CORBA::PolicyList policies(2);<br />policies.length(2);<br />policies[0] = root_poa-&gt;create_lifespan_policy(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PortableServer::PERSISTENT);<br />policies[1] = root_poa-&gt;create_id_assignment_policy(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PortableServer::USER_ID );<br />PortableServer::POA_var poa_ref =<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;root_poa-&gt;create_POA(&quot;poa_ref&quot;, 	<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;root_poa-&gt;the_POAManager(),policies);<br />root_poa-&gt;the_POAManager()-&gt;activate();<br /><br />// Create object reference for the Listener object.<br />oref = poa_ref-&gt;create_reference_with_id(oid,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ChatClient::_tc_Listener-&gt;id());<br />ChatClient::Listener_ptr Listener_oref =<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ChatClient::Listener::_narrow( oref );<br /><br />// Create Listener_i servant and activate the Listener object<br />Listener_i* my_Listener_i = new Listener_i();<br />poa_ref-&gt;activate_object_with_id( oid, my_Listener_i);<br /><br />// Make call passing the reference to the Listener object<br />v_moderator_ref-&gt;signon( handle, Listener_oref);</pre></div><h3 class="pHeading2"><a name="wp1041615"> </a>
+Creating a Callback Object with a Persistent/System ID Object Policy
+</h3>
+<p class="pBody"><a name="wp1041616"> </a>
+To use the POA to create a callback object with a Persistent/System ID object policy, you need to write code that does the following:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1046126"> </a>Creates a child POA with a <code class="cCode">LifespanPolicy </code>set to <code class="cCode">PERSISTENT </code>and <code class="cCode">IDAssignmentPolicy</code> set to the default.</li>
+<li><a name="wp1046135"> </a>Creates a servant for the Listener object.</li>
+<li><a name="wp1046136"> </a>Creates an object reference for the Listener object using a system generated object ID (the repository ID of the Listener object).</li>
+<li><a name="wp1046137"> </a>Activates the Listener object.</li>
+</ol></div>
+<a name="wp1041795"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The Persistent/System ID object policy is only used with remote joint client/server applications (that is, a joint client/server application that is not in an Oracle Tuxedo domain).</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1039427"> </a>
+<a href="cplus.html#wp1039430">Listing&#160;2-10</a> shows code that performs these steps.
+</p>
+<div class="pCodeTitle"><a name="wp1039430"> </a>
+Listing&#160;2-10	   Example Code for Listener Object with Persistent/System ID Object Policy
+</div> <a name="wp1039453"> </a><div class="pPreformatted"><pre>// Find the root POA<br />CORBA::Object_var oref=<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;orb_ptr-&gt;resolve_initial_references(&quot;RootPOA&quot;)<br />PortableServer::POA_var root_poa =<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;PortableServer::POA::_narrow(oref);<br /><br />// Create and activate a Persistent/System ID POA<br />CORBA::PolicyList policies(1);<br />policies.length(1);<br />policies[0] = root_poa-&gt;create_lifespan_policy(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;PortableServer::PERSISTENT);<br /><br />//<code class="cCode">IDAssignmentPolicy</code> is the default so you do not need to specify it<br />PortableServer::POA_var poa_ref = root_poa-&gt;create_POA(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;poa_ref&quot;, root_poa-&gt;the_POAManager(), policies);<br />root_poa-&gt;the_POAManager()-&gt;activate();<br /><br />// Create Listener_i servant and activate the Listener object<br />Listener_i* my_Listener_i = new Listener_i();<br />PortableServer::ObjectId_var temp_OId =<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;poa_ref-&gt;activate_object ( my_Listener_i );<br /><br />// Create object reference for Listener object with returned<br />// system object Id<br />oref = poa_ref-&gt;create_reference_with_id(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;temp_OId, ChatClient::_tc_Listener-&gt;id() );<br />ChatClient::Listener_var Listener_oref =<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;ChatClient::Listener::_narrow(oref);<br /><br />// Make the call passing the reference to the Listener object<br />v_moderator_ref-&gt;signon( handle, Listener_oref );</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1028617"> </a>
+Threading Considerations for C++ Joint Client/Server Applications
+</h2><p class="pBody"><a name="wp1045962"> </a>
+A joint client/server application can first function as a client application and then switch to functioning as a server application. To do this, the joint client/server application gives complete control of the thread to the ORB by invoking the following: 
+</p>
+<p class="pBody"><a name="wp1045963"> </a>
+<code class="cCode">orb -&gt; run();</code>
+</p>
+<p class="pBody"><a name="wp1045964"> </a>
+If a method in the server portion of a joint client/server application invokes <code class="cCode">ORB::shutdown()</code>, all server activity stops and control is returned to the statement after <code class="cCode">ORB::run()</code> is invoked in the server portion of the joint client/server application. Only under this condition does control return to the client functionality of the joint client/server application.
+</p>
+<p class="pBody"><a name="wp1045753"> </a>
+Since a client application has only a single thread, the client functionality of the joint client/server application must share the central processing unit (CPU) with the server functionality of the joint client/server application. This sharing is accomplished by occasionally checking with the ORB to see if the joint client/server application has server application work to perform. Use the following code to perform the check with the ORB:
+</p>
+<p class="pBody"><a name="wp1028621"> </a>
+<code class="cCode">if ( orb-&gt;work_pending() ) orb-&gt;perform_work();</code>
+</p>
+<p class="pBody"><a name="wp1028622"> </a>
+After the ORB completes the server application work, the ORB returns to the joint client/server application, which then performs client application functions. The joint client/server application must remember to occasionally check with the ORB; otherwise, the joint client/server application will never process any invocations.
+</p>
+<p class="pBody"><a name="wp1028623"> </a>
+The ORB cannot service callbacks while the joint client/server application is blocking on a request. If a joint client/server application invokes an object in another Oracle Tuxedo server application, the ORB blocks while it waits for the response. While the ORB is blocking, it cannot service any callbacks, so the callbacks are queued until the request is completed.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1021021"> </a>
+Building and Running the Chat Room Sample Application
+</h2><p class="pBody"><a name="wp1026033"> </a>
+Perform the following steps to build and run the Chat Room sample application:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1026034"> </a>Copy the files for the Chat Room sample application into a work directory.</li>
+<li><a name="wp1026035"> </a>Change the protection attribute on the files for the Chat Room sample application.</li>
+<li><a name="wp1026036"> </a>Verify the settings of the environment variables.</li>
+<li><a name="wp1026037"> </a>Execute the <code class="cCode">ChatSetup</code> command.</li>
+</ol></div>
+<p class="pBody"><a name="wp1026038"> </a>
+The following sections describe these steps.
+</p>
+<h3 class="pHeading2"><a name="wp1026041"> </a>
+Copying the Files for the Chat Room Sample Application into a Work Directory
+</h3>
+<p class="pBody"><a name="wp1026042"> </a>
+You need to copy the files for the Chat Room sample application into a work directory on your local machine. The files for the Chat Room sample application are located in the following directories:
+</p>
+<p class="pBody"><a name="wp1026044"> </a>
+<b class="cBold">Windows</b>
+</p>
+<p class="pBody"><a name="wp1026045"> </a>
+<code class="cCodeEmphasis">drive</code><code class="cCode">:</code><code class="cCodeEmphasis">\TUXDIR</code><code class="cCode">\samples\corba\chatroom</code>
+</p>
+<p class="pBody"><a name="wp1026046"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<p class="pBody"><a name="wp1026047"> </a>
+<code class="cCodeEmphasis">/usr/local/TUXDIR</code><code class="cCode">/samples/corba/chatroom</code>
+</p>
+<p class="pBody"><a name="wp1026053"> </a>
+Use the files listed in <a href="cplus.html#wp1026703">Table&#160;2-4</a> to build and run the Chat Room sample application.
+</p>
+<p class="pGraphic"><a name="wp1026116"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1026703table1026054"><caption><a name="wp1026703"> </a>
+Table 2-4  Files Included in the Chat Room Sample Application&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1026707"> </a>
+File
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1026709"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026711"> </a>
+ChatRoom.idl
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026713"> </a>
+The OMG IDL code that declares the <code class="cCode">Moderator</code> and <code class="cCode">ModeratorFactory</code> interfaces.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026715"> </a>
+<code class="cCode">ChatClient.idl</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026717"> </a>
+The OMG IDL code that declares the <code class="cCode">Listener</code> interface.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026881"> </a>
+<code class="cCode">Listener_i.h<br />Listener_i.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026883"> </a>
+The C++ source code for method implementations of the Listener object in the joint client/server application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026891"> </a>
+<code class="cCode">Moderator_i.h<br />Moderator_i.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026893"> </a>
+The C++ source code for method implementations of the Moderator and ModeratorFactory objects in the Oracle Tuxedo server application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026719"> </a>
+<code class="cCode">ChatClientMain.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026721"> </a>
+The C++ source code for the joint client/server application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026723"> </a>
+<code class="cCode">ChatRoomServer.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026725"> </a>
+The C++ source code for the Oracle Tuxedo server application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026730"> </a>
+<code class="cCode">KeyboardManager.h<br />KeyboardManager.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026732"> </a>
+The C++ source code that handles input from the keyboard in the Chat Room sample application. This code is used by<code class="cCode"> ChatClientMain.cpp</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026777"> </a>
+<code class="cCode">ChatRoom.icf</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026779"> </a>
+The Implementation Configuration File (ICF) for the Moderator and ModeratorFactory objects in the Oracle Tuxedo server application in the Chat Room sample application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026784"> </a>
+<code class="cCode">ChatRoom.ksh</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026786"> </a>
+For UNIX systems, a script that sets the environment variables and builds the Chat Room sample application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026791"> </a>
+<code class="cCode">ChatRoom.cmd</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026793"> </a>
+For Windows systems, a command procedure that sets the environment variables and builds the Chat Room sample application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026806"> </a>
+<code class="cCode">ChatRoom.mk</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026811"> </a>
+The UNIX operating system <code class="cCode">makefile</code> for the Chat Room sample application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026813"> </a>
+<code class="cCode">ChatRoom.nt</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026818"> </a>
+The Windows operating system<code class="cCode"> makefile</code> for the Chat Room sample application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026852"> </a>
+<code class="cCode">Readme.txt</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026854"> </a>
+The file that provides the latest information about building and running the Chat Room sample application.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1026119"> </a>
+Changing the Protection Attribute on the Files for the Chat Room Sample Application
+</h3>
+<p class="pBody"><a name="wp1026120"> </a>
+During the installation of the Oracle Tuxedo software, the sample application files are marked read-only. Before you can edit or build the files in the Chat Room sample application, you need to change the protection attribute of the files you copied into your work directory, as follows:
+</p>
+<p class="pBody"><a name="wp1026121"> </a>
+<b class="cBold">		Windows</b>
+</p>
+<p class="pBody"><a name="wp1026122"> </a>
+<code class="cCode">prompt&gt; attrib /S -r</code><em class="cEmphasis"> </em><code class="cCodeEmphasis">drive</code><code class="cCode">:</code><em class="cEmphasis">\</em><code class="cCodeEmphasis">workdirectory</code><code class="cCode">\*.*</code>
+</p>
+<p class="pBody"><a name="wp1026123"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<p class="pBody"><a name="wp1026124"> </a>
+<code class="cCode">prompt&gt; /bin/ksh</code>
+</p>
+<p class="pBody"><a name="wp1026125"> </a>
+<code class="cCode">ksh prompt&gt; chmod u+w /</code><code class="cCodeEmphasis">workdirectory</code><code class="cCode">/*.*</code>
+</p>
+<p class="pBody"><a name="wp1026126"> </a>
+On UNIX operating system platforms, you also need to change the permission of <code class="cCode">ChatRoom.ksh</code> to give execute permission to the file, as follows:
+</p>
+<p class="pBody"><a name="wp1026127"> </a>
+<code class="cCode">ksh prompt&gt; chmod +x ChatRoom.ksh</code>
+</p>
+<h3 class="pHeading2"><a name="wp1026130"> </a>
+Verifying the Setting of the TUXDIR Environment Variable
+</h3>
+<p class="pBody"><a name="wp1026131"> </a>
+Before building and running the Chat Room sample application, you need to ensure that the <code class="cCode">TUXDIR</code> environment variable is set on your system. In most cases, this environment variable is set as part of the installation procedure. The <code class="cCode">TUXDIR</code> environment variable defines the directory path where you installed the Oracle Tuxedo software. For example:
+</p>
+<p class="pBody"><a name="wp1027141"> </a>
+<b class="cBold">Windows</b>
+</p>
+<p class="pBody"><a name="wp1027142"> </a>
+<code class="cCode">TUXDIR=C:\TUXDIR</code>
+</p>
+<p class="pBody"><a name="wp1027143"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<p class="pBody"><a name="wp1027126"> </a>
+<code class="cCode">TUXDIR=/usr/local/TUXDIR</code>
+</p>
+<p class="pBody"><a name="wp1026165"> </a>
+To verify that the information for the environment variables defined during installation is correct, perform the following steps:
+</p>
+<p class="pBody"><a name="wp1026166"> </a>
+<b class="cBold">Windows</b>
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1026167"> </a> From the Start menu, select Settings.</li>
+<li><a name="wp1026168"> </a> From the Settings menu, select the Control Panel.</li>
+<p class="pBodyRelative"><a name="wp1026169"> </a>
+The Control Panel appears.
+</p>
+<li><a name="wp1026170"> </a> Click the System icon.</li>
+<p class="pBodyRelative"><a name="wp1026171"> </a>
+The System Properties window appears.
+</p>
+<li><a name="wp1026172"> </a> Click the Environment tab.</li>
+<p class="pBodyRelative"><a name="wp1026173"> </a>
+The Environment page appears.
+</p>
+<li><a name="wp1026174"> </a> Check the setting for <code class="cCode">TUXDIR</code>. </li>
+</ol></div>
+<p class="pBody"><a name="wp1027368"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<p class="pBody"><a name="wp1026176"> </a>
+<code class="cCode">ksh prompt&gt;printenv TUXDIR</code>
+</p>
+<p class="pBody"><a name="wp1026178"> </a>
+To change the settings, perform the following steps:
+</p>
+<p class="pBody"><a name="wp1026179"> </a>
+<b class="cBold">Windows</b>
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1026180"> </a> On the Environment page in the System Properties window, click the <code class="cCode">TUXDIR</code> environment variable.</li>
+<li><a name="wp1026181"> </a> Enter the correct information for the environment variable in the Value field.</li>
+<li><a name="wp1026182"> </a> Click OK to save the changes.</li>
+</ol></div>
+<p class="pBody"><a name="wp1026183"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<p class="pBody"><a name="wp1026184"> </a>
+<code class="cCode">ksh prompt&gt;export TUXDIR=</code><code class="cCodeEmphasis">directorypath</code>
+</p>
+<h3 class="pHeading2"><a name="wp1026188"> </a>
+Executing the ChatSetup Command
+</h3>
+<p class="pBody"><a name="wp1026189"> </a>
+The<code class="cCode"> ChatSetup</code> command automates the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1026190"> </a>Sets the system environment variables.</li>
+<li><a name="wp1026194"> </a>Creates and loads the configuration file.</li>
+<li><a name="wp1026196"> </a>Compiles the code for the client application.</li>
+<li><a name="wp1026198"> </a>Compiles the code for the server application.</li>
+</ol></div>
+<p class="pBody"><a name="wp1026203"> </a>
+Before running the <code class="cCode">ChatSetup</code> command, you need to check the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1038937"> </a>Ensure that you have the appropriate administrative privileges to build and run applications.</li>
+<li><a name="wp1027247"> </a>On Windows, make sure <code class="cCode">nmake</code> is in the path of your machine.</li>
+<li><a name="wp1027248"> </a>On UNIX, make sure the <code class="cCode">make</code> executable program is included in the <code class="cCode">PATH</code> variable.</li>
+</ul></div>
+<p class="pBody"><a name="wp1027246"> </a>
+To build and run the  sample application, enter the <code class="cCode">ChatSetup</code> command, as follows:
+</p>
+<p class="pBody"><a name="wp1026204"> </a>
+<b class="cBold">Windows</b>
+</p>
+<p class="pBody"><a name="wp1026205"> </a>
+<code class="cCode">prompt&gt;cd </code><code class="cCodeEmphasis">workdirectory</code>
+</p>
+<p class="pBody"><a name="wp1026206"> </a>
+<code class="cCode">prompt&gt; ChatSetup.cmd</code>
+</p>
+<p class="pBody"><a name="wp1026207"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<p class="pBody"><a name="wp1026208"> </a>
+<code class="cCode">ksh prompt&gt; cd </code><code class="cCodeEmphasis">workdirectory</code>
+</p>
+<p class="pBody"><a name="wp1026209"> </a>
+<code class="cCode">ksh prompt&gt; ./ChatSetup.ksh</code>
+</p>
+<h3 class="pHeading2"><a name="wp1027305"> </a>
+Starting the Server Application
+</h3>
+<p class="pBody"><a name="wp1027309"> </a>
+Start the server application and the system server processes in the Chat Room sample application by entering the following command:
+</p>
+<p class="pBody"><a name="wp1027310"> </a>
+<code class="cCode">prompt&gt; tmboot -y</code>
+</p>
+<p class="pBody"><a name="wp1027312"> </a>
+This command starts the following server processes:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1027313"> </a><code class="cCode">TMSYSEVT</code></li>
+<p class="pBodyRelative"><a name="wp1027314"> </a>
+The system EventBroker. This server process is used only by the Oracle Tuxedo system.
+</p>
+<li><a name="wp1027409"> </a><code class="cCode">TMFFNAME</code></li>
+<p class="pBodyRelative"><a name="wp1027410"> </a>
+The following three <code class="cCode">TMFFNAME</code> server processes are started:
+</p>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1027411"> </a>The <code class="cCode">TMFFNAME</code> server process started with the <code class="cCode">-N</code> and <code class="cCode">-M</code> options is the Master NameManager service. The NameManager service maintains a mapping of the application-supplied names to object references. This server process is used only by the Oracle Tuxedo system.</li>
+<li><a name="wp1027412"> </a>The <code class="cCode">TMFFNAME</code> server process started with only the <code class="cCode">-N</code> option is the Slave NameManager service.</li>
+<li><a name="wp1027413"> </a>The <code class="cCode">TMFFNAME</code> server process started with the <code class="cCode">-F</code> option contains the FactoryFinder object.</li>
+</ul></div>
+<li><a name="wp1027319"> </a><code class="cCode">ChatRoom</code></li>
+<p class="pBodyRelative"><a name="wp1027320"> </a>
+The server application process for the Chat Room sample application.
+</p>
+<li><a name="wp1027321"> </a><code class="cCode">ISL</code></li>
+<p class="pBodyRelative"><a name="wp1027322"> </a>
+The IIOP Listener/Handler process.
+</p>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1027435"> </a>
+Starting the Client Application
+</h3>
+<p class="pBody"><a name="wp1027436"> </a>
+Start the client application in the Chat Room sample application by entering the following command:
+</p>
+<p class="pBody"><a name="wp1027437"> </a>
+<code class="cCode">prompt&gt; ChatClient </code><em class="cEmphasis">chatroom_name -ORBport nnn</em>
+</p>
+<p class="pBody"><a name="wp1027444"> </a>
+where chatroom_name is the name of a chat room to which you want to connect. You can enter any value. You will be prompted for a handle to identify yourself. You can enter any value. If the handle you chose is in use, you will be prompted for another handle.
+</p>
+<p class="pBody"><a name="wp1027463"> </a>
+To optimize the usefulness of the Chat Room sample application, you should run a second client application using the same chat room name.
+</p>
+<p class="pBody"><a name="wp1027454"> </a>
+To exit the client application, enter<code class="cCode"> \</code>.
+</p>
+<h3 class="pHeading2"><a name="wp1026418"> </a>
+Stopping the Chat Room Sample Application
+</h3>
+<p class="pBody"><a name="wp1026419"> </a>
+Before using another sample application, enter the following commands to stop the Chat Room sample application and to remove unnecessary files from the work directory:
+</p>
+<p class="pBody"><a name="wp1026420"> </a>
+<b class="cBold">Windows</b>
+</p>
+<p class="pBody"><a name="wp1026421"> </a>
+<code class="cCode">prompt&gt; tmshutdown -y</code>
+</p>
+<p class="pBody"><a name="wp1027523"> </a>
+prompt&gt; Admin\setenv
+</p>
+<p class="pBody"><a name="wp1026422"> </a>
+<code class="cCode">prompt&gt; nmake -f ChatRoom.nt superclean</code>
+</p>
+<p class="pBody"><a name="wp1038955"> </a>
+prompt&gt; nmake -f ChatRoom.nt adminclean
+</p>
+<p class="pBody"><a name="wp1026423"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<p class="pBody"><a name="wp1026424"> </a>
+<code class="cCode">ksh prompt&gt; tmshutdown -y</code>
+</p>
+<p class="pBody"><a name="wp1027524"> </a>
+ksh prompt&gt; . ./Admin/setenv.ksh
+</p>
+<p class="pBody"><a name="wp1026425"> </a>
+<code class="cCode">ksh prompt&gt; make -f ChatRoom.mk superclean</code>
+</p>
+<p class="pBody"><a name="wp1038964"> </a>
+ksh prompt&gt; make -f ChatRoom.nt adminclean
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="cplus.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="over.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="java.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

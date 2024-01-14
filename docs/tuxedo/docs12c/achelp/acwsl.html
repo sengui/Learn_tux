@@ -1,0 +1,1626 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="2" />
+<meta name="LOC_US_CHANGE" content="41903" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/achelp/fm/acwsl.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/27/12 04:35:09" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Creating and Configuring Workstation Listeners and Handlers</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Administration Console Online Help
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="acappq.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="acacls.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/achelp.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp949344"> </a>
+Creating and Configuring Workstation Listeners and Handlers
+</h1>
+<p class="pBody"><a name="wp891549"> </a>
+The Oracle Tuxedo system includes the capability to require that clients run on a workstation for purposes of security, performance, and convenience. A network administrator can define the environment required to control the Workstation clients. The Oracle Tuxedo Administration Console workstation objects allow you to specify the information required to control access to an application from multiple workstations.
+</p>
+<p class="pBody"><a name="wp903829"> </a>
+These workstation objects are grouped on the Oracle Tuxedo Administration Console tree view in the following categories:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp900272"> </a><a href="acwsl.html#wp878229">Workstation Listeners (WSLs)</a></li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp900277"> </a><a href="acwsl.html#wp875183">Creating Workstation Listeners</a></li>
+<li><a name="wp900281"> </a><a href="acwsl.html#wp907197">Configuring Workstation Listeners (T_WSL Class)</a></li>
+</ul></div>
+<li><a name="wp900286"> </a><a href="acwsl.html#wp880602">Workstation Handlers (WSHs)</a></li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp900291"> </a><a href="acwsl.html#wp876517">Configuring Workstation Handlers (T_WSH Class)</a></li>
+</ul></div>
+</ul></div>
+<p class="pBody"><a name="wp878213"> </a>
+You can define new workstation listeners and you can obtain information about active workstation handlers.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp878229"> </a>
+Workstation Listeners (WSLs)
+</h2><p class="pBody"><a name="wp878496"> </a>
+The Workstation Listener (WSL) allows you to manage workstation groups, configuration, and run-time attributes of WSL server processes.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;N_WSL&quot;&gt;&lt;/a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp875183"> </a>
+Creating Workstation Listeners
+</h2><p class="troubleshoot">
+&lt;a name=&quot;WSL_NewObjectForm&quot;&gt;&lt;/a&gt;
+</p>
+<p class="pBody"><a name="wp875186"> </a>
+To create new Workstation Listeners (WSLs):
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp903845"> </a>Select Workstation Listeners<b class="cBold"> </b>in the tree view.</li>
+<li><a name="wp903875"> </a>Select Quick Menu&#8212;&gt;New to display the Create New Object window.</li>
+<li><a name="wp903882"> </a>Enter values for the following fields:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp875187"> </a><a href="acwsl.html#wp872957">Group Name (TA_SRVGRP)</a></li>
+<li><a name="wp875188"> </a><a href="acwsl.html#wp872978">Server ID (TA_SRVID)</a></li>
+<li><a name="wp875189"> </a><a href="acwsl.html#wp872996">Network Address (TA_NADDR)</a></li>
+<li><a name="wp875190"> </a><a href="acwsl.html#wp873019">Bridge Device (TA_DEVICE)</a></li>
+</ul></div>
+<li><a name="wp875193"> </a>Click Create to close the window and create the new WS Listener group.</li>
+</ol></div>
+<p class="troubleshoot">
+&lt;a name=&quot;T_WSL&quot;&gt;&lt;/a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp907197"> </a>
+Configuring Workstation Listeners (T_WSL Class)
+</h2><p class="pBody"><a name="wp883896"> </a>
+To configure WSLs, select WS Listeners in the Tree view. Enter values for the fields in the tab pages. The Configuration Tool pane contains the following tab pages for configuring Workstation Listener attributes: General, Options, System Parameters, and Statistics.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;C_WSL&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_GeneralTabPage&quot;&gt;&lt;/a&gt;
+</p>
+<h3 class="pHeading2"><a name="wp872942"> </a>
+General Tab
+</h3>
+<p class="pBody"><a name="wp896569"> </a>
+The General tab page contains the following fields:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp896573"> </a><a href="acwsl.html#wp872957">Group Name (TA_SRVGRP)</a></li>
+<li><a name="wp896577"> </a><a href="acwsl.html#wp872966">Object State (TA_STATE)</a></li>
+<li><a name="wp872946"> </a><a href="acwsl.html#wp872978">Server ID (TA_SRVID)</a></li>
+<li><a name="wp872947"> </a><a href="acwsl.html#wp914977">WorkStation Handler Name (TA_WSHNAME)</a></li>
+<li><a name="wp872948"> </a><a href="acwsl.html#wp872996">Network Address (TA_NADDR)</a></li>
+<li><a name="wp872949"> </a><a href="acwsl.html#wp873019">Bridge Device (TA_DEVICE)</a></li>
+<li><a name="wp872950"> </a><a href="acwsl.html#wp873028">Group Number (TA_GRPNO)</a></li>
+<li><a name="wp872951"> </a><a href="acwsl.html#wp904044">Process ID (TA_PID)</a></li>
+<li><a name="wp872952"> </a><a href="acwsl.html#wp899785">Logical Machine Name, Backup (TA_LMID)</a></li>
+</ul></div>
+<p class="pBody"><a name="wp872953"> </a>
+This section describes these fields.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;13026&quot;&gt;&lt;/a&gt; &lt;a name=&quot;12207&quot;&gt;&lt;/a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp872957"> </a>
+Group Name (TA_SRVGRP)
+</h3>
+<h4 class="pHeading3"><a name="wp885318"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp885319"> </a>
+Logical name of the server group.
+</p>
+<h4 class="pHeading3"><a name="wp885320"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp885321"> </a>
+A string of 1 to 30 characters. The string may not include asterisks (*), commas, or colons.
+</p>
+<h4 class="pHeading3"><a name="wp885322"> </a>
+Example
+</h4>
+<p class="pBody"><a name="wp885323"> </a>
+<code class="cCode">WSGROUP1</code>
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12195&quot;&gt;&lt;/a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp872966"> </a>
+Object State (TA_STATE)
+</h3>
+<h4 class="pHeading3"><a name="wp920193"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp919309"> </a>
+This field displays the state of your workstation listener within the application. A workstation listener may be in any state defined for the Default Servers class:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp872968"> </a><code class="cCode">ACTIVE</code></li>
+<li><a name="wp872969"> </a><code class="cCode">INACTIVE</code></li>
+<li><a name="wp872970"> </a><code class="cCode">MIGRATING</code></li>
+<li><a name="wp872971"> </a><code class="cCode">CLEANING</code></li>
+<li><a name="wp872972"> </a><code class="cCode">RESTARTING</code></li>
+<li><a name="wp872973"> </a><code class="cCode">SUSPENDED</code></li>
+<li><a name="wp872974"> </a><code class="cCode">PARTITIONED</code></li>
+<li><a name="wp872975"> </a><code class="cCode">DEAD</code></li>
+</ul></div>
+<p class="troubleshoot">
+&lt;a name=&quot;13023&quot;&gt;&lt;/a&gt; &lt;a name=&quot;12194&quot;&gt;&lt;/a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp872978"> </a>
+Server ID (TA_SRVID) 
+</h3>
+<h4 class="pHeading3"><a name="wp872979"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp872980"> </a>
+A server identification number that is unique within the server group.
+</p>
+<h4 class="pHeading3"><a name="wp872981"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp872982"> </a>
+A number in the range of 1 to 30,001 inclusive.
+</p>
+<h4 class="pHeading3"><a name="wp872983"> </a>
+Example
+</h4>
+<p class="pBody"><a name="wp914972"> </a>
+<code class="cCode">500</code>
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12205&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp914977"> </a>
+WorkStation Handler Name (TA_WSHNAME) 
+</h3>
+<h4 class="pHeading3"><a name="wp872988"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp872989"> </a>
+The name of the executable providing workstation handler services for this workstation listener. The default value for this is <code class="cCode">WSH</code>, which corresponds to the system provided workstation handler. Workstation handlers may be customized using the command <code class="cCode">buildwsh(1)</code>.
+</p>
+<h4 class="pHeading3"><a name="wp872990"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp872991"> </a>
+A string of 1 to 78 characters.
+</p>
+<h4 class="pHeading3"><a name="wp872992"> </a>
+Default
+</h4>
+<p class="pBody"><a name="wp872993"> </a>
+<code class="cCode">WSH</code>
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;13025&quot;&gt;&lt;/a&gt; &lt;a name=&quot;12200&quot;&gt;&lt;/a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp872996"> </a>
+Network Address (TA_NADDR) 
+</h3>
+<h4 class="pHeading3"><a name="wp872997"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp872998"> </a>
+The complete network address to be used by the WSL process as its listening address. The listening address for a WSL is the means by which it is contacted by Workstation client processes participating in the application.
+</p>
+<p class="pBody"><a name="wp872999"> </a>
+If the string has the form <code class="cCode">0xhex-digits</code> or <code class="cCode">\\xhex-digits</code>, it must contain an even number of valid hex digits. These forms are translated internally into a character array containing the hexadecimal representations of the string specified.
+</p>
+<h4 class="pHeading3"><a name="wp873000"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp873001"> </a>
+TCP/IP addresses may be specified in either of the following formats.
+</p>
+<p class="pBody"><a name="wp904073"> </a>
+Format 1: <code class="cCodeEmphasis">//hostname:port_number</code>
+</p>
+<p class="pBody"><a name="wp873003"> </a>
+In Format 1, the bridge finds an address for <code class="cCodeEmphasis">hostname</code> using the local name resolution facilities (usually DNS). <code class="cCodeEmphasis">hostname</code> must unambiguously resolve to the address of the machine on which the bridge resides.
+</p>
+<p class="pBody"><a name="wp873004"> </a>
+Format 2<code class="cCodeBold">: //</code><code class="cCodeEmphasis">#</code><code class="cCodeBold">.</code><code class="cCodeEmphasis">#</code><code class="cCodeBold">.</code><code class="cCodeEmphasis">#</code><code class="cCodeBold">.</code><code class="cCodeEmphasis">#</code><code class="cCodeBold">:</code><code class="cCodeEmphasis">port_number</code>
+</p>
+<p class="pBody"><a name="wp873005"> </a>
+In Format 2, the <code class="cCodeEmphasis">#.#.#.#</code> is in dotted decimal format. In dotted decimal format, each <code class="cCodeEmphasis">#</code> should be a number from 0 to 255. This dotted decimal number represents the IP address of the local machine.
+</p>
+<p class="pBody"><a name="wp873006"> </a>
+In both of the above formats, <code class="cCodeEmphasis">port_number</code> is the TCP port number at which the bridge will listen for incoming requests. The value of <code class="cCodeEmphasis">port_number</code> can be either a number (between 0 and 65535) or a name. If <code class="cCodeEmphasis">port_number</code> is a name, then it must be found in the network services database on your local machine.
+</p>
+<p class="pBody"><a name="wp873007"> </a>
+The address can also be specified in hexadecimal format when preceded by the characters <code class="cCode">0x</code>. Each character after the initial <code class="cCode">0x</code> is a number between 0 and 9 or a letter between A and F (case insensitive). The hexadecimal format is useful for arbitrary binary network addresses such as IPX/SPX or TCP/IP.
+</p>
+<p class="pBody"><a name="wp873008"> </a>
+The address can also be specified as an arbitrary string (with a maximum of 78 characters). For example, string addresses are used in STARLAN networks.
+</p>
+<h4 class="pHeading3"><a name="wp873009"> </a>
+Example
+</h4>
+<p class="pBody"><a name="wp873010"> </a>
+Suppose the local machine on which a TDomain is being run is using TCP/IP addressing and is named <code class="cCode">backup.company.com</code>, with address <code class="cCode">155.2.193.18</code>. Further suppose that the port number at which the TDomain should accept requests is <code class="cCode">2334</code>. Assume that port number <code class="cCode">2334</code> has been added to the network services database under the name <code class="cCode">bankapp-wsl</code>. You can specify the address in any of the following five formats:
+</p>
+<a name="wp873011"> </a><div class="pPreformatted"><pre><code class="cCode">//155.2.193.18:bankapp-wsl</code></pre></div><a name="wp873012"> </a><div class="pPreformatted"><pre><code class="cCode">//155.2.193.18.2334</code></pre></div><a name="wp873013"> </a><div class="pPreformatted"><pre><code class="cCode">//backup.company.com:bankapp-wsl</code></pre></div><a name="wp873014"> </a><div class="pPreformatted"><pre><code class="cCode">//backup.company.com:2334</code></pre></div><a name="wp873015"> </a><div class="pPreformatted"><pre><code class="cCode">0x0002091E9B02C112</code></pre></div><p class="pBody"><a name="wp888485"> </a>
+The last line shows an address in hexadecimal format where <code class="cCode">0002</code> is the first part of a TCP/IP address and <code class="cCode">091E</code> is the port number 2334 translated into a hexadecimal number. The rest of the line contains hexadecimal numbers that are translations of the elements of the IP address 155.2.193.12: &quot;155&quot; becomes &quot;9B&quot;, &quot;2&quot; becomes &quot;02&quot;, and so on.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;13024&quot;&gt;&lt;/a&gt; &lt;a name=&quot;12198&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_GeneralTabPage_TA_DEVICE&quot;&gt;&lt;/a&gt;
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_NewObjectForm_TA_DEVICE&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp873019"> </a>
+Bridge Device (TA_DEVICE) 
+</h3>
+<h4 class="pHeading3"><a name="wp941515"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp941516"> </a>
+The full pathname for the device to be used by the WSL process to access the network. This is a required value for access to a network via a TLI-based Oracle Tuxedo system binary. This attribute is not needed for sockets-based Oracle Tuxedo system binaries.
+</p>
+<h4 class="pHeading3"><a name="wp873022"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp873023"> </a>
+A string from 0 to 78 characters in length.
+</p>
+<h4 class="pHeading3"><a name="wp873024"> </a>
+Example
+</h4>
+<p class="pBody"><a name="wp873025"> </a>
+<code class="cCode">/dev/tcp</code>
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12182&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_GeneralTabPage_TA_GRPNO&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp873028"> </a>
+Group Number (TA_GRPNO)
+</h3>
+<h4 class="pHeading3"><a name="wp896673"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp873029"> </a>
+This field displays the group number associated with this group of servers.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12184&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_GeneralTabPage_TA_PID&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp904044"> </a>
+Process ID (TA_PID)
+</h3>
+<h4 class="pHeading3"><a name="wp904045"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp904046"> </a>
+This field displays the native operating system process identifier for the WSL server. Note that this may not be a unique attribute since servers may be located on different machines allowing for duplication of process identifiers. 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12206&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_GeneralTabPage_TA_LMID&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp899785"> </a>
+Logical Machine Name, Backup (TA_LMID)
+</h3>
+<h4 class="pHeading3"><a name="wp920202"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp899787"> </a>
+This field displays the logical machine identifier for the machine on which the server is currently running.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;wsl_opt&quot;&gt;&lt;/a&gt;
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_OptionsTabPage&quot;&gt;&lt;/a&gt;
+</p>
+<h3 class="pHeading2"><a name="wp873039"> </a>
+Options Tab
+</h3>
+<p class="pBody"><a name="wp873040"> </a>
+The Options tab page contains the following fields:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp873041"> </a><a href="acwsl.html#wp921496">Executable Options (TA_CLOPT)</a></li>
+<li><a name="wp873042"> </a><a href="acwsl.html#wp873061">Environment File (TA_ENVFILE)</a></li>
+<li><a name="wp873043"> </a><a href="acwsl.html#wp921513">Restart Command (TA_RCMD)</a></li>
+<li><a name="wp873044"> </a><a href="acwsl.html#wp873081">Automatic Restart (TA_RESTART)</a></li>
+<li><a name="wp873045"> </a><a href="acwsl.html#wp873090">Grace Period (TA_GRACE)</a></li>
+<li><a name="wp873046"> </a><a href="acwsl.html#wp873101">Activation Sequence Number (TA_SEQUENCE)</a></li>
+</ul></div>
+<p class="pBody"><a name="wp921493"> </a>
+This section describes these fields.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12196&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_OptionsTabPage_TA_CLOPT&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp921496"> </a>
+Executable Options (TA_CLOPT) 
+</h3>
+<h4 class="pHeading3"><a name="wp921497"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp873052"> </a>
+Command-line options to be passed to the WSL server when it is activated. 
+</p>
+<h4 class="pHeading3"><a name="wp873053"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp873054"> </a>
+A string of 0 to 128 characters.
+</p>
+<h4 class="pHeading3"><a name="wp873055"> </a>
+Default
+</h4>
+<p class="pBody"><a name="wp873056"> </a>
+<code class="cCode">-A</code>
+</p>
+<h4 class="pHeading3"><a name="wp873057"> </a>
+Notes
+</h4>
+<p class="pBody"><a name="wp873058"> </a>
+Run-time modifications to this attribute will not affect a running WSL server.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12199&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_OptionsTabPage_TA_ENVFILE&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp873061"> </a>
+Environment File (TA_ENVFILE)
+</h3>
+<h4 class="pHeading3"><a name="wp873062"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp873063"> </a>
+The environment file specific to the WSL server.
+</p>
+<h4 class="pHeading3"><a name="wp873064"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp873065"> </a>
+A string of 0 to 78 characters.
+</p>
+<h4 class="pHeading3"><a name="wp873066"> </a>
+Default
+</h4>
+<p class="pBody"><a name="wp873067"> </a>
+No entry
+</p>
+<h4 class="pHeading3"><a name="wp873068"> </a>
+Notes
+</h4>
+<p class="pBody"><a name="wp921510"> </a>
+Run-time modifications to this attribute will not affect a running WSL server.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12201&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_OptionsTabPage_TA_RCMD&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp921513"> </a>
+Restart Command (TA_RCMD) 
+</h3>
+<h4 class="pHeading3"><a name="wp921514"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp873074"> </a>
+An application-specified command to be executed in parallel with the system restart of an application server. This command must be an executable file in the native operating system.
+</p>
+<h4 class="pHeading3"><a name="wp873075"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp873076"> </a>
+A string of string 0 to 78 characters.
+</p>
+<h4 class="pHeading3"><a name="wp873077"> </a>
+Default
+</h4>
+<p class="pBody"><a name="wp873078"> </a>
+No entry
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12202&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_OptionsTabPage_TA_RESTART&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp873081"> </a>
+Automatic Restart (TA_RESTART)
+</h3>
+<h4 class="pHeading3"><a name="wp873082"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp873083"> </a>
+Restartable (<code class="cCode">Y</code>) or non-restartable (<code class="cCode">N</code>) WSL server. If server migration is specified for this server group, then this attribute must be set to <code class="cCode">Y</code>.
+</p>
+<h4 class="pHeading3"><a name="wp873084"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp873085"> </a>
+<code class="cCode">Y</code> or <code class="cCode">N</code>
+</p>
+<h4 class="pHeading3"><a name="wp873086"> </a>
+Default
+</h4>
+<p class="pBody"><a name="wp873087"> </a>
+<code class="cCode">Y</code>
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12181&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_OptionsTabPage_TA_GRACE&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp873090"> </a>
+Grace Period (TA_GRACE) 
+</h3>
+<h4 class="pHeading3"><a name="wp873091"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp873092"> </a>
+The period of time, in seconds, over which the limit specified in the <a href="acwsl.html#wp873215">Max Generations (TA_MAXGEN)</a> for the Workstation Listener class applies.
+</p>
+<p class="pBody"><a name="wp873093"> </a>
+The value in this field is meaningful only for restartable WSL servers, i.e., if you have entered <code class="cCode">Y</code> in the <a href="acwsl.html#wp873081">Automatic Restart (TA_RESTART)</a> for the Workstation Listeners class. When a restarting server would exceed the limit specified in the Max Generations field but the period specified in the Grace Period field has expired, the system resets the current generation to 1 and resets the initial boot time to the current time. 
+</p>
+<p class="pBody"><a name="wp873094"> </a>
+A value of 0 for this attribute indicates that the WSL server should always be restarted.
+</p>
+<h4 class="pHeading3"><a name="wp873095"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp873096"> </a>
+A number greater than or equal to zero.
+</p>
+<h4 class="pHeading3"><a name="wp873097"> </a>
+Default
+</h4>
+<p class="pBody"><a name="wp873098"> </a>
+<code class="cCode">0</code>
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12185&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_OptionsTabPage_TA_SEQUENCE&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp873101"> </a>
+Activation Sequence Number (TA_SEQUENCE) 
+</h3>
+<h4 class="pHeading3"><a name="wp873102"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp873103"> </a>
+Specifies when this server should be booted (<code class="cCode">tmboot(1)</code>) or shutdown (<code class="cCode">tmshutdown(1)</code>) relative to other servers. If two servers are given the same sequence number, it is possible for <code class="cCode">tmboot(1)</code> to boot them in parallel and for <code class="cCode">tmshutdown(1) </code>to shut them down in parallel. If you add a workstation listener without specifying a value in the Activation Sequence Number field (or if you enter an invalid value), the workstation listener that is generated will be 10,000 or more &#8212; higher than any other automatically-selected default value. 
+</p>
+<p class="pBody"><a name="wp903943"> </a>
+Servers are booted by <code class="cCode">tmboot(1)</code> in increasing order of sequence number and shut down by<code class="cCode"> tmshutdown(1)</code> in decreasing order. Run-time modifications to this attribute affect only<code class="cCode"> tmboot(1)</code> and<code class="cCode"> tmshutdown(1)</code> and will affect the order in which running servers may be shut down by a subsequent invocation of <code class="cCode">tmshutdown(1)</code>.
+</p>
+<h4 class="pHeading3"><a name="wp873105"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp873106"> </a>
+A number in the range of 1 to 10,000 inclusive.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;wsl_sysp&quot;&gt;&lt;/a&gt;
+</p>
+<h3 class="pHeading2"><a name="wp873107"> </a>
+System Parameters Tab
+</h3>
+<p class="pBody"><a name="wp873108"> </a>
+The System Parameters tab page contains the following fields:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp873109"> </a><a href="acwsl.html#wp873121">Compression Limit (TA_CMPLIMIT)</a></li>
+<li><a name="wp873110"> </a><a href="acwsl.html#wp916935">Suspend Status (TA_SUSPENDED)</a></li>
+<li><a name="wp873111"> </a><a href="acwsl.html#wp873141">Current Number of Handlers (TA_CURHANDLERS)</a></li>
+<li><a name="wp873112"> </a><a href="acwsl.html#wp873145">Highest Number of Handlers (TA_HWHANDLERS)</a></li>
+<li><a name="wp873113"> </a><a href="acwsl.html#wp873154">Version Number (TA_WSPROTO)</a></li>
+<li><a name="wp873114"> </a><a href="acwsl.html#wp921566">Minimum Encryption Bits (TA_MINENCRYPTBITS)</a></li>
+<li><a name="wp873115"> </a><a href="acwsl.html#wp873167">Maximum Encryption Bits (TA_MAXENCRYPTBITS)</a></li>
+<li><a name="wp873116"> </a><a href="acwsl.html#wp873184">Minimum Port Number (TA_MINWSHPORT)</a></li>
+<li><a name="wp873117"> </a><a href="acwsl.html#wp873195">Maximum Port Number (TA_MAXWSHPORT)</a></li>
+</ul></div>
+<p class="pBody"><a name="wp873118"> </a>
+This section describes these fields.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12197&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_SysParamsTabPage_TA_CMPLIMIT&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp873121"> </a>
+Compression Limit (TA_CMPLIMIT) 
+</h3>
+<h4 class="pHeading3"><a name="wp873122"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp873123"> </a>
+Message size threshold at which compression will occur for traffic to and from Workstation clients. <code class="cCodeEmphasis">threshold</code> may be either non-negative numeric values or the string <code class="cCode">MAXLONG</code>, which is dynamically translated to the maximum long setting for the machine. 
+</p>
+<h4 class="pHeading3"><a name="wp873124"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp873125"> </a>
+<code class="cCodeEmphasis">threshold</code> 
+</p>
+<h4 class="pHeading3"><a name="wp873126"> </a>
+Default
+</h4>
+<p class="pBody"><a name="wp873127"> </a>
+<code class="cCode">MAXLONG</code>
+</p>
+<h4 class="pHeading3"><a name="wp873128"> </a>
+Notes
+</h4>
+<p class="pBody"><a name="wp916930"> </a>
+This attribute value is not used for Workstation clients running Oracle Tuxedo Workstation release 6.1 or an earlier release.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12203&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_SysParamsTabPage_TA_SUSPENDED&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp916935"> </a>
+Suspend Status (TA_SUSPENDED) 
+</h3>
+<h4 class="pHeading3"><a name="wp873133"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp873134"> </a>
+This field displays the status of your workstation listener in regard to suspension issues. 
+</p>
+<h4 class="pHeading3"><a name="wp873135"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp873136"> </a>
+One of the following values is displayed in this field:
+</p>
+<h4 class="pDefTerm"><a name="wp896800"> </a>
+<code class="cCode">NEW</code>
+</h4><div class="pDefPara"><a name="wp897074"> </a>
+Indicates that new incoming clients may not connect through this WSL object.
+</div>
+<h4 class="pDefTerm"><a name="wp896988"> </a>
+<code class="cCode">ALL</code>
+</h4><div class="pDefPara"><a name="wp896953"> </a>
+Indicates that Workstation clients already connected to the application through this workstation listener have been SUSPENDED and new incoming connections have been disallowed.
+</div>
+<h4 class="pDefTerm"><a name="wp896820"> </a>
+<code class="cCode">NONE</code>
+</h4><div class="pDefPara"><a name="wp897491"> </a>
+Indicates that no suspension characteristics are in effect.
+</div>
+<h4 class="pHeading3"><a name="wp873137"> </a>
+Example
+</h4>
+<p class="pBody"><a name="wp873138"> </a>
+<code class="cCode">ALL</code>
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12186&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_SysParamsTabPage_TA_CURHANDLERS&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp873141"> </a>
+Current Number of Handlers (TA_CURHANDLERS)
+</h3>
+<h4 class="pHeading3"><a name="wp897510"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp873142"> </a>
+This field displays the number of currently active handlers associated with this workstation listener (WSL).
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12186&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_SysParamsTabPage_TA_HWHANDLERS&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp873145"> </a>
+Highest Number of Handlers (TA_HWHANDLERS) 
+</h3>
+<h4 class="pHeading3"><a name="wp873146"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp873147"> </a>
+The maximum number of handlers that should be available in conjunction with this WSL at any given time. Handlers are started as necessary to meet the demand of Workstation clients attempting to access the system. This attribute must be greater than or equal to the setting for the minimum number of handlers.
+</p>
+<h4 class="pHeading3"><a name="wp873148"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp873149"> </a>
+A number in the range of zero to 32K inclusive.
+</p>
+<h4 class="pHeading3"><a name="wp873150"> </a>
+Default
+</h4>
+<p class="pBody"><a name="wp873151"> </a>
+<code class="cCode">0</code>
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12193&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_SysParamsTabPage_TA_WSPROTO&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp873154"> </a>
+Version Number (TA_WSPROTO)
+</h3>
+<h4 class="pHeading3"><a name="wp897517"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp921563"> </a>
+This field displays the Oracle Tuxedo Workstation protocol version number for this Workstation group. Note that Workstation clients connecting to this group may themselves have a different protocol version number associated with them.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12179&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_SysParamsTabPage_TA_MINENCRYPTBITS&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp921566"> </a>
+Minimum Encryption Bits (TA_MINENCRYPTBITS) 
+</h3>
+<h4 class="pHeading3"><a name="wp921567"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp873160"> </a>
+When connecting to Oracle Tuxedo, require at least this minimum level of encryption. If this level of encryption cannot be met, link establishment will fail.
+</p>
+<h4 class="pHeading3"><a name="wp873161"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp873162"> </a>
+<code class="cCode">0</code> or <code class="cCode">40</code> or <code class="cCode">128</code> where <code class="cCode">0</code> means no encryption and <code class="cCode">40</code> and <code class="cCode">128</code> specify encryption key lengths (in bits).
+</p>
+<h4 class="pHeading3"><a name="wp873163"> </a>
+Default
+</h4>
+<p class="pBody"><a name="wp873164"> </a>
+<code class="cCode">0</code>
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12180&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_SysParamsTabPage_TA_MAXENCRYPTBITS&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp873167"> </a>
+Maximum Encryption Bits (TA_MAXENCRYPTBITS) 
+</h3>
+<h4 class="pHeading3"><a name="wp873168"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp873169"> </a>
+When connecting to Oracle Tuxedo, negotiate encryption up to this level.
+</p>
+<h4 class="pHeading3"><a name="wp873170"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp873171"> </a>
+<code class="cCode">0</code> or <code class="cCode">40</code> or <code class="cCode">128</code> where <code class="cCode">0</code> means no encryption and <code class="cCode">40</code> and <code class="cCode">128</code> specify encryption key lengths (in bits).
+</p>
+<h4 class="pHeading3"><a name="wp873172"> </a>
+Default
+</h4>
+<p class="pBody"><a name="wp873173"> </a>
+<code class="cCode">128</code>
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12208&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_SysParamsTabPage_TA_MINWSHPORT&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp873184"> </a>
+Minimum Port Number (TA_MINWSHPORT)
+</h3>
+<h4 class="pHeading3"><a name="wp873185"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp873186"> </a>
+The lower end of the range of available port numbers that may be allocated to WSH processes by this listener.
+</p>
+<h4 class="pHeading3"><a name="wp873187"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp873188"> </a>
+A number in the range of 0 to 65,535 inclusive.
+</p>
+<h4 class="pHeading3"><a name="wp873189"> </a>
+Default
+</h4>
+<p class="pBody"><a name="wp873190"> </a>
+<code class="cCode">2048</code>
+</p>
+<h4 class="pHeading3"><a name="wp873191"> </a>
+Example
+</h4>
+<p class="pBody"><a name="wp873192"> </a>
+<code class="cCode">4096</code>
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12209&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_SysParamsTabPage_TA_MAXWSHPORT&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp873195"> </a>
+Maximum Port Number (TA_MAXWSHPORT)
+</h3>
+<h4 class="pHeading3"><a name="wp873196"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp873197"> </a>
+The upper end of the range of available port numbers that may be allocated to WSH processes by this listener.
+</p>
+<h4 class="pHeading3"><a name="wp873198"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp873199"> </a>
+A number in the range of 0 to 65,535 inclusive.
+</p>
+<h4 class="pHeading3"><a name="wp873200"> </a>
+Default
+</h4>
+<p class="pBody"><a name="wp873201"> </a>
+<code class="cCode">65,535</code>
+</p>
+<h4 class="pHeading3"><a name="wp873202"> </a>
+Example
+</h4>
+<p class="pBody"><a name="wp873203"> </a>
+<code class="cCode">60,000</code>
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;wsl_stats&quot;&gt;&lt;/a&gt; 
+</p>
+<h3 class="pHeading2"><a name="wp873204"> </a>
+Statistics Tab
+</h3>
+<p class="pBody"><a name="wp873205"> </a>
+The Statistics tab page contains the following fields:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp873206"> </a><a href="acwsl.html#wp873215">Max Generations (TA_MAXGEN)</a></li>
+<li><a name="wp873207"> </a><a href="acwsl.html#wp873224">Min Number of Handlers (TA_MINHANDLERS)</a></li>
+<li><a name="wp873208"> </a><a href="acwsl.html#wp873233">Max Number of Handlers (TA_MAXHANDLERS)</a></li>
+<li><a name="wp873209"> </a><a href="acwsl.html#wp873244">Max Number of Clients (TA_MULTIPLEX)</a></li>
+<li><a name="wp873210"> </a><a href="acwsl.html#wp873253">Max Idle Time (TA_MAXIDLE)</a></li>
+<li><a name="wp873211"> </a><a href="acwsl.html#wp873262">Max Initialization Time (TA_MAXINIT)</a></li>
+</ul></div>
+<p class="pBody"><a name="wp873212"> </a>
+This section describes these fields.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12183&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_StatsTabPage_TA_MAXGEN&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp873215"> </a>
+Max Generations (TA_MAXGEN) 
+</h3>
+<h4 class="pHeading3"><a name="wp873216"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp873217"> </a>
+The number of generations allowed for a restartable WSL server over the specified grace period. The initial activation of the WSL server counts as one generation; each restart also counts as one. Processing after the maximum generations is exceeded is discussed in the description of the <a href="acwsl.html#wp873090">Grace Period (TA_GRACE)</a> on the Options tab page for Workstation Listeners.
+</p>
+<h4 class="pHeading3"><a name="wp873218"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp873219"> </a>
+A number in the range of one to 1 to 255 inclusive.
+</p>
+<h4 class="pHeading3"><a name="wp873220"> </a>
+Default
+</h4>
+<p class="pBody"><a name="wp873221"> </a>
+<code class="cCode">1</code>
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12191&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_StatsTabPage_TA_MINHANDLERS&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp873224"> </a>
+Min Number of Handlers (TA_MINHANDLERS) 
+</h3>
+<h4 class="pHeading3"><a name="wp873225"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp873226"> </a>
+The minimum number of handlers that should be available in conjunction with this Workstation Listener (WSL) at any given time. The WSL will start this many Workstation Handlers (WSH) immediately upon being activated and will not deplete the supply of WSHs below this number until the administrator issues a shutdown to the WSL. Modifications to this attribute for a running WSL may cause additional handlers to be activated.
+</p>
+<h4 class="pHeading3"><a name="wp873227"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp873228"> </a>
+A number in the range of 0 to 255 inclusive.
+</p>
+<h4 class="pHeading3"><a name="wp873229"> </a>
+Default
+</h4>
+<p class="pBody"><a name="wp873230"> </a>
+<code class="cCode">0</code>
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12188&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_StatsTabPage_TA_MAXHANDLERS&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp873233"> </a>
+Max Number of Handlers (TA_MAXHANDLERS) 
+</h3>
+<h4 class="pHeading3"><a name="wp873234"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp873235"> </a>
+The maximum number of handlers that should be available in conjunction with this Workstation Listener at any given time. Handlers are started as necessary to meet the demand of Workstation clients attempting to access the system. This attribute must be greater than or equal to the setting for the minimum number of handlers.
+</p>
+<h4 class="pHeading3"><a name="wp873236"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp873237"> </a>
+A number in the range of 0 to 32,766 inclusive.
+</p>
+<h4 class="pHeading3"><a name="wp873238"> </a>
+Default
+</h4>
+<p class="pBody"><a name="wp873239"> </a>
+<code class="cCode">0</code>
+</p>
+<h4 class="pHeading3"><a name="wp873240"> </a>
+Tips
+</h4>
+<p class="pBody"><a name="wp873241"> </a>
+A value of <code class="cCode">0</code> in this field means that the effective value is determined at activation time from the current value in the Max Handlers field and the Max Workstation Clients field for the Machines class (T_MACHINE). Note that a GET operation with the MIB_LOCAL flag set will get the effective value for objects with an activation time default setting.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12192&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_StatsTabPage_TA_MULTIPLEX&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp873244"> </a>
+Max Number of Clients (TA_MULTIPLEX) 
+</h3>
+<h4 class="pHeading3"><a name="wp873245"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp873246"> </a>
+Maximum number of clients to be supported by any one handler process concurrently.
+</p>
+<h4 class="pHeading3"><a name="wp873247"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp873248"> </a>
+A number in the range of 1 to 32,767 inclusive.
+</p>
+<h4 class="pHeading3"><a name="wp873249"> </a>
+Default
+</h4>
+<p class="pBody"><a name="wp873250"> </a>
+<code class="cCode">10</code>
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12189&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_StatsTabPage_TA_MAXIDLE&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp873253"> </a>
+Max Idle Time (TA_MAXIDLE) 
+</h3>
+<h4 class="pHeading3"><a name="wp873254"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp873255"> </a>
+The maximum amount of time (in minutes) that a Workstation client is permitted to be idle before it is abortively disconnected from the application by the handler. A value of 35,204,649 allows clients to be idle as long as they wish without being timed out. A value of <code class="cCode">0</code> means that clients may be terminated after any period of inactivity greater than 1 second.
+</p>
+<h4 class="pHeading3"><a name="wp873256"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp873257"> </a>
+A number in the range of 0 to 35,204,649 inclusive.
+</p>
+<h4 class="pHeading3"><a name="wp873258"> </a>
+Default
+</h4>
+<p class="pBody"><a name="wp873259"> </a>
+<code class="cCode">35,204,649</code>
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12190&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSL_StatsTabPage_TA_MAXINIT&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp873262"> </a>
+Max Initialization Time (TA_MAXINIT) 
+</h3>
+<h4 class="pHeading3"><a name="wp873263"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp873264"> </a>
+The minimum amount of time (in seconds) that should be allowed for a Workstation client to complete initialization processing through the Workstation Handler before being timed out by the Workstation Listener.
+</p>
+<h4 class="pHeading3"><a name="wp873265"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp873266"> </a>
+A number in the range of 1 to 32,766 inclusive.
+</p>
+<h4 class="pHeading3"><a name="wp873267"> </a>
+Default
+</h4>
+<p class="pBody"><a name="wp873269"> </a>
+<code class="cCode">60</code>
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;T_WSH&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp880602"> </a>
+Workstation Handlers (WSHs)
+</h2><p class="pBody"><a name="wp880603"> </a>
+The Workstation Handler object allows you to specify the workstation statistics specific to a particular WSH client process.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;T_WSH&quot;&gt;&lt;/a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp876517"> </a>
+Configuring Workstation Handlers (T_WSH Class)
+</h2><p class="pBody"><a name="wp876518"> </a>
+To configure Workstation Handlers, select WS Handlers in the Tree view. Enter values for the fields in the tab pages. 
+</p>
+<p class="pBody"><a name="wp920308"> </a>
+The Configuration Tool pane contains the following tab pages for specifying the attributes of WS Handlers: General, Handler Info, and Statistics.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;C_WSH&quot;&gt;&lt;/a&gt; 
+</p>
+<h3 class="pHeading2"><a name="wp876519"> </a>
+General Tab
+</h3>
+<p class="troubleshoot">
+&lt;a name=&quot;WSH_GeneralTabPage&quot;&gt;&lt;/a&gt;
+</p>
+<p class="pBody"><a name="wp876520"> </a>
+The General tab page contains the following fields:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp876521"> </a><a href="acwsl.html#wp876532">Client ID (TA_CLIENTID)</a></li>
+<li><a name="wp876522"> </a><a href="acwsl.html#wp876536">WorkStation Client ID (TA_WSHCLIENTID)</a></li>
+<li><a name="wp876523"> </a><a href="acwsl.html#wp876540">Logical Machine Name, Backup (TA_LMID)</a> </li>
+<li><a name="wp876524"> </a><a href="acwsl.html#wp876544">Process ID (TA_PID)</a></li>
+<li><a name="wp876525"> </a><a href="acwsl.html#wp876548">Group Name (TA_SRVGRP)</a></li>
+<li><a name="wp876526"> </a><a href="acwsl.html#wp900122">Server ID (TA_SRVID)</a></li>
+<li><a name="wp876527"> </a><a href="acwsl.html#wp876556">Group Number (TA_GRPNO)</a></li>
+<li><a name="wp876528"> </a><a href="acwsl.html#wp876560">Object State (TA_STATE)</a></li>
+</ul></div>
+<p class="pBody"><a name="wp876529"> </a>
+This section describes these fields.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12227&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSH_GeneralTabPage_TA_CLIENTID&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp876532"> </a>
+Client ID (TA_CLIENTID)
+</h3>
+<h4 class="pHeading3"><a name="wp920313"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp876533"> </a>
+This field displays the client identifier for this workstation handler. The data in this field should not be interpreted directly by the user except for equality comparison.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12230&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSH_GeneralTabPage_TA_WSHCLIENTID&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp876536"> </a>
+WorkStation Client ID (TA_WSHCLIENTID)
+</h3>
+<h4 class="pHeading3"><a name="wp876537"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp920385"> </a>
+This field displays the client identifier for this workstation handler. The data in this field should not be interpreted directly by the end user except for an equality comparison. This field can be used to link the workstation handler to its associated Workstation client objects in the Clients class. The value in this field is always equal to the value in the <a href="acwsl.html#wp876532">Client ID (TA_CLIENTID)</a> for this class.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12231&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSH_GeneralTabPage_TA_LMID&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp876540"> </a>
+Logical Machine Name, Backup (TA_LMID) 
+</h3>
+<h4 class="pHeading3"><a name="wp876541"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp920457"> </a>
+This field displays the logical machine identifier for the machine on which the workstation handler is currently running.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12214&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSH_GeneralTabPage_TA_PID&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp876544"> </a>
+Process ID (TA_PID)
+</h3>
+<h4 class="pHeading3"><a name="wp876545"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp920529"> </a>
+This field displays the native operating system process identifier for the Workstation client. Note that this may not be a unique attribute since clients may be located on different machines, allowing for the duplication of process identifiers.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12232&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSH_GeneralTabPage_TA_SRVGRP&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp876548"> </a>
+Group Name (TA_SRVGRP)
+</h3>
+<h4 class="pHeading3"><a name="wp918690"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp920615"> </a>
+This field displays the logical name of the server group for the associated workstation listener.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12225&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSH_GeneralTabPage_TA_SRVID&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp900122"> </a>
+Server ID (TA_SRVID)
+</h3>
+<h4 class="pHeading3"><a name="wp900123"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp920669"> </a>
+This field displays the server identification number for the associated workstation listener. This number is unique within the server group.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12212&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSH_GeneralTabPage_TA_GRPNO&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp876556"> </a>
+Group Number (TA_GRPNO)
+</h3>
+<h4 class="pHeading3"><a name="wp876557"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp920727"> </a>
+This field displays the group number associated with this group of servers.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12226&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSH_GeneralTabPage_TA_STATE&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp876560"> </a>
+Object State (TA_STATE)
+</h3>
+<h4 class="pHeading3"><a name="wp900141"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp920773"> </a>
+This field displays the state of the workstation handler client within the application. Any state defined for the Clients class in <code class="cCode">TM_MIB</code>(5) may be returned or set as indicated on that reference page.
+</p>
+<p class="pBody"><a name="wp876562"> </a>
+State changes to the <code class="cCode">SUSPENDED</code> state affect all clients associated with this workstation handler as does the resetting of a <code class="cCode">SUSPENDED</code> workstation handler to <code class="cCode">ACTIVE</code>. Additionally, <code class="cCode">SUSPENDED</code> workstation handler clients will not be assigned any additional incoming clients by the workstation listener.
+</p>
+<p class="pBody"><a name="wp876563"> </a>
+Note that the state of a workstation handler client may not be set to <code class="cCode">DEAD</code> when the Clients class is being accessed. However, the state transition to <code class="cCode">DEAD</code> is allowed via the Workstation Handlers class. Such a transition will result in all connections that are being handled by the targeted workstation handler being dropped abortively.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;wsh_haninfo&quot;&gt;&lt;/a&gt; 
+</p>
+<h3 class="pHeading2"><a name="wp876564"> </a>
+Handler Info Tab
+</h3>
+<p class="troubleshoot">
+&lt;a name=&quot;WSH_HanderInfoTabPage&quot;&gt;&lt;/a&gt;
+</p>
+<p class="pBody"><a name="wp876565"> </a>
+The Handler Info tab page contains the following fields:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp876566"> </a><a href="acwsl.html#wp876577">Max Number of Clients (TA_MULTIPLEX)</a></li>
+<li><a name="wp876567"> </a><a href="acwsl.html#wp876581">Highwater Number of Clients (TA_HWCLIENTS)</a></li>
+<li><a name="wp876568"> </a><a href="acwsl.html#wp880888">Current Number of Clients (TA_CURCLIENTS)</a></li>
+<li><a name="wp876569"> </a><a href="acwsl.html#wp876589">Seconds Remaining Before Timeout (TA_TIMELEFT)</a></li>
+<li><a name="wp876570"> </a><a href="acwsl.html#wp876593">Current Status of WSH (TA_ACTIVE)</a></li>
+<li><a name="wp876571"> </a><a href="acwsl.html#wp876597">Total Active Time (TA_TOTACTTIME)</a></li>
+<li><a name="wp876572"> </a><a href="acwsl.html#wp876601">Total IDLE Time (TA_TOTIDLTIME)</a></li>
+<li><a name="wp876573"> </a><a href="acwsl.html#wp876605">Network Address (TA_NADDR)</a></li>
+</ul></div>
+<p class="pBody"><a name="wp876574"> </a>
+This section describes these fields.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12221&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSH_HandlerInfoTabPage_TA_MULTIPLEX&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp876577"> </a>
+Max Number of Clients (TA_MULTIPLEX)
+</h3>
+<h4 class="pHeading3"><a name="wp920819"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp876578"> </a>
+This field displays the maximum number of clients that may access the application via this workstation handler.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12213&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSH_HandlerInfoTabPage_TA_HWCLIENTS&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp876581"> </a>
+Highwater Number of Clients (TA_HWCLIENTS)
+</h3>
+<h4 class="pHeading3"><a name="wp876582"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp920873"> </a>
+The number displayed in this field is the high-water mark of clients accessing the application via this workstation handler.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12210&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSH_HandlerInfoTabPage_TA_CURCLIENTS&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp880888"> </a>
+Current Number of Clients (TA_CURCLIENTS) 
+</h3>
+<h4 class="pHeading3"><a name="wp880889"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp920927"> </a>
+This field displays the number of clients currently accessing the application via this workstation handler.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12219&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSH_HandlerInfoTabPage_TA_TIMELEFT&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp876589"> </a>
+Seconds Remaining Before Timeout (TA_TIMELEFT)
+</h3>
+<h4 class="pHeading3"><a name="wp876590"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp920981"> </a>
+If there is a value other than zero displayed in this field, it means that the new Workstation client that has just been assigned to this workstation handler has the indicated number of seconds in which to complete the initialization process with the workstation handler.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12229&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSH_HandlerInfoTabPage_TA_ACTIVE&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp876593"> </a>
+Current Status of WSH (TA_ACTIVE)
+</h3>
+<h4 class="pHeading3"><a name="wp876594"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp921035"> </a>
+This field displays the state of the workstation handler. A value of <code class="cCode">Y</code> indicates that the workstation handler is currently performing work on behalf of one of its associated Workstation clients. A value of <code class="cCode">N</code> indicates that the workstation handler is currently waiting for work to perform on behalf of one of its associated Workstation clients.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12223&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSH_HandlerInfoTabPage_TA_TOTACTTIME&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp876597"> </a>
+Total Active Time (TA_TOTACTTIME)
+</h3>
+<h4 class="pHeading3"><a name="wp876598"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp921089"> </a>
+This field displays the time, in seconds, that the workstation handler has been active since it started processing.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp876601"> </a>
+Total IDLE Time (TA_TOTIDLTIME)
+</h3>
+<h4 class="pHeading3"><a name="wp921123"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp876602"> </a>
+This field displays the time, in seconds, that the workstation handler has been idle since it started processing.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp876605"> </a>
+Network Address (TA_NADDR)
+</h3>
+<h4 class="pHeading3"><a name="wp876606"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp921185"> </a>
+This field displays the network address of a Workstation client. Network addresses with unprintable characters are converted to the &quot;0x . . .&quot; network address format (as described for the Network Address field on the Networking tab page for the Machines class). If the address is a TCP/IP address, then it is returned in the <code class="cCodeEmphasis">dotted_decimal</code>:<code class="cCodeEmphasis">port_number</code> format:
+</p>
+<a name="wp876607"> </a><div class="pPreformatted"><pre>//<code class="cCodeEmphasis">#</code>.<code class="cCodeEmphasis">#</code>.<code class="cCodeEmphasis">#</code>.<code class="cCodeEmphasis">#</code>.<code class="cCodeEmphasis">port_number</code></pre></div><p class="pBody"><a name="wp876608"> </a>
+Each <code class="cCodeEmphasis">#</code> (pound sign) represents a decimal number in the range of 0 to 255. The value of <code class="cCodeEmphasis">port_number</code> is a decimal number in the range 0 to 65535. No value will be displayed (that is, the field will be blank) for a non-Workstation client.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;wsh_stats&quot;&gt;&lt;/a&gt; 
+</p>
+<h3 class="pHeading2"><a name="wp876609"> </a>
+Statistics Tab
+</h3>
+<p class="troubleshoot">
+&lt;a name=&quot;WSH_StatsTabPage&quot;&gt;&lt;/a&gt;
+</p>
+<p class="pBody"><a name="wp876610"> </a>
+The Statistics tab page contains the following fields:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp876611"> </a><a href="acwsl.html#wp876621">Current Workload (TA_CURWORK)</a></li>
+<li><a name="wp876612"> </a><a href="acwsl.html#wp876625">Flow Control Events (TA_FLOWCNT)</a></li>
+<li><a name="wp876613"> </a><a href="acwsl.html#wp876629">Queue Blocking Events (TA_NUMBLOCKQ)</a></li>
+<li><a name="wp876614"> </a><a href="acwsl.html#wp876633">Bytes Received (TA_RCVDBYT)</a></li>
+<li><a name="wp876615"> </a><a href="acwsl.html#wp876637">System Messages Received (TA_RCVDNUM)</a></li>
+<li><a name="wp876616"> </a><a href="acwsl.html#wp876641">Bytes Sent (TA_SENTBYT)</a></li>
+<li><a name="wp876617"> </a><a href="acwsl.html#wp921619">System Messages Sent (TA_SENTNUM)</a></li>
+</ul></div>
+<p class="pBody"><a name="wp919142"> </a>
+This section describes these fields.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12220&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSH_StatsTabPage_TA_CURWORK&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp876621"> </a>
+Current Workload (TA_CURWORK)
+</h3>
+<h4 class="pHeading3"><a name="wp921237"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp876622"> </a>
+This field displays the amount of work processed by this workstation handler since the last workstation handler assignment by the workstation listener. The workstation listener uses this value to load-balance new incoming connections among a set of workstation handler processes.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12211&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSH_StatsTabPage_TA_FLOWCNT&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp876625"> </a>
+Flow Control Events (TA_FLOWCNT)
+</h3>
+<h4 class="pHeading3"><a name="wp876626"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp921285"> </a>
+This field displays the number of times flow control has been encountered by this workstation handler. This attribute should be considered only in relation to recent past values as it may wrap around during the lifetime of the workstation handler.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12222&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSH_StatsTabPage_TA_NUMBLOCKQ&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp876629"> </a>
+Queue Blocking Events (TA_NUMBLOCKQ)
+</h3>
+<h4 class="pHeading3"><a name="wp876630"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp921313"> </a>
+This field displays the number of times this workstation handler has been unable to enqueue a message to a local UNIX system message queue due to queue blocking conditions. This attribute should be considered only in relation to recent past values as it may wrap around during the lifetime of the workstation handler.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12215&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSH_StatsTabPage_TA_RCVDBYT&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp876633"> </a>
+Bytes Received (TA_RCVDBYT)
+</h3>
+<h4 class="pHeading3"><a name="wp876634"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp921341"> </a>
+This field displays the number of bytes received from the network by this workstation handler from all of its present and past Workstation clients. This attribute should be considered only in relation to recent past values as it may wrap around during the lifetime of the workstation handler.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12216&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSH_StatsTabPage_TA_RCVDNUM&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp876637"> </a>
+System Messages Received (TA_RCVDNUM) 
+</h3>
+<h4 class="pHeading3"><a name="wp941466"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp941467"> </a>
+This field displays the number of Oracle Tuxedo system messages received from the network by this workstation handler from all of its present and past Workstation clients. This attribute should be considered only in relation to recent past values as it may wrap around during the lifetime of the workstation handler.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp876641"> </a>
+Bytes Sent (TA_SENTBYT)
+</h3>
+<h4 class="pHeading3"><a name="wp876642"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp921616"> </a>
+This field displays the number of bytes sent to the network by this workstation handler to all of its present and past Workstation clients. This attribute should be considered only in relation to recent past values as it may wrap around during the lifetime of the workstation handler.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12218&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;WSH_StatsTabPage_TA_SENTNUM&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp921619"> </a>
+System Messages Sent (TA_SENTNUM)
+</h3>
+<h4 class="pHeading3"><a name="wp921620"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp876646"> </a>
+This field displays the number of Oracle Tuxedo system messages sent to the network by this workstation handler to all of its present and past Workstation clients. This attribute should be considered only in relation to recent past values as it may wrap around during the lifetime of the workstation handler.
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="acwsl.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="acappq.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="acacls.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="3" />
+<meta name="LOC_US_CHANGE" content="41861" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/jdg/fm/dvserv.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/26/12 11:23:05" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Using Servlet Connectivity for Oracle Tuxedo</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Using Oracle Jolt
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="dvbeans.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="AppA.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/jdg.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp31687"> </a>
+Using Servlet Connectivity for Oracle Tuxedo
+</h1>
+<p class="pBody"><a name="wp29593"> </a>
+With Oracle Jolt servlet connectivity, you can use HTTP servlets to perform server-side Java tasks in response to HTTP requests. Jolt certifies servlet connectivity with the Java Web Server versions 1.1.3 and up, and supports most other standard servlet engines. Using the Jolt session pool classes, a simple HTML client can connect to any Web server that supports generic servlets. Thus, all Jolt transactions are handled by a servlet on the Web server rather than being handled by a client applet or application. 
+</p>
+<p class="pBody"><a name="wp27800"> </a>
+This capability enables HTML clients to invoke Oracle Tuxedo services without directly connecting to Oracle Tuxedo. HTML clients can instead connect to a Web server, through HTTP, where the Oracle Tuxedo service request is executed by a generic servlet. Using a Jolt session, the servlet on the Web server administers the Oracle Tuxedo service request by connecting to the Oracle Tuxedo Server through the Jolt Server Handler (JSH) or the Jolt Server Listener (JSL), which then makes the Oracle Tuxedo service request. 
+</p>
+<p class="pBody"><a name="wp30818"> </a>
+This capability allows many types of HTML clients to make remote Oracle Tuxedo service requests. All Jolt transactions are handled on the server side without requiring any change to the original HTML client. Thus, HTML clients are allowed to be very simple and require little maintenance.
+</p>
+<p class="pBody"><a name="wp28649"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp28650"> </a><a href="dvserv.html#wp25986">What Is a Servlet?</a></li>
+<li><a name="wp28651"> </a><a href="dvserv.html#wp25487">How Servlets Work with Jolt</a></li>
+<li><a name="wp28600"> </a><a href="dvserv.html#wp27402">Writing and Registering HTTP Servlets</a></li>
+<li><a name="wp29389"> </a><a href="dvserv.html#wp29046">Jolt Servlet Connectivity Sample</a></li>
+<li><a name="wp28699"> </a><a href="dvserv.html#wp27707">Additional Information on Servlets</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp25986"> </a>
+What Is a Servlet?
+</h2><p class="pBody"><a name="wp25123"> </a>
+A servlet is any Java class that can be invoked and executed on a server, usually on behalf of a client. A servlet works on the server, while an applet works on the client. An HTTP servlet is a Java class that handles an HTTP request and delivers an HTTP response. HTTP servlets reside on an HTTP server and must extend the JavaSoft javax.servlet.http.Http Servlet Class so that they can run in a generic servlet engine framework.
+</p>
+<p class="pBody"><a name="wp24432"> </a>
+Some advantages of using HTTP servlets are:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp25291"> </a>They are written in a well-formed, and compiled language (Java), so are more robust than &#8220;interpreted&#8221; scripts.</li>
+<li><a name="wp25311"> </a>They are an integral part of the HTTP server that supports them.</li>
+<li><a name="wp25321"> </a>They can be protected by the robust security of the server, unlike some CGI scripts that are hazardous.</li>
+<li><a name="wp25323"> </a>They interact with the HTTP request through a well-developed programmatic interface, and so are easier to write and less prone to errors.</li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp25487"> </a>
+How Servlets Work with Jolt
+</h2><p class="pBody"><a name="wp26691"> </a>
+With Jolt servlet connectivity, any generic HTTP servlet allows you to take advantage of the Jolt features. Jolt servlets handle HTTP requests using the following Jolt classes:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp26936"> </a><b class="cBold">ServletDataSet</b></li>
+<li><a name="wp26937"> </a>ServletPoolManagerConfig</li>
+<li><a name="wp26938"> </a>ServletResult</li>
+<li><a name="wp26939"> </a>ServletSessionPool</li>
+<li><a name="wp26973"> </a>ServletSessionPoolManager</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp29091"> </a>
+The Jolt Servlet Connectivity Classes
+</h3>
+<p class="pBody"><a name="wp27582"> </a>
+Following are descriptions of the Jolt servlet connectivity classes.
+</p>
+<p class="pBody"><a name="wp27027"> </a>
+<b class="cBold">ServletDataSet</b>
+</p>
+<p class="pBody"><a name="wp27167"> </a>
+This class contains data elements that represent the input and output parameters of an Oracle Tuxedo service. It provides a method to import the HTML field names and values from a j<code class="cCode">avax.servlet.http.HttpServletRequest</code> object.
+</p>
+<p class="pBody"><a name="wp27141"> </a>
+<b class="cBold">ServletPoolManagerConfig</b>
+</p>
+<p class="pBody"><a name="wp27223"> </a>
+This class is the startup class for a Jolt Session Pool Manager and one or more associated Jolt session pools. It creates the session pool manager if needed and starts a session pool with a minimum number of sessions. Jolt Session Pool Manager internally keeps track of one or more named session pools.
+</p>
+<p class="pBody"><a name="wp27248"> </a>
+This class is derived from <code class="cCode">bea.jolt.pool.PoolManagerConfig</code> and allows the caller to pass a Properties or Hashtable object to the static <code class="cCode">startup()</code> method to create a session pool and the static <code class="cCode">getSessionPoolManager()</code> method to get the session pool manager of <code class="cCode">bea.jolt.pool.servlet.ServletSessionPoolManager</code> class.
+</p>
+<p class="pBody"><a name="wp27029"> </a>
+<b class="cBold">ServletResult</b>
+</p>
+<p class="pBody"><a name="wp27030"> </a>
+This class provides methods to retrieve each field in a ServletResult object as a String.
+</p>
+<p class="pBody"><a name="wp28758"> </a>
+<b class="cBold">ServletSessionPool</b>
+</p>
+<p class="pBody"><a name="wp28740"> </a>
+This class provides a session pool for use in a Java servlet. A session pool represents one or more connections (sessions) to an Oracle Tuxedo system. This class provides call methods that accept input parameters for an Oracle Tuxedo service as a <code class="cCode">javax.servlet.http.HttpServletRequest</code> object.
+</p>
+<p class="pBody"><a name="wp27031"> </a>
+<b class="cBold">ServletSessionPoolManager</b>
+</p>
+<p class="pBody"><a name="wp27303"> </a>
+This class is a servlet-specific session pool manager. It manages a collection of one or more session pools of class <code class="cCode">ServletSessionPool</code>. This class provides methods that are used to create both the ServletSessionPoolManager itself and the session pools that it contains. These methods are part of the administrative API for a session pool.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp27402"> </a>
+Writing and Registering HTTP Servlets
+</h2><p class="pBody"><a name="wp27456"> </a>
+Before writing and registering HTTP servlets, you must first import the packages that support Jolt servlet connectivity (<code class="cCode">jolt.jar</code>, <code class="cCode">joltjse.jar</code>, <code class="cCode">servlet.jar</code>). HTTP servlets must extend javax.servlet.http.HttpServlet. After you write your HTTP servlets, you register them with a Web server that supports generic servlets. Your custom servlets are treated exactly like the standard HTTP servlets that provide the HTTP capabilities.
+</p>
+<p class="pBody"><a name="wp24549"> </a>
+Each HTTP servlet is registered against a specific URL pattern, so that when a matching URL is requested, the corresponding servlet is called upon to handle the request.
+</p>
+<p class="pBody"><a name="wp28875"> </a>
+Refer to the documentation for your particular Web server for instructions on how to register servlets.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp29046"> </a>
+Jolt Servlet Connectivity Sample
+</h2><p class="pBody"><a name="wp29133"> </a>
+The Jolt software includes three sample applications that demonstrate servlet connectivity using the Jolt servlet classes. The three samples are:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp29177"> </a><a href="dvserv.html#wp27645">SimpApp Sample</a></li>
+<li><a name="wp29184"> </a><a href="dvserv.html#wp28036">BankApp Sample</a></li>
+<li><a name="wp29193"> </a><a href="dvserv.html#wp28272">Admin Sample</a></li>
+</ul></div>
+<p class="pBody"><a name="wp29220"> </a>
+Refer to these samples to see code examples of how to use the Jolt servlet classes in your own servlets.
+</p>
+<h3 class="pHeading2"><a name="wp29273"> </a>
+Viewing the Sample Servlet Applications
+</h3>
+<p class="pBody"><a name="wp29245"> </a>
+To view the code for the Jolt sample applications, you need to install the Jolt API client classes (usually chosen as an option when installing Jolt). Once the classes are installed in your directory of choice, navigate to the following directory to see the sample application files:
+</p>
+<a name="wp29261"> </a><div class="pPreformatted"><pre>&lt;Installation directory&gt;\udataobj\jolt\examples\servlet</pre></div><p class="pBody"><a name="wp29291"> </a>
+To view the sample code, use a text editor such as Microsoft Notepad to open the Java files for each sample application.
+</p>
+<h3 class="pHeading2"><a name="wp27645"> </a>
+SimpApp Sample
+</h3>
+<p class="pBody"><a name="wp27647"> </a>
+A sample application named <code class="cCode">simpapp</code> is included with Jolt. The <code class="cCode">simpapp</code> application illustrates how the servlet uses Servlet Connectivity for Oracle Tuxedo. The following servlet tasks are illustrated by the SimpApp sample:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp27816"> </a>Using a property file to create a session pool</li>
+<li><a name="wp27825"> </a>Getting the session pool manager</li>
+<li><a name="wp27830"> </a>Retrieving the session pool by name</li>
+<li><a name="wp27835"> </a>Invoking an Oracle Tuxedo service</li>
+<li><a name="wp27840"> </a>Processing the result set</li>
+</ul></div>
+<p class="pBody"><a name="wp30571"> </a>
+This example demonstrates how a servlet can connect to Oracle Tuxedo and call upon one of its services; it should be invoked from the <code class="cCode">simpapp.html</code> file. The servlet creates a session pool manager at initialization, which is used to obtain a session when the <code class="cCode">doPost()</code> method is invoked. This session is used to connect to a service in Oracle Tuxedo with a name described by the posted &#8220;<code class="cCode">SVCNAME</code>&#8221; argument. In this example the service is called &quot;<code class="cCode">TOUPPER</code>&quot;, which transposes the posted &#8220;<code class="cCode">STRING</code>&#8221; argument text into uppercase, and returns the result to the client browser within some generated HTML.
+</p>
+<a name="wp30572"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The WebLogic Server is used in this example.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp30573"> </a>
+Requirements for Running the SimpApp Sample
+</h4>
+<p class="pBody"><a name="wp27847"> </a>
+The requirements for running the SimpApp sample are:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp27655"> </a>Any Web application server with Servlet JSDK 1.1 or above</li>
+<li><a name="wp27656"> </a>Oracle Tuxedo 8.0 or later with SimpApp sample running</li>
+<li><a name="wp27657"> </a>Oracle Jolt</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp27659"> </a>
+Installing the SimpApp Sample
+</h4>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp27661"> </a>Install the Jolt class library (<code class="cCode">jolt.jar</code>) and Servlet Connectivity for Oracle Tuxedo class library (<code class="cCode">joltjse.jar</code>) on the Web application server. Extract the class files if it is required by your Web application server.</li>
+<li><a name="wp27665"> </a>Compile the <code class="cCode">SimpAppServlet.java</code>. Make sure that you include the standard <code class="cCode">JDK 1.1.x classes.zip</code>, JSDK 1.1 classes, Jolt class library, and Servlet Connectivity for Oracle Tuxedo class library in the classpath.</li>
+<a name="wp27885"> </a><div class="pPreformatted"><pre>javac -classpath $(JAVA_HOME)/lib/classes.zip:$(JSDK)/lib/servlet.jar:</pre></div><a name="wp27886"> </a><div class="pPreformatted"><pre>	$(JOLTHOME)/jolt.jar:$(JOLTHOME)/joltjse.jar:./classes</pre></div><a name="wp27887"> </a><div class="pPreformatted"><pre>		-d ./classes SimpAppServlet.java</pre></div><a name="wp27673"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The package name of the SimpAppServlet is <code class="cCode">examples.jolt.servlet.simpapp</code>.</td>
+</tr>
+</table>
+
+<li><a name="wp27676"> </a>Put the <code class="cCode">simpapp.html</code> and <code class="cCode">simpapp.properties</code> files in the public HTML directory.</li>
+<li><a name="wp27679"> </a>Modify the <code class="cCode">simpapp.properties</code> file. Change the &#8220;<code class="cCode">appaddrlist</code>&#8221; and &#8220;<code class="cCode">failoverlist</code>&#8221; with the proper Jolt server hosts and ports. Specify the proper Oracle Tuxedo authentication information if the SimpApp has security turned on. For example:</li>
+<a name="wp27734"> </a><div class="pPreformatted"><pre>	#simpapp</pre></div><a name="wp27684"> </a><div class="pPreformatted"><pre>	#Fri Apr 16 00:43:30 PDT 1999</pre></div><a name="wp27685"> </a><div class="pPreformatted"><pre>	poolname=simpapp</pre></div><a name="wp27686"> </a><div class="pPreformatted"><pre>	appaddrlist=//host:7000,//host:8000</pre></div><a name="wp27687"> </a><div class="pPreformatted"><pre>	failoverlist=//backup:9000</pre></div><a name="wp27688"> </a><div class="pPreformatted"><pre>	minpoolsize=1</pre></div><a name="wp27689"> </a><div class="pPreformatted"><pre>	maxpoolsize=3</pre></div><a name="wp27690"> </a><div class="pPreformatted"><pre>	userrole=tester</pre></div><a name="wp27691"> </a><div class="pPreformatted"><pre>	apppassword=appPass</pre></div><a name="wp27692"> </a><div class="pPreformatted"><pre>	username=guest</pre></div><a name="wp27693"> </a><div class="pPreformatted"><pre>	userpassword=myPass</pre></div><li><a name="wp30579"> </a>Register &#8220;Simpapp&#8221; for the SimpAppServlet. Consult your Web application server for details. If you are using Oracle WebLogic Server, add the following section of the <code class="cCode">config.xml</code> file:</li>
+<a name="wp30598"> </a><div class="pPreformattedRelative"><pre>&lt;Application<br />   Deployed=&quot;true&quot;<br />   Name=&quot;simpapp&quot;<br />   Path=&quot;.\config\mydomain\applications&quot;<br />&gt;<br />   &lt;WebAppComponent<br />     Name=&quot;simpapp&quot;<br />     Targets=&quot;myserver&quot;<br />     URI=&quot;simpapp&quot;<br />   /&gt;<br />&lt;/Application&gt;</pre></div><li><a name="wp27701"> </a>To access the SimpApp initial page &#8220;<code class="cCode">simpapp.html</code>,&#8221; type:</li>
+<p class="pBodyRelative"><a name="wp27947"> </a>
+<code class="cCode">http://mywebserver:8080/simpapp.html</code>
+</p>
+</ol></div>
+<h3 class="pHeading2"><a name="wp28036"> </a>
+BankApp Sample
+</h3>
+<p class="pBody"><a name="wp28038"> </a>
+The <code class="cCode">bankapp</code> application illustrates how the servlet is written with PageCompiledServlet with Servlet Connectivity for Oracle Tuxedo. <code class="cCode">bankapp</code> illustrates how to:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp28158"> </a>Use a property file to create a session pool</li>
+<li><a name="wp28159"> </a>Get the session pool manager</li>
+<li><a name="wp28160"> </a>Retrieve a session pool by name</li>
+<li><a name="wp28161"> </a>Invoke an Oracle Tuxedo service</li>
+<li><a name="wp28162"> </a>Process the result set</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp28046"> </a>
+Requirements for Running the BankApp Sample
+</h4>
+<p class="pBody"><a name="wp28163"> </a>
+Following are the requirements for running the BankApp sample:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp28157"> </a>Any Web application server with Servlet JSDK 1.1 or above</li>
+<li><a name="wp28047"> </a>Oracle Tuxedo 8.0 or later with BankApp sample running</li>
+<li><a name="wp28048"> </a>Oracle Jolt</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp28050"> </a>
+Installation Instructions
+</h4>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp28052"> </a>Install the Jolt class library (<code class="cCode">jolt.jar</code>) and Servlet Connectivity for Oracle Tuxedo class library (<code class="cCode">joltjse.jar</code>) to the Web application server. Extract the class files if it is required by your Web application server.</li>
+<li><a name="wp28056"> </a>Copy all HTML, JHTML and <code class="cCode">bankapp.properties</code> files to the public HTML directory of the Web application server (for example,  <code class="cCode">$WEBLOGIC/myserver/public_html</code> for WebLogic):</li>
+<a name="wp28060"> </a><div class="pPreformatted"><pre>	bankapp.properties</pre></div><a name="wp28061"> </a><div class="pPreformatted"><pre>	tellerForm.html</pre></div><a name="wp28062"> </a><div class="pPreformatted"><pre>	inquiryForm.html</pre></div><a name="wp28063"> </a><div class="pPreformatted"><pre>	depositForm.html</pre></div><a name="wp28064"> </a><div class="pPreformatted"><pre>	withdrawalForm.html</pre></div><a name="wp28065"> </a><div class="pPreformatted"><pre>	transferForm.html</pre></div><a name="wp28066"> </a><div class="pPreformatted"><pre>	InquiryServlet.jhtml</pre></div><a name="wp28067"> </a><div class="pPreformatted"><pre>	DepositServlet.jhtml</pre></div><a name="wp28068"> </a><div class="pPreformatted"><pre>	WithdrawalServlet.jhtml</pre></div><a name="wp28069"> </a><div class="pPreformatted"><pre>	TransferServlet.jhtml</pre></div><li><a name="wp28071"> </a>Modify the <code class="cCode">bankapp.properties</code> file. Change the &#8220;<code class="cCode">appaddrlist</code>&#8221; and &#8220;<code class="cCode">failoverlist</code>&#8221; with the proper Jolt server hosts and ports. Specify the proper Oracle Tuxedo authentication information if the BankApp has security turned on. For example:</li>
+<a name="wp28076"> </a><div class="pPreformatted"><pre>	#bankapp</pre></div><a name="wp28077"> </a><div class="pPreformatted"><pre>	#Fri Apr 16 00:43:30 PDT 1999</pre></div><a name="wp28078"> </a><div class="pPreformatted"><pre>	poolname=bankapp</pre></div><a name="wp28079"> </a><div class="pPreformatted"><pre>	appaddrlist=//host:8000,//host:7000</pre></div><a name="wp28080"> </a><div class="pPreformatted"><pre>	failoverlist=//backup:9000</pre></div><a name="wp28081"> </a><div class="pPreformatted"><pre>	minpoolsize=2</pre></div><a name="wp28082"> </a><div class="pPreformatted"><pre>	maxpoolsize=10</pre></div><a name="wp28083"> </a><div class="pPreformatted"><pre>	userrole=teller</pre></div><a name="wp28084"> </a><div class="pPreformatted"><pre>	apppassword=appPass</pre></div><a name="wp28085"> </a><div class="pPreformatted"><pre>	username=JaneDoe</pre></div><a name="wp28086"> </a><div class="pPreformatted"><pre>	userpassword=myPass</pre></div><li><a name="wp28088"> </a>If applicable, turn on the automatic page compilation for JHTML from your servlet engine. Consult the user manual of your Web application server for details.</li>
+<li><a name="wp28092"> </a>To access BankApp through Servlet Connectivity for Oracle Tuxedo, use the following URL in your favorite browser:</li>
+<p class="pBodyRelative"><a name="wp28095"> </a>
+<code class="cCode">http://mywebserver:8080/tellerForm.html</code>
+</p>
+</ol></div>
+<h3 class="pHeading2"><a name="wp28272"> </a>
+Admin Sample
+</h3>
+<p class="pBody"><a name="wp28274"> </a>
+The Admin sample application illustrates the following servlet tasks:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp28416"> </a>Using the administrative API to control the session pools</li>
+<li><a name="wp28421"> </a>Retrieving the statistics through PageCompiledServlet in Servlet Connectivity for Oracle Tuxedo</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp28278"> </a>
+Requirements for Running the Admin Sample
+</h4>
+<p class="pBody"><a name="wp28280"> </a>
+Following are the requirements for running the Admin sample:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp28354"> </a>Any Web application server with Servlet JSDK 1.1 or above</li>
+<li><a name="wp28281"> </a>Oracle Jolt</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp28283"> </a>
+Installation Instructions
+</h4>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp28286"> </a>Install the Jolt class library and Servlet Connectivity for Oracle Tuxedo class library on the Web application server.</li>
+<li><a name="wp28289"> </a>Copy all JHTML files to the public HTML directory (for example, <code class="cCode">$WEBLOGIC/myserver/public_html for WebLogic</code>):</li>
+<a name="wp28292"> </a><div class="pPreformatted"><pre>	PoolList.jhtml</pre></div><a name="wp28293"> </a><div class="pPreformatted"><pre>	PoolAdmin.jhtml</pre></div><li><a name="wp28295"> </a>To get a list of session pools, use the following URL in your favorite browser:</li>
+<p class="pBodyRelative"><a name="wp28298"> </a>
+<code class="cCode">	http://mywebserver:8080/PoolList.jhtml</code>
+</p>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp27707"> </a>
+Additional Information on Servlets
+</h2><p class="pBody"><a name="wp29372"> </a>
+For more information on writing and using servlets, refer to the following sites:
+</p>
+<p class="pBody"><a name="wp29376"> </a>
+<b class="cBold">Oracle WebLogic Servlet Documentation</b>
+</p>
+<p class="pBody"><a name="wp29373"> </a>
+<code class="cCode">http://e-docs.bea.com/wls/docs81/adminguide/index.html</code>
+</p>
+<p class="pBody"><a name="wp30794"> </a>
+http://e-docs.bea.com/wls/docs81/servlet/index.html
+</p>
+<p class="pBody"><a name="wp30789"> </a>
+http://e-docs.bea.com/wls/docs81/javadocs/index.html
+</p>
+<p class="pBody"><a name="wp28023"> </a>
+<b class="cBold">Java Servlets</b>
+</p>
+<p class="pBody"><a name="wp27708"> </a>
+<code class="cCode">http://jserv.java.sun.com/products/java-server/documentation/<br />webserver1.1/index_developer.html</code>
+</p>
+<p class="pBody"><a name="wp27711"> </a>
+<b class="cBold">Servlet Interest Group</b>
+</p>
+<p class="pBody"><a name="wp27712"> </a>
+<code class="cCode">http://servlet-interest@java.sun.com</code>
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="dvserv.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="dvbeans.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="AppA.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

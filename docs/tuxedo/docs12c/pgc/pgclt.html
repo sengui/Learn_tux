@@ -1,0 +1,615 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41824" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/pgc/fm/pgclt.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/26/12 11:37:54" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Writing Clients</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Programming an Oracle Tuxedo ATMI Application Using C
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pgenv.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pgserv.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/pgc.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1061773"> </a>
+Writing Clients
+</h1>
+<p class="pBody"><a name="wp1054091"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1030358"> </a><a href="pgclt.html#wp1030381">Joining an Application</a></li>
+<li><a name="wp1058640"> </a><a href="pgclt.html#wp1058906">Using Features of the TPINIT Typed Buffer</a></li>
+<li><a name="wp1030370"> </a><a href="pgclt.html#wp1030537">Leaving the Application</a></li>
+<li><a name="wp1030374"> </a><a href="pgclt.html#wp1030541">Building Clients</a></li>
+<li><a name="wp1030378"> </a><a href="pgclt.html#wp1038606">Client Process Examples</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1030381"> </a>
+Joining an Application
+</h2><p class="pBody"><a name="wp1030382"> </a>
+Before an ATMI client can perform any service request, it must join the Oracle Tuxedo ATMI application, either explicitly or implicitly. Once the client has joined the application, it can initiate requests and receive replies. 
+</p>
+<p class="pBody"><a name="wp1030383"> </a>
+A client joins an application explicitly by calling the <a href="../rf3c/rf3c.html">tpinit(3c)</a> function with the following signature:
+</p>
+<a name="wp1058685"> </a><div class="pPreformatted"><pre>int<br />tpinit (TPINIT *tpinfo)</pre></div><p class="pBody"><a name="wp1058776"> </a>
+A client joins an application implicitly by issuing a service request (or any ATMI function) without first calling the <code class="cCode">tpinit()</code>function. In this case, the <code class="cCode">tpinit()</code> function is called by the Oracle Tuxedo system on behalf of the client with the <code class="cCode">tpinfo</code> argument set to NULL. The <code class="cCode">tpinfo</code> argument points to a typed buffer with a <code class="cCode">TPINIT</code> type and NULL subtype. The <code class="cCode">TPINIT</code> typed buffer is defined in the <code class="cCode">atmi.h</code> header file and includes the following information:
+</p>
+<a name="wp1058777"> </a><div class="pPreformatted"><pre><code class="cCode">char </code><code class="cCodeEmphasis">usrname</code><code class="cCode">[MAXTIDENT+2]; <br />char </code><code class="cCodeEmphasis">cltname</code><code class="cCode">[MAXTIDENT+2];<br />char </code><code class="cCodeEmphasis">passwd</code><code class="cCode">[MAXTIDENT+2];<br />char </code><code class="cCodeEmphasis">grpname</code><code class="cCode">[MAXTIDENT+2];<br />long </code><code class="cCodeEmphasis">flags</code><code class="cCode">;<br />long </code><code class="cCodeEmphasis">datalen</code><code class="cCode">;<br />long </code><code class="cCodeEmphasis">data</code><code class="cCode">;</code></pre></div><p class="pBody"><a name="wp1058778"> </a>
+<a href="pgclt.html#wp216154">Table&#160;4-1</a> summarizes the <code class="cCode">TPINIT</code> data structure fields.
+</p>
+<p class="pGraphic"><a name="wp1058822"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp216154table1058779"><caption><a name="wp216154"> </a>
+Table 4-1  TPINIT Data Structure Fields
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1058781"> </a>
+Field
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1058783"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1058785"> </a>
+<code class="cCodeEmphasis">usrname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1058787"> </a>
+Name representing the client; used for both broadcast notification and administrative statistics retrieval. The client assigns a value to <code class="cCodeEmphasis">usrname</code> during the call to the <code class="cCode">tpinit()</code> function. The value is a string of up to <code class="cCode">MAXTIDENT</code> characters (which defaults to 30 and is configurable by the administrator), and must be terminated by NULL.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1058789"> </a>
+<code class="cCodeEmphasis">cltname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1058791"> </a>
+Client name with application-defined semantics: a 30-character NULL-terminated string used for both broadcast notification and administrative statistics retrieval. The client assigns a value to <code class="cCodeEmphasis">cltname</code> during the call to the <code class="cCode">tpinit()</code> function. The value is a string of up to <code class="cCode">MAXTIDENT</code> characters (which defaults to 30 and is configurable by the administrator), and must be terminated by NULL. 
+</div>
+<p class="pTableNote"><a name="wp1058792"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The value <code class="cCode">sysclient</code> is reserved for the <code class="cCodeEmphasis">cltname</code> field.</td></tr>
+</table>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1058794"> </a>
+<code class="cCodeEmphasis">passwd</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1058796"> </a>
+Application password in unencrypted format. Used for user authentication. The value is a string of up to 30 characters.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1058798"> </a>
+<code class="cCodeEmphasis">grpname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1058800"> </a>
+Associates client with resource manager group. If set to a 0-length string, the client is not associated with a resource manager and is in the default client group. The value of <code class="cCode">grpname</code> must be the NULL string (0-length string) for Workstation clients. Refer to <em class="cEmphasis">Using the ATMI Workstation Component</em> for more information on Workstation clients.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1058805"> </a>
+<code class="cCodeEmphasis">flags</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1058807"> </a>
+Indicates both the client-specific notification mechanism and the mode of system access. Controls both multicontext and single-context modes. Refer to <a href="pgclt.html#wp1030705">Unsolicited Notification Handling</a> or <code class="cCode">tpinit()</code> in the <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em> for more information on flags.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1058815"> </a>
+<code class="cCodeEmphasis">datalen</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1058817"> </a>
+Length of the application-specific data. The buffer type switch entry for the <code class="cCode">TPINIT</code> typed buffer sets this field based on the total size passed in for the typed buffer. The size of the application data is the total size less the size of the <code class="cCode">TPINIT</code> structure itself plus the size of the data placeholder as defined in the structure.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1058819"> </a>
+<code class="cCodeEmphasis">data</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1058821"> </a>
+Placeholder for variable length data that is forwarded to an application-defined authentication service. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1058824"> </a>
+Before it can join the application, the client program must call <a href="pgbuf.html#wp1262143">tpalloc()</a> to allocate the <code class="cCode">TPINIT</code> buffer. <a href="pgclt.html#wp1058826">Listing&#160;4-1</a> shows how to allocate a <code class="cCode">TPINIT</code> buffer that will be used to pass eight bytes of application-specific <code class="cCodeEmphasis">data</code> to the <code class="cCode">tpinit()</code> function.
+</p>
+<div class="pCodeTitle"><a name="wp1058826"> </a>
+Listing&#160;4-1	   Allocating a TPINIT Typed Buffer
+</div> <a name="wp1058827"> </a><div class="pPreformatted"><pre>.<br />.<br />.<br />TPINIT *tpinfo;<br />.<br />.<br />.<br />if ((tpinfo = (TPINIT *)tpalloc(&quot;TPINIT&quot;,(char *)NULL,<br />&#160;&#160;&#160;&#160;&#160;&#160;TPINITNEED(8))) == (TPINIT *)NULL){<br />&#160;&#160;&#160;&#160;&#160;&#160;Error Routine<br />}</pre></div><p class="pBody"><a name="wp1058832"> </a>
+Refer to <code class="cCode">tpinit()</code> in the <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em> for more information on the <code class="cCode">TPINIT</code> typed buffer.
+</p>
+<h3 class="pHeading2"><a name="wp1030489"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1058900"> </a><a href="../rf3c/rf3c.html">tpinit(3c)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1058906"> </a>
+Using Features of the TPINIT Typed Buffer
+</h2><p class="pBody"><a name="wp1030664"> </a>
+The ATMI client must explicitly invoke the <a href="pgclt.html#wp1030381">tpinit()</a> function in order to take advantage of the following features of the <a href="pgclt.html#wp1030381">TPINIT</a> typed buffer:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1030668"> </a><a href="pgclt.html#wp1030686">Client Naming</a></li>
+<li><a name="wp1030672"> </a><a href="pgclt.html#wp1030705">Unsolicited Notification Handling</a></li>
+<li><a name="wp1030676"> </a><a href="pgclt.html#wp1030745">System Access Mode</a></li>
+<li><a name="wp1030680"> </a><a href="pgclt.html#wp1030768">Resource Manager Association</a></li>
+<li><a name="wp1030684"> </a><a href="pgclt.html#wp1030775">Client Authentication</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1030686"> </a>
+Client Naming
+</h3>
+<p class="pBody"><a name="wp1030687"> </a>
+When an ATMI client joins an application, the Oracle Tuxedo system assigns a unique client identifier to it. The identifier is passed to each service called by the client. It can also be used for unsolicited notification.
+</p>
+<p class="pBody"><a name="wp1030688"> </a>
+You can also assign unique client and usernames of up to 30 characters each, by passing them to the <a href="pgclt.html#wp1030381">tpinit()</a> function via the <a href="pgclt.html#wp1058776">tpinfo</a> buffer argument. The Oracle Tuxedo system establishes a unique identifier for each process by combining the client and usernames associated with it, with the logical machine identifier (LMID) of the machine on which the process is running. You may choose a method for acquiring the values for these fields.
+</p>
+<a name="wp1030689"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If a process is executing outside the administrative domain of the application (that is, if it is running on a workstation connected to the administrative domain), the LMID of the machine used by the Workstation client to access the application is assigned.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1030690"> </a>
+Once a unique identifier for a client process is created:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1030691"> </a>Client authentication can be implemented.</li>
+<li><a name="wp1030692"> </a>Unsolicited messages can be sent to a specific client or to groups of clients via <a href="pgevb.html#wp1081164">tpnotify()</a> and <a href="pgevb.html#wp1081110">tpbroadcast()</a>.</li>
+<li><a name="wp1030693"> </a>Detailed statistical information can be gathered via <a href="../rfcm/rfcmd.html">tmadmin(1)</a>.</li>
+</ul></div>
+<p class="pBody"><a name="wp1030694"> </a>
+Refer to <a href="pgevb.html">Writing Event-based Clients and Servers</a> for information on sending and receiving unsolicited messages, and the <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em> for more information on <a href="../rfcm/rfcmd.html">tmadmin(1)</a>.
+</p>
+<p class="pBody"><a name="wp1030698"> </a>
+<a href="pgclt.html#wp1030699">Figure&#160;4-1</a> shows how names might be associated with clients accessing an application. In the example, the application uses the <code class="cCode">cltname</code> field to indicate a job function.
+</p>
+<div class="pFigureTitle"><a name="wp1030699"> </a>
+Figure&#160;4-1  Client Naming
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1030703"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/clientnaming2.gif" alt="Client Naming" id="wp1030701"/></div><p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1030705"> </a>
+Unsolicited Notification Handling
+</h3>
+<p class="pBody"><a name="wp1030706"> </a>
+Unsolicited notification refers to any communication with an ATMI client that is not an expected response to a service request (or an error code). For example, an administrator may broadcast a message to indicate that the system will go down in five minutes.
+</p>
+<p class="pBody"><a name="wp1030707"> </a>
+A client can be notified of an unsolicited message in a number of ways. For example, some operating systems might send a signal to the client and interrupt its current processing. By default, the Oracle Tuxedo system checks for unsolicited messages each time an ATMI function is invoked. This approach, referred to as <span style="font-style: italic">dip-in, </span>is advantageous because it: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1030708"> </a>Is supported on all platforms </li>
+<li><a name="wp1030709"> </a>Does not interrupt the current processing</li>
+</ul></div>
+<p class="pBody"><a name="wp1038436"> </a>
+As some time may elapse between &#8220;dip-ins,&#8221; the application can call the <a href="pgevb.html#wp1081203">tpchkunsol()</a> function to check for any waiting unsolicited messages. Refer to <a href="pgevb.html">Writing Event-based Clients and Servers</a> for more information on the <code class="cCode">tpchkunsol()</code>function.
+</p>
+<p class="pBody"><a name="wp1038440"> </a>
+When a client joins an application using the <a href="pgclt.html#wp1030381">tpinit()</a> function, it can control how to handle unsolicited notification messages by defining flags. For client notification, the possible values for <code class="cCode">flags</code> are defined in <a href="pgclt.html#wp216021">Table&#160;4-2</a>.
+</p>
+<p class="pGraphic"><a name="wp1030712"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp216021table1030713"><caption><a name="wp216021"> </a>
+Table 4-2  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Client Notification Flags in a TPINIT Typed Buffer</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1030715"> </a>
+Flag
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1030717"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030719"> </a>
+<code class="cCode">TPU_SIG</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030721"> </a>
+Select unsolicited notification by signals. This flag should be used only with single-threaded, single-context applications. The advantage of using this mode is immediate notification. The disadvantages include:
+</div>
+<div class="pSmartList1TableBullet"><ul class="SmartList1TableBullet">
+<li><a name="wp1030722"> </a>The calling process must have the same <code class="cCodeEmphasis">UID</code> as the sending process when you are running a native client. (Workstation clients do not have this limitation.)</li>
+<li><a name="wp1030723"> </a><code class="cCode">TPU_SIG</code> is not available on all platforms (specifically, it is not available on MS-DOS workstations).</li>
+</ul></div>
+<div class="pCellBody"><a name="wp1030724"> </a>
+If you specify this flag but do not meet the system or environmental requirements, the flag is set to <code class="cCode">TPU_DIP</code> and the event is logged.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030726"> </a>
+<code class="cCode">TPU_DIP</code> (default)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030728"> </a>
+Select unsolicited notification by dip-in. In this case, the client can specify the name of the message handling function using the <a href="pgevb.html#wp1081079">tpsetunsol()</a> function, and check for waiting unsolicited messages using the <a href="pgevb.html#wp1081203">tpchkunsol()</a> function.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030730"> </a>
+<code class="cCode">TPU_THREAD</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030732"> </a>
+Select <code class="cCode">THREAD</code> notification in a separate thread. This flag is allowed only on platforms that support multithreading. If <code class="cCode">TPU_THREAD</code> is specified on a platform that does not support multithreading, it is considered an invalid argument. As a result, an error is returned and <a href="../rf5/rf5.html">tperrno(5)</a> is set to <code class="cCode">TPEINVAL</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030734"> </a>
+<code class="cCode">TPU_IGN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030736"> </a>
+Ignore unsolicited notification.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1030737"> </a>
+Refer to <a href="../rf3c/rf3c.html">tpinit(3c)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em> for more information on the <code class="cCode">TPINIT</code> typed buffer flags.
+</p>
+<h3 class="pHeading2"><a name="wp1030745"> </a>
+System Access Mode
+</h3>
+<p class="pBody"><a name="wp1030746"> </a>
+An application can access the Oracle Tuxedo system through either of two modes: protected or fastpath. The ATMI client can request a mode when it joins an application using the <a href="pgclt.html#wp1030381">tpinit()</a> function. To specify a mode, a client passes one of the following values in the <code class="cCode">flags</code> field of the <a href="pgclt.html#wp1030381">TPINIT</a> buffer to the <code class="cCode">tpinit()</code> function.
+</p>
+<p class="pGraphic"><a name="wp1030747"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp216049table1030748"><caption><a name="wp216049"> </a>
+Table 4-3  System Access Flags in a TPINIT Typed Buffer
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1030750"> </a>
+Mode
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1030752"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030754"> </a>
+<code class="cCode">Protected</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030756"> </a>
+Allows ATMI calls within an application to access the Oracle Tuxedo system internal tables via shared memory, but protects shared memory against access by application code outside of the Oracle Tuxedo system libraries. Overrides the value in <code class="cCode">UBBCONFIG</code>, except when <code class="cCode">NO_OVERRIDE</code> is specified. Refer to <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em> for more information on <code class="cCode">UBBCONFIG</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030761"> </a>
+<code class="cCode">Fastpath</code> (default)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030763"> </a>
+Allows ATMI calls within application code access to Oracle Tuxedo system internals via shared memory. Does not protect shared memory against access by application code outside of the Oracle Tuxedo system libraries. Overrides the value of <code class="cCode">UBBCONFIG</code> except when <code class="cCode">NO_OVERRIDE</code> is specified. Refer to <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em> for more information on <code class="cCode">UBBCONFIG</code>.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1030768"> </a>
+Resource Manager Association
+</h3>
+<p class="pBody"><a name="wp1030769"> </a>
+An application administrator can configure groups for servers associated with a resource manager, including servers that provide administrative processes for coordinating transactions. Refer to <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em> for information on defining groups.
+</p>
+<p class="pBody"><a name="wp1030773"> </a>
+When joining the application, a client can join a particular group by specifying the name of that group in the <code class="cCodeEmphasis">grpname</code> field of the TPINIT buffer.
+</p>
+<h3 class="pHeading2"><a name="wp1030775"> </a>
+Client Authentication
+</h3>
+<p class="pBody"><a name="wp1030776"> </a>
+The Oracle Tuxedo system provides security at incremental levels, including operating system security, application password, user authentication, optional access control lists, mandatory access control lists, and link-level encryption. Refer to <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em> for information on setting security levels.
+</p>
+<p class="pBody"><a name="wp1030780"> </a>
+The application password security level requires every client to provide an application password when it joins the application. The administrator can set or change the application password and must provide it to valid users.
+</p>
+<p class="pBody"><a name="wp1030781"> </a>
+If this level of security is used, Oracle Tuxedo system-supplied client programs, such as <code class="cCode">ud()</code>, prompt for the application password. (Refer to <em class="cEmphasis">Administering an Oracle Tuxedo Application at Run Time</em> for more information on <a href="../rfcm/rfcmd.html">ud,&#160;wud</a><a href="../rfcm/rfcmd.html">(1)</a>.) In turn, application-specific client programs must include code for obtaining the password from a user. The unencrypted password is placed in the <code class="cCode">TPINIT</code> buffer and evaluated when the client calls <a href="pgclt.html#wp1030381">tpinit()</a> to join the application.
+</p>
+<a name="wp1030785"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The password should not be displayed on the screen.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1030786"> </a>
+You can use the <a href="../rf3c/rf3c.html">tpchkauth(3c)</a> function to determine:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1030787"> </a>Whether the application requires any authentication </li>
+<li><a name="wp1030788"> </a>If the application requires authentication, which of the following types of authentication is needed:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1030789"> </a>System authentication based on an application password</li>
+<li><a name="wp1030790"> </a>Application authentication based on an application password and user-specific information</li>
+</ul></div>
+</ul></div>
+<p class="pBody"><a name="wp1030791"> </a>
+Typically, a client should call the <code class="cCode">tpchkauth()</code> function before <a href="pgclt.html#wp1030381">tpinit()</a> to identify any additional security information that must be provided during initialization.
+</p>
+<p class="pBody"><a name="wp1030795"> </a>
+Refer to <em class="cEmphasis">Using Security in CORBA Applications</em> for more information on security programming techniques.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1030537"> </a>
+Leaving the Application
+</h2><p class="pBody"><a name="wp1030538"> </a>
+Once all service requests have been issued and replies received, the ATMI client can leave the application using the <a href="../rf3c/rf3c.html">tpterm(3c)</a> function. The <code class="cCode">tpterm()</code> function takes no arguments, and returns an integer value that is equal to <code class="cCode">&#8211; 1</code> on error. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1030541"> </a>
+Building Clients
+</h2><p class="pBody"><a name="wp1030542"> </a>
+To build an executable ATMI client, compile your application with the Oracle Tuxedo system libraries and all other referenced files using the <span style="font-weight: normal"><a href="../rfcm/rfcmd.html">buildclient(1)</a></span><span style="font-weight: bold"> </span>command. Use the following syntax for the <code class="cCode">buildclient</code> command:
+</p>
+<a name="wp1030543"> </a><div class="pPreformatted"><pre>buildclient <code class="cCodeEmphasis">filename.</code><code class="cCode">c</code> -o <code class="cCodeEmphasis">filename</code> -f <code class="cCodeEmphasis">filenames</code> -l <code class="cCodeEmphasis">filenames</code></pre></div><p class="pBody"><a name="wp1030544"> </a>
+<a href="pgclt.html#wp216092">Table&#160;4-4</a> describes the options to the <code class="cCode">buildclient</code> command.
+</p>
+<p class="pGraphic"><a name="wp1030573"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp216092table1030545"><caption><a name="wp216092"> </a>
+Table 4-4  buildclient Options
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1030547"> </a>
+This Option or Argument . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1030549"> </a>
+Allows You to Specify . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030551"> </a>
+<code class="cCodeEmphasis">filename.</code><code class="cCode">c</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030553"> </a>
+The C application to be compiled.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030555"> </a>
+<code class="cCode">-o </code><code class="cCodeEmphasis">filename</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030557"> </a>
+The executable output file. The default name for the output file is <code class="cCode">a.out</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030559"> </a>
+<code class="cCode">-f </code><code class="cCodeEmphasis">filenames</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030561"> </a>
+A list of files that are to be link edited before the Oracle Tuxedo system libraries are link edited. You can specify <code class="cCode">-f</code> more than once on the command line, and you can include multiple filenames for each occurrence of <code class="cCode">-f</code>. If you specify a C program file (<code class="cCodeEmphasis">file</code><code class="cCode">.c</code>), it is compiled before it is linked. You can specify other object files (<code class="cCodeEmphasis">file</code><code class="cCode">.o</code>) separately, or in groups in an archive file (<code class="cCodeEmphasis">file</code><code class="cCode">.a</code>).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030563"> </a>
+<code class="cCode">-l </code><code class="cCodeEmphasis">filenames</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030565"> </a>
+A list of files that are to be link edited after the Oracle Tuxedo system libraries are link edited. You can specify <code class="cCode">-l</code> more than once on the command line, and you can include multiple filenames for each occurrence of <code class="cCode">-l</code>. If you specify a C program file (<code class="cCodeEmphasis">file</code><code class="cCode">.c</code>), it is compiled before it is linked. You can specify other object files (<code class="cCodeEmphasis">file</code><code class="cCode">.o</code>) separately, or in groups in an archive file (<code class="cCodeEmphasis">file</code><code class="cCode">.a</code>).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030567"> </a>
+<code class="cCode">-r</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030569"> </a>
+The resource manager has access to libraries that should be link edited with the executable server. The application administrator is responsible for predefining all valid resource manager information in the <code class="cCode">$TUXDIR/updataobj/RM</code> file using the <code class="cCode">buildtms(1)</code> command. Only one resource manager can be specified. Refer to <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em> for more information. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<a name="wp1030574"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Notes:</strong></td>
+<td>The Oracle Tuxedo libraries are linked in automatically; you do not need to specify any Oracle Tuxedo libraries on the command line.</td></tr>
+</table>
+
+<a name="wp1062512"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>Link editing must be done by running the <code class="cCode">buildclient</code> command. </td>
+</tr>
+</table>
+<p class="pBody"><a name="wp1030575"> </a>
+The order in which you specify the library files to be link edited is significant: it depends on the order in which functions are called in the code, and which libraries contain references to those functions.
+</p>
+<p class="pBody"><a name="wp1030576"> </a>
+By default, the <code class="cCode">buildclient</code> command invokes the UNIX <code class="cCode">cc</code> command. You can set the <code class="cCode">CC</code> and <code class="cCode">CFLAGS</code> environment variables to specify an alternative compile command, and to set flags for the compile and link-edit phases, respectively. For more information, refer to <a href="pgenv.html#wp1026302">Setting Environment Variables</a>.
+</p>
+<a name="wp1030578"> </a><div class="pPreformatted"><pre><code class="cCode">buildclient -C -o audit -f audit.o</code></pre></div><p class="pBody"><a name="wp1030579"> </a>
+The following example command line compiles a C program called <code class="cCode">audit.c</code> and generates an executable file named <code class="cCode">audit</code>.
+</p>
+<a name="wp1040510"> </a><div class="pPreformatted"><pre>buildclient &#8211; o audit &#8211; f audit.<code class="cCode">c</code></pre></div><h3 class="pHeading2"><a name="wp1030582"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1038611"> </a><a href="pgserv.html#wp1250188">Building Servers</a></li>
+<li><a name="wp1038617"> </a><a href="../rfcm/rfcmd.html">buildclient(1)</a> in the <em class="cEmphasis">Oracle Tuxedo Command Reference</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1038606"> </a>
+Client Process Examples
+</h2><p class="pBody"><a name="wp1030583"> </a>
+The following pseudo-code in <a href="pgclt.html#wp1059670">Listing&#160;4-2</a> shows how a typical ATMI client process works from the time at which it joins an application to the time at which it leaves the application.
+</p>
+<div class="pCodeTitle"><a name="wp1059670"> </a>
+Listing&#160;4-2	   Typical Client Process Paradigm
+</div> <a name="wp1059671"> </a><div class="pPreformatted"><pre>main<code class="cCode">()<br /></code>{<br />&#160;&#160;&#160;&#160;&#160;&#160;check level of security<br />&#160;&#160;&#160;&#160;&#160;&#160;call tpsetunsol() to name your handler for TPU_DIP<br />&#160;&#160;&#160;&#160;&#160;&#160;get usrname, cltname<br />&#160;&#160;&#160;&#160;&#160;&#160;prompt for application password<br />&#160;&#160;&#160;&#160;&#160;&#160;allocate a TPINIT buffer<br />&#160;&#160;&#160;&#160;&#160;&#160;place values into TPINIT buffer structure members<br /> <br />&#160;&#160;&#160;&#160;&#160;&#160;if (tpinit((TPINIT *) tpinfo) == -1){<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;error routine;<br />&#160;&#160;&#160;&#160;&#160;&#160;}<br /> <br />&#160;&#160;&#160;&#160;&#160;&#160;allocate a message buffer<br />&#160;&#160;&#160;&#160;&#160;&#160;while user input exists {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;place user input in the buffer<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;make a service call<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;receive the reply<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;check for unsolicited messages<br />&#160;&#160;&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;&#160;&#160;free buffers<br />&#160;&#160;&#160;&#160;&#160;&#160;. . .<br />&#160;&#160;&#160;&#160;&#160;&#160;if (tpterm() == -1){<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;error routine;<br />&#160;&#160;&#160;&#160;&#160;&#160;}<br />}</pre></div><p class="pBody"><a name="wp1059673"> </a>
+On error, <code class="cCode">-1</code> is returned and the application sets the external global variable, <code class="cCode">tperrno</code>, to a value that indicates the nature of the error. <code class="cCode">tperrno</code> is defined in the <code class="cCode">atmi.h</code> header file and documented in <a href="../rf5/rf5.html">tperrno(5)</a> in the <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em>. Programmers typically assign an error code to this global variable that reflects the type of error encountered. There is a discussion of the values of <code class="cCode">tperrno</code> in <a href="pgerr.html#wp1155434">System Errors</a>. See <span class="cHyperlink">
+&#8220;Introduction to the </span><a href="../rf3c/rf3c.html"></a>C Language Application-to-Transaction Monitor Interface&#8221; in the <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em> for a complete list of error codes that can be returned for each of the ATMI functions. 
+</p>
+<p class="pBody"><a name="wp1030610"> </a>
+<a href="pgclt.html#wp1059778">Listing&#160;4-3</a> illustrates how to use the <a href="pgclt.html#wp1030381">tpinit()</a> and <a href="pgclt.html#wp1030538">tpterm()</a> functions. This example is borrowed from, <code class="cCode">bankapp</code>, the sample banking application that is provided with the Oracle Tuxedo system.
+</p>
+<div class="pCodeTitle"><a name="wp1059778"> </a>
+Listing&#160;4-3	   Joining and Leaving an Application
+</div> <a name="wp1062426"> </a><div class="pPreformatted"><pre>#include &lt;stdio.h&gt;         /* UNIX */<br />#include &lt;string.h&gt;        /* UNIX */<br />#include &lt;fml.h&gt;           /* BEA Tuxedo System */<br />#include &lt;atmi.h&gt;          /* BEA Tuxedo System */<br />#include &lt;Uunix.h&gt;         /* BEA Tuxedo System */<br />#include &lt;userlog.h&gt;       /* BEA Tuxedo System */<br />#include &quot;bank.h&quot;          /* BANKING #defines */<br />#include &quot;aud.h&quot;           /* BANKING view defines */<br /> <br />...<br /> <br />main(argc, argv)<br />int argc;<br />char *argv[];<br /> <br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;...<br />&#160;&#160;&#160;&#160;&#160;&#160;if (strrchr(argv[0],&#39;/&#39;) != NULL)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;proc_name = strrchr(argv[0],&#39;/&#39;)+1;<br />&#160;&#160;&#160;&#160;&#160;&#160;else<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;proc_name = argv[0];<br />&#160;&#160;&#160;&#160;&#160;&#160;...<br />&#160;&#160;&#160;&#160;&#160;&#160;/* Join application */<br />&#160;&#160;&#160;&#160;&#160;&#160;if (tpinit((TPINIT *) NULL) == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)userlog(&quot;%s: failed to join application\n&quot;, proc_name);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exit(1);<br />&#160;&#160;&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;&#160;&#160;...<br />&#160;&#160;&#160;&#160;&#160;&#160;/* Leave application */<br />&#160;&#160;&#160;&#160;&#160;&#160;if (tpterm<code class="cCode">()</code> == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)userlog(&quot;%s: failed to leave application\n&quot;, proc_name);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exit(1);<br />&#160;&#160;&#160;&#160;&#160;&#160;}<br />}</pre></div><p class="pBody"><a name="wp1059782"> </a>
+The previous example shows the client process attempting to join the application with a call to <a href="pgclt.html#wp1030381">tpinit()</a>. If the process encounters an error (that is, if the return code is <code class="cCode">&#8211; 1</code>), the process writes a descriptive message to the central event log via a call to <code class="cCode">userlog()</code>, which takes arguments similar to the <code class="cCode">printf()</code> C program statement. Refer to <a href="../rf3c/rf3c.html">userlog(3c)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em> for more information. 
+</p>
+<p class="pBody"><a name="wp1059789"> </a>
+Similarly, when <code class="cCode">tpterm()</code> is called, if an error is encountered, the process writes a descriptive message to the central event log. 
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="pgclt.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pgenv.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pgserv.html"><img id="LongDescNotReq9" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

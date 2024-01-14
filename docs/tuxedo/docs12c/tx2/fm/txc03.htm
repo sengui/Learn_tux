@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>Writing RPC Client and Server Programs</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = document) - Version 5.1 Build 128" />
+<meta name="date" content="2008-12-09T7:52:55Z" />
+<meta name="robots" content="noarchive" />
+<meta name="doctitle" content="Writing RPC Client and Server Programs" />
+<meta name="relnum" content="Release 5.1" />
+<meta name="partnum" content="A12345-01" />
+<link rel="copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+<link rel="stylesheet" href="../../dcommon/css/blafdoc.css" title="Oracle BLAFDoc" type="text/css" />
+<link rel="contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="prev" href="txc02.htm" title="Previous" type="text/html" />
+<link rel="next" href="txc04.htm" title="Next" type="text/html" />
+</head>
+<body>
+<div class="header"><a id="top" name="top"></a>
+<div class="zz-skip-header"><a href="#BEGIN">Skip Headers</a></div>
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td align="left" valign="top"><b>Programming an Oracle Tuxedo Application Using TxRPC</b><b></b><br /></td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+<td align="center" valign="top"><a href="toc.htm"><img src="../../dcommon/gifs/toc.gif" alt="Go To Table Of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<tr>
+<td align="center"><a href="txc02.htm"><img src="../../dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="txc04.htm"><img src="../../dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<a name="BEGIN" id="BEGIN"></a></div>
+<!-- class="header" -->
+<div class="ind"><!-- End Header --><a id="g1016763" name="g1016763"></a><a id="i1004563" name="i1004563"></a>
+  <h1 class="chapter"><span class="secnum">3</span> Writing RPC Client and Server Programs</h1>
+<p>This topic includes the following sections:</p>
+<ul>
+<li>
+<p><a href="#i1004581">Handling Remoteness</a></p>
+</li>
+<li>
+<p><a href="#i1004494">Handling Status and Exception Returns</a></p>
+</li>
+<li>
+<p><a href="#i1004499">Using Stub Support Functions</a></p>
+</li>
+<li>
+<p><a href="#i1004507">Using RPC Header Files</a></p>
+</li>
+<li>
+<p><a href="#i1004512">Portability of Code</a></p>
+</li>
+<li>
+<p><a href="#i1005045">Interacting with ATMI</a></p>
+</li>
+<li>
+<p><a href="#i1004522">Interacting with TX</a></p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+Sample client and server source files are provided in <a href="txxa.htm#g1027039">Appendix A, "A Sample Application."</a></td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</li>
+</ul>
+<a id="i1004581" name="i1004581"></a>
+<div class="sect1">
+<h2 class="sect1">Handling Remoteness</h2>
+<p>The goal of TxRPC is to provide procedure calls transparently between a client in one address space and a server in another address space, potentially on different machines. However, because the client and server are not in the same address space, there are some things to remember:</p>
+<ul>
+<li>
+<p>Because the client and server are in different address spaces, potentially on different machines, memory is not assumed to be shared. Program state (for example, open file descriptors) and global variables are not shared between the client and server. Any state information required must be passed from the client to the server and then back to the client for subsequent calls.</p>
+</li>
+<li>
+<p>The division of labor between the client and server has some advantages, such as providing more modularity of the software and the ability to do the work near the resources required to do the work. However, it may also mean more complexity in dealing with issues related to distributed processing, such as communication problems, independent unavailability of either the client or server, and so forth. Errors resulting from the increased complexity may require different handling from those in an interface designed for local procedure calls. The handling of errors involved in communications and/or the remote process is covered in the next topic.</p>
+</li>
+</ul>
+</div>
+<!-- class="sect1" -->
+<a id="i1004494" name="i1004494"></a>
+<div class="sect1">
+<h2 class="sect1">Handling Status and Exception Returns</h2>
+<p>In the X/OPEN RPC specification, non-application errors are returned via status parameters or a status return. A <code>fault_status</code> value is returned if there is an RPC server failure and a <code>comm_status</code> value is returned if there is a communications failure. Status returns are specified by defining an operation return value or an <code>[out]</code> parameter of type <code>error_status_t</code> in the IDL file, and declaring the same operation or parameter to have the <code>[fault_status]</code> and/or <code>[comm_status]</code> attribute in the ACF file.</p>
+<p>For example, an operation defined in an IDL file as:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+error_status_t op([in,out]long *parm1, [out]error_status_t *commstat);
+</pre>
+<p>with a definition in the corresponding ACF file as:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+[fault_status]op([comm_status]commstat);
+</pre>
+<p>returns an error from the server via the operation return, and an error in communications via the second parameter. Its use in the client code could be as follows:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+if (op(&amp;parm1, &amp;commstat) != 0 &#9474;&#9474; commstat != 0) /* handle error */
+</pre>
+<p>The advantage of using status returns is that the error can be handled immediately at the point of failure for fine-grained error recovery.</p>
+<p>The disadvantage of using status returns is that the remote function has additional parameters that the local version of the function does not have. Additionally, fine-grained error recovery can be tedious and error prone (for example, some cases may be missing).</p>
+<p>DCE defines a second mechanism called exception handling. It is similar to C++ exception handling.</p>
+<p>The application delimits a block of C or C++ code in which an exception may be raised with the <code>TRY</code>, <code>CATCH</code>, <code>CATCH_ALL</code>, and <code>ENDTRY</code> statements. <code>TRY</code> indicates the beginning of the block. <code>CATCH</code> is used to indicate an exception-handling block for a specific exception, and <code>CATCH_ALL</code> is used to handle any exceptions for which there is not a <code>CATCH</code> statement. <code>ENDTRY</code> ends the block. <code>TRY</code> blocks are nested such that if an exception cannot be handled at a lower level, the exception can be raised to a higher level block using the <code>RERAISE</code> statement. If an exception is raised out of any exception handling block, the program writes a message to the log and exits. Details of the exception handling macros and an example are described in <a href="../../rf3c/rf3c.html"><code>TRY(3c)</code></a> in the Oracle Tuxedo C Function Reference.</p>
+<p>In addition to exceptions generated by the communications and server for an RPC call, exceptions are also generated for lower level exceptions, specifically operating system signals. These exceptions are documented within <a href="../../rf3c/rf3c.html"><code>TRY(3c)</code></a> in the Oracle Tuxedo C Function Reference.</p>
+</div>
+<!-- class="sect1" -->
+<a id="i1004499" name="i1004499"></a>
+<div class="sect1">
+<h2 class="sect1">Using Stub Support Functions</h2>
+<p>There are a large number of run-time support functions (over 100) defined in the X/OPEN RPC specification. These functions need not all be supported in an X/OPEN TxRPC IDL-only environment. Most of these functions relate to binding and management which are done transparently for ATMI clients and servers.</p>
+<p>One area that affects application portability is the management of memory allocated for stub input and output parameters and return values. The Stub Memory Management routines are supported in TxRPC run time with the exception of the two routines to handle threads. The status-returning functions include:</p>
+<ul>
+<li>
+<p><code>rpc_sm_allocate</code></p>
+</li>
+<li>
+<p><code>rpc_sm_client_free</code></p>
+</li>
+<li>
+<p><code>rpc_sm_disable_allocate</code></p>
+</li>
+<li>
+<p><code>rpc_sm_enable_allocate</code></p>
+</li>
+<li>
+<p><code>rpc_sm_free</code></p>
+</li>
+<li>
+<p><code>rpc_sm_set_client_alloc_free</code></p>
+</li>
+<li>
+<p><code>rpc_sm_set_server_alloc_free</code></p>
+</li>
+<li>
+<p><code>rpc_sm_swap_client_alloc_free</code></p>
+</li>
+</ul>
+<p>The equivalent exception-returning functions include:</p>
+<ul>
+<li>
+<p><code>rpc_ss_allocate</code></p>
+</li>
+<li>
+<p><code>rpc_ss_client_free</code></p>
+</li>
+<li>
+<p><code>rpc_ss_disable_allocate</code></p>
+</li>
+<li>
+<p><code>rpc_ss_enable_allocate</code></p>
+</li>
+<li>
+<p><code>rpc_ss_free</code></p>
+</li>
+<li>
+<p><code>rpc_ss_set_client_alloc_free</code></p>
+</li>
+<li>
+<p><code>rpc_ss_set_server_alloc_free</code></p>
+</li>
+<li>
+<p><code>rpc_ss_swap_client_alloc_free</code></p>
+</li>
+</ul>
+<p>Refer to Oracle Tuxedo C Function Reference for more information on these functions.</p>
+<p>The run-time functions are contained in <code>libtrpc</code>; building RPC clients and servers is discussed in the next topic.</p>
+<p>The following are a few tips regarding memory management:</p>
+<ul>
+<li>
+<p>When an ATMI client calls a client stub, it uses <code>malloc</code> and <code>free</code> by default. All space will be freed on return from the client stub except space allocated for <code>[out]</code> pointers (including implicit <code>[out]</code> pointers in the return value of the operation). To make freeing of <code>[out]</code> pointers easier, call <code>rpc_ss_enable_allocate</code>(), and set <code>alloc</code>/ <code>free</code> to <code>rpc_ss_alloc</code>()/ <code>rpc_ss_free</code>() before calling the RPC by calling <code>rpc_ss_set_client_alloc_free</code>(). Then <code>rpc_ss_disable_allocate</code>() can be used to free all of the allocated memory. For example, to simplify freeing space returned from a client stub the following could be used:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+rpc_ss_set_client_alloc_free(rpc_ss_allocate, rpc_ss_free);
+ptr = remote_call_returns_pointer();
+/* use returned pointer here */
+...
+rpc_ss_disable_allocate(); /* this frees ptr */
+</pre></li>
+<li>
+<p>When an ATMI server stub is executed that calls an application operation, memory allocation using <code>rpc_ss_allocate</code> is always enabled in the server stub. The <code>[enable_allocate]</code> attribute in the ACF file has no effect. All memory will be freed in the server before returning the response to the client. (In DCE, memory allocation is enabled only if <code>[ptr]</code> fields or parameters exist, or the programmer explicitly specifies <code>[enable_allocate]</code>.)</p>
+</li>
+<li>
+<p>When a server stub calls an application operation which in turn calls a client stub (that is, when a server acts as a client by calling an RPC), the <code>rpc_ss_set_client_alloc_free</code>() function must be called to set up allocation such that any space allocated will be freed when the operation returns. This is done by calling:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+rpc_ss_set_client_alloc_free(rpc_ss_allocate, rpc_ss_free);
+</pre></li>
+<li>
+<p>When calling <code>rpc_ss_allocate</code>() or <code>rpc_sm_allocate</code>(), remember to cast the output to match the data type of the pointer being set. For example:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+long *ptr;
+ptr = (long *)rpc_ss_allocate(sizeof(long));
+</pre></li>
+</ul>
+</div>
+<!-- class="sect1" -->
+<a id="i1004507" name="i1004507"></a>
+<div class="sect1">
+<h2 class="sect1">Using RPC Header Files</h2>
+<p>To ensure that stubs from both DCE/RPC and TxRPC can be compiled in the same environment, different header filenames are used in the TxRPC implementation. This should not affect the application programmer since these header files are automatically included in the interface header file generated by the IDL compiler. However, an application program may wish to view these headers to see how a type or function is defined. The new header filenames are listed here:</p>
+<ul>
+<li>
+<p><code>dce/nbase.h</code>, <code>dce/nbase.idl</code>&mdash;renamed <code>rpc/tbase.h</code> and <code>rpc/tbase.idl</code>. Contain the declarations for pre-declared types <code>error_status_t</code>, <code>ISO_LATIN_1</code>, <code>ISO_MULTI_LINGUAL</code>, and <code>ISO_UCS</code>.</p>
+</li>
+<li>
+<p><code>dce/idlbase.h</code>&mdash;renamed <code>rpc/tidlbase.h</code>. Contains the IDL base types, as defined in the specification (for example, <code>idl_boolean</code>, <code>idl_long_int</code>), and the function prototypes for the stub functions.</p>
+</li>
+<li>
+<p><code>dce/pthread_exc.h</code>&mdash;renamed <code>rpc/texc.h</code>. Contains the <code>TRY</code>/ <code>CATCH</code> exception handling macros.</p>
+</li>
+<li>
+<p><code>dce/rpcsts.h</code>&mdash;renamed <code>rpc/trpcsts.h</code>. Contains the exception and status value definitions for the RPC interface.</p>
+</li>
+</ul>
+<p>These header files are located in <code>$TUXDIR/include/rpc</code>. The TxRPC IDL compiler will look in <code>$TUXDIR/include</code> by default as the "system IDL directory."</p>
+</div>
+<!-- class="sect1" -->
+<a id="i1004512" name="i1004512"></a>
+<div class="sect1">
+<h2 class="sect1">Portability of Code</h2>
+<p>The output from the IDL compiler is generated in a way to allow it to be compiled in a large number of environments (see the next chapter for a discussion of compilation). However, there are some constructs that don't work in various environments. The following are a few known problems:</p>
+<p>When compiling with Classic (non-ANSI) C, "pointers to arrays" are not allowed. For example:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+typedef long array[10][10];
+func()
+  {
+  array t1;
+  array *t2;
+  t2 = &amp;t1;   /* &amp; ignored, invalid assignment */
+  func2(&amp;t1); /* &amp; ignored */
+  }
+</pre>
+<p>This will make it difficult to pass "pointers to arrays" to operations as parameters in a portable fashion.</p>
+<p>When using an array of strings where the string attribute is applied to a multi-byte structure, the results will not be as desired if the compiler pads the structure. This is not the normal case (most compilers do not pad a structure that contains only character fields), but at least one occurrence is known to exist.</p>
+<p>Constant values are, by default, implemented by generating a <code>#define</code> for each constant. This means that names used for constants should not be used for any other names in the IDL file or any imported IDL files. A TxRPC-specific option on the <code>tidl</code> compiler, <code>-use_const</code>, may be used to get around this problem in an ANSI C environment. This option will cause <code>const</code> declarations instead of <code>#define</code> definitions to be generated. The constant values will be declared in the client and server stubs, and any other source file including the header file will simply get <code>extern const</code> declarations. Note that this has the restriction that the client and server stubs may not be compiled into the same executable file (or duplicate definition errors will occur).</p>
+<p>There are several restrictions in the C++ environment:</p>
+<ul>
+<li>
+<p>Do not use the same name for a <code>typedef</code> and a structure or union tag, unless the <code>typedef</code> name matches the <code>struct</code> or <code>union</code> name.</p>
+<pre xml:space="preserve" class="oac_no_warn">
+struct t1 {
+  long s1;
+};
+typedef struct t1 t1; /* ok */
+typedef long t1; /* error */
+</pre></li>
+<li>
+<p>Do not hide a structure or union tag declaration inside another structure or union declaration and then reference it outside.</p>
+<pre xml:space="preserve" class="oac_no_warn">
+struct t1 {
+  struct t2 {
+   long s2;
+} s1;
+} t1;
+typedef struct t3 {
+struct t2 s3; /* t2 undefined error */
+} t3;
+</pre></li>
+<li>
+<p>Some compiler warnings may be generated. These include the following:</p>
+<ul>
+<li>
+<p>Warnings that automatic variables are declared but not used.</p>
+</li>
+<li>
+<p>Warnings that a variable is used before being set when referenced in <code>sizeof()</code> as in the following case:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+long *ptr;
+ptr = (long *)malloc(sizeof(*ptr) * 4);
+</pre></li>
+</ul>
+</li>
+</ul>
+<p>When coding the client and server application software, you should use the data types generated by the IDL compiler, as defined in <code>rpc/tidlbase.h</code> (listed as Emitted Macro in the following table). For instance, if you use a <code>long</code> instead of <code>idl_long_int</code>, then the data type may be 32 bits on some platforms and 64 bits on others; <code>idl_long_int</code> will be 32 bits on all platforms. <a href="#g1013990">Table 3-1</a> lists the generated data types.</p>
+<div class="tblhruleformal"><a id="sthref13" name="sthref13"></a><a id="g1013990" name="g1013990"></a>
+<p class="titleintable">Table 3-1 Generated Data Types</p>
+<table class="HRuleFormal" title="Generated Data Types" summary="This table is described in the preceding text" dir="ltr" border="1" width="100%" frame="hsides" rules="rows" cellpadding="3" cellspacing="0">
+<col width="16%" />
+<col width="13%" />
+<col width="29%" />
+<col width="*" />
+<thead>
+<tr align="left" valign="top">
+<th align="left" valign="bottom" id="r1c1-t3">IDL Type</th>
+<th align="left" valign="bottom" id="r1c2-t3">Size</th>
+<th align="left" valign="bottom" id="r1c3-t3">Emitted Macro</th>
+<th align="left" valign="bottom" id="r1c4-t3">C Type</th>
+</tr>
+</thead>
+<tbody>
+<tr align="left" valign="top">
+<td align="left" id="r2c1-t3" headers="r1c1-t3">
+<p>boolean</p>
+</td>
+<td align="left" headers="r2c1-t3 r1c2-t3">
+<p>8 bits</p>
+</td>
+<td align="left" headers="r2c1-t3 r1c3-t3">
+<pre xml:space="preserve" class="oac_no_warn">
+idl_boolean
+</pre></td>
+<td align="left" headers="r2c1-t3 r1c4-t3">
+<p>unsigned char</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r3c1-t3" headers="r1c1-t3">
+<p>char</p>
+</td>
+<td align="left" headers="r3c1-t3 r1c2-t3">
+<p>8 bits</p>
+</td>
+<td align="left" headers="r3c1-t3 r1c3-t3">
+<pre xml:space="preserve" class="oac_no_warn">
+idl_char
+</pre></td>
+<td align="left" headers="r3c1-t3 r1c4-t3">
+<p>unsigned char</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r4c1-t3" headers="r1c1-t3">
+<p>byte</p>
+</td>
+<td align="left" headers="r4c1-t3 r1c2-t3">
+<p>8 bits</p>
+</td>
+<td align="left" headers="r4c1-t3 r1c3-t3">
+<pre xml:space="preserve" class="oac_no_warn">
+idl_byte
+</pre></td>
+<td align="left" headers="r4c1-t3 r1c4-t3">
+<p>unsigned char</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r5c1-t3" headers="r1c1-t3">
+<p>small</p>
+</td>
+<td align="left" headers="r5c1-t3 r1c2-t3">
+<p>8 bits</p>
+</td>
+<td align="left" headers="r5c1-t3 r1c3-t3">
+<pre xml:space="preserve" class="oac_no_warn">
+idl_small_int
+</pre></td>
+<td align="left" headers="r5c1-t3 r1c4-t3">
+<p>char</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r6c1-t3" headers="r1c1-t3">
+<p>short</p>
+</td>
+<td align="left" headers="r6c1-t3 r1c2-t3">
+<p>16 bits</p>
+</td>
+<td align="left" headers="r6c1-t3 r1c3-t3">
+<pre xml:space="preserve" class="oac_no_warn">
+idl_short_int
+</pre></td>
+<td align="left" headers="r6c1-t3 r1c4-t3">
+<p>short</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r7c1-t3" headers="r1c1-t3">
+<p>long</p>
+</td>
+<td align="left" headers="r7c1-t3 r1c2-t3">
+<p>32 bits</p>
+</td>
+<td align="left" headers="r7c1-t3 r1c3-t3">
+<pre xml:space="preserve" class="oac_no_warn">
+idl_long_int
+</pre></td>
+<td align="left" headers="r7c1-t3 r1c4-t3">
+<p>Machines with 32-bit long: <code>long</code> Machines with 64-bit long: <code>int</code></p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r8c1-t3" headers="r1c1-t3">
+<p>hyper</p>
+</td>
+<td align="left" headers="r8c1-t3 r1c2-t3">
+<p>64 bits</p>
+</td>
+<td align="left" headers="r8c1-t3 r1c3-t3">
+<pre xml:space="preserve" class="oac_no_warn">
+idl_hyper_int
+</pre></td>
+<td align="left" headers="r8c1-t3 r1c4-t3">
+<p>Machines with 32-bit long:</p>
+<p>Big Endian</p>
+<pre xml:space="preserve" class="oac_no_warn">
+struct 
+{
+  long high;
+  unsigned long low;
+}
+</pre>
+<p>Little Endian</p>
+<pre xml:space="preserve" class="oac_no_warn">
+struct
+ {
+  unsigned long low;
+  long high;
+ }
+</pre>
+<p>Machines with 64-bit long:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+long
+</pre></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r9c1-t3" headers="r1c1-t3">
+<p>unsigned small</p>
+</td>
+<td align="left" headers="r9c1-t3 r1c2-t3">
+<p>8 bits</p>
+</td>
+<td align="left" headers="r9c1-t3 r1c3-t3">
+<pre xml:space="preserve" class="oac_no_warn">
+idl_usmall_int
+</pre></td>
+<td align="left" headers="r9c1-t3 r1c4-t3">
+<p>unsigned char</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r10c1-t3" headers="r1c1-t3">
+<p>unsigned short</p>
+</td>
+<td align="left" headers="r10c1-t3 r1c2-t3">
+<p>16 bits</p>
+</td>
+<td align="left" headers="r10c1-t3 r1c3-t3">
+<pre xml:space="preserve" class="oac_no_warn">
+idl_ushort_int
+</pre></td>
+<td align="left" headers="r10c1-t3 r1c4-t3">
+<p>short</p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r11c1-t3" headers="r1c1-t3">
+<p>unsigned long</p>
+</td>
+<td align="left" headers="r11c1-t3 r1c2-t3">
+<p>32 bits</p>
+</td>
+<td align="left" headers="r11c1-t3 r1c3-t3">
+<pre xml:space="preserve" class="oac_no_warn">
+idl_ulong_int
+</pre></td>
+<td align="left" headers="r11c1-t3 r1c4-t3">
+<p>Machines with 32-bit long: <code>long</code> Machines with 64-bit long: <code>int</code></p>
+</td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r12c1-t3" headers="r1c1-t3">
+<p>unsigned hyper</p>
+</td>
+<td align="left" headers="r12c1-t3 r1c2-t3">
+<p>64 bits</p>
+</td>
+<td align="left" headers="r12c1-t3 r1c3-t3">
+<pre xml:space="preserve" class="oac_no_warn">
+idl_uhyper_int
+</pre></td>
+<td align="left" headers="r12c1-t3 r1c4-t3">
+<p>Machines with 32-bit long:</p>
+<p>Big Endian</p>
+<pre xml:space="preserve" class="oac_no_warn">
+struct 
+{
+  unsigned long high;
+  unsigned long low;
+}
+</pre>
+<p>Little Endian</p>
+<pre xml:space="preserve" class="oac_no_warn">
+struct
+ {
+  unsigned long low;
+  unsigned long high;
+ }
+</pre>
+<p>Machines with 64-bit long:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+unsigned long
+</pre></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r13c1-t3" headers="r1c1-t3">
+<p>float</p>
+</td>
+<td align="left" headers="r13c1-t3 r1c2-t3">
+<p>32 bits</p>
+</td>
+<td align="left" headers="r13c1-t3 r1c3-t3">
+<pre xml:space="preserve" class="oac_no_warn">
+idl_short_float
+</pre></td>
+<td align="left" headers="r13c1-t3 r1c4-t3">
+<pre xml:space="preserve" class="oac_no_warn">
+float
+</pre></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r14c1-t3" headers="r1c1-t3">
+<p>double</p>
+</td>
+<td align="left" headers="r14c1-t3 r1c2-t3">
+<p>64 bits</p>
+</td>
+<td align="left" headers="r14c1-t3 r1c3-t3">
+<pre xml:space="preserve" class="oac_no_warn">
+idl_long_float
+</pre></td>
+<td align="left" headers="r14c1-t3 r1c4-t3">
+<pre xml:space="preserve" class="oac_no_warn">
+double
+</pre></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r15c1-t3" headers="r1c1-t3">
+<p>void *</p>
+</td>
+<td align="left" headers="r15c1-t3 r1c2-t3">
+<p>pointer</p>
+</td>
+<td align="left" headers="r15c1-t3 r1c3-t3">
+<pre xml:space="preserve" class="oac_no_warn">
+idl_void_p_t
+</pre></td>
+<td align="left" headers="r15c1-t3 r1c4-t3">
+<pre xml:space="preserve" class="oac_no_warn">
+void *
+</pre></td>
+</tr>
+<tr align="left" valign="top">
+<td align="left" id="r16c1-t3" headers="r1c1-t3">
+<p>handle_t</p>
+</td>
+<td align="left" headers="r16c1-t3 r1c2-t3">
+<p>pointer</p>
+</td>
+<td align="left" headers="r16c1-t3 r1c3-t3">
+<pre xml:space="preserve" class="oac_no_warn">
+handle_t
+</pre></td>
+<td align="left" headers="r16c1-t3 r1c4-t3">
+<pre xml:space="preserve" class="oac_no_warn">
+handle_t
+</pre></td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="tblhruleformal" -->
+<p>As in C, there are several classes of identifiers in the IDL. Names within each class (that is, scope or name space) must be unique:</p>
+<ul>
+<li>
+<p>Constant, <code>typedef</code>, operation, and enumeration member names are in one name space.</p>
+</li>
+<li>
+<p>Structure, union, and enumeration tags are in another name space.</p>
+</li>
+<li>
+<p>Structure and union member names at the same level must be unique within the structure or union in which they are defined.</p>
+</li>
+<li>
+<p>Parameter names within the operation prototype in which they are defined must be unique.</p>
+</li>
+</ul>
+<p>Note that an anonymous structure or union (without a tag and not defined as part of a <code>typedef</code>) cannot be used for an operation return or a parameter.</p>
+</div>
+<!-- class="sect1" -->
+<a id="i1005045" name="i1005045"></a>
+<div class="sect1">
+<h2 class="sect1">Interacting with ATMI</h2>
+<p>The TxRPC executables use the Oracle Tuxedo system to do the RPC communications. Other Oracle Tuxedo interfaces and communications mechanisms can be used within the same clients and servers that are using the RPC calls. Thus, it is possible to have a single client making Request/Response calls (for example <a href="../../rf3c/rf3c.html"><code>tpcall(3c)</code></a>, <a href="../../rf3c/rf3c.html"><code>tpacall(3c)</code></a>, and <a href="../../rf3c/rf3c.html"><code>tpgetrply(3c)</code></a>), making conversational calls (<a href="../../rf3c/rf3c.html"><code>tpconnect(3c)</code></a>, <a href="../../rf3c/rf3c.html"><code>tpsend(3c)</code></a>, <a href="../../rf3c/rf3c.html"><code>tprecv(3c)</code></a>, and <a href="../../rf3c/rf3c.html"><code>tpdiscon(3c)</code></a>), and accessing the stable queue (<a href="../../rf3c/rf3c.html"><code>tpenqueue(3c)</code></a> and <a href="../../rf3c/rf3c.html"><code>tpdequeue(3c)</code></a>). When a client makes the first call to the Oracle Tuxedo software, either an RPC call, any of these other communications calls, or any other ATMI call (such as a call for buffer allocation or unsolicited notification), the client automatically joins the application. However, if the application is running with security turned on or if the client must run as part of a particular resource manager group, then <a href="../../rf3c/rf3c.html"><code>tpinit(3c)</code></a> must be called explicitly to join the application. Refer to <a href="../../rf3c/rf3c.html"><code>tpinit(3c)</code></a> in the Oracle Tuxedo C Function Reference for further details, and a list of options that can be explicitly set. When an application completes work using the Oracle Tuxedo system, <a href="../../rf3c/rf3c.html"><code>tpterm(3c)</code></a> should be called explicitly to leave the application and free up any associated resources. If this is not done for native (non-Workstation) clients, the monitor detects this, prints a warning in the <a href="../../rf3c/rf3c.html"><code>userlog(3c)</code></a>, and frees up the resources. In the case of Workstation clients, the resources may not be freed up and eventually the Workstation Listener or Handler will run out of resources to accept new clients.</p>
+<p>As with clients, servers can use any of the communication paradigms in the role of client. However, a server cannot provide (advertise) both conversational services and RPC services within the same server; as described later, an RPC server must be marked as non-conversational. Although it is possible to mix ATMI request/response and RPC services within the same server, this is not recommended. One further restriction is that RPC operations cannot call <a href="../../rf3c/rf3c.html"><code>tpreturn(3c)</code></a> or <a href="../../rf3c/rf3c.html"><code>tpforward(3c)</code></a>. Instead, RPC operations must return as they would if called locally. Any attempt to call <a href="../../rf3c/rf3c.html"><code>tpreturn(3c)</code></a> or <a href="../../rf3c/rf3c.html"><code>tpforward(3c)</code></a> from an RPC operation will be intercepted and an error will be returned to the client (exception <code>rpc_x_fault_unspec</code> or status <code>rpc_s_fault_unspec</code>).</p>
+<p>Two functions available to servers but not to clients are <a href="../../rf3c/rf3c.html"><code>tpsvrinit(3c)</code></a> and <a href="../../rf3c/rf3c.html"><code>tpsvrdone(3c)</code></a>, which are called when the server starts up and when it is shut down. Since the server must call <a href="../../rf3c/rf3c.html"><code>tx_open(3c)</code></a> before receiving any TxRPC operation requests, <code>tpsvrinit()</code> is a good place to call it. The default <code>tpsvrinit()</code> function already calls <code>tx_open()</code>.</p>
+</div>
+<!-- class="sect1" -->
+<a id="i1004522" name="i1004522"></a>
+<div class="sect1">
+<h2 class="sect1">Interacting with TX</h2>
+<p>The TX functions provide an interface for transaction demarcation. <a href="../../rf3c/rf3c.html"><code>tx_begin(3c)</code></a> and <a href="../../rf3c/rf3c.html"><code>tx_commit(3c)</code></a> or <a href="../../rf3c/rf3c.html"><code>tx_rollback(3c)</code></a> encapsulate any work, including communications, within a transaction. Other primitives are provided to set transaction timeout, declare the transaction as chained or unchained, and retrieve transaction information. These are discussed in detail in the <span class="italic">X/OPEN TX Specification</span>, and reviewed in the <span class="italic">X/OPEN TxRPC Specification</span>. The <span class="italic">X/OPEN TxRPC Specification</span> indicates the interactions between TX and RPC. These are summarized as follows:</p>
+<ul>
+<li>
+<p>An interface or an operation can have the <code>[transaction_optional]</code> attribute which indicates that if the RPC is called within a transaction, the work done in the called operation will be part of the transaction.</p>
+</li>
+<li>
+<p>An interface or an operation can have the <code>[transaction_mandatory]</code> attribute which indicates that the RPC must be called within a transaction or the <code>txrpc_x_not_in_transaction</code> exception is returned.</p>
+</li>
+<li>
+<p>If neither of these attributes is specified, then the work in the called operation is not part of any transaction that may be active in the caller.</p>
+</li>
+<li>
+<p>If a TxRPC operation is called in the server and <a href="../../rf3c/rf3c.html"><code>tx_open(3c)</code></a> has not been called, a <code>txrpc_x_no_tx_open_done</code> exception is returned to the caller.</p>
+</li>
+<li>
+<p>TxRPC allows <code>tx_rollback(3c)</code> to be called from an operation to mark the transaction as rollback-only, such that any work performed on behalf of the transaction will be ultimately rolled back. It is recommended in this case that the application also return an application-level error to the caller indicating that the transaction will be rolled back.</p>
+</li>
+</ul>
+<p>Other changes or restrictions for the IDL defined by the TxRPC specification have been described earlier in the discussion about the IDL itself.</p>
+</div>
+<!-- class="sect1" --></div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+<div class="footer">
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<col width="33%" />
+<col width="*" />
+<col width="33%" />
+<tr>
+<td valign="bottom">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<col width="*" />
+<col width="48%" />
+<col width="48%" />
+<tr>
+<td>&nbsp;</td>
+<td align="center"><a href="txc02.htm"><img src="../../dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="txc04.htm"><img src="../../dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="copyrightlogo"><img class="copyrightlogo" src="../../dcommon/gifs/oracle.gif" alt="Oracle Logo" /><br />
+<span class="copyrightlogo">Copyright&nbsp;&copy;&nbsp;1996, 2009,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span> <a href="../../dcommon/html/cpyr.htm"><br />
+<span class="copyrightlogo">Legal Notices</span></a></td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+<td align="center" valign="top"><a href="toc.htm"><img src="../../dcommon/gifs/toc.gif" alt="Go To Table Of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<!-- class="footer" -->
+</body>
+</html>

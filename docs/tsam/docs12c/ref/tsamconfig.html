@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="" />
+<meta name="LOC_US_CHANGE" content="" />
+<meta name="LOC_US_SRCFILE" content="" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="05/24/13 03:03:45" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>TSAM Plus LDAP Configuration File</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Reference Guide
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="tsamaccount.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="tsamdatabase.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/ref.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1074157"> </a>
+TSAM Plus LDAP Configuration File
+</h1>
+<p class="pBody"><a name="wp1079807"> </a>
+The Oracle TSAM Plus LDAP configuration file is similar to the<span class="cHyperlink">
+<a href="../../../tuxedo/docs12c/sec/sngleadm.html#wp1477869"> Oracle Tuxedo GAUTHSVR configuration file</a></span>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1079808"> </a>
+LDAP Configuration File
+</h2><p class="pBody"><a name="wp1079809"> </a>
+Although the default values for the LDAP configuration file are usually sufficient, you can choose to configure it with different names. Therefore, you should be aware of the following requirements for the LDAP configuration file:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1079810"> </a>The LDAP configuration file is a plain text file.</li>
+<li><a name="wp1079811"> </a>Keywords are case-sensitive, but their order does not matter. The keyword format is <code class="cCode">keyword=value</code>.</li>
+<li><a name="wp1079812"> </a>Blank lines or lines starting with a # sign are treated as comments, and are ignored.</li>
+<li><a name="wp1079813"> </a>The upper limit of a line is 255 characters. If a line exceeds this upper limit, it is truncated.</li>
+<li><a name="wp1079814"> </a>The Principal must have privileges to access the LDAP database (usually the LDAP administrator).</li>
+</ul></div>
+<p class="pBody"><a name="wp1079815"> </a>
+<a href="tsamconfig.html#wp1079819">Table&#160;3-1</a> lists the LDAP configuration file keywords.
+</p>
+<p class="pGraphic"><a name="wp1079914"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1079819table1079816"><caption><a name="wp1079819"> </a>
+Table 3-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline"> LDAP Configuration File Keywords</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1079825"> </a>
+Configuration Keyword
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1079827"> </a>
+Value Type
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1079829"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079831"> </a>
+<code class="cCode">Host</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079833"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079835"> </a>
+The host name or IP address of the LDAP server.The default value is <code class="cCode">localhost</code>. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079837"> </a>
+<code class="cCode">Port</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079839"> </a>
+numeric
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079841"> </a>
+The port number on which the LDAP server is listening.The default value is <code class="cCode">389</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079843"> </a>
+<code class="cCode">Principal</code>
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079847"> </a>
+The Distinguished Name (DN) of the LDAP user that is used to connect to the LDAP server.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079849"> </a>
+<code class="cCode">Credential</code>
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079853"> </a>
+The credential (generally a password) used to authenticate the LDAP user that is defined in the Principal attribute.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079855"> </a>
+<code class="cCode">UserObjectClass</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079857"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079859"> </a>
+The LDAP object class that stores users. The default is <code class="cCode">person</code>. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079861"> </a>
+<code class="cCode">UserBaseDN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079863"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079865"> </a>
+The base distinguished name (DN) of the tree in the LDAP directory that contains users. The default is <code class="cCode">ou=people</code>, <code class="cCode">o=example.com</code> 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079867"> </a>
+<code class="cCode">UserFromNameFilter</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079869"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079871"> </a>
+An LDAP search filter for finding a user given the name of the user. The default is <code class="cCode">(&amp;(cn=%u)(objectclass=person))</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079873"> </a>
+<code class="cCode">UserUIDAttrName</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079875"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079877"> </a>
+The attribute name of an LDAP user object that specifies the UID of the user or the UID and GID of the user in a fixed format. The default value is <code class="cCode">userid</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079879"> </a>
+<code class="cCode">UserGroupAttrNames</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079881"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079883"> </a>
+The attribute names of an LDAP user object that specify the groups the user belongs to. This attribute can contain three types of values: GID, group CN and group DN. One type of value for each configuration. More names are separated by comma. The default value is <code class="cCode">usergroups</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079885"> </a>
+<code class="cCode">RetrieveUIDAndGID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079887"> </a>
+boolean
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079889"> </a>
+It should always be &quot;true&quot;
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079891"> </a>
+<code class="cCode">UIDAttrValueType</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079893"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079895"> </a>
+It should always be &quot;UIDAndGID&quot;
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079897"> </a>
+<code class="cCode"><br />UseZOSRACF</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079899"> </a>
+<br />boolean
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079901"> </a>
+Specifies whether the LDAP server is z/OS RACF LDAP server. The default is <code class="cCode">false</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079903"> </a>
+<br />SSLEnabled
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079905"> </a>
+<br />boolean
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079907"> </a>
+Specifies that SSL is used to connect to the LDAP server
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079909"> </a>
+<br /><br /><br /><br />ConnectTimeout
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079911"> </a>
+<br /><br /><br /><br />numeric
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1079913"> </a>
+The maximum number of seconds to wait for the LDAP connection to be established. If set to <code class="cCode">0</code>, there is no maximum time limit.<br /><br />The default value is <code class="cCode">0</code>.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1079915"> </a>
+Weblogic Embedded LDAP Server LDAP Configuration File Example
+</h4>
+<p class="pBody"><a name="wp1079916"> </a>
+<a href="tsamconfig.html#wp1079918">Listing&#160;3-1</a> shows a Weblogic embedded LDAP server LDAP configuration file example.
+</p>
+<div class="pCodeTitle"><a name="wp1079918"> </a>
+Listing&#160;3-1	   Weblogic Embedded LDAP Server LDAP Configuration File Example
+</div> <a name="wp1079919"> </a><div class="pPreformatted"><pre>Host = localhost<br />Port = 7001<br />Principal = cn=Admin<br />Credential = aaa<br />UserObjectClass = person<br />UserBaseDN = ou=people,ou=myrealm,dc=base_domain<br />UserFromNameFilter = (&amp;(uid=%u)(objectclass=person))<br />UserUIDAttrName = description<br />UserGroupAttrNames=wlsMemberOf<br />RetrieveUIDAndGID = true<br />UIDAttrValueType = UIDAndGID<br />UseZOSRACF=false<br />SSLEnabled=false<br />ConnectTimeout=5</pre></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="tsamconfig.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="tsamaccount.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="tsamdatabase.html"><img id="LongDescNotReq9" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="40264" />
+<meta name="LOC_US_SRCFILE" content="//depot/ecs/tcp/v11gr1/tuxug/fm/tuxsec.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="08/24/10 07:30:45" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Setting Up Security for Oracle TMA TCP Gateway</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Gateway User Guide
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="tuxdmp.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="tuxconf.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/tuxug.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1026106"> </a>
+Setting Up Security for Oracle TMA TCP Gateway
+</h1>
+<p class="pBody"><a name="wp1023858"> </a>
+The Tuxedo Mainframe Adapter for TCP Gateway (hereafter referenced as TMA TCP Gateway) component supports security features that allows a requester from Tuxedo to pass a user ID requirement through the OTMA or CICS server interfaces for verification through system security, such as RACF. 
+</p>
+<p class="pBody"><a name="wp1024726"> </a>
+This document explains the following security topics:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023864"> </a><a href="tuxsec.html#wp1023882"><span class="cHyperlink">
+Security Checking from Tuxedo to Mainframe</span></a> </li>
+<li><a name="wp1025392"> </a><a href="tuxsec.html#wp1023960"><span class="cHyperlink">
+Security Checking from Mainframe to Tuxedo</span></a> </li>
+<li><a name="wp1025396"> </a><a href="tuxsec.html#wp1024030"><span class="cHyperlink">
+Setting Up Security</span></a> </li>
+<li><a name="wp1025400"> </a><a href="tuxsec.html#wp1024050"><span class="cHyperlink">
+Sample Security Files</span></a> </li>
+<li><a name="wp1023880"> </a><a href="tuxsec.html#wp1024078"><span class="cHyperlink">
+Data Area Security</span></a> </li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023882"> </a>
+Security Checking from Tuxedo to Mainframe
+</h2><p class="pBody"><a name="wp1023889"> </a>
+The following figure illustrates the process flow for security verifications from TMA TCP Gateway to a mainframe.
+</p>
+<div class="pFigureTitle"><a name="wp1023892"> </a>
+Figure&#160;4-1  Security Checking for Tuxedo to Mainframe Transactions
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1023945"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/tuxug-4-1-1.gif" height="241" width="533" alt="Security Checking for Tuxedo to Mainframe Transactions" id="wp1023894"/></div><p class="pGraphic">
+
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023946"> </a>When the client program performs a <code class="cCode">tpinit()</code>, the user&#8217;s Tuxedo identity is validated against the <code class="cCode">tpusr</code> file.</li>
+<li><a name="wp1023947"> </a>When the client program issues a <code class="cCode">tpcall()</code> or <code class="cCode">tpacall()</code>, Tuxedo verifies (against the <code class="cCode">tpacl</code> file) that the user is authorized to invoke the gateway service.</li>
+<li><a name="wp1023948"> </a>When the gateway establishes the initial connection, connection security information (specified as <code class="cCode">RMTNAME</code> and <code class="cCode">PASSWORD</code> in the <code class="cCode">GWICONFIG</code> file) is passed from the TMA TCP Gateway to the remote gateway. If the <code class="cCode">RMTNAME</code> and <code class="cCode">PASSWORD</code> values match the values configured on the remote gateway, the connection is established.</li>
+<p class="pBodyRelative"><a name="wp1023955"> </a>
+With each request, the TMA TCP Gateway passes the user&#8217;s Tuxedo identity to the remote gateway.
+</p>
+<a name="wp1023956"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>To pass authority checking, the user&#8217;s Tuxedo identity must match the mainframe user ID exactly. </td>
+</tr>
+</table>
+
+<li><a name="wp1023957"> </a>The remote mainframe gateway initiates a proxy to act on behalf of the specified user ID.</li>
+<li><a name="wp1023958"> </a>The proxy calls the specified service using system security to check authorization.</li>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023960"> </a>
+Security Checking from Mainframe to Tuxedo
+</h2><p class="pBody"><a name="wp1023965"> </a>
+The following figure illustrates the process flow for security verifications from a mainframe to TMA TCP Gateway.
+</p>
+<div class="pFigureTitle"><a name="wp1023970"> </a>
+Figure&#160;4-2  Security Checking for Mainframe to Tuxedo Transactions
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1024019"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/tuxug-4-1-2.gif" height="239" width="533" alt="Security Checking for Mainframe to Tuxedo Transactions" id="wp1023972"/></div><p class="pGraphic">
+
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1024020"> </a>The user ID, established at mainframe log in, is checked by system security to verify that the user has permission to start a client transaction.</li>
+<li><a name="wp1024021"> </a>The user ID is checked by system security to verify that the user has permission to send a request to the gateway.</li>
+<li><a name="wp1024022"> </a>With each request, the gateway passes the user ID to the Tuxedo gateway.</li>
+<a name="wp1024023"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>To pass authority checking, the user&#8217;s Tuxedo identity must match the mainframe user ID exactly. </td>
+</tr>
+</table>
+
+<li><a name="wp1024027"> </a>The TMA TCP Gateway maps the mainframe user ID to a Tuxedo user ID and issues the service request on behalf of that user. </li>
+<li><a name="wp1024028"> </a>The Tuxedo server performs access checks (based on the <code class="cCode">tpacl</code> file) to verify that the user has access to the requested service.</li>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024030"> </a>
+Setting Up Security
+</h2><p class="pBody"><a name="wp1024032"> </a>
+The TMA TCP Gateway product supports two methods for providing security:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024859"> </a>Tuxedo security plug-in</li>
+<li><a name="wp1024872"> </a>Built-in Tuxedo security</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1024873"> </a>
+Tuxedo Security Plug-in
+</h3>
+<p class="pBody"><a name="wp1024877"> </a>
+The Tuxedo security plug-in enables the customization of the security functions, including the use of alternate implementations. The Tuxedo security plug-in is set up during Tuxedo plug-in configuration. Refer to the Tuxedo documentation for specific information about this feature.
+</p>
+<h3 class="pHeading2"><a name="wp1024894"> </a>
+Built-in Tuxedo Security
+</h3>
+<p class="pBody"><a name="wp1024911"> </a>
+Built-in Tuxedo security is used when custom security plug-ins are not implemented.
+</p>
+<p class="pBody"><a name="wp1025574"> </a>
+To enable the built-in Tuxedo security feature, complete the following tasks.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1024036"> </a>Code <code class="cCode">SECURITY</code> in the Oracle Tuxedo <code class="cCode">UBBCONFIG</code> file. Refer to the <em class="cEmphasis">Oracle Tuxedo Administration Guide</em> for more information. </li>
+<li><a name="wp1024037"> </a>Set up user, group, and <code class="cCode">ACL</code> files. Refer to the <em class="cEmphasis">Oracle Tuxedo Administrator&#8217;s Guide</em> for more information. </li>
+<a name="wp1024041"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The user information in these files must match in the Oracle Tuxedo and the mainframe environments or a security violation occurs.</td>
+</tr>
+</table>
+
+<li><a name="wp1024045"> </a>Code the security parameter in your TMA TCP Gateway configuration file (<code class="cCode">GWICONFIG</code>). For <code class="cCode">GWICONFIG</code> syntax and parameter definitions, refer to the <a href="tuxconf.html"><span class="cHyperlink">
+Configuring Oracle&#160;TMA TCP Gateway</span></a><span class="cHyperlink">
+ </span>section.</li>
+</ol></div>
+<h4 class="pHeading3"><a name="wp1024050"> </a>
+Sample Security Files
+</h4>
+<p class="pBody"><a name="wp1024054"> </a>
+Part of the process for setting up security for TMA&#160;TCP requires you to have user, group, and <code class="cCode">ACL</code> files. The following sections include these sample files.
+</p>
+<h5 class="pHeading4"><a name="wp1024055"> </a>
+User Files
+</h5>
+<p class="pBody"><a name="wp1024057"> </a>
+The following sample is a user file that includes user names, encrypted passwords, a user ID number, group number, and a client name.
+</p>
+<div class="pCodeTitle"><a name="wp1024058"> </a>
+Listing&#160;4-1	   Sample User (tpusr) File
+</div> <a name="wp1024059"> </a><div class="pPreformatted"><pre>#illen:w2ZMOKeJmiU0M:1:0:TPCLTNM,someguy::<br />#illen:0YzvQeqzcNz56:1:0:TPCLTNM,*::<br />#eke:x3vG37eOqh0XE:2:0:TPCLTNM,*::<br />#illen:0YzvQeqzcNz56:1:1:TPCLTNM,*::<br />#illen:0YzvQeqzcNz56:1:2:TPCLTNM,*::<br />john:x3vG37eOqh0XE:2:1:TPCLTNM,*::<br />jim:0YzvQeqzcNz56:1:1:TPCLTNM,*::<br />richard:IxqosKHu5Q3BA:3:1:TPCLTNM,*::<br />JDOE:zBMWVUBNNBVgo:4:0:TPCLTNM,*::<br />smith:ULfRJzAeyGAD2:5:0:TPCLTNM,*::</pre></div><p class="pBody"><a name="wp1024061"> </a>
+Lines that begin with the pound sign (#) are users that have been changed or deleted by <code class="cCode">tpusrmod</code> or <code class="cCode">tpusrdel</code>. 
+</p>
+<h5 class="pHeading4"><a name="wp1024062"> </a>
+Group File
+</h5>
+<p class="pBody"><a name="wp1024064"> </a>
+The following sample is a group file that specifies the names and indexes of groups.
+</p>
+<a name="wp1024065"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The <code class="cCode">tpgrp</code> file is only necessary when specifying <code class="cCode">ACL</code> or <code class="cCode">MANDATORY_ACL</code> modes for security. If you specify <code class="cCode">USER_AUTH</code> for security, you can assign users to groups, but they do not correlate to the groups used for security by the remote system.</td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1024066"> </a>
+Listing&#160;4-2	   Sample Group (<code class="cCodeBold">tpgrp</code>) File
+</div> <a name="wp1024067"> </a><div class="pPreformatted"><pre>good::1:<br />bad::2:</pre></div><h5 class="pHeading4"><a name="wp1024069"> </a>
+ACL File
+</h5>
+<p class="pBody"><a name="wp1024071"> </a>
+The <code class="cCode">tpacl</code> file correlates a group and the services to which that group has access. In the <code class="cCode">tpacl</code> file, the first field specifies what is protected, the second field specifies the type of object being protected (specified in the first field), and the third field specifies the group that has access to the object.
+</p>
+<p class="pBody"><a name="wp1024072"> </a>
+In the following example, only users in group 1 (john, jim, richard) can access <code class="cCode">TOLOWER</code>, and only users in group 2 can access <code class="cCode">TOUPPER</code>.
+</p>
+<a name="wp1024073"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The <code class="cCode">tpacl</code> file is only necessary when specifying <code class="cCode">ACL</code> or <code class="cCode">MANDATORY_ACL</code> modes for security. </td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1024074"> </a>
+Listing&#160;4-3	   Sample <code class="cCodeBold">ACL</code> (<code class="cCodeBold">tpacl</code>) File
+</div> <a name="wp1024075"> </a><div class="pPreformatted"><pre>TOLOWER:SERVICE:1:<br />TOUPPER:SERVICE:2:</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024078"> </a>
+Data Area Security
+</h2><p class="pBody"><a name="wp1024082"> </a>
+The TMA TCP Gateway provides data area security which is a specialized security protocol for the following cases:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024083"> </a>User information is propagated across multiple Tuxedo domain boundaries</li>
+<li><a name="wp1024086"> </a>A remote or local service requires a user&#8217;s <code class="cCode">LTERM</code> information</li>
+</ul></div>
+<p class="pBody"><a name="wp1024087"> </a>
+In these cases, a client&#8217;s user ID, group name, and <code class="cCode">LTERM</code> can be specified in the data area of a request. For Tuxedo clients, user information specified in the data area is verified by the remote gateway in the usual manner. For remote clients, remote user information is placed in the data area fields by the local gateway to be used by Tuxedo services. In this case, the remote client does not have to populate these fields, but must allocate space for them in the data area.
+</p>
+<h3 class="pHeading2"><a name="wp1024088"> </a>
+Enabling Data Area Security
+</h3>
+<p class="pBody"><a name="wp1024090"> </a>
+Complete the following tasks to enable data area security. 
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1024091"> </a>Add fields to the user&#8217;s data area on the local and remote hosts. These fields are passed to and from the mainframe host. For the field formats, refer to <a href="tuxsec.html#wp1024109"><span class="cHyperlink">
+Listing&#160;4-4</span></a>.</li>
+<li><a name="wp1024095"> </a>Set <code class="cCode">WRAP=TPSD</code> in the <code class="cCode">FOREIGN</code> section corresponding to the remote host in the <code class="cCode">GWICONFIG</code> file. For syntax and parameter definitions for the <code class="cCode">FOREIGN</code> section of the <code class="cCode">GWICONFIG</code> file, refer to the <a href="tuxconf.html#wp1024287"><span class="cHyperlink">
+Defining the FOREIGN Section of the GWICONFIG File</span></a> section. </li>
+<li><a name="wp1024099"> </a>Populate the data area with the user information before sending a request to a remote service.</li>
+<li><a name="wp1024100"> </a>The remote user&#8217;s information is populated into the data area when a request is received for a local service.</li>
+<a name="wp1024101"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If using a <code class="cCode">VIEW</code> data format, allocate the extra fields before the application data as defined in <a href="tuxsec.html#wp1024109"><span class="cHyperlink">
+Listing&#160;4-4</span></a>. If using the <code class="cCode">STRING</code> data format, allocate 24 additional bytes at the beginning of the string to be used for the security fields.</td>
+</tr>
+</table>
+
+</ol></div>
+<h3 class="pHeading2"><a name="wp1024105"> </a>
+Format
+</h3>
+<p class="pBody"><a name="wp1024107"> </a>
+The user data area fields in C use the following format.
+</p>
+<div class="pCodeTitle"><a name="wp1024109"> </a>
+Listing&#160;4-4	   Syntax for C User Data Area Fields
+</div> <a name="wp1024110"> </a><div class="pPreformatted"><pre>struct da_security {<br />       char uname[8];  /*user name*/<br />       char group[8];  /*user group*/<br />       char lterm[8];  /*terminal id*/<br />       /*user data is appended here*/<br />}</pre></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="tuxsec.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="tuxdmp.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="tuxconf.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

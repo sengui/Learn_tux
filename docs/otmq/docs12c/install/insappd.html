@@ -1,0 +1,465 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="" />
+<meta name="LOC_US_CHANGE" content="" />
+<meta name="LOC_US_SRCFILE" content="" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/27/12 02:40:44" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>IPC Resource Configuration on a UNIX System</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Installation Guide
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="insappc.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next_grey1.gif" border="0" alt="Next" />&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/install.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1051125"> </a>
+IPC Resource Configuration on a UNIX System
+</h1>
+<p class="pBody"><a name="wp1048079"> </a>
+The following sections describe the interprocess communication (IPC) parameters on a UNIX system and provide guidelines for configuring them:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1048240"> </a><a href="insappd.html#wp1046764">Parameter Sets Controlling IPC Resources</a></li>
+<li><a name="wp1048678"> </a><a href="insappd.html#wp1048556">Shared Memory</a></li>
+<li><a name="wp1048083"> </a><a href="insappd.html#wp1001581">Semaphores</a></li>
+<li><a name="wp1048087"> </a><a href="insappd.html#wp1001587">Message Queues and Messages</a></li>
+<li><a name="wp1048095"> </a><a href="insappd.html#wp1002334">Other Kernel Tunables</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1046764"> </a>
+Parameter Sets Controlling IPC Resources
+</h2><p class="pBody"><a name="wp1047033"> </a>
+On a UNIX system, the Oracle Tuxedo system uses the IPC resources provided by the UNIX operating system, which are controlled by the tunable parameters listed in <a href="insappd.html#wp1061524">Table&#160;D-1</a>.
+</p>
+<p class="pGraphic"><a name="wp1048839"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1061524table1048819"><caption><a name="wp1061524"> </a>
+Table&#160;D-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Tunable Parameters</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1048821"> </a>
+Tunable Parameters Starting with This Prefix . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1048823"> </a>
+Control the . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048825"> </a>
+<code class="cCode">SHM</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049111"> </a>
+Amount of shared memory
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048830"> </a>
+<code class="cCode">SEM</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049124"> </a>
+Number of semaphores
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048835"> </a>
+<code class="cCode">MSG</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049134"> </a>
+Size of message queues and messages
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1048840"> </a>
+The settings for these parameters are application-dependent. Most UNIX systems are shipped with default values that are too low for a Oracle Tuxedo application.
+</p>
+<p class="pBody"><a name="wp1041097"> </a>
+Because the IPC parameters vary across different versions of the UNIX system, the descriptions provided in the following sections are generic. For the exact parameter names and defaults for each platform and for information on how to change parameter values, see <a href="inspds.html">Oracle Tuxedo Message Queue 12c (12.1.1.0.0) Platform Data Sheets</a>. If you change a parameter value, you will need to rebuild the kernel and reboot the operating system, using standard administrative tools. Consult your operating system administrator or the system administrator&#8217;s guide for your platform for details.
+</p>
+<p class="pBody"><a name="wp1001575"> </a>
+If your Oracle Tuxedo application is distributed, the minimum IPC resources must be available on every UNIX platform participating in the application.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1048556"> </a>
+Shared Memory
+</h2><p class="pBody"><a name="wp1048560"> </a>
+In the Oracle Tuxedo environment, shared memory is used for the bulletin board and the control table of the workstation listener (WSL) and the IIOP listener (ISL) processes. An application may also use shared memory for its own purposes.
+</p>
+<p class="pBody"><a name="wp1048561"> </a>
+The following shared memory parameters may need to be adjusted:
+</p>
+<h4 class="pDefTerm"><a name="wp1048562"> </a>
+<code class="cCode">SHMMAX</code>
+</h4><div class="pDefPara"><a name="wp1048563"> </a>
+Maximum size, in bytes, of a shared memory segment. This number represents the largest shared memory segment that can be allocated. A process can, however, attach to more than one segment of size <code class="cCode">SHMMAX</code>.
+</div>
+<h4 class="pDefTerm"><a name="wp1048564"> </a>
+<code class="cCode">SHMSEG</code>
+</h4><div class="pDefPara"><a name="wp1048565"> </a>
+Maximum number of shared memory segments per process. For a given configuration, the maximum amount of shared memory to which a process can attach is the product (in bytes) of <code class="cCode">SHMMAX * SHMSEG</code>. A value between 6 and 15 should be adequate.
+</div>
+<h4 class="pDefTerm"><a name="wp1048566"> </a>
+<code class="cCode">SHMMNI</code>
+</h4><div class="pDefPara"><a name="wp1048569"> </a>
+Maximum number of shared memory identifiers in the system. The Oracle Tuxedo system requires one identifier per bulletin board and an additional identifier for each workstation listener (WSL) and IIOP listener (ISL) that is running.
+</div>
+<h4 class="pDefTerm"><a name="wp1048571"> </a>
+<code class="cCode">SHMMIN</code>
+</h4><div class="pDefPara"><a name="wp1048572"> </a>
+Minimum size, in bytes, of shared memory segment. This parameter should always be set to 1.
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1001581"> </a>
+Semaphores
+</h2><p class="pBody"><a name="wp1001593"> </a>
+Every process that participates in a Oracle Tuxedo application requires a <em class="cEmphasis">semaphore</em>. A semaphore is a hardware or software flag used to prevent processes from accessing the same shared memory space at the same time. When a process has control of a shared memory resource, all other processes are locked out of the shared memory resource until the process releases the resource.
+</p>
+<p class="pBody"><a name="wp1048617"> </a>
+When the Oracle Tuxedo application is booted, the underlying Oracle Tuxedo system checks the number of semaphores configured in the operating system. If the configured number is not high enough, the boot fails.
+</p>
+<p class="pBody"><a name="wp1001601"> </a>
+The following semaphore parameters may need to be adjusted:
+</p>
+<h4 class="pDefTerm"><a name="wp1001607"> </a>
+<code class="cCode">SEMMNS</code>
+</h4><div class="pDefPara"><a name="wp1002184"> </a>
+Maximum number of semaphores in the system. The minimum requirement for <code class="cCode">SEMMNS</code> is 
+</div>
+<div class="pDefParaCont"><a name="wp1001641"> </a>
+<code class="cCode">MAXACCESSERS - MAXWSCLIENTS + 13</code>
+<a name="wp1049079"> </a>
+where <code class="cCode">MAXACCESSERS</code> is the maximum number of Oracle Tuxedo system processes on a particular machine (including servers and native clients) and <code class="cCode">MAXWSCLIENTS</code> is the maximum number of Oracle Tuxedo remote clients. Both of these parameters are specified in the <code class="cCode">UBBCONFIG</code> file for the application. For more information about <code class="cCode">UBBCONFIG</code>, see &#8220;Creating the Configuration File&#8221; in <a href="../ads/index.html">Setting Up an Oracle Tuxedo Application</a> or <code class="cCode">UBBCONFIG(5)</code> in the <a href="../rf5/index.html">File Formats, Data Descriptions, MIBs, and System Processes Reference</a>.
+</div>
+<h4 class="pDefTerm"><a name="wp1049088"> </a>
+<code class="cCode">SEMMNI</code>
+</h4><div class="pDefPara"><a name="wp1001686"> </a>
+Maximum number of active semaphore sets.
+</div>
+<h4 class="pDefTerm"><a name="wp1001662"> </a>
+<code class="cCode">SEMMSL</code>
+</h4><div class="pDefPara"><a name="wp1001711"> </a>
+Maximum number of semaphores per semaphore set. <code class="cCode">SEMMNI</code> and <code class="cCode">SEMMSL</code> are commonly chosen so that their product equals <code class="cCode">SEMMNS</code>. The Oracle Tuxedo system does not perform semaphore operations on semaphore sets; however, it attempts to allocate as many semaphores per semaphore set as possible.
+</div>
+<h4 class="pDefTerm"><a name="wp1001692"> </a>
+<code class="cCode">SEMMAP</code>
+</h4><div class="pDefPara"><a name="wp1001738"> </a>
+Size of the control map used to manage semaphore sets. <code class="cCode">SEMMAP</code> should be equal to <code class="cCode">SEMMNI</code>.
+</div>
+<h4 class="pDefTerm"><a name="wp1001721"> </a>
+<code class="cCode">SEMMNU</code>
+</h4><div class="pDefPara"><a name="wp1005566"> </a>
+Number of <code class="cCode">undo</code> structures in the system. Because an <code class="cCode">undo</code> structure is needed for each process that can access the bulletin board, <code class="cCode">SEMMNU</code> must be at least as large as <code class="cCode">SEMMNS</code>. (The UNIX operating system uses <code class="cCode">undo</code> structures to unlock semaphores held by processes that die unexpectedly.)
+</div>
+<h4 class="pDefTerm"><a name="wp1005567"> </a>
+<code class="cCode">SEMUME</code>
+</h4><div class="pDefPara"><a name="wp1001792"> </a>
+Maximum number of undo entries per undo structure. The value 1 suffices.
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1001587"> </a>
+Message Queues and Messages
+</h2><p class="pBody"><a name="wp1001820"> </a>
+The Oracle Tuxedo system uses UNIX system messages and message queues for client/server communication. Examples of such messages are service requests, service replies, conversational messages, unsolicited notification messages, administrative messages, and transaction control messages.
+</p>
+<p class="pBody"><a name="wp1001828"> </a>
+Every Multiple Servers, Single Queue (MSSQ) set of servers and every individual server has a message queue for receiving requests. Every client has its own queue for receiving replies. Servers that specify the <code class="cCode">REPLYQ</code> parameter also get individual reply queues.
+</p>
+<p class="pBody"><a name="wp1001834"> </a>
+The adjustment of kernel message parameters is important to the proper tuning of an application. Inappropriate values can lead to an inability to boot, or to severe performance degradation.
+</p>
+<p class="pBody"><a name="wp1001840"> </a>
+Several message queue parameters are available to define various characteristics of the queue space, as indicated in <a href="insappd.html#wp1061531">Table&#160;D-2</a>.
+</p>
+<p class="pGraphic"><a name="wp1013466"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1061531table1013480"><caption><a name="wp1061531"> </a>
+Table&#160;D-2  Message Que Parameters
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1013482"> </a>
+This Parameter. . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1013484"> </a>
+Specifies the . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1013486"> </a>
+<code class="cCode">MSGTQL</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1013488"> </a>
+Total number of outstanding messages that can be stored by the kernel
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1013490"> </a>
+<code class="cCode">MSGMNB</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1013492"> </a>
+Total number of bytes that can be stored on one queue
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1013494"> </a>
+<code class="cCode">MSGMAX</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1013496"> </a>
+Maximum size of an individual message
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1013498"> </a>
+<code class="cCode">MSGSEG</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1013500"> </a>
+Total number of message segments that can be outstanding at one time
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1013502"> </a>
+<code class="cCode">MSGSSZ</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1013504"> </a>
+Size of each segment
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1001846"> </a>
+If the limit specified by any of these parameters is exceeded, then a <em class="cEmphasis">blocking condition</em> occurs. There is one exception to this rule: <code class="cCode">MSGMAX</code>. Messages that exceed 75 percent of <code class="cCode">MSGMNB</code>, or that are larger than <code class="cCode">MSGMAX</code>, are placed in a UNIX file. A very small message containing the filename is then sent to the recipient. Because this mode of operation results in a severe reduction in performance, we strongly recommend that you avoid it.
+</p>
+<h3 class="pHeading2"><a name="wp1009733"> </a>
+What Is Application Deadlock?
+</h3>
+<p class="pBody"><a name="wp1011475"> </a>
+An application deadlock can result if every process is blocked while trying to send a message. For example, when clients fill up the message space with requests, servers that are trying to send replies are blocked. Therefore, no server can read a message and a deadlock results. Occasionally, timeouts can break a deadlock, but no useful work will have been done.
+</p>
+<p class="pBody"><a name="wp1001858"> </a>
+A client that sends its requests with the <code class="cCode">TPNOREPLY</code> flag is especially troublesome. This practice can fill either individual queues or the system message space, depending on the size of the messages. Such applications may have to implement their own flow control to limit the number of outstanding messages.
+</p>
+<p class="pBody"><a name="wp1001864"> </a>
+To summarize, if clients or servers are blocking on their send operations (requesting services or sending replies), there is potential for trouble. It is usually no problem, though, for a single server request queue to remain full, as long as there is space in the system for more messages on other queues.
+</p>
+<h3 class="pHeading2"><a name="wp1001870"> </a>
+Performance Implications of Blocking Conditions
+</h3>
+<p class="pBody"><a name="wp1011502"> </a>
+There are performance implications to queue blocking conditions, both on the sending side and the receiving side. When waking up blocked processes, the UNIX operating system wakes up all the processes blocked on a particular event, even if only one can proceed. The other processes go back to sleep. This process scheduling overhead can be expensive.
+</p>
+<p class="pBody"><a name="wp1001876"> </a>
+For example, on an empty server request queue on which more than one server (MSSQ) resides, an arriving message wakes up all the idle (blocked) servers on that queue. In the case of a full server request queue, as each request is read by a server, the system wakes up all the blocked clients. Depending on the size of the messages, zero or more clients can place messages on the queue. The rest go back to sleep. Because there may be hundreds of clients in the system, the mass wakeup of all of these clients every time a service request is processed can severely degrade performance. 
+</p>
+<h3 class="pHeading2"><a name="wp1001882"> </a>
+Tunable Message Parameters
+</h3>
+<p class="pBody"><a name="wp1011513"> </a>
+A properly tuned system rarely fills its queues. Enough slack should be left in the queues to handle the natural variability of the message flow. No exact settings can be recommended. Tuning is very application dependent. The UNIX <code class="cCode">ipcs(1)</code> command provides a snapshot of the queues so you can determine whether they are full. You can try setting the <code class="cCode">TPNOBLOCK</code> flag when sending requests. If you do, clients can tell when queues are full, and they can slow down a bit. It might help to increase the scheduling priority of servers with full request queues.
+</p>
+<p class="pBody"><a name="wp1001888"> </a>
+The following message parameters may need to be adjusted:
+</p>
+<h4 class="pDefTerm"><a name="wp1001894"> </a>
+<code class="cCode">MSGMNI</code>
+</h4><div class="pDefPara"><a name="wp1002186"> </a>
+Number of unique message queue identifiers. Each process participating in a Oracle Tuxedo application on a particular machine typically needs at least one message queue. This number is reduced if MSSQ sets are used, which means that multiple server processes share a single queue. For transaction processing, count an additional queue per server group for transaction manager server (TMS) processes. Thus, the minimum requirement for <code class="cCode">MSGMNI</code> can be determined by the following formula:
+</div>
+<div class="pDefParaCont"><a name="wp1001956"> </a>
+<code class="cCode">MSGMNI = MAXACCESSERS + 7<br />+ (number of servers with REPLYQ)<br />+ (number of MSSQ sets)<br />- (number of servers in MSSQ sets)</code>
+</div>
+<h4 class="pDefTerm"><a name="wp1001937"> </a>
+<code class="cCode">MSGMAX</code>
+</h4><div class="pDefPara"><a name="wp1002541"> </a>
+Maximum message size in bytes. <code class="cCode">MSGMAX</code> must be big enough to handle any Oracle Tuxedo application running on this machine.
+</div>
+<h4 class="pDefTerm"><a name="wp1001932"> </a>
+<code class="cCode">MSGMNB</code>
+</h4><div class="pDefPara"><a name="wp1002552"> </a>
+Maximum message queue length in bytes. This number must accommodate the total size of all messages that are on a queue and have not been taken off by the associated processes. The minimum value for <code class="cCode">MSGMNB</code> is the value of <code class="cCode">MSGMAX</code>. Messages longer than 75% of <code class="cCode">MSGMNB</code> are sent to a file instead of a message queue&#8212;a situation that should be avoided because it severely degrades performance.
+</div>
+<h4 class="pDefTerm"><a name="wp1001926"> </a>
+<code class="cCode">MSGMAP</code>
+</h4><div class="pDefPara"><a name="wp1002008"> </a>
+Number of entries in the control map used to manage message segments. The value of <code class="cCode">MSGMAP</code> should be the number of message segments (specified in <code class="cCode">MSGSEG</code>).
+</div>
+<h4 class="pDefTerm"><a name="wp999396"> </a>
+<code class="cCode">MSGSSZ</code>
+</h4><div class="pDefPara"><a name="wp1002072"> </a>
+Size, in bytes, of a message segment. A message can consist of several such segments. The value of <code class="cCode">MSGSSZ</code> should be such that a multiple of <code class="cCode">MSGSSZ</code> is equal to the size (including the Oracle Tuxedo system header) of the most commonly sent message. By dividing messages into segments in this way, you can avoid wasting space.
+</div>
+<h4 class="pDefTerm"><a name="wp999398"> </a>
+<code class="cCode">MSGSEG</code>
+</h4><div class="pDefPara"><a name="wp1002048"> </a>
+Number of message segments in the system.
+</div>
+<h4 class="pDefTerm"><a name="wp999400"> </a>
+<code class="cCode">MSGTQL</code>
+</h4><div class="pDefPara"><a name="wp1002069"> </a>
+Total number of outstanding messages that can be stored by the kernel. This is the maximum number of unread messages at any given time.
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1002334"> </a>
+Other Kernel Tunables
+</h2><p class="pBody"><a name="wp1049160"> </a>
+Experience with the Oracle Tuxedo system has shown that some other UNIX system tunables may need to be set to higher values. These parameters are very application dependent and do not apply to all applications. <a href="inspds.html">Oracle Tuxedo Message Queue 12c (12.1.1.0.0) Platform Data Sheets</a> includes information on the defaults for each platform and instructions for changing them.
+</p>
+<h4 class="pDefTerm"><a name="wp1002346"> </a>
+<code class="cCode">ULIMIT</code>
+</h4><div class="pDefPara"><a name="wp1002476"> </a>
+Maximum file size. <code class="cCode">ULIMIT</code> needs to be large enough so that you can install the Oracle Tuxedo system and build servers. We recommend 4 MB.
+</div>
+<h4 class="pDefTerm"><a name="wp1002349"> </a>
+<code class="cCode">NOFILES</code>
+</h4><div class="pDefPara"><a name="wp1002489"> </a>
+Maximum number of open files per process. A Oracle Tuxedo server requires a minimum of four file descriptors.
+</div>
+<h4 class="pDefTerm"><a name="wp1002371"> </a>
+<code class="cCode">MAXUP</code>
+</h4><div class="pDefPara"><a name="wp1002463"> </a>
+Maximum number of processes per non-superuser. The Oracle Tuxedo system processes&#8212;servers and administrative processes&#8212;run with the <code class="cCode">UID</code> specified in the application&#8217;s <code class="cCode">UBBCONFIG</code> file. <code class="cCode">MAXUP</code> needs to be large enough to allow all of these processes to run.
+</div>
+<h4 class="pDefTerm"><a name="wp1002377"> </a>
+<code class="cCode">NPROC</code>
+</h4><div class="pDefPara"><a name="wp1002450"> </a>
+Maximum number of processes (system wide).
+</div>
+<h4 class="pDefTerm"><a name="wp1002383"> </a>
+<code class="cCode">NREGION</code>
+</h4><div class="pDefPara"><a name="wp1002437"> </a>
+Number of region table entries to allocate. Most processes have three regions: text, data, and stack. Additional regions are needed for each shared memory segment and each shared library (including text and data) that is attached. However, the region table entry for the text of a &#8220;shared text&#8221; program is shared by all processes executing that program. Each shared memory segment attached to one or more processes uses another region table entry.
+</div>
+<h4 class="pDefTerm"><a name="wp1002389"> </a>
+<code class="cCode">NUMTIM</code>
+</h4><div class="pDefPara"><a name="wp1002358"> </a>
+Maximum number of STREAMS modules that can be pushed by the Transport Layer Interface (TLI). A typical default value is 16; we recommend setting this parameter to at least 256.
+</div>
+<h4 class="pDefTerm"><a name="wp1002395"> </a>
+<code class="cCode">NUMTRW</code>
+</h4><div class="pDefPara"><a name="wp1002412"> </a>
+The number of TLI read/write structures to allocate in kernel data space. A typical default value is 16; we recommend setting this parameter to at least 256.
+</div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="insappd.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="insappc.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq10" src="/global_resources/images/nexttop_disabled.gif" border="0" alt="Next" />
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

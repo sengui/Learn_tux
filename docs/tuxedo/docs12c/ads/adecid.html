@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="4" />
+<meta name="LOC_US_CHANGE" content="42023" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/ads/fm/adecid.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/29/12 11:10:30" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Configuring Tuxedo for Propagating ECID</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Setting Up an Oracle Tuxedo Application
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="adjava.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next_grey1.gif" border="0" alt="Next" />&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/ads.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1030338"> </a>
+Configuring Tuxedo for Propagating ECID
+</h1>
+<p class="pBody"><a name="wp1030992"> </a>
+This topic includes the following sections: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1030993"> </a><a href="adecid.html#wp1031037"><span class="cHyperlink">
+Overview</span></a> </li>
+<li><a name="wp1030994"> </a><a href="adecid.html#wp1031684"><span class="cHyperlink">
+Configurations</span></a> </li>
+<li><a name="wp1029367"> </a><a href="adecid.html#wp1032022"><span class="cHyperlink">
+Tracing ECID with Tuxedo System</span></a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1031037"> </a>
+Overview 
+</h2><p class="pBody"><a name="wp1030962"> </a>
+Tuxedo is enhanced to support ECID propagation from its 12c (12.1.1) release. As <a href="adecid.html#wp1032440">Figure&#160;</a> shows, it supports the propagation of ECID across various Tuxedo boundaries
+</p>
+<div class="pFigureTitle"><a name="wp1032702"> </a>
+Figure&#160;18-1  
+</div>
+
+ 
+ <p class="pBody"><a name="wp1032696"> </a>
+With this feature enabled, as the receiving side, Tuxedo will check whether there is an ECID in each request call across boundaries. If yes, the received ECID will be propagated along the whole call path; otherwise, as the boundary node, the domain gateway will try to generate an ECID for this call and propagate it once correctly configured.
+</p>
+<p class="pBody"><a name="wp1031249"> </a>
+For a call initiated by a Tuxedo component, say, a native client, a WS client, or a Jolt client, the client can generate an ECID for it once correctly configured. 
+</p>
+<a name="wp1031182"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>JCA support is not in the scope of this feature.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1031183"> </a>
+This section describes following four scenarios of ECID propagation.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1031184"> </a><a href="adecid.html#wp1031074"><span class="cHyperlink">
+Propagating ECID from Tuxedo to Database</span></a>. </li>
+<li><a name="wp1031185"> </a><a href="adecid.html#wp1031452"><span class="cHyperlink">
+Propagating ECID between Tuxedo and WLS</span></a>. </li>
+<li><a name="wp1031186"> </a><a href="adecid.html#wp1031578"><span class="cHyperlink">
+Propagating ECID within Tuxedo</span></a>.</li>
+<li><a name="wp1031172"> </a><a href="adecid.html#wp1031648"><span class="cHyperlink">
+Generating ECID by Native/WS/Jolt clients and domain gateway</span></a>.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1031074"> </a>
+Propagating ECID from Tuxedo to Database 
+</h3>
+<p class="pBody"><a name="wp1031354"> </a>
+Tuxedo supports to propagate the ECID to Oracle DB via Oracle Call Interface (OCI). This is a one-way propagation. Since the OCI/DB never initiates a request call in theory, it&#8217;s not necessary to support the propagation in opposite direction (from DB to Tuxedo).
+</p>
+<p class="pBody"><a name="wp1031355"> </a>
+The OCI provides a registration API and a callback function interface. The implementation of the callback function handles the details of propagation. The process is showed as below:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1031356"> </a>When a tuxedo server process is up and with ECID enabled, it will call the registration API to register the implementation of the callback function.</li>
+<li><a name="wp1031357"> </a>OCI invokes the callback function and passes the relative context which can be used to identify the DB connection/session before a roundtrip.</li>
+<li><a name="wp1031296"> </a>The callback implementation gets the associated ECID from Tuxedo context and passes such ECID to Oracle DB.</li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1031452"> </a>
+Propagating ECID Between Tuxedo and WLS
+</h3>
+<p class="pBody"><a name="wp1031411"> </a>
+WTC provides interoperability between WLS applications and Tuxedo services. As an interface, WTC takes full responsibility of ECID&#8217;s propagation between Tuxedo and WLS. 
+</p>
+<p class="pBody"><a name="wp1031412"> </a>
+The Dynamic Monitoring Service (DMS) provides a set of Java APIs to set or get the ECID on WLS side. 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1031413"> </a>For a request call from WLS to Tuxedo, the process is:</li>
+</ul></div>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1031414"> </a>WTC calls DMS API to get the ECID from current Execution Context.</li>
+<li><a name="wp1031415"> </a>WTC inserts the ECID into the special field of the message.</li>
+<li><a name="wp1031416"> </a>WTC sends the message to Tuxedo.</li>
+<li><a name="wp1031546"> </a>Tuxedo domain gateway gets the ECID from received message.</li>
+</ol></div>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1031553"> </a>For a request call from Tuxedo to WLS, the process is:</li>
+</ul></div>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1031548"> </a>Tuxedo domain gateway sends the message with ECID to WTC.</li>
+<li><a name="wp1031420"> </a>WTC gets the ECID from received message.</li>
+<li><a name="wp1031400"> </a>WTC calls DMS API to set the ECID for current Execution Context.</li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1031578"> </a>
+Propagating ECID within Tuxedo 
+</h3>
+<p class="pBody"><a name="wp1031579"> </a>
+The ECID propagation within Tuxedo (both intra-domain and across domains) utilizes the <code class="cCode">META_TCM</code> field in the messages. Tuxedo client, server, and domain gateway are all enhanced to support to get or set ECID in <code class="cCode">META_TCM</code> section of a message.
+</p>
+<p class="pBody"><a name="wp1031580"> </a>
+Inside the Tuxedo, the ECID generation/propagation happens with following three ATMI APIs:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1031581"> </a>tpcall</li>
+<li><a name="wp1031582"> </a>tpacall</li>
+<li><a name="wp1031570"> </a>tpforward</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1031648"> </a>
+Generating ECID by Native/WS/Jolt clients and Domain Gateway 
+</h3>
+<p class="pBody"><a name="wp1031636"> </a>
+As boundary components, native/WS/Jolt client and domain gateway can generate the ECID for each request message once configured correctly.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1031684"> </a>
+Configurations 
+</h2><p class="pBody"><a name="wp1031685"> </a>
+This section covers the following configurations to enable ECID propagation: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1031686"> </a><a href="adecid.html#wp1031688"><span class="cHyperlink">
+Enabling and Disabling ECID Propagation</span></a>. </li>
+<li><a name="wp1031687"> </a><a href="adecid.html#wp1031753"><span class="cHyperlink">
+Configuring the Server to Propagate ECID via OCI</span></a>. </li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1031688"> </a>
+Enabling and Disabling ECID Propagation
+</h3>
+<p class="pBody"><a name="wp1031689"> </a>
+In <code class="cCode">RESOURCES</code> section of <code class="cCode">UBBCONFIG(5)</code>, the <code class="cCode">OPTIONS</code> field is extended with new flags to enable and specify the behavior for handling the ECID.
+</p>
+<p class="pBody"><a name="wp1031690"> </a>
+Option &#39;<code class="cCode">ECID_CREATE</code>&#39;: ECID creation functionality is enabled. The boundary nodes (including Native/WS/Jolt client and domain gateway) can generate the ECID. 
+</p>
+<p class="pBody"><a name="wp1031691"> </a>
+Option &#39;<code class="cCode">ECID_USERLOG</code>&#39;: With this option on, if not a null string, the ECID will be appended to the userlog.
+</p>
+<p class="pBody"><a name="wp1031672"> </a>
+If neither of above options is set, the ECID propagation around Tuxedo will be disabled. These options can be also updated by <code class="cCode">MIB</code> operation.
+</p>
+<h3 class="pHeading2"><a name="wp1031753"> </a>
+Configuring the Server to Propagate ECID via OCI
+</h3>
+<p class="pBody"><a name="wp1031868"> </a>
+To perform ECID propagation to Oracle DB via OCI callback functions, the related server must be specified by a &#8220;<code class="cCode">-L</code>&#8221; option. For example:
+</p>
+<a name="wp1031869"> </a><div class="pPreformatted"><pre>simpserv    CLOPT=&quot;-A -L default --&quot; SRVGRP=GROUP1 SRVID=2</pre></div><p class="pBody"><a name="wp1031871"> </a>
+Once activated with a specified &quot;<code class="cCode">&#8211; L</code>&quot;, a server will call the registration API of OCI for ECID propagation.
+</p>
+<h4 class="pDefTerm"><a name="wp1031872"> </a>
+<code class="cCode">-LD</code> or <code class="cCode">-L default</code>
+</h4><div class="pDefPara"><a name="wp1031785"> </a>
+Loads default OCI library, that is, &quot;oci.dll&quot; for WIN32 platform and &quot;libclntsh.so&quot; for other platforms. 
+</div>
+<h4 class="pDefTerm"><a name="wp1031949"> </a>
+<code class="cCode">-L </code><code class="cCodeEmphasis">oci_lib_name</code> 
+</h4><div class="pDefPara"><a name="wp1031990"> </a>
+Loads the OCI library with the name specified by <code class="cCodeEmphasis">oci_lib_name</code>. Such <code class="cCodeEmphasis">oci_lib_name</code> can be an absolute path or a leaf name, which can be found through the system library path.
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1032022"> </a>
+Tracing ECID with Tuxedo System 
+</h2><div class="pSmartList1Bullet"><ul>
+<li><a name="wp1032023"> </a>The userlog is enhanced to print out the ECID of current active call if &#39;<code class="cCode">ECID_USERLOG</code>&#39; is configured in <code class="cCode">UBBCONFIG</code>. For example:</li>
+<a name="wp1032025"> </a><div class="pPreformatted"><pre><code class="cCode">233331.lclnx16!simpserv.19461.2664420416.0: ECID &lt;004fVWEOfCE6iKO5IjK6yf0004k8000000&gt;: sleep 15</code></pre></div><li><a name="wp1032026"> </a>The <code class="cCode">tmadminà</code> ---&gt; <code class="cCode">printserver (psr -v) </code>command is enhanced to print out ECID if the server is currently in service. For example:</li>
+<a name="wp1032028"> </a><div class="pPreformatted"><pre>      Group ID: GROUP1, Server ID: 1</pre></div><a name="wp1032029"> </a><div class="pPreformatted"><pre>      Machine ID: SITE1</pre></div><a name="wp1032030"> </a><div class="pPreformatted"><pre>      Process ID: 19461, Request Qaddr: 1009713159, Reply Qaddr: 1009713159</pre></div><a name="wp1032031"> </a><div class="pPreformatted"><pre>      Server Type: USER</pre></div><a name="wp1032032"> </a><div class="pPreformatted"><pre>      Prog Name: /nfs/ucfhomes/xuhchen/lclnx16/TUX12gR164/LC/bld/samples/atmi/simpapp/simpserv</pre></div><a name="wp1032033"> </a><div class="pPreformatted"><pre>      Queue Name: 00001.00001</pre></div><a name="wp1032034"> </a><div class="pPreformatted"><pre>         Options: ( none )</pre></div><a name="wp1032035"> </a><div class="pPreformatted"><pre>      Generation: 1, Max message type: 1073741824</pre></div><a name="wp1032036"> </a><div class="pPreformatted"><pre>   Creation time: Tue Sep 27 23:32:44 2011</pre></div><a name="wp1032037"> </a><div class="pPreformatted"><pre>         Up time: 0:05:22</pre></div><a name="wp1032038"> </a><div class="pPreformatted"><pre>   Requests done: 2</pre></div><a name="wp1032039"> </a><div class="pPreformatted"><pre>       Load done: 100</pre></div><a name="wp1032009"> </a><div class="pPreformatted"><pre> Current Service: TOUPPER,(ecid: c9ca469656eb23b5:79482783:132ae1bef3b:-8000-0000000000000010)</pre></div></ul></div>
+<h3 class="pHeading2"><a name="wp1032145"> </a>
+See Also 
+</h3>
+<p class="pBody"><a name="wp1032179"> </a>
+<a href="../rf5/rf5.html">File Formats, Data Descriptions, MIBs, and System Processes Reference</a>
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="adecid.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="adjava.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq10" src="/global_resources/images/nexttop_disabled.gif" border="0" alt="Next" />
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

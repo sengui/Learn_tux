@@ -1,0 +1,1880 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/snmpmref/fm/7wksmib.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:44:41" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Workstation MIB</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">SNMP Agent MIB Reference
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="6aclmib.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="8appqmib.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/snmpmref.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp220571"> </a>
+Workstation MIB
+</h1>
+<p class="pBody"><a name="wp218026"> </a>
+Oracle Tuxedo systems can require clients to run on a workstation for purposes of security, performance, and convenience. A network administrator can define the environment required to control workstation clients using the Workstation MIB. This MIB is an extension of the Core MIB and specifies the information required to control access to a Tuxedo application from multiple workstations.
+</p>
+<p class="pBody"><a name="wp216792"> </a>
+The Tuxedo Workstation subsystem consists of a workstation clients (WSC) library, the workstation listener (WSL) executable, and the workstation handler (WSH) executable. The Workstation MIB specifies information about workstation listeners and workstation handlers. The following table lists the two WSL and WSH groups through which you can manage a workstation listener and its associated workstation handler processes.
+</p>
+<p class="pBody"><a name="wp216793"> </a>
+The Workstation MIB consists of the following groups.
+</p>
+<p class="pGraphic"><a name="wp216813"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp216796table216794">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp216796"> </a>
+<span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Group Name </span>
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp216798"> </a>
+Description 
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216803"> </a>
+<a href="7wksmib.html#wp216817"><code class="cCode">tuxTwshTbl</code></a>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216805"> </a>
+Workstation Handler 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216810"> </a>
+<a href="7wksmib.html#wp217106"><code class="cCode">tuxTwslTbl</code></a>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216812"> </a>
+Workstation Listener 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp216814"> </a>
+You can define new workstation listeners in the <code class="cCode">tuxTwslTbl</code> group, and you can obtain information about active workstation handlers from the <code class="cCode">tuxTwshTbl</code> group.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp216817"> </a>
+tuxTwshTbl
+</h2><p class="pBody"><a name="wp216819"> </a>
+The <code class="cCode">tuxTwshTbl</code> table represents run-time characteristics of WSH client processes. These objects characterize workstation statistics specific to a particular WSH client process. Objects in this table are only accessible through a Tuxedo SNMP agent installed on the local machine. Objects are only accessible when the corresponding WSH is active.
+</p>
+<p class="pGraphic"><a name="wp216917"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp216822table216820">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp216822"> </a>
+Object Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp216824"> </a>
+Object ID
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216826"> </a>
+<code class="cCode">tuxTwshTaClientId</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216828"> </a>
+.1.3.6.1.4.1.140.300.1.1.1.1
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216830"> </a>
+<code class="cCode">tuxTwshTaWshClientId</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216832"> </a>
+.1.3.6.1.4.1.140.300.1.1.1.2
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216834"> </a>
+<code class="cCode">tuxTwshTaSrvGrp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216836"> </a>
+.1.3.6.1.4.1.140.300.1.1.1.3
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216838"> </a>
+<code class="cCode">tuxTwshTaSrvId</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216840"> </a>
+.1.3.6.1.4.1.140.300.1.1.1.4
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216842"> </a>
+<code class="cCode">tuxTwshTaGrpNo</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216844"> </a>
+.1.3.6.1.4.1.140.300.1.1.1.5
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216846"> </a>
+<code class="cCode">tuxTwshTaState</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216848"> </a>
+.1.3.6.1.4.1.140.300.1.1.1.6
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216850"> </a>
+<code class="cCode">tuxTwshTaLmid</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216852"> </a>
+.1.3.6.1.4.1.140.300.1.1.1.7
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216854"> </a>
+<code class="cCode">tuxTwshTaPid</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216856"> </a>
+.1.3.6.1.4.1.140.300.1.1.1.8
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216858"> </a>
+<code class="cCode">tuxTwshTaNaddr</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216860"> </a>
+.1.3.6.1.4.1.140.300.1.1.1.9
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216862"> </a>
+<code class="cCode">tuxTwshTaHwClients</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216864"> </a>
+.1.3.6.1.4.1.140.300.1.1.1.10
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216866"> </a>
+<code class="cCode">tuxTwshTaMultiplex</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216868"> </a>
+.1.3.6.1.4.1.140.300.1.1.1.11
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216870"> </a>
+<code class="cCode">tuxTwshTaCurClients</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216872"> </a>
+.1.3.6.1.4.1.140.300.1.1.1.12
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216874"> </a>
+<code class="cCode">tuxTwshTaTimeleft</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216876"> </a>
+.1.3.6.1.4.1.140.300.1.1.1.13
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216878"> </a>
+<code class="cCode">tuxTwshTaActive</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216880"> </a>
+.1.3.6.1.4.1.140.300.1.1.1.14
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216882"> </a>
+<code class="cCode">tuxTwshTaTotacttime</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216884"> </a>
+.1.3.6.1.4.1.140.300.1.1.1.15
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216886"> </a>
+<code class="cCode">tuxTwshTaTotidltime</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216888"> </a>
+.1.3.6.1.4.1.140.300.1.1.1.16
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216890"> </a>
+<code class="cCode">tuxTwshTaCurwork</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216892"> </a>
+.1.3.6.1.4.1.140.300.1.1.1.17
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216894"> </a>
+<code class="cCode">tuxTwshTaFlowcnt</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216896"> </a>
+.1.3.6.1.4.1.140.300.1.1.1.18
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216898"> </a>
+<code class="cCode">tuxTwshTaNumblockQ</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216900"> </a>
+.1.3.6.1.4.1.140.300.1.1.1.19
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216902"> </a>
+<code class="cCode">tuxTwshTaRcvdByt</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216904"> </a>
+.1.3.6.1.4.1.140.300.1.1.1.20
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216906"> </a>
+<code class="cCode">tuxTwshTaRcvdNum</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216908"> </a>
+.1.3.6.1.4.1.140.300.1.1.1.21
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216910"> </a>
+<code class="cCode">tuxTwshTaSentByt</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216912"> </a>
+.1.3.6.1.4.1.140.300.1.1.1.22
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp216914"> </a>
+<code class="cCode">tuxTwshTaSentNum</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp216916"> </a>
+.1.3.6.1.4.1.140.300.1.1.1.23
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp216919"> </a>
+tuxTwshTaClientId
+</h3>
+<h4 class="pHeading3"><a name="wp216920"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp216921"> </a>
+<code class="cCodeEmphasis">DisplayString</code> ( <code class="cCode">SIZE</code> (<code class="cCodeEmphasis">1..78</code>) ) 
+</p>
+<h4 class="pHeading3"><a name="wp216922"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp216923"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp216924"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp216925"> </a>
+Client identifier for this WSH. The data in this field should not be interpreted directly by the end user except for equality comparison.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp216927"> </a>
+tuxTwshTaWshClientId
+</h3>
+<h4 class="pHeading3"><a name="wp216928"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp216929"> </a>
+<code class="cCodeEmphasis">DisplayString</code> ( <code class="cCode">SIZE</code> (<code class="cCodeEmphasis">1..78</code>) ) 
+</p>
+<h4 class="pHeading3"><a name="wp216930"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp216931"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp216932"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp216933"> </a>
+Client identifier for this WSH. The data in this field should not be interpreted directly by the end user except for equality comparison. Value is same as <code class="cCode">tuxTwshTaClientId</code>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp216935"> </a>
+tuxTwshTaSrvGrp
+</h3>
+<h4 class="pHeading3"><a name="wp216936"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp216937"> </a>
+<code class="cCodeEmphasis">DisplayString</code> ( <code class="cCode">SIZE</code> (<code class="cCodeEmphasis">1..30</code>) ) 
+</p>
+<h4 class="pHeading3"><a name="wp216938"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp216939"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp216940"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp216941"> </a>
+Logical name of the server group for the associated WSL.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp216943"> </a>
+tuxTwshTaSrvId
+</h3>
+<h4 class="pHeading3"><a name="wp216944"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp216945"> </a>
+<code class="cCode">INTEGER (1..30001)</code>
+</p>
+<h4 class="pHeading3"><a name="wp216946"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp216947"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp216948"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp216949"> </a>
+Unique (within the server group) server identification number for the associated WSL.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp216951"> </a>
+tuxTwshTaGrpNo
+</h3>
+<h4 class="pHeading3"><a name="wp216952"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp216953"> </a>
+<code class="cCode">INTEGER (1..30000) </code>
+</p>
+<h4 class="pHeading3"><a name="wp216954"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp216955"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp216956"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp216957"> </a>
+Group number.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp216959"> </a>
+tuxTwshTaState
+</h3>
+<h4 class="pHeading3"><a name="wp216960"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp216961"> </a>
+<code class="cCode">INTEGER { active(1), suspended(2), dead(3) }</code>
+</p>
+<h4 class="pHeading3"><a name="wp216962"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp216963"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp216964"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp216965"> </a>
+State for the WSH client within the application. Any state defined for the <code class="cCode">tuxTclientTbl</code> group can be returned or set. State changes to the <code class="cCode">suspended(2)</code> state are transitive to all clients associated with this WSH as is the resetting of a <code class="cCode">suspended(2)</code> WSH to <code class="cCode">active(1)</code>. Additionally, <code class="cCode">suspended(2)</code> WSH clients are not assigned any additional incoming clients by the WSL.
+</p>
+<p class="pBody"><a name="wp216966"> </a>
+Note that the state of a WSH client might not be set to <code class="cCode">dead(3)</code> when accessing the <code class="cCode">tuxTclientTbl</code> group. However, the state transition to <code class="cCode">dead(3)</code> is allowed via the <code class="cCode">tuxTwshTbl</code> group and results in all connections handled by the targeted WSH being dropped abortively.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp216968"> </a>
+tuxTwshTaLmid
+</h3>
+<h4 class="pHeading3"><a name="wp216969"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp216970"> </a>
+<code class="cCodeEmphasis">DisplayString</code> ( <code class="cCode">SIZE</code> (<code class="cCodeEmphasis">1..30</code>) ) 
+</p>
+<h4 class="pHeading3"><a name="wp216971"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp216972"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp216973"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp216974"> </a>
+Current logical machine on which the WSH is running.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp216976"> </a>
+tuxTwshTaPid
+</h3>
+<h4 class="pHeading3"><a name="wp216977"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp216978"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp216979"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp216980"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp216981"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp216982"> </a>
+Native operating system process identifier for the WSH client.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp216984"> </a>
+tuxTwshTaNaddr
+</h3>
+<h4 class="pHeading3"><a name="wp216985"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp216986"> </a>
+<code class="cCodeEmphasis">DisplayString</code> ( <code class="cCode">SIZE</code> (<code class="cCodeEmphasis">1..78</code>) )
+</p>
+<h4 class="pHeading3"><a name="wp216987"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp216988"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp216989"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp216990"> </a>
+Network address of workstation handler. Hexadecimal addresses are converted to an ASCII format with a leading <code class="cCode">0x</code>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp216992"> </a>
+tuxTwshTaHwClients
+</h3>
+<h4 class="pHeading3"><a name="wp216993"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp216994"> </a>
+<code class="cCode">INTEGER (1..32767)</code>
+</p>
+<h4 class="pHeading3"><a name="wp216995"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp216996"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp216997"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp216998"> </a>
+High water number of clients accessing application through this WSH.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217000"> </a>
+tuxTwshTaMultiplex
+</h3>
+<h4 class="pHeading3"><a name="wp217001"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217002"> </a>
+<code class="cCode">INTEGER (1..32767)</code>
+</p>
+<h4 class="pHeading3"><a name="wp217003"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217004"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp217005"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217006"> </a>
+Maximum number of clients that can access the application through this WSH.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217008"> </a>
+tuxTwshTaCurClients
+</h3>
+<h4 class="pHeading3"><a name="wp217009"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217010"> </a>
+<code class="cCode">INTEGER (1..32767)</code>
+</p>
+<h4 class="pHeading3"><a name="wp217011"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217012"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp217013"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217014"> </a>
+Current number of clients accessing the application through this WSH.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217016"> </a>
+tuxTwshTaTimeleft
+</h3>
+<h4 class="pHeading3"><a name="wp217017"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217019"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp217020"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217021"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp217022"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217023"> </a>
+A non-0 value for this object indicates that the WSH has been assigned a newly connecting workstation client that has the indicated amount of time, in seconds, to complete the initialization process with the WSH.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217025"> </a>
+tuxTwshTaActive
+</h3>
+<h4 class="pHeading3"><a name="wp217026"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217027"> </a>
+<code class="cCode">INTEGER { yes(1), no(2), unknown(3) }</code>
+</p>
+<h4 class="pHeading3"><a name="wp217028"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217029"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp217030"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217031"> </a>
+A value of <code class="cCode">yes(1)</code> indicates that the WSH is currently performing work on behalf of one of its associated workstation clients. A value of <code class="cCode">no(2)</code> indicates that the WSH is currently waiting for work to perform on behalf of one of its associated workstation clients. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217033"> </a>
+tuxTwshTaTotacttime
+</h3>
+<h4 class="pHeading3"><a name="wp217034"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217035"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp217036"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217037"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp217038"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217039"> </a>
+Time, in seconds, that the WSH has been active since it started processing.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217041"> </a>
+tuxTwshTaTotidltime
+</h3>
+<h4 class="pHeading3"><a name="wp217042"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217043"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp217044"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217045"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp217046"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217047"> </a>
+Time, in seconds, that the WSH has been idle since it started processing.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217049"> </a>
+tuxTwshTaCurwork
+</h3>
+<h4 class="pHeading3"><a name="wp217050"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217051"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp217052"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217053"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp217054"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217055"> </a>
+Amount of work processed by this WSH since the last WSH assignment by the WSL. This value is used by the WSL to load balance new incoming connections among a set of WSH processes.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217057"> </a>
+tuxTwshTaFlowcnt
+</h3>
+<h4 class="pHeading3"><a name="wp217058"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217059"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp217060"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217061"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp217062"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217063"> </a>
+Number of times flow control has been encountered by this WSH. This object should be considered only in relation to recent past values because it might wrap around during the lifetime of the WSH.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217065"> </a>
+tuxTwshTaNumblockQ
+</h3>
+<h4 class="pHeading3"><a name="wp217066"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217067"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp217068"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217069"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp217070"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217071"> </a>
+Number of times this WSH has been unable to enqueue a message to a local UNIX system message queue due to queue blocking conditions. This object should be considered only in relation to recent past values because it might wrap around during the lifetime of the WSH.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217073"> </a>
+tuxTwshTaRcvdByt
+</h3>
+<h4 class="pHeading3"><a name="wp217074"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217075"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp217076"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217077"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp217078"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217079"> </a>
+Number of bytes received from the network by this WSH from all its present and past workstation clients. This object should be considered only in relation to recent past values because it might wrap around during the lifetime of the WSH.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217081"> </a>
+tuxTwshTaRcvdNum
+</h3>
+<h4 class="pHeading3"><a name="wp217082"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217083"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp217084"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217085"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp217086"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217087"> </a>
+Number of Tuxedo system messages received from the network by this WSH from all its present and past workstation clients. This object should be considered only in relation to recent past values because it might wrap around during the lifetime of the WSH. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217089"> </a>
+tuxTwshTaSentByt
+</h3>
+<h4 class="pHeading3"><a name="wp217090"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217091"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp217092"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217093"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp217094"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217095"> </a>
+Number of bytes sent to the network by this WSH to all its present and past workstation clients. This object should be considered only in relation to recent past values because it might wrap around during the lifetime of the WSH. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217097"> </a>
+tuxTwshTaSentNum
+</h3>
+<h4 class="pHeading3"><a name="wp217098"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217099"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp217100"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217101"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp217102"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217103"> </a>
+Number of Tuxedo system messages sent to the network by this WSH to all its present and past workstation clients. This object should be considered only in relation to recent past values because it might wrap around during the lifetime of the WSH. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp217106"> </a>
+tuxTwslTbl
+</h2><p class="pBody"><a name="wp217108"> </a>
+The <code class="cCode">tuxTwslTbl</code> table represents configuration and run-time characteristics of WSL server processes configured to manage workstation groups. These object values identify and characterize workstation-specific configuration objects for WSL <code class="cCode">tuxTsrvrTbl</code> objects within the application. To create a new row in this table, use a SET request that specifies the values for at least <code class="cCode">tuxTwslTaSrvGrp</code>, <code class="cCode">tuxTwslTaSrvId</code>, and <code class="cCode">tuxTwslTaNaddr</code>. 
+</p>
+<p class="pGraphic"><a name="wp217227"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp217112table217110">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp217112"> </a>
+Object Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp217114"> </a>
+Object ID
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217116"> </a>
+<code class="cCode">tuxTwslTaSrvGrp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217118"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.1
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217120"> </a>
+<code class="cCode">tuxTwslTaSrvId</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217122"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.2
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217124"> </a>
+<code class="cCode">tuxTwslTaGrpNo</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217126"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.3
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217128"> </a>
+<code class="cCode">tuxTwslTaState</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217130"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.4
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217132"> </a>
+<code class="cCode">tuxTwslTaLmid</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217134"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.5
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217136"> </a>
+<code class="cCode">tuxTwslTaPid</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217138"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.6
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217140"> </a>
+<code class="cCode">tuxTwslTaDevice</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217142"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.7
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217144"> </a>
+<code class="cCode">tuxTwslTaNaddr</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217146"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.8
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217148"> </a>
+<code class="cCode">tuxTwslTaWshName</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217150"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.9
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217152"> </a>
+<code class="cCode">tuxTwslTaMinHandlers</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217154"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.10
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217156"> </a>
+<code class="cCode">tuxTwslTaMaxHandlers</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217158"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.11
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217160"> </a>
+<code class="cCode">tuxTwslTaMultiplex</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217162"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.12
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217164"> </a>
+<code class="cCode">tuxTwslTaMaxIdleTime</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217166"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.13
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217168"> </a>
+<code class="cCode">tuxTwslTaMaxInitTime</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217170"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.14
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217172"> </a>
+<code class="cCode">tuxTwslTaClOpt</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217174"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.15
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217176"> </a>
+<code class="cCode">tuxTwslTaEnvFile</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217178"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.16
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217180"> </a>
+<code class="cCode">tuxTwslTaGrace</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217182"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.17
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217184"> </a>
+<code class="cCode">tuxTwslTaMaxGen</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217186"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.18
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217188"> </a>
+<code class="cCode">tuxTwslTaRcmd</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217190"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.19
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217192"> </a>
+<code class="cCode">tuxTwslTaRestart</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217194"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.20
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217196"> </a>
+<code class="cCode">tuxTwslTaSequence</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217198"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.21
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217200"> </a>
+<code class="cCode">tuxTwslTaCurHandlers</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217202"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.22
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217204"> </a>
+<code class="cCode">tuxTwslTaHwHandlers</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217206"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.23
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217208"> </a>
+<code class="cCode">tuxTwslTaWsProto</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217210"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.24
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217212"> </a>
+<code class="cCode">tuxTwslTaSuspended</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217214"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.25
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217216"> </a>
+<code class="cCode">tuxTwslTaViewRefresh</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217218"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.26
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217220"> </a>
+<code class="cCode">tuxTwslTaKeepAlive</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217222"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.28
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp217224"> </a>
+<code class="cCode">tuxTwslTaNetTimeOut</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp217226"> </a>
+.1.3.6.1.4.1.140.300.1.2.1.29
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217229"> </a>
+tuxTwslTaSrvGrp
+</h3>
+<h4 class="pHeading3"><a name="wp217230"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217231"> </a>
+<code class="cCodeEmphasis">DisplayString</code> ( <code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..30</code>) ) 
+</p>
+<h4 class="pHeading3"><a name="wp217232"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217233"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp217234"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217235"> </a>
+Logical name of the server group. Server group names cannot contain an asterisk (*), comma, or colon. 
+</p>
+<a name="wp217236"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217238"> </a>
+tuxTwslTaSrvId
+</h3>
+<h4 class="pHeading3"><a name="wp217239"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217240"> </a>
+<code class="cCode">INTEGER (1..30001) </code>
+</p>
+<h4 class="pHeading3"><a name="wp217241"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217242"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp217243"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217244"> </a>
+Unique (within the server group) server identification number.
+</p>
+<a name="wp217245"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217247"> </a>
+tuxTwslTaGrpNo
+</h3>
+<h4 class="pHeading3"><a name="wp217248"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217249"> </a>
+<code class="cCode">INTEGER (1..30001) </code>
+</p>
+<h4 class="pHeading3"><a name="wp217250"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217251"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp217252"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217253"> </a>
+Group number associated with this servers group.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217255"> </a>
+tuxTwslTaState
+</h3>
+<h4 class="pHeading3"><a name="wp217256"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217257"> </a>
+<code class="cCode">INTEGER { active(1), inactive(2), migrating(3), cleaning(4), restarting(5), suspended(6), partitioned(7), dead(8), invalid(9) }</code>
+</p>
+<h4 class="pHeading3"><a name="wp217258"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217259"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp217260"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217261"> </a>
+State for the WSL server within the application. Any state defined for the <code class="cCode">tuxTsrvrTbl</code> group can be returned or set as indicated.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217263"> </a>
+tuxTwslTaLmid
+</h3>
+<h4 class="pHeading3"><a name="wp217264"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217265"> </a>
+<code class="cCodeEmphasis">DisplayString</code> ( <code class="cCode">SIZE</code> (<code class="cCodeEmphasis">1..30</code>) ) 
+</p>
+<h4 class="pHeading3"><a name="wp217266"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217267"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp217268"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217269"> </a>
+Current logical machine on which the server is running.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217271"> </a>
+tuxTwslTaPid
+</h3>
+<h4 class="pHeading3"><a name="wp217272"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217273"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp217274"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217275"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp217276"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217277"> </a>
+Native operating system process identifier for the WSL server.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217279"> </a>
+tuxTwslTaDevice
+</h3>
+<h4 class="pHeading3"><a name="wp217280"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217281"> </a>
+<code class="cCodeEmphasis">DisplayString</code> ( <code class="cCode">SIZE</code> (<code class="cCodeEmphasis">0..78</code>) ) 
+</p>
+<h4 class="pHeading3"><a name="wp217282"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217283"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp217284"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217285"> </a>
+Device name to be used by the WSL process to access the network. This object value is a required value for access to a network through a TLI-based Tuxedo system binary. This object value is not needed for sockets-based Tuxedo system binaries.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217287"> </a>
+tuxTwslTaNaddr
+</h3>
+<h4 class="pHeading3"><a name="wp217288"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217289"> </a>
+<code class="cCodeEmphasis">DisplayString</code> ( <code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..78</code>) )
+</p>
+<h4 class="pHeading3"><a name="wp217290"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217291"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp217292"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217293"> </a>
+Specifies the complete network address to be used by the WSL process as its listening address. The listening address for a WSL is the means by which it is contacted by workstation client processes participating in the application.
+</p>
+<p class="pBody"><a name="wp217294"> </a>
+If string has the form <code class="cCode">0xhex-digits</code> or <code class="cCode">\\xhex-digits</code>, it must contain an even number of valid hexadecimal digits. These forms are translated internally into a character array containing the hexadecimal representations of the string specified.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217296"> </a>
+tuxTwslTaWshName
+</h3>
+<h4 class="pHeading3"><a name="wp217297"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217298"> </a>
+<code class="cCodeEmphasis">DisplayString</code> ( <code class="cCode">SIZE</code> (<code class="cCodeEmphasis">1..78</code>) ) 
+</p>
+<h4 class="pHeading3"><a name="wp217299"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217300"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp217301"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217302"> </a>
+The name of the executable that provides workstation handler services for this workstation listener. The default value for this object is WSH, which corresponds to the system provided workstation handler. Workstation handlers can be customized using the command <code class="cCode">buildwsh</code>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217304"> </a>
+tuxTwslTaMinHandlers
+</h3>
+<h4 class="pHeading3"><a name="wp217305"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217306"> </a>
+<code class="cCode">INTEGER (0..256)</code>
+</p>
+<h4 class="pHeading3"><a name="wp217307"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217308"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp217309"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217310"> </a>
+The minimum number of handlers that should be available in conjunction with this WSL at any given time. Upon being activated, the WSL starts this many WSHs immediately and does not deplete the supply of WSHs below this number until the administrator issues a shutdown to the WSL. Modifications to this object for a running WSL might cause additional handlers to be activated.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217312"> </a>
+tuxTwslTaMaxHandlers
+</h3>
+<h4 class="pHeading3"><a name="wp217313"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217314"> </a>
+<code class="cCode">INTEGER (0..32767)</code>
+</p>
+<h4 class="pHeading3"><a name="wp217315"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217316"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp217317"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217318"> </a>
+The maximum number of handlers that should be available in conjunction with this WSL at any given time. Handlers are started as necessary to meet the demand of workstation clients attempting to access the system. This object must be greater than or equal to the setting for the minimum number of handlers.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217320"> </a>
+tuxTwslTaMultiplex
+</h3>
+<h4 class="pHeading3"><a name="wp217321"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217322"> </a>
+<code class="cCode">INTEGER (0..32767)</code>
+</p>
+<h4 class="pHeading3"><a name="wp217323"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217324"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp217325"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217326"> </a>
+Maximum number of clients that are supported by any one handler process concurrently. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217328"> </a>
+tuxTwslTaMaxIdleTime
+</h3>
+<h4 class="pHeading3"><a name="wp217329"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217330"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp217331"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217332"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp217333"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217334"> </a>
+Maximum amount of time, in minutes, that a workstation client is permitted to be idle before it is abortively disconnected from the application by the handler. A value of 0 allows clients to be idle as long as is necessary without being timed out.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217336"> </a>
+tuxTwslTaMaxInitTime
+</h3>
+<h4 class="pHeading3"><a name="wp217337"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217338"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp217339"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217340"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp217341"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217342"> </a>
+The minimum number of seconds that should be allowed for a workstation client to complete initialization processing through the WSH before being timed out by the WSL. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217344"> </a>
+tuxTwslTaClOpt
+</h3>
+<h4 class="pHeading3"><a name="wp217345"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217346"> </a>
+<code class="cCodeEmphasis">DisplayString</code> ( <code class="cCode">SIZE</code> (<code class="cCodeEmphasis">0..128</code>) ) 
+</p>
+<h4 class="pHeading3"><a name="wp217347"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217348"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp217349"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217350"> </a>
+Command-line options to be passed to the WSL server when it is activated. For details, see reference page <a href="../rf5/rf5.html">servopts(5)</a> in <em class="cEmphasis">Oracle Tuxedo File Formats, Data Descriptions, MIBs, and System Processes Reference</em>.
+</p>
+<a name="wp217352"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Run-time modifications to this object do not affect a running WSL server. Server-specific options (that is, those after a double-dash &#8220;--&#8221;) cannot be set and are not returned.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217354"> </a>
+tuxTwslTaEnvFile
+</h3>
+<h4 class="pHeading3"><a name="wp217355"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217356"> </a>
+<code class="cCodeEmphasis">DisplayString</code> ( <code class="cCode">SIZE</code> (<code class="cCodeEmphasis">0..78</code>) )
+</p>
+<h4 class="pHeading3"><a name="wp217357"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217358"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp217359"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217360"> </a>
+WSL server-specific environment file. See <code class="cCode">tuxTmachineEnvFile</code> for a complete discussion of how this file is used to modify the environment.
+</p>
+<a name="wp217361"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Run-time modifications to this object do not affect a running WSL server.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217363"> </a>
+tuxTwslTaGrace
+</h3>
+<h4 class="pHeading3"><a name="wp217364"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217365"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp217366"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217367"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp217368"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217369"> </a>
+The period of time, in seconds, during which the <code class="cCode">tuxTwslTaMaxGen</code> limit applies. This object value is meaningful only for restartable WSL servers, that is, if the <code class="cCode">tuxTwslTaRestart</code> object is set to <code class="cCode">yes(1)</code>. When a restarting server would exceed the <code class="cCode">tuxTwslTaMaxGen</code> limit but the <code class="cCode">tuxTwslTaGrace</code> period has expired, the system resets the current generation (<code class="cCode">tuxTsrvrGeneration</code>) to 1 and resets the initial boot time (<code class="cCode">tuxTsrvrTimeStart</code>) to the current time. A value of 0 for this object indicates that the WSL server should always be restarted.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217371"> </a>
+tuxTwslTaMaxGen
+</h3>
+<h4 class="pHeading3"><a name="wp217372"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217373"> </a>
+<code class="cCode">INTEGER (0..256)</code>
+</p>
+<h4 class="pHeading3"><a name="wp217374"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217375"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp217376"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217377"> </a>
+Number of generations allowed for a restartable WSL server (<code class="cCode">tuxTwslTaRestart&#160;==&#160;yes(1)</code>) over the specified grace period (<code class="cCode">tuxTwslTaGrace</code>). The initial activation of the WSL server counts as one generation and each restart also counts as one. Processing after the maximum number of generations is exceeded is discussed above with respect to <code class="cCode">tuxTwslTaGrace</code>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217379"> </a>
+tuxTwslTaRcmd
+</h3>
+<h4 class="pHeading3"><a name="wp217380"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217381"> </a>
+<code class="cCodeEmphasis">DisplayString</code> ( <code class="cCode">SIZE</code>(<code class="cCodeEmphasis">0..78</code>) )
+</p>
+<h4 class="pHeading3"><a name="wp217382"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217383"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp217384"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217385"> </a>
+Application specified command to be executed in parallel with the system restart of an application server. This command must be an executable file in the native operating system.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217387"> </a>
+tuxTwslTaRestart
+</h3>
+<h4 class="pHeading3"><a name="wp217388"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217389"> </a>
+<code class="cCode">INTEGER { yes(1), no(2) }</code> 
+</p>
+<h4 class="pHeading3"><a name="wp217390"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217391"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp217392"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217393"> </a>
+Restartable (<code class="cCode">yes(1)</code>) or non-restartable (<code class="cCode">no(2)</code>) WSL server. If server migration is specified for this server group (<code class="cCode">tuxTdomainOptions = migrate(2)</code> and <code class="cCode">tuxTgroupLMID</code> with alternate site), then this object must be set to <code class="cCode">yes(1)</code>. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217395"> </a>
+tuxTwslTaSequence
+</h3>
+<h4 class="pHeading3"><a name="wp217396"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217397"> </a>
+<code class="cCode">INTEGER (1..10000)</code>
+</p>
+<h4 class="pHeading3"><a name="wp217398"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217399"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp217400"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217401"> </a>
+Specifies when this server should be booted (<code class="cCode">tmboot</code>(1)) or shutdown (<code class="cCode">tmshutdown</code>(1)) relative to other servers. If two servers are given the same sequence number, it is possible for <code class="cCode">tmboot</code>(1) to boot them in parallel and for <code class="cCode">tmshutdown</code>(1) to shut them down in parallel. <code class="cCode">tuxTwslTbl</code> instances added without a <code class="cCode">tuxTwslTaSequence</code> object specified or with an invalid value have a value generated for them that is 10,000 or more and is higher than any other automatically selected default value. Servers are booted by <code class="cCode">tmboot</code>(1) in increasing order of sequence number and shutdown by <code class="cCode">tmshutdown</code>(1) in decreasing order. Run-time modifications to this object affect only <code class="cCode">tmboot</code>(1) and <code class="cCode">tmshutdown</code>(1) and affect the order in which running servers can be shutdown by a subsequent invocation of <code class="cCode">tmshutdown</code>(1). 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217403"> </a>
+tuxTwslTaCurHandlers
+</h3>
+<h4 class="pHeading3"><a name="wp217404"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217405"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp217406"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217407"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp217408"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217409"> </a>
+Number of currently active handlers associated with this WSL.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217411"> </a>
+tuxTwslTaHwHandlers
+</h3>
+<h4 class="pHeading3"><a name="wp217412"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217413"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp217414"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217415"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp217416"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217417"> </a>
+Maximum number of currently active handlers associated with this WSL at any one time.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217419"> </a>
+tuxTwslTaWsProto
+</h3>
+<h4 class="pHeading3"><a name="wp217420"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217421"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp217422"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217423"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp217424"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217425"> </a>
+The Tuxedo system /WS protocol version number for this /WS group. Note that /WS clients connecting to this group might themselves have a different protocol version number associated with them.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217427"> </a>
+tuxTwslTaSuspended
+</h3>
+<h4 class="pHeading3"><a name="wp217428"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217429"> </a>
+<code class="cCode">INTEGER { new(1), all(2), none(3) }</code>
+</p>
+<h4 class="pHeading3"><a name="wp217430"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217431"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp217432"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217433"> </a>
+A value of <code class="cCode">new(1)</code> indicates that new incoming clients cannot connect through this <code class="cCode">tuxTwslTbl</code> instance. A value of <code class="cCode">all(2)</code> indicates that workstation clients already connected to the application through this WSL have been <code class="cCode">suspended(2)</code> (see <code class="cCode">tuxTclientState</code>) in addition to new incoming connections being disallowed. A value of <code class="cCode">none(3)</code> indicates that no suspension characteristics are in effect.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217435"> </a>
+tuxTwslTaViewRefresh
+</h3>
+<h4 class="pHeading3"><a name="wp217436"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217437"> </a>
+<code class="cCode">INTEGER { yes(1), no-value-returned(2) }</code> 
+</p>
+<h4 class="pHeading3"><a name="wp217438"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217439"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp217440"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217441"> </a>
+Setting a value of <code class="cCode">yes(1)</code> causes all active WSHs in the /WS group to refresh their VIEW buffer type cache. A <code class="cCode">GET</code> request on this object always returns <code class="cCode">no</code>-value-returned<code class="cCode">(2)</code> and does not mean anything. This object has meaning only for <code class="cCode">SET</code> requests.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217443"> </a>
+tuxTwslTaKeepAlive
+</h3>
+<h4 class="pHeading3"><a name="wp217444"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217445"> </a>
+<code class="cCode">INTEGER {client(1), handler(2), both(3), none(4), not-available(5)}</code>
+</p>
+<h4 class="pHeading3"><a name="wp217446"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217447"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp217448"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217449"> </a>
+The network &#8220;keep alive&#8221; option is configured for the client, the handler, or both the client and the handler, or not on either side of the connection. Changing this value only affects future connections.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp217451"> </a>
+tuxTwslTaNetTimeOut
+</h3>
+<h4 class="pHeading3"><a name="wp217452"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp217453"> </a>
+<code class="cCode">INTEGER (0..35204650)</code>
+</p>
+<h4 class="pHeading3"><a name="wp217454"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp217455"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp217456"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp217457"> </a>
+The minimum number of seconds that should be allowed for a workstation client to wait for a response from WSL/WSH. A value of 0 indicates no network time-out. Changing this value affects only future connections. This object is supported only on Tuxedo 6.4. <code class="cCode">-1</code> is returned if the object is not available.
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="7wksmib.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="6aclmib.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="8appqmib.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

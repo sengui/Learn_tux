@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="" />
+<meta name="LOC_US_CHANGE" content="" />
+<meta name="LOC_US_SRCFILE" content="" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/29/12 11:17:27" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Implementing Services in Oracle Tuxedo Java Server</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Programming an Oracle Tuxedo Application Using Java
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pgapi.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pgref.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/pgj.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1394682"> </a>
+Implementing Services in Oracle Tuxedo Java Server
+</h1>
+<p class="pBody"><a name="wp1292153"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1385631"> </a><a href="pgsmp.html#wp1385665">Typical Procedures</a></li>
+<li><a name="wp1397613"> </a><a href="pgsmp.html#wp1397779">Example: Implementing Java Service without Transaction</a></li>
+<li><a name="wp1398419"> </a><a href="pgsmp.html#wp1398180">Example: Implementing Java Service with Transaction</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1385665"> </a>
+Typical Procedures
+</h2><p class="pBody"><a name="wp1397781"> </a>
+Typical steps of implementing the services in Oracle Tuxedo Java server are as follows.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1397782"> </a>Define a class that inherits from <code class="cCode">TuxedoJavaServer</code> </li>
+<li><a name="wp1397783"> </a>Provide a default constructor</li>
+<li><a name="wp1397784"> </a>Implement the <code class="cCode">tpsvrinit()</code> and <code class="cCode">tpsvrdone()</code> method</li>
+<li><a name="wp1397785"> </a>Implement the service method which should use <code class="cCode">TPSVCINFO</code> as its only argument parameter, as follows:</li>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp1397786"> </a>Get the <code class="cCode">TuxAppContext</code> object using <code class="cCode">getTuxAppContext()</code> method</li>
+<li><a name="wp1397787"> </a>Get the client request data using <code class="cCode">TPSVCINFO.getServiceData()</code>  method from <code class="cCode">TPSVCINFO</code> class</li>
+<li><a name="wp1397788"> </a>If you have configured a DataSource, get a connection to the DataSource using <code class="cCode">TuxAppContext.getConnection()</code> method</li>
+<li><a name="wp1397789"> </a>Do the business logic, such as call some other services using <code class="cCode">TuxAppContext.tpcall()</code>, manipulate the database, etc.</li>
+<li><a name="wp1397790"> </a>Allocate a new TypedBuffer and put a reply data in the TypedBuffer</li>
+<li><a name="wp1397791"> </a>Call <code class="cCode">TuxAppContext.tpreturn()</code> to return the reply data to client</li>
+</ol></div>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1397779"> </a>
+Example: Implementing Java Service without Transaction
+</h2><p class="pBody"><a name="wp1397888"> </a>
+Following is a simple example that implements the <code class="cCode">TOUPPER</code> service. It includes three steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1398233"> </a><a href="pgsmp.html#wp1398236">Defining Java Classes</a>: <a href="pgsmp.html#wp1397889">Listing&#160;4-1</a></li>
+<li><a name="wp1398284"> </a><a href="pgsmp.html#wp1397923">Creating Java Server Configuration File</a>: <a href="pgsmp.html#wp1398165">Listing&#160;4-2</a></li>
+<li><a name="wp1398292"> </a><a href="pgsmp.html#wp1398158">Updating UBB Configuration File</a>: <a href="pgsmp.html#wp1398242">Listing&#160;4-3</a></li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1398236"> </a>
+Defining Java Classes
+</h3>
+<div class="pCodeTitle"><a name="wp1397889"> </a>
+Listing&#160;4-1	   Java Class Definition
+</div> <a name="wp1397890"> </a><div class="pPreformatted"><pre>import weblogic.wtc.jatmi.TypedBuffer;</pre></div><a name="wp1397891"> </a><div class="pPreformatted"><pre>import weblogic.wtc.jatmi.TypedString;</pre></div><a name="wp1397892"> </a><div class="pPreformatted"><pre>import com.oracle.tuxedo.tjatmi.*;</pre></div><a name="wp1397893"> </a><div class="pPreformatted"><pre>/* MyTuxedoServer is user defined class */</pre></div><a name="wp1397894"> </a><div class="pPreformatted"><pre>public MyTuxedoServer extends TuxedoJavaServer{</pre></div><a name="wp1397895"> </a><div class="pPreformatted"><pre>    public MyTuxedoServer ()</pre></div><a name="wp1397896"> </a><div class="pPreformatted"><pre>    {</pre></div><a name="wp1397897"> </a><div class="pPreformatted"><pre>        return;</pre></div><a name="wp1397898"> </a><div class="pPreformatted"><pre>    }</pre></div><a name="wp1397899"> </a><div class="pPreformatted"><pre>    public int tpsvrinit() throws TuxException</pre></div><a name="wp1397900"> </a><div class="pPreformatted"><pre>    {</pre></div><a name="wp1397901"> </a><div class="pPreformatted"><pre>        System.out.println(&quot;In MyTuxedoServer.tpsvrinit()&quot;);</pre></div><a name="wp1397902"> </a><div class="pPreformatted"><pre>        return 0;</pre></div><a name="wp1397903"> </a><div class="pPreformatted"><pre>    }</pre></div><a name="wp1397904"> </a><div class="pPreformatted"><pre>    public void tpsvrdone()</pre></div><a name="wp1397905"> </a><div class="pPreformatted"><pre>    {</pre></div><a name="wp1397906"> </a><div class="pPreformatted"><pre>        System.out.println(&quot;In MyTuxedoServer.tpsvrdone()&quot;);</pre></div><a name="wp1397907"> </a><div class="pPreformatted"><pre>	    return;</pre></div><a name="wp1397908"> </a><div class="pPreformatted"><pre>    }</pre></div><a name="wp1397909"> </a><div class="pPreformatted"><pre>public void TOUPPER (TPSVCINFO rqst) {</pre></div><a name="wp1397910"> </a><div class="pPreformatted"><pre>        TypedBuffer svcData;</pre></div><a name="wp1397911"> </a><div class="pPreformatted"><pre>        TuxAppContext   myAppCtxt = getTuxAppContext();</pre></div><a name="wp1397913"> </a><div class="pPreformatted"><pre>svcData = rqst.getServiceData();</pre></div><a name="wp1397914"> </a><div class="pPreformatted"><pre>        TypedString TbStr = (TypedString)svcData;</pre></div><a name="wp1397915"> </a><div class="pPreformatted"><pre>System.out.println(&quot;svcData:&quot; + TbStr.toString());</pre></div><a name="wp1397917"> </a><div class="pPreformatted"><pre>String newstr = TbStr.toString();</pre></div><a name="wp1397918"> </a><div class="pPreformatted"><pre>newstr = newstr.toUpperCase();</pre></div><a name="wp1397919"> </a><div class="pPreformatted"><pre>TypedString replyTbString = new TypedString(newstr);</pre></div><a name="wp1397920"> </a><div class="pPreformatted"><pre>myAppCtxt.tpreturn(TPSUCCESS, 0, replyTbString, 0);</pre></div><a name="wp1397921"> </a><div class="pPreformatted"><pre>    }</pre></div><a name="wp1397922"> </a><div class="pPreformatted"><pre>}</pre></div><h3 class="pHeading2"><a name="wp1397923"> </a>
+Creating Java Server Configuration File 
+</h3>
+<p class="pBody"><a name="wp1397924"> </a>
+<a href="pgsmp.html#wp1398165">Listing&#160;4-2</a> shows an example that exports <code class="cCode">MyTuxedoServer.TOUPPER()</code> method as service name: <code class="cCode">TOUPPER</code>.
+</p>
+<div class="pCodeTitle"><a name="wp1398165"> </a>
+Listing&#160;4-2	   Java Server Configuration File
+</div> <a name="wp1397925"> </a><div class="pPreformatted"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</pre></div><a name="wp1397926"> </a><div class="pPreformatted"><pre>&lt;TJSconfig&gt;</pre></div><a name="wp1397927"> </a><div class="pPreformatted"><pre>&lt;ClassPaths&gt;</pre></div><a name="wp1397928"> </a><div class="pPreformatted"><pre>&lt;ClassPath&gt;&gt;/home/oracle/app/javaserver/MyTuxedoServer.jar&lt;/ClassPath&gt;</pre></div><a name="wp1397929"> </a><div class="pPreformatted"><pre>&lt;/ClassPaths&gt;</pre></div><a name="wp1397930"> </a><div class="pPreformatted"><pre>&lt;TuxedoServerClass&gt;MyTuxedoServer&lt;/TuxedoServerClass&gt;</pre></div><a name="wp1397931"> </a><div class="pPreformatted"><pre>&lt;/TJSconfig&gt;</pre></div><h3 class="pHeading2"><a name="wp1398158"> </a>
+Updating UBB Configuration File
+</h3>
+<div class="pCodeTitle"><a name="wp1398242"> </a>
+Listing&#160;4-3	   UBB Config File Configuration
+</div> <a name="wp1397933"> </a><div class="pPreformatted"><pre>*GROUPS </pre></div><a name="wp1397934"> </a><div class="pPreformatted"><pre>TJSVRGRP  LMID=simple GRPNO=2</pre></div><a name="wp1397935"> </a><div class="pPreformatted"><pre>*SERVERS</pre></div><a name="wp1397936"> </a><div class="pPreformatted"><pre>TMJAVASVR SRVGRP= TJSVRGRP  SRVID=4	CLOPT=&quot;-- -c TJSconfig.xml&quot;</pre></div><a name="wp1397937"> </a><div class="pPreformatted"><pre>	MINDISPATCHTHREADS=2 MAXDISPATCHTHREADS=2 </pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1398180"> </a>
+Example: Implementing Java Service with Transaction
+</h2><p class="pBody"><a name="wp1398328"> </a>
+Following is a simple example that implements the TOUPPER service. It includes three steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1398335"> </a><a href="pgsmp.html#wp1397938">Defining Java Classes</a>: <a href="pgsmp.html#wp1397939">Listing&#160;4-4</a></li>
+<li><a name="wp1398342"> </a><a href="pgsmp.html#wp1398043">Creating Java Server Configuration File</a>: <a href="pgsmp.html#wp1398207">Listing&#160;4-5</a></li>
+<li><a name="wp1398349"> </a><a href="pgsmp.html#wp1398064">Updating UBB Configuration File</a>: <a href="pgsmp.html#wp1398218">Listing&#160;4-6</a></li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1397938"> </a>
+Defining Java Classes
+</h3>
+<div class="pCodeTitle"><a name="wp1397939"> </a>
+Listing&#160;4-4	   Class Definition
+</div> <a name="wp1397940"> </a><div class="pPreformatted"><pre>import weblogic.wtc.jatmi.TypedBuffer;</pre></div><a name="wp1397941"> </a><div class="pPreformatted"><pre>import weblogic.wtc.jatmi.TypedString;</pre></div><a name="wp1397942"> </a><div class="pPreformatted"><pre>import com.oracle.tuxedo.tjatmi.*;</pre></div><a name="wp1397943"> </a><div class="pPreformatted"><pre>import java.sql.SQLException;</pre></div><a name="wp1397944"> </a><div class="pPreformatted"><pre>/* MyTuxedoTransactionServer is user defined class */</pre></div><a name="wp1397945"> </a><div class="pPreformatted"><pre>public MyTuxedoTransactionServer extends TuxedoJavaServer{</pre></div><a name="wp1397946"> </a><div class="pPreformatted"><pre>    public MyTuxedoTransactionServer ()</pre></div><a name="wp1397947"> </a><div class="pPreformatted"><pre>    {</pre></div><a name="wp1397948"> </a><div class="pPreformatted"><pre>        return;</pre></div><a name="wp1397949"> </a><div class="pPreformatted"><pre>    }</pre></div><a name="wp1397950"> </a><div class="pPreformatted"><pre>    public int tpsvrinit() throws TuxException</pre></div><a name="wp1397951"> </a><div class="pPreformatted"><pre>    {</pre></div><a name="wp1397952"> </a><div class="pPreformatted"><pre>        System.out.println(&quot;In MyTuxedoTransactionServer.tpsvrinit()&quot;);</pre></div><a name="wp1397953"> </a><div class="pPreformatted"><pre>        return 0;</pre></div><a name="wp1397954"> </a><div class="pPreformatted"><pre>    }</pre></div><a name="wp1397956"> </a><div class="pPreformatted"><pre>    public void tpsvrdone()</pre></div><a name="wp1397957"> </a><div class="pPreformatted"><pre>    {</pre></div><a name="wp1397958"> </a><div class="pPreformatted"><pre>        System.out.println(&quot;In MyTuxedoServer.tpsvrdone()&quot;);</pre></div><a name="wp1397959"> </a><div class="pPreformatted"><pre>	 return;</pre></div><a name="wp1397960"> </a><div class="pPreformatted"><pre>    }</pre></div><a name="wp1397961"> </a><div class="pPreformatted"><pre>public void writeDB_SVCTRN_COMMIT(TPSVCINFO rqst)  {</pre></div><a name="wp1397962"> </a><div class="pPreformatted"><pre>        TuxAppContext   myAppCtxt;</pre></div><a name="wp1397963"> </a><div class="pPreformatted"><pre>        TypedBuffer     rplyBuf = null;</pre></div><a name="wp1397964"> </a><div class="pPreformatted"><pre>        String          strType = &quot;STRING&quot;;</pre></div><a name="wp1397965"> </a><div class="pPreformatted"><pre>        String          ulogMsg;</pre></div><a name="wp1397966"> </a><div class="pPreformatted"><pre>        TypedString     rqstMsg;</pre></div><a name="wp1397967"> </a><div class="pPreformatted"><pre>        Connection      connDB = null;</pre></div><a name="wp1397968"> </a><div class="pPreformatted"><pre>        Statement       stmtDB = null;</pre></div><a name="wp1397969"> </a><div class="pPreformatted"><pre>        String          stmtSQL;</pre></div><a name="wp1397970"> </a><div class="pPreformatted"><pre>        int             trnLvl, trnStrtInSVC;</pre></div><a name="wp1397971"> </a><div class="pPreformatted"><pre>        int             trnRtn;</pre></div><a name="wp1397972"> </a><div class="pPreformatted"><pre>        int             rc = TPSUCCESS;</pre></div><a name="wp1397973"> </a><div class="pPreformatted"><pre> </pre></div><a name="wp1397974"> </a><div class="pPreformatted"><pre>        rqstMsg = (TypedString)rqst.getServiceData();</pre></div><a name="wp1397975"> </a><div class="pPreformatted"><pre>        myAppCtxt = getTuxAppContext();</pre></div><a name="wp1397976"> </a><div class="pPreformatted"><pre>        myAppCtxt.userlog(&quot;JAVA-INFO: Request Message Is \&quot;&quot; + rqstMsg.toString() + &quot;\&quot;&quot;);</pre></div><a name="wp1397977"> </a><div class="pPreformatted"><pre>        rplyBuf = new TypedString(&quot;This Is a Simple Transaction Test from Tuxedo Java Service&quot;);</pre></div><a name="wp1397978"> </a><div class="pPreformatted"><pre>        long trnFlags = 0;</pre></div><a name="wp1397979"> </a><div class="pPreformatted"><pre>        try {</pre></div><a name="wp1397980"> </a><div class="pPreformatted"><pre>            trnStrtInSVC = 0;</pre></div><a name="wp1397981"> </a><div class="pPreformatted"><pre>            trnLvl = myAppCtxt.tpgetlev();</pre></div><a name="wp1397982"> </a><div class="pPreformatted"><pre>            if (0 == trnLvl) {</pre></div><a name="wp1397983"> </a><div class="pPreformatted"><pre>                long trnTime = 6000;</pre></div><a name="wp1397984"> </a><div class="pPreformatted"><pre>                myAppCtxt.userlog(&quot;JAVA-INFO: Start a transaction...&quot;);</pre></div><a name="wp1397985"> </a><div class="pPreformatted"><pre>                trnRtn = myAppCtxt.tpbegin(trnTime, trnFlags);</pre></div><a name="wp1397986"> </a><div class="pPreformatted"><pre>                myAppCtxt.userlog(&quot;JAVA-INFO: tpbegin return &quot; + trnRtn);</pre></div><a name="wp1397987"> </a><div class="pPreformatted"><pre>                trnStrtInSVC = 1;</pre></div><a name="wp1397988"> </a><div class="pPreformatted"><pre>            }</pre></div><a name="wp1397989"> </a><div class="pPreformatted"><pre>            connDB = myAppCtxt.getConnection();</pre></div><a name="wp1397990"> </a><div class="pPreformatted"><pre>            if (null != connDB) {</pre></div><a name="wp1397991"> </a><div class="pPreformatted"><pre>                myAppCtxt.userlog(&quot;JAVA-INFO: Get connection: (&quot; +</pre></div><a name="wp1397992"> </a><div class="pPreformatted"><pre>                                  connDB.toString() + &quot;).&quot;);</pre></div><a name="wp1397993"> </a><div class="pPreformatted"><pre>            }</pre></div><a name="wp1397994"> </a><div class="pPreformatted"><pre>            stmtDB = connDB.createStatement();</pre></div><a name="wp1397995"> </a><div class="pPreformatted"><pre>            if (null != stmtDB) {</pre></div><a name="wp1397996"> </a><div class="pPreformatted"><pre>                myAppCtxt.userlog(&quot;JAVA-INFO: Create statement: (&quot; +</pre></div><a name="wp1397997"> </a><div class="pPreformatted"><pre>                                  stmtDB.toString() + &quot;).&quot;);</pre></div><a name="wp1397998"> </a><div class="pPreformatted"><pre>            }</pre></div><a name="wp1397999"> </a><div class="pPreformatted"><pre>            stmtSQL = &quot;INSERT INTO TUXJ_TRAN_TEST VALUES (&#39;&quot; +</pre></div><a name="wp1398000"> </a><div class="pPreformatted"><pre>                      rqstMsg.toString() + &quot;&#39;)&quot;;</pre></div><a name="wp1398001"> </a><div class="pPreformatted"><pre>            myAppCtxt.userlog(&quot;JAVA-INFO: Start to execute sql (&quot; + stmtSQL + &quot;)...&quot;);</pre></div><a name="wp1398002"> </a><div class="pPreformatted"><pre>            stmtDB.execute(stmtSQL);</pre></div><a name="wp1398003"> </a><div class="pPreformatted"><pre>            myAppCtxt.userlog(&quot;JAVA-INFO: End to execute sql (&quot; + stmtSQL + &quot;).&quot;);</pre></div><a name="wp1398004"> </a><div class="pPreformatted"><pre>            if (1 == trnStrtInSVC) {</pre></div><a name="wp1398005"> </a><div class="pPreformatted"><pre>                    myAppCtxt.userlog(&quot;JAVA-INFO: tpcommit current transaction...&quot;);</pre></div><a name="wp1398006"> </a><div class="pPreformatted"><pre>                    trnRtn = myAppCtxt.tpcommit(trnFlags);</pre></div><a name="wp1398007"> </a><div class="pPreformatted"><pre>                    myAppCtxt.userlog(&quot;JAVA-INFO: tpcommit return &quot; + trnRtn);</pre></div><a name="wp1398008"> </a><div class="pPreformatted"><pre>                    trnStrtInSVC = 0;</pre></div><a name="wp1398009"> </a><div class="pPreformatted"><pre>                    if (-1 == trnRtn ) {</pre></div><a name="wp1398010"> </a><div class="pPreformatted"><pre>                      rc = TPFAIL;</pre></div><a name="wp1398011"> </a><div class="pPreformatted"><pre>    }</pre></div><a name="wp1398012"> </a><div class="pPreformatted"><pre>            }</pre></div><a name="wp1398013"> </a><div class="pPreformatted"><pre>        } catch (TuxATMIRMException e) {</pre></div><a name="wp1398014"> </a><div class="pPreformatted"><pre>            String errMsg = &quot;ERROR: TuxATMIRMException: (&quot; + e.getMessage() + &quot;).&quot;;</pre></div><a name="wp1398015"> </a><div class="pPreformatted"><pre>            System.out.println(errMsg);</pre></div><a name="wp1398016"> </a><div class="pPreformatted"><pre>            myAppCtxt.userlog(&quot;JAVA-ERROR: &quot; + errMsg); </pre></div><a name="wp1398017"> </a><div class="pPreformatted"><pre>    rc = TPFAIL;</pre></div><a name="wp1398018"> </a><div class="pPreformatted"><pre>        } catch (TuxATMITPException e) {</pre></div><a name="wp1398019"> </a><div class="pPreformatted"><pre>            String errMsg = &quot;ERROR: TuxATMITPException: (&quot; + e.getMessage() + &quot;).&quot;;</pre></div><a name="wp1398020"> </a><div class="pPreformatted"><pre>            System.out.println(errMsg);</pre></div><a name="wp1398021"> </a><div class="pPreformatted"><pre>            myAppCtxt.userlog(&quot;JAVA-ERROR: &quot; + errMsg);            </pre></div><a name="wp1398022"> </a><div class="pPreformatted"><pre>           rc = TPFAIL;</pre></div><a name="wp1398023"> </a><div class="pPreformatted"><pre>        } catch (SQLException e) {</pre></div><a name="wp1398024"> </a><div class="pPreformatted"><pre>            String errMsg = &quot;ERROR: SQLException: (&quot; + e.getMessage() + &quot;).&quot;;</pre></div><a name="wp1398025"> </a><div class="pPreformatted"><pre>            System.out.println(errMsg);</pre></div><a name="wp1398026"> </a><div class="pPreformatted"><pre>            myAppCtxt.userlog(&quot;JAVA-ERROR: &quot; + errMsg);</pre></div><a name="wp1398027"> </a><div class="pPreformatted"><pre>           rc = TPFAIL;</pre></div><a name="wp1398028"> </a><div class="pPreformatted"><pre>        } catch (Exception e) {</pre></div><a name="wp1398029"> </a><div class="pPreformatted"><pre>            String errMsg = &quot;ERROR: Exception: (&quot; + e.getMessage() + &quot;).&quot;;</pre></div><a name="wp1398030"> </a><div class="pPreformatted"><pre>            myAppCtxt.userlog(&quot;JAVA-ERROR: &quot; + errMsg);</pre></div><a name="wp1398031"> </a><div class="pPreformatted"><pre>           rc = TPFAIL;</pre></div><a name="wp1398032"> </a><div class="pPreformatted"><pre>        } catch (Throwable e) {</pre></div><a name="wp1398033"> </a><div class="pPreformatted"><pre>            String errMsg = &quot;ERROR: Throwable: (&quot; + e.getMessage() + &quot;).&quot;;</pre></div><a name="wp1398034"> </a><div class="pPreformatted"><pre>            myAppCtxt.userlog(&quot;JAVA-ERROR: &quot; + errMsg);</pre></div><a name="wp1398035"> </a><div class="pPreformatted"><pre>            rc = TPFAIL;</pre></div><a name="wp1398036"> </a><div class="pPreformatted"><pre>        } finally {</pre></div><a name="wp1398037"> </a><div class="pPreformatted"><pre>            if (null != stmtDB)</pre></div><a name="wp1398038"> </a><div class="pPreformatted"><pre>                stmtDB.close();</pre></div><a name="wp1398039"> </a><div class="pPreformatted"><pre>        }</pre></div><a name="wp1398040"> </a><div class="pPreformatted"><pre>        myAppCtxt.tpreturn(rc, 0, rplyBuf, 0);</pre></div><a name="wp1398041"> </a><div class="pPreformatted"><pre>    }</pre></div><a name="wp1398042"> </a><div class="pPreformatted"><pre>}</pre></div><h3 class="pHeading2"><a name="wp1398043"> </a>
+Creating Java Server Configuration File
+</h3>
+<div class="pCodeTitle"><a name="wp1398207"> </a>
+Listing&#160;4-5	   Java Server Configuration File
+</div> <a name="wp1398044"> </a><div class="pPreformatted"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</pre></div><a name="wp1398045"> </a><div class="pPreformatted"><pre>&lt;TJSconfig&gt;</pre></div><a name="wp1398046"> </a><div class="pPreformatted"><pre>     &lt;ClassPaths&gt;</pre></div><a name="wp1398047"> </a><div class="pPreformatted"><pre>        &lt;ClassPath&gt;/home/oracle/app/oracle/product/11.2.0/dbhome_2/ucp/lib/ucp.jar&lt;/ClassPath&gt;</pre></div><a name="wp1398048"> </a><div class="pPreformatted"><pre>        &lt;ClassPath&gt;/home/oracle/app/oracle/product/11.2.0/dbhome_2/jdbc/lib/ojdbc6.jar&lt;/ClassPath&gt;</pre></div><a name="wp1398049"> </a><div class="pPreformatted"><pre>     &lt;/ClassPaths&gt;</pre></div><a name="wp1398050"> </a><div class="pPreformatted"><pre>        </pre></div><a name="wp1398051"> </a><div class="pPreformatted"><pre>        &lt;DataSources&gt;</pre></div><a name="wp1398052"> </a><div class="pPreformatted"><pre>           &lt;DataSource name=&quot;oracle&quot;&gt;</pre></div><a name="wp1398053"> </a><div class="pPreformatted"><pre>            &lt;DriverClass&gt;oracle.jdbc.xa.client.OracleXADataSource&lt;/DriverClass&gt;</pre></div><a name="wp1398054"> </a><div class="pPreformatted"><pre>            &lt;JdbcDriverParams&gt;</pre></div><a name="wp1398055"> </a><div class="pPreformatted"><pre>                &lt;ConnectionUrl&gt;jdbc:oracle:thin:@//10.182.54.144:1521/javaorcl&lt;/ConnectionUrl&gt;</pre></div><a name="wp1398056"> </a><div class="pPreformatted"><pre>            &lt;/JdbcDriverParams&gt;</pre></div><a name="wp1398057"> </a><div class="pPreformatted"><pre>          &lt;/DataSource&gt;</pre></div><a name="wp1398058"> </a><div class="pPreformatted"><pre>        &lt;/DataSources&gt;			</pre></div><a name="wp1398059"> </a><div class="pPreformatted"><pre>	&lt;TuxedoServerClasses&gt;</pre></div><a name="wp1398060"> </a><div class="pPreformatted"><pre>   &lt;TuxedoServerClass name=&quot; MyTuxedoTransactionServer&quot;&gt;</pre></div><a name="wp1398061"> </a><div class="pPreformatted"><pre>	   &lt;/TuxedoServerClass&gt;</pre></div><a name="wp1398062"> </a><div class="pPreformatted"><pre>	&lt;/TuxedoServerClasses&gt;</pre></div><a name="wp1398063"> </a><div class="pPreformatted"><pre>&lt;/TJSconfig&gt; </pre></div><h3 class="pHeading2"><a name="wp1398064"> </a>
+Updating UBB Configuration File
+</h3>
+<div class="pCodeTitle"><a name="wp1398218"> </a>
+Listing&#160;4-6	   UBB Conf File Configuration
+</div> <a name="wp1398065"> </a><div class="pPreformatted"><pre>*GROUPS</pre></div><a name="wp1398066"> </a><div class="pPreformatted"><pre>ORASVRGRP  LMID=simple GRPNO=1</pre></div><a name="wp1398067"> </a><div class="pPreformatted"><pre>OPENINFO=&quot;Oracle_XA:Oracle_XA+Acc=P/zhiyhan/passw0rd+SesTm=120+MaxCur=5+LogDir=.+SqlNet=javaorcl&quot;</pre></div><a name="wp1398068"> </a><div class="pPreformatted"><pre>TMSNAME=TMSORA TMSCOUNT=2 </pre></div><a name="wp1398069"> </a><div class="pPreformatted"><pre>*SERVERS</pre></div><a name="wp1398070"> </a><div class="pPreformatted"><pre>TMJAVASVR SRVGRP=ORASVRGRP SRVID=3	</pre></div><a name="wp1398071"> </a><div class="pPreformatted"><pre> 	CLOPT=&quot;-- -c TJSconfig.xml&quot;</pre></div><a name="wp1398072"> </a><div class="pPreformatted"><pre>	MINDISPATCHTHREADS=2 MAXDISPATCHTHREADS=4</pre></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="pgsmp.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pgapi.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pgref.html"><img id="LongDescNotReq9" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

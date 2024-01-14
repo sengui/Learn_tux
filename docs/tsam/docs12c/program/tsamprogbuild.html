@@ -1,0 +1,1899 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="" />
+<meta name="LOC_US_CHANGE" content="" />
+<meta name="LOC_US_SRCFILE" content="" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="02/28/13 07:23:02" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Creating an Oracle TSAM Plus Agent Custom Plug-in</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Plug-in Programming Guide
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq2" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="tsamprogdatcol.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next_grey1.gif" border="0" alt="Next" />&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/program.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1074157"> </a>
+Creating an Oracle TSAM Plus Agent Custom Plug-in
+</h1>
+<p class="pBody"><a name="wp1075245"> </a>
+This chapter contains the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1075246"> </a><a href="tsamprogbuild.html#wp1075251">Overview</a></li>
+<li><a name="wp1075247"> </a><a href="tsamprogbuild.html#wp1075286">Developing a Oracle TSAM Plus Agent Plug-in</a></li>
+<li><a name="wp1075248"> </a><a href="tsamprogbuild.html#wp1082684">Oracle TSAM Plus Agent Plug-in Interface</a></li>
+<li><a name="wp1075249"> </a><a href="tsamprogbuild.html#wp1075557">Oracle TSAM Plus Agent Plug-in Implementation</a></li>
+<li><a name="wp1075250"> </a><a href="tsamprogbuild.html#wp1076228">Oracle TSAM Plus Agent Plug-in Development/Deployment Notes</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1075251"> </a>
+Overview
+</h2><p class="pBody"><a name="wp1081058"> </a>
+Oracle Tuxedo has a built-in plug-in framework that facilitates additional functionality. For example, the Oracle Tuxedo security mechanism is constructed on the plug-in framework. Oracle Tuxedo defines an i<span style="font-style: italic">nterface set</span> as a contract between a service provider and end user. The term &#8220;service&#8221; here is used as a general term; not an Oracle Tuxedo ATMI service. Oracle TSAM Plus Agent also use the Oracle Tuxedo plug-in framework to attach different data receivers.
+</p>
+<h3 class="pHeading2"><a name="wp1077098"> </a>
+Oracle Tuxedo Plug-in Framework Concepts
+</h3>
+<p class="pBody"><a name="wp1078216"> </a>
+The following section highlights Oracle Tuxedo plug-in framework key concepts.
+</p>
+<h4 class="pHeading3"><a name="wp1078217"> </a>
+Interface
+</h4>
+<p class="pBody"><a name="wp1078218"> </a>
+An Interface is the contract format between the plug-in implementation and the plug-in caller. An interface requires the following attributes:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1075256"> </a>Interface ID</li>
+<p class="pBodyRelative"><a name="wp1075257"> </a>
+The interface ID is the name of the interface that is uniquely identified in the Oracle Tuxedo plug-in framework and uses the following format:
+</p>
+<p class="pBodyRelative"><a name="wp1075258"> </a>
+<code class="cCode">&lt;interface id&gt; ::= &lt;component name&gt;[/&lt;sub-component/name&gt;]/&lt;interface name&gt;</code>
+</p>
+<p class="pBodyRelative"><a name="wp1075259"> </a>
+The Oracle TSAM Plus Agent plug-in uses the following format: 
+</p>
+<p class="pBodyRelative"><a name="wp1077132"> </a>
+<code class="cCode">engine/performance/monitoring</code>
+</p>
+<li><a name="wp1075261"> </a>Version</li>
+<p class="pBodyRelative"><a name="wp1075262"> </a>
+An interface has two versions, the major version number and minor version number. 
+</p>
+<li><a name="wp1075263"> </a>Data Structure and Function Declaration</li>
+<p class="pBodyRelative"><a name="wp1075264"> </a>
+The data structure defines the concrete information conveyed between plug-in caller and implementation.The function declaration defines the routines must be implemented by plug-in.
+</p>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1075265"> </a>
+Implementation
+</h4>
+<p class="pBody"><a name="wp1075266"> </a>
+A plug-in is a dynamic library written in C code. The library implements the methods specified by the interface. The Oracle Tuxedo plug-in framework supports multiple implementations (interceptors) for one interface. 
+</p>
+<p class="pBody"><a name="wp1077189"> </a>
+Oracle Tuxedo supports two types of interceptors: Fan-out interceptors and Stack interceptors. The Oracle TSAM Plus Agent uses the Fan-out interceptors. <a href="tsamprogbuild.html#wp1077194">Figure&#160;3-1</a> displays the Oracle TSAM Plus Agent plug-in architecture.
+</p>
+<div class="pFigureTitle"><a name="wp1077194"> </a>
+Figure&#160;3-1  Oracle TSAM Plus Agent Plug-in Architecture
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1075270"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/tsamagentarch.png" alt="Oracle TSAM Plus Agent Plug-in Architecture" id="wp1075268" border="0" hspace="0" vspace="0"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1080165"> </a>
+When the Oracle Tuxedo infrastructure invokes plug-in A method X, plug-in A invokes method X of the intercepting plug-ins in the order specified by the <code class="cCode">InterceptionSeq</code> attribute as follows:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1080100"> </a>Plug-in method X is invoked</li>
+<li><a name="wp1080101"> </a>Plug-in 1 method X is returned</li>
+<li><a name="wp1080102"> </a>Plug-in 2 method X is invoked</li>
+<li><a name="wp1075275"> </a>Plug-in 2 method X is returned</li>
+<li><a name="wp1075276"> </a>Plug-in <span style="font-style: italic">n</span> method X is invoked</li>
+<li><a name="wp1075277"> </a>Plug-in <span style="font-style: italic">n</span> method X of is returned</li>
+</ul></div>
+<p class="pBody"><a name="wp1075278"> </a>
+All plug-ins involved in the interceptor implement the same interface. Multiple occurrences of the same plug-in are not allowed in an interception sequence.
+</p>
+<p class="pBody"><a name="wp1075279"> </a>
+Oracle TSAM Plus Agent provides the Fan-out plug-in which allows you to write/create an interceptor plug-in.
+</p>
+<h4 class="pHeading3"><a name="wp1075280"> </a>
+Plug-in Register/Un-register/Modifications
+</h4>
+<p class="pBody"><a name="wp1075281"> </a>
+Once the plug-in written it must be registered in the Oracle Tuxedo registry so that the functional components will locate the plug-in and invoke the appropriate methods. Oracle Tuxedo provides three commands specifically for plug-in use:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1075282"> </a><code class="cCode">epifreg</code>: registers a plug-in </li>
+<li><a name="wp1075283"> </a><code class="cCode">epifunreg</code>: un-registers a plug-in</li>
+<li><a name="wp1075284"> </a><code class="cCode">epifregedt</code>: edits a plug-in</li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1075286"> </a>
+Developing a Oracle TSAM Plus Agent Plug-in
+</h2><p class="pBody"><a name="wp1075287"> </a>
+Oracle TSAM Plus Agent plug-in invocation begins at the monitoring points. The Oracle TSAM Plus Agent collects and computes the metrics, and composes the arguments passed to the plug-in. The Oracle TSAM Plus Agent Fan-out plug-in invokes the interceptor plug-in according to the registration sequence. 
+</p>
+<p class="pBody"><a name="wp1077751"> </a>
+A simple Oracle TSAM Plus custom plug-in development example is provided as a guideline. The system environment is Solaris on Sparc. The functionality is basic and just prints out the metrics buffers. This plug-in works together with the Oracle TSAM Plus Agent default plug-in. 
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1080417"> </a><a href="tsamprogbuild.html#wp1080418">Create Plug-in Source Code</a></li>
+<li><a name="wp1080429"> </a><a href="tsamprogbuild.html#wp1077615">Build the Plug-in</a></li>
+<li><a name="wp1080434"> </a><a href="tsamprogbuild.html#wp1077305">Register the Plug-in</a></li>
+<li><a name="wp1080439"> </a><a href="tsamprogbuild.html#wp1077361">Enable Oracle TSAM Plus Monitoring</a></li>
+<li><a name="wp1080447"> </a><a href="tsamprogbuild.html#wp1078008">Run a Call and Check the Standard Output.</a></li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1080418"> </a>
+Create Plug-in Source Code
+</h3>
+<p class="pBody"><a name="wp1080422"> </a>
+<a href="tsamprogbuild.html#wp1080565">Listing&#160;3-1</a> displays an example of the Oracle TSAM Plus plug-in <code class="cCode">customplugin.c.</code>
+</p>
+<div class="pCodeTitle"><a name="wp1080565"> </a>
+Listing&#160;3-1	   Oracle TSAM Plus Agent <code class="cCode">customplugin.c</code> Plug-in Source Code Example
+</div> <a name="wp1080566"> </a><div class="pPreformatted"><pre>#include &lt;e_pif.h&gt;<br />#include &lt;tpadm.h&gt;<br />#include &lt;fml32.h&gt;<br />#include &lt;e_perf_mon.h&gt; <br /><br />static TM32I _TMDLLENTRY print_app(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;perf_mon_1 *,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;FBFR32 **,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;MONITORCTL *,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;TM32U);<br /><br />static TM32I _TMDLLENTRY print_svc(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;perf_mon_1 *,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;FBFR32 **,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;MONITORCTL *,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;TM32U);<br /><br />static TM32I _TMDLLENTRY print_sys(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;perf_mon_1 *,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;FBFR32 **,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;MONITORCTL *,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;TM32U);<br /><br />static TM32I _TMDLLENTRY print_tran(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;perf_mon_1 *,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;FBFR32 **,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;MONITORCTL *,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;TM32U);<br /><br />static TM32I _TMDLLENTRY plugin_destroy (<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_TCADEF,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;const struct _e_pif_instance_handles *,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;TM32U);<br /><br />static TM32I _TMDLLENTRY plugin_copy (_TCADEF,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;void *,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;const struct _e_pif_interception_data *,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;struct _e_pif_instance_handles *,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;TM32U);<br /><br />static const perf_mon_1 Vtblperfapp_1 = {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;print_app,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;print_svc,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;print_sys,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;print_tran,<br />};<br /><br />static const _e_pif_plugin_info perf_mon_1_info = {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;{ 1, 0 },					/* interface major version */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;{ 1, 0 },					/* implementation */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;abc/tuxedo/tsam&quot;,		/* implementation id */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;ED_PERF_MON_INTF_ID,		/* interface id */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;4,				/* virtual table size */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;ABC, Inc.&quot;,		/* vendor */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;Custom Plug-in for Oracle TSAM&quot;, /* product name */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;1.0&quot;,				/* vendor version */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;EF_PIF_SINGLETON,	/* m_flags */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;plugin_destroy,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;plugin_copy<br />};<br /><br />int _TMDLLENTRY <br />plugin_entry(_TCADEF, const char *pIId,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;const char *pImplId,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;const struct _e_pif_iversion *version,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;const struct _e_pif_data *pData,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;const struct _e_pif_interception_data *pInterceptionData,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;struct _e_pif_instance_handles *pI,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;TM32U flags)<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;const char * const * regData = pData-&gt;regdata;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;char *logfile = NULL;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;pI-&gt;pVtbl = (void *) &amp;Vtblperfapp_1;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;pI-&gt;pPluginInfo = (_e_pif_plugin_info *) &amp;perf_mon_1_info;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;pI-&gt;pPrivData = NULL;<br />return (EE_SUCCESS);<br />}<br /><br /><br />static TM32I _TMDLLENTRY<br />plugin_destroy (_TCADEF, const struct _e_pif_instance_handles *pIhandles,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;TM32U flags)<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;return(EE_SUCCESS);<br />}<br /><br /><br />static TM32I _TMDLLENTRY<br />plugin_copy (_TCADEF, void *iP,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;const struct _e_pif_interception_data *pInterceptionData,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;struct _e_pif_instance_handles *pIhandles,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;TM32U flags)<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;return(EE_SUCCESS);<br />}<br />static TM32I _TMDLLENTRY print_app(perf_mon_1 * ip,FBFR32 **buf, MONITORCTL * monctl, TM32U flags)<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;Fprint32(*buf);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;return(0);<br />}<br /><br />static TM32I _TMDLLENTRY print_svc(perf_mon_1 * ip,FBFR32 **buf, MONITORCTL * monctl, TM32U flags)<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;Fprint32(*buf);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;return(0);<br />}<br /><br />static TM32I _TMDLLENTRY print_sys(perf_mon_1 * ip,FBFR32 **buf, MONITORCTL * monctl, TM32U flags)<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;Fprint32(*buf);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;return(0);<br />}<br />static TM32I _TMDLLENTRY print_tran(perf_mon_1 * ip,FBFR32 **buf, MONITORCTL * monctl, TM32U flags)<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;Fprint32(*buf);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;return(0);<br />}</pre></div><h3 class="pHeading2"><a name="wp1077615"> </a>
+Build the Plug-in
+</h3>
+<a name="wp1077641"> </a><div class="pPreformatted"><pre>cc -c customplugin.c -I$TUXDIR/include</pre></div><a name="wp1077642"> </a><div class="pPreformatted"><pre>cc -G -KPIC -o customplugin.so -L$TUXDIR/lib -lfml customplugin.o</pre></div><h3 class="pHeading2"><a name="wp1077305"> </a>
+Register the Plug-in
+</h3>
+<p class="pBody"><a name="wp1082339"> </a>
+To register the plug-in, do the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1077665"> </a>Shutdown your Oracle Tuxedo application by &#8220;tmshutdown&#8221;</li>
+<li><a name="wp1077666"> </a>Compose a shell script named &#8220;<code class="cCode">reg.sh</code>&#8221;</li>
+<li><a name="wp1082349"> </a>Run the script</li>
+<a name="wp1082379"> </a><div class="pPreformattedRelative"><pre>sh ./reg.sh</pre></div><li><a name="wp1082409"> </a>Boot your Oracle Tuxedo applications by &quot;tmboot&quot;</li>
+</ol></div>
+<p class="pBody"><a name="wp1078053"> </a>
+<a href="tsamprogbuild.html#wp1080680">Listing&#160;3-2</a> displays an example of the <code class="cCode">reg.sh</code> shell script
+</p>
+<div class="pCodeTitle"><a name="wp1080680"> </a>
+Listing&#160;3-2	   reg.h Shell Script
+</div> <a name="wp1080681"> </a><div class="pPreformatted"><pre>#!/bin/sh<br />epifreg -r -p abc/tuxedo/tsam -i engine/performance/monitoring \<br />-o SYSTEM -v 1.0 \<br />-f $APPDIR/customplugin.so -e plugin_entry<br />epifregedt -s -k &quot;SYSTEM/impl/bea/performance/monfan&quot; \<br />-a InterceptionSeq=bea/performance/monshm \<br />-a InterceptionSeq=abc/tuxedo/tsam \</pre></div><h3 class="pHeading2"><a name="wp1077361"> </a>
+Enable Oracle TSAM Plus Monitoring
+</h3>
+<p class="pBody"><a name="wp1077362"> </a>
+Enable Oracle TSAM Plus Monitoring by defining the proper monitoring policy through Oracle TSAM Plus console
+</p>
+<p class="pBody"><a name="wp1077788"> </a>
+For more information, see the<span class="cHyperlink">
+<a href="../admin/index.html"> Oracle TSAM Plus Administration Guide and Oracle TSAM Plus Users Guide</a></span>.
+</p>
+<h3 class="pHeading2"><a name="wp1078008"> </a>
+Run a Call and Check the Standard Output. 
+</h3>
+<p class="pBody"><a name="wp1077795"> </a>
+You will find the metrics collected printed out. 
+</p>
+<p class="pBody"><a name="wp1078076"> </a>
+<a href="tsamprogbuild.html#wp1085680">Listing&#160;3-3</a> displays the metrics print out.
+</p>
+<div class="pCodeTitle"><a name="wp1085680"> </a>
+Listing&#160;3-3	   Metrics Print Out Example
+</div> <a name="wp1085681"> </a><div class="pPreformatted"><pre>TA_MONDEPTH     1<br />TA_MONSTATUS    1<br />TA_MONPROCTYPE  2<br />TA_PID  2459<br />TA_SRVID        10<br />TA_MONLOGTIMESEC        1259292914<br />TA_MONLOGTIMEUSEC       26411<br />TA_MONFIELDSMAP1        -1<br />TA_MONFIELDSMAP2        -1<br />TA_MONMSGSIZE   24<br />TA_MONMSGQUEUED 0<br />TA_MONLASTTIMESEC       1259292914<br />TA_MONLASTTIMEUSEC      26411<br />TA_MONSTARTTIMESEC      1259292914<br />TA_MONSTARTTIMEUSEC     10500<br />TA_MONELAPSETIME        15<br />TA_DOMAINID     dom2:bjsol16:66536<br />TA_GROUPNAME    ATMIGRP1<br />TA_LMID L1<br />TA_MONTYPE      APP<br />TA_MONCORRID    dom2:bjsol16:66536 L1 tuxclient 2478 1 1 1259292909<br />TA_MONMSGTYPE   ARQ<br />TA_MONSTAGE     Q2ME</pre></div><a name="wp1085727"> </a><div class="pPreformatted"><pre>TA_MONSVCNAME   I_TOUPPER<br />TA_MONHOSTSVC   I_TOUPPER<br />TA_MONSVCSEQ    INITIATOR-I_TOUPPER-11659-0<br />TA_MONPSVCSEQ   INITIATOR<br />TA_MONQID       1879048194-00010.00010<br />TA_MONPROCNAME  tux_atmi_svr<br /><br />TA_MONDEPTH     1<br />TA_MONSTATUS    1<br />TA_MONPROCTYPE  2<br />TA_PID  2459<br />TA_SRVID        10<br />TA_MONLOGTIMESEC        1259292914<br />TA_MONLOGTIMEUSEC       29368<br />TA_MONFIELDSMAP1        -1<br />TA_MONFIELDSMAP2        -1<br />TA_MONMSGSIZE   100<br />TA_MONLASTTIMESEC       1259292914<br />TA_MONLASTTIMEUSEC      29368<br />TA_MONSTARTTIMESEC      1259292914<br />TA_MONSTARTTIMEUSEC     10500<br />TA_MONERRNO     0<br />TA_MONURCODE    1<br />TA_MONELAPSETIME        18<br />TA_DOMAINID     dom2:bjsol16:66536<br />TA_GROUPNAME    ATMIGRP1<br />TA_LMID L1<br />TA_MONTYPE      APP<br />TA_MONCORRID    dom2:bjsol16:66536 L1 tuxclient 2478 1 1 1259292909<br />TA_MONMSGTYPE   ARP<br />TA_MONSTAGE     ME2Q<br />TA_MONSVCNAME   I_TOUPPER<br />TA_MONHOSTSVC   I_TOUPPER<br />TA_MONSVCSEQ    INITIATOR-I_TOUPPER-11659-0<br />TA_MONPSVCSEQ   INITIATOR<br />TA_MONPROCNAME  tux_atmi_svr</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1082684"> </a>
+Oracle TSAM Plus Agent Plug-in Interface
+</h2><p class="pBody"><a name="wp1082685"> </a>
+All Oracle TSAM Plus Plug-in interface contents are defined in the <code class="cCode">$TUXDIR/include/e_perf_mon.h</code> file. When you build a Oracle TSAM Plus Plug-in, this file must be included in your plug-in source code
+</p>
+<a name="wp1075466"> </a><div class="pPreformatted"><pre>. The <code class="cCode">$TUXDIR/include/e_perf_mon.h</code> file definitions are as follows:</pre></div><div class="pSmartList1Bullet"><ul>
+<li><a name="wp1078226"> </a><a href="tsamprogbuild.html#wp1075467">Version and Interface Identifier</a></li>
+<li><a name="wp1078276"> </a><a href="tsamprogbuild.html#wp1084567">Function Table</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1075467"> </a>
+Version and Interface Identifier
+</h3>
+<p class="pBody"><a name="wp1081315"> </a>
+<a href="tsamprogbuild.html#wp1075468">Listing&#160;3-4</a> provides a version and identifier example.
+</p>
+<div class="pCodeTitle"><a name="wp1075468"> </a>
+Listing&#160;3-4	   Version and Interface Identifier
+</div> <a name="wp1078305"> </a><div class="pPreformatted"><pre>#define ED_PERF_MON_MAJOR_VERSION       1<br />#define ED_PERF_MON_MINOR_VERSION       0<br />/* Interfaces defined in this module */<br />#define ED_PERF_MON_INTF_ID &quot;engine/performance/monitoring&quot;<br />Value Definitions and Data Structure</pre></div><p class="pBody"><a name="wp1081079"> </a>
+<a href="tsamprogbuild.html#wp1081081">Listing&#160;3-5</a> displays the Oracle TSAM Plus framework and plug-in core data structure.
+</p>
+<div class="pCodeTitle"><a name="wp1081081"> </a>
+Listing&#160;3-5	   Core Data Structure
+</div> <a name="wp1078352"> </a><div class="pPreformatted"><pre>typedef struct {<br />unsigned char   fieldsmap[MAXMAPSIZE]; <br />char monitoring_policy[MAXPOLICYLEN]; /* monitor policy */<br />char corr_id[MAXCORRIDLEN]; /* plug-in supplied correlation ID */<br />int ulen;<br />void * udata;<br />long mon_flag;<br />}  MONITORCTL;</pre></div><p class="pBody"><a name="wp1083606"> </a>
+<a href="tsamprogbuild.html#wp1078416">Table&#160;3-1</a> lists the MONITORCTL members.
+</p>
+<p class="pGraphic"><a name="wp1078436"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1078416table1078414"><caption><a name="wp1078416"> </a>
+Table 3-1  MONITORCTL Members
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1078420"> </a>
+Members
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1078422"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1078445"> </a>
+monitoring_policy
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1078447"> </a>
+Internal use only
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1078449"> </a>
+corr_id
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1078451"> </a>
+It is used to bring the corralling ID from plug-in to TSAM Plus framework
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1078453"> </a>
+ulen
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1078455"> </a>
+The data length of the application buffer.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1078457"> </a>
+udata
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1078459"> </a>
+The application buffer. It is a typed buffer and only available for call path monitoring and service monitoring. tptypes(5) can be used to check the type and subtype.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1078424"> </a>
+mon_flag
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1078426"> </a>
+The flag set both by TSAM Plus framework and plug-in to indicate the requirement and changes.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1081388"> </a>
+<a href="tsamprogbuild.html#wp1081396">Table&#160;3-2</a> lists the MONITORCTL array size definitions. <a href="tsamprogbuild.html#wp1078733">Table&#160;3-3</a> lists the mon_flag Values.
+</p>
+<p class="pGraphic"><a name="wp1081415"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1081396table1081393"><caption><a name="wp1081396"> </a>
+Table 3-2  MONITORCTL Array Size Definitions
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1081400"> </a>
+Array
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1081402"> </a>
+Size Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081404"> </a>
+<code class="cCode">/* Size of fieldsmap*/</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081406"> </a>
+#define MAXMAPSIZE      128 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081408"> </a>
+/* Size of monitoring_policy */
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081410"> </a>
+#define MAXPOLICYLEN    128 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081412"> </a>
+/* Size of corr_id*/
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081414"> </a>
+#define MAXCORRIDLEN    256 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pGraphic"><a name="wp1078764"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1078733table1078731"><caption><a name="wp1078733"> </a>
+Table 3-3  mon_flag Values
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1078737"> </a>
+Members
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1078739"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1078741"> </a>
+<code class="cCode">#define PI_CORRID_REQUIRED 0x00000001 </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1078743"> </a>
+PI_CORRID_REQUIRED is set by TSAM Plus framework when a call path monitoring is started. It means the plug-in must supply a correlation ID to the framework by the corr_id member of MONITORCTL.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1084567"> </a>
+Function Table
+</h3>
+<p class="pBody"><a name="wp1075510"> </a>
+<a href="tsamprogbuild.html#wp1075511">Listing&#160;3-6</a> defines the plug-in implementation method function table.
+</p>
+<div class="pCodeTitle"><a name="wp1075511"> </a>
+Listing&#160;3-6	   Plug-in Implementation Method Function Table
+</div> <a name="wp1079187"> </a><div class="pPreformatted"><pre>typedef struct perf_mon_1_Vtbl {</pre></div><a name="wp1079188"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;TM32I (_TMDLLENTRY *_ec_perf_mon_app) _((<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;struct perf_mon_1_Vtbl * ip,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;FBFR32 **buf,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MONITORCTL *mon_ctl,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TM32U flags<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;));<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;TM32I (_TMDLLENTRY *_ec_perf_mon_svc) _((<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;struct perf_mon_1_Vtbl * ip,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;FBFR32 **buf,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MONITORCTL *mon_ctl,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TM32U flags<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;));<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;TM32I (_TMDLLENTRY *_ec_perf_mon_sys) _((<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;struct perf_mon_1_Vtbl * ip,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;FBFR32 **buf,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MONITORCTL *mon_ctl,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TM32U flags<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;));<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;TM32I (_TMDLLENTRY *_ec_perf_mon_tran) _((<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;struct perf_mon_1_Vtbl * ip,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;FBFR32 **buf,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MONITORCTL *mon_ctl,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TM32U flags<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;));<br />} perf_mon_1, *perf_mon_1_ptr;</pre></div><p class="pBody"><a name="wp1075537"> </a>
+Each method corresponds to a monitoring type. &#8220;<span style="font-weight: bold">_ec_perf_mon_app</span>&#8221; is for call path monitoring, &#8220;<span style="font-weight: bold">_ec_perf_mon_svc&#8221; </span>is for service monitoring, &#8220;<span style="font-weight: bold">_ec_perf_mon_sys&#8221; </span>is for system server monitoring and &#8220;<span style="font-weight: bold">_ec_perf_mon_tran&#8221; </span>is for transaction monitoring. Each method will be invoked at the corresponding monitoring type&#8217;s monitoring points.The method arguments are:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1075538"> </a><code class="cCode">struct perf_mon_1_Vtbl *ip: </code>the virtual table pointer e. </li>
+<a name="wp1084354"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Not required for custom plug-ins.</td>
+</tr>
+</table>
+
+<li><a name="wp1075539"> </a><code class="cCode">FBFR32 **buf: </code>the address of the metrics buffer in FML32 type.</li>
+<li><a name="wp1075540"> </a><code class="cCode">MONITORCTL *mon_ctl: </code>the control structure.</li>
+<li><a name="wp1075541"> </a><code class="cCode">TM32U flags: </code>the bit flag in a 32-byte, unsigned integer.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1075550"> </a>
+Other Help Header Files
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1075551"> </a><code class="cCode">$TUXDIR/include/e_pif.h</code></li>
+<p class="pBodyRelative"><a name="wp1075552"> </a>
+The Oracle Tuxedo general plug-in definition file. It must be included in the plug-in source code.
+</p>
+<li><a name="wp1075553"> </a><code class="cCode">$TUXDIR/include/tpadm.h</code></li>
+<p class="pBodyRelative"><a name="wp1085250"> </a>
+It is the Oracle Tuxedo built-in FML32 fields definition files. All performance metrics are defined as FML32 fields and some performance metrics are defined in this file
+</p>
+<li><a name="wp1085269"> </a><code class="cCode">$TUXDIR/include/monflds.h</code></li>
+<p class="pBodyRelative"><a name="wp1085271"> </a>
+<code class="cCode">The TSAM built-in FML32 fields definition files. All performance metrics are defined in this file beside the tpadm.h</code>
+</p>
+<li><a name="wp1085267"> </a><code class="cCode">$TUXDIR/include/fml32.h</code></li>
+<p class="pBodyRelative"><a name="wp1075556"> </a>
+The metrics collected are stored in an Oracle Tuxedo FML32 buffer. To access these items, FML32 routines must be used; <code class="cCode">fml32.h</code> must be included.
+</p>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1075557"> </a>
+Oracle TSAM Plus Agent Plug-in Implementation
+</h2><p class="pBody"><a name="wp1082709"> </a>
+Oracle TSAM Plus Agent plug-in implementation requires the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1082713"> </a><a href="tsamprogbuild.html#wp1075559">Define &#8220;perf_mon_1&#8221; in the &#8220;e_perf_mon.h&#8221; Function Table</a></li>
+<li><a name="wp1082717"> </a><a href="tsamprogbuild.html#wp1081187">Define the Plug-in Information Variable</a></li>
+<li><a name="wp1080282"> </a><a href="tsamprogbuild.html#wp1075594">Write the Plug-in Entry Routine</a></li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1075559"> </a>
+Define &#8220;perf_mon_1&#8221; in the &#8220;e_perf_mon.h&#8221; Function Table
+</h3>
+<p class="pBody"><a name="wp1079868"> </a>
+<a href="tsamprogbuild.html#wp1075560">Listing&#160;3-7</a> shows a <code class="cCode">perf_mon_1</code> defined in the <code class="cCode">e_perf_mon.h</code> function table example.
+</p>
+<div class="pCodeTitle"><a name="wp1075560"> </a>
+Listing&#160;3-7	   Define a &quot;perf_mon_1&quot; defined in &quot;e_perf_mon.h&quot; Function Table
+</div> <a name="wp1081180"> </a><div class="pPreformatted"><pre>static const perf_mon_1 Vtblperfapp_1 = {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;print_app,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;print_svc,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;print_sys,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;print_tran,<br />};</pre></div><h3 class="pHeading2"><a name="wp1081187"> </a>
+Define the Plug-in Information Variable
+</h3>
+<p class="pBody"><a name="wp1081209"> </a>
+<a href="tsamprogbuild.html#wp1081189">Listing&#160;3-8</a> shows how to define the plug-in information variable.
+</p>
+<div class="pCodeTitle"><a name="wp1081189"> </a>
+Listing&#160;3-8	   Define the Plug-in Information Variable
+</div> <a name="wp1086436"> </a><div class="pPreformatted"><pre>static const _e_pif_plugin_info perf_mon_1_info = {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;{ 1, 0 }, /* interface version */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;{ 1, 0 }, /* implementation version */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;abc/tuxedo/tsam&quot;, /* implementation id */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;ED_PERF_MON_INTF_ID, /* interface id */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;4, /* virtual table size */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;ABC, Inc.&quot;, /* vendor */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;Custom Plug-in for Oracle TSAM&quot;, /* product name */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;1.0&quot;, /* vendor version */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;EF_PIF_SINGLETON,       /* m_flags */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;plugin_destroy,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;plugin_copy<br />};</pre></div><p class="pBody"><a name="wp1075580"> </a>
+The changeable members are &#8220;implementation version&#8221;, &#8220;implementation id&#8221;, &#8220;vendor&#8221;, &#8220;product name&#8221;, &#8220;vendor version&#8221;. Other items must be kept with same with the sample. 
+</p>
+<p class="pBody"><a name="wp1075581"> </a>
+<code class="cCode">plugin_destroy</code> and <code class="cCode">plugin_copy</code> are the general Oracle Tuxedo plug-in routines for destroy and copy. For a Oracle TSAM Plus Plug-in, you can write two empty functions as shown in <a href="tsamprogbuild.html#wp1075582">Listing&#160;3-9</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1075582"> </a>
+Listing&#160;3-9	   plugin_destroy and plugin_copy
+</div> <a name="wp1079893"> </a><div class="pPreformatted"><pre>static TM32I _TMDLLENTRY<br />plugin_destroy (_TCADEF, const struct _e_pif_instance_handles *pIhandles, TM32U flags)<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;return(EE_SUCCESS);<br />}<br />static TM32I _TMDLLENTRY<br />plugin_copy (_TCADEF, void *iP,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;const struct _e_pif_interception_data *pInterceptionData,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;struct _e_pif_instance_handles *pIhandles, TM32U flags)</pre></div><a name="wp1075592"> </a><div class="pPreformatted"><pre>{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;return(EE_SUCCESS);<br />}</pre></div><h3 class="pHeading2"><a name="wp1075594"> </a>
+Write the Plug-in Entry Routine
+</h3>
+<p class="pBody"><a name="wp1075595"> </a>
+Each plug-in must have an &#8220;entry&#8221; routine and specified in plug-in registration process. In this routine, the virtual function table and plug-in information structure must be supplied to the plug-in instance handler. 
+</p>
+<p class="pBody"><a name="wp1079949"> </a>
+<a href="tsamprogbuild.html#wp1075596">Listing&#160;3-10</a> shows a plug-in routine example.
+</p>
+<div class="pCodeTitle"><a name="wp1075596"> </a>
+Listing&#160;3-10	   Plug-in Entry Routine
+</div> <a name="wp1079950"> </a><div class="pPreformatted"><pre>int _TMDLLENTRY<br />plugin_entry(_TCADEF, const char *pIId,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;const char *pImplId,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;const struct _e_pif_iversion *version,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;const struct _e_pif_data *pData,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;const struct _e_pif_interception_data *pInterceptionData,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;struct _e_pif_instance_handles *pI,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;TM32U flags)</pre></div><a name="wp1075605"> </a><div class="pPreformatted"><pre>{<br />const char * const * regData = pData-&gt;regdata;<br />char *logfile = NULL;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;pI-&gt;pVtbl = (void *) &amp;Vtblperfapp_1;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;pI-&gt;pPluginInfo = (_e_pif_plugin_info *) &amp;perf_mon_1_info;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;pI-&gt;pPrivData = NULL;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;return (EE_SUCCESS);<br />}</pre></div><a name="wp1075612"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>It is recommends that you t to use the fixed process shown in the sample. The &#8220;entry&#8221; routine is called only once to instantiate the plug-in. </td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1075613"> </a>
+Writing Concrete Plug-in Implementations
+</h3>
+<p class="pBody"><a name="wp1075614"> </a>
+The implementation function table is registered to Oracle Tuxedo in the &#8220;entry&#8221; routine. Then following chapters will focus on how to write TSAM Plus plug-in based on the corresponding monitoring types. 
+</p>
+<a name="wp1075615"> </a>
+<table class="Note">
+<tr>
+<td valign="top"><strong>WARNING:</strong></td>
+<td>Do not make Oracle Tuxedo ATMI calls (except for FML32 operations, <code class="cCode">tpalloc</code>/<code class="cCode">tprealloc/tpfre</code>e and <code class="cCode">tptypes)</code> in the plug-in. It may result un-expected behavior as Oracle Tuxedo context may be compromised.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp1075616"> </a>
+Call Path Monitoring Plug-in Routine
+</h4>
+<p class="pBody"><a name="wp1075617"> </a>
+The call path monitoring plug-in routine are invoked at the monitoring points. For more information, see <a href="tsamprogdatcol.html">Oracle TSAM Plus Agent Data Collection Framework</a>.
+</p>
+<h5 class="pHeading4"><a name="wp1075618"> </a>
+A Basic Implementation
+</h5>
+<p class="pBody"><a name="wp1082303"> </a>
+In this example, the routine prints out the passed FML32 buffer:
+</p>
+<a name="wp1075619"> </a><div class="pPreformatted"><pre>static TM32I _TMDLLENTRY print_app(perf_mon_1 * ip,FBFR32 **buf, MONITORCTL * monctl, TM32U flags)</pre></div><a name="wp1075621"> </a><div class="pPreformatted"><pre>{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;Fprint32(*buf);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;return(0);<br />}<br />Understanding Current Monitoring Points</pre></div><p class="pBody"><a name="wp1081813"> </a>
+Call path monitoring is the most comprehensive Oracle Tuxedo application interceptor. It provides a variety of metrics for recording and analysis. 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1081814"> </a>Determine the monitoring stage</li>
+<p class="pBodyRelative"><a name="wp1081457"> </a>
+The monitoring stage itself is a metric with the FML32 field name TA_MONSTAGE. <a href="tsamprogbuild.html#wp1081461">Table&#160;3-4</a> lists TA_MONSTAGE values.
+</p>
+<p class="pGraphic"><a name="wp1081492"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1081461table1081458"><caption><a name="wp1081461"> </a>
+Table 3-4  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">TA_MONSTAGE Values</span>
+
+</caption>
+
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1081465"> </a>
+Value
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1081467"> </a>
+Description
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081469"> </a>
+STMO
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081471"> </a>
+A new call path monitoring is initiated. This is the first record for the current monitored call path.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081473"> </a>
+ME2Q
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081475"> </a>
+Before a message is sent to the IPC. It could be a request message or reply message.
+</div>
+<div class="pCellBody"><a name="wp1082508"> </a>
+For the monitoring &#8220;initiator&#8221;, &#8220;STMO&#8221; replaces &#8220;ME2Q&#8221; stage since they are at the same point.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081481"> </a>
+Q2ME
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081483"> </a>
+ Before a message is received from the IPC. It could be a request or reply message
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081485"> </a>
+ME2NET
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081487"> </a>
+Before a message sent to the network. It only applies to GWTDOMAIN. It could be a request message or reply message.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081489"> </a>
+NET2ME
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081491"> </a>
+After a message is received from the network. It only applies to GWTDOMAIN. It could be a request message or reply message.
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</ul></div>
+<p class="pBody"><a name="wp1075663"> </a>
+<a href="tsamprogbuild.html#wp1075664">Listing&#160;3-11</a> displays a judge monitoring stage example.
+</p>
+<div class="pCodeTitle"><a name="wp1075664"> </a>
+Listing&#160;3-11	   Judge Monitoring Stage
+</div> <a name="wp1083453"> </a><div class="pPreformatted"><pre>{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;char *stage;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;FLDLEN32 len;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;stage = Ffind32(*obuf, TA_MONSTAGE,0,&amp;len);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (stage != NULL ) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (strcmp(stage,&#8221;STMO&#8221;) == 0 ) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* ... */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}else if (strcmp(stage,&#8221;Q2ME&#8221; == 0 ) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* ... */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* other processment */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;}&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br />}</pre></div><p class="pBody"><a name="wp1075677"> </a>
+	For &#8220;STRING&#8221; field type, we recommend to use &#8220;Ffind32&#8221; routine to get a more fast process.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1075678"> </a>Determine the message type</li>
+<p class="pBodyRelative"><a name="wp1083777"> </a>
+For an application message transmitted in the Oracle Tuxedo system, it has two choice, request message or reply message. The field TA_MONMSGTYPE indicates the message type.
+</p>
+</ul></div>
+<p class="pBody"><a name="wp1083778"> </a>
+<a href="tsamprogbuild.html#wp1083782">Table&#160;3-5</a> lists the TA_MONMSGTYPE values.
+</p>
+<p class="pGraphic"><a name="wp1083797"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1083782table1083779"><caption><a name="wp1083782"> </a>
+Table 3-5  TA_MONMSGTYPE Values
+
+</caption>
+
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1083786"> </a>
+Value
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1083788"> </a>
+Description
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083790"> </a>
+ARQ
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083792"> </a>
+Request Message
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083794"> </a>
+ARP
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083796"> </a>
+Reply Message
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1075698"> </a>Determine current process location</li>
+<p class="pBodyRelative"><a name="wp1075699"> </a>
+The monitoring points always are located in processes of Oracle Tuxedo applications. So understand current process is important. Oracle TSAM Plus framework uses the fields TA_DOMAINID, TA_PID, TA_LMID,TA_MONPROCNAME,TA_GROUPNAME and TA_SRVID (as defined in <a href="tsamprogbuild.html#wp1083870">Table&#160;3-6</a>) to tell the process location.
+</p>
+<p class="pGraphic"><a name="wp1083898"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1083870table1083867"><caption><a name="wp1083870"> </a>
+Table 3-6  Current Process Location Fields
+
+</caption>
+
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1083874"> </a>
+Format
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1083876"> </a>
+Description
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083878"> </a>
+TA_DOMAINID
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084621"> </a>
+The domain identifier. Its format is: domainid: <code class="cCode">mastername:ipckey</code>.
+</div>
+<div class="pSmartList1TableBullet"><ul class="SmartList1TableBullet">
+<li><a name="wp1084623"> </a>domainid is the DOMAINID configured in UBBCONFIG. If it is not set, TUXDOM is used.</li>
+<li><a name="wp1084624"> </a>Mastername is the master machine name.</li>
+<li><a name="wp1084625"> </a>Ipckey is the key in UBBCONFIG</li>
+</ul></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083884"> </a>
+TA_PID
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083888"> </a>
+Process ID
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083893"> </a>
+TA_LMID
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083897"> </a>
+Logic machine ID
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084690"> </a>
+TA_MONPROCNAME
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084692"> </a>
+Process name.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084686"> </a>
+TA_GROUPNAME
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084688"> </a>
+Oracle Tuxedo server group name
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084682"> </a>
+TA_SRVID
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084684"> </a>
+Oracle Tuxedo server ID.
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</ul></div>
+<a name="wp1083899"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Not all metrics available for certain processes. For example, for client processes, TA_SRVID is not available.</td>
+</tr>
+</table>
+
+<h5 class="pHeading4"><a name="wp1084710"> </a>
+Check Commonly Used Metrics
+</h5>
+<p class="pBody"><a name="wp1083923"> </a>
+After get the necessary information on the monitoring stage, message type and process location, the next step is to check the common used metrics also carried in the FML32 buffer. The metrics will be available depending on the conditions mentioned previously.
+</p>
+<p class="pBody"><a name="wp1083924"> </a>
+<a href="tsamprogbuild.html#wp1083927">Table&#160;3-7</a> lists the commonly used metrics.
+</p>
+<p class="pGraphic"><a name="wp1084118"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1083927table1083925"><caption><a name="wp1083927"> </a>
+Table 3-7  Commonly Used Metrics
+
+</caption>
+
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1083935"> </a>
+Field Name
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1083937"> </a>
+Type
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1083939"> </a>
+Description
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1083941"> </a>
+Stage
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083943"> </a>
+TA_MONCORRID
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083945"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083947"> </a>
+The correlation ID of this monitored call path
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083949"> </a>
+All
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083951"> </a>
+TA_MONMSGSIZE
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083953"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083955"> </a>
+The message size of current message
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083960"> </a>
+All<a href="#wp1083959" title="Footnote 1"><sup class="Footnote">1</sup></a>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083962"> </a>
+TA_MONMSGQUEUED
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083964"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083966"> </a>
+How many message queued on the server request IPC queue 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083968"> </a>
+Request Message
+</div>
+<div class="pCellBody"><a name="wp1083969"> </a>
+Q2ME
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083971"> </a>
+TA_MONSTARTTIMESEC
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083973"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083975"> </a>
+The second part of timestamp when this call path monitoring is initiated. It is the number of seconds since epoch.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083977"> </a>
+All
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083979"> </a>
+TA_MONSTARTTIMEUSEC
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083981"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083983"> </a>
+The microsecond part of the startup timestamp. It is always with TA_MONSTARTUTIMESEC to provide a more fine-grained time measurement. 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083985"> </a>
+All
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083987"> </a>
+TA_MONLASTTIMESEC
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083989"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083991"> </a>
+The second part of timestamp when the monitored message entering/leaving a transport. It is the number of seconds since epoch. A transport is the way carrying message, such as IPC queue and network. A typical usage is,
+</div>
+<div class="pSmartList1TableBullet"><ul class="SmartList1TableBullet">
+<li><a name="wp1083992"> </a>When a request is fetched from IPC queue, the TA_LASTTIMESEC indicates the timestamp when the request message was put into queue.</li>
+<li><a name="wp1083993"> </a>When a request is fetched from network, the TA_LASTTIMESEC indicates the timestamp when the peer process sent the message to network.</li>
+</ul></div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083995"> </a>
+All
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083997"> </a>
+TA_MONLASTTIMEUSEC
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1083999"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084001"> </a>
+The microsecond part of the last time timestamp. It is always with TA_MONLASTTIMESEC to provide a more fin-grained time measurement.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084003"> </a>
+All
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084005"> </a>
+TA_MONLGTRID
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084007"> </a>
+string 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084009"> </a>
+The GTRID of current monitoring points if the call path involved in transaction. 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084011"> </a>
+Monitoring points involved transaction
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084013"> </a>
+TA_MONCLTADDR
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084015"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084017"> </a>
+The remote client address. If the monitoring is started from an Oracle Tuxedo workstation client, WSH, JSH or GWWS, TSAM Plus framework will attach the client ip address and port number to call path information propagation. The format is //ip address:port.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084019"> </a>
+All
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084021"> </a>
+TA_MONDEPTH
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084023"> </a>
+short
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084025"> </a>
+The call path depth. A hop from one service to another is deemed the depth increased one. The start value at the initiator is 0.The detail can be referred at TSAM Plus User Guide.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084027"> </a>
+All
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084029"> </a>
+TA_MONERRNO
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084031"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084033"> </a>
+The error number set by Oracle Tuxedo infrastructure.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084035"> </a>
+Reply Message
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084037"> </a>
+TA_MONURCODE
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084039"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084041"> </a>
+The urcode of tpreturn.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084043"> </a>
+Reply Message
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084045"> </a>
+TA_MONSVCNAME
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084047"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084049"> </a>
+The service name of current monitoring points involved. For request message, it is the target service name and for reply message, it is the service which returns the reply.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084051"> </a>
+All
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084053"> </a>
+TA_MONHOSTSVC
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084055"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084057"> </a>
+The service name of current service routine
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084059"> </a>
+Monitoring points in a application server.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084061"> </a>
+TA_MONCALLFLAG
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084063"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084065"> </a>
+The call flags set in tpcall/tpacall
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084067"> </a>
+Request Message 
+</div>
+<div class="pCellBody"><a name="wp1084068"> </a>
+ME2Q
+</div>
+<div class="pCellBody"><a name="wp1084069"> </a>
+STMO
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084071"> </a>
+TA_MONCALLMODE
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084073"> </a>
+short
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084075"> </a>
+The call type, 1 - tpacall, 2 - tpcall, 3 - tpforward
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084078"> </a>
+Request Message
+</div>
+<div class="pCellBody"><a name="wp1084079"> </a>
+ME2Q
+</div>
+<div class="pCellBody"><a name="wp1084080"> </a>
+STMO
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084082"> </a>
+TA_MONQID
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084084"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084086"> </a>
+The request queue id of server which provides current service. Its format is &#8220;physical queue key - Oracle Tuxedo logic queue name&#8221;. For example,
+</div>
+<div class="pCellBody"><a name="wp1084087"> </a>
+14444547-00004.00018
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084089"> </a>
+Request Message
+</div>
+<div class="pCellBody"><a name="wp1084090"> </a>
+Q2ME
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084092"> </a>
+TA_MONLDOM
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084094"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084096"> </a>
+The local domain configuration. Its format is ldom:domainid. For example DOM1:FINANCE. The detail information of the &#8220;LDOM&#8221; and &#8220;DOMAINID&#8221; can be referred Oracle Tuxedo Manual of DMCONFIG.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084098"> </a>
+ME2NET
+</div>
+<div class="pCellBody"><a name="wp1084099"> </a>
+NET2ME
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084101"> </a>
+TA_MONRDOM
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084103"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084105"> </a>
+The remote domain configuration. Its format is same with TA_MONLDOM but the values are for remote domain.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084107"> </a>
+ME2NET
+</div>
+<div class="pCellBody"><a name="wp1084108"> </a>
+NET2ME
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084110"> </a>
+TA_MONWSENDPOINT
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084112"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084114"> </a>
+The web service end point URL of GWWS.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084116"> </a>
+Reply Message
+</div>
+<div class="pCellBody"><a name="wp1084117"> </a>
+ME2Q
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084732"> </a>
+TA_MONCPUTIME
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084734"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084736"> </a>
+CPU time used for service execution.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1084756"> </a>
+Reply Message
+</div>
+<div class="pCellBody"><a name="wp1084738"> </a>
+ME2Q
+</div>
+</td>
+</tr>
+</table>
+
+<table class="footnote" id="SummaryNotReq1">  <tr>
+    <td><p class="pTableFootnote"><a name="wp1083959"> </a>
+<a href="#wp1083960" title="Footnote 1"><sup class="Footnote">1</sup></a>For some self-describe buffer types, such as STRING, the size might be zero.
+</p>
+
+</td>
+  </tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h5 class="pHeading4"><a name="wp1075943"> </a>
+Generate Call Path Correlation ID
+</h5>
+<p class="pBody"><a name="wp1075944"> </a>
+The correlation ID must be given by the plug-in at the monitoring initiating stage, which is the <code class="cCode">TA_MONSTAGE</code> value is &#8220;<code class="cCode">STMO</code>&#8221;. The Oracle TSAM Plus framework sets<code class="cCode"> PI_CORRID_REQUIRED</code> in the <code class="cCode">MONITORCTL mon_flag</code>. If no correlation ID is given, an error is reported. The Oracle TSAM Plus default plug-in provides the correlation ID also. Two scenarios need to consider,
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1075945"> </a>Working with the Oracle TSAM Plus default plug-in.</li>
+<p class="pBodyRelative"><a name="wp1075946"> </a>
+The custom plug-in can skip the correlation ID generation. If the custom plug-in wants to overwrite the correlation ID generated by the Oracle TSAM Plus default plug-in, the interceptor sequence of custom plug-in must come after the Oracle TSAM Plus default plug-in.
+</p>
+<li><a name="wp1075947"> </a>Working without The Oracle TSAM Plus default plug-in</li>
+<p class="pBodyRelative"><a name="wp1083492"> </a>
+If the Oracle TSAM Plus default plug-in is removed from the Oracle Tuxedo plug-in framework, the custom plug-in must supply the correlation ID i. For example:
+</p>
+<a name="wp1083493"> </a><div class="pPreformatted"><pre>if (monctl-&gt;mon_flag &amp; PI_CORRID_REQUIRED) {</pre></div><a name="wp1083494"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;strcpy(monctl-&gt;corr_id, mygetid());<br />}</pre></div></ul></div>
+<p class="pBody"><a name="wp1075952"> </a>
+&#8220;<code class="cCode">mygetid(</code>)&#8221; is an assumed ID generation routine. The length of the new ID must not exceed the size of corr_id of MONITORCTL.
+</p>
+<p class="pBody"><a name="wp1075953"> </a>
+To help ID generation, the custom plug-in can use a Oracle TSAM Plus framework service to get a correlation ID. <a href="tsamprogbuild.html#wp1080227">Listing&#160;3-12</a> displays an ID generation example.
+</p>
+<div class="pCodeTitle"><a name="wp1080227"> </a>
+Listing&#160;3-12	   ID Generation Example
+</div> <a name="wp1075954"> </a><div class="pPreformatted"><pre>extern int _TMDLLENTRY  tmmon_getcorrid(char *obuf, int len); <br />...</pre></div><a name="wp1075956"> </a><div class="pPreformatted"><pre>if (monctl-&gt;mon_flag &amp; PI_CORRID_REQUIRED) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;char new_corrid[MAXCORRIDLEN];<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (tmmon_getcorrid(new_corrid, sizeof(new_corrid)) == 0 ) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;strpcy(monctl-&gt;corr_id,new_corrid);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br />}<br />...</pre></div><a name="wp1075963"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>When using the Oracle TSAM Plus framework correlation ID generation routine, libtsam must be linked with the plug-in.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp1075964"> </a>
+Service Monitoring Plug-in Routine
+</h4>
+<p class="pBody"><a name="wp1075965"> </a>
+Service monitoring is a straightforward procedure. The data collection points are before and after the service routine invocation. The plug-in is invoked when a request is to be executed and a reply to be sent back to client.
+</p>
+<h5 class="pHeading4"><a name="wp1075966"> </a>
+A Basic Implementation
+</h5>
+<p class="pBody"><a name="wp1082198"> </a>
+In this example, the routine prints out the passed FML32 buffer:
+</p>
+<a name="wp1075967"> </a><div class="pPreformatted"><pre>static TM32I _TMDLLENTRY print_svc(perf_mon_1 * ip,FBFR32 **buf, MONITORCTL * monctl, TM32U flags)</pre></div><a name="wp1075968"> </a><div class="pPreformatted"><pre>{</pre></div><a name="wp1075969"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;Fprint32(*buf);</pre></div><a name="wp1075970"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;return(0);</pre></div><a name="wp1084149"> </a><div class="pPreformatted"><pre>}</pre></div><p class="pBody"><a name="wp1084150"> </a>
+.
+</p>
+<h5 class="pHeading4"><a name="wp1084181"> </a>
+Check Commonly Used Metrics
+</h5>
+<p class="pBody"><a name="wp1084182"> </a>
+<a href="tsamprogbuild.html#wp1086303">Table&#160;3-8</a> lists the service monitoring plug-in routine metrics.
+</p>
+<p class="pGraphic"><a name="wp1084261"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1086303table1084183"><caption><a name="wp1086303"> </a>
+Table 3-8  Service Monitoring Plug-in Routine Metrics
+
+</caption>
+
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1086309"> </a>
+Field Name
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1086311"> </a>
+Type
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1086313"> </a>
+Description
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086315"> </a>
+TA_MONMSGWAITTIME
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086317"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086319"> </a>
+The request message waiting time in server&#8217;s request IPC queue before execution.
+</div>
+<div class="pCellBody"><a name="wp1086320"> </a>
+The unit is millisecond. The waiting time is computed in two scenarios,
+</div>
+<div class="pSmartList1TableBullet"><ul class="SmartList1TableBullet">
+<li><a name="wp1086321"> </a>Oracle Tuxedo 12cR1 and later is the request sender </li>
+<p class="pBodyRelative"><a name="wp1086322"> </a>
+The waiting time is computed by considering the last time stamp of transport to this service. The waiting time is exact.
+</p>
+<li><a name="wp1086323"> </a>Pre-Oracle Tuxedo 12cR1 release sender.</li>
+<p class="pBodyRelative"><a name="wp1086324"> </a>
+The waiting time is computed based on average queue length and last service execution time and the dispatching thread number. This is an approximate value. It only applies to a server which provides similar services and the execution time is steady.
+</p>
+</ul></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086326"> </a>
+TA_MONMSGSIZE
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086328"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086330"> </a>
+The message size of reply message. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086332"> </a>
+TA_MONMSGQUEUED
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086334"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086336"> </a>
+The number of messages queued on the server request IPC queue currently.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086338"> </a>
+TA_MONLASTTIMESEC
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086340"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086342"> </a>
+The number of seconds since epoch when the service begin to execute
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086344"> </a>
+TA_MONLASTTIMEUSEC
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086346"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086348"> </a>
+The microsecond seconds since time seconds since epoch. It is used with TA_MONLASTTIMESEC
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086350"> </a>
+TA_MONERRNO
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086352"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086354"> </a>
+Oracle Tuxedo return error code, that is tperrno
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086356"> </a>
+TA_MONURCODE
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086358"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086360"> </a>
+The urcode of tpreturn.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086362"> </a>
+TA_MONEXECTIME
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086364"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086366"> </a>
+The response time in millisecond of current service execution. It is computed by the Oracle TSAM Plus framework. Plug-in can also get the current time and the last time timestamp.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086368"> </a>
+TA_MONCPUTIME
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086370"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086372"> </a>
+How much CPU time is used of current service execution. It is in milliseconds.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086374"> </a>
+TA_MONSVCNAME
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086376"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086378"> </a>
+The service name.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086380"> </a>
+TA_MONLOCATION
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086382"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1086384"> </a>
+The process location of current process. It has same meaning in call path monitoring.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1076053"> </a>
+System Server Monitoring Plug-in Routine
+</h4>
+<p class="pBody"><a name="wp1076054"> </a>
+Oracle TSAM Plus supports several types of Oracle Tuxedo system servers monitoring: GWTDOMAIN, BRIDGE, and GWWS. The monitoring focus on the throughput, outstanding request number and message number queued on network. The plug-in is invoked periodically by the Oracle TSAM Plus framework. The interval is specified by the monitoring policy. Data collection occurs on the on-going server operations.
+</p>
+<h5 class="pHeading4"><a name="wp1076055"> </a>
+A Basic Implementation
+</h5>
+<p class="pBody"><a name="wp1082279"> </a>
+In this example, the routine prints out the passed FML32 buffer:
+</p>
+<a name="wp1076056"> </a><div class="pPreformatted"><pre>static TM32I _TMDLLENTRY print_sys(perf_mon_1 * ip,FBFR32 **buf, MONITORCTL * monctl, TM32U flags)</pre></div><a name="wp1076058"> </a><div class="pPreformatted"><pre>{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;Fprint32(*buf);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;return(0);<br />}</pre></div><h5 class="pHeading4"><a name="wp1082264"> </a>
+Check Commonly Used Metrics
+</h5>
+<p class="pBody"><a name="wp1085077"> </a>
+<a href="tsamprogbuild.html#wp1085081">Table&#160;3-9</a> lists the system server monitoring plug-in routine metrics.
+</p>
+<p class="pGraphic"><a name="wp1085168"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1085081table1085078"><caption><a name="wp1085081"> </a>
+Table 3-9  System Server Monitoring Plug-in Routine Metrics
+
+</caption>
+
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1085087"> </a>
+Field Name
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1085089"> </a>
+Type
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1085091"> </a>
+Description
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085093"> </a>
+TA_MONLINKNUM
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085095"> </a>
+short
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085097"> </a>
+The number of network link connected to current server. If the value is more than 1, then the following statistics data on network link are in FML occurrences style. For example, TA_MONLINKADDR[0] is belong to the first network link, TA_MONLINKADDR[1] is belong to the second network link etc. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085099"> </a>
+TA_MONLINKSTATUS
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085101"> </a>
+short
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085103"> </a>
+The status of the network link, three possible values, 1 - initialize stage. 0 - connected and is ok. -1 connection lost.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085105"> </a>
+TA_MONNUMPEND
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085107"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085109"> </a>
+The number of messages queued on network buffer for this network link. The buffer is for Oracle Tuxedo network layer instead of system network stack.
+</div>
+<div class="pCellBody"><a name="wp1085110"> </a>
+This is a snapshot value reflecting the number situation when plug-in is invoked.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085112"> </a>
+TA_MONBYTESPEND
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085114"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085116"> </a>
+The number of messages bytes queued on network buffer. It is related with TA_MONNUMPEND but computing the data volume
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085118"> </a>
+TA_MONNUMWAITRPLY
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085120"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085122"> </a>
+The outstanding request number on this network link. That means how many request message are waiting for reply. It only applies to GWTDOMAIN. BRIDGE does not support this metric.
+</div>
+<div class="pCellBody"><a name="wp1085123"> </a>
+This is a snapshot value.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085125"> </a>
+TA_MONACCNUM
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085127"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085129"> </a>
+The accumulated message number for this network link between current plug-in invocation and last plug-in invocation which controlled by the &#8220;sysinterval&#8221; policy. 
+</div>
+<div class="pCellBody"><a name="wp1085130"> </a>
+This is a throughput value reflecting the accumulated information between an interval.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085132"> </a>
+TA_MONACCBYTES
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085134"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085136"> </a>
+The accumulated message bytes. It is related TA_MONACCNUM but computing the data volume. 
+</div>
+<div class="pCellBody"><a name="wp1085137"> </a>
+This is a throughput value.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085139"> </a>
+TA_MONLINKADDR
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085141"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085143"> </a>
+The link address, for GWTDOMAIN, it is the RDOM defined in UBBCONFIG. For BRIDGE, it is the remote host name.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085145"> </a>
+TA_MONINRPCFAIL
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085147"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085149"> </a>
+The number of RPC failed requests for inbound of GWWS.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085151"> </a>
+TA_MONOUTRPCFAIL
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085153"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085155"> </a>
+The number of RPC failed request for outbound of GWWS.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085157"> </a>
+TA_MONINBOUNDPEND
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085159"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085161"> </a>
+The number of pending request waiting for reply for inbound of GWWS.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085163"> </a>
+TA_MONOUTBOUNDPEND
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085165"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1085167"> </a>
+The number of pending request waiting for reply for outbound of GWWS
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1085169"> </a>
+Transaction Monitoring Plug-in Routine
+</h4>
+<p class="pBody"><a name="wp1076136"> </a>
+Oracle TSAM Plus also traces critical routines invocation in XA transaction. The scope includes <code class="cCode">tpbegin</code>,<code class="cCode">tpcommit</code>, <code class="cCode">tpabort</code>,xa_xxx calls and GWTDOMAINS transaction routines. 
+</p>
+<h5 class="pHeading4"><a name="wp1076137"> </a>
+A Basic Implementation
+</h5>
+<p class="pBody"><a name="wp1081934"> </a>
+In this example, the routine prints out the passed FML32 buffer:
+</p>
+<a name="wp1076138"> </a><div class="pPreformatted"><pre>static TM32I _TMDLLENTRY print_tran(perf_mon_1 * ip,FBFR32 **buf, MONITORCTL * monctl, TM32U flags)</pre></div><a name="wp1076140"> </a><div class="pPreformatted"><pre>{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;Fprint32(*buf);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;return(0);<br />}</pre></div><h5 class="pHeading4"><a name="wp1076144"> </a>
+Check Commonly Used Metrics
+</h5>
+<p class="pBody"><a name="wp1081291"> </a>
+<a href="tsamprogbuild.html#wp1075596">Listing&#160;3-10</a> lists the commonly used transaction monitoring plug-in routine metrics.
+</p>
+<p class="pGraphic"><a name="wp1076200"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1076147table1076145"><caption><a name="wp1076147"> </a>
+Table 3-10  Transaction Monitoring Plug-in Routine Metrics
+
+</caption>
+
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1076153"> </a>
+Field Name
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1076155"> </a>
+Type
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1076157"> </a>
+Description
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1076159"> </a>
+TA_MONXANAME
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1076161"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1076163"> </a>
+The routine name of a XA transaction, such as &#8220;tpbegin&#8221;, &#8220;xa_commit&#8221; etc.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1076165"> </a>
+TA_MONXACODE
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1076167"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1076169"> </a>
+The routine return code
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1076171"> </a>
+TA_MONEXECTIME
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1076173"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1076175"> </a>
+The routine execution time in millisecond.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1076177"> </a>
+TA_MONRMID
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1076179"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1076181"> </a>
+The resource manager instance ID. It only applies to xa_xxx calls
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1076183"> </a>
+TA_MONLGTRID
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1076185"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1076187"> </a>
+The global transaction ID of current transaction
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1076189"> </a>
+TA_MONRGTRID
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1076191"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1076193"> </a>
+The parent transaction&#8217;s GTRID. It only applies to GWTDOMAIN when it is a network subordinator.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1076195"> </a>
+TA_MONLOCATION
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1076197"> </a>
+string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1076199"> </a>
+The process location of current process. It has same meaning in call path monitoring.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1076201"> </a>
+Configure the Plug-in to Oracle Tuxedo
+</h4>
+<a name="wp1076202"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The plug-in will run in Oracle Tuxedo infrastructure. It must be well tested before configure to Oracle Tuxedo production environment.</td>
+</tr>
+</table>
+
+<h5 class="pHeading4"><a name="wp1076203"> </a>
+Register to Oracle Tuxedo
+</h5>
+<p class="pBody"><a name="wp1076204"> </a>
+Oracle Tuxedo uses the <code class="cCode">epifreg</code> command to register the plug-ins to the Oracle Tuxedo registry so that the infrastructure can invoke the plug-in at run time. Oracle TSAM Plus uses the Oracle TSAM Plus framework to invoke the plug-in. 
+</p>
+<p class="pBody"><a name="wp1080212"> </a>
+<a href="tsamprogbuild.html#wp1080216">Listing&#160;3-13</a> shows how the <code class="cCode">epifreg</code> command is used to invoke a plug-in.
+</p>
+<div class="pCodeTitle"><a name="wp1080216"> </a>
+Listing&#160;3-13	   Using epifreg to Invoke a Plug-in
+</div> <a name="wp1076206"> </a><div class="pPreformatted"><pre>epifreg -r -p abc/tuxedo/tsam -i engine/performance/monitoring \</pre></div><a name="wp1076207"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;-o SYSTEM -v 1.0 -f /test/abc/customplugin.so -e plugin_entry</pre></div><a name="wp1076208"> </a><div class="pPreformatted"><pre>epifregedt -s -k &quot;SYSTEM/impl/bea/performance/monfan&quot; \</pre></div><a name="wp1076209"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;-a InterceptionSeq=bea/performance/monshm \</pre></div><a name="wp1076210"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;-a InterceptionSeq=abc/tuxedo/tsam </pre></div><p class="pBody"><a name="wp1076211"> </a>
+In this, there are two steps required to register the custom plug-in Oracle Tuxedo. 
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1076212"> </a>Using &#8220;epifreg&#8221; to register the custom implementation to Oracle Tuxedo.</li>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp1076213"> </a>&#8220;<code class="cCode">-p</code>&#8221; option specifies the implementation id and it must be consistent the value specified in source code.</li>
+<li><a name="wp1076214"> </a>&#8220;<code class="cCode">-v</code>&#8221; indicates the version number.</li>
+<li><a name="wp1076215"> </a>&#8220;<code class="cCode">-f</code>&#8221; specifies the dynamic library path.</li>
+<li><a name="wp1076216"> </a>&#8220;<code class="cCode">-e</code>&#8221; specifies the &#8220;entry&#8221; routine described in the &#8220;General Steps&#8221; section.</li>
+</ol></div>
+<li><a name="wp1076218"> </a>Using &#8220;<code class="cCode">epifregedt</code>&#8221; to change the fan-out plug-in &#8220;<code class="cCode">InterceptionSeq</code>&#8221; attribute. </li>
+<p class="pBodyRelative"><a name="wp1076219"> </a>
+Oracle TSAM Plus supports a Fan-out plug-in mechanism which means multiple plug-ins can work together. Oracle TSAM Plus Agent provides the Fan-out plug-in and a default interceptor plug-in. The custom plug-in is an additional interceptor plug-in. 
+</p>
+<p class="pBodyRelative"><a name="wp1081941"> </a>
+The &#8220;-a <code class="cCode">InterceptionSeq=xxx</code>&#8221; option tells the Fan-out plug-in invokes the interceptor plug-in using the specified order. &#8220;xxx&#8221; is the implementation id. In this example, the Oracle Tuxedo default interceptor plug-in implementation ID, &#8220;<code class="cCode">bea/performance/monshm</code>&#8221;, is invoked before the custom plug-in implementation ID &#8220;<code class="cCode">abc/tuxedo/tsam</code>&#8221;. 
+</p>
+<li><a name="wp1076220"> </a>If you have multiple custom plug-in developed, you need to register them first with &#8220;epifreg&#8221;, then modify the invocation sequence with &#8220;<code class="cCode">epifregedt</code>&#8221; with the proper &#8220;<code class="cCode">InterceptionSeq</code>&#8221; sequence.</li>
+</ol></div>
+<h5 class="pHeading4"><a name="wp1076221"> </a>
+Un-register from Oracle Tuxedo
+</h5>
+<p class="pBody"><a name="wp1076222"> </a>
+&#8220;<code class="cCode">epifunreg</code>&#8221; can be used to un-register a specified plug-in, for example,
+</p>
+<a name="wp1076223"> </a><div class="pPreformatted"><pre>epifunreg -p abc/tuxedo/tsam</pre></div><p class="pBody"><a name="wp1076224"> </a>
+After unregistering the custom plug-in, you must use &#8220;<code class="cCode">epifregedt</code>&#8221; to modify the Fan-out plug-in invocation again based on current available plug-ins. For example:
+</p>
+<a name="wp1076225"> </a><div class="pPreformatted"><pre>epifregedt -s -k &quot;SYSTEM/impl/bea/performance/monfan&quot; \</pre></div><a name="wp1076226"> </a><div class="pPreformatted"><pre>        -a InterceptionSeq=bea/performance/monshm</pre></div><a name="wp1076227"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>It is strongly recommended to register/unregister/modify the plug-in after shutting down an Oracle Tuxedo application. </td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1076228"> </a>
+Oracle TSAM Plus Agent Plug-in Development/Deployment Notes
+</h2><div class="pSmartList1Bullet"><ul>
+<li><a name="wp1081860"> </a>Do not use Oracle Tuxedo ATMI calls in the plug-in except for the FML32 operations <code class="cCode">tpalloc</code>/<code class="cCode">tprealloc/tpfree</code> and <code class="cCode">tptypes</code>. The monitoring points are embedded in the Oracle Tuxedo communication framework. Embedded ATMI calls may compromise current Oracle Tuxedo context.</li>
+<li><a name="wp1081861"> </a>You cannot free FML32 buffers passed by the plug-in. </li>
+<li><a name="wp1082653"> </a>If there is any information returned to the Oracle TSAM Plus framework, such as new correlation ID, the latest plug-in changes take effect.</li>
+<li><a name="wp1076233"> </a>Do not change the MONITORCTL udata. It is a read only interception of application messages. Any modification will result un-expected behavior.</li>
+</ul></div>
+ 
+<br/>
+    <table id="SummaryNotReq3" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="tsamprogbuild.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="tsamprogdatcol.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq9" src="/global_resources/images/nexttop_disabled.gif" border="0" alt="Next" />
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

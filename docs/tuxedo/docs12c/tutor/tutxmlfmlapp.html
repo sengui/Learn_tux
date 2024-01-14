@@ -1,0 +1,465 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/tutor/fm/tutxmlfmlapp.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:50:38" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Tutorial for xmlfmlapp: A Full C XML/FML32 Conversion Application</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Tutorials for Developing Oracle Tuxedo ATMI Applications
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="tutsqtxml.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next_grey1.gif" border="0" alt="Next" />&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/tutor.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1319880"> </a>
+Tutorial for xmlfmlapp: A Full C XML/FML32 Conversion Application
+</h1>
+<p class="pBody"><a name="wp1306068"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1293912"> </a><a href="tutxmlfmlapp.html#wp1318668">What Is xmlfmlapp?</a></li>
+<li><a name="wp1294455"> </a><a href="tutxmlfmlapp.html#wp1178534">Familiarizing Yourself with xmlfmlapp</a></li>
+<li><a name="wp1297469"> </a><a href="tutxmlfmlapp.html#wp1181492">Preparing xmlfmlapp Files and Resources</a></li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1297470"> </a><a href="tutxmlfmlapp.html#wp1318588">Step 1: Copy the xmlfmlapp Files to a New Directory</a></li>
+<li><a name="wp1318625"> </a><a href="tutxmlfmlapp.html#wp1311580">Step 2: Set Environment Variables</a></li>
+<li><a name="wp1313129"> </a><a href="tutxmlfmlapp.html#wp1319046">Step 3: Create FML32 Field Table</a></li>
+<li><a name="wp1313227"> </a><a href="tutxmlfmlapp.html#wp1312743">Step 4: Build the xmlfmlapp Binaries</a></li>
+<li><a name="wp1297562"> </a><a href="tutxmlfmlapp.html#wp1078608">Step 5: Edit the Configuration File</a></li>
+<li><a name="wp1297567"> </a><a href="tutxmlfmlapp.html#wp1078701">Step 6: Create the Binary Configuration File</a></li>
+</ul></div>
+<li><a name="wp1297474"> </a><a href="tutxmlfmlapp.html#wp1182599">Running xmlfmlapp</a></li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1320373"> </a><a href="tutxmlfmlapp.html#wp1092589">Step 1: xmlfmlapp Boot Preparation</a></li>
+<li><a name="wp1320380"> </a><a href="tutxmlfmlapp.html#wp1092643">Step 2: Boot xmlfmlapp</a></li>
+<li><a name="wp1320397"> </a><a href="tutxmlfmlapp.html#wp1078829">Step 3: Test xmlfmlapp Services</a></li>
+<li><a name="wp1320417"> </a><a href="tutxmlfmlapp.html#wp1082419">Step 4: Shut Down xmlfmlapp</a></li>
+</ul></div>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1318668"> </a>
+What Is xmlfmlapp?
+</h2><p class="pBody"><a name="wp1318725"> </a>
+<code class="cCode">xmlfmlapp</code> is a sample ATMI stock application that demonstrates how to query, buy and sell stocks via client request. The application runs three services, &quot;<code class="cCode">QUERY</code>&quot;, &quot;<code class="cCode">BUY</code>&quot; and &quot;<code class="cCode">SELL</code>&quot; on a single server. These three services are written using C language and accept FML32 buffers for input and output.
+</p>
+<p class="pBody"><a name="wp1319594"> </a>
+This documentation leads you, step-by-step, through the procedures you must perform to develop the <code class="cCode">xmlfmlapp</code> application. Once you have &#8220;developed&#8221; <code class="cCode">xmlfmlapp</code> with this tutorial, you will be ready to start developing applications of your own. 
+</p>
+<p class="pBody"><a name="wp1319595"> </a>
+The <code class="cCode">xmlfmlapp</code> tutorial is presented in three sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1319599"> </a><a href="tutxmlfmlapp.html#wp1178534">Familiarizing Yourself with xmlfmlapp</a></li>
+<li><a name="wp1319603"> </a><a href="tutxmlfmlapp.html#wp1181492">Preparing xmlfmlapp Files and Resources</a></li>
+<li><a name="wp1319607"> </a><a href="tutxmlfmlapp.html#wp1182599">Running xmlfmlapp</a></li>
+</ul></div>
+<a name="wp1079473"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This information is geared towards system users with some experience in application development, administration, or programming. We assume some familiarity with the Oracle Tuxedo system software. A development license is required to build Oracle Tuxedo applications.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1178534"> </a>
+Familiarizing Yourself with xmlfmlapp
+</h2><p class="pBody"><a name="wp1320504"> </a>
+This sample demonstrates how to use XML to FML32 automatic and on-demand conversion functions to operate XML data instead of using Xerces parser APIs. To use Xerces parser APIs in a Tuxedo client/server application written in C, a dynamic library needs to be written using CPP and wrapped for use with a C program (for more information, see <a href="tutsqtxml.html#wp1293923">What Is XMLSTOCKAPP?</a>). Using XML to FML32 on-demand and automatic conversion functionality, provides the developer with the freedom to manipulate FML32 buffer data as desired. For more information on the XML to FML/FML32 on-demand and automatic conversion functionality, see <span class="cHyperlink">
+Converting XML Data </span><a href="../pgc/pgbuf.html"></a>To and From FML/FML32 Buffers in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em>.
+</p>
+<p class="pBody"><a name="wp1320508"> </a>
+In this sample, the client will send requests (query, buy or sell) to corresponding services. The client sends and receives XML buffers. To communicate with server, all three services use the &quot;BUFTYPECONV=XML2FML32&quot; parameter, which converts the input XML buffers to FML32 before sending the request to the corresponding service. Before returning information back to the client, this parameter then converts FML32 buffers to XML buffers. The server handles FML32 data directly.
+</p>
+<p class="pBody"><a name="wp1319642"> </a>
+The requesting XML buffer uses a schema to validate the XML document, thus ensuring that the request sends valid data.
+</p>
+<p class="pBody"><a name="wp1319643"> </a>
+The server in this sample reads stock information from an XML document and converts it to an FML32 buffer directly using the <a href="../rf3c/rf3c.html">tpxmltofml32(3c)</a> function. After that, it can get information from this buffer based on requested FML32 data, and returns the required FML32 data.
+</p>
+<p class="pBody"><a name="wp1319638"> </a>
+This documentation provides a tour of the files, client, and services that make up the <code class="cCode">xmlfmlapp</code> application. The following activities for more information about that part of the tour.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1308899"> </a><a href="tutxmlfmlapp.html#wp1308879"><span class="cHyperlink">
+Learning About the xmlfmlapp Files</span></a></li>
+<li><a name="wp1309470"> </a><a href="tutxmlfmlapp.html#wp1183027">TExamining the xmlfmlapp Client</a></li>
+<li><a name="wp1311259"> </a><a href="tutxmlfmlapp.html#wp1181335">Examining the xmlfmlapp Server</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1308879"> </a>
+Learning About the xmlfmlapp Files
+</h3>
+<p class="pBody"><a name="wp1308997"> </a>
+The files that make up the <code class="cCode">xmlfmlapp</code> application are delivered in the <code class="cCode">samples/atmi/xmlfmlapp</code> directory. The <code class="cCode">xmlfmlapp</code> directory contains the following files:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1318777"> </a>One client: stock<code class="cCode">client.c</code></li>
+<li><a name="wp1179840"> </a>One server: <code class="cCode">stockserver.c</code></li>
+<li><a name="wp1318780"> </a>One. xml file to store stock information used by the service: <code class="cCode">stock.xml</code></li>
+<li><a name="wp1318781"> </a>One FML32 field definition file: <code class="cCode">stockflds</code></li>
+<li><a name="wp1185179"> </a>Four .xml client input files:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1314807"> </a><code class="cCode">stock_query_bea.xml</code></li>
+<li><a name="wp1314837"> </a><code class="cCode">stock_query_msft.xml</code></li>
+<li><a name="wp1314838"> </a><code class="cCode">stock_buy_bea.xml</code></li>
+<li><a name="wp1314846"> </a><code class="cCode">stock_sell_msft.xml</code></li>
+</ul></div>
+<li><a name="wp1318822"> </a>One .xml schema file to validate the XML input files: stock_operate.xsd</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1183027"> </a>
+TExamining the xmlfmlapp Client
+</h3>
+<p class="pBody"><a name="wp1180783"> </a>
+In the ATMI client-server architecture of the Oracle Tuxedo system, there are two modes of communication:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1180784"> </a>Request/response mode, which is characterized by the sending of a single request for a service to be performed by the server and getting back a single response.</li>
+<li><a name="wp1180785"> </a>Conversational mode; in this mode a dedicated connection is established between a client (or a server acting like a client) and a server. The connection remains active until terminated. While the connection is active, messages containing service requests and responses can be sent and received between the two participating processes.</li>
+</ul></div>
+<p class="pBody"><a name="wp1309897"> </a>
+The <code class="cCode">xmlfmlapp</code> implements the request/response mode using the following three services: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1318878"> </a><code class="cCode">QUERY</code> - to query a stock price</li>
+<li><a name="wp1318890"> </a><code class="cCode">BUY</code> - to buy stock</li>
+<li><a name="wp1320094"> </a><code class="cCode">SELL</code> - to sell stock.</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1320095"> </a>
+Request/Response Client
+</h4>
+<p class="pBody"><a name="wp1320096"> </a>
+<code class="cCode">stockclient.c</code> is a client program that uses input from the specified XML files. It calls the <code class="cCode">QUERY</code>, <code class="cCode">BUY</code>, and <code class="cCode">SELL</code> services and returns the executed results. As an executable, it is invoked as follows:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1318919"> </a><code class="cCode">stockclient stock_query_bea.xml</code></li>
+<li><a name="wp1318930"> </a><code class="cCode">stockclient stock_buy_bea.xml</code></li>
+<li><a name="wp1318920"> </a><code class="cCode">stockclient stock_query_msft.xml</code></li>
+<li><a name="wp1318947"> </a><code class="cCode">stockclient stock_sell_msft.xml</code></li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1180807"> </a>
+See Also
+</h4>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1180811"> </a><span class="cHyperlink">
+&#8220;What You Can </span><a href="../int/intatm.html"></a>Do Using the ATMI&#8221; in <em class="cEmphasis">Introducing Oracle Tuxedo ATMI</em></li>
+<li><a name="wp1295271"> </a><span class="cHyperlink">
+&#8220;What Are Typed </span><a href="../int/intatm.html"></a>Buffers?&#8221; in <em class="cEmphasis">Introducing Oracle Tuxedo ATMI</em></li>
+<li><a name="wp1180816"> </a>ATMI commands and functions in <em class="cEmphasis">Oracle Tuxedo Command Reference</em> and <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1181335"> </a>
+Examining the xmlfmlapp Server
+</h3>
+<p class="pBody"><a name="wp1318970"> </a>
+ATMI servers are executable processes that offer one or more services. In the Oracle Tuxedo system, they continually accept requests (from processes acting as clients) and dispatch them to the appropriate services. It is the services accessing a resource manager that provide the functionality for which your Oracle Tuxedo system transaction processing application is being developed. Service routines are one part of the application that must be written by the Oracle Tuxedo system programmer (user-defined clients being another part).
+</p>
+<p class="pBody"><a name="wp1318971"> </a>
+The <code class="cCode">QUERY</code> service in the <code class="cCode">xmlfmlapp</code> program accepts FML32 buffers. It uses functions provided in the Application-to-Transaction Monitor Interface (ATMI) to query stock information and then returns the results to the client using FML32 buffers.
+</p>
+<p class="pBody"><a name="wp1318989"> </a>
+The <code class="cCode">BUY</code> service in the <code class="cCode">xmlfmlapp</code> program accepts FML32 buffers. It uses functions provided in the Application-to-Transaction Monitor Interface (ATMI) to buy stock.
+</p>
+<p class="pBody"><a name="wp1318996"> </a>
+The <code class="cCode">SELL</code> service in the <code class="cCode">xmlfmlapp</code> program accepts FML32 buffers. It uses functions provided in the Application-to-Transaction Monitor Interface (ATMI) to sell stock.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1181492"> </a>
+Preparing xmlfmlapp Files and Resources
+</h2><p class="pBody"><a name="wp1318564"> </a>
+This section leads you through the procedures you must complete to create the files and other resources you need to run <code class="cCode">xmlfmlapp</code>.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1318568"> </a><a href="tutxmlfmlapp.html#wp1318588">Step 1: Copy the xmlfmlapp Files to a New Directory</a></li>
+<li><a name="wp1319071"> </a><a href="tutxmlfmlapp.html#wp1311580">Step 2: Set Environment Variables</a></li>
+<li><a name="wp1318595"> </a><a href="tutxmlfmlapp.html#wp1319046">Step 3: Create FML32 Field Table</a></li>
+<li><a name="wp1313622"> </a><a href="tutxmlfmlapp.html#wp1312743">Step 4: Build the xmlfmlapp Binaries</a></li>
+<li><a name="wp1313693"> </a><a href="tutxmlfmlapp.html#wp1078608">Step 5: Edit the Configuration File</a></li>
+<li><a name="wp1318586"> </a><a href="tutxmlfmlapp.html#wp1078701">Step 6: Create the Binary Configuration File</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1318588"> </a>
+Step 1: Copy the xmlfmlapp Files to a New Directory
+</h3>
+<p class="pBody"><a name="wp1318589"> </a>
+It is recommended that you copy the <code class="cCode">xmlfmlapp</code> files to your own directory prior to editing any of the files or running the sample.
+</p>
+<h3 class="pHeading2"><a name="wp1311580"> </a>
+Step 2: Set Environment Variables
+</h3>
+<p class="pBody"><a name="wp1315262"> </a>
+You will need to edit the environment variables file.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1194308"> </a>Ensure that <code class="cCode">TUXDIR</code> is set. If it is not set, execution of the file fails with the following message: </li>
+<a name="wp1078277"> </a><div class="pPreformattedRelative"><pre>TUXDIR: parameter null or not set</pre></div><li><a name="wp1078278"> </a>Set <code class="cCode">TUXDIR</code> to the root directory of your Oracle Tuxedo system directory structure, and export it.</li>
+<li><a name="wp1078279"> </a>Set <code class="cCode">APPDIR</code> to the directory <code class="cCode">{TUXDIR}/samples/atmi/xmlfmlapp</code> which is the directory where <code class="cCode">xmlfmlapp</code> source files are located. <code class="cCode">APPDIR</code> is a directory where the Oracle Tuxedo system looks for your application-specific files. If you copied the <code class="cCode">xmlfmlapp</code> files to a different directory to safeguard the original source files, then enter the directory there. It does not have to be under <code class="cCode">TUXDIR</code>.</li>
+<li><a name="wp1078281"> </a>When you have made all necessary changes to the environment variables file,  execute it as follows:</li>
+<a name="wp1078282"> </a><div class="pPreformattedRelative"><pre>. ./setenv.cmd</pre></div><p class="pBodyRelative"><a name="wp1315391"> </a>
+where <code class="cCode">setenv.cmd</code> is the executable for Windows. Use <code class="cCode">setenv.sh</code> on Unix systems.
+</p>
+</ol></div>
+<h4 class="pHeading3"><a name="wp1078287"> </a>
+Additional Requirements
+</h4>
+<p class="pBody"><a name="wp1311948"> </a>
+<code class="cCode">LD_LIBRARY_PATH</code> must include <code class="cCode">$TUXDIR/lib</code> on systems that use shared libraries, with the exception of HP-UX and AIX.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1079881"> </a>On AIX, set <code class="cCode">LIBPATH</code> instead of <code class="cCode">LD_LIBRARY_PATH</code>. </li>
+<li><a name="wp1079971"> </a>On HP-UX, set <code class="cCode">SHLIB_PATH</code> instead of <code class="cCode">LD_LIBRARY_PATH</code>.</li>
+<li><a name="wp1080104"> </a>If your operating system is Sun Solaris, you need to: put <code class="cCode">/usr/5bin</code> at the beginning of your <code class="cCode">PATH</code>. The following command can be used: </li>
+<a name="wp1080105"> </a><div class="pPreformattedRelative"><pre>PATH=/usr/5bin:$PATH;export PATH</pre></div><p class="pBodyRelative"><a name="wp1183433"> </a>
+Use <code class="cCode">/bin/sh</code> rather than <code class="cCode">csh</code> for your shell.
+</p>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1319046"> </a>
+Step 3: Create FML32 Field Table
+</h3>
+<p class="pBodyRelative"><a name="wp1319084"> </a>
+To create the FML32 field table, use the following:
+</p>
+<p class="pBodyRelative"><a name="wp1319085"> </a>
+<code class="cCode">mkfldhdr32 stockflds</code>
+</p>
+<h3 class="pHeading2"><a name="wp1312743"> </a>
+Step 4: Build the xmlfmlapp Binaries
+</h3>
+<p class="pBody"><a name="wp1312755"> </a>
+The following command builds the xmlfmlapp binary files:
+</p>
+<p class="pBody"><a name="wp1321229"> </a>
+On windows:
+</p>
+<a name="wp1321230"> </a><div class="pPreformatted"><pre>    nmake -f make.nt</pre></div><p class="pBody"><a name="wp1321231"> </a>
+On UNIX:
+</p>
+<a name="wp1321232"> </a><div class="pPreformatted"><pre>    make -f make.mk</pre></div><h3 class="pHeading2"><a name="wp1078608"> </a>
+Step 5: Edit the Configuration File
+</h3>
+<p class="pBody"><a name="wp1319749"> </a>
+The sample configuration file, ubbsimple, must be edited to replace the bracketed items with values appropriate to your installation. Your TUXDIR and TUXCONFIG environment variables must match the values in the configuration file.
+</p>
+<div class="pCodeTitle"><a name="wp1319750"> </a>
+Listing&#160;7-1	   The ubbsimple Configuration File
+</div> <p class="pBody"><a name="wp1319751"> </a>
+<code class="cCode">#	(c) 2005 BEA Systems, Inc. All Rights Reserved.<br />#ident	&quot;@(#) samples/atmi/xmlfmlapp/ubbsimple	$Revision: 1.3 $&quot;<br /><br />#Skeleton UBBCONFIG file for the TUXEDO Simple Application.<br />#Replace the &lt;bracketed&gt; items with the appropriate values.<br /><br />*RESOURCES<br />IPCKEY		&lt;Replace with a valid IPC Key&gt;<br /><br />#Example:<br />#IPCKEY		123456<br /><br />DOMAINID	simpapp<br />MASTER		simple<br />MAXACCESSERS	10<br />MAXSERVERS	5<br />MAXSERVICES	10<br />MODEL		SHM<br />LDBAL		N<br /><br />*MACHINES<br />DEFAULT:</code>
+</p>
+<p class="pBody"><a name="wp1319284"> </a>
+<code class="cCode">		APPDIR=&quot;&lt;Replace with the current directory pathname&gt;&quot;<br />		TUXCONFIG=&quot;&lt;Replace with your TUXCONFIG Pathname&gt;&quot;<br />		TUXDIR=&quot;&lt;Directory where TUXEDO is installed&gt;&quot;<br />#Example:<br />#		APPDIR=&quot;/home/me/simpapp&quot;<br />#		TUXCONFIG=&quot;/home/me/simpapp/tuxconfig&quot;<br />#		TUXDIR=&quot;/usr/tuxedo&quot;<br /><br />&lt;Machine-name&gt;	LMID=simple<br />#Example:<br />#beatux		LMID=simple<br /><br />*GROUPS<br />GROUP1<br />	LMID=simple	GRPNO=1	OPENINFO=NONE<br /><br />*SERVERS<br />DEFAULT:<br />		CLOPT=&quot;-A&quot;<br /><br />stockserver	SRVGRP=GROUP1 SRVID=1<br /><br />*SERVICES<br />QUERY	BUFTYPECONV=XML2FML32<br />BUY	BUFTYPECONV=XML2FML32<br />SELL	BUFTYPECONV=XML2FML32</code>
+</p>
+<a name="wp1319249"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For each <code class="cCode">&lt;string&gt;</code> (that is, for each string shown between angle brackets), substitute an appropriate value.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp1078660"> </a>
+See Also
+</h4>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1078661"> </a><a href="tutxmlfmlapp.html#wp1181492">Preparing xmlfmlapp Files and Resources</a></li>
+<li><a name="wp1184682"> </a><a href="../rf5/rf5.html">UBBCONFIG(5)</a> in <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1078701"> </a>
+Step 6: Create the Binary Configuration File
+</h3>
+<p class="pBody"><a name="wp1319381"> </a>
+Before creating the binary configuration file, you need to be in the directory in which your <code class="cCode">xmlfmlapp</code> files are located and you must set the environment variables. Complete the following tasks.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1319382"> </a>Go to the directory in which your <code class="cCode">xmlfmlapp</code> files are located.</li>
+<li><a name="wp1319383"> </a>Set the environment variables by entering:</li>
+<a name="wp1078707"> </a><div class="pPreformattedRelative"><pre>. ./setenv.cmd</pre></div><p class="pBodyRelative"><a name="wp1316162"> </a>
+where <code class="cCode">setenv.cmd</code> is the executable for Windows. Use <code class="cCode">setenv.sh</code> on Unix systems.
+</p>
+</ol></div>
+<h4 class="pHeading3"><a name="wp1078708"> </a>
+Loading the Configuration File
+</h4>
+<p class="pBody"><a name="wp1182524"> </a>
+Once you have finished editing the configuration file, you must load it into a binary file on your <code class="cCode">MASTER</code> machine. The name of the binary configuration file is <code class="cCode">TUXCONFIG</code>; its path name is defined in the <code class="cCode">TUXCONFIG</code> environment variable. The file should be created by a person with the effective user ID and group ID of the Oracle Tuxedo system administrator, which should be the same as the <code class="cCode">UID</code> and <code class="cCode">GID</code> values in your configuration file. If this requirement is not met, you may have permission problems in running <code class="cCode">xmlfmlapp</code>. 
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1194701"> </a>To create <code class="cCode">TUXCONFIG</code>, enter the following command: </li>
+<a name="wp1182525"> </a><div class="pPreformattedRelative"><pre>    tmloadcf <code class="cCode">ubbsimple</code></pre></div><p class="pBodyRelative"><a name="wp1182526"> </a>
+While the configuration file is being loaded, you are prompted several times to confirm that you want to install this configuration, even if doing so means an existing configuration file must be overwritten. If you want to suppress such prompts, include the <code class="cCode">-y</code> option on the command line.
+</p>
+<li><a name="wp1182527"> </a>If you want the amount of IPC resources needed by your application to be calculated by the Oracle Tuxedo system, include the <code class="cCode">-c</code> option on the command line.</li>
+<p class="pBodyRelative"><a name="wp1182528"> </a>
+<code class="cCode">TUXCONFIG</code> can be installed only on the <code class="cCode">MASTER</code> machine; it is propagated to other machines by <code class="cCode">tmboot</code> when the application is booted. 
+</p>
+<p class="pBodyRelative"><a name="wp1078713"> </a>
+<code class="cCode">tmloadcf</code> parses the text configuration file (<code class="cCode">UBBCONFIG</code>) for syntax errors before it loads it, so if there are errors in the file, the job fails.
+</p>
+</ol></div>
+<h4 class="pHeading3"><a name="wp1078714"> </a>
+See Also
+</h4>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1092587"> </a><a href="tutxmlfmlapp.html#wp1181492">Preparing xmlfmlapp Files and Resources</a></li>
+<li><a name="wp1183548"> </a><a href="../rfcm/rfcmd.html">tmloadcf(1)</a> in <em class="cEmphasis">Oracle Tuxedo Command Reference</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1182599"> </a>
+ Running xmlfmlapp
+</h2><p class="pBody"><a name="wp1182565"> </a>
+This section leads you through the procedures for booting <code class="cCode">xmlfmlapp</code>, testing it by running the client program with several arguments, and shutting it down when you have finished.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1320342"> </a><a href="tutxmlfmlapp.html#wp1092589">Step 1: xmlfmlapp Boot Preparation</a></li>
+<li><a name="wp1320353"> </a><a href="tutxmlfmlapp.html#wp1092643">Step 2: Boot xmlfmlapp</a></li>
+<li><a name="wp1320358"> </a><a href="tutxmlfmlapp.html#wp1078829">Step 3: Test xmlfmlapp Services</a></li>
+<li><a name="wp1320363"> </a><a href="tutxmlfmlapp.html#wp1082419">Step 4: Shut Down xmlfmlapp</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1092589"> </a>
+Step 1: xmlfmlapp Boot Preparation
+</h3>
+<p class="pBody"><a name="wp1092680"> </a>
+Before booting <code class="cCode">xmlfmlapp</code>, verify that your machine has enough IPC resources to support your application. To generate a report on IPC resources, run the <code class="cCode">tmboot</code> command with the <code class="cCode">-c</code> option. 
+</p>
+<h3 class="pHeading2"><a name="wp1092643"> </a>
+Step 2: Boot xmlfmlapp
+</h3>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1182804"> </a>Set the environment: </li>
+<a name="wp1182805"> </a><div class="pPreformattedRelative"><pre>../setenv.cmd </pre></div><li><a name="wp1182806"> </a>Boot the application by entering the following: </li>
+<a name="wp1182807"> </a><div class="pPreformattedRelative"><pre>    tmboot -y</pre></div></ol></div>
+<p class="pBody"><a name="wp1182813"> </a>
+If you prefer, you can boot only a portion of the configuration. For example, to boot only administrative servers, include the <code class="cCode">-A</code> option. If no options are specified, the entire application is booted.
+</p>
+<h4 class="pHeading3"><a name="wp1078760"> </a>
+See Also
+</h4>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1183568"> </a><a href="../rfcm/rfcmd.html">tmboot(1)</a> in the <em class="cEmphasis">Oracle Tuxedo Command Reference</em></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1078829"> </a>
+Step 3: Test xmlfmlapp Services
+</h3>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1182927"> </a>Each time you log-in to the system, you must set your environment for <code class="cCode">xmlfmlapp</code>. To do so, enter the following command:</li>
+<a name="wp1078831"> </a><div class="pPreformattedRelative"><pre>../setenv.cmd</pre></div><li><a name="wp1078835"> </a>Run the client program. To execute the client program, enter the following command:</li>
+<a name="wp1078840"> </a><div class="pPreformattedRelative"><pre>stockclient stock_query_bea.xml</pre></div><a name="wp1319408"> </a><div class="pPreformattedRelative"><pre>stockclient stock_query_msft.xml</pre></div><a name="wp1319412"> </a><div class="pPreformattedRelative"><pre>stockclient stock_buy_bea.xml</pre></div><a name="wp1319416"> </a><div class="pPreformattedRelative"><pre>stockclient stock_sell_msft.xml</pre></div></ol></div>
+<h3 class="pHeading2"><a name="wp1082419"> </a>
+Step 4: Shut Down xmlfmlapp
+</h3>
+<p class="pBody"><a name="wp1183009"> </a>
+To bring down <code class="cCode">xmlfmlapp</code>, enter the <code class="cCode">tmshutdown(1)</code> command with no arguments, from the <code class="cCode">MASTER</code> machine, as follows.
+</p>
+<a name="wp1183010"> </a><div class="pPreformattedRelative"><pre>    tmshutdown -y</pre></div><p class="pBody"><a name="wp1183011"> </a>
+Running this command (or the shutdown command of <code class="cCode">tmadmin</code>) causes the following results:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1183012"> </a>All application servers, gateway servers, TMS servers, and administrative servers are shut down.</li>
+<li><a name="wp1183022"> </a>All associated IPC resources are removed.</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1078848"> </a>
+See Also
+</h4>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1183595"> </a><a href="../rfcm/rfcmd.html">tmadmin(1)</a> in the <em class="cEmphasis">Oracle Tuxedo Command Reference</em> </li>
+<li><a name="wp1078899"> </a><a href="../rfcm/rfcmd.html">tmshutdown(1)</a> in the <em class="cEmphasis">Oracle Tuxedo Command Reference</em></li>
+</ul></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="tutxmlfmlapp.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="tutsqtxml.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq9" src="/global_resources/images/nexttop_disabled.gif" border="0" alt="Next" />
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

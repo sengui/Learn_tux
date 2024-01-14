@@ -1,0 +1,621 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41824" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/pgc/fm/pgglob.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/26/12 11:37:57" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Writing Global Transactions</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Programming an Oracle Tuxedo ATMI Application Using C
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pgevb.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pgthr.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/pgc.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1136054"> </a>
+Writing Global Transactions
+</h1>
+<p class="pBody"><a name="wp1117103"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1100692"> </a><a href="pgglob.html#wp1045289">What Is a Global Transaction?</a></li>
+<li><a name="wp1045271"> </a><a href="pgglob.html#wp1045304">Starting the Transaction</a></li>
+<li><a name="wp1045275"> </a><a href="pgglob.html#wp1132038">Suspending and Resuming a Transaction</a></li>
+<li><a name="wp1045279"> </a><a href="pgglob.html#wp1045421">Terminating the Transaction</a></li>
+<li><a name="wp1045283"> </a><a href="pgglob.html#wp1045486">Implicitly Defining a Global Transaction</a></li>
+<li><a name="wp1098526"> </a><a href="pgglob.html#wp1045498">Defining Global Transactions for an XA-Compliant Server Group</a></li>
+<li><a name="wp1045287"> </a><a href="pgglob.html#wp1045502">Testing Whether a Transaction Has Started</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1045289"> </a>
+What Is a Global Transaction?
+</h2><p class="pBody"><a name="wp1045290"> </a>
+A global transaction is a mechanism that allows a set of programming tasks, potentially using more than one resource manager and potentially executing on multiple servers, to be treated as one logical unit. 
+</p>
+<p class="pBody"><a name="wp1045291"> </a>
+Once a process is in transaction mode, any service requests made to servers may be processed on behalf of the current transaction. The services that are called and join the transaction are referred to as <em class="cEmphasis">transaction</em> <em class="cEmphasis">participants</em>. The value returned by a participant may affect the outcome of the transaction. 
+</p>
+<p class="pBody"><a name="wp1045292"> </a>
+A global transaction may be composed of several local transactions, each accessing the same resource manager. The resource manager is responsible for performing concurrency control and atomicity of updates. A given local transaction may be either successful or unsuccessful in completing its access; it cannot be partially successful.
+</p>
+<p class="pBody"><a name="wp1045293"> </a>
+A maximum of 16 server groups can participate in a single transaction.
+</p>
+<p class="pBody"><a name="wp1101789"> </a>
+The Oracle Tuxedo system manages a global transaction in conjunction with the participating resource managers and treats it as a specific sequence of operations that is characterized by atomicity, consistency, isolation, and durability. In other words, a global transaction is a logical unit of work in which: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1045294"> </a>All portions either succeed or have no effect.</li>
+<li><a name="wp1045295"> </a>Operations are performed that correctly transform resources from one consistent state to another.</li>
+<li><a name="wp1045296"> </a>Intermediate results are not accessible to other transactions, although some processes in a transaction may access the data associated with another process.</li>
+<li><a name="wp1045297"> </a>Once a sequence is complete, its results cannot be altered by any kind of failure.</li>
+</ul></div>
+<p class="pBody"><a name="wp1045298"> </a>
+The Oracle Tuxedo system tracks the status of each global transaction and determines whether it should be committed or rolled back. 
+</p>
+<a name="wp1131723"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If a transaction includes calls to <a href="pgreq.html#wp1055338">tpcall()</a>, <a href="pgreq.html#wp1055487">tpacall()</a>, or <a href="pgconv.html#wp1089600">tpconnect()</a> for which the <code class="cCodeEmphasis">flags</code> parameter is explicitly set to <code class="cCode">TPNOTRAN</code>, the operations performed by the called service do not become part of that transaction. In this case, the calling process does not invite the called service to be a participant in the current transaction. As a result, services performed by the called process are not affected by the outcome of the current transaction. If <code class="cCode">TPNOTRAN</code> is set for a call that is directed to a service in an XA-compliant server group, the call may be executed outside of transaction mode or in a separate transaction, depending on how the service is configured and coded. For more information, refer to <a href="pgglob.html#wp1045486">Implicitly Defining a Global Transaction</a>.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1045304"> </a>
+Starting the Transaction
+</h2><p class="pBody"><a name="wp1045305"> </a>
+To start a global transaction, use the <a href="../rf3c/rf3c.html">tpbegin(3c)</a> function with the following signature:
+</p>
+<a name="wp1131773"> </a><div class="pPreformatted"><pre>int<br />tpbegin(unsigned long <em class="cEmphasis">timeout, </em><code class="cCode">long</code><em class="cEmphasis"> flags</em>)</pre></div><p class="pBody"><a name="wp1117231"> </a>
+<a href="pgglob.html#wp1117235">Table&#160;9-1</a> describes the arguments to the <code class="cCode">tpbegin</code>() function
+</p>
+<p class="pGraphic"><a name="wp1136990"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1117235table1117233"><caption><a name="wp1117235"> </a>
+Table 9-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">tpbegin( ) Function Arguments</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1117239"> </a>
+Field
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1117241"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1117244"> </a>
+<code class="cCodeEmphasis">timeout</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1117246"> </a>
+Specifies the amount of time, in seconds, a transaction can execute before timing out. You can set this value to the maximum number of seconds allowed by the system, by specifying a value of 0. In other words, you can set <code class="cCodeEmphasis">timeout</code> to the maximum value for an unsigned <code class="cCode">long</code> as defined by the system.
+</div>
+<div class="pCellBody"><a name="wp1117248"> </a>
+The use of 0 or an unrealistically large value for the <code class="cCodeEmphasis">timeout</code> parameter delays system detection and reporting of errors. The system uses the <code class="cCodeEmphasis">timeout</code> parameter to ensure that responses to service requests are sent within a reasonable time, and to terminate transactions that encounter problems such as network failures before executing a commit. 
+</div>
+<div class="pCellBody"><a name="wp1117250"> </a>
+For a transaction in which a person is waiting for a response, you should set this parameter to a small value: if possible, less than 30 seconds. 
+</div>
+<div class="pCellBody"><a name="wp1117252"> </a>
+In a production system, you should set <code class="cCodeEmphasis">timeout</code> to a value large enough to accommodate expected delays due to system load and database contention. A small multiple of the expected average response time is often an appropriate choice.
+</div>
+<p class="pTableNote"><a name="wp1117254"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The value assigned to the <code class="cCodeEmphasis">timeout</code> parameter should be consistent with that of the <code class="cCode">SCANUNIT</code> parameter set by the Oracle Tuxedo application administrator in the configuration file. The <code class="cCode">SCANUNIT</code> parameter specifies the frequency with which the system checks, or <em class="cEmphasis">scans</em>, for timed-out transactions and blocked calls in service requests. The value of this parameter represents the interval of time between these periodic scans, referred to as the <em class="cEmphasis">scanning unit</em>. <br /><br />You should set the <code class="cCodeEmphasis">timeout</code> parameter to a value that is greater than the scanning unit. If you set the <code class="cCodeEmphasis">timeout</code> parameter to a value smaller than the scanning unit, there will be a discrepancy between the time at which a transaction times out and the time at which this timeout is discovered by the system. The default value for <code class="cCode">SCANUNIT</code> is 10 seconds. You may need to discuss the setting of the <code class="cCodeEmphasis">timeout</code> parameter with your application administrator to make sure the value you assign to the <code class="cCodeEmphasis">timeout</code> parameter is compatible with the values assigned to your system parameters.</td></tr>
+</table>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1117264"> </a>
+<code class="cCodeEmphasis">flags</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1117266"> </a>
+Currently undefined; must be set to 0.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1117270"> </a>
+Any process may call <code class="cCode">tpbegin()</code> unless the process is already in transaction mode or is waiting for outstanding replies. If <code class="cCode">tpbegin()</code> is called in transaction mode, the call fails due to a protocol error and <a href="../rf5/rf5.html">tperrno(5)</a> is set to <code class="cCode">TPEPROTO</code>. If the process is in transaction mode, the transaction is unaffected by the failure.
+</p>
+<p class="pBody"><a name="wp1045332"> </a>
+<a href="pgglob.html#wp1131872">Listing&#160;9-1</a> provides a high-level view of how a global transaction is defined.
+</p>
+<div class="pCodeTitle"><a name="wp1131872"> </a>
+Listing&#160;9-1	   Defining a Global Transaction - High-level View
+</div> <a name="wp1131873"> </a><div class="pPreformatted"><pre>. . .<br />if (tpbegin(timeout,flags) == -1)<br />&#160;<em class="cEmphasis">error routine<br />program statements<br /></em>. . .<br />if (tpcommit(flags) == -1)<br />&#160;<em class="cEmphasis">error routine</em></pre></div><p class="pBody"><a name="wp1131875"> </a>
+<a href="pgglob.html#wp1131877">Listing&#160;9-2</a> provides a more detailed view of how to define a transaction. This example is excerpted from <code class="cCode">audit.c</code>, a client program included in <code class="cCode">bankapp</code>, the sample banking application delivered with the Oracle Tuxedo system.
+</p>
+<div class="pCodeTitle"><a name="wp1131877"> </a>
+Listing&#160;9-2	   Defining a Global Transaction - Detailed View
+</div> <a name="wp1131878"> </a><div class="pPreformatted"><pre>#include &lt;stdio.h&gt;         /* UNIX */<br />#include &lt;string.h&gt;        /* UNIX */<br />#include &lt;atmi.h&gt;          /* BEA Tuxedo System */<br />#include &lt;Uunix.h&gt;         /* BEA Tuxedo System */<br />#include &lt;userlog.h&gt;       /* BEA Tuxedo System */<br />#include &quot;bank.h&quot;          /* BANKING #defines */<br />#include &quot;aud.h&quot;           /* BANKING view defines */<br /> <br />#define INVI 0             /* account inquiry */<br />#define ACCT 1             /* account inquiry */<br />#define TELL 2             /* teller inquiry */<br /> <br />static int sum_bal _((char *, char *));<br />static long sitelist[NSITE] = SITEREP;    /* list of machines to audit */<br />static char pgmname[STATLEN];        /* program name = argv[0] */<br />static char result_str[STATLEN]; /* string to hold results of query */<br /> <br />main(argc, argv)<br />int argc;<br />char *argv[];<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int aud_type=INVI;          /* audit type -- invalid unless specified */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int clarg;                  /* command line arg index from optind */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int c;                      /* Option character */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int cflgs=0;                /* Commit flags, currently unused */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int aflgs=0;                /* Abort flags, currently unused */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int nbl=0;                  /* count of branch list entries */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;char svc_name[NAMELEN];     /* service name */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;char hdr_type[NAMELEN];     /* heading to appear on output */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int retc;                   /* return value of sum_bal() */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;struct aud *audv;           /* pointer to audit buf struct */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;int audrl=0;                /* audit return length */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;long q_branchid;            /* branch_id to query */<br /> <br />. . .        /* Get Command Line Options and Set Variables */<br /> <br />/* Join application */<br /> <br />if (tpinit((TPINIT *) NULL) == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)userlog(&quot;%s: failed to join application\n&quot;, pgmname);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exit(1);<br />}<br /><br />/* Start global transaction */<br /><br />if (tpbegin(30, 0) == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)userlog(&quot;%s: failed to begin transaction\n&quot;, pgmname);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)tpterm();<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exit(1);<br />}<br /><br />if (nbl == 0) {    /* no branch id specified so do a global sum */<br />  retc = sum_bal(svc_name, hdr_type);    /* sum_bal routine not shown */<br />  <br />} else {<br /> <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* Create buffer and set data pointer */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if ((audv = (struct aud *)tpalloc(&quot;VIEW&quot;, &quot;aud&quot;, sizeof(struct aud)))<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;== (struct aud *)NULL) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)userlog(&quot;audit: unable to allocate space for VIEW\n&quot;);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exit(1);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br /> <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* Prepare aud structure */<br /> <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;audv-&gt;b_id = q_branchid;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;audv-&gt;balance = 0.0;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;audv-&gt;ermsg[0] = &#39;\0&#39;;<br /> <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* Do tpcall */<br /> <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (tpcall(svc_name,(char *)audv,sizeof(struct aud),<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(char **)audv,(long *)audrl,0) == -1){<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)fprintf (stderr,&quot;%s service failed\n%s:  %s\n&quot;,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;svc_name, svc_name, audv-&gt;ermsg);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;retc = -1;<br /> <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}else {<br /> <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)sprintf(result_str,&quot;Branch %ld %s balance is $%.2f\n&quot;,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; audv-&gt;b_id, hdr_type, audv-&gt;balance);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpfree((char *)audv);<br />}<br /> <br />/* Commit global transaction */<br /> <br />if (retc &lt; 0)        /* sum_bal failed so abort */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void) tpabort(aflgs);<br />else {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (tpcommit(cflgs) == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)userlog(&quot;%s: failed to commit transaction\n&quot;, pgmname);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)tpterm();<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exit(1);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/*print out results only when transaction has committed successfully*/<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)printf(&quot;%s&quot;,result_str);<br />}<br /> <br />/* Leave application */<br /> <br />if (tpterm() == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void)userlog(&quot;%s: failed to leave application\n&quot;, pgmname);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exit(1);<br />}</pre></div><p class="pBody"><a name="wp1102135"> </a>
+If a transaction times out, a call to <a href="pgglob.html#wp1045424">tpcommit()</a> causes the transaction to be aborted. As a result, <a href="pgglob.html#wp1045424">tpcommit()</a> fails and sets <a href="../rf5/rf5.html">tperrno(5)</a> to <code class="cCode">TPEABORT</code>.
+</p>
+<p class="pBody"><a name="wp1045352"> </a>
+<a href="pgglob.html#wp1131993">Listing&#160;9-3</a> shows how to test for a transaction timeout. Note that the value of <code class="cCodeEmphasis">timeout</code> is set to 30 seconds.
+</p>
+<div class="pCodeTitle"><a name="wp1131993"> </a>
+Listing&#160;9-3	   Testing for Transaction Timeout
+</div> <a name="wp1131994"> </a><div class="pPreformatted"><pre>if (tpbegin(30, 0) == -1) {<br />&#160;&#160;(void)userlog(&quot;%s: failed to begin transaction\n&quot;, argv[0]);<br />&#160;&#160;tpterm();<br />&#160;&#160;exit(1);<br />}<br />. . .<br /><em class="cEmphasis">communication calls<br /></em>. . .<br />if (tperrno == TPETIME){<br />&#160;&#160;&#160;&#160;if (tpabort(0) == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">check for errors</em>;<br />}<br />else if (tpcommit(0) == -1){<br />&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">check for errors</em>;<br />}<br />. . .</pre></div><a name="wp1094513"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>When a process is in transaction mode and makes a communication call with <code class="cCodeEmphasis">flags</code> set to <code class="cCode">TPNOTRAN</code>, it prohibits the called service from becoming a participant in the current transaction. Whether the service request succeeds or fails has no impact on the outcome of the transaction. The transaction can still timeout while waiting for a reply that is due from a service, whether it is part of the transaction or not. Refer to <a href="pgerr.html">Managing Errors</a> for more information on the effects of the <code class="cCode">TPNOTRAN</code> flag.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1132038"> </a>
+Suspending and Resuming a Transaction
+</h2><p class="pBody"><a name="wp1132039"> </a>
+At times, it may be desirable to temporarily remove a process from an incomplete transaction and allow it to initiate a different transaction by calling <a href="pgglob.html#wp1045304">tpbegin()</a> or <code class="cCode">tpresume()</code>. For example, suppose a server wants to log a request to the database central event log, but does not want the logging activity to be rolled back if the transaction aborts. 
+</p>
+<p class="pBody"><a name="wp1132041"> </a>
+The Oracle Tuxedo system provides two functions that allow a client or server to suspend and resume a transaction in such situations: <a href="../rf3c/rf3c.html">tpsuspend(3c)</a> and <a href="../rf3c/rf3c.html">tpresume(3c)</a>. Using these functions, a process can:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1132048"> </a>Temporarily suspend the current transaction by calling <code class="cCode">tpsuspend()</code>.</li>
+<li><a name="wp1132049"> </a>Start a separate transaction. (In the preceding example, the server writes an entry to the event log.)</li>
+<li><a name="wp1132050"> </a>Commit the transaction started in step 2.</li>
+<li><a name="wp1132051"> </a>Resume the original transaction by calling <code class="cCode">tpresume()</code>.</li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1132056"> </a>
+Suspending a Transaction
+</h3>
+<p class="pBody"><a name="wp1132060"> </a>
+Use the <a href="../rf3c/rf3c.html">tpsuspend(3c)</a> function to suspend the current transaction. Use the following signature to call the <code class="cCode">tpsuspend</code>() function:
+</p>
+<a name="wp1132061"> </a><div class="pPreformatted"><pre>int<br />tpsuspend(TPTRANID *<code class="cCodeEmphasis">t_id</code>,long <em class="cEmphasis">flags</em>)</pre></div><p class="pBody"><a name="wp1132062"> </a>
+<a href="pgglob.html#wp697838">Table&#160;9-2</a> describes the arguments to the <code class="cCode">tpsuspend</code>() function.
+</p>
+<p class="pGraphic"><a name="wp1132076"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp697838table1132063"><caption><a name="wp697838"> </a>
+Table 9-2  tpsuspend( ) Function Arguments
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1132065"> </a>
+Field
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1132067"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132069"> </a>
+<code class="cCodeEmphasis">*t_id</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132071"> </a>
+Pointer to the transaction identifier.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132073"> </a>
+<code class="cCodeEmphasis">flags</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132075"> </a>
+Currently not used. Reserved for future use.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1132077"> </a>
+You cannot suspend a transaction with outstanding asynchronous events. When a transaction is suspended, all modifications previously performed are preserved in a pending state until the transaction is committed, aborted, or timed out.
+</p>
+<h3 class="pHeading2"><a name="wp1132082"> </a>
+Resuming a Transaction
+</h3>
+<p class="pBody"><a name="wp1132086"> </a>
+To resume the current transaction, use the <a href="../rf3c/rf3c.html">tpresume(3c)</a> function with the following signature.
+</p>
+<a name="wp1132087"> </a><div class="pPreformatted"><pre>int<br />tpresume(TPTRANID *<code class="cCodeEmphasis">t_id</code>,long <em class="cEmphasis">flags</em>)</pre></div><p class="pBody"><a name="wp1132088"> </a>
+<a href="pgglob.html#wp697860">Table&#160;9-3</a> describes the arguments to the <code class="cCode">tpresume</code>() function:
+</p>
+<p class="pGraphic"><a name="wp1132102"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp697860table1132089"><caption><a name="wp697860"> </a>
+Table 9-3  tpresume( ) Function Arguments
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1132091"> </a>
+Field
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1132093"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132095"> </a>
+<code class="cCodeEmphasis">*t_id</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132097"> </a>
+Pointer to the transaction identifier.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132099"> </a>
+<code class="cCodeEmphasis">flags</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132101"> </a>
+Currently not used. Reserved for future use.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1132103"> </a>
+It is possible to resume a transaction from a process other than the one that suspended it, subject to certain restrictions. For a list of these restrictions, refer to <a href="../rf3c/rf3c.html">tpsuspend(3c)</a> and <a href="../rf3c/rf3c.html">tpresume(3c)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em>.
+</p>
+<h3 class="pHeading2"><a name="wp1132113"> </a>
+Example: Suspending and Resuming a Transaction
+</h3>
+<p class="pBody"><a name="wp1132114"> </a>
+<a href="pgglob.html#wp1132115">Listing&#160;9-4</a> shows how to suspend one transaction, start and commit a second transaction, and resume the initial transaction. For the sake of simplicity, error checking code has been omitted.
+</p>
+<div class="pCodeTitle"><a name="wp1132115"> </a>
+Listing&#160;9-4	   Suspending and Resuming a Transaction
+</div> <a name="wp1132116"> </a><div class="pPreformatted"><pre>DEBIT(SVCINFO *s)<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTRANID t;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpsuspend(&amp;t,TPNOFLAGS);  /* suspend invoking transaction*/<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpbegin(30,TPNOFLAGS); /* begin separate transaction */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;<code class="cCodeEmphasis">Perform work in the separate transaction.<br /></code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpcommit(TPNOFLAGS);   /* commit separate transaction */<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpresume(&amp;t,TPNOFLAGS);   /* resume invoking transaction*/<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpreturn(. . . );<br />}</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1045421"> </a>
+Terminating the Transaction
+</h2><p class="pBody"><a name="wp1045422"> </a>
+To end a global transaction, call <a href="../rf3c/rf3c.html">tpcommit(3c)</a> to commit the current transaction, or <a href="../rf3c/rf3c.html">tpabort(3c)</a> to abort the transaction and roll back all operations. 
+</p>
+<a name="wp1045423"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If <a href="pgreq.html#wp1055338">tpcall()</a>, <a href="pgreq.html#wp1055487">tpacall()</a>, or <a href="pgconv.html#wp1089600">tpconnect()</a> is called by a process that has explicitly set the <code class="cCodeEmphasis">flags</code> argument to <code class="cCode">TPNOTRAN</code>, the operations performed by the called service do not become part of the current transaction. In other words, when you call the <code class="cCode">tpabort()</code> function, the operations performed by these services are not rolled back.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1045424"> </a>
+Committing the Current Transaction
+</h3>
+<p class="pBody"><a name="wp1045425"> </a>
+The <a href="../rf3c/rf3c.html">tpcommit(3c)</a> function commits the current transaction. When <code class="cCode">tpcommit()</code> returns successfully, all changes to resources as a result of the current transaction become permanent.
+</p>
+<p class="pBody"><a name="wp1045426"> </a>
+Use the following signature to call the <code class="cCode">tpcommit()</code> function:
+</p>
+<a name="wp1132361"> </a><div class="pPreformatted"><pre>int<br />tpcommit(long <em class="cEmphasis">flags</em>)</pre></div><p class="pBody"><a name="wp1132366"> </a>
+Although the <code class="cCode">flags</code> argument is not used currently, you must set it to zero to ensure compatibility with future releases. 
+</p>
+<h4 class="pHeading3"><a name="wp1045434"> </a>
+Prerequisites for a Transaction Commit
+</h4>
+<p class="pBody"><a name="wp1049017"> </a>
+For <code class="cCode">tpcommit()</code> to succeed, the following conditions must be true: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1045435"> </a>The calling process must be the same one that initiated the transaction with a call to <a href="pgglob.html#wp1045304">tpbegin()</a>.</li>
+<li><a name="wp1045436"> </a>The calling process must have no transactional replies (calls made without the <code class="cCode">TPNOTRAN</code> flag) outstanding.</li>
+<li><a name="wp1045437"> </a>The transaction must not be in a rollback-only state and must not be timed out.</li>
+</ul></div>
+<p class="pBody"><a name="wp1091512"> </a>
+If the first condition is false, the call fails and <a href="../rf5/rf5.html">tperrno(5)</a> is set to <code class="cCode">TPEPROTO</code>, indicating a protocol error. If the second or third condition is false, the call fails and <code class="cCode">tperrno()</code> is set to <code class="cCode">TPEABORT</code>, indicating that the transaction has been rolled back. If <code class="cCode">tpcommit()</code> is called by the initiator with outstanding transaction replies, the transaction is aborted and those reply descriptors associated with the transaction become invalid. If a participant calls <code class="cCode">tpcommit()</code> or <code class="cCode">tpabort()</code>, the transaction is unaffected. 
+</p>
+<p class="pBody"><a name="wp1045439"> </a>
+A transaction is placed in a rollback-only state if any service call returns <code class="cCode">TPFAIL</code> or indicates a service error. If <code class="cCode">tpcommit()</code> is called for a rollback-only transaction, the function cancels the transaction, returns -1, and sets <a href="../rf5/rf5.html">tperrno(5)</a> to <code class="cCode">TPEABORT</code>. The results are the same if <code class="cCode">tpcommit()</code> is called for a transaction that has already timed out: <code class="cCode">tpcommit()</code> returns -1 and sets <code class="cCode">tperrno()</code> to <code class="cCode">TPEABORT</code>. Refer to <a href="pgerr.html">Managing Errors</a> for more information on transaction errors.
+</p>
+<h4 class="pHeading3"><a name="wp1049052"> </a>
+Two-phase Commit Protocol
+</h4>
+<p class="pBody"><a name="wp1045443"> </a>
+When the <code class="cCode">tpcommit()</code> function is called, it initiates the <em class="cEmphasis">two-phase commit protocol</em>. This protocol, as the name suggests, consists of two steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1045444"> </a>Each participating resource manager indicates a readiness to commit.</li>
+<li><a name="wp1045445"> </a>The initiator of the transaction gives permission to commit to each participating resource manager.</li>
+</ol></div>
+<p class="pBody"><a name="wp1045446"> </a>
+The commit sequence begins when the transaction initiator calls the <code class="cCode">tpcommit()</code> function. The Oracle Tuxedo TMS server process in the designated coordinator group contacts the TMS in each participant group that is to perform the first phase of the commit protocol. The TMS in each group then instructs the resource manager (RM) in that group to commit using the XA protocol that is defined for communications between the Transaction Managers and RMs. The RM writes, to stable storage, the states of the transaction before and after the commit sequence, and indicates success or failure to the TMS. The TMS then passes the response back to the coordinating TMS.
+</p>
+<p class="pBody"><a name="wp1045447"> </a>
+When the coordinating TMS has received a success indication from all groups, it logs a statement to the effect that a transaction is being committed and sends second-phase commit notifications to all participant groups. The RM in each group then finalizes the transaction updates. 
+</p>
+<p class="pBody"><a name="wp1045448"> </a>
+If the coordinator TMS is notified of a first-phase commit failure from any group, or if it fails to receive a reply from any group, it sends a rollback notification to each RM and the RMs back out all transaction updates. <code class="cCode">tpcommit()</code> then fails and sets <a href="../rf5/rf5.html">tperrno(5)</a> to <code class="cCode">TPEABORT</code>.
+</p>
+<h5 class="pHeading4"><a name="wp1049497"> </a>
+Selecting Criteria for a Successful Commit 
+</h5>
+<p class="pBody"><a name="wp1049498"> </a>
+When more than one group is involved in a transaction, you can specify which of two criteria must be met for <code class="cCode">tpcommit()</code> to return successfully:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1049499"> </a>When all participants have indicated a readiness to commit (that is, when all participants have reported that phase 1 of the two-phase commit has been logged as complete and the coordinating TMS has written its decision to commit to stable storage)</li>
+<li><a name="wp1049500"> </a>When all participants have finished phase 2 of the two-phase commit</li>
+</ul></div>
+<p class="pBody"><a name="wp1129143"> </a>
+To specify one of these prerequisites, set the <code class="cCode">CMTRET</code> parameter in the <code class="cCode">RESOURCES</code> section of the configuration file to one of the following values:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1129144"> </a><code class="cCode">LOGGED</code>&#8212;to require completion of phase 1</li>
+<li><a name="wp1129145"> </a><code class="cCode">COMPLETE</code>&#8212;to require completion of phase 2</li>
+</ul></div>
+<p class="pBody"><a name="wp1049504"> </a>
+By default, <code class="cCode">CMTRET</code> is set to <code class="cCode">COMPLETE</code>.
+</p>
+<p class="pBody"><a name="wp1132757"> </a>
+If you later want to override the setting in the configuration file, you can do so by calling the <code class="cCode">tpscmt()</code> function with its <code class="cCodeEmphasis">flags</code> argument set to either <code class="cCode">TP_CMT_LOGGED</code> or <code class="cCode">TP_CMT_COMPLETE</code>.
+</p>
+<h5 class="pHeading4"><a name="wp1049529"> </a>
+Trade-offs Between Possible Commit Criteria
+</h5>
+<p class="pBody"><a name="wp1049530"> </a>
+In most cases, when all participants in a global transaction have logged successful completion of phase 1, they do not fail to complete phase 2. By setting <code class="cCode">CMTRET</code> to <code class="cCode">LOGGED</code>, you allow a slightly faster return of calls to <code class="cCode">tpcommit()</code>, but you run the slight risk that a participant may heuristically complete its part of the transaction in a way that is not consistent with the commit decision. 
+</p>
+<p class="pBody"><a name="wp1049531"> </a>
+Whether it is prudent to accept the risk depends to a large extent on the nature of your application. If your application demands complete accuracy (for example, if you are running a financial application), you should probably wait until all participants fully complete the two-phase commit process before returning. If your application is more time-sensitive, you may prefer to have the application execute faster at the expense of accuracy.
+</p>
+<h3 class="pHeading2"><a name="wp1045451"> </a>
+Aborting the Current Transaction
+</h3>
+<p class="pBody"><a name="wp1045452"> </a>
+Use the <a href="../rf3c/rf3c.html">tpabort(3c)</a> function to indicate an abnormal condition and explicitly abort a transaction. This function invalidates the call descriptors of any outstanding transactional replies. None of the changes produced by the transaction are applied to the resource. Use the following signature to call the <code class="cCode">tpabort()</code> function:
+</p>
+<a name="wp1132858"> </a><div class="pPreformatted"><pre>int<br />tpabort(long <em class="cEmphasis">flags</em>)</pre></div><p class="pBody"><a name="wp1132863"> </a>
+Although the <code class="cCodeEmphasis">flags</code> argument is not used currently, you must set it to zero to ensure compatibility with future releases. 
+</p>
+<h3 class="pHeading2"><a name="wp1045460"> </a>
+Example: Committing a Transaction in Conversational Mode
+</h3>
+<p class="pBody"><a name="wp1049613"> </a>
+<a href="pgglob.html#wp1132886">Figure&#160;9-1</a> illustrates a conversational connection hierarchy that includes a global transaction.
+</p>
+<div class="pFigureTitle"><a name="wp1132886"> </a>
+Figure&#160;9-1  Connection Hierarchy in Transaction Mode
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1132890"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/conhier_c.gif" alt="Connection Hierarchy in Transaction Mode" id="wp1132888"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1049796"> </a>
+The connection hierarchy is created through the following process:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1049797"> </a>A client (process A) initiates a connection in transaction mode by calling <code class="cCode">tpbegin()</code> and <code class="cCode">tpconnect()</code>.</li>
+<li><a name="wp1049798"> </a>The client calls subsidiary services, which are executed.</li>
+<li><a name="wp1049799"> </a>As each subordinate service completes, it sends a reply indicating success or failure (<code class="cCode">TPEV_SVCSUCC</code> or <code class="cCode">TPEV_SVCFAIL</code>, respectively) back up through the hierarchy to the process that initiated the transaction. In this example the process that initiated the transaction is the client (process A). When a subordinate service has completed sending replies (that is, when no more replies are outstanding), it must call <a href="pgserv.html#wp1167965">tpreturn()</a>.</li>
+<li><a name="wp1049800"> </a>The client (process A) determines whether all subordinate services have returned successfully.</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1049846"> </a>If so, the client commits the changes made by those services, by calling <a href="pgglob.html#wp1045424">tpcommit()</a>, and completes the transaction.</li>
+<li><a name="wp1049847"> </a>If not, the client calls <a href="pgglob.html#wp1045451">tpabort()</a>, since it knows that <code class="cCode">tpcommit()</code> could not be successful.</li>
+</ul></div>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1045475"> </a>
+Example: Testing for Participant Errors
+</h3>
+<p class="pBody"><a name="wp1045476"> </a>
+In <a href="pgglob.html#wp1133059">Listing&#160;9-5</a>, a client makes a synchronous call to the fictitious <code class="cCode">REPORT</code> service (line 18). Then the code checks for participant failures by testing for errors that can be returned on a communication call (lines 19-34).
+</p>
+<div class="pCodeTitle"><a name="wp1133059"> </a>
+Listing&#160;9-5	   Testing for Participant Success or Failure
+</div> <a name="wp1133060"> </a><div class="pPreformatted"><pre>001    #include &lt;stdio.h&gt;<br />002    #include &quot;atmi.h&quot;<br />003<br />004    main()<br />005    {<br />006    char *sbuf, *rbuf;<br />007    long slen, rlen;<br />008    if (tpinit((TPINIT *) NULL) == -1)<br />009        <em class="cEmphasis">error message, exit program;<br /></em>010    if (tpbegin(30, 0) == -1)<br />011        <em class="cEmphasis">error message, tpterm, exit program;<br /></em>012    if ((sbuf=tpalloc(&quot;STRING&quot;, NULL, 100)) == NULL)<br />013        <em class="cEmphasis">error message, tpabort, tpterm, exit program;<br /></em>014    if ((rbuf=tpalloc(&quot;STRING&quot;, NULL, 2000)) == NULL)<br />015        <em class="cEmphasis">error message, tpfree sbuf, tpabort, tpterm, exit program;<br /></em>016    (void)strcpy(sbuf, &quot;REPORT=accrcv DBNAME=accounts&quot;);<br />017    slen=strlen(sbuf);<br />018    if (tpcall(&quot;REPORT&quot;, sbuf, slen, &amp;rbuf, &amp;rlen, 0) == -1) {<br />019        switch(tperrno) {<br />020        case TPESVCERR:<br />021            fprintf(stderr,<br />022                &quot;REPORT service&#39;s tpreturn encountered problems\n&quot;);<br />023            break;<br />024        case TPESVCFAIL:<br />025            fprintf(stderr,<br />026                &quot;REPORT service TPFAILED with return code of %d\n&quot;, tpurcode);<br />027            break;<br />028        case TPEOTYPE:<br />029            fprintf(stderr,<br />030                &quot;REPORT service&#39;s reply is not of any known data type\n&quot;);<br />031            break;<br />032        default:<br />033            fprintf(stderr,<br />034                &quot;REPORT service failed with error %d\n&quot;, tperrno);<br />035            break;<br />036        }<br />037        if (tpabort(0) == -1){<br />038            <em class="cEmphasis">check for errors</em>;<br />039        }<br />040    }<br />041    else<br />042        if (tpcommit(0) == -1)<br />043            fprintf(stderr, &quot;Transaction failed at commit time\n&quot;);<br />044    tpfree(rbuf);<br />045    tpfree(sbuf);<br />046    tpterm();<br />047    exit(0);<br />048    }</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1045486"> </a>
+Implicitly Defining a Global Transaction
+</h2><p class="pBody"><a name="wp1045487"> </a>
+An application can start a global transaction in either of two ways:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1049912"> </a>Explicitly, by calling ATMI functions, as described in <a href="pgglob.html#wp1045304">Starting the Transaction</a>.</li>
+<li><a name="wp1049920"> </a>Implicitly, from within a service routine</li>
+</ul></div>
+<p class="pBody"><a name="wp1049906"> </a>
+This section describes the second method.
+</p>
+<h3 class="pHeading2"><a name="wp1133101"> </a>
+Implicitly Defining a Transaction in a Service Routine
+</h3>
+<p class="pBody"><a name="wp1045490"> </a>
+You can implicitly place a service routine in transaction mode by setting the system parameter <code class="cCode">AUTOTRAN</code> in the configuration file. If you set <code class="cCode">AUTOTRAN</code> to <code class="cCode">Y</code>, the system automatically starts a transaction in the service subroutine when a request is received from another process. 
+</p>
+<p class="pBody"><a name="wp1049935"> </a>
+When implicitly defining a transaction, observe the following rules:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1045491"> </a>If a process requests a service from another process when the calling process is <span style="font-style: italic">not</span> in transaction mode and the <code class="cCode">AUTOTRAN</code> system parameter is set to start a transaction, the system initiates a transaction.</li>
+<li><a name="wp1045492"> </a>If a process that is already in transaction mode requests a service from another process, the system&#8217;s first response is to determine whether or not the caller has its <code class="cCodeEmphasis">flags</code> parameter set to <code class="cCode">TPNOTRAN</code>. </li>
+<p class="pBodyRelative"><a name="wp1045493"> </a>
+If the <code class="cCodeEmphasis">flags</code> argument is not set to <code class="cCode">TPNOTRAN</code>, then the system places the called process in transaction mode through the &#8220;rule of propagation.&#8221; The system does not check the <code class="cCode">AUTOTRAN</code> parameter.
+</p>
+<p class="pBodyRelative"><a name="wp1045494"> </a>
+If the <code class="cCode">flags</code> argument is set to <code class="cCode">TPNOTRAN</code>, the services performed by the called process are not included in the current transaction (that is, the propagation rule is suppressed). The system checks the <code class="cCode">AUTOTRAN</code> parameter.
+</p>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1045495"> </a>If <code class="cCode">AUTOTRAN</code> is set to <code class="cCode">N</code> (or if it is not set), the system does not place the called process in transaction mode.</li>
+<li><a name="wp1045496"> </a>If <code class="cCode">AUTOTRAN</code> is set to <code class="cCode">Y</code>, the system places the called process in transaction mode, but treats it as a new transaction.</li>
+</ul></div>
+</ul></div>
+<a name="wp1045497"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Because a service can be placed in transaction mode automatically, it is possible for a service with the <code class="cCode">TPNOTRAN</code> flag set to call services that have the <code class="cCode">AUTOTRAN</code> parameter set. If such a service requests another service, the <code class="cCodeEmphasis">flags</code> member of the service information structure returns <code class="cCode">TPTRAN</code> when queried. For example, if the call is made with the communication <code class="cCodeEmphasis">flags</code> member set to <code class="cCode">TPNOTRAN</code> | <code class="cCode">TPNOREPLY</code>, and the service automatically starts a transaction when called, the <code class="cCodeEmphasis">flags</code> member of the information structure is set to <code class="cCode">TPTRAN</code> | <code class="cCode">TPNOREPLY</code>.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1045498"> </a>
+Defining Global Transactions for an XA-Compliant Server Group
+</h2><p class="pBody"><a name="wp1045499"> </a>
+Generally, the application programmer writes a service that is part of an XA-compliant server group to perform some operation via the group&#8217;s resource manager. In the normal case, the service expects to perform all operations within a transaction. If, on the other hand, the service is called with the communication <code class="cCodeEmphasis">flags</code> set to <code class="cCode">TPNOTRAN</code>, you may receive unexpected results when executing database operations.
+</p>
+<p class="pBody"><a name="wp1045500"> </a>
+In order to avoid unexpected behavior, design the application so that services in groups associated with XA-compliant resource managers are always called in transaction mode or are always defined in the configuration file with <code class="cCode">AUTOTRAN</code> set to <code class="cCode">Y</code>. You should also test the transaction level in the service code early.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1045502"> </a>
+Testing Whether a Transaction Has Started
+</h2><p class="pBody"><a name="wp1133180"> </a>
+When a process in transaction mode requests a service from another process, the latter process becomes part of the transaction, unless specifically instructed not to join it.
+</p>
+<p class="pBody"><a name="wp1045504"> </a>
+It is important to know whether or not a process is in transaction mode in order to avoid and interpret certain error conditions. For example, it is an error for a process already in transaction mode to call <a href="pgglob.html#wp1045304">tpbegin()</a>. When <code class="cCode">tpbegin()</code> is called by such a process, it fails and sets <a href="../rf5/rf5.html">tperrno(5)</a> to <code class="cCode">TPEPROTO</code> to indicate that it was invoked while the caller was already participating in a transaction. The transaction is not affected.
+</p>
+<p class="pBody"><a name="wp1045506"> </a>
+You can design a service subroutine so that it tests whether it is in transaction mode before invoking <code class="cCode">tpbegin()</code>. You can test the transaction level by either of the following methods:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1045507"> </a>Querying the <code class="cCodeEmphasis">flags</code> field of the service information structure that is passed to the service routine. The service is in transaction mode if the value is set to <code class="cCode">TPTRAN</code>. </li>
+<li><a name="wp1045508"> </a>Calling the <a href="../rf3c/rf3c.html">tpgetlev(3c)</a> function. </li>
+</ul></div>
+<p class="pBody"><a name="wp1045509"> </a>
+Use the following signature to call the <code class="cCode">tpgetlev()</code> function:
+</p>
+<a name="wp1133356"> </a><div class="pPreformatted"><pre>int<br />tpgetlev()  /*  Get current transaction level  */</pre></div><p class="pBody"><a name="wp1133361"> </a>
+The <code class="cCode">tpgetlev()</code> function requires no arguments. It returns 0 if the caller is not in a transaction, and 1 if it is.
+</p>
+<p class="pBody"><a name="wp1045514"> </a>
+<a href="pgglob.html#wp1133586">Listing&#160;9-6</a> is a variation of the <code class="cCode">OPEN_ACCT</code> service that shows how to test for transaction level using the <code class="cCode">tpgetlev()</code> function (line 12). If the process is not already in transaction mode, the application starts a transaction (line 14). If <a href="pgglob.html#wp1045304">tpbegin()</a> fails, a message is returned to the status line (line 16) and the <code class="cCodeEmphasis">rcode</code> argument of <a href="pgserv.html#wp1167965">tpreturn()</a> is set to a code that can be retrieved in the global variable <a href="../rf5/rf5.html">tpurcode(5)</a> (lines 1 and 17).
+</p>
+<div class="pCodeTitle"><a name="wp1133586"> </a>
+Listing&#160;9-6	   Testing Transaction Level
+</div> <a name="wp1133587"> </a><div class="pPreformatted"><pre>001 #define BEGFAIL    3    /* tpurcode setting for return if tpbegin fails */<br /> <br />002 void<br />003 OPEN_ACCT(transb)<br /> <br />004 TPSVCINFO *transb;<br /> <br />005 {<br />  ... other declarations ...<br />006 FBFR *transf;    /* fielded buffer of decoded message */<br />007 int dotran;      /* checks whether service tpbegin/tpcommit/tpaborts */<br /> <br />008 /* set pointer to TPSVCINFO data buffer */<br /> <br />009 transf = (FBFR *)transb-&gt;data;<br /> <br />010 /* Test if transaction exists; initiate if no, check if yes */<br /> <br />011 dotran = 0;<br />012 if (tpgetlev() == 0) {<br />013     dotran = 1;<br />014      if (tpbegin(30, 0) == -1) {<br />015         Fchg(transf, STATLIN, 0,<br />016             &quot;Attempt to tpbegin within service routine failed\n&quot;);<br />017         tpreturn(TPFAIL, BEGFAIL, transb-&gt;data, 0, 0);<br />018     }<br />019 }<br />    . . .</pre></div><p class="pBody"><a name="wp1052737"> </a>
+If the <code class="cCode">AUTOTRAN</code> parameter is set to <code class="cCode">Y</code>, you do not need to call the <a href="pgglob.html#wp1045304">tpbegin()</a>, and <a href="pgglob.html#wp1045424">tpcommit()</a> or <a href="pgglob.html#wp1045451">tpabort()</a> transaction functions explicitly. As a result, you can avoid the overhead of testing for transaction level. In addition, you can set the <code class="cCode">TRANTIME</code> parameter to specify the time-out interval: the amount of time that may elapse after a transaction for a service begins, and before it is rolled back if not completed.
+</p>
+<p class="pBody"><a name="wp1052701"> </a>
+For example, suppose you are revising the <code class="cCode">OPEN_ACCT</code> service shown in the preceding code listing. Currently, <code class="cCode">OPEN_ACCT</code> defines the transaction explicitly and then tests for its existence (see lines 7 and 10-19). To reduce the overhead introduced by these tasks, you can eliminate them from the code. Therefore, you need to require that whenever <code class="cCode">OPEN_ACCT</code> is called, it is called in transaction mode. To specify this requirement, enable the <code class="cCode">AUTOTRAN</code> and <code class="cCode">TRANTIME</code> system parameters in the configuration file.
+</p>
+<h3 class="pHeading2"><a name="wp1052775"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1074182"> </a>Description of the <code class="cCode">AUTOTRAN</code> configuration parameter in the section <a href="pgglob.html#wp1045486">Implicitly Defining a Global Transaction</a> in <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em>. </li>
+<li><a name="wp1074197"> </a><code class="cCode">TRANTIME</code> configuration parameter in <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em>.</li>
+<li><a name="wp1136825"> </a><span class="cHyperlink">
+Using Tuxedo with </span><a href="../ads/adorac.html"></a>Oracle Real Application Clusters (RAC) in <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em>.</li>
+</ul></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="pgglob.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pgevb.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pgthr.html"><img id="LongDescNotReq9" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

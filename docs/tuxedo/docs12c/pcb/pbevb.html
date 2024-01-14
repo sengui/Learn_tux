@@ -1,0 +1,602 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/pcb/fm/pbevb.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:23:25" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Writing Event-based Clients and Servers</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Programming an Oracle Tuxedo Application Using COBOL
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pbconv.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pbglob.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/pcb.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1116366"> </a>
+Writing Event-based Clients and Servers
+</h1>
+<p class="pBody"><a name="wp1107834"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1080980"> </a><a href="pbevb.html#wp1081014">Overview of Events</a></li>
+<li><a name="wp1080984"> </a><a href="pbevb.html#wp1081079">Defining the Unsolicited Message Handler</a></li>
+<li><a name="wp1080988"> </a><a href="pbevb.html#wp1081106">Sending Unsolicited Messages</a></li>
+<li><a name="wp1080992"> </a><a href="pbevb.html#wp1081203">Checking for Unsolicited Messages</a></li>
+<li><a name="wp1113358"> </a><a href="pbevb.html#wp1114142">Getting Unsolicited Messages</a></li>
+<li><a name="wp1081000"> </a><a href="pbevb.html#wp1081229">Subscribing to Events</a></li>
+<li><a name="wp1081004"> </a><a href="pbevb.html#wp1081383">Unsubscribing from Events</a></li>
+<li><a name="wp1081008"> </a><a href="pbevb.html#wp1081416">Posting Events</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1081014"> </a>
+Overview of Events
+</h2><p class="pBody"><a name="wp1081015"> </a>
+Event-based communication provides a method for an Oracle Tuxedo system process to be notified when a specific situation (event) occurs.
+</p>
+<p class="pBody"><a name="wp1081016"> </a>
+The Oracle Tuxedo system supports two types of event-based communication:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1081017"> </a>Unsolicited events</li>
+<li><a name="wp1081018"> </a>Brokered events</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1081019"> </a>
+Unsolicited Events
+</h3>
+<p class="pBody"><a name="wp1081020"> </a>
+Unsolicited events are messages used to communicate with client programs that are not waiting for and/or expecting a message. 
+</p>
+<h3 class="pHeading2"><a name="wp1081021"> </a>
+Brokered Events
+</h3>
+<p class="pBody"><a name="wp1081022"> </a>
+Brokered events enable a client and a server to communicate transparently with one another via an &#8220;anonymous&#8221; broker that receives and distributes messages. Such brokering is another client/server communication paradigm that is fundamental to the Oracle Tuxedo system.
+</p>
+<p class="pBody"><a name="wp1081023"> </a>
+The EventBroker is an Oracle Tuxedo subsystem that receives and filters event posting messages, and distributes them to subscribers. A <em class="cEmphasis">poster</em> is an Oracle Tuxedo system process that detects when a specific event has occurred and reports (posts) it to the EventBroker. A <em class="cEmphasis">subscriber</em> is an Oracle Tuxedo system process with a standing request to be notified whenever a specific event has been posted.
+</p>
+<p class="pBody"><a name="wp1081024"> </a>
+The Oracle Tuxedo system does not impose a fixed ratio of service requesters to service providers; an arbitrary number of posters can post a message for an arbitrary number of subscribers. The posters simply post events, without knowing which processes receive the information or how the information is handled. Subscribers are notified of specified events, without knowing who posted the information. In this way, the EventBroker provides complete location transparency.
+</p>
+<p class="pBody"><a name="wp1081025"> </a>
+Typically, EventBroker applications are designed to handle exception events. An application designer must decide which events in the application constitute exception events and need to be monitored. In a banking application, for example, it might be useful to post an event whenever an unusually large amount of money is withdrawn, but it would not be particularly useful to post an event for every withdrawal transaction. In addition, not all users would need to subscribe to that event; perhaps only the branch manager would need to be notified.
+</p>
+<h4 class="pHeading3"><a name="wp1081026"> </a>
+Notification Actions
+</h4>
+<p class="pBody"><a name="wp1081027"> </a>
+The EventBroker may be configured such that whenever an event is posted, the EventBroker invokes one or more notification actions for clients and/or servers that have subscribed. <a href="pbevb.html#wp386624">Table&#160;8-1</a> lists the types of notification actions that the EventBroker can take.
+</p>
+<p class="pGraphic"><a name="wp1081049"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp386624table1081028"><caption><a name="wp386624"> </a>
+Table 8-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">EventBroker Notification Actions</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1081030"> </a>
+Notification Action
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1081032"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081034"> </a>
+Unsolicited notification message
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081036"> </a>
+Clients may receive event notification messages in their unsolicited message handling routine, just as if they were sent by the <code class="cCode">TPNOTIFY</code> routine.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081038"> </a>
+Service call
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081040"> </a>
+Servers may receive event notification messages as input to service routines, just as if they were sent by <code class="cCode">TPACALL</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081042"> </a>
+Reliable queue
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081044"> </a>
+Event notification messages may be stored in an Oracle Tuxedo system reliable queue, using TP<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>DEQUEUE(3cbl)</span>. Event notification records are stored until requests for contents are issued. An Oracle Tuxedo system client or server process may call TPDEQUE<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>UE(3cbl)</span> to retrieve these notification records, or alternately <a href="../rf5/rf5.html">TMQFORWARD(5)</a> may be configured to automatically dispatch an Oracle Tuxedo system service routine that retrieves a notification record.
+</div>
+<div class="pCellBody"><a name="wp1081047"> </a>
+For more information on /Q, see <em class="cEmphasis">Using the ATMI /Q Component</em>.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1081050"> </a>
+In addition, the application administrator may create an <a href="../rf5/rf5.html">EVENT_MIB(5)</a> entry (by using the Oracle Tuxedo administrative API) that performs the following notification actions: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1081051"> </a>Invokes a system command</li>
+<li><a name="wp1081052"> </a>Writes a message to the system&#8217;s log file on disk</li>
+</ul></div>
+<a name="wp1081053"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Only the Oracle Tuxedo application administrator is allowed to create an <a href="../rf5/rf5.html">EVENT_MIB(5)</a> entry.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1081056"> </a>
+For information on the <a href="../rf5/rf5.html">EVENT_MIB(5)</a>, refer to the <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em>.
+</p>
+<h4 class="pHeading3"><a name="wp1081058"> </a>
+EventBroker Servers
+</h4>
+<p class="pBody"><a name="wp1081059"> </a>
+<code class="cCode">TMUSREVT</code> is the Oracle Tuxedo system-supplied server that acts as an EventBroker for <em class="cEmphasis">user events</em>. <code class="cCode">TMUSREVT</code> processes event report message records, and then filters and distributes them. The Oracle Tuxedo application administrator must boot one or more of these servers to activate event brokering.
+</p>
+<p class="pBody"><a name="wp1081060"> </a>
+<code class="cCode">TMSYSEVT</code> is the Oracle Tuxedo system-supplied server that acts as an EventBroker for <em class="cEmphasis">system-defined events</em>. <code class="cCode">TMSYSEVT</code> and <code class="cCode">TMUSREVT</code> are similar, but separate servers are provided to allow the application administrator the ability to have different replication strategies for processing notifications of these two types of events. Refer to <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em> for additional information.
+</p>
+<h4 class="pHeading3"><a name="wp1081064"> </a>
+System-defined Events
+</h4>
+<p class="pBody"><a name="wp1081065"> </a>
+The Oracle Tuxedo system itself detects and posts certain predefined events related to system warnings and failures. These tasks are performed by the EventBroker. For example, system-defined events include configuration changes, state changes, connection failures, and machine partitioning. For a complete list of system-defined events detected by the EventBroker, see <a href="../rf5/rf5.html">EVENTS(5)</a> in the <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em>.
+</p>
+<p class="pBody"><a name="wp1081069"> </a>
+System-defined events are defined in advance by the Oracle Tuxedo system code and do not require posting. The name of a system-defined event, unlike that of an application-defined event, always begins with a dot (&#8220;.&#8221;). Names of application-defined events may not begin with a leading dot. 
+</p>
+<p class="pBody"><a name="wp1081070"> </a>
+Clients and servers can subscribe to system-defined events. These events, however, should be used mainly by application administrators, not by every client in the application.
+</p>
+<p class="pBody"><a name="wp1081071"> </a>
+When incorporating the EventBroker into your application, remember that it is not intended to provide a mechanism for high-volume distribution to many subscribers. Do not attempt to post an event for every activity that occurs, and do not expect all clients and servers to subscribe. If you overload the EventBroker, system performance may be adversely affected and notifications may be dropped. To minimize the possibility of overload, the application administrator should carefully tune the operating system IPC resources, as explained in <em class="cEmphasis">Installing the Oracle Tuxedo System</em>.
+</p>
+<h4 class="pHeading3"><a name="wp1081072"> </a>
+Programming Interface for the EventBroker
+</h4>
+<p class="pBody"><a name="wp1081073"> </a>
+EventBroker programming interfaces are available for all Oracle Tuxedo system server and client processes, including Workstation, in both C and COBOL. 
+</p>
+<p class="pBody"><a name="wp1081074"> </a>
+The programmer&#8217;s job is to code the following sequence:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1081075"> </a>A client or server <em class="cEmphasis">posts</em> a record to an application-defined event name.</li>
+<li><a name="wp1081076"> </a>The posted record is transmitted to any number of processes that have <em class="cEmphasis">subscribed</em> to the event.</li>
+</ol></div>
+<p class="pBody"><a name="wp1081077"> </a>
+Subscribers may be notified in a variety of ways (as discussed in &#8220;Notification Actions&#8221;), and events may be filtered. Notification and filtering are configured through the programming interface, as well as through the Oracle Tuxedo system administrative API.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1081079"> </a>
+Defining the Unsolicited Message Handler
+</h2><p class="pBody"><a name="wp1081080"> </a>
+To define the unsolicited message handler, use the TPSE<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>TUNSOL(3cbl)</span> routine with the following signature:
+</p>
+<a name="wp1113483"> </a><div class="pPreformatted"><pre>01 <em class="cEmphasis">CURR-ROUTINE</em>   PIC S9(9) COMP-5.<br />01 <em class="cEmphasis">PREV-ROUTINE</em>   PIC S9(9) COMP-5.<br />01 <em class="cEmphasis">TPSTATUS-REC</em>.<br />   COPY TPSTATUS.<br />CALL &quot;TPSETUNSOL&quot; USING <em class="cEmphasis">CURR-ROUTINE</em> <em class="cEmphasis">PREV-ROUTINE</em> <em class="cEmphasis">TPSTATUS-REC</em>.</pre></div><p class="pBody"><a name="wp1113484"> </a>
+<code class="cCode">TPSETUNSOL</code> allows a client to identify the routine that should be invoked when an unsolicited message is received by the Oracle Tuxedo system libraries. Before the first call to <code class="cCode">TPSETUNSOL</code>, any unsolicited messages received by the Oracle Tuxedo system libraries on behalf of the client are logged and ignored. The method used by the system for notification and detection is determined by the application default, which can be overridden on a per-client basis. For more information, refer to TPINITIALIZE<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>(3cbl)</span> in the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em>.
+</p>
+<p class="pBody"><a name="wp1116820"> </a>
+The <code class="cCode">CURR-ROUTINE</code> parameter identifies one of 16 predefined routines that provide unsolicited message handling: eight C routines, <code class="cCode">tm_displatch1</code> through <code class="cCode">_tm_dispatch8</code>, and eight COBOL routines, <code class="cCode">TMDISPATCH9</code> through <code class="cCode">TMDISPATCH16</code>. (Alternatively, if you set <code class="cCode">CURR-ROUTINE</code> to a value of 0, any unsolicited messages received by the Oracle Tuxedo system libraries on behalf of the client are logged and ignored.) The C routines must conform to the parameter definition provided on TPSETUN<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>SOL(3cbl)</span>. When a COBOL routine is used, <code class="cCode">TPGETUNSOL</code> must be called to receive the data.
+</p>
+<p class="pBody"><a name="wp1113495"> </a>
+The following sample code shows how to set an unsolicited routine in a COBOL program.
+</p>
+<div class="pCodeTitle"><a name="wp1113497"> </a>
+Listing&#160;8-1	   Setting an Unsolicited Routine
+</div> <a name="wp1113498"> </a><div class="pPreformatted"><pre>*<br />* Call TPSETUNSOL - Set a COBOL unsolicited message handler<br />*  Routine TMDISPATCH9 will be called<br />*<br />&#160;&#160;&#160;MOVE 9 to CURR-ROUTINE.<br />&#160;&#160;&#160;CALL &quot;TPSETUNSOL&quot; USING<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CURR-ROUTINE<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PREV-ROUTINE<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">Routine TMDISPATCH9 will receive unsolicited messages<br /></em>&#160;&#160;&#160;ELSE<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">Process error condition</em></pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1081106"> </a>
+Sending Unsolicited Messages
+</h2><p class="pBody"><a name="wp1081107"> </a>
+The Oracle Tuxedo system allows unsolicited messages to be sent to client processes without disturbing the processing of request/response calls or conversational communications. 
+</p>
+<p class="pBody"><a name="wp1092714"> </a>
+Unsolicited messages can be sent to client processes by name, using TPBRO<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>ADCAST(3cbl)</span>, or by an identifier received with a previously processed message, using TPNOTI<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>FY(3cbl)</span>. Messages sent via <code class="cCode">TPBROADCAST</code> can originate either in a service or in another client. Messages sent via <code class="cCode">TPNOTIFY</code> can originate only in a service.
+</p>
+<h3 class="pHeading2"><a name="wp1081110"> </a>
+Broadcasting Messages by Name
+</h3>
+<p class="pBody"><a name="wp1081111"> </a>
+The TPBROADC<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>AST(3cbl)</span> routine allows a message to be sent to registered clients of the application. It can be called by a service or another client. Registered clients are those that have successfully made a call to <code class="cCode">TPINITIALIZE</code> and have not yet made a call to <code class="cCode">TPTERM</code>. 
+</p>
+<p class="pBody"><a name="wp1081112"> </a>
+Use the following signature to call the <code class="cCode">TPBROADCAST</code> routine:
+</p>
+<a name="wp1113730"> </a><div class="pPreformatted"><pre>01 <em class="cEmphasis">TPBCTDEF-REC</em>.<br />   COPY TPBCTDEF.<br />01 <em class="cEmphasis">TPTYPE-REC</em>.<br />   COPY TPTYPE.<br />01 <em class="cEmphasis">DATA-REC</em>.<br />   COPY User Data.<br />01 <em class="cEmphasis">TPSTATUS-REC</em>.<br />   COPY TPSTATUS.<br />CALL &quot;TPBROADCAST&quot; USING <em class="cEmphasis">TPBCTDEF-REC TPTYPE-REC DATA-REC TPSTATUS-REC</em>.</pre></div><p class="pBody"><a name="wp1081115"> </a>
+<a href="pbevb.html#wp386664">Table&#160;8-2</a> describes the members of the <code class="cCode">TPBCTDEF-REC</code> data structure.
+</p>
+<p class="pGraphic"><a name="wp1081116"> </a>
+<em class="cEmphasis"></em></p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp386664table1081117"><caption><a name="wp386664"> </a>
+Table 8-2  TPBCTDEF-REC Data Structure Member<em class="cEmphasis">s</em>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1081119"> </a>
+Member
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1081121"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081123"> </a>
+<code class="cCode">LMID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081125"> </a>
+Pointer to the logical machine identifier for the client. A value of <code class="cCode">SPACES</code> acts as a wildcard, so that a message can be directed to groups of clients.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081127"> </a>
+<code class="cCode">USRNAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081129"> </a>
+Username of the client process, if one exists. A value of <code class="cCode">SPACES</code> acts as a wildcard, so that a message can be directed to groups of clients.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081131"> </a>
+<code class="cCode">CLTNAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081133"> </a>
+Client name of the client process, if one exists. A value of NULL acts as a wildcard, so that a message can be directed to groups of clients.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081143"> </a>
+Settings (such as <code class="cCode">TPBLOCK-FLAG</code>)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1081145"> </a>
+Settings for the <code class="cCode">TPBROADCAST</code> command. Refer to TPBROAD<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>CAST(3cbl)</span> in the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em> for information on available settings.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+<em class="cEmphasis"></em>
+</p>
+<p class="pBody"><a name="wp1113787"> </a>
+Refer to <span class="cHyperlink">
+<a href="../pgc/pgserv.html">&#8220;Defining a Service&#8221; </a></span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em> for a description of the <code class="cCode">TPTYPE-REC</code> record.
+</p>
+<p class="pBody"><a name="wp1081156"> </a>
+The following example illustrates a call to <code class="cCode">TPBROADCAST</code> for which all clients are targeted. The message to be sent is contained in a <code class="cCode">STRING</code> record.
+</p>
+<div class="pCodeTitle"><a name="wp1113829"> </a>
+Listing&#160;8-2	   Using TPBROADCAST
+</div> <a name="wp1113830"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;. . .<br />**************************************************<br />* Prepare the record to broadcasted<br />**************************************************<br />&#160;&#160;&#160;&#160;MOVE &quot;HELLO, WORLD&quot; TO DATA-REC.<br />&#160;&#160;&#160;&#160;MOVE 11 TO LEN.<br />&#160;&#160;&#160;&#160;MOVE &quot;STRING&quot; TO REC-TYPE.<br />*<br />&#160;&#160;&#160;&#160;SET TPNOBLOCK TO TRUE.<br />&#160;&#160;&#160;&#160;SET TPNOTIME TO TRUE.<br />&#160;&#160;&#160;&#160;SET TPSIGRSTRT TO TRUE.<br />*<br />&#160;&#160;&#160;&#160;MOVE SPACES TO LMID.<br />&#160;&#160;&#160;&#160;MOVE SPACES TO USRNAME.<br />&#160;&#160;&#160;&#160;MOVE SPACES TO CLTNAME.<br />&#160;&#160;&#160;&#160;CALL &quot;TPBROADCAST&quot; USING TPBCTDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DATA-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">error processing</em></pre></div><h3 class="pHeading2"><a name="wp1081164"> </a>
+Broadcasting Messages by Identifier
+</h3>
+<p class="pBody"><a name="wp1081165"> </a>
+The TPNOTIF<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>Y(3cbl)</span> routine is used to broadcast a message using an identifier received with a previously processed message. It can be called only from a service.
+</p>
+<p class="pBody"><a name="wp1081166"> </a>
+Use the following signature to call the <code class="cCode">TPNOTIFY</code> routine:
+</p>
+<a name="wp1113930"> </a><div class="pPreformatted"><pre>01 <em class="cEmphasis">TPSVCDEF-REC</em>.<br />   COPY TPSVCDEF.<br />01 <em class="cEmphasis">TPTYPE-REC</em>.<br />   COPY TPTYPE.<br />01 <em class="cEmphasis">DATA-REC</em>.<br />   COPY User Data.<br />01 <em class="cEmphasis">TPSTATUS-REC</em>.<br />   COPY TPSTATUS.<br />CALL &quot;TPNOTIFY&quot; USING <em class="cEmphasis">TPSVCDEF-REC TPTYPE-REC DATA-REC TPSTATUS-REC</em>.</pre></div><p class="pBody"><a name="wp1113934"> </a>
+Refer to <span class="cHyperlink">
+<a href="../pgc/pgglob.html">&#8220;Writing Global Transactions&#8221; </a></span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em> for information on the <code class="cCode">TPSVCDEF-REC</code> data structure, and <span class="cHyperlink">
+<a href="../pgc/pgserv.html">&#8220;Defining a Service&#8221; </a></span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em> for a description of the <code class="cCode">TPTYPE-REC</code> record.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1081203"> </a>
+Checking for Unsolicited Messages
+</h2><p class="pBody"><a name="wp1081204"> </a>
+To check for unsolicited messages while running the client in &#8220;dip-in&#8221; notification mode, use the TPCHKU<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>NSOL(3cbl)</span> routine with the following signature:
+</p>
+<a name="wp1114008"> </a><div class="pPreformatted"><pre>01 <em class="cEmphasis">MSG-NUM</em>          PIC S9(9)  COMP-5.<br />01 <em class="cEmphasis">TPSTATUS-REC</em>.<br />   COPY TPSTATUS.<br />CALL &quot;TPCHKUNSOL&quot; USING <em class="cEmphasis">MSG-NUM</em> <em class="cEmphasis">TPSTATUS-REC</em>.</pre></div><p class="pBody"><a name="wp1081208"> </a>
+If any messages are pending, the system invokes the unsolicited message handling routine that was specified using <code class="cCode">TPSETUNSOL</code>. Upon completion, the routine returns either the number of unsolicited messages that were processed and sets <code class="cCode">TP-STATUS</code> to [<code class="cCode">TPOK</code>].
+</p>
+<p class="pBody"><a name="wp1081209"> </a>
+If you issue this routine when the client is running in <code class="cCode">SIGNAL</code>-based, thread-based notification mode, or is ignoring unsolicited messages, the routine has no impact and returns immediately.
+</p>
+<p class="pBody"><a name="wp1114135"> </a>
+The following example shows how to check for the arrival of an unsolicited message.
+</p>
+<div class="pCodeTitle"><a name="wp1114137"> </a>
+Listing&#160;8-3	   Arrival of an Unsolicited Message
+</div> <a name="wp1114138"> </a><div class="pPreformatted"><pre>*<br />* Check for unsolicited messages<br />*<br />&#160;&#160;&#160;&#160;CALL &quot;TPCHKUNSOL&quot; USING MESS-NUM<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />*<br />&#160;&#160;&#160;&#160;IF TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;IF MESS-NUM IS = 0<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">No messages were processed by the<br /></em>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">unsolicited routine<br /></em>&#160;&#160;&#160;&#160;ELSE<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MESS-NUM  <em class="cEmphasis">number of messages were<br /></em>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">processed by the unsolicited routine<br /></em>&#160;&#160;&#160;&#160;END-IF<br />&#160;&#160;&#160;&#160;ELSE<br />&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-style: normal">&#160;</span><span style="font-style: italic">process error<br /></span>&#160;&#160;&#160;&#160;END-IF</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1114142"> </a>
+Getting Unsolicited Messages
+</h2><p class="pBody"><a name="wp1114146"> </a>
+To get unsolicited messages, you must call the TPGET<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>UNSOL(3cbl)</span> routine. This routine can be called, however, only from an unsolicited message handler. Use the following signature to call the <code class="cCode">TPGETUNSOL</code> routine:
+</p>
+<a name="wp1114147"> </a><div class="pPreformatted"><pre>01 <em class="cEmphasis">TPTYPE-REC</em>.<br />   COPY TPTYPE.<br />01 <em class="cEmphasis">DATA-REC</em>.<br />   COPY User data.<br />01 <em class="cEmphasis">TPSTATUS-REC</em>.<br />   COPY TPSTATUS.<br />CALL &quot;TPGETUNSOL&quot; USING <em class="cEmphasis">TPTYPE-REC</em> <em class="cEmphasis">DATA-REC</em> <em class="cEmphasis">TPSTATUS-REC</em>.</pre></div><p class="pBody"><a name="wp1114151"> </a>
+Refer to <span class="cHyperlink">
+<a href="../pgc/pgserv.html">&#8220;Defining a Service&#8221; </a></span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em> for a description of the <code class="cCode">TPTYPE-REC</code> record.
+</p>
+<p class="pBody"><a name="wp1114152"> </a>
+The following example shows how to get an unsolicited message.
+</p>
+<div class="pCodeTitle"><a name="wp1114154"> </a>
+Listing&#160;8-4	   Getting an Unsolicited Message
+</div> <a name="wp1114155"> </a><div class="pPreformatted"><pre>&#160;IDENTIFICATION DIVISION.<br />&#160;PROGRAM-ID.  TMDISPATCH9.<br />&#160;ENVIRONMENT DIVISION.<br />&#160;CONFIGURATION SECTION.<br />&#160;SOURCE-COMPUTER.  USL-486.<br />&#160;OBJECT-COMPUTER.  USL-486.<br />*<br />&#160;DATA DIVISION.<br />&#160;WORKING-STORAGE SECTION.<br />*<br />&#160;01 TPTYPE-REC.<br />&#160;&#160;&#160;&#160;COPY TPTYPE.<br />*<br />&#160;01 TPSTATUS-REC.<br />&#160;&#160;&#160;&#160;COPY TPSTATUS.<br />*<br />&#160;01  DATA-REC                 PIC X(1000).<br />*<br />&#160;PROCEDURE DIVISION.<br />*<br />&#160;A-000.<br />*<br />&#160;&#160;&#160;MOVE &quot;CARRAY&quot; TO REC-TYPE.<br />&#160;&#160;&#160;MOVE 1000  TO LEN.<br />&#160;&#160;&#160;CALL &quot;TPGETUNSOL&quot; USING TPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DATA-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;&#160;IF  NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">error processing<br /></em>*<br />&#160;&#160;<span style="font-style: normal">&#160;</span><span style="font-style: italic">Process message<br /></span>&#160;&#160;&#160;DISPLAY &quot;TPGETUNSOL IS TPOK&quot;.<br />&#160;&#160;&#160;DISPLAY &quot;MESSAGE IS&quot; DATA-REC.<br />&#160;&#160;&#160;DISPLAY &quot;LENGTH IS&quot; LEN.<br />&#160;&#160;&#160;EXIT PROGRAM.<br />*</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1081229"> </a>
+Subscribing to Events
+</h2><p class="pBody"><a name="wp1081230"> </a>
+The TPSUBSCR<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>IBE(3cbl)</span> routine enables an Oracle Tuxedo system ATMI client or server to subscribe to an event. 
+</p>
+<p class="pBody"><a name="wp1081231"> </a>
+A subscriber can be notified through an unsolicited notification message, a service call, a reliable queue, or other notification methods configured by the application administrator. (For information about configuring alternative notification methods, refer to <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em>.)
+</p>
+<p class="pBody"><a name="wp1081235"> </a>
+Use the following signature to call the <code class="cCode">TPSUBSCRIBE</code> routine:
+</p>
+<a name="wp1114203"> </a><div class="pPreformatted"><pre>01  <span style="font-style: italic">TPEVTDEF-REC</span>.<br />  COPY TPEVTDEF.</pre></div><a name="wp1114204"> </a><div class="pPreformatted"><pre>01  <span style="font-style: italic">TPQUEDEF-REC</span>.<br />  COPY TPQUEDEF.</pre></div><a name="wp1114205"> </a><div class="pPreformatted"><pre>01 <span style="font-style: italic">TPSTATUS-REC</span>.<br />  COPY TPSTATUS.</pre></div><a name="wp1114206"> </a><div class="pPreformatted"><pre>CALL &#8220;TPSUBSCRIBE&#8221; USING <span style="font-style: italic">TPEVTDEF-REC TPQUEDEF-REC TPSTATUS-REC</span></pre></div><p class="pBody"><a name="wp1114211"> </a>
+The <code class="cCode">TPEVTDEF-REC</code> data structure signature is as follows:
+</p>
+<a name="wp1114212"> </a><div class="pPreformatted"><pre>05 TPBLOCK-FLAG     PIC S9(9) COMP-5.<br />  88 TPBLOCK       VALUE 0.<br />  88 TPNOBLOCK      VALUE 1.<br />05 TPTRAN-FLAG     PIC S9(9) COMP-5.<br />  88 TPTRAN        VALUE 0.<br />  88 TPNOTRAN       VALUE 1.<br />05 TPREPLY-FLAG     PIC S9(9) COMP-5.<br />  88 TPREPLY       VALUE 0.<br />  88 TPNOREPLY      VALUE 1.<br />05 TPTIME-FLAG     PIC S9(9) COMP-5.<br />  88 TPTIME        VALUE 0.<br />  88 TPNOTIME       VALUE 1.<br />05 TPSIGRSTRT-FLAG   PIC S9(9) COMP-5.<br />  88 TPNOSIGRSTRT     VALUE 0.<br />  88 TPSIGRSTRT      VALUE 1.<br />05 TPEV-METHOD-FLAG   PIC S9(9) COMP-5.<br />  88 TPEVNOTIFY      VALUE 0.<br />  88 TPEVSERVICE     VALUE 1.<br />  88 TPEVQUEUE      VALUE 2.<br />05 TPEV-PERSIST-FLAG  PIC S9(9) COMP-5.<br />  88 TPEVNOPERSIST    VALUE 0.<br />  88 TPEVPERSIST     VALUE 1.<br />05 TPEV-TRAN-FLAG    PIC S9(9) COMP-5.<br />  88 TPEVNOTRAN      VALUE 0.<br />  88 TPEVTRAN       VALUE 1.<br />*<br />05 EVENT-COUNT     PIC S9(9) COMP-5.<br />05 SUBSCRIPTION-HANDLE PIC S9(9) COMP-5.<br />05 NAME-1        PIC X(127).<br />05 NAME-2        PIC X(127).<br />05 EVENT-NAME      PIC X(31).<br />05 EVENT-EXPR      PIC X(255).<br />05 EVENT-FILTER     PIC X(255).</pre></div><p class="pBody"><a name="wp1114267"> </a>
+The following table describes the members of the <code class="cCode">TPEVTDEF-REC</code> data structure.
+</p>
+<p class="pGraphic"><a name="wp1116757"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1114215table1114213">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1114215"> </a>
+Member
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1114217"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1114219"> </a>
+<code class="cCode">EVENT-COUNT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1114221"> </a>
+Event count.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1114223"> </a>
+<code class="cCode">SUBSCRIPTION-HANDLE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1114225"> </a>
+Subscription handle.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1114227"> </a>
+<code class="cCode">NAME-1</code>, <code class="cCode">NAME-2</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1114229"> </a>
+Name of queued spaces. If the subscriber sets <code class="cCode">TPEVQUEUE</code>, then event notifications are enqueued to the queue space named by <code class="cCode">NAME-1</code> and the queue named by <code class="cCode">NAME-2</code>. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1114231"> </a>
+<code class="cCode">EVENT-NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1114233"> </a>
+Event name.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1114235"> </a>
+<code class="cCode">EVENT-EXPR</code>
+</div>
+</td>
+    <td class="table" scope="row"><p class="pBody"><a name="wp1114237"> </a>
+Set of events to which to subscribe. Consists of a null-terminated string of up to 255 characters containing a regular expression. Regular expressions are of the form specified in <a href="../rf3c/rf3c.html">tpsubscribe(3c)</a> as described in the <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em>. For example, if <code class="cCode">eventexpr</code> is set to:
+</p>
+<div class="pSmartList1TableBullet"><ul class="SmartList1TableBullet">
+<li><a name="wp1114244"> </a><code class="cCode">&quot;\\..*&quot;</code> &#8212; the caller is subscribing to all system-defined events.</li>
+<li><a name="wp1114245"> </a><code class="cCode">&quot;\\.SysServer.*&quot;</code> &#8212; the caller is subscribing to all system-defined events related to servers.</li>
+<li><a name="wp1114246"> </a><code class="cCode">&quot;[A-Z].*&quot;</code> &#8212; the caller is subscribing to all user events starting with A-Z.</li>
+<li><a name="wp1114247"> </a><code class="cCode">&quot;.*(ERR|err).*&quot;</code> &#8212; the caller is subscribing to all user events containing either the substring <code class="cCode">ERR</code> or the substring <code class="cCode">err</code> (for example, <code class="cCode">account_error</code> and <code class="cCode">ERROR_STATE</code> events would both qualify).</li>
+</ul></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1114249"> </a>
+<code class="cCode">EVENT-FILTER</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1114251"> </a>
+String containing a Boolean filter rule that must be evaluated successfully before the Event Broker posts the event. Upon receiving an event to be posted, the Event Broker applies the filter rule, if one exists, to the posted event&#8217;s data. If the data passes the filter rule, the Event Broker invokes the notification method specified; otherwise, the Event Broker ignores the notification method. The caller can subscribe to the same event multiple times with different filter rules.
+</div>
+<div class="pCellBody"><a name="wp1114252"> </a>
+By using the event filtering capability, subscribers can be more discriminating about the events for which they are notified. For example, a poster can post an event for withdrawals greater than $10,000.00, but a subscriber may want to specify a higher threshold for being notified, such as $50,000.00. Or, a subscriber may want to be notified of large withdrawals only if made by customers with specified IDs.
+</div>
+<div class="pCellBody"><a name="wp1114253"> </a>
+Filter rules are specific to the typed records to which they are applied. Refer to the TPSUBS<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>CRIBE(3cbl)</span> reference page in the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em> for further information on filter rules.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1114261"> </a>
+<code class="cCode">SETTINGS<br />(TPBLOCK-FLAG</code>, <br /><code class="cCode"> TPTRAN-FLAG</code>, and so on<code class="cCode">)</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1114263"> </a>
+Miscellaneous settings that control the server characteristics. For more information on the settings, refer to the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em>.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1114271"> </a>
+Refer to <em class="cEmphasis">Using the ATMI /Q Component</em> for more information on the TPQUEDEF-REC data structure.
+</p>
+<p class="pBody"><a name="wp1081336"> </a>
+You can subscribe to both system- and application-defined events using the <code class="cCode">TPSUBSCRIBE</code> routine.
+</p>
+<p class="pBody"><a name="wp1081337"> </a>
+For purposes of subscriptions (and for <code class="cCode">MIB</code> updates), service routines executed in an Oracle Tuxedo system server process are considered to be trusted code. 
+</p>
+<p class="pBody"><a name="wp1114368"> </a>
+Refer to TPSUBSCRIB<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>E(3cbl)</span> in the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em> for more information on the routine.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1081383"> </a>
+Unsubscribing from Events
+</h2><p class="pBody"><a name="wp1081384"> </a>
+The TPUNSUBSC<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>RIBE(3cbl)</span> routine enables an Oracle Tuxedo system ATMI client or server to unsubscribe from an event. 
+</p>
+<p class="pBody"><a name="wp1081385"> </a>
+Use the following signature to call the <code class="cCode">TPUNSUBSCRIBE</code> routine:
+</p>
+<a name="wp1114475"> </a><div class="pPreformatted"><pre>01  <span style="font-style: italic">TPEVTDEF-REC</span>.<br />  COPY TPEVTDEF.</pre></div><a name="wp1114476"> </a><div class="pPreformatted"><pre>01 <span style="font-style: italic">TPSTATUS-REC</span>.<br />  COPY TPSTATUS.</pre></div><a name="wp1114477"> </a><div class="pPreformatted"><pre>CALL &#8220;TPUNSUBSCRIBE&#8221; USING <span style="font-style: italic">TPEVTDEF-REC TPSTATUS-REC</span></pre></div><p class="pBody"><a name="wp1114481"> </a>
+Refer to <a href="pbevb.html#wp1081229">Subscribing to Events</a> for a detailed description of the <code class="cCode">TPEVTDEF-REC</code> data structure, and to <em class="cEmphasis">Using the ATMI /Q Component</em> for more information on the TPQUEDEF-REC data structure.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1081416"> </a>
+Posting Events
+</h2><p class="pBody"><a name="wp1081417"> </a>
+The TPPOST<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>(3cbl)</span> routine enables an Oracle Tuxedo ATMI client or server to post an event.
+</p>
+<p class="pBody"><a name="wp1081418"> </a>
+Use the following signature to call the <code class="cCode">TPPOST</code> routine:
+</p>
+<a name="wp1114566"> </a><div class="pPreformatted"><pre>01  <span style="font-style: italic">TPEVTDEF-REC</span>.<br />  COPY TPEVTDEF.</pre></div><a name="wp1114567"> </a><div class="pPreformatted"><pre>01 <span style="font-style: italic">TPTYPE-REC</span>.<br />  COPY TPSTATUS.</pre></div><a name="wp1114568"> </a><div class="pPreformatted"><pre>01 <span style="font-style: italic">TPDATA-REC</span>.<br />  COPY TPSTATUS.</pre></div><a name="wp1114569"> </a><div class="pPreformatted"><pre>01 <span style="font-style: italic">TPSTATUS-REC</span>.<br />  COPY TPSTATUS.</pre></div><a name="wp1114570"> </a><div class="pPreformatted"><pre>CALL &#8220;TPPST&#8221; USING <span style="font-style: italic">TPEVTDEF-REC TPTYPE-REC TPDATA-REC TPSTATUS-REC</span></pre></div><p class="pBody"><a name="wp1114574"> </a>
+Refer to <a href="pbevb.html#wp1081229">Subscribing to Events</a> for a detailed description of the <code class="cCode">TPEVTDEF-REC</code> data structure, and to <span class="cHyperlink">
+<a href="../pgc/pgserv.html">&#8220;Defining a Service&#8221; </a></span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em> for a description of the <code class="cCode">TPTYPE-REC</code> record.
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="pbevb.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pbconv.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pbglob.html"><img id="LongDescNotReq9" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

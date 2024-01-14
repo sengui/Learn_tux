@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>Shutting Down a Target</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = ohj/ohw) - Version 5.1.2 Build 050" />
+<meta name="date" content="2013-02-27T17:52:26Z" />
+<meta name="robots" content="noarchive" />
+<meta name="doctitle" content="Shutting Down a Target" />
+<meta name="relnum" content="" />
+<meta name="partnum" content="" />
+<meta name="topic-id" content="/txdo/sdk/pcs/pcsControl/tuxedo_domain_shutdownDomain;/txdo/sdk/pcs/pcsControl/tuxedo_machine_shutdownMachine;/txdo/sdk/pcs/pcsControl/tuxedo_server_shutdownServer;/txdo/sdk/pcs/pcsControl/tuxedo_system_server_shutdownServer;/txdo/sdk/pcs/pcsControl/tuxedo_LMS_shutdownServer;/txdo/sdk/pcs/pcsControl/tuxedo_domain_gateway_shutdownServer;/txdo/sdk/pcs/pcsControl/tuxedo_webservice_gateway_shutdownServer;/txdo/sdk/pcs/pcsControl/tuxedo_workstation_listener_shutdownServer;/txdo/sdk/pcs/pcsControl/tuxedo_jolt_listener_shutdownServer;/txdo/sdk/pcs/pcsControl/tuxedo_event_broker_shutdownServer;/txdo/sdk/pcs/pcsControl/tuxedo_OTMQ_server_shutdownServer;/txdo/sdk/pcs/pcsControl/tuxedo_ART_TCP_listener_shutdownServer" />
+<link rel="copyright" href="./dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+<link rel="stylesheet" href="./dcommon/css/blafdoc.css" title="Oracle BLAFDoc" type="text/css" />
+<link rel="contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="prev" href="startshut001.htm" title="Previous" type="text/html" />
+<link rel="next" href="tuxtls.htm" title="Next" type="text/html" />
+</head>
+<body>
+<div class="zz-skip-header"><a href="#BEGIN">Skip Headers</a></div>
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<col width="86%" />
+<col width="*" />
+<tr valign="bottom">
+<td align="left"></td>
+<td align="center"><a href="startshut001.htm"><img src="./dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="tuxtls.htm"><img src="./dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+<p><a id="/txdo/sdk/pcs/pcsControl/tuxedo_domain_shutdownDomain" name="/txdo/sdk/pcs/pcsControl/tuxedo_domain_shutdownDomain"></a><a id="/txdo/sdk/pcs/pcsControl/tuxedo_machine_shutdownMachine" name="/txdo/sdk/pcs/pcsControl/tuxedo_machine_shutdownMachine"></a><a id="/txdo/sdk/pcs/pcsControl/tuxedo_server_shutdownServer" name="/txdo/sdk/pcs/pcsControl/tuxedo_server_shutdownServer"></a><a id="/txdo/sdk/pcs/pcsControl/tuxedo_system_server_shutdownServer" name="/txdo/sdk/pcs/pcsControl/tuxedo_system_server_shutdownServer"></a><a id="/txdo/sdk/pcs/pcsControl/tuxedo_LMS_shutdownServer" name="/txdo/sdk/pcs/pcsControl/tuxedo_LMS_shutdownServer"></a><a id="/txdo/sdk/pcs/pcsControl/tuxedo_domain_gateway_shutdownServer" name="/txdo/sdk/pcs/pcsControl/tuxedo_domain_gateway_shutdownServer"></a><a id="/txdo/sdk/pcs/pcsControl/tuxedo_webservice_gateway_shutdownServer" name="/txdo/sdk/pcs/pcsControl/tuxedo_webservice_gateway_shutdownServer"></a><a id="/txdo/sdk/pcs/pcsControl/tuxedo_workstation_listener_shutdownServer" name="/txdo/sdk/pcs/pcsControl/tuxedo_workstation_listener_shutdownServer"></a><a id="/txdo/sdk/pcs/pcsControl/tuxedo_jolt_listener_shutdownServer" name="/txdo/sdk/pcs/pcsControl/tuxedo_jolt_listener_shutdownServer"></a><a id="/txdo/sdk/pcs/pcsControl/tuxedo_event_broker_shutdownServer" name="/txdo/sdk/pcs/pcsControl/tuxedo_event_broker_shutdownServer"></a><a id="/txdo/sdk/pcs/pcsControl/tuxedo_OTMQ_server_shutdownServer" name="/txdo/sdk/pcs/pcsControl/tuxedo_OTMQ_server_shutdownServer"></a><a id="/txdo/sdk/pcs/pcsControl/tuxedo_ART_TCP_listener_shutdownServer" name="/txdo/sdk/pcs/pcsControl/tuxedo_ART_TCP_listener_shutdownServer"></a></p>
+<div class="sect1"><!-- infolevel="all" infotype="General" --><a id="sthref10" name="sthref10"></a>
+<h1>Shutting Down a Target</h1>
+<a name="BEGIN" id="BEGIN"></a>
+<p>In most target home pages, you can deactivate the current target and all the targets belonging to it by clicking the <span class="bold">Shut Down</span> button on the top action bar. For some targets, e.g. Tuxedo domain, it provides specific options:</p>
+<ul>
+<li>
+<p>Only deactivate Administrative Servers</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>Only deactivate Application Servers</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>Delay: Delay the shutdown for the period specified in the textbox</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>Signal:</p>
+<ul>
+<li>
+<p>None: No signal is specified and use system default way to shut down</p>
+</li>
+<li>
+<p>TERM: use <code>SIGTERM</code> signal to shut down</p>
+</li>
+<li>
+<p>KILL: use <code>SIGKILL</code> signal to shut down</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p>Force deactive even if clients remain</p>
+</li>
+</ul>
+<a id="sthref11" name="sthref11"></a>
+<p class="subhead2">Related Topics</p>
+<p><a href="topicid:/txdo/sdk/pcs/pcsControl/tuxedo_domain_bootDomain">Starting Up a Target</a></p>
+</div>
+<!-- class="sect1" -->
+<!-- Start Footer -->
+<div class="footer">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<col width="86%" />
+<col width="*" />
+<tr>
+<td align="left"><span class="copyrightlogo">Copyright&nbsp;&copy;&nbsp;2013,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span><br />
+<a href="./dcommon/html/cpyr.htm"><span class="copyrightlogo">Legal Notices</span></a></td>
+<td align="center"><a href="startshut001.htm"><img src="./dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="tuxtls.htm"><img src="./dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</div>
+<!-- class="footer" -->
+</body>
+</html>

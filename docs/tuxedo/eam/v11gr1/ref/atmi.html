@@ -1,0 +1,1577 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="40264" />
+<meta name="LOC_US_SRCFILE" content="//depot/ecs/eam/v11gr1/ref/fm/atmi.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="08/24/10 04:17:24" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>ATMI to CPI-C Function Mapping</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Reference Guide
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="index.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="prog.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/ref.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1011656"> </a>
+ATMI to CPI-C Function Mapping
+</h1>
+<p class="pBody"><a name="wp1006255"> </a>
+The following tables list the most common ATMI function calls and show how their parameters map to CPI-C verbs. The mappings are listed by function call in the following order: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1006259"> </a><a href="atmi.html#wp1006312"><code class="cHyperlinkCode">
+tpcall()</code></a></li>
+<li><a name="wp1006263"> </a><a href="atmi.html#wp1006411"><code class="cHyperlinkCode">
+tpacall()</code></a> with or without reply </li>
+<li><a name="wp1006267"> </a><a href="atmi.html#wp1006502"><code class="cHyperlinkCode">
+tpgetrply()</code></a><code class="cHyperlinkCode">
+ </code></li>
+<li><a name="wp1006271"> </a><a href="atmi.html#wp1006585"><code class="cHyperlinkCode">
+tpservice()</code></a><code class="cHyperlinkCode">
+ </code></li>
+<li><a name="wp1006275"> </a><a href="atmi.html#wp1006700"><code class="cHyperlinkCode">
+tpreturn()</code></a><code class="cHyperlinkCode">
+ </code></li>
+<li><a name="wp1006279"> </a><a href="atmi.html#wp1006767"><code class="cHyperlinkCode">
+tpcancel()</code></a><code class="cHyperlinkCode">
+ </code></li>
+<li><a name="wp1006283"> </a><a href="atmi.html#wp1006794"><code class="cHyperlinkCode">
+tpconnect()</code></a><code class="cHyperlinkCode">
+ </code></li>
+<li><a name="wp1006287"> </a><a href="atmi.html#wp1006885"><code class="cHyperlinkCode">
+tpsend()</code></a><code class="cHyperlinkCode">
+ </code></li>
+<li><a name="wp1006291"> </a><a href="atmi.html#wp1006984"><code class="cHyperlinkCode">
+tprecv()</code></a><code class="cHyperlinkCode">
+ </code></li>
+<li><a name="wp1006295"> </a><a href="atmi.html#wp1007099"><code class="cHyperlinkCode">
+tpdiscon()</code></a><code class="cHyperlinkCode">
+ </code></li>
+<li><a name="wp1006299"> </a><a href="atmi.html#wp1007126"><code class="cHyperlinkCode">
+tpforward ()</code></a> </li>
+</ul></div>
+<p class="pBody"><a name="wp1006300"> </a>
+The tables show the parameters of the ATMI call, the contents or meaning of the parameters, and notes on usage with the CPI-C verbs.
+</p>
+<p class="pGraphic"><a name="wp1006399"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1006304table1006301"><caption><a name="wp1006304"> </a>
+Table 1-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">tpcall</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1006312"> </a>
+tpcall()
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006314"> </a>
+Parameters
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006316"> </a>
+Contents
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006318"> </a>
+CPI-C Notes
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006320"> </a>
+svc
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006324"> </a>
+Service Name
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006326"> </a>
+Used in CMALLC to identify the CICS transaction to be invoked.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006328"> </a>
+idata
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006332"> </a>
+User data
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006334"> </a>
+This data is sent in CMSENDs until completely transmitted.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006336"> </a>
+len
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006340"> </a>
+Length of User data
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006344"> </a>
+odata
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006348"> </a>
+Reply data
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006350"> </a>
+CMRCV receives the data until it has been completely transmitted (data_received is set to CM_COMPLETE_DATA_RECEIVED) and return code is set to CM_OK or CM_DEALLOCATE_NORMAL.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006352"> </a>
+olen
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006356"> </a>
+Reply data length
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="5"><div class="pCellBody"><a name="wp1006360"> </a>
+flags
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006362"> </a>
+<code class="cCode">TPNOTRAN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006364"> </a>
+Not part of a transaction
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006370"> </a>
+<code class="cCode">TPNOCHANGE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006372"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006374"> </a>
+Local
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006378"> </a>
+<code class="cCode">TPNOBLOCK</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006380"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006382"> </a>
+Local
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006386"> </a>
+<code class="cCode">TPNOTIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006388"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006390"> </a>
+Local
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006394"> </a>
+<code class="cCode">TPSIGRSTRT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006396"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006398"> </a>
+Local
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pGraphic"><a name="wp1006490"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1006403table1006400"><caption><a name="wp1006403"> </a>
+Table 1-2  tpacall
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1006411"> </a>
+tpacall()
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006413"> </a>
+Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006415"> </a>
+Contents
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006417"> </a>
+CPIC Notes
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006419"> </a>
+svc
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006423"> </a>
+Service Name
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006425"> </a>
+Used in CMALLC to identify the CICS transaction to be invoked.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006427"> </a>
+data
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006431"> </a>
+User data
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006433"> </a>
+This data is sent in CMSENDs until completely transmitted.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006435"> </a>
+len
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006439"> </a>
+Length of user data
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="6"><div class="pCellBody"><a name="wp1006443"> </a>
+flags
+</div>
+</td>
+    <td class="straddledcells" colspan="1" rowspan="2"><div class="pCellBody"><a name="wp1006445"> </a>
+<code class="cCode">TPNOREPLY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006447"> </a>
+false
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006449"> </a>
+The last data is sent with a CMSEND with send_type set to CMSEND_AND_PREP_TO_RECEIVE. This changes the state of the conversation to receive and a CMRCV is issued to await the reply.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006455"> </a>
+true
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006457"> </a>
+Since no reply is expected, a CMDEAL deallocates the conversation after all data has been received.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006461"> </a>
+<code class="cCode">TPNOTRAN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006463"> </a>
+Not part of a transaction
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006469"> </a>
+<code class="cCode">TPNOBLOCK</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006471"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006473"> </a>
+Local
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006477"> </a>
+<code class="cCode">TPNOTIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006479"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006481"> </a>
+Local
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006485"> </a>
+<code class="cCode">TPSIGRSTRT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006487"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006489"> </a>
+Local
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pGraphic"><a name="wp1006573"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1006494table1006491"><caption><a name="wp1006494"> </a>
+Table 1-3  tpgetrply
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1006502"> </a>
+tpgetrply()
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006504"> </a>
+Parameters
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006506"> </a>
+Contents
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006508"> </a>
+CPIC Notes
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006510"> </a>
+cd
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006514"> </a>
+call descriptor
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006516"> </a>
+The call descriptor is mapped to the CONVID returned by the CMINIT when the LU6.2 was initiated.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006518"> </a>
+data
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006522"> </a>
+User data
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006524"> </a>
+Data received from CMRCV if WHAT_RECEIVED set to DATA_COMPLETE.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006526"> </a>
+len
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006530"> </a>
+Length of user data
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="5"><div class="pCellBody"><a name="wp1006534"> </a>
+flags
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006536"> </a>
+<code class="cCode">TPGETANY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006538"> </a>
+If true, data is returned from any conversation. If false, data is returned from conversation associated with the <code class="cCode">cd</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006540"> </a>
+Data available on any conversation is returned to the requestor.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006544"> </a>
+<code class="cCode">TPNOCHANGE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006546"> </a>
+Local to the requestor
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006548"> </a>
+Limited buffer types supported.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006552"> </a>
+<code class="cCode">TPNOBLOCK</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006554"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006556"> </a>
+Local
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006560"> </a>
+<code class="cCode">TPNOTIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006562"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006564"> </a>
+Local
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006568"> </a>
+<code class="cCode">TPSIGRSTRT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006570"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006572"> </a>
+Local
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pGraphic"><a name="wp1006755"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1006577table1006574"><caption><a name="wp1006577"> </a>
+Table 1-4  tpservice
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1006585"> </a>
+tpservice()
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006587"> </a>
+Parameters
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006589"> </a>
+Contents
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006591"> </a>
+CPIC Notes
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006593"> </a>
+svcinfo
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006597"> </a>
+Service information and data
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006599"> </a>
+User Data captured from a CMRCV populates the TPSVCINFO structure user data area. Service characteristics are obtained from the service attributes in the DMCONFIG and UBBCONFIG files.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006601"> </a>
+name
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006605"> </a>
+Service name
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006607"> </a>
+The service name associated with the 8 character RNAME sent from CICS.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006609"> </a>
+data
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006613"> </a>
+User data
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006615"> </a>
+Data captured from CMRCV.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006617"> </a>
+len
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006621"> </a>
+Length of user data
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006625"> </a>
+cd
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006629"> </a>
+call descriptor
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006631"> </a>
+The call descriptor associated with the CONVID returned by the CMINIT when the LU6.2 was initiated.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006633"> </a>
+appkey
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006637"> </a>
+32-bit key (if used)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006639"> </a>
+For security.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006641"> </a>
+cltid
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006645"> </a>
+set by Oracle Tuxedo
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006647"> </a>
+For security.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="5"><div class="pCellBody"><a name="wp1006649"> </a>
+flags
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006651"> </a>
+<code class="cCode">TPCONV</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006653"> </a>
+If true, service is conversational.
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006659"> </a>
+<code class="cCode">TPTRAN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006661"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006663"> </a>
+.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006667"> </a>
+<code class="cCode">TPNOREPLY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006669"> </a>
+If true, requestor not expecting a reply.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006671"> </a>
+The conversation is terminated with a CMDEAL normal.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006675"> </a>
+<code class="cCode">TPSENDONLY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006677"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006679"> </a>
+If set, the CPIC conversation in CICS should be in receive state. If not set, the CICS CPIC conversation state will be in send state.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006683"> </a>
+<code class="cCode">TPRECVONLY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006685"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006687"> </a>
+If set, the CPIC conversation in CICS remains in send state.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pGraphic"><a name="wp1011900"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1006692table1006689"><caption><a name="wp1006692"> </a>
+Table 1-5  tpreturn
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1006700"> </a>
+tpreturn()
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006702"> </a>
+Parameters
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006704"> </a>
+Contents
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006706"> </a>
+CPIC Notes
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="2" rowspan="2"><div class="pCellBody"><a name="wp1006708"> </a>
+rval
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006712"> </a>
+<code class="cCode">TPSUCCESS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006714"> </a>
+Set to TPSUCCESS when conversation terminates with a normal deallocation.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006720"> </a>
+<code class="cCode">TPSVCERR</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006722"> </a>
+Set to TPESVCERR when the conversation has terminated with a non-normal deallocation type or other error.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006724"> </a>
+rcode
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006728"> </a>
+Set by the application
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006730"> </a>
+N/A
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006732"> </a>
+data
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006736"> </a>
+User data
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006738"> </a>
+Data is returned to the CICS transaction from a successful CMRCV with data received set to CM_DATA_COMPLETE and return code of CM_DEALLOCATE_NORMAL. If the service fails, no data is returned to the caller and the conversation is deallocated abnormally.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006740"> </a>
+len
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006744"> </a>
+Length of data returned
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006746"> </a>
+0 &lt; data &lt;= 32K
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006748"> </a>
+flags
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006752"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006754"> </a>
+N/A
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pGraphic"><a name="wp1006782"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1006759table1006756"><caption><a name="wp1006759"> </a>
+Table 1-6  tpcancel
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1006767"> </a>
+tpcancel()
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006769"> </a>
+Parameters
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006771"> </a>
+Contents
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006773"> </a>
+CPIC Notes
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006775"> </a>
+cd
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006779"> </a>
+The connection descriptor on which a <code class="cCode">tpgetreply()</code> is waiting.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006781"> </a>
+CMDEAL abnormal is issued on the conversation with CONVID mapped from call descriptor.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pGraphic"><a name="wp1006873"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1006786table1006783"><caption><a name="wp1006786"> </a>
+Table 1-7  tpconnect
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1006794"> </a>
+tpconnect()
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006796"> </a>
+Parameters
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006798"> </a>
+Contents
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006800"> </a>
+CPIC Notes
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006802"> </a>
+svc
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006806"> </a>
+The local service name representing the service to be invoked. in CICS
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006808"> </a>
+The name is used to find the RNAME. The RNAME should match the TPName in CICS and will be used by CMINIT and CMALLC to initiate and allocate the conversation.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006810"> </a>
+data
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006814"> </a>
+User data
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006816"> </a>
+This data is sent in CMSENDs until completely transmitted.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006818"> </a>
+len
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006822"> </a>
+Length of User data
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="6"><div class="pCellBody"><a name="wp1006826"> </a>
+flags
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006828"> </a>
+<code class="cCode">TPNOTRAN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006830"> </a>
+True
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006836"> </a>
+<code class="cCode">TPSENDONLY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006838"> </a>
+If true, the conversation stays in or changes to send state
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006840"> </a>
+The conversation remains in send state. This is the default.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006844"> </a>
+<code class="cCode">TPRECVONLY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006846"> </a>
+If true, the conversation stays in or changes to receive state
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006848"> </a>
+Immediately after the allocate Oracle Tuxedo sends a CMSEND with no data and send_type set to CM_SEND_AND_PREP_TO_RECEIVE.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006852"> </a>
+<code class="cCode">TPNOBLOCK</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006854"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006856"> </a>
+Local
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006860"> </a>
+<code class="cCode">TPNOTIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006862"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006864"> </a>
+Local
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006868"> </a>
+<code class="cCode">TPSIGRSTRT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006870"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006872"> </a>
+Local
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pGraphic"><a name="wp1006972"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1006877table1006874"><caption><a name="wp1006877"> </a>
+Table 1-8  tpsend
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1006885"> </a>
+tpsend()
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006887"> </a>
+Parameters
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006889"> </a>
+Contents
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006891"> </a>
+CPIC Notes
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006893"> </a>
+cd
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006897"> </a>
+The connection descriptor
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006899"> </a>
+This locally assigned connection descriptor has been mapped to the CONVID returned in the CMINIT and CMALLC on behalf of the <code class="cCode">tpconnect().</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006901"> </a>
+data
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006905"> </a>
+User data
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006907"> </a>
+ASCII/EBCDIC conversion may be required before sending to CICS.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006909"> </a>
+len
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006913"> </a>
+Length of User data
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="4"><div class="pCellBody"><a name="wp1006917"> </a>
+flags
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006919"> </a>
+<code class="cCode">TPRECVONLY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006921"> </a>
+If true, the conversation changes to receive state.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006923"> </a>
+The state of the conversation changes from send to receive. A CMSEND is sent with send_type set to CM_SEND_AND_PREP_TO_RECEIVE.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006927"> </a>
+<code class="cCode">TPNOBLOCK</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006929"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006931"> </a>
+Local
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006935"> </a>
+<code class="cCode">TPNOTIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006937"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006939"> </a>
+Local
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006943"> </a>
+<code class="cCode">TPSIGRSTRT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006945"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006947"> </a>
+Local
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="3"><div class="pCellBody"><a name="wp1006949"> </a>
+revent
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006951"> </a>
+<code class="cCode">TPEV_DISCONIMM</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006953"> </a>
+If set, the LU6.2 conversation has been terminated abnormally.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006955"> </a>
+If the return code from a CMRCV is deallocate_abnormal, the conversation is terminated. A disconnect event is sent to the sending process.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006959"> </a>
+<code class="cCode">TPEV_SVCERR</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006961"> </a>
+If set, the LU6.2 conversation has been terminated abnormally.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006963"> </a>
+Any return code other than CM_OK or CM_DEALLOCATE_NORMAL is treated as a TPEV_SVCERR.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006967"> </a>
+<code class="cCode">TPEV_SVCFAIL</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006969"> </a>
+If set, the LU6.2 conversation has been terminated abnormally.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006971"> </a>
+If the return code from CMRCV is CM_TP_NOT_AVAIL_NO_RETRY or CM_TP_RESOURCE_FAILURE_NO_RETRY, <code class="cCode">revent</code> is set to TPEV_SVCFAIL.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pGraphic"><a name="wp1007087"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1006976table1006973"><caption><a name="wp1006976"> </a>
+Table 1-9  tprecv
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1006984"> </a>
+tprecv()
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006986"> </a>
+Parameters
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006988"> </a>
+Contents
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1006990"> </a>
+CPIC Notes
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006992"> </a>
+cd
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006996"> </a>
+The connection descriptor
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1006998"> </a>
+This locally assigned connection descriptor has been mapped to the CONVID returned in the CMINIT and CMALLC issued by the initiator of this conversation.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007000"> </a>
+data
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007004"> </a>
+User data
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007006"> </a>
+Date to be received using a CMRCV_immediate and returned to the Oracle Tuxedo service.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007008"> </a>
+len
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007012"> </a>
+Length of User data
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007016"> </a>
+flags
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007018"> </a>
+<code class="cCode">TPNOCHANGE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007020"> </a>
+Local
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007022"> </a>
+Must be a supported buffer type.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007026"> </a>
+<code class="cCode">TPNOBLOCK</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007028"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007030"> </a>
+Local
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007034"> </a>
+<code class="cCode">TPNOTIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007036"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007038"> </a>
+Local
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007042"> </a>
+<code class="cCode">TPSIGRSTRT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007044"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007046"> </a>
+Local
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007048"> </a>
+revent
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007050"> </a>
+<code class="cCode">TPEV_DISCONIMM</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007052"> </a>
+If set, the LU6.2 conversation has been terminated abnormally.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007054"> </a>
+If the return code from a CMSEND is deallocate_abnormal, the conversation is terminated. A disconnect event is sent to the sending process.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007058"> </a>
+<code class="cCode">TPEV_SENDONLY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007060"> </a>
+If set, the LU6.2 conversation changes to send if partner allows it.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007062"> </a>
+The sending partner has sent a CMSEND with send_type set to CM_SEND_AND_PREP_TO_RECEIVE.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007066"> </a>
+<code class="cCode">TPEV_SVCERR</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007068"> </a>
+If set, the LU6.2 conversation has been terminated abnormally.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007070"> </a>
+Any return code other than CM_OK or CM_DEALLOCATE_NORMAL is treated as a TPEV_SVCERR.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007074"> </a>
+<code class="cCode">TPEV_SVCFAIL</code>
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007078"> </a>
+If the return code from CMRCV is CM_TP_NOT_AVAIL_NO_RETRY or CM_TP_RESOURCE_FAILURE_NO_RETRY, <code class="cCode">revent</code> is set to TPEV_SVCFAIL.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007082"> </a>
+<code class="cCode">TPEV_SVCSUCC</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007084"> </a>
+If set, the conversation has completed normally.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007086"> </a>
+The return code from CMRCV was set to CM_DEALLOCATE_NORMAL. This indicates that the sending TP has completed and deallocated the conversation normally.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pGraphic"><a name="wp1007114"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1007091table1007088"><caption><a name="wp1007091"> </a>
+Table 1-10  tpdiscon
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1007099"> </a>
+tpdiscon()
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1007101"> </a>
+Parameters
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1007103"> </a>
+Contents
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1007105"> </a>
+CPIC Notes
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007107"> </a>
+cd
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007111"> </a>
+The connection descriptor
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007113"> </a>
+This connection descriptor in mapped to the CONVID returned from CMINIT or CMACCP to the originator of the conversation.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pGraphic"><a name="wp1007165"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1007118table1007115"><caption><a name="wp1007118"> </a>
+Table 1-11  tpforward
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1007126"> </a>
+tpforward ()
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1007128"> </a>
+Parameters
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1007130"> </a>
+Contents
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1007132"> </a>
+CPIC Notes
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007134"> </a>
+svc
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007138"> </a>
+Service name
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007140"> </a>
+tpforward() is treated as if it were a <code class="cCode">tpacall()</code>. A CMINIT and subsequent CMALLC are issued to initialize and allocate a session for a conversation. ClientID must be propagated to the CICS transaction in a TPSVCINFO record.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007142"> </a>
+data
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007146"> </a>
+User data
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007148"> </a>
+Data is sent using CMSEND. The last CMSEND is sent with send_type of deallocate_normaL.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007150"> </a>
+len
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007154"> </a>
+Length of data returned
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007158"> </a>
+flags
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1007162"> </a>
+Refer to <code class="cCode">tpacall</code>()
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="atmi.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="index.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="prog.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

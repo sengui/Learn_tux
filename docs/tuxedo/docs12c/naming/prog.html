@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/naming/fm/prog.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:17:58" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Developing an Application That Uses the CORBA Name Service</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Using the CORBA Name Service
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="sample.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next_grey1.gif" border="0" alt="Next" />&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/naming.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1027655"> </a>
+Developing an Application That Uses the CORBA Name Service
+</h1>
+<p class="pBody"><a name="wp1022288"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1022267"> </a><a href="prog.html#wp1022268">Development Steps</a></li>
+<li><a name="wp1023676"> </a><a href="prog.html#wp1022269">Step 1: Obtain the OMG IDL for the CosNaming Interfaces</a></li>
+<li><a name="wp1023681"> </a><a href="prog.html#wp1022614">Step 2: Include the Declarations and Prototypes for the CosNaming Interfaces</a></li>
+<li><a name="wp1023686"> </a><a href="prog.html#wp1022271">Step 3: Connect to the Oracle Tuxedo Namespace</a></li>
+<li><a name="wp1023691"> </a><a href="prog.html#wp1022272">Step 4: Bind an Object to the Oracle Tuxedo Namespace</a></li>
+<li><a name="wp1023701"> </a><a href="prog.html#wp1022273">Step 5: Use a Name to Locate an Object in the Oracle Tuxedo Namespace</a></li>
+</ul></div>
+<a name="wp1028029"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The Oracle Tuxedo CORBA Java client and Oracle Tuxedo CORBA Java client ORB were deprecated in Tuxedo 8.1 and are no longer supported. All Oracle Tuxedo CORBA Java client and Oracle Tuxedo CORBA Java client ORB text references, associated code samples, should only be used to help implement/run third party Java ORB libraries, and for programmer reference only.</td>
+</tr>
+</table>
+
+<a name="wp1028030"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>Technical support for third party CORBA Java ORBs should be provided by their respective vendors. Oracle Tuxedo does not provide any technical support or documentation for third party CORBA Java ORBs.</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1022268"> </a>
+Development Steps
+</h2><p class="pBody"><a name="wp1023549"> </a>
+<a href="prog.html#wp1023626">Table&#160;5-1</a> outlines the process for developing Oracle Tuxedo CORBA applications that use the CORBA Name Service.
+</p>
+<p class="pGraphic"><a name="wp1023615"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1023626table1023624"><caption><a name="wp1023626"> </a>
+Table 5-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Development Process</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1023630"> </a>
+Step
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023632"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023634"> </a>
+1
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023636"> </a>
+Obtain the OMG IDL for the CosNaming interfaces.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023638"> </a>
+2
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023640"> </a>
+Include the declarations and prototypes for the CosNaming interfaces.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023642"> </a>
+3
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023644"> </a>
+Connect to the Oracle Tuxedo namespace.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023646"> </a>
+4
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023648"> </a>
+Bind an object to the Oracle Tuxedo namespace.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023650"> </a>
+5
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023652"> </a>
+Use a name to locate an object in the Oracle Tuxedo namespace.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1022662"> </a>
+Before performing the steps in this topic, you need to start the server process for the CORBA Name Service. For more information, see <a href="manage.html#wp1022270">Starting the Server Process for the CORBA Name Service</a>.
+</p>
+<p class="pBody"><a name="wp1023041"> </a>
+After performing the development steps in this topic, use the <code class="cCode">buildobjclient</code> and <code class="cCode">buildobjserver</code> commands to compile server and client applications that use the CORBA Name Service. For more information about the <code class="cCode">buildobjclient</code> and <code class="cCode">buildobjserver</code> commands, see the <a href="../rfcm/index.html">Oracle Tuxedo Command Reference</a>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1022269"> </a>
+Step 1: Obtain the OMG IDL for the CosNaming Interfaces
+</h2><p class="pBody"><a name="wp1022446"> </a>
+An Oracle Tuxedo CORBA application accesses the CORBA Name Service using the interfaces defined in <code class="cCode">CosNaming.idl</code>. This Object Management Group (OMG) Interface Definition Language (IDL) file defines the interfaces, COSnaming data structures, and exceptions used by the CORBA Name Service. The <code class="cCode">CosNaming.idl</code> file is located in the following directory locations:
+</p>
+<p class="pBody"><a name="wp1023762"> </a>
+<b class="cBold">Windows</b>
+</p>
+<p class="pBody"><a name="wp1023763"> </a>
+<code class="cCodeEmphasis">drive</code><code class="cCode">:\%TUXDIR%\include\CosNaming.idl</code>
+</p>
+<p class="pBody"><a name="wp1023764"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<p class="pBody"><a name="wp1022645"> </a>
+<code class="cCode">/</code><code class="cCodeEmphasis">usr</code><code class="cCode">/</code><code class="cCodeEmphasis">local</code><code class="cCode">/$TUXDIR/include/CosNaming.idl </code>
+</p>
+<p class="pBody"><a name="wp1022494"> </a>
+<a href="prog.html#wp1022498">Listing&#160;5-1</a> shows the OMG IDL for CosNaming.idl. The same OMG IDL file is used by both CORBA C++ applications.
+</p>
+<div class="pCodeTitle"><a name="wp1022498"> </a>
+Listing&#160;5-1	   CosNaming.idl
+</div> <a name="wp1022501"> </a><div class="pPreformatted"><pre>#ifndef _COSNAMING_IDL_<br />#define _COSNAMING_IDL_<br /><br />module CosNaming {</pre></div><a name="wp1022502"> </a><div class="pPreformatted"><pre>#pragma prefix &quot;omg.org/CosNaming&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;ytypedef string Istring;</pre></div><a name="wp1022503"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;struct NameComponent {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Istring id;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Istring kind;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;};</pre></div><a name="wp1022504"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;typedef sequence&lt;NameComponent&gt; Name;</pre></div><a name="wp1022505"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;enum BindingType { nobject, ncontext };<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;struct Binding {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Name        binding_name;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;BindingType binding_type;                   <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;};</pre></div><a name="wp1022506"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;typedef sequence &lt;Binding&gt; BindingList;                    <br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;interface BindingIterator;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;interface NamingContext {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;enum NotFoundReason { missing_node, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;not_context, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;not_object };<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exception NotFound { <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;NotFoundReason  why;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Name            rest_of_name;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;};</pre></div><a name="wp1022507"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exception CannotProceed {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;NamingContext   cxt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Name            rest_of_name;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;};<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exception InvalidName{};                               <br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exception AlreadyBound {};<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exception NotEmpty{};<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void    bind(in Name n, in Object obj)      <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises(NotFound, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CannotProceed, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;InvalidName, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;AlreadyBound);</pre></div><a name="wp1022508"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void   rebind(in Name n, in Object obj)   <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises(NotFound, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CannotProceed, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;InvalidName);<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void    bind_context(in Name n, in NamingContext nc)        <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises(NotFound, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CannotProceed, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;InvalidName, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;AlreadyBound);</pre></div><a name="wp1022509"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void    rebind_context(in Name n, in NamingContext nc)  <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises(NotFound, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CannotProceed, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;InvalidName);<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Object  resolve (in Name n)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises(NotFound, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CannotProceed, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;InvalidName);</pre></div><a name="wp1022510"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void    unbind(in Name n)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises(NotFound, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CannotProceed, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;InvalidName);<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;NamingContext   new_context();<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;NamingContext   bind_new_context(in Name n)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises(NotFound, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;AlreadyBound,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CannotProceed, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;InvalidName);</pre></div><a name="wp1022511"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void    destroy() raises(NotEmpty);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void    list(in unsigned long    how_many,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;out BindingList     bl,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;out BindingIterator bi);</pre></div><a name="wp1022512"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;};</pre></div><a name="wp1022513"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;interface BindingIterator {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;boolean next_one(out Binding b);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;boolean next_n(in unsigned long how_many, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;out BindingList bl);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void    destroy();<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;};</pre></div><a name="wp1022514"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;interface NamingContextExt:NamingContext {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;typedef string StringName;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;typedef string Address;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;typedef string URLString;</pre></div><a name="wp1029112"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;StringName  to_string(in Name n) raises(InvalidName);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;Name        to_name(in StringName sn) <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises(InvalidName);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;exception InvalidAddress {};<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;URLString   to_url(in Address addr, in StringName sn)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises(InvalidAddress, InvalidName);<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;Object      resolve_str(in StringName n)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises(NotFound, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CannotProceed,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;InvalidName, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;AlreadyBound<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;};<br />};</pre></div><a name="wp1022516"> </a><div class="pPreformatted"><pre>#pragma ID CosNaming &quot;IDL:omg.org/CosNaming:1.0&quot;<br />#endif // _COSNAMING_IDL_</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1022614"> </a>
+Step 2: Include the Declarations and Prototypes for the CosNaming Interfaces
+</h2><p class="pBody"><a name="wp1026026"> </a>
+The declarations and prototypes for the CosNaming interfaces are provided as part of the software kit for the CORBA Name Service.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1026582"> </a>For CORBA C++ client applications, include the declarations and prototypes for the naming interfaces by adding this statement to your Oracle Tuxedo CORBA client application:</li>
+<p class="pBodyRelative"><a name="wp1026643"> </a>
+<code class="cCode">#include &quot;CosNaming_c.h&quot;</code>
+</p>
+<p class="pBodyRelative"><a name="wp1026644"> </a>
+The include files for an Oracle Tuxedo CORBA C++ client application are located in the <code class="cCode">$TUXDIR/include</code> directory on UNIX systems and the <code class="cCode">%TUXDIR%\include </code>directory on Windows systems.  
+</p>
+<li><a name="wp1025985"> </a>If you are using a third-party Object Request Broker (ORB), you need to include or import the CosNaming interfaces in your client source stub programs before compiling.</li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1022271"> </a>
+Step 3: Connect to the Oracle Tuxedo Namespace
+</h2><p class="pBody"><a name="wp1022705"> </a>
+The Bootstrap object supports a <code class="cCode">NameService</code> environmental object for connecting to the root of the namespace. When using the NameService environmental object, the Object Request Broker (ORB) locates the root of the namespace. The object reference can then be narrowed to <code class="cCode">CosNaming::NamingContext</code> or <code class="cCode">CosNamingContextExt</code>. You need to connect to the Oracle Tuxedo namespace before binding objects into the namespace and resolving names in the namespace.
+</p>
+<p class="pBody"><a name="wp1026071"> </a>
+Use the Bootstrap object or the CORBA Interoperable Naming Service (INS) bootstrapping mechanism to get an initial reference to the NameService environmental object. Use the Oracle proprietary mechanism if you are using the Oracle client ORB. Use the CORBA INS mechanism if you are using a client ORB from another vendor. For more information about bootstrapping the Oracle Tuxedo domain see Chapter&#160;4, &#8220;CORBA Bootstrapping Programming Reference,&#8221; in the <a href="../CORBA_ref/index.html">CORBA Programming Reference</a> in the Oracle Tuxedo online documentation.
+</p>
+<p class="pBody"><a name="wp1023800"> </a>
+<a href="prog.html#wp1022827">Listing&#160;5-2</a> illustrates C++ code that establishes communication with an Oracle Tuxedo namespace.
+</p>
+<div class="pCodeTitle"><a name="wp1022827"> </a>
+Listing&#160;5-2	   C++ Example of Connecting to a Namespace
+</div> <a name="wp1027928"> </a><div class="pPreformatted"><pre>...<br />Tobj_Bootstrap * bootstrap = new Tobj_Bootstrap (v_orb.in(), &quot;&quot;);<br />CORBA::Object_var var_nameservice_oref=<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;bootstrap.resolve_initial_references(&quot;NameService&quot;);<br />root = CosNaming::NamingContext::_narrow (obj);<br />...</pre></div><p class="pBody"><a name="wp1027930"> </a>
+A stringified object reference for the root of the namespace can also be used to connect to a namespace in an Oracle Tuxedo domain. In order to use a stringified object reference, the <code class="cCode">-f </code>command-line option must be specified when starting the server process for the CORBA Name Service. The <code class="cCode">-f </code>command-line option writes the stringified object reference to the <code class="cCode">CNS_ROOT_FILE</code> environment variable or to one of the following locations:
+</p>
+<p class="pBody"><a name="wp1022857"> </a>
+<b class="cBold">Windows</b>
+</p>
+<p class="pBody"><a name="wp1022858"> </a>
+<code class="cCode">%APPDIR%\cnsroot.dat</code>
+</p>
+<p class="pBody"><a name="wp1022859"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<p class="pBody"><a name="wp1022860"> </a>
+<code class="cCode">$APPDIR/cnsroot.dat</code>
+</p>
+<p class="pBody"><a name="wp1022954"> </a>
+The stringified object reference for the root of the namespace does not change when the server process for the CORBA Name Service is started and stopped because stringified object reference is associated with a particular host machine rather than a particular server process. A stringified object reference that has been retrieved to communicate with one Oracle Tuxedo namespace cannot be used to communicate with another Oracle Tuxedo namespace. 
+</p>
+<p class="pBody"><a name="wp1022708"> </a>
+<a href="prog.html#wp1022883">Listing&#160;5-3</a> includes C++ code that establishes communication with an Oracle Tuxedo namespace using a stringified object reference.
+</p>
+<div class="pCodeTitle"><a name="wp1022883"> </a>
+Listing&#160;5-3	   C++ Example of Using a Stringified Object Reference
+</div> <a name="wp1022884"> </a><div class="pPreformatted"><pre>...<br />Tobj_Bootstrap * bootstrap;<br />bootstrap = new Tobj_Bootstrap (v_orb.in(), &quot;&quot;);<br />CORBA::Object_var obj = GetRefFromFile (&quot;cnsroot.dat&quot;, v_orb);<br />root = CosNaming::NamingContext::_narrow (obj);<br />...</pre></div><p class="pBody"><a name="wp1022955"> </a>
+If you choose to use a stringified object reference in an Oracle Tuxedo CORBA application that also employs security and transactions, please note the following restrictions:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1022956"> </a>The Oracle Tuxedo CORBA application must create a Bootstrap object and connect to the IIOP Listener/Handler before using the stringified object reference to connect to an Oracle Tuxedo namespace. By calling the Bootstrap object first, the Oracle Tuxedo application establishes an official connection to the IIOP Listener/Handler.</li>
+<p class="pBodyRelative"><a name="wp1022957"> </a>
+If an Oracle Tuxedo application does not first create a Bootstrap object, transactions and security cannot be used with any object retrieved from the namespace. Transactions and security require the use of an official connection.
+</p>
+<li><a name="wp1022958"> </a>If more than one IIOP Listener/Handler is defined in the <code class="cCode">UBBCONFIG</code> file, the Oracle Tuxedo CORBA application must use the first IIOP Listener/Handler defined in the <code class="cCode">UBBCONFIG</code> file by the <code class="cCode">TOBJADDR</code> environment variable.</li>
+<p class="pBodyRelative"><a name="wp1022959"> </a>
+The CORBA Name Service creates the stringified object reference for the root of the namespace, using the default IIOP Listener/Handler&#8217;s host and port. The first IIOP Listener/Handler defined in a <code class="cCode">UBBCONFIG</code> file is considered the default IIOPListener/Handler. Using the default IIOP Listener/Handler causes all object references retrieved by the CORBA Name Service to be official connections. Transactions and security require the use of official connections.
+</p>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1022272"> </a>
+Step 4: Bind an Object to the Oracle Tuxedo Namespace
+</h2><p class="pBody"><a name="wp1023408"> </a>
+There are two ways to bind an object to the Oracle Tuxedo namespace:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023415"> </a>The<code class="cCode"> cnsbind</code> command</li>
+<li><a name="wp1023420"> </a>The<code class="cCode"> bind()</code> method of the <code class="cCode">CosNaming::NamingContext</code> object</li>
+</ul></div>
+<p class="pBody"><a name="wp1023421"> </a>
+The <code class="cCode">cnsbind</code> command can be used to bind application objects or naming context objects to the Oracle Tuxedo namespace. The server process for the CORBA Name Service must be started before using the <code class="cCode">cnsbind</code> command. For a complete description of the <code class="cCode">cnsbind</code> command, see <a href="ref.html">CORBA Name Service Reference.</a>
+</p>
+<p class="pBody"><a name="wp1023136"> </a>
+<a href="prog.html#wp1023154">Listing&#160;5-4</a> show the C++ code implementations of the <code class="cCode">bind()</code> method of the <code class="cCode">CosNaming::NamingContext</code> object. The code examples accept two parameters, representing the <code class="cCode">id </code>and <code class="cCode">kind</code> fields for a <code class="cCode">Name</code>. These parameters initialize a <code class="cCode">Name</code> for the <code class="cCode">SimpleFactory</code> object and bind the <code class="cCode">SimpleFactory</code> object to the namespace.
+</p>
+<div class="pCodeTitle"><a name="wp1023154"> </a>
+Listing&#160;5-4	    C++ Example of Binding a Name to the Oracle Tuxedo Namespace
+</div> <a name="wp1029271"> </a><div class="pPreformatted"><pre>...<br />//Establish the Name used to identify the SimpleFactory object<br />//in the namespace.<br /><br />CosNaming::Name_var				factory_name = new CosNaming::Name(1);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;factory_name-&gt;length(1);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;factory_name[(CORBA::ULong) 0].id = <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(const char * &quot;simple_factory&quot;;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;factory_name[(CORBA::ULong) 0].kind = <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(const char *) &quot;&quot;;<br />//Create an object reference for the SimpleFactory object<br /><br />s_v_factory_refer = TP::create_object_reference(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;_tc_SimpleFactory-&gt;id(),<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;simple_factory&quot;,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CORBA::NVList::_nil()<br />);<br />//Get the NameService object reference. See Listing 4-2.<br />//Place the object reference for SimpleFactory in the namespace<br /><br />root-&gt;bind(factory_name, s_v_fact_ref);<br />...</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1022273"> </a>
+Step 5: Use a Name to Locate an Object in the Oracle Tuxedo Namespace
+</h2><p class="pBody"><a name="wp1023266"> </a>
+Use the <code class="cCode">resolve()</code> method of the <code class="cCode">CosNaming::NamingContext</code> object to locate an object in a namespace in an Oracle Tuxedo domain. <a href="prog.html#wp1023268">Listing&#160;5-5</a> shows the C++ code that accepts two parameters, representing the <code class="cCode">id </code>and <code class="cCode">kind</code> fields for a <code class="cCode">Name</code>. The code example then binds to a naming context, resolves the name, and obtains an object reference for the specified object.
+</p>
+<div class="pCodeTitle"><a name="wp1023268"> </a>
+Listing&#160;5-5	    C++ Example of Locating a Name in the Oracle Tuxedo Namespace
+</div> <a name="wp1029374"> </a><div class="pPreformatted"><pre>...<br />//Establish the Name used to identify the SimpleFactory object<br />//in the namespace.<br />CosNaming::Name_var&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;factory_name = new CosNaming::Name(1);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;factory_name-&gt;length(1);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;factory_name[(CORBA::ULong) 0].id = <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(const char * &quot;simple_factory&quot;;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;factory_name[(CORBA::ULong) 0].kind = <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(const char *) &quot;&quot;;<br /><br />//Locate the SimpleFactory object in the namespace<br />CORBA::Object_var v_simple_factory_oref = <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;root-&gt;resolve( *factory_name);<br />SimpleFactory_var v_simple_factory_ref =<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SimpleFactory::_narrow(v_simple_factory_oref.in());<br /><br />// Use the reference obtained from the Oracle Tuxedo CORBA Name Service // to find the Simple object<br />Simple_var v_simple = v_simple_factory_ref-&gt;find_simple();<br />...</pre></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="prog.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="sample.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq10" src="/global_resources/images/nexttop_disabled.gif" border="0" alt="Next" />
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

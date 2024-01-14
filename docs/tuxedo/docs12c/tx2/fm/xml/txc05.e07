@@ -1,0 +1,42 @@
+<?Fm Document txc05.fm?>
+<Chapter Id = "g1005205">
+<?Fm Condition HardcopyHide Blue NO_OVERRIDE show?>
+
+<?Fm Condition HardcopyOnly Blue NO_OVERRIDE show?>
+
+<?Fm Condition SoftcopyOnly Magenta NO_OVERRIDE show?>
+
+<?Fm Condition Hide Blue NO_OVERRIDE show?>
+
+<?Fm Condition RevRec Red NO_OVERRIDE hide?>
+
+<?Fm Condition BetaDraft Red NO_OVERRIDE show?>
+
+<?Fm Condition Comment Magenta NO_OVERRIDE show?>
+
+<?Fm Condition HTML Blue NO_OVERRIDE show?>
+
+<?Fm Condition PSPDF AsIs NO_OVERRIDE show?>
+
+<Title Id = "i999740">Running the Application</Title>
+<Para>This topic includes the following sections:</Para>
+<ItemizedList mark = "Bullet"><ListItem><Para>Prerequisite Knowledge</Para></ListItem>
+<ListItem><Para>Configuring the Application</Para></ListItem>
+<ListItem><Para>Booting and Shutting Down the Application</Para></ListItem>
+<ListItem><Para>Administering the Application</Para></ListItem>
+<ListItem><Para>Using Dynamic Service Advertisement</Para></ListItem></ItemizedList>
+<Sect1 Id = "i999580"><Title>Prerequisite Knowledge</Title>
+<Para>The Oracle Tuxedo ATMI system administrator modifying the configuration to add RPC servers should be familiar with creating an ASCII configuration file (the format is described in <Emphasis Role = "CodeInline">UBBCONFIG(5)</Emphasis>), and loading the binary configuration using  <Xulink Url = "../../rfcm/rfcmd.html"><Emphasis Role = "CodeInline">tmloadcf(1)</Emphasis></Xulink>. These activities are described in <Emphasis Role = "Italic">Administering the Oracle Tuxedo System</Emphasis>.</Para></Sect1>
+<Sect1 Id = "i999593"><Title>Configuring the Application</Title>
+<Para>When configuring an RPC server, it is configured the same as a Request&sol;Response server. One entry is needed in the <Emphasis Role = "CodeInline">SERVERS</Emphasis> page for each RPC server or group of RPC servers. (<Emphasis Role = "CodeInline">MAX</Emphasis> can be set to a value greater than one to configure multiple RPC servers with one entry.) An <Emphasis Role = "CodeInline">RQADDR</Emphasis> can optionally be specified so that multiple instances of an RPC server share the same request queue (multiple servers, single queue configuration). The <Emphasis Role = "CodeInline">CONV</Emphasis> parameter must be not specified or must be set to N (for example, <Emphasis Role = "CodeInline">CONV&equals;N</Emphasis>). See the sample configuration file in <XRef Role = "Appendix Number &#x0026; Title (period)" Linkend = "g1027039"/></Para>
+<Para>If a server will be part of a transaction, then it must be in a group on a machine that has a <Emphasis Role = "CodeInline">TLOGDEVICE</Emphasis>. The <Emphasis Role = "CodeInline">GROUPS</Emphasis> entry must be configured with a <Emphasis Role = "CodeInline">TMSNAME</Emphasis> and an <Emphasis Role = "CodeInline">OPENINFO</Emphasis> string that are used to access the associated resource manager.</Para>
+<Para>It is optional to specify <Emphasis Role = "CodeInline">SERVICES</Emphasis> entries. If specified, the service name must be the name described in the previous chapter, based on the interface name and version number. This entry is needed only if you want to give a specific load, priority, or transaction time that is different than the defaults. It can also be used to turn on the <Emphasis Role = "CodeInline">AUTOTRAN</Emphasis> feature, which ensures that a transaction is automatically started for the service if the incoming request is not in transaction mode. Do not use the service entry to specify buffer types <Emphasis Role = "CodeInline">BUFTYPE</Emphasis> since the only buffer type handled is <Emphasis Role = "CodeInline">CARRAY</Emphasis>. Also, do not specify <Emphasis Role = "CodeInline">ROUTING</Emphasis> because routing is not supported for RPC requests.</Para>
+<Para>The  <Xulink Url = "../../rfcm/rfcmd.html"><Emphasis Role = "CodeInline">tmloadcf(1)</Emphasis></Xulink> command is used to load the ASCII configuration file into a binary <Emphasis Role = "CodeInline">TUXCONFIG</Emphasis> file before the application is booted.</Para>
+<Para>Note that entries for RPC servers can be added to a booted application using the <Emphasis Role = "CodeInline">tmconfig</Emphasis> command, as described in  <Xulink Url = "../../rfcm/rfcmd.html"><Emphasis Role = "CodeInline">tmconfig</Emphasis></Xulink>,  <Xulink Url = "../../rfcm/rfcmd.html"><Emphasis Role = "CodeInline">wtmconfig(1)</Emphasis></Xulink> in the &ref1;.</Para></Sect1>
+<Sect1 Id = "i999598"><Title>Booting and Shutting Down the Application</Title>
+<Para>When the configuration has been modified, boot the application using  <Xulink Url = "../../rfcm/rfcmd.html"><Emphasis Role = "CodeInline">tmboot(1)</Emphasis></Xulink>. The application is shut down using  <Xulink Url = "../../rfcm/rfcmd.html"><Emphasis Role = "CodeInline">tmshutdown(1)</Emphasis></Xulink>. See the example in <XRef Role = "Appendix Number &#x0026; Title (period)" Linkend = "g1027039"/></Para>
+<Para>The RPC servers are booted and shut down in the same way that Request&sol;Response servers are. They can be booted or shut down as part of the entire configuration with the <Emphasis Role = "CodeInline">-y</Emphasis> option, as part of a group with the <Emphasis Role = "CodeInline">-g</Emphasis> option, as part of a logical machine with the <Emphasis Role = "CodeInline">-l</Emphasis> option, or by server name with the <Emphasis Role = "CodeInline">-s</Emphasis> option.</Para></Sect1>
+<Sect1 Id = "i999607"><Title>Administering the Application</Title>
+<Para>RPC servers appear as Request&sol;Response servers in the administration interfaces. As mentioned above, <Emphasis Role = "CodeInline">tmconfig</Emphasis> can be used for dynamic reconfiguration of RPC servers and services, as described in  <Xulink Url = "../../rfcm/rfcmd.html"><Emphasis Role = "CodeInline">tmconfig</Emphasis></Xulink>,  <Xulink Url = "../../rfcm/rfcmd.html"><Emphasis Role = "CodeInline">wtmconfig(1)</Emphasis></Xulink> in the &ref1;. The <Emphasis Role = "CodeInline">tmadmin(1)</Emphasis> command can be used to monitor RPC servers. The RPC server name and associated run-time information (for example, services or operations run, load, and so forth) can be printed using the <Emphasis Role = "CodeInline">tmadmin printserver</Emphasis> command. The RPC services (interfaces) that are available can be printed using <Emphasis Role = "CodeInline">printservice</Emphasis>. For samples of the output, see the example in <XRef Role = "Appendix Number &#x0026; Title (period)" Linkend = "g1027039"/></Para></Sect1>
+<Sect1 Id = "i999620"><Title>Using Dynamic Service Advertisement</Title>
+<Para>RPC services can be dynamically controlled in the same way that Request&sol;Response services can be controlled. Remember that the service name is not the operation name, but the interface name and version number, as described earlier. Generally, the service name is specified at the time that  <Xulink Url = "../../rfcm/rfcmd.html"><Emphasis Role = "CodeInline">buildserver(1)</Emphasis></Xulink> is run using the <Emphasis Role = "CodeInline">-s</Emphasis> option and automatically advertised when the server is booted with the <Emphasis Role = "CodeInline">-A</Emphasis> option. Service (interface) names can be dynamically advertised either from <Emphasis Role = "CodeInline">tmadmin</Emphasis> using the <Emphasis Role = "CodeInline">adv</Emphasis> command or from within the server using the  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tpadvertise(3c)</Emphasis></Xulink> function. Service (interface) names can be dynamically unadvertised either from <Emphasis Role = "CodeInline">tmadmin</Emphasis> using the <Emphasis Role = "CodeInline">unadv</Emphasis> command or from within the server using the  <Xulink Url = "../../rf3c/rf3c.html"><Emphasis Role = "CodeInline">tpunadvertise(3c)</Emphasis></Xulink> function. Service names can also be temporarily suspended and unsuspended (resumed) from <Emphasis Role = "CodeInline">tmadmin(1)</Emphasis>. Note that unadvertising or suspending a service name makes all operations defined in the associated interface unavailable.</Para></Sect1></Chapter>

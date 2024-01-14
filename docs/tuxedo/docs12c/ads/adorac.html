@@ -1,0 +1,781 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="11" />
+<meta name="LOC_US_CHANGE" content="42015" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/ads/fm/adorac.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/29/12 11:10:26" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Using Tuxedo with Oracle Real Application Clusters (RAC)</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Setting Up an Oracle Tuxedo Application
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="adtran.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="adipv6.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/ads.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1043185"> </a>
+Using Tuxedo with Oracle Real Application Clusters (RAC)
+</h1>
+<p class="pBody"><a name="wp1058686"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1058690"> </a><a href="adorac.html#wp1058716">Overview</a></li>
+<li><a name="wp1058694"> </a><a href="adorac.html#wp1061606">Limitations</a></li>
+<li><a name="wp1058698"> </a><a href="adorac.html#wp1058741">Prerequisites</a></li>
+<li><a name="wp1058706"> </a><a href="adorac.html#wp1058748">Configuring Tuxedo for Oracle RAC</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1058716"> </a>
+Overview
+</h2><p class="pBody"><a name="wp1058717"> </a>
+The Oracle Real Application Clusters (RAC) feature supports clustering of machines that utilize replicated Oracle database services accessing the same Oracle database. Oracle RAC provides the ability to concurrently access the same Oracle database from instances physically located on multiple Oracle server machines, and offers the ability to failover unsuccessful database instances to alternate locations.
+</p>
+<p class="pBody"><a name="wp1056189"> </a>
+However, specific support for Oracle RAC is required by the Transaction Monitor in order to take advantage of these replication and failover features in an XA transaction environment or to obtain optimal RAC performance. This is because Oracle 10g does not allow the same database to be accessed from <span style="font-style: italic">multiple</span> RAC instances within the <span style="font-style: italic">same</span> XA transaction.
+</p>
+<a name="wp1061569"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Oracle 12c does allow the same database to be accessed from multiple RAC instances within the same XA transaction, but performance may be better if all accesses within a particular XA transaction occur from the same RAC instance. </td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1060963"> </a>
+In addition, Oracle 10gR1 requires Transaction Monitor involvement when prepared transactions failover from one RAC instance to another.
+</p>
+<p class="pBody"><a name="wp1060981"> </a>
+Tuxedo 12<em class="cEmphasis">c </em>Release 1 (12.1.1) provides Transaction Monitor support for Oracle RAC by allowing an administrator to specify lists of groups associated with different RAC instances. This allows Tuxedo to ensure that groups associated with different instances of the same RAC database do not participate in the same transaction. The Tuxedo Oracle RAC support feature also provides a way for Tuxedo transaction manager server (TMS) processes to be notified of RAC failover events which is required when using Oracle 10gR1.
+</p>
+<p class="pBody"><a name="wp1060982"> </a>
+Consequently, this allows the TMS to re-obtain a list of Oracle 10gR1 prepared transactions from Oracle as required for RAC failover recovery.
+</p>
+<a name="wp1060984"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>When using Oracle 10gR2, administrators should use an Oracle <code class="cCode">&lt;b&gt;DTP Service&lt;/b&gt;</code> to access the Oracle RAC system. This DTP service name should be specified in the OPENINFO string for the associated Tuxedo groups. Oracle 10gR2 verifies the service name, and migrates it to an alternate instance if required.</td>
+</tr>
+</table>
+
+<a name="wp1061584"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>When using Oracle 12c or later release, the service name is transparently and automatically migrated to an alternate instance, if required, without any specific configuration.</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1061606"> </a>
+Limitations
+</h2><div class="pSmartList1Bullet"><ul>
+<li><a name="wp1061607"> </a>Tuxedo 12<em class="cEmphasis">c </em>Release 1 (12.1.1) supports Oracle RAC only when using Oracle 10g or later release, and does not support Oracle RAC when using Oracle 9i.</li>
+<a name="wp1061626"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For Oracle 10gR1, patch set 10.1.0.3 or above is required. </td>
+</tr>
+</table>
+
+<a name="wp1061670"> </a><table class="ListNote">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>For Oracle 10gR2, patch set 10.2.0.2 or above is required due to the bug described at: https://metalink.oracle.com/metalink/plsql/f?p=130:14:3193163745563425327::::p14_database_id.</td>
+</tr>
+</table>
+<a name="wp1061702"> </a><table class="ListNote">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>For Oracle 12c, patch set 11.1.0.6 or above is preferred. Use of Oracle 12c is highly encouraged due to significant RAC improvements.</td>
+</tr>
+</table>
+<li><a name="wp1061165"> </a>In some instances, using Oracle RAC with the <span style="font-style: italic">Dynamic XA</span> switch enabled may generate a core dump and cause a system crash. Please contact Oracle Support directly if you encounter this issue and provide the following information:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1058738"> </a>BUG 4644880 - Oracle bug fix identification number</li>
+<li><a name="wp1058739"> </a>the patch set version for the 10g release you are using</li>
+</ul></div>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1058741"> </a>
+Prerequisites
+</h2><h3 class="pHeading2"><a name="wp1058743"> </a>
+Software Requirements
+</h3>
+<p class="pBody"><a name="wp1058745"> </a>
+For specific platform software requirements, refer to the <span class="cHyperlink">
+&#8220;</span>Oracle<span class="cHyperlink">
+<a href="../install/inspds.html"> Tu</a>xedo </span>12<em class="cEmphasis">c </em>Release 1 (12.1.1)<span class="cHyperlink">
+ Platform Data Sheets&#8221;</span> in <em class="cEmphasis">Installing the </em>Oracle<em class="cEmphasis"> Tuxedo System</em>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1058748"> </a>
+Configuring Tuxedo for Oracle RAC
+</h2><p class="pBody"><a name="wp1058749"> </a>
+Tuxedo support for Oracle RAC requires two steps:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1058753"> </a><a href="adorac.html#wp1058793">Configuring Transaction Propagation</a></li>
+<li><a name="wp1058757"> </a><a href="adorac.html#wp1059010">Configuring Transaction Recovery</a></li>
+</ul></div>
+<p class="pBody"><a name="wp1058758"> </a>
+The following command and environment variables are used to exclusively configure Tuxedo for Oracle RAC support:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1061329"> </a>Three environment variables</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1061333"> </a><a href="adorac.html#wp1058798">TUXRACGROUPS</a><code class="cCode"> </code>(required for Oracle 10gR1 and 10gR2, optional for Oracle 11g and later releases)</li>
+<li><a name="wp1061337"> </a><a href="adorac.html#wp1059017">XARETRYDURATIONSECONDS</a><code class="cCode"> </code>(required only for Oracle 10gR1)</li>
+<li><a name="wp1058787"> </a><a href="adorac.html#wp1059022"><code class="cCode">XARETRYINTERVAL</code></a> (required only for Oracle 10gR1)</li>
+</ul></div>
+<li><a name="wp1058788"> </a>One Command </li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1060785"> </a><code class="cCode">TMS_rac_refresh(1)</code>(required only for Oracle 10gR1)</li>
+</ul></div>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1058793"> </a>
+Configuring Transaction Propagation
+</h3>
+<p class="pBody"><a name="wp1058794"> </a>
+Oracle 10gR1 does not allow the <span style="font-style: italic">same</span> database to be accessed from <span style="font-style: italic">multiple</span> RAC instances within the <span style="font-style: italic">same</span> XA transaction. In addition, Oracle 10gR1 requires Transaction Monitor involvement when prepared transactions failover from one RAC instance to another.
+</p>
+<p class="pBody"><a name="wp1061376"> </a>
+Oracle 10gR2 permits different RAC instances to operate on different transaction branches in RAC, but if transaction branches are on different instances, then they are loosely coupled and do not share locks. Also, for optimum commit performance, it is important to use only a single RAC instance within a given XA transaction.
+</p>
+<p class="pBody"><a name="wp1061378"> </a>
+For this reason, it is still important to associate an XA transaction with a single RAC instance in Oracle 10gR2. (For further information on using Oracle XA with RAC, refer to the &quot;Developing Applications with Oracle XA&quot; chapter in the <span style="font-style: italic">Oracle Database Application Developer&#39;s Guide - Fundamentals</span>.
+</p>
+<p class="pBody"><a name="wp1058795"> </a>
+The <code class="cCode">TUXRACGROUPS</code> environment variable is used to associate Tuxedo groups with specific instances of Oracle RAC configurations so that Tuxedo does not include groups from multiple instances of the same RAC configuration within the same XA transaction. 
+</p>
+<a name="wp1058796"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>When using Oracle 10g, a single transaction should not span multiple Oracle RAC instances. The groups that participate in a particular transaction are determined at the time the transaction is started. Each transaction is assigned to <span style="font-style: italic">one particular instance</span> of each RAC configuration such that the groups in each instance of a particular RAC configuration are assigned to an equal number of transactions.</td>
+</tr>
+</table>
+
+<a name="wp1061722"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>Oracle 12c permits different RAC instances to operate on different transaction branches in RAC, and if transaction branches are on different instances, then they are tightly coupled and share locks and resources. So the <code class="cCode">TUXRACGROUPS</code> environment variable is not necessary when using Oracle 12c. This environment variable still works in Oracle 12c and you can use it to associate Tuxedo groups with specific instances of Oracle RAC configurations.</td>
+</tr>
+</table>
+<h4 class="pDefTerm"><a name="wp1058798"> </a>
+<code class="cCode">TUXRACGROUPS</code>
+</h4><div class="pDefPara"><a name="wp1058799"> </a>
+The <code class="cCode">TUXRACGROUPS</code> environment variable specifies the groups that are associated with a particular RAC configuration, and will disallow sending service calls in the same transaction to two or more groups identified as different instances of the same RAC configuration.
+</div>
+<a name="wp1058800"> </a>
+<table class="Note">
+<tr>
+<td valign="top"><strong>WARNING:</strong></td>
+<td>If the <code class="cCode">TUXRACGROUPS</code> environment variable is used, it <span style="font-style: italic">must</span> be set on all machines in a configuration, and <span style="font-style: italic">must</span> have the same sets of groups specified in the same order on all machines.</td>
+</tr>
+</table>
+
+<a name="wp1058801"> </a>
+<table class="Note">
+<tr>
+<td valign="top"><b class="texthide">WARNING:</b></td>
+<td>If this restriction is not followed, then inconsistent sets of groups can be included within a transaction. The coordinating group will notice the inconsistency at commit time, roll back the transaction, and send an error message to the userlog.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp1058802"> </a>
+TUXRACGROUPS Syntax
+</h4>
+<p class="pBody"><a name="wp1058803"> </a>
+The <code class="cCode">TUXRACGROUPS</code> environment variable is used to define Oracle RAC group configurations. Its syntax is as follows:
+</p>
+<p class="pBody"><a name="wp1058804"> </a>
+<code class="cCode">TUXRACGROUPS=&quot;G1,G2,…,Gm;H1,H2,…,Hn[;…]:I1,I2,…,Io;J1,J2,…,Jp[;…][:…]&quot;</code>
+</p>
+<h4 class="pDefTerm"><a name="wp1058815"> </a>
+Comma (,) separated list
+</h4><div class="pDefPara"><a name="wp1058816"> </a>
+Used to specify groups in the same instance of an Oracle RAC configuration. Multiple groups from a comma separated list can be used together in the same transaction.
+<a name="wp1058817"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Typically, most users place all of the services associated with one database instance in a single group, therefore commas are not needed in the <code class="cCode">TUXRACGROUPS</code> value.</td>
+</tr>
+</table>
+
+</div>
+<h4 class="pDefTerm"><a name="wp1058818"> </a>
+Semicolon (;) separated list
+</h4><div class="pDefPara"><a name="wp1058819"> </a>
+Used to specify sets of groups in different instances of an oracle RAC configuration. Groups from different RAC instances from the same RAC database configuration cannot be used together in the same transaction.
+</div>
+<div class="pDefParaCont"><a name="wp1058820"> </a>
+Since the purpose of the <code class="cCode">TUXRACGROUPS</code> environment variable is to specify groups associated with different instances of the same Oracle RAC configuration, all applications using the<code class="cCode"> TUXRACGROUPS </code>variable should have at least one semicolon in the environment variable value.
+</div>
+<h4 class="pDefTerm"><a name="wp1058821"> </a>
+Colon (:) separated list
+</h4><div class="pDefPara"><a name="wp1058822"> </a>
+Used to separate information about one Oracle RAC configuration from information about a different Oracle RAC configuration. The colon indicates that multiple Oracle RAC database configurations are totally independent of each other.
+<a name="wp1058823"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Typically, most users specify only one RAC database configuration, therefore colons are not needed in the <code class="cCode">TUXRACGROUPS</code> value.</td>
+</tr>
+</table>
+
+</div>
+<h4 class="pHeading3"><a name="wp1060367"> </a>
+TUXRACGROUPS Examples
+</h4>
+<p class="pBody"><a name="wp1060368"> </a>
+This section describes four different examples for defining Oracle RAC group configurations:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1060369"> </a><a href="adorac.html#wp1058826">Example 1: Simple Configuration</a></li>
+<li><a name="wp1060375"> </a><a href="adorac.html#wp1058872">Example 2: Oracle RAC Single Instance with Multiple Groups</a></li>
+<li><a name="wp1060380"> </a><a href="adorac.html#wp1058972">Example 3: Multiple Oracle RAC Instances with Multiple Groups</a></li>
+</ul></div>
+<h5 class="pHeading4"><a name="wp1058826"> </a>
+Example 1: Simple Configuration
+</h5>
+<p class="pBody"><a name="wp1058827"> </a>
+<code class="cCode">TUXRACGROUPS=&quot;G1;G2&quot;</code>
+</p>
+<p class="pBody"><a name="wp1058849"> </a>
+<a href="adorac.html#wp1058727">Figure&#160;5-1</a> shows a simple Oracle RAC configuration.
+</p>
+<p class="pBody"><a name="wp1060213"> </a>
+In this example, there is one Oracle database, (ORA1), two Oracle RAC instances with 1 group per each instance.
+</p>
+<p class="pBody"><a name="wp1060211"> </a>
+The same transaction request to both <code class="cCode">GROUP1</code> and<code class="cCode"> GROUP2</code> cannot be sent because they access database services through different instances that map to the same Oracle RAC database configuration.
+</p>
+<div class="pFigureTitle"><a name="wp1058727"> </a>
+Figure&#160;5-1  (ORA1) Simple Configuration
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1058835"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/racsimp_config.gif" alt="(ORA1) Simple Configuration" id="wp1058836"/></div><p class="pGraphic">
+
+</p>
+<h5 class="pHeading4"><a name="wp1058872"> </a>
+Example 2: Oracle RAC Single Instance with Multiple Groups
+</h5>
+<p class="pBody"><a name="wp1058873"> </a>
+<code class="cCode">TUXRACGROUPS=&quot;GROUP1;GROUP2:GROUP3;GROUP4,GROUP5&quot;</code>
+</p>
+<p class="pBody"><a name="wp1058830"> </a>
+<a href="adorac.html#wp1058880">Figure&#160;5-2</a> shows an example of adding multiple groups to a single instance.
+</p>
+<p class="pBody"><a name="wp1060200"> </a>
+In this example, there are two Oracle databases: <code class="cCode">ORA1</code> and <code class="cCode">ORA2</code>.  <code class="cCode">ORA1</code> offers machine-specific services <code class="cCode">ORA1SITE1</code> and <code class="cCode">ORA1SITE2</code>, and <code class="cCode">ORA2</code> offers machine-specific services <code class="cCode">ORA2SITE1</code> and <code class="cCode">ORA2SITE2</code>. The objective is to assign an approximately equal number of transactions and configure the same services to the groups associated with each instance of an Oracle RAC configuration. 
+</p>
+<p class="pBody"><a name="wp1060731"> </a>
+The same transaction request to both <code class="cCode">GROUP1</code> and<code class="cCode"> GROUP2</code> cannot be sent because they access database services through different instances that map to the same Oracle RAC database configuration. The same applies to <code class="cCode">GROUP3</code> and <code class="cCode">GROUP4</code> or <code class="cCode">GROUP3</code> <code class="cCode">GROUP5</code>, the same transaction cannot be sent to both these groups.
+</p>
+<p class="pBody"><a name="wp1060203"> </a>
+<code class="cCode">GROUP4</code> and <code class="cCodeBold">GROUP5</code> both access the same database service of the same Oracle RAC database configuration, so these groups would be permitted together.  <code class="cCode">GROUP1</code> and <code class="cCode">GROUP4</code> would be permitted together, because they access different RAC database configurations.  If there is also a <code class="cCode">GROUP6</code> in this configuration, it would be permitted with any other group, because <code class="cCode">GROUP6</code> is not an Oracle RAC group.
+</p>
+<a name="wp1060204"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The number of groups in each Oracle RAC instance <span style="font-style: italic">does not</span> have to be the same.</td>
+</tr>
+</table>
+
+<div class="pFigureTitle"><a name="wp1058880"> </a>
+Figure&#160;5-2  (ORA2) Single Oracle RAC Instance with Multiple Groups
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1058884"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/racmulti_config1.gif" alt="(ORA2) Single Oracle RAC Instance with Multiple Groups" id="wp1058885"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1058917"> </a>
+The <code class="cCode">*GROUPS</code> and <code class="cCode">*SERVERS</code> sections of the <code class="cCode">UBBCONFIG</code> file for this configuration might look as follows in <a href="adorac.html#wp1058831">Listing&#160;5-1</a>:
+</p>
+<div class="pCodeTitle"><a name="wp1058831"> </a>
+Listing&#160;5-1	   UBBCONFIG File *GROUPS and *SERVERS Sections Example 
+</div> <a name="wp1058926"> </a><div class="pPreformatted"><pre>*GROUPS</pre></div><a name="wp1058927"> </a><div class="pPreformatted"><pre>DEFAULT: TMSNAME=TMS_ORA TMSCOUNT=2</pre></div><a name="wp1058928"> </a><div class="pPreformatted"><pre>GROUP1    LMID=SITE1   GRPNO=1<br />OPENINFO=&quot;ORACLE_XA:Oracle_XA+Acc=P/scott/tiger+SqlNet=ORA1SITE1+SesTm=100+LogDir=.+MaxCur=5&quot;</pre></div><a name="wp1058929"> </a><div class="pPreformatted"><pre>GROUP2    LMID=SITE2   GRPNO=2<br />OPENINFO=&quot;ORACLE_XA:Oracle_XA+Acc=P/scott/tiger+SqlNet=ORA1SITE2+SesTm=100+LogDir=.+MaxCur=5&quot;</pre></div><a name="wp1058930"> </a><div class="pPreformatted"><pre>GROUP3    LMID=SITE1   GRPNO=3<br />OPENINFO=&quot;ORACLE_XA:Oracle_XA+Acc=P/scott/tiger+SqlNet=ORA2SITE1+SesTm=100+LogDir=.+MaxCur=5&quot;</pre></div><a name="wp1058931"> </a><div class="pPreformatted"><pre>GROUP4    LMID=SITE2   GRPNO=4<br />OPENINFO=&quot;ORACLE_XA:Oracle_XA+Acc=P/scott/tiger+SqlNet=ORA2SITE2+SesTm=100+LogDir=.+MaxCur=5&quot;</pre></div><a name="wp1058932"> </a><div class="pPreformatted"><pre>GROUP5    LMID=SITE2   GRPNO=5<br />OPENINFO=&quot;ORACLE_XA:Oracle_XA+Acc=P/scott/tiger+SqlNet=ORA2SITE2+SesTm=100+LogDir=.+MaxCur=5&quot;</pre></div><a name="wp1058933"> </a><div class="pPreformatted"><pre>GROUP6    LMID=SITE1   GRPNO=6  TMSNAME=TMS_QM<br />OPENINFO=&quot;TUXEDO/QM:/home/myapplication/QUE:QSPACE&quot;</pre></div><a name="wp1059787"> </a><div class="pPreformatted"><pre>*SERVERS</pre></div><a name="wp1059788"> </a><div class="pPreformatted"><pre>DEFAULT: RESTART=Y MAXGEN=5 REPLYQ=Y CLOPT=&quot;-A&quot;<br />EMPLOYEE_SVR SRVGRP=GROUP1 SRVID=1<br />EMPLOYEE_SVR SRVGRP=GROUP2 SRVID=2<br />BANKING_SVR  SRVGRP=GROUP3 SRVID=3<br />BANKING_SVR  SRVGRP=GROUP4 SRVID=4<br />BANKING_SVR  SRVGRP=GROUP5 SRVID=5</pre></div><a name="wp1059797"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td><code class="cCode">GROUP4</code> and <code class="cCode">GROUP5</code> have the same <code class="cCode">OPENINFO</code> strings, because they both use the same database service from the same database.</td>
+</tr>
+</table>
+
+<a name="wp1058948"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>The specification of the <code class="cCode">OPENINFO</code> string for Oracle groups in the <code class="cCode">*GROUPS</code> section is the same as when using Oracle without RAC. For information on how to specify an <code class="cCode">OPENINFO </code>string for an Oracle group, refer to the <span style="font-style: italic">Developing Applications with Oracle XA</span> chapter in the <span style="font-style: italic">Oracle Database Application Developer&#39;s Guide - Fundamentals</span>.</td>
+</tr>
+</table>
+<h5 class="pHeading4"><a name="wp1058972"> </a>
+Example 3: Multiple Oracle RAC Instances with Multiple Groups
+</h5>
+<p class="pBody"><a name="wp1058973"> </a>
+<code class="cCode">TUXRACGROUPS=&quot;GROUP11,GROUP12,GROUP13;GROUP21,GROUP22:GROUP3;GROUP4, GROUP5&quot;</code>
+</p>
+<p class="pBody"><a name="wp1058905"> </a>
+<a href="adorac.html#wp1059823">Figure&#160;5-3</a> shows an example of adding multiple groups to multiple instances.
+</p>
+<p class="pBody"><a name="wp1060223"> </a>
+This example is similar to the previous example &#8212; except that <code class="cCode">GROUP11</code>, <code class="cCode">GROUP12</code>, and <code class="cCode">GROUP13</code> are all associated with the first RAC instance of the first RAC configuration, and <code class="cCode">GROUP21</code> and <code class="cCode">GROUP22</code> are both associated with the second RAC instance.
+</p>
+<p class="pBody"><a name="wp1060224"> </a>
+If the first service call in a transaction in this configuration goes to <code class="cCode">GROUP12</code>, then it would be possible to send other service calls in this transaction to <code class="cCode">GROUP11</code>, <code class="cCode">GROUP12</code>, or <code class="cCode">GROUP13</code>, but not to <code class="cCode">GROUP21</code> or <code class="cCode">GROUP22</code>.
+</p>
+<p class="pBody"><a name="wp1060225"> </a>
+If a transactional service call is made to a service that is not advertised in any permitted groups but is available in one or more prohibited groups, the result is:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1060226"> </a>the call fails</li>
+<li><a name="wp1060227"> </a><code class="cCode">tperrno</code> is set to <code class="cCode">TPENOENT</code></li>
+<li><a name="wp1060228"> </a><code class="cCode">tperrordetail</code> is set to the new value <code class="cCode">TPED_GROUP_FORBIDDEN</code></li>
+<div class="pFigureTitle"><a name="wp1059823"> </a>
+Figure&#160;5-3  Multiple Oracle RAC Instances with Multiple Groups
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1059827"> </a>
+<br />
+<img src="wwimages/racmulti_config2.gif" alt="Multiple Oracle RAC Instances with Multiple Groups" id="wp1059825"/><br />
+
+</p>
+</ul></div>
+<p class="pBody"><a name="wp1059008"> </a>
+For each RAC configuration defined as part of the <code class="cCode">TUXRACGROUPS</code> environment variable, Tuxedo determines which RAC group(s) in that configuration participate in a particular transaction when that transaction is started.
+</p>
+<h4 class="pHeading3"><a name="wp1061968"> </a>
+Transaction Creation Behavior Using TUXRACGROUPS
+</h4>
+<p class="pBody"><a name="wp1061969"> </a>
+Transactions are a pinned to Oracle RAC instances for as long as they exist. This is true independently, whether the call flow for such a transaction ever reaches a Tuxedo service associated with Oracle RAC or not.
+</p>
+<p class="pBody"><a name="wp1061970"> </a>
+There are two ways that transactions can be created:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1061971"> </a>Transactions created in a group listed inside <code class="cCode">TUXRACGROUPS</code> are pinned to the Oracle RAC instance configured via <code class="cCode">TUXRACGROUPS</code>.</li>
+<li><a name="wp1061972"> </a>Transactions created in groups not listed inside <code class="cCode">TUXRACGROUPS</code> are pinned to one of the available Oracle RAC instances in a load-balancing-like algorithm. </li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1061973"> </a>
+Data Dependent Routing Using TUXRACGROUPS
+</h4>
+<p class="pBody"><a name="wp1061974"> </a>
+Data dependent routing has been extended to support Oracle RAC configurations. It is possible to define multiple groups for the same routing range in the UBBCONFIG <code class="cCode">*ROUTING </code>section. <a href="adorac.html#wp1061979">Listing&#160;5-2</a> shows an example of different Tuxedo groups with the same range of values.
+</p>
+<div class="pCodeTitle"><a name="wp1061979"> </a>
+Listing&#160;5-2	   Tuxedo Groups with Same Range Values
+</div> <a name="wp1061980"> </a><div class="pPreformatted"><pre>RANGES=&quot;1-5:GROUP1A, 1-5:GROUP1B, 6-10:GROUP2B, 6-10:GROUP2A, *:*&quot;</pre></div><p class="pBody"><a name="wp1061982"> </a>
+In this example, <code class="cCode">GROUP1A</code> and <code class="cCode">GROUP1B</code> are responsible for the same data range and <code class="cCode">GROUP2A</code> and <code class="cCode">GROUP2B</code> are responsible for the same data range. Tuxedo routes the service request to the group associated with the Oracle RAC instance that the transaction belongs to.
+</p>
+<p class="pBody"><a name="wp1061983"> </a>
+Data dependent routing for transactional services offered in RAC groups achieves the desired result only if:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1061984"> </a>Each Oracle RAC Instance configuration offers a service instance that can process each data value.</li>
+<p class="pBodyRelative"><a name="wp1061985"> </a>
+Since all but one of the instances in a RAC configuration are disallowed in a particular transaction, each data value must be specified for a service in each RAC instance. Otherwise, that data value will not be processed by any service in the RAC configuration for some transactions.
+</p>
+<li><a name="wp1061986"> </a>Different service instances connected to the same Oracle RAC Instance process different data values.</li>
+<p class="pBodyRelative"><a name="wp1061987"> </a>
+If all data values are processed by the same set of service instances, then there is no need to use data dependent routing.
+</p>
+<li><a name="wp1061988"> </a>Multiple <code class="cCode">RANGES</code> entries for each routing value must be created for each RAC instance offering the service.</li>
+<p class="pBodyRelative"><a name="wp1061989"> </a>
+If a routing was not configured for a special RAC instance a service calls for a transaction pinned to that Oracle RAC Instance will fail with <code class="cCode">tperrno</code> set to <code class="cCode">TPENOENT</code> and <code class="cCode">tperror</code> detail set to <code class="cCode">TPED_GROUP_FORBIDDEN</code>.
+</p>
+</ul></div>
+<p class="pBody"><a name="wp1061990"> </a>
+When transactional routing occurs, any groups that are not permitted for the current transaction are ignored. The routing decision only considers:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1061991"> </a>Groups associated with the allowable RAC instance.</li>
+<li><a name="wp1061992"> </a>Groups not associated with a RAC configuration.</li>
+</ul></div>
+<p class="pBody"><a name="wp1061993"> </a>
+If routing is performed for a non-transactional request, all groups can participate. The service is routed to the first group matching the data value listed in the UBBCONFIG file <code class="cCode">*ROUTING</code> section <code class="cCode">RANGES</code> field. All non-transactional requests for a special range of values are handled by one Oracle RAC instance only. 
+</p>
+<p class="pBody"><a name="wp1061994"> </a>
+If routing is performed for a mixture of transactional and non-transactional requests, some applications may not require non-transactional request load balancing. You can vary the RAC instances listed first in your application for different data values so that non-transactional requests are balanced accordingly among services offered by different RAC instances.
+</p>
+<p class="pBody"><a name="wp1061995"> </a>
+There is no way to enforce load balancing between all groups associated with the same routing range for non-transactional requests. If you want to enforce one-by-one load balancing, try the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1061996"> </a>Varying the RAC instance listed first for each data value so that each RAC instance occurs first for approximately equal amounts of data, or</li>
+<li><a name="wp1061997"> </a>Calling an intermediate AUTOTRAN service (in the UBBCONFIG file <code class="cCode">*SERVICES</code> section) to enforce that each service call is associated with a transaction.</li>
+</ul></div>
+<p class="pBody"><a name="wp1062001"> </a>
+<a href="adorac.html#wp1062003">Figure&#160;5-4</a> shows an example of routing transactional and non-transactional requests in an Oracle RAC configuration.
+</p>
+<div class="pFigureTitle"><a name="wp1062003"> </a>
+Figure&#160;5-4  Routing Transactional/Non-Transactional Requests
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1062007"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/rac_routing.gif" alt="Routing Transactional/Non-Transactional Requests" id="wp1062005"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1062009"> </a>
+The configuration shown in the example consists of 2 Oracle RAC instances. If 1,000 transactions are created in a group not listed in <code class="cCode">TUXRACGROUPS</code>, around 500 transactions will be pinned to Oracle RAC instance 1 and can only access <code class="cCode">GROUP1A</code> and <code class="cCode">GROUP2A</code>. The other 500 transactions will be pinned to Oracle RAC instance 2 and can only access <code class="cCode">GROUP1B</code> and <code class="cCode">GROUP2B</code>.
+</p>
+<p class="pBody"><a name="wp1062013"> </a>
+<a href="adorac.html#wp1062015">Listing&#160;5-3</a> shows an example of how the <code class="cCode">*SERVICES</code> and <code class="cCode">*ROUTING</code> sections of the <code class="cCode">UBBCONFIG</code> file for this configuration might look:
+</p>
+<div class="pCodeTitle"><a name="wp1062015"> </a>
+Listing&#160;5-3	   UBBCONFIG File *SERVICES and *ROUTING Sections Example
+</div> <a name="wp1062016"> </a><div class="pPreformatted"><pre>*SERVICES</pre></div><a name="wp1062017"> </a><div class="pPreformatted"><pre>DEPOSIT SRVGRP=GROUP1A ROUTING=MYROUTE<br />DEPOSIT SRVGRP=GROUP2A ROUTING=MYROUTE<br />DEPOSIT SRVGRP=GROUP1B ROUTING=MYROUTE<br />DEPOSIT SRVGRP=GROUP2B ROUTING=MYROUTE</pre></div><a name="wp1062018"> </a><div class="pPreformatted"><pre>*ROUTING</pre></div><a name="wp1062019"> </a><div class="pPreformatted"><pre>MYROUTE FIELD=&#8221;BRANCH_ID&#8221;<br />RANGES=&#8221;1-5:GROUP1A, 1-5:GROUP1B, 6-10:GROUP2B, 6-10:GROUP2A, *:*&#8221;<br />BUFTYPE=&#8221;FML32&#8221;</pre></div><p class="pBody"><a name="wp1062021"> </a>
+<code class="cCode">GROUP1A</code> and <code class="cCode">GROUP2A </code>belong to Oracle RAC instance 1. <code class="cCode">GROUP1B</code> and <code class="cCode">GROUP2B</code> belong to Oracle RAC instance 2. Requests with a <code class="cCode">BRANCH_ID</code> 1 through 5 must be handled by <code class="cCode">GROUP1A</code> or <code class="cCode">GROUP1B</code>. Requests with a <code class="cCode">BRANCH_ID</code> 6 through 10 must be handled by <code class="cCode">GROUP2A</code> or <code class="cCode">GROUP2B</code>.
+</p>
+<p class="pBody"><a name="wp1062022"> </a>
+For transactional requests, all transactions pinned to Oracle RAC instance 1; branches 1-5 map to <code class="cCode">GROUP1A</code> and branches 6-10 map to <code class="cCode">GROUP2A</code>. The other half is assigned to Oracle RAC instance 2; branches 1-5 map to <code class="cCode">GROUP1B</code> and branches 6-10 map to <code class="cCode">GROUP2B</code>.
+</p>
+<p class="pBody"><a name="wp1062023"> </a>
+For non-transactional requests, branches 1-5 map to <code class="cCode">GROUP1A</code>, and branches 6-10 map to GROUP2B. These are the first groups specified that match the respective routing ranges. Requests with an invalid <code class="cCode">BRANCH_ID</code> are mapped to any permitted group.
+</p>
+<a name="wp1062024"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Oracle RAC instance 1 is specified first for one data range and RAC instance 2 is specified first for the other data range in an attempt to achieve some non-transactional load balancing between RAC instances.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp1062025"> </a>
+Assigning Transactions to Special Oracle RAC Instances
+</h4>
+<p class="pBody"><a name="wp1062026"> </a>
+You may want to split your environment into multiple machines. For example, you may want a Tuxedo domain with some machines only accessing Oracle RAC instance 1 and other machines only accessing Oracle RAC instance 2 in order to enforce regional independency if Tuxedo installations and Oracle RAC installations are distributed over different buildings. The environment may be configured so that as few as possible calls should be sent outside of a building.
+</p>
+<p class="pBody"><a name="wp1062027"> </a>
+<a href="adorac.html#wp1062598">Figure&#160;5-5</a> shows an example with, machine 1 serving <code class="cCode">GROUP1A</code> and <code class="cCode">GROUP2A</code>; machine 2 serving <code class="cCode">GROUP1B</code> and <code class="cCode">GROUP2B</code>. In addition, calls might be made and transactions might be created from a Tuxedo /Domain Gateway, for Tuxedo /WS clients, Tuxedo Native Clients, Tuxedo /Q, or any server linked with another Resource Manager such as MQ Series.
+</p>
+<p class="pBody"><a name="wp1062586"> </a>
+Whenever a request is sent, the transaction should be pinned to the local machine and avoid hopping between different machines as much as possible.
+</p>
+<div class="pFigureTitle"><a name="wp1062598"> </a>
+Figure&#160;5-5  Assigning Transactions to Special Oracle RAC Instances
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1062592"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/transoracinstance.gif" alt="Assigning Transactions to Special Oracle RAC Instances" id="wp1062590"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1062541"> </a>
+<a href="adorac.html#wp1062493">Listing&#160;5-4</a> shows a UBBCONFIG file example with two physical machines, <code class="cCode">TUXM1</code> and <code class="cCode">TUXM2</code>, running Tuxedo. Both machines have two groups connecting to an Oracle RAC. Groups <code class="cCode">GROUP1A</code> and <code class="cCode">GROUP2A</code> are running on machine <code class="cCode">TUXM1</code> connecting to RAC instance 1. Groups <code class="cCode">GROUP1B</code> and <code class="cCode">GROUP2B</code> are running on machine <code class="cCode">TUXM2</code> connecting to RAC instance 2. 
+</p>
+<div class="pCodeTitle"><a name="wp1062493"> </a>
+Listing&#160;5-4	   UBBCONFIG File Example
+</div> <a name="wp1062439"> </a><div class="pPreformatted"><pre>*MACHINES</pre></div><a name="wp1062191"> </a><div class="pPreformatted"><pre>DEFAULT:</pre></div><a name="wp1062300"> </a><div class="pPreformatted"><pre>	APPDIR=&quot;/path/to/appdir&quot;<br />	ENVFILE=&quot;/path/to/oracle.env&quot;<br />	TUXDIR=&quot;/path/to/tuxdir&quot;<br />	TUXCONFIG=&quot;/path/to/tuxconfig&quot;<br />	TLOGDEVICE=&quot;/path/to/TLOG&quot;<br /><br />&quot;machine1&quot;		LMID=TUXM1<br /><br />&quot;machine2&quot;		LMID=TUXM2<br /><br />*GROUPS<br />ADMGRPA		LMID=TUXM1		GRPNO=10		OPENINFO=NONE<br />ADMGRPB		LMID=TUXM2		GRPNO=20		OPENINFO=NONE<br /><br />GROUP1A LMID=TUXM1 GRPNO=101 TMSNAME=TMS_ORA<br />	OPENINFO=&quot;Oracle_XA:Oracle_XA+ACC=P/user/password+Sqlnet=ORA1SITE1+SesTm=100+LogDir=.+MaxCur=5&quot;<br />GROUP1B LMID=TUXM2 GRPNO=102 TMSNAME=TMS_ORA<br />	OPENINFO=&quot;Oracle_XA:Oracle_XA+ACC=P/user/password+Sqlnet=ORA1SITE2+SesTm=100+LogDir=.+MaxCur=5&quot;<br /><br />GROUP2A LMID=TUXM1 GRPNO=201 TMSNAME=TMS_ORA<br />	OPENINFO=&quot;Oracle_XA:Oracle_XA+ACC=P/user/password+Sqlnet=ORA1SITE1+SesTm=100+LogDir=.+MaxCur=5&quot;<br />GROUP2B LMID=TUXM2 GRPNO=202 TMSNAME=TMS_ORA<br />	OPENINFO=&quot;Oracle_XA:Oracle_XA+ACC=P/user/password+Sqlnet=ORA1SITE2+SesTm=100+LogDir=.+MaxCur=5&quot;<br /><br />GROUP_TDOM_A LMID=TUXM1 GRPNO=301<br />GROUP_TDOM_B LMID=TUXM2 GRPNO=302<br /><br />GROUP_CLIENT_A LMID=TUXM1 GRPNO=401 TMSNAME=TMS<br />GROUP_CLIENT_B LMID=TUXM2 GRPNO=402 TMSNAME=TMS<br /><br />*SERVERS<br />DEFAULT: RESTART=Y MAXGEN=5 REPLYQ=Y CLOPT=&quot;-A&quot;<br /><br />TMSYSEVT SRVGRP=&quot;ADMGRPA&quot; SRVID=10<br />TMUSREVT SRVGRP=&quot;ADMGRPA&quot; SRVID=20<br /><br />TMSYSEVT SRVGRP=&quot;ADMGRPB&quot; SRVID=10 CLOPT=&quot;-A -- -S &quot;<br />TMUSREVT SRVGRP=&quot;ADMGRPB&quot; SRVID=20 CLOPT=&quot;-A -- -S &quot;<br /><br />EMPLOYEE_SVR SRVGRP=GROUP1A SRVID=1<br />EMPLOYEE_SVR SRVGRP=GROUP1B SRVID=2<br />BANKING_SVR SRVGRP=GROUP2A SRVID=3<br />BANKING_SVR SRVGRP=GROUP2B SRVID=4<br /><br />DMADM	SRVGRP=&quot;GROUP_TDOM_A&quot;				SRVID=100<br />GWADM	SRVGRP=&quot;GROUP_TDOM_A&quot;				SRVID=110<br />GWTDOMAIN SRVGRP=&quot;GROUP_TDOM_A&quot;					SRVID=111 REPLYQ=Y			RQADDR=&quot;GWGRP_M1&quot;<br />GWADM	SRVGRP=&quot;GROUP_TDOM_B&quot;				SRVID=110<br />GWTDOMAIN SRVGRP=&quot;GROUP_TDOM_B&quot;					SRVID=111 REPLYQ=Y			RQADDR=&quot;GWGRP_M2&quot;</pre></div><p class="pBody"><a name="wp1062570"> </a>
+Additionally, there is a group for administrative services, as well as one group for Tuxedo /Domain gateways and one group for native Tuxedo clients on both machines. All transactions are created by GWTDOMAIN and native clients. Even if GWTDOMAIN and the native Tuxedo clients never connect to an Oracle RAC directly, they must be included in <code class="cCode">TUXRACGROUPS</code> as shown in <a href="adorac.html#wp1062565">Listing&#160;5-5</a><code class="cCode"> </code>to ensure that the opened transactions belong to the correct RAC instance and are handled locally.
+</p>
+<a name="wp1062574"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Native clients must set <code class="cCode">tpinfo-&gt;grpname</code> to the local group to ensure the right behavior. For more information, see <a href="adorac.html#wp1062069">Avoiding Transactions Created by Tuxedo Native Clients Being Sent to a Remote Machine</a>.</td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1062565"> </a>
+Listing&#160;5-5	   TUXGROUPS
+</div> <a name="wp1062321"> </a><div class="pPreformatted"><pre>TUXRACGROUPS=&quot;GROUP_TDOM_A,GROUP_CLIENT_A,GROUP1A,GROUP2A;GROUP_TDOM_B,<br />GROUP_CLIENT_B,GROUP1B,GROUP2B&quot;</pre></div><h4 class="pHeading3"><a name="wp1062520"> </a>
+TUXRAGROUPS Transaction Use Cases
+</h4>
+<h5 class="pHeading4"><a name="wp1062036"> </a>
+Dealing with Service Calls that are Made Outside of Transactions
+</h5>
+<p class="pBody"><a name="wp1062037"> </a>
+As long as no transaction is involved, Tuxedo will try to handle as many requests as possible on the local machine as long as the load allows and requests will only go to remote machines if no local services are idle according to the load balancing algorithm. Summarized this means one does not have to care about requests sent to remote machines if all services are available on all machines.
+</p>
+<p class="pBody"><a name="wp1062038"> </a>
+What an administrator always has to ensure is that he includes all service groups into the <code class="cCode">TUXRACGROUPS</code> environment variable that are accessed during the call flow and that are candidates for opening a new transaction even if they are not linked with the Oracle RM and/or are not physically associated with any Oracle RAC instance. The environment variable <code class="cCode">TUXRACGROUPS</code> does not have any impact for non-transactional service calls.
+</p>
+<h5 class="pHeading4"><a name="wp1062039"> </a>
+Avoiding Transactions Created by a Group Handling an External Resource Manager Being Sent to a Remote Machine
+</h5>
+<p class="pBody"><a name="wp1062040"> </a>
+If you have a Tuxedo server built with another RM such as MQSeries or another database, you can force newly started transactions to be pinned to your local machine by including this group into the <code class="cCode">TUXRACGROUPS</code> environment variable as well.
+</p>
+<div class="pCodeTitle"><a name="wp1062042"> </a>
+Listing&#160;5-6	   MQSeries Example
+</div> <a name="wp1062043"> </a><div class="pPreformatted"><pre>TUXRACGROUPS=&quot;MQSGROUPA,GROUP1A,GROUP2A;MQSGROUPB,GROUP1B,GROUP2B&quot;</pre></div><p class="pBody"><a name="wp1062045"> </a>
+In this example <code class="cCode">MQSGROUPA</code>, <code class="cCode">GROUP1A</code> and<code class="cCode"> GROUP2A</code> are located on machine 1 and <code class="cCode">MQSGROUPB</code>, <code class="cCode">GROUP1B</code> and <code class="cCode">GROUP2B</code> are located on machine 2.
+</p>
+<p class="pBody"><a name="wp1062046"> </a>
+If a server inside group <code class="cCode">MQSGROUPA</code> creates a transaction, all Tuxedo service calls for services under groups <code class="cCode">GROUP1A</code>, <code class="cCode">GROUP2A</code>, <code class="cCode">GROUP1B</code> and <code class="cCode">GROUP2B</code> will only go to <code class="cCode">GROUP1A</code> and <code class="cCode">GROUP2A</code>. <code class="cCode">GROUP1B</code> and <code class="cCode">GROUP2B</code> are ignored as they belong to RAC instance 2 and the transaction was already created for RAC instance 1 via group <code class="cCode">MQSGROUPA</code>.
+</p>
+<h5 class="pHeading4"><a name="wp1062047"> </a>
+Avoiding Transactions Created by GWTDOMAIN Being Sent to a Remote Machine?
+</h5>
+<p class="pBody"><a name="wp1062048"> </a>
+Create on local Tuxedo /Domain Gateway on each machine. Set the <code class="cCode">TUXRACGROUPS</code> environment variable as shown in <a href="adorac.html#wp1062053">Listing&#160;5-7</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1062053"> </a>
+Listing&#160;5-7	   GWTDOMAIN Example
+</div> <a name="wp1062054"> </a><div class="pPreformatted"><pre>TUXRACGROUPS=&quot;GWTGROUPA,GROUP1A,GROUP2A;GWTGROUPB,GROUP1B,GROUP2B&quot;</pre></div><p class="pBody"><a name="wp1062056"> </a>
+In this example <code class="cCode">GWTGROUPA</code>, <code class="cCode">GROUP1A</code> and <code class="cCode">GROUP2A</code> are located on machine 1 and <code class="cCode">GWTGROUPB</code>, <code class="cCode">GROUP1B</code> and <code class="cCode">GROUP2B</code> are located on machine 2.
+</p>
+<p class="pBody"><a name="wp1062057"> </a>
+If GWTDOMAIN on machine 1 creates a new transaction because it receives an external request, all Tuxedo service calls for services under groups <code class="cCode">GROUP1A</code>, <code class="cCode">GROUP2A</code>, <code class="cCode">GROUP1B</code> and <code class="cCode">GROUP2B</code> will only go to <code class="cCode">GROUP1A </code>and <code class="cCode">GROUP2A</code>. <code class="cCode">GROUP1B</code> and <code class="cCode">GROUP2B</code> are ignored as they belong to RAC instance 2 and the transaction was already created for RAC instance 1 via group <code class="cCode">GWTGROUPA</code>.
+</p>
+<h5 class="pHeading4"><a name="wp1062058"> </a>
+Avoiding Transactions created by TMQFORWARD Being Sent to a Remote Machine
+</h5>
+<p class="pBody"><a name="wp1062059"> </a>
+Create a local Tuxedo /Q configuration on each machine. Set your <code class="cCode">TUXRACGROUPS</code> environment variable as shown in <a href="adorac.html#wp1062064">Listing&#160;5-8</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1062064"> </a>
+Listing&#160;5-8	   TMQFORWARD Example
+</div> <a name="wp1062065"> </a><div class="pPreformatted"><pre>TUXRACGROUPS=&quot;QUEUEGROUPA,GROUP1A,GROUP2A;QUEUEGROUPB,GROUP1B,GROUP2B&quot;</pre></div><p class="pBody"><a name="wp1062067"> </a>
+In this example <code class="cCode">QUEUEGROUPA</code>, <code class="cCode">GROUP1A</code> and <code class="cCode">GROUP2A</code> are located on machine 1 and <code class="cCode">QUEUEGROUPB</code>, <code class="cCode">GROUP1B</code> and <code class="cCode">GROUP2B</code> are located on machine 2.
+</p>
+<p class="pBody"><a name="wp1062068"> </a>
+If TMQFORWARD on machine 1 transactionally forwards a new message to such an Oracle service, all Tuxedo service calls for services under groups <code class="cCode">GROUP1A</code>, <code class="cCode">GROUP2A</code>, <code class="cCode">GROUP1B</code> and <code class="cCode">GROUP2B</code> will only go to <code class="cCode">GROUP1A</code> and <code class="cCode">GROUP2A</code>. <code class="cCode">GROUP1B</code> and <code class="cCode">GROUP2B</code> are ignored as they belong to RAC instance 2 and the transaction was already created for RAC instance 1 via group <code class="cCode">QUEUEGROUPA</code>.
+</p>
+<h5 class="pHeading4"><a name="wp1062069"> </a>
+Avoiding Transactions Created by Tuxedo Native Clients Being Sent to a Remote Machine
+</h5>
+<p class="pBody"><a name="wp1062070"> </a>
+You can also bind native clients to a special server group. You just have to build the client using the command <code class="cCode">buildclient -r &lt;RM_of_the_group&gt; -f &lt;source_file&gt; -o &lt;binary_file&gt;</code> and initiate <code class="cCode">tpinit() </code>with the group name that you want to use.
+</p>
+<p class="pBody"><a name="wp1062071"> </a>
+For example, you can create two additional groups <code class="cCode">CLIENTGROUPA</code> and <code class="cCode">CLIENTGROUPB</code>,and start at least two TMS in each group. Set your <code class="cCode">TUXRACGROUPS</code> environment variable as shown in <a href="adorac.html#wp1062076">Listing&#160;5-9</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1062076"> </a>
+Listing&#160;5-9	   Remote Machine Example
+</div> <a name="wp1062077"> </a><div class="pPreformatted"><pre>TUXRACGROUPS=&quot;CLIENTGROUPA,GROUP1A,GROUP2A;CLIENTGROUPB,GROUP1B,GROUP2B&quot;</pre></div><p class="pBody"><a name="wp1062079"> </a>
+Whenever you initiate <code class="cCode">tpinit(TPINIT *tpinfo) </code>with a TPINIT structure where <code class="cCode">tpinfo-&gt;grpname</code> is set to <code class="cCode">CLIENTGROUPA</code> the client is associated with <code class="cCode">CLIENTGROUPA</code>. When<code class="cCode"> tpinfo-&gt;grpname</code> is set to <code class="cCode">CLIENTGROUPB</code>, the client is associated with<code class="cCode"> CLIENTGROUPB</code>. 
+</p>
+<p class="pBody"><a name="wp1062080"> </a>
+Native clients on machine 1 should always call <code class="cCode">tpinit()</code> with t<code class="cCode">pinfo-&gt;grpname = CLIENTGROUPA</code>; native clients on machine 2 should always call <code class="cCode">tpinit()</code> with <code class="cCode">tpinfo-&gt;grpname = CLIENTGROUPB if CLIENTGROUPA</code> is running on machine 1 and <code class="cCode">CLIENTGROUPB</code> is running on machine 2. When a Tuxedo Native Client calls <code class="cCode">tpbegin()</code>, the transaction is associated with RAC instance 1 in case of <code class="cCode">CLIENTGROUPA</code> and with RAC instance 2 in case of <code class="cCode">CLIENTGROUPB</code>
+</p>
+<h5 class="pHeading4"><a name="wp1062081"> </a>
+Avoiding Sending Transactions Created by Tuxedo /WS Clients to Remote Machines
+</h5>
+<p class="pBody"><a name="wp1062082"> </a>
+The <code class="cCode">grpname</code> value must be the NULL string<code class="cCode"> (0-length string) </code>for Workstation clients. You cannot set any group name and you cannot pin /WS clients to special groups. t<code class="cCode">pbegin()</code> inside the Tuxedo /WS clients is always unspecified and the opened transaction is distributed in equal parts over all RAC instances.
+</p>
+<p class="pBody"><a name="wp1060092"> </a>
+The best practice to use with Tuxedo /WS Clients is to avoid transaction handling on the client side, and start the transaction with the first server that is called by the Tuxedo /WS Client. For example, you can automatically force creating a transaction when setting the <code class="cCode">AUTOTRAN</code> parameter for the called service in the UBBCONFIG file <code class="cCode">*SERVICES </code>section.
+</p>
+<h3 class="pHeading2"><a name="wp1059010"> </a>
+Configuring Transaction Recovery
+</h3>
+<p class="pBody"><a name="wp1059011"> </a>
+<code class="cCode">TMS_rac_refresh(1)</code>, <code class="cCode">XARETRYDURATIONSECONDS</code>, and <code class="cCode">XARETRYINTERVAL</code> specifically handle transaction recovery issues.
+</p>
+<p class="pBody"><a name="wp1059013"> </a>
+<code class="cCode">TMS_rac_refresh(1)</code>is called when an Oracle RAC group fails over to an alternate group. <code class="cCode">TMS_rac_refresh(1)</code> <span style="font-style: italic">should not</span> be executed manually from the command line; the proper way to invoke <code class="cCode">TMS_rac_refresh(1)</code> is to use Oracle Fast Application Notification (FAN). 
+</p>
+<a name="wp1059014"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For more details on configuring Oracle FAN, refer to Oracle 10g documentation.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1059015"> </a>
+The <code class="cCode">XARETRYDURATIONSECONDS</code> and <code class="cCode">XARETRYINTERVAL</code> environment variables are used to retry transaction recovery operations (<code class="cCode">xa_recover()</code>) as required by Oracle RAC.
+</p>
+<h4 class="pDefTerm"><a name="wp1059017"> </a>
+<code class="cCode">XARETRYDURATIONSECONDS</code>
+</h4><div class="pDefPara"><a name="wp1059018"> </a>
+Specifies the time interval during which the Tuxedo Transaction Manager Server (TMS) retries <code class="cCode">xa_recover()</code> operations when <code class="cCode">TMS_rac_refresh(1)</code> is called. If it is not set or set to 0, then <code class="cCode">xa_recover()</code> is performed once only.
+</div>
+<div class="pDefParaCont"><a name="wp1059019"> </a>
+The default value for <code class="cCode">XARETRYDURATIONSECONDS</code> is <code class="cCode">0</code>.
+<a name="wp1059020"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For Oracle 10.1, it is recommended that <code class="cCode">XARETRYDURATIONSECONDS</code> is set to <code class="cCode">120</code>.</td>
+</tr>
+</table>
+
+</div>
+<h4 class="pDefTerm"><a name="wp1059022"> </a>
+<code class="cCode">XARETRYINTERVAL</code>
+</h4><div class="pDefPara"><a name="wp1059023"> </a>
+Specifies the interval in seconds that <code class="cCode">xa_recover()</code> operations are retried during the <code class="cCode">XARETRYDURATIONSECONDS</code> interval. The <code class="cCode">XARETRYINTERVAL</code> value is relevant only if <code class="cCode">XARETRYDURATIONSECONDS</code> is set to a value greater than 0.
+</div>
+<div class="pDefParaCont"><a name="wp1059024"> </a>
+The default value for <code class="cCode">XARETRYINTERVAL</code> is <code class="cCode">30</code>.
+</div>
+<h4 class="pHeading3"><a name="wp1059025"> </a>
+Configuring Oracle 10g Fast Application Notification (FAN)
+</h4>
+<p class="pBody"><a name="wp1059026"> </a>
+A key process in configuring Tuxedo for Oracle RAC is setting up Oracle FAN to invoke <code class="cCode">TMS_rac_refresh(1)</code> with the appropriate group parameter on group failover. (More group parameter and group failover information is provided in <a href="adorac.html#wp1058793"><span style="font-style: italic">Configuring Transaction Propagation</span></a>.)
+</p>
+<p class="pBody"><a name="wp1059030"> </a>
+More information regarding Oracle FAN can be found in the <span style="font-style: italic"><a href="http://www.oracle.com/technology/products/database/clustering/pdf/twpracwkldmgmt.pdf">Workload Management with Oracle Real Application Clusters</span> (PDF) White Paper</a>.
+</p>
+<h5 class="pHeading4"><a name="wp1059044"> </a>
+Oracle FAN Script Example
+</h5>
+<p class="pBody"><a name="wp1059045"> </a>
+<a href="adorac.html#wp1058980">Listing&#160;5-10</a> is an example of an Oracle FAN script.
+</p>
+<div class="pCodeTitle"><a name="wp1058980"> </a>
+Listing&#160;5-10	   Oracle FAN Script Example
+</div> <a name="wp1059065"> </a><div class="pPreformatted"><pre>//This File should be placed at ORA_CRS_HOME/racg/usrco//</pre></div><a name="wp1059066"> </a><div class="pPreformatted"><pre>------------------------------calout.sh-------------------------</pre></div><a name="wp1059071"> </a><div class="pPreformatted"><pre>#! /bin/ksh <br /><br />#parse the event<br /><br />AWK=awk<br />NOTIFY_EVENTTYPE=$1 # Event type is handled differently<br /><br />for ARGS in $*<br />do<br />	PROPERTY=`echo $ARGS|$AWK -F&quot;=&quot; &#39;{print $1}&#39;`<br />	VALUE=`echo $ARGS|$AWK -F&quot;=&quot; &#39;{print $2}&#39;`<br />	case ${PROPERTY} in<br />		VERSION|version)NOTIFY_VERSION=$VALUE;;<br />		SERVICE|service)NOTIFY_SERVICE=$VALUE;;<br />		DATABASE|database)NOTIFY_DATABASE=$VALUE;;<br />		INSTANCE|instance)NOTIFY_INSTANCE=$VALUE;;<br />		HOST|host) NOTIFY_HOST=$VALUE ;;<br />		STATUS|status) NOTIFY_STATUS=$VALUE;;<br />		REASON|reason) NOTIFY_REASON=$VALUE;;<br />		CARD|card) NOTIFY_CARDINALITY=$VALUE ;;<br />		TIMESTAMP|timestamp) NOTIFY_LOGDATE=$VALUE;; # catch <br />event<br />		??:??:??) NOTIFY_LOGTIME=$PROPERTY;; # catch event time<br />		(hh24:mi:ss)<br />	esac<br />done<br /><br />#Set the REFRESH_DIR environment variable.<br />. /home/oracle/callout.env<br /><br />#Make a log to record events.<br />FAN_LOGFILE=/home/oracle/app/products/10.1.0.3.0/db_1/calloutlog/`hostname`_upti<br />me.log<br />touch ${FAN_LOGFILE}<br />echo ${1}  &gt;&gt;${FAN_LOGFILE} <br /><br />#invoke the TMS_rac_refresh command.<br />if [ ${NOTIFY_EVENTTYPE} = &quot;INSTANCE&quot; -a ${NOTIFY_STATUS} = &quot;down&quot; ]<br />then<br />	${REFRESH_DIR}/rac_refresh &gt;&gt; ${FAN_LOGFILE} 2&gt;&amp;1<br />fi<br />-----------------------------callout.sh end-----------------------------<br /></pre></div><a name="wp1059214"> </a><div class="pPreformatted"><pre>-----------------------------callout.env----------------------------------</pre></div><a name="wp1059216"> </a><div class="pPreformatted"><pre>#! /bin/ksh<br />#TUXEDO and Oracle RAC server are not one the same machine.<br />export REFRESH_DIR=/tmp<br />-----------------------------callout.env end------------------------------<br /></pre></div><a name="wp1059215"> </a><div class="pPreformatted"><pre>-----------------------------rac_refresh----------------------------------</pre></div><a name="wp1059217"> </a><div class="pPreformatted"><pre>#! /bin/ksh<br />#If TUXEDO and Oracle RAC server on different machine<br /><br />. /home/oracle/callout.env<br /><br />rsh -l ${LOGNAME} ${TUX_MASTER_MACHINE}  ${REFRESH_DIR}/rac_refresh<br />&gt;/tmp/run1.log 2&gt;&amp;1<br /><br />rsh -l ${LOGNAME} ${TUX_NONMASTER_MACHINE}<br />${REFRESH_DIR}/rac_refresh &gt;/tmp/run1.log 2&gt;&amp;1<br /><br />#If TUXEDO and Oracle RAC server are on same machine<br />#set up environment variable<br />#export APPDIR=/tmp<br />#export ORACLE_HOME=/home/oracle/Ora10g<br />#export TUXDIR=/nfs/users/libo/r902/BJ/bld<br />#export PATH=.:${PATH}:${TUXDIR}/bin<br />#. $TUXDIR/tux.env<br />#export TUXCONFIG=${APPDIR} /tuxconfig<br /><br />#invoke TMS_rac_refresh<br />#TMS_rac_refresh RACDBGRP1<br />#TMS_rac_refresh RACDBGRP3<br />-----------------------------rac_refresh end-----------------------------</pre></div><h4 class="pHeading3"><a name="wp1060796"> </a>
+Configuring Transaction Recovery for Oracle 10gR2
+</h4>
+<p class="pBody"><a name="wp1060873"> </a>
+For Oracle 10gR2, it is much simpler to configure transaction recovery. The database services specified in the <code class="cCode">OPENINFO</code> string for each group associated with Oracle RAC should be declared in Oracle as DTP services.
+</p>
+<p class="pBody"><a name="wp1060874"> </a>
+For example, in <a href="adorac.html#wp1058831">Listing&#160;5-1</a>, <code class="cCode">GROUP1</code> accessed Oracle via service <code class="cCode">ORA1SITE1</code> and <code class="cCode">GROUP2</code> accessed Oracle via service <code class="cCode">ORA1SITE2</code>. In Oracle 10gR2, service <code class="cCode">ORA1SITE1</code> should be declared with <code class="cCode">DTP=TRUE</code>, with preferred instance <code class="cCode">SITE1</code>, and with available instance <code class="cCode">SITE2</code>. Service <code class="cCode">ORA1SITE2</code> should be declared with<code class="cCode"> DTP=TRUE</code>, with preferred instance <code class="cCode">SITE2</code>, and with available instance <code class="cCode">SITE1</code>. A similar process should be followed for groups<code class="cCode"> GROUP3</code>, <code class="cCode">GROUP4</code>, and <code class="cCode">GROUP5</code>.
+</p>
+<p class="pBody"><a name="wp1060804"> </a>
+By declaring different preferred instances, the application will be able to get the benefit of load balancing during normal operation when both instances are available.
+</p>
+<p class="pBody"><a name="wp1060805"> </a>
+The setting of the <code class="cCode">TUXRACGROUPS</code> environment variable will ensure that different instances of the RAC configuration are not combined in the same transaction in order to obtain optimal performance. If one of the RAC instances goes down, Oracle will transfer the DTP service to the non-preferred instance while maintaining transactional integrity.
+</p>
+<p class="pBody"><a name="wp1060809"> </a>
+When using Oracle 10gR2 DTP services, it is not necessary and is not recommended to configure Oracle FAN, use<code class="cHyperlinkCode">
+ TMS_rac_refresh(1)</code> or set the <code class="cCode">XARETRYDURATIONSECONDS</code> or <code class="cCode">XARETRYINTERVAL</code> environment variables.
+</p>
+<h4 class="pHeading3"><a name="wp1061734"> </a>
+Configuring Transaction Recovery for Oracle 12c
+</h4>
+<p class="pBody"><a name="wp1061732"> </a>
+For Oracle 12c, no specific configuration is needed; transaction recovery is transparent.
+</p>
+<h4 class="pHeading3"><a name="wp1060794"> </a>
+Specifying Environment Variables in the UBBCONFIG File
+</h4>
+<p class="pBody"><a name="wp1059116"> </a>
+Although the Tuxedo Oracle RAC environment variables can be initiated at the operating system command line, it is highly recommended that you use the <code class="cCode">ENVFILE</code> parameter specified in the <code class="cCode">*MACHINES</code> section of the <code class="cCode">UBBCONFIG</code> file to initiate these environment variables.
+</p>
+<p class="pBody"><a name="wp1059117"> </a>
+Apply the following syntax considerations when setting the environment variables for Oracle RAC.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1059118"> </a>When Tuxedo environment variables are set using <code class="cCode">ENVFILE,</code> which is the preferred method, quotation marks <span style="font-style: italic">are not</span> permitted around the environment variable value. </li>
+<li><a name="wp1059119"> </a>If environment variables are set at the command line, quotation marks <span style="font-style: italic">are required</span> if environment variable values contain characters that could be interpreted as <span style="font-style: italic">special</span> by the command line interpreter. An example of a <em class="cEmphasis">special</em> character is a semicolon.</li>
+<li><a name="wp1059120"> </a>Ensure that the Tuxedo Oracle RAC environment variables are set consistently on all nodes in a RAC configuration.</li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1059121"> </a>
+See Also
+</h2><div class="pSmartList1Bullet"><ul>
+<li><a name="wp1059244"> </a><span class="cHyperlink">
+<a href="../rfcm/rfcmd.html">buildtms(1)</a></span></li>
+<li><a name="wp1060112"> </a><a href="../rf5/rf5.html"><span class="cHyperlink">
+UBBCONFIG(5)</span></a></li>
+<li><a name="wp1059245"> </a><a href="adtrn.html">About Transactions</a></li>
+<li><a name="wp1061538"> </a><a href="adtran.html">Configuring Your ATMI Application to Use Transactions</a></li>
+<li><a name="wp1061540"> </a><span class="cHyperlink">
+&#8220;Writing G</span><a href="../pgc/pgglob.html"></a>lobal Transactions&#8221; in Programming an Oracle Tuxedo ATMI Application Using C</li>
+<li><a name="wp1059125"> </a><a href="http://www.oracle.com/technology/products/database/clustering/index.html">Oracle Real Application Clusters Home Page</a></li>
+<li><a name="wp1059127"> </a><a href="http://www.oracle.com/technology/products/integration/adapters/pdf/DS_OracleAS%20Adapter_Tuxedo.pdf">Oracle Application Server Adapters for Tuxedo</a></li>
+<li><a name="wp1059129"> </a><a href="http://www.oracle.com/technology/products/database/clustering/pdf/bestpracticesforxaandrac.pdf">Best Practices for Using XA with RAC</a></li>
+</ul></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="adorac.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="adtran.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="adipv6.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

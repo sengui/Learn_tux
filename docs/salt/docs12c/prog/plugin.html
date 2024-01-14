@@ -1,0 +1,942 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="5" />
+<meta name="LOC_US_CHANGE" content="42041" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/salt12c/prog/fm/plugin.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/29/12 11:34:02" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Using Oracle SALT Plug-Ins</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Programming Guide
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="tuxprog.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next_grey1.gif" border="0" alt="Next" />&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/prog.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1034704"> </a>
+Using Oracle SALT Plug-Ins
+</h1>
+<p class="pBody"><a name="wp1048658"> </a>
+This chapter contains the following topics:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1038265"> </a><a href="plugin.html#wp1034709">Understanding Oracle SALT Plug-Ins</a></li>
+<li><a name="wp1043590"> </a><a href="plugin.html#wp1049662">Programming Message Conversion Plug-ins</a></li>
+<li><a name="wp1039330"> </a><a href="plugin.html#wp1040794">Programming Outbound Authentication Plug-Ins</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1034709"> </a>
+Understanding Oracle SALT Plug-Ins
+</h2><p class="pBody"><a name="wp1042538"> </a>
+The<span class="cHyperlink">
+ </span>Oracle SALT<span class="cHyperlink">
+<a href="../ref/comref.html#wp1111835"> GWWS </a></span>server is a configuration-driven process which, for most basic Web service applications, does not require any programming tasks. However, Oracle SALT functionality can be enhanced by developing plug-in interfaces which utilize custom typed buffer data and customized shared libraries to extend the GWWS server.
+</p>
+<p class="pBody"><a name="wp1036171"> </a>
+A plug-in interface is a set of functions exported by a shared library that can be loaded and invoked by GWWS processes to achieve special functionality. Oracle SALT provides a plug-in framework as a common interface for defining and implementing a plug-in interface. Plug-in implementation is carried out by a shared library which contains the actual functions. The plug-in implementation library is configured in the<span class="cHyperlink">
+<a href="../ref/deploy.html"> SALT Deployment file</a></span> and is loaded dynamically during GWWS server startup.
+</p>
+<h3 class="pHeading2"><a name="wp1037401"> </a>
+Plug-In Elements
+</h3>
+<p class="pBody"><a name="wp1037402"> </a>
+Four plug-in elements are required to define a plug-in interface:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1037406"> </a><a href="plugin.html#wp1026618">Plug-In ID</a></li>
+<li><a name="wp1038316"> </a><a href="plugin.html#wp1034781">Plug-In Name</a></li>
+<li><a name="wp1038317"> </a><a href="plugin.html#wp1038284">Plug-In Implementation Functions</a></li>
+<li><a name="wp1038321"> </a><a href="plugin.html#wp1033100">Plug-In Register Functions</a></li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1026618"> </a>
+Plug-In ID
+</h4>
+<p class="pBody"><a name="wp1036181"> </a>
+The plug-in ID element is a string used to identify a particular plug-in interface function. Multiple plug-in interfaces can be grouped with the same Plug-in ID for a similar function. Plug-in ID values are predefined by Oracle SALT. Arbitrary string values are not permitted.
+</p>
+<p class="pBody"><a name="wp1036182"> </a>
+Oracle SALT<code class="cCode"> </code>10<em class="cEmphasis">g</em>R3 supports the <code class="cCode">P_CUSTOM_TYPE</code> and P_CREDENMAP plug-in ID, which is used to define plug-in interfaces for custom typed buffer data handling, and map Oracle Tuxedo user ID and group ID into username/password that HTTP Basic Authentication needs.
+</p>
+<h4 class="pHeading3"><a name="wp1034781"> </a>
+Plug-In Name
+</h4>
+<p class="pBody"><a name="wp1034782"> </a>
+The plug-in Name differentiates one plug-in implementation from another within the same Plug-in ID category. 
+</p>
+<p class="pBody"><a name="wp1036197"> </a>
+For the <code class="cCode">P_CUSTOM_TYPE</code> Plug-in ID, the plug-in name is used to indicate the actual custom buffer type name. When the GWWS server attempts to convert data between Oracle Tuxedo custom typed buffers and an XML document, the plug-in name is the key element that searches for the proper plug-in interface.
+</p>
+<h4 class="pHeading3"><a name="wp1038284"> </a>
+Plug-In Implementation Functions
+</h4>
+<p class="pBody"><a name="wp1038285"> </a>
+Actual business logic should reflect the necessary functions defined in a plug-in vtable structure. Necessary functions may be different for different plug-in ID categories. 
+</p>
+<p class="pBody"><a name="wp1041237"> </a>
+For the P_CREDENMAP ID category, one function needs to be implemented:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1041238"> </a>int <code class="cCode">(* gwws_pi_map_http_basic) (char * domain, char * realm, char * t_userid, char * t_grpid, Cred_UserPass * credential)</code>;</li>
+</ul></div>
+<p class="pBody"><a name="wp1038291"> </a>
+For more information, see <a href="plugin.html#wp1040794">Programming Outbound Authentication Plug-Ins</a>.
+</p>
+<h4 class="pHeading3"><a name="wp1033100"> </a>
+Plug-In Register Functions
+</h4>
+<p class="pBody"><a name="wp1036205"> </a>
+Plug-in Register functions are a set of common functions (or rules) that a plug-in interface must implement so that the GWWS server can invoke the plug-in implementation. Each plug-in interface must implement three register function These functions are: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1040315"> </a><a href="plugin.html#wp1041664">Information Providing Function</a></li>
+<li><a name="wp1038965"> </a><a href="plugin.html#wp1040377">Initiating Function</a></li>
+<li><a name="wp1038966"> </a><a href="plugin.html#wp1033113">Exiting Function</a></li>
+<li><a name="wp1041661"> </a><a href="plugin.html#wp1037488">vtable Setting Function</a></li>
+</ul></div>
+<h5 class="pHeading4"><a name="wp1041664"> </a>
+Information Providing Function
+</h5>
+<p class="pBody"><a name="wp1041665"> </a>
+This function is optional. If it is used, it is first invoked after the plug-in shared library is loaded during GWWS server startup. If you want to implement more than one interface in one plug-in library, you must implement this function and return the counts, IDs, and names of the interfaces in the library. 
+</p>
+<p class="pBody"><a name="wp1040286"> </a>
+Returning a <code class="cCode">0</code> value indicates the function has executed successfully. Returning a value other than <code class="cCode">0</code> indicates failure. If this functions fails, the plug-in is not loaded and the GWWS server will not start. 
+</p>
+<p class="pBody"><a name="wp1040337"> </a>
+The function uses the following syntax:
+</p>
+<a name="wp1040338"> </a><div class="pPreformatted"><pre>int _ws_pi_get_Id_and_Names(int * count, char **ids, char **names);</pre></div><p class="pBody"><a name="wp1040375"> </a>
+You must return the total count of implementation in the library in arguments <code class="cCode">count</code>. The arguments <code class="cCode">IDs </code>and<code class="cCode"> names </code>should contains all implemented interface<code class="cCode"> IDs</code> and <code class="cCode">names</code>, separated by a semicolon &#8220;;&#8221;.
+</p>
+<h5 class="pHeading4"><a name="wp1040377"> </a>
+Initiating Function
+</h5>
+<p class="pBody"><a name="wp1035284"> </a>
+The initiating function is invoked after all the implemented interfaces in the plug-in shared library are determined. You can initialize data structures and set up global environments that can be used by the plug-ins. 
+</p>
+<p class="pBody"><a name="wp1036565"> </a>
+Returning a <code class="cCode">0</code> value indicates the initiating function has executed successfully. Returning a value other than <code class="cCode">0</code> indicates initiation has failed. If plug-in interface initiation fails, the GWWS server will not start. 
+</p>
+<p class="pBody"><a name="wp1036567"> </a>
+The initiating function uses the following syntax:
+</p>
+<a name="wp1036598"> </a><div class="pPreformatted"><pre>int _ws_pi_init_@ID@_@Name@(char * params, void **priv_ptr);</pre></div><p class="pBody"><a name="wp1036599"> </a>
+<code class="cCode">@ID@</code> indicates the actual plug-in ID value. <code class="cCode">@Name@ </code>indicates the actual plug-in name value. For example, the initiating function of a plug-in with <code class="cCode">P_CUSTOM_TYPE</code> as a plug-in ID and <code class="cCode">MyType</code> as a plug-in name<code class="cCode"> </code>is: <code class="cCode">_ws_pi_init_P_CUSTOM_TYPE_MyType (char * params, void **priv_ptr)</code>. 
+</p>
+<h5 class="pHeading4"><a name="wp1033113"> </a>
+Exiting Function
+</h5>
+<p class="pBody"><a name="wp1035278"> </a>
+The exiting function is called before closing the plug-in shared library when the GWWS server shuts down. You should release all reserved plug-in resources.
+</p>
+<p class="pBody"><a name="wp1033158"> </a>
+The exiting function uses the following syntax:
+</p>
+<a name="wp1033159"> </a><div class="pPreformatted"><pre>int _ws_pi_exit_@ID@_@Name@(void * priv);</pre></div><p class="pBody"><a name="wp1037487"> </a>
+<code class="cCode">@ID@</code> indicates the actual plug-in ID value. <code class="cCode">@Name@ </code>indicates the actual plug-in name value. For example, the initiating exiting function name of a plug-in with <code class="cCode">P_CUSTOM_TYPE</code> as a plug-in ID and <code class="cCode">MyType</code> as a plug-in name is: <code class="cCode">_ws_pi_exit_P_CUSTOM_TYPE_MyType(void * priv)</code>.
+</p>
+<h5 class="pHeading4"><a name="wp1037488"> </a>
+vtable Setting Function
+</h5>
+<p class="pBody"><a name="wp1036273"> </a>
+<code class="cCode">vtable</code> is a particular C structure that stores the necessary function pointers for the actual businesss logic of a plug-in interface. In other words, a valid plug-in interface must implement all the functions defined by the corresponding vtable. 
+</p>
+<p class="pBody"><a name="wp1035302"> </a>
+The vtable setting function uses the following syntax:
+</p>
+<p class="pBody"><a name="wp1035241"> </a>
+<code class="cCode">int _ws_pi_set_vtbl_@ID@_@Name@(void * priv);</code>
+</p>
+<p class="pBody"><a name="wp1041281"> </a>
+<code class="cCode">@ID@</code> indicates the actual plug-in ID value. <code class="cCode">@Name@ </code>indicates the actual plug-in name value. For example, the vtable setting function of a plug-in with <code class="cCode">P_CUSTOM_TYPE</code> as a plug-in ID and <code class="cCode">MyType</code> as a plug-in name is: <code class="cCode">_ws_pi_set_vtbl_P_CUSTOM_TYPE_MyType(void * priv)</code>. 
+</p>
+<p class="pBody"><a name="wp1041295"> </a>
+The<code class="cCode"> vtabl</code>e structures may be different for different plug-in ID categories. For the Oracle SALT 10<em class="cEmphasis">g</em>R3 release, <code class="cCode">P_CUSTOM_TYPE </code>and P_CREDENMAP are the only valid plug-in IDs.
+</p>
+<p class="pBody"><a name="wp1041299"> </a>
+The vtable structures for available plug-in interfaces are shown in <a href="plugin.html#wp1036318">Listing&#160;5-1</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1036318"> </a>
+Listing&#160;5-1	   VTable Structure
+</div> <a name="wp1041446"> </a><div class="pPreformatted"><pre>struct credmap_vtable {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;int (* gwws_pi_map_http_basic) (char * domain, char * realm, char * t_userid, char * t_grpid, Cred_UserPass * credential); /* used for HTTP Basic Authentication */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* for future use */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;void * unused_1;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;void * unused_2;		<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;void * unused_3;<br />};</pre></div><p class="pBody"><a name="wp1037535"> </a>
+<code class="cCode">struct </code>credmap_vtable indicates that one function need to be implemented for a P_CREDENMAP plug-in interface. For more information, see <a href="plugin.html#wp1040794">Programming Outbound Authentication Plug-Ins</a>.
+</p>
+<p class="pBody"><a name="wp1033236"> </a>
+The function input parameter <code class="cCode">void * priv</code> points to a concrete vtable instance. You should set the vtable structure with the actual functions within the vtable setting function. 
+</p>
+<p class="pBody"><a name="wp1035578"> </a>
+An example of setting the vtable structure with the actual functions within the vtable setting function is shown in <a href="plugin.html#wp1033226">Listing&#160;5-2</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1033226"> </a>
+Listing&#160;5-2	   Setting the vtable Structure with Actual Functions within the vtable Setting Function
+</div> <a name="wp1033257"> </a><div class="pPreformatted"><pre>int _DLLEXPORT_ _ws_pi_set_vtbl_P_CREDENMAP_TEST (void * vtbl)</pre></div><a name="wp1036856"> </a><div class="pPreformatted"><pre>{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;struct credmap_vtable * vtable;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;if ( ! vtbl )<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return -1;<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;vtable = (struct credmap_vtable *) vtbl;<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;vtable-&gt;gwws_pi_map_http_basic = <code class="cCode">Credmap_HTTP_Basic</code>;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;return 0;<br />}</pre></div><h4 class="pHeading3"><a name="wp1035429"> </a>
+Developing a Plug-In Interface
+</h4>
+<p class="pBody"><a name="wp1036350"> </a>
+To develop a comprehensive plug-in interface, do the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1036351"> </a>Develop a shared library to implement the plug-in interface</li>
+<li><a name="wp1036352"> </a>Define the plug-in interface in the SALT configuration file</li>
+</ol></div>
+<h5 class="pHeading4"><a name="wp1037603"> </a>
+Developing a Plug-In Shared Library
+</h5>
+<p class="pBody"><a name="wp1038382"> </a>
+To develop a plug-in shared library, do the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1042608"> </a>Write C language plug-in implementation functions for the actual business logic. These functions are not required to be exposed from the shared library. For more information, see <a href="plugin.html#wp1038284">Plug-In Implementation Functions</a>.</li>
+<li><a name="wp1042612"> </a>Write C language plug-in register functions that include: the initiating function, the exiting function, the vtable setting function, and the information providing function if necessary. These register functions need to be exported so that they can be invoked from the GWWS server. For more information, see <a href="plugin.html#wp1033100">Plug-In Register Functions</a>.</li>
+<li><a name="wp1051716"> </a>Compile all the above functions into one shared library.</li>
+</ol></div>
+<h5 class="pHeading4"><a name="wp1051717"> </a>
+Defining a Plug-In Interface in SALT Configuration File
+</h5>
+<p class="pBody"><a name="wp1051718"> </a>
+To define a plug-in shared library that is loaded by the GWWS server, the corresponding plug-in library path must be configured in the SALT deployment file. For more information, see <span class="cHyperlink">
+<a href="../admin/config.html">Setting Up a Oracle SALT Application </a></span>in the <span style="font-style: italic">Oracle SALT Administration Guide</span>.
+</p>
+<p class="pBody"><a name="wp1035453"> </a>
+An example of how to define plug-in information in the Oracle SALT deployment file is shown in <a href="plugin.html#wp1033429">Listing&#160;5-3</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1033429"> </a>
+Listing&#160;5-3	   Defined Plug-In in the Oracle SALT Deployment File
+</div> <a name="wp1050348"> </a><div class="pPreformatted"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />&lt;Deployment xmlns=&quot;http://www.bea.com/Tuxedo/SALTDEPLOY/2007&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;. . . . . . .<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;. . . . . . .<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;System&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Plugin&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Interface <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;id=&#8221;P_CREDENMAP&#8221;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;name=&#8221;TEST&#8221;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;library=&#8221;credmap_plugin.dll&#8221; /&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/Plugin&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/System&gt;<br />&lt;/Deployment&gt;</pre></div><a name="wp1036400"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Notes:</strong></td>
+<td>To define multiple plug-in interfaces, multiple <code class="cCode">&lt;Interface&gt;</code> elements must be specified. Each <code class="cCode">&lt;Interface&gt;</code> element indicates one plug-in interface.</td></tr>
+</table>
+
+<a name="wp1040790"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>Multiple plug-in interfaces can be built into one shared library file.</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1049662"> </a>
+Programming Message Conversion Plug-ins
+</h2><p class="pBody"><a name="wp1049666"> </a>
+Oracle SALT defines a complete set of default data type conversion rules to convert between Oracle Tuxedo buffers and SOAP message payloads. However, the default data type conversion rules may not meet all your needs in transforming SOAP messages into Oracle Tuxedo typed buffers or vice versa. To accommodate special application requirements, Oracle SALT supports customized message level conversion plug-in development to extend the default message conversion.
+</p>
+<a name="wp1049667"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The SALT 10<em class="cEmphasis">g</em>R3 Message Conversion Plug-in is an enhanced successor of the SALT 1.1 Custom Buffer Type Conversion Plug-in.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1049668"> </a>
+The following topics are included in this section:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1049672"> </a><a href="plugin.html#wp1049686"><span class="cHyperlink">
+How Message Conversion Plug-ins Work on page&#160;5-7</span></a></li>
+<li><a name="wp1049676"> </a><a href="plugin.html#wp1049728"><span class="cHyperlink">
+When Do We Need Message Conversion Plug-in on page&#160;5-10</span></a></li>
+<li><a name="wp1049680"> </a><a href="plugin.html#wp1051810"><span class="cHyperlink">
+Developing a Message Conversion Plug-in Instance on page&#160;5-12</span></a></li>
+<li><a name="wp1050056"> </a><a href="plugin.html#wp1049945"><span class="cHyperlink">
+SALT 1.1 Custom Buffer Type Conversion Plug-in Compatibility on page&#160;5-16</span></a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1049686"> </a>
+How Message Conversion Plug-ins Work
+</h3>
+<p class="pBody"><a name="wp1049687"> </a>
+Message Conversion Plug-in is a SALT supported Plug-in defined within the SALT plug-in framework. All Message Conversion Plug-in instances have the same <a href="plugin.html#wp1026618">Plug-In ID</a>, &#8220;P_CUSTOM_TYPE&#8220;. Each particular Message Conversion Plug-in instance may implement two functions, one is used to convert SOAP message payloads to Oracle Tuxedo buffers, and the other is used to convert Oracle Tuxedo buffers to SOAP message payloads. These two function prototypes are defined in <a href="plugin.html#wp1049695">Listing&#160;5-4</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1049695"> </a>
+Listing&#160;5-4	   vtable structure for SALT Plug-in &#8220;P_CUSTOM_TYPE&#8221; (C Language) 
+</div> <a name="wp1050590"> </a><div class="pPreformatted"><pre>/* custtype_pi_ex.h */<br />struct custtype_vtable {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;CustomerBuffer * (* soap_in_tuxedo__CUSTBUF) (void * xercesDOMTree, CustomerBuffer * tuxbuf, CustType_Ext * extinfo)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;int (* soap_out_tuxedo__CUSTBUF) (void ** xercesDOMTree, CustomerBuffer * tuxbuf, CustType_Ext * extinfo)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;......<br />}</pre></div><p class="pBody"><a name="wp1049698"> </a>
+The function pointer (* soap_in_tuxedo__CUSTBUF) points to the customized function that converts the SOAP message payload to Oracle Tuxedo typed buffer.
+</p>
+<p class="pBody"><a name="wp1049699"> </a>
+The function pointer (* soap_out_tuxedo__CUSTBUF) points to the customized function that converts the Oracle Tuxedo typed buffer to SOAP message payload.
+</p>
+<p class="pBody"><a name="wp1049700"> </a>
+You may implement both functions defined in the message conversion plug-in vtable structure if needed. You may also implement one function and set the other function with a NULL pointer.
+</p>
+<h4 class="pHeading3"><a name="wp1049701"> </a>
+How Message Conversion Plug-in Works in an Inbound Call Scenario
+</h4>
+<p class="pBody"><a name="wp1049702"> </a>
+An inbound call scenario is an external Web service program that invokes an Oracle Tuxedo service through the Oracle SALT gateway. <a href="plugin.html#wp1049707">Figure&#160;5-1</a> depicts message streaming between a Web service client and an Oracle Tuxedo domain.
+</p>
+<div class="pFigureTitle"><a name="wp1049707"> </a>
+Figure&#160;5-1  Message Conversion Plug-in Works in an Inbound Call Scenario
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1049711"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/salt_gwws_in.png" alt="Message Conversion Plug-in Works in an Inbound Call Scenario" id="wp1049709" border="0" hspace="0" vspace="0"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1049712"> </a>
+When a SOAP request message is delivered to the GWWS server, GWWS tries to find if there is a message conversion plug-in instance associated with the input message conversion of the target service. If there is an associated instance, the GWWS invokes the customized (*soap_in_tuxedo__CUSTBUF) function implemented in the plug-in instance.
+</p>
+<p class="pBody"><a name="wp1049713"> </a>
+When an Oracle Tuxedo response buffer is returned from the Oracle Tuxedo service, GWWS tries to find if there is a message conversion plug-in instance associated with the output message conversion of the target service. If there is an associated instance, GWWS invokes the customized (*soap_out_tuxedo__CUSTBUF) function implemented in the plug-in instance.
+</p>
+<h4 class="pHeading3"><a name="wp1049714"> </a>
+How Message Conversion Plug-in Works in an Outbound Call Scenario
+</h4>
+<p class="pBody"><a name="wp1049715"> </a>
+An outbound call scenario is an Oracle Tuxedo program that invokes an external Web service through the Oracle SALT gateway. <a href="plugin.html#wp1049720">Figure&#160;5-2</a> depicts message streaming between an Oracle Tuxedo domain and a Web service application.
+</p>
+<div class="pFigureTitle"><a name="wp1049720"> </a>
+Figure&#160;5-2  Message Conversion Plug-in Works in an Outbound Call Scenario
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1051477"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/salt_gwws_out.png" alt="Message Conversion Plug-in Works in an Outbound Call Scenario" id="wp1049722" border="0" hspace="0" vspace="0"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1049725"> </a>
+When an Oracle Tuxedo request buffer is delivered to the GWWS server, GWWS tries to find if there is a message conversion plug-in instance associated with the input message conversion of the target service. If there is an associated instance, GWWS invokes the customized (*soap_out_tuxedo__CUSTBUF) function implemented in the plug-in instance.
+</p>
+<p class="pBody"><a name="wp1049726"> </a>
+When a SOAP response message is returned from the external Web service application, GWWS tries to find if there is a message conversion plug-in instance associated with the output message conversion of the target service. If there is an associated instance, GWWS invokes the customized (*soap_in_tuxedo__CUSTBUF) function implemented in the plug-in instance.
+</p>
+<h3 class="pHeading2"><a name="wp1049728"> </a>
+When Do We Need Message Conversion Plug-in
+</h3>
+<p class="pBody"><a name="wp1049732"> </a>
+<a href="plugin.html#wp1049736">Table&#160;5-1</a> lists several message conversion plug-in use cases.
+</p>
+<p class="pGraphic"><a name="wp1049821"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1049736table1049733"><caption><a name="wp1049736"> </a>
+Table 5-1  Message Conversion Plug-in Use Cases
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col">&#160;</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1049746"> </a>
+Scenario Description
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1049748"> </a>
+soap_in_tuxedo_CUSTBUF
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1049750"> </a>
+soap_out_tuxedo_CUSTBUF
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="6"><div class="pCellBody"><a name="wp1049752"> </a>
+Oracle Tuxedo Originated Service
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049755"> </a>
+A SOAP message payload is being transformed into a custom typed buffer
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049757"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049759"> </a>
+N/A
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049763"> </a>
+A custom typed buffer is being transformed into a SOAP message payload
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049765"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049767"> </a>
+Required
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049771"> </a>
+An Oracle Tuxedo service input and/or output buffer is associated with a customized XML schema definition, when a SOAP message payload is being transformed into this buffer
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049773"> </a>
+Non XML typed buffer: Required
+</div>
+<div class="pCellBody"><a name="wp1049775"> </a>
+XML typed buffer: Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049777"> </a>
+N/A
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049781"> </a>
+An Oracle Tuxedo service input and/or output buffer is associated with a customized XML schema definition, when this buffer is being transformed into a SOAP message payload
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049783"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049785"> </a>
+Non XML typed buffer: Required
+</div>
+<div class="pCellBody"><a name="wp1049787"> </a>
+XML typed buffer:Optional
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049792"> </a>
+All other general cases when a SOAP message payload is being transformed to an Oracle Tuxedo buffer
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049794"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049796"> </a>
+N/A
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049800"> </a>
+All other general cases when an Oracle Tuxedo buffer is being transformed into a SOAP message payload
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049802"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049804"> </a>
+Optional
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="2"><div class="pCellBody"><a name="wp1049806"> </a>
+Web Service Originated Service
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049808"> </a>
+All cases when an Oracle Tuxedo buffer is being transformed to a SOAP message payload
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049810"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049812"> </a>
+Optional
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049816"> </a>
+All cases when a SOAP message payload is being transformed into an Oracle Tuxedo buffer
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049818"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1049820"> </a>
+N/A
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1049825"> </a>
+From <a href="plugin.html#wp1049736">Table&#160;5-1</a>, the following message conversion plug-ins general rules are applied.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1049826"> </a>If an Oracle Tuxedo originated service consumes custom typed buffer, the message conversion plug-in is required. Oracle Tuxedo framework does not understand the detailed data structure of the custom typed buffer, therefore SALT default data type conversion rules cannot be applied.</li>
+<li><a name="wp1049827"> </a>If the input and/or output (no matter returned with <code class="cCode">TPSUCCESS</code> or <code class="cCode">TPFAIL</code>) buffer of an Oracle Tuxedo originated service is associated with an external XML Schema, you should develop the message conversion plug-ins to handle the transformation manually, unless you are sure that the SALT default buffer type-based conversion rules can handle it correctly.</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1049828"> </a>For example, if you associate your own XML Schema with an Oracle Tuxedo service FML32 typed buffer, you must provide a message conversion plug-in since SALT default data mapping routines may not understand the SOAP message payload structure when trying to convert into the FML typed buffer. Contrarily, the SOAP message payload structure converted from the FML typed buffer may be tremendously different from the XML shape defined via your own XML Schema.</li>
+<li><a name="wp1049829"> </a>If you associate your own XML Schema with an Oracle Tuxedo service XML typed buffer, most of time you do not have to provide a message conversion plug-in. This is because SALT just passes the XML data as is in both message conversion directions.</li>
+</ul></div>
+</ul></div>
+<a name="wp1049830"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>For more information about how to associate external XML Schema definition with the input, output and error buffer of an Oracle Tuxedo Service, see &#8220;<span class="cHyperlink">
+<a href="../ref/comref.html#wp1106727">Defining Tuxedo Service Contract with Service Metadata Repository</a></span>&#8221; in the <span style="font-style: italic">Oracle SALT Administration Guide</span>.</td>
+</tr>
+</table>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1049832"> </a>You can develop message conversion plug-ins for any message level conversion to replace SALT default message conversion routines as needed.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1051810"> </a>
+Developing a Message Conversion Plug-in Instance
+</h3>
+<h4 class="pHeading3"><a name="wp1051811"> </a>
+Converting a SOAP Message Payload to an Oracle Tuxedo Buffer
+</h4>
+<p class="pBody"><a name="wp1051812"> </a>
+The following function should be implemented in order to convert a SOAP XML payload to an Oracle Tuxedo buffer:
+</p>
+<p class="pBody"><a name="wp1046241"> </a>
+<code class="cCode">CustomerBuffer * (* soap_in_tuxedo__CUSTBUF) (void * xercesDOM, CustomerBuffer *a, CustType_Ext * extinfo);</code>
+</p>
+<h4 class="pHeading3"><a name="wp1046242"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1046243"> </a>
+<code class="cCode">#include &lt;custtype_pi_ex.h&gt;</code>
+</p>
+<p class="pBody"><a name="wp1046244"> </a>
+<code class="cCode">CustomerBuffer * myxml2buffer (void * xercesDOM, CustomerBuffer *a, CustType_Ext * extinfo);</code>
+</p>
+<p class="pBody"><a name="wp1046245"> </a>
+<code class="cCode">myxml2buffer</code> is an arbitrary customized function name.
+</p>
+<h4 class="pHeading3"><a name="wp1046246"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1046247"> </a>
+The implemented function should have the capability to parse the given XML buffer and convert concrete data items to an Oracle Tuxedo custom typed buffer instance.
+</p>
+<p class="pBody"><a name="wp1046248"> </a>
+The input parameter, <code class="cCode">char * xmlbuf</code>, indicates a NULL terminated string with the XML format data stream. Please note that the XML data is the actual XML payload for the custom typed buffer, <span style="font-style: italic">not</span> the whole SOAP envelop document or the whole SOAP body document. 
+</p>
+<p class="pBody"><a name="wp1046249"> </a>
+The input parameter, <code class="cCode">char * type</code>, indicates the custom typed buffer type name, this parameter is used to verify that the GWWS server expected custom typed buffer handler matches the current plug-in function.
+</p>
+<p class="pBody"><a name="wp1046250"> </a>
+The output parameter, <code class="cCode">CustomerBuffer *a</code>, is used to store the allocated custom typed buffer instance. An Oracle Tuxedo custom typed buffer must be allocated by this plug-in function via the ATMI function<code class="cCode"> tpalloc()</code>. Plug-in code is not responsible to free the allocated custom typed buffer, it is automatically destroyed by the GWWS server if it is not used.
+</p>
+<h4 class="pHeading3"><a name="wp1046251"> </a>
+Diagnostics
+</h4>
+<p class="pBody"><a name="wp1046252"> </a>
+If successful, this function must return the pointer value of input parameter <code class="cCode">CustomerBuffer * a</code>.
+</p>
+<p class="pBody"><a name="wp1046253"> </a>
+If it fails, this function returns NULL as shown in <a href="plugin.html#wp1046254">Listing&#160;5-5</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1046254"> </a>
+Listing&#160;5-5	   Converting XML Effective Payload to Oracle Tuxedo Custom Typed Buffer Pseudo Code
+</div> <a name="wp1046255"> </a><div class="pPreformatted"><pre>CustomerBuffer * myxml2buffer (<code class="cCode">void * xercesDOM, CustomerBuffer *a, CustType_Ext * extinfo</code>)<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;// casting the input void * xercesDOM to class DOMDocument object<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;DOMDocument * DOMTree = <br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;// allocate custom typed buffer via tpalloc<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;a-&gt;buf = tpalloc(&quot;MYTYPE&quot;, &quot;MYSUBTYPE&quot;, 1024);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;a-&gt;len = 1024;<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;// fetch data from DOMTree and set it into custom typed buffer<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;DOMTree ==&gt; a-&gt;buf;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;if ( error ) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;release ( DOMTree );<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpfree(a-&gt;buf);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;a-&gt;buf = NULL;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;a-&gt;len = 0;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return NULL;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;release ( DOMTree );<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;return a;<br />}</pre></div><a name="wp1046257"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Tip:</strong></td>
+<td>	Oracle Tuxedo bundled Xerces library can be used for XML parsing. Tuxedo 8.1 bundles Xerces 1.7 and Tuxedo 9.1 bundles Xerces 2.5</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp1043489"> </a>
+Converting an Oracle Tuxedo Buffer to a SOAP Message Payload
+</h4>
+<p class="pBody"><a name="wp1046301"> </a>
+The following function should be implemented in order to convert a custom typed buffer to SOAP XML payload:
+</p>
+<p class="pBody"><a name="wp1046302"> </a>
+<code class="cCode">int (*soap_out_tuxedo__CUSTBUF)(char ** xmlbuf, CustomerBuffer * a,  char * type);</code>
+</p>
+<h4 class="pHeading3"><a name="wp1046303"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1046304"> </a>
+<code class="cCode">#include &lt;custtype_pi_ex.h&gt;</code>
+</p>
+<p class="pBody"><a name="wp1046305"> </a>
+<code class="cCode">int * mybuffer2xml (char ** xmlbuf, CustomerBuffer *a, char * type);</code>
+</p>
+<p class="pBody"><a name="wp1046306"> </a>
+<code class="cCode">&quot;mybuffer2xml&quot;</code> is the function name can be specified with any valid string upon your need.
+</p>
+<h4 class="pHeading3"><a name="wp1046307"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1046308"> </a>
+The implemented function has the capability to convert the given custom typed buffer instance to the single root XML document used by the SOAP message.
+</p>
+<p class="pBody"><a name="wp1046309"> </a>
+The input parameter, <code class="cCode">CustomerBuffer *a</code>, is used to store the custom typed buffer response instance. Plug-in code is not responsible to free the allocated custom typed buffer, it is automatically destroyed by the GWWS server if it is not used.
+</p>
+<p class="pBody"><a name="wp1046310"> </a>
+The input parameter, <code class="cCode">char * type</code>, indicates the custom typed buffer type name, this parameter can be used to verify if the SALT GWWS server expected custom typed buffer handler matches the current plug-in function.
+</p>
+<p class="pBody"><a name="wp1046314"> </a>
+The output parameter, <code class="cCode">char ** xmlbuf</code>, is a pointer that indicates the newly converted XML payload. The XML payload buffer must be allocated by this function and use the <code class="cCode">malloc ()</code> system API. Plug-in code is not responsible to free the allocated XML payload buffer, it is automatically destroyed by the GWWS server if it is not used. 
+</p>
+<h4 class="pHeading3"><a name="wp1046315"> </a>
+Diagnostics
+</h4>
+<p class="pBody"><a name="wp1046316"> </a>
+If successful, this function must returns 0.
+</p>
+<p class="pBody"><a name="wp1046317"> </a>
+If it fails, this function must return -1 as shown in <a href="plugin.html#wp1046318">Listing&#160;5-6</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1046318"> </a>
+Listing&#160;5-6	   Converting Oracle Tuxedo Custom Typed Buffer to SOAP XML Pseudo Code
+</div> <a name="wp1046319"> </a><div class="pPreformatted"><pre>int mybuffer2xml (void ** xercesDom, CustomerBuffer *a, CustType_Ext * extinfo)<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Use DOM implementation to create the xml payload<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;DOMTree = CreateDOMTree( );<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;if ( error )<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return -1;<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;// fetch data from custom typed buffer instance,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;// and add data to DOMTree according to the client side needed<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;// XML format<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;a-&gt;buf ==&gt; DOMTree;<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;// allocate xmlbuf buffer via malloc<br />	* xmlbuf = malloc( expected_len(DOMTree) );<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;if ( error ) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;release ( DOMTree );<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return -1;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;// casting the DOMDocument to void * pointer and returned<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;DOMTree &gt;&gt; (* xmlbuf);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;if ( error ) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;release ( DOMTree );<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;free ( (* xmlbuf) );<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return -1;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;return 0;<br />}</pre></div><a name="wp1046321"> </a>
+<table class="Note">
+<tr>
+<td valign="top"><strong>WARNING:</strong></td>
+<td>GWWS framework is responsible to release the DOMDocument created inside the plug-in function. To avoid double release, programmers must pay attention to the following Xerces API usage:</td>
+</tr>
+</table>
+
+<a name="wp1046705"> </a>
+<table class="Note">
+<tr>
+<td valign="top"><b class="texthide">WARNING:</b></td>
+<td>If the DOMDocument is constructed from an XML string through <code class="cCode">XercesDOMParser::parse() API</code>. You must use <code class="cCode">XercesDOMParser::adoptDocument()</code> to get the pointer of the DOMDocument object. You must not use <code class="cCode">XercesDOMParser::getDocument()</code> to get the pointer of the DOMDocument object because the DOMDocument object is maintained by the XercesDOMParser object and is released when deleting the XercesDOMParser object if you do not de-couple the DOMDocument from the XercesDOMParser via the <code class="cCode">XercesDOMParser::getDocument()</code> function.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1049945"> </a>
+SALT 1.1 Custom Buffer Type Conversion Plug-in Compatibility
+</h3>
+<p class="pBody"><a name="wp1049946"> </a>
+SALT 1.1 Custom Buffer Type Conversion Plug-in provides the customized message conversion mechanism only for Oracle Tuxedo custom buffer types.
+</p>
+<p class="pBody"><a name="wp1051635"> </a>
+<a href="plugin.html#wp1051642">Table&#160;5-2</a> compares the SALT Message Conversion Plug-in and the SALT 1.1 Custom Buffer Type Conversion Plug-in.
+</p>
+<p class="pGraphic"><a name="wp1051675"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1051642table1051636"><caption><a name="wp1051642"> </a>
+Table 5-2  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">SALT 10</span><em class="cEmphasis">g</em>R3 Message Conversion Plug-in / SALT 1.1 Custom Buffer Type Conversion Plug-in Comparison
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1051646"> </a>
+SALT 1.1 Custom Buffer Type Plug-in
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1051651"> </a>
+SALT 10<em class="cEmphasis">g</em>R3 Message Conversion Plug-in
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1051653"> </a>
+Plug-in ID is &#8220;<code class="cCode">P_CUSTOM_TYPE</code>&#8221;
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1051655"> </a>
+Plug-in ID is &#8220;<code class="cCode">P_CUSTOM_TYPE</code>&#8221; 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1051657"> </a>
+Plug-in Name must be the same as the supported custom buffer type name
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1051659"> </a>
+Plug-in Name can be any meaningful value, which is only used to distinguish from other plug-in instances.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1051661"> </a>
+Only supports message conversion between SOAP message payload and Oracle Tuxedo custom buffer types
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1051663"> </a>
+Supports message conversion between SOAP message payload and any kind of Oracle Tuxedo buffer type
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1051665"> </a>
+Buffer type level association.
+</div>
+<div class="pCellBody"><a name="wp1051666"> </a>
+Each plug-in instance must be named the same as the supported custom buffer type name. Each custom buffer type can only have one plug-in implementation.
+</div>
+<div class="pCellBody"><a name="wp1051667"> </a>
+One custom buffer type can associate with a plug-in instance, and used by all the services
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1051669"> </a>
+Message level association.
+</div>
+<div class="pCellBody"><a name="wp1051670"> </a>
+Each Oracle Tuxedo service can associate plug-in instances with its input and/or output buffers respectively through the plug-in instance name.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1051672"> </a>
+SOAP message payload is saved as a NULL terminated string for plug-in programming
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1051674"> </a>
+SOAP message payload is saved as a Xerces DOM Document for plug-in programming
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1051676"> </a>
+Please note that the SALT 1.1 Custom Buffer Type Plug-in shared library cannot be used directly in SALT 10<em class="cEmphasis">g</em>R3. You must perform the following tasks to upgrade it to a SALT 10<em class="cEmphasis">g</em>R3 message conversion plug-in:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1049981"> </a>Re-implement function (*soap_in_tuxedo__CUSTBUF) and (*soap_out_tuxedo__CUSTBUF) according to new SALT 10<em class="cEmphasis">g</em>R3 message conversion plug-in <code class="cCode">vtable</code> function prototype API. The major change is that SOAP message payload is saved as an Xerces class DOMDocument object instead of the old string value.</li>
+<li><a name="wp1049982"> </a>Re-compile your functions as the shared library and configure this shared library in the SALT Deployment file so that it can be loaded by GWWS servers.</li>
+</ol></div>
+<a name="wp1049983"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Tip:</strong></td>
+<td>You do not have to manually associate the upgraded message conversion plug-ins with service buffers. If a custom typed buffer is involved in the message conversion at runtime, GWWS can automatically search a message conversion plug-in that has the same name as the buffer type name if no explicit message conversion plug-in interface is configured.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1040794"> </a>
+Programming Outbound Authentication Plug-Ins
+</h2><p class="pBody"><a name="wp1040784"> </a>
+When an Oracle Tuxedo client accesses Web services via SOAP/HTTP, the client may be required to send a username and password to the server to perform HTTP Basic Authentication. The Oracle Tuxedo clients uses <code class="cCode">tpinit() </code>to send a username and password when registering to the Oracle Tuxedo domain. However, this username is used by Oracle Tuxedo and is not the same as the one used by the Web service (the password may be different as well). 
+</p>
+<p class="pBody"><a name="wp1042665"> </a>
+To map the usernames, Oracle SALT provides a plug-in interface (Credential-Mapping Interface) that allows you to choose which username and password is sent to the Web service.
+</p>
+<h3 class="pHeading2"><a name="wp1039841"> </a>
+How Outbound Authentication Plug-Ins Work
+</h3>
+<p class="pBody"><a name="wp1039844"> </a>
+When an Oracle Tuxedo client calls a Web service, it actually calls the GWWS server that declares the Web service as an Oracle Tuxedo service. The user id and group id (defined in <code class="cCode">tpusr</code> and <code class="cCode">tpgrp</code> files) are sent to the GWWS. The GWWS then checks whether the Web service has a configuration item &lt;Realm&gt;. If it does, the GWWS: 
+</p>
+<p class="pBody"><a name="wp1039688"> </a>
+tries to invoke the vtable <code class="cCode">gwws_pi_map_http_basic</code> function to map the Oracle Tuxedo userid into the username and password for the HTTP Realm of the server.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1039899"> </a>for successful calls, encodes the returned username and password with <code class="cCode">Base64 </code>and sends it in the HTTP header field &#8220;Authorization: Basic&#8221; if the call is successful</li>
+<li><a name="wp1043119"> </a>for failed calls, returns a failure to the Oracle Tuxedo Client without invoking the Web service.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1043120"> </a>
+Implementing a Credential Mapping Interface Plug-In
+</h3>
+<p class="pBody"><a name="wp1039691"> </a>
+Using the following scenario:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1039692"> </a>An existing Web service, <code class="cCode">myservice</code>, sited on http://www.abc.com/webservice, requires HTTP Basic Authentication. The username is &#8220;test&#8221;, the password is &#8220;1234,&#8221; and the realm is &#8220;myrealm&#8221;.</li>
+<li><a name="wp1039693"> </a>After converting the Web service WSDL into the SALT configuration file (using <code class="cCode">wsdlcvt)</code>, add the &lt;Realm&gt;myrealm&lt;/Ream&gt; element to the endpoint definition in the WSDF file.</li>
+</ul></div>
+<p class="pBody"><a name="wp1039699"> </a>
+Perform the following steps to implement a Oracle SALT plug-in interface: 
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1042758"> </a>Write the functions to map the &#8220;myrealm&#8221; Oracle Tuxedo <code class="cCode">UID/GID</code> to <code class="cCode">username/password </code>on www.abc.com.</li>
+</ol></div>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1042759"> </a>Use <code class="cCode">Credmap_HTTP_Basic();</code></li>
+<p class="pBodyRelative"><a name="wp1039702"> </a>
+This function is used to return the HTTP username/password. The function prototype defined in <code class="cCode">credmap_pi_ex.h</code>
+</p>
+</ul></div>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1039713"> </a>Write the following three plug-in register functions. For more information, see <a href="plugin.html#wp1033100">Plug-In Register Functions</a>.</li>
+</ol></div>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1039714"> </a><code class="cCode">_ws_pi_init_P_CREDENMAP_TEST(char * params, void ** priv_ptr);</code></li>
+<p class="pBodyRelative"><a name="wp1039715"> </a>
+This function is invoked when the GWWS server attempts to load the plug-in shared library during startup. 
+</p>
+<li><a name="wp1039719"> </a><code class="cCode">_ws_pi_exit_P_CREDENMAP_TEST(void * priv);</code></li>
+<p class="pBodyRelative"><a name="wp1039720"> </a>
+This function is invoked when the GWWS server unloads the plug-in shared library during the shutdown phase. 
+</p>
+<li><a name="wp1040063"> </a><code class="cCode">_ws_pi_set_vtbl_P_CREDENMAP_TEST(void * vtbl);</code></li>
+<p class="pBodyRelative"><a name="wp1040064"> </a>
+Set the <code class="cCode">gwws_pi_map_http_basic</code> entry in vtable structure <code class="cCode">credmap_vtable</code> with the <code class="cCode">Credmap_HTTP_Basic() </code>function implemented in step 1.
+</p>
+</ul></div>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1040088"> </a>You can also write the optional function</li>
+</ol></div>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1040089"> </a><code class="cCode">_ws_pi_get_Id_and_Names(int * params, char ** ids, char ** names);</code></li>
+<p class="pBodyRelative"><a name="wp1040090"> </a>
+This function is invoked when the GWWS server attempts to load the plug-in shared library during startup to determine what library interfaces are implemented. For more information, see <a href="plugin.html#wp1033100">Plug-In Register Functions</a>. 
+</p>
+</ul></div>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1039729"> </a>Compile the previous four or five functions into one shared library, <code class="cCode">credmap_plugin.so</code>.</li>
+<li><a name="wp1039730"> </a>Configure the plug-in interface in the SALT deployment file.</li>
+</ol></div>
+<p class="pBody"><a name="wp1039734"> </a>
+Configure the plug-in interface as shown in <a href="plugin.html#wp1039736">Listing&#160;5-7</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1039736"> </a>
+Listing&#160;5-7	   Custom Typed Buffer Plug-In Interface
+</div> <a name="wp1039737"> </a><div class="pPreformatted"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</pre></div><a name="wp1040145"> </a><div class="pPreformatted"><pre>&lt;Deployment xmlns=&quot;http://www.bea.com/Tuxedo/SALTDEPLOY/2007&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;. . . . . . .<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;. . . . . . .<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;System&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Plugin&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;Interface <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;id=&#8221;P_CREDENMAP&#8221;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;name=&#8221;TEST&#8221;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;library=&#8221;credmap_plugin.dll&#8221; /&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/Plugin&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/System&gt;<br />&lt;/Deployment&gt;</pre></div><h3 class="pHeading2"><a name="wp1040800"> </a>
+Mapping the Oracle Tuxedo UID and HTTP Username
+</h3>
+<p class="pBody"><a name="wp1040801"> </a>
+The following function should be implemented in order to return username/password for HTTP Basic Authentication:
+</p>
+<p class="pBody"><a name="wp1040802"> </a>
+<code class="cCode">typedef int (* GWWS_PI_CREDMAP_PASSTEXT) (char * domain, char * realm, char * t_userid, char * t_grpid, Cred_UserPass * credential);</code>
+</p>
+<h4 class="pHeading3"><a name="wp1040803"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1040804"> </a>
+<code class="cCode">#include &lt;credmap_pi_ex.h&gt;</code>
+</p>
+<p class="pBody"><a name="wp1041014"> </a>
+<code class="cCode">typedef struct Cred_UserPass_s {</code>
+</p>
+<p class="pBody"><a name="wp1041015"> </a>
+<code class="cCode">    char username[UP_USERNAME_LEN];</code>
+</p>
+<p class="pBody"><a name="wp1041016"> </a>
+<code class="cCode">    char password[UP_PASSWORD_LEN];</code>
+</p>
+<p class="pBody"><a name="wp1040932"> </a>
+<code class="cCode">} Cred_UserPass;</code>
+</p>
+<p class="pBody"><a name="wp1042841"> </a>
+<code class="cCode">int gwws_pi_map_http_basic (char * domain, char * realm, char * t_uid, char * t_gid, Cred_UserPass * credential);</code>
+</p>
+<p class="pBody"><a name="wp1042842"> </a>
+The <code class="cCode">&quot;gwws_pi_map_http_basic&quot;</code> function name can be specified with any valid string as needed.
+</p>
+<h4 class="pHeading3"><a name="wp1042843"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1040808"> </a>
+The implemented function has the capability to determine authorization credentials (usernames and passwords) used for authorizing users with a given Oracle Tuxedo uid and gid for a given domain and realm.
+</p>
+<p class="pBody"><a name="wp1040809"> </a>
+The input parameters, <code class="cCode">char * domain and char * realm</code>, represent the domain name and HTTP Realm that the Web service belongs to. The plug-in code must use them to determine the scope to find appropriate credentials.
+</p>
+<p class="pBody"><a name="wp1040810"> </a>
+The input parameters, <code class="cCode">char * t_uid</code> and <code class="cCode">char * t_gid</code>, are strings that contain Oracle Tuxedo user ID and group ID number values respectively. These two parameters may be used to find the username.
+</p>
+<p class="pBody"><a name="wp1051733"> </a>
+The output parameter, <code class="cCode">Cred_UserPass * credential</code>, is a pointer that indicates a pre-allocated buffer storing the returned username/password. The plug-in code is not responsible to allocate the buffer.
+</p>
+<a name="wp1041112"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Notes:</strong></td>
+<td>Oracle Tuxedo user ID is available only when <code class="cCode">*SECURITY</code> is set as <code class="cCode">USER_AUTH</code> or higher in the UBBCONFIG file. Group ID is available when <code class="cCode">*SECURITY</code> is set as ACL or higher. The default is &#8220;0&#8221;.</td></tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp1040815"> </a>
+Diagnostics
+</h4>
+<p class="pBody"><a name="wp1040816"> </a>
+If successful, this function returns 0. If it fails, it returns -1 as shown in <a href="plugin.html#wp1040818">Listing&#160;5-8</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1040818"> </a>
+Listing&#160;5-8	   Credential Mapping for HTTP Basic Authentication Pseudo Code
+</div> <a name="wp1051135"> </a><div class="pPreformatted"><pre>int <code class="cCode">Credmap_HTTP_Basic</code>(<code class="cCode">char * domain, char * realm, char * t_uid, char * t_gid, Cred_UserPass * credential</code>)<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Use domain and realm to determine scope <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;credentialList = FindAllCredentialForDomainAndRealm(domain, realm);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;if ( error happens )<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return -1;<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;// find appropriate credential in the scope<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;foreach cred in credentialList {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (t_uid and t_gid match) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;*credential = cred;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return 0;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;if ( not found and no default credential) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return -1;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;*credential = default_credential;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;return 0;<br />}</pre></div><a name="wp1040821"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Tip:</strong></td>
+<td>The credentials can be stored in the database with domain and realm as the key or index. </td>
+</tr>
+</table>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="plugin.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="tuxprog.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq10" src="/global_resources/images/nexttop_disabled.gif" border="0" alt="Next" />
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

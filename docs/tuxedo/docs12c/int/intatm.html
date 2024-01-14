@@ -1,0 +1,1845 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/int/fm/intatm.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:10:47" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Oracle Tuxedo ATMI Architecture</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Introducing Oracle Tuxedo ATMI
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="intbas.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="intarch.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/int.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1164038"> </a>
+Oracle Tuxedo ATMI Architecture
+</h1>
+<p class="pBody"><a name="wp1137470"> </a>
+The following sections describe the basic architectural elements of a Oracle Tuxedo ATMI environment:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1137477"> </a><a href="intatm.html#wp1118127">Basic Architecture of the Oracle Tuxedo ATMI Environment</a></li>
+<li><a name="wp1142273"> </a><a href="intatm.html#wp1118196">What You Can Do Using the ATMI</a></li>
+<li><a name="wp1118113"> </a><a href="intatm.html#wp1120614">What Are the Oracle Tuxedo ATMI Messaging Paradigms?</a></li>
+<li><a name="wp1151805"> </a><a href="intatm.html#wp1150786">What Are Nested and Forwarded Requests?</a></li>
+<li><a name="wp1151806"> </a><a href="intatm.html#wp1158063">How Does Oracle Tuxedo Process Messages?</a></li>
+<li><a name="wp1151916"> </a><a href="intatm.html#wp1154866">What Are Typed Buffers?</a></li>
+<li><a name="wp1151934"> </a><a href="intatm.html#wp1156413">What Is Data Compression?</a></li>
+<li><a name="wp1151943"> </a><a href="intatm.html#wp1118977">What Is Data-Dependent Routing?</a></li>
+<li><a name="wp1151948"> </a><a href="intatm.html#wp1129365">What Are Encoding and Decoding of Data?</a></li>
+<li><a name="wp1152008"> </a><a href="intatm.html#wp1119020">What Is Data Encryption?</a></li>
+<li><a name="wp1152025"> </a><a href="intatm.html#wp1119040">What Is Load Balancing?</a></li>
+<li><a name="wp1152029"> </a><a href="intatm.html#wp1119054">What Is Message Prioritization?</a></li>
+<li><a name="wp1152031"> </a><a href="intatm.html#wp1119066">What Is Meant by Naming?</a></li>
+<li><a name="wp1165875"> </a><a href="intatm.html#wp1166303">What is Client/Server Affinity?</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1118127"> </a>
+Basic Architecture of the Oracle Tuxedo ATMI Environment
+</h2><p class="pBody"><a name="wp1118128"> </a>
+<a href="intatm.html#wp1118129">Figure&#160;2-1</a> illustrates the basic architectural elements of a Oracle Tuxedo ATMI environment: external interfaces to the environment, the ATMI layer, the MIB, Oracle Tuxedo system services, and the environment&#8217;s interface with standards-compliant resource managers.
+</p>
+<div class="pFigureTitle"><a name="wp1118129"> </a>
+Figure&#160;2-1  The Oracle Tuxedo ATMI Basic Architecture
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1118139"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/architur.gif" height="392" width="631" usemap="#architur_gif" alt="The Oracle Tuxedo ATMI Basic Architecture" id="wp1118131"/>
+<map name="architur_gif">
+<area href="intatm.html#wp1118196" shape="rect" coords="38,63,447,94" />
+<area href="intatm.html#wp1120614" shape="rect" coords="38,101,242,131" />
+<area href="intman.html#wp1109234" shape="rect" coords="339,10,444,41" />
+<area href="intatm.html#wp1153489" shape="rect" coords="248,136,444,321" />
+<area href="intatm.html#wp1152294" shape="rect" coords="38,133,241,293" />
+<area href="intman.html#wp1194977" shape="rect" coords="244,100,448,132" />
+</map>
+</div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1118140"> </a>
+As shown in this illustration, the Oracle Tuxedo ATMI environment contains the following components: 
+</p>
+<p class="pGraphic"><a name="wp1118180"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1118143table1118141">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1118143"> </a>
+Architectural Part
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1118145"> </a>
+Description&#160;
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1118147"> </a>
+External interface layer
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1118149"> </a>
+This layer consists of interfaces between the user and the environment. It includes both tools for application development and administration, such as the Oracle Tuxedo Administration Console. The Administration Console can interact with standard management consoles. Thus a user can manage a Oracle Tuxedo ATMI environment and a network configuration from one console. In addition, application architects and developers can build their own administrative tools or application- or market-specific tools on top of the MIB.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1118153"> </a>
+<span class="cHyperlink">
+<a href="intatm.html#wp1118196">ATMI&#8212;Application-to- Transaction Monitor Interface</a></span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1118155"> </a>
+The interface between an application and the Oracle Tuxedo ATMI environment. The ATMI and the Oracle Tuxedo environment implement the X/Open DTP model of transaction processing. An abstract environment, the ATMI supports location transparency and hides implementation details. As a result, programmers are free to configure and deploy Oracle Tuxedo applications to multiple platforms without modifying the application code.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1118158"> </a>
+<span class="cHyperlink">
+<a href="intatm.html#wp1120614">Messaging paradigms</a></span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1142529"> </a>
+Different models of transferring messages between a client and a server. The Oracle Tuxedo ATMI messaging paradigms include request/response, conversations, queuing, publish-and-subscribe, and unsolicited notification.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1118163"> </a>
+<span class="cHyperlink">
+<a href="intman.html#wp1194977">MIB&#8212;Management Information Base</a></span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1118165"> </a>
+The MIB is an interface that enables users to program and administer a Oracle Tuxedo ATMI environment easily. MIB operations enable users to perform all management tasks (monitoring, configuring, tuning, and so on). The MIB allows users to perform one task to one object at a time or to build toolkits with which to batch tasks and/or objects. For information about the MIB and the MIB interface, see <span class="cHyperlink">
+&#8220;Oracle Tuxedo Management Tools&#8221; on page&#160;4-1</span>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1118170"> </a>
+Oracle Tuxedo Services (application processing services and administrative services)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1152390"> </a>
+Services and/or capabilities provided by the Oracle Tuxedo ATMI environment infrastructure for developing and administering applications.
+</div>
+<div class="pCellBody"><a name="wp1152294"> </a>
+The application processing services available to Oracle Tuxedo developers include <span class="cHyperlink">
+<a href="intatm.html#wp1156413">data compression</a></span>, <span class="cHyperlink">
+<a href="intatm.html#wp1118977">data-dependent routing</a></span>, <span class="cHyperlink">
+<a href="intatm.html#wp1129365">data encoding</a></span>, <span class="cHyperlink">
+<a href="intatm.html#wp1119020">data encryption</a></span>, <span class="cHyperlink">
+data marshalling</span>, <span class="cHyperlink">
+<a href="intatm.html#wp1119040">load balancing</a></span>, <span class="cHyperlink">
+<a href="intatm.html#wp1119054">message prioritization</a></span>, and <span class="cHyperlink">
+<a href="intatm.html#wp1119066">service and event naming</a></span>. These services are described in the discussions that follow.
+</div>
+<div class="pCellBody"><a name="wp1153489"> </a>
+The administrative services available to Oracle Tuxedo administrators include startup and shutdown of an application, centralized application configuration, distributed application management, dynamic application reconfiguration, workstation management, security management, transaction management, message queuing management, and event management. 
+</div>
+<div class="pCellBody"><a name="wp1156842"> </a>
+The system administration processes that provide the administrative services are described in <span class="cHyperlink">
+&#8220;Oracle Tuxedo System Administration and Server Processes&#8221; on page&#160;3-1</span> and <span class="cHyperlink">
+&#8220;Oracle Tuxedo Management Tools&#8221; on page&#160;4-1</span>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1118177"> </a>
+Resource Manager
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1118179"> </a>
+A software product in which data is stored and available for retrieval through application-based queries. The resource manager (RM) interacts with the Oracle Tuxedo ATMI environment and implements the XA standard interfaces. The most common example of a resource manager is a database. Resource managers provide transaction capabilities and permanence of actions; they are the entities accessed and controlled within a global (distributed) transaction.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1118196"> </a>
+What You Can Do Using the ATMI
+</h2><p class="pBody"><a name="wp1118197"> </a>
+The Application-to-Transaction Monitor Interface (ATMI), the Oracle Tuxedo API, is an interface for communications, transactions, and management of data buffers that works in all environments supported by the Oracle Tuxedo system. It provides the connection between application programs and the Oracle Tuxedo system. The ATMI is a simple interface for a comprehensive set of capabilities. It implements the X/Open DTP model of transaction processing.
+</p>
+<p class="pBody"><a name="wp1165527"> </a>
+<a href="intatm.html#wp1118198">Figure&#160;2-2</a> shows the using of the ATMI.
+</p>
+<div class="pFigureTitle"><a name="wp1118198"> </a>
+Figure&#160;2-2  Using the ATMI
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1118202"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/atmi.gif" alt="Using the ATMI" id="wp1118200"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1118203"> </a>
+The ATMI library offers you a variety of functions (routines, verbs) for defining and controlling global transactions in a Oracle Tuxedo ATMI application. Global transactions enable you to manage exclusive units of work spanning multiple programs and resource managers in your distributed application. All work in a single transaction is treated as a logical unit, so that if any one program cannot complete its task successfully, no work is performed by programs in the transaction.
+</p>
+<p class="pBody"><a name="wp1154409"> </a>
+The ATMI functions knit together distributed programs by enabling them to send and receive data. All ATMI functions send or receive data in <span class="cHyperlink">
+<a href="intatm.html#wp1154866">typed buffers</a></span>.
+</p>
+<p class="pBody"><a name="wp1154410"> </a>
+<a href="intatm.html#wp1138457">Table&#160;2-1</a> presents a list of ATMI functions for C and COBOL bindings, and the tasks they perform. The functions are grouped by task.
+</p>
+<p class="pGraphic"><a name="wp1133231"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1138457table1132641"><caption><a name="wp1138457"> </a>
+Table 2-1  Using the ATMI Functions&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1132643"> </a>
+For a task related to . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1132645"> </a>
+Use this C <br />function . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1132647"> </a>
+Or this COBOL function . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1132649"> </a>
+<br />To . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="3"><div class="pCellBody"><a name="wp1132651"> </a>
+Client membership
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132656"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpchkauth(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132661"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPCHKAUTH(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132663"> </a>
+Check whether authentication is required
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132670"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpinit(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132675"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPINITIALIZE(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132677"> </a>
+Have a client join an application
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132684"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpterm(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132689"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPTERM(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132691"> </a>
+Have a client leave an application
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="4"><div class="pCellBody"><a name="wp1132693"> </a>
+Buffer management
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132698"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpalloc(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132700"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132702"> </a>
+Create a message buffer
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132709"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tprealloc(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132711"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132713"> </a>
+Resize a message buffer
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132720"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpfree(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132722"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132724"> </a>
+Free a message buffer
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132731"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tptypes(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132733"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132735"> </a>
+Get a message type and subtype
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="2"><div class="pCellBody"><a name="wp1132737"> </a>
+Message priority
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132742"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpgprio(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132747"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPGPRIO(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132749"> </a>
+Get the priority of the last request
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132756"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpsprio(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132761"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPSPRIO(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132763"> </a>
+Set the priority of the next request
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="4"><div class="pCellBody"><a name="wp1132765"> </a>
+Request/response communications
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132770"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpcall(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132775"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPCALL(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132777"> </a>
+Initiate a synchronous request/response to a service
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132784"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpacall(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132789"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPACALL(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132791"> </a>
+Initiate an asynchronous request (fanout)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132798"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpgetrply(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132803"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPGETRPLY(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132805"> </a>
+Receive an asynchronous response
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132812"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpcancel(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132817"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPCANCEL(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132819"> </a>
+Cancel an asynchronous request
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="4"><div class="pCellBody"><a name="wp1132821"> </a>
+Conversational communications
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132826"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpconnect(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132831"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPCONNECT(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132833"> </a>
+Begin a conversation with a service
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132840"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpdiscon(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132845"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPDISCON(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132847"> </a>
+Abnormally terminate a conversation
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132854"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpsend(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132859"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPSEND(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132861"> </a>
+Send a message in a conversation
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132868"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tprecv(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132873"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPRECV(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132875"> </a>
+Receive a message in a conversation
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="2"><div class="pCellBody"><a name="wp1132877"> </a>
+Message queuing communications
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132882"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpenqueue(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132887"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPENQUEUE(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132889"> </a>
+Enqueue a message to a message queue
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132896"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpdequeue(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132901"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPDEQUEUE(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132903"> </a>
+Dequeue a message from a message queue
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="8"><div class="pCellBody"><a name="wp1132905"> </a>
+Publish-and-subscribe communications
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132910"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpnotify(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132915"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPNOTIFY(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132917"> </a>
+Send an unsolicited message to a client
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132924"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpbroadcast(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132929"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPBROADCAST(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132931"> </a>
+Send messages to several clients
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132938"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpsetunsol(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132943"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPSETUNSOL(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132945"> </a>
+Set unsolicited message call-back
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132952"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpchkunsol(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132957"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPCHKUNSOL(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132959"> </a>
+Check the arrival of unsolicited messages
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132963"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132968"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPGETUNSOL(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132970"> </a>
+Get an unsolicited message
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132977"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tppost(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132982"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPPOST(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132984"> </a>
+Post an event message
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132991"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpsubscribe(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132996"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPSUBSCRIBE(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1132998"> </a>
+Subscribe to event messages
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133005"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpunsubscribe(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133010"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPUNSUBSCRIBE(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133012"> </a>
+Unsubscribe to event messages
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="6"><div class="pCellBody"><a name="wp1133014"> </a>
+Transaction management (see note at end of table)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133019"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpbegin(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133024"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPBEGIN(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133026"> </a>
+Begin a transaction
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133033"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpcommit(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133038"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPCOMMIT(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133040"> </a>
+Commit the current transaction
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133047"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpabort(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133052"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPABORT(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133054"> </a>
+Roll back the current transaction
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133061"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpgetlev(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133066"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPGETLEV(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133068"> </a>
+Check whether in transaction mode
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133075"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpsuspend(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133080"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPSUSPEND(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133082"> </a>
+Suspend the current transaction
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133089"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpresume(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133094"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPRESUME(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133096"> </a>
+Resume a transaction
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="6"><div class="pCellBody"><a name="wp1133098"> </a>
+Service entry and return
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133103"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpsvrinit(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133108"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPSVRINIT(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133110"> </a>
+Initialize a server
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133117"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpsvrdone(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133122"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPSVRDONE(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133124"> </a>
+Terminate a server
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133131"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpservice(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133133"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133135"> </a>
+Prototype for a service entry point
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133139"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133144"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPSVCSTART(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133146"> </a>
+Get service information
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133153"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpreturn(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133158"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPRETURN(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133160"> </a>
+End a service function
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133167"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpforward(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133172"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPFORWAR(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133174"> </a>
+Forward request
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="2"><div class="pCellBody"><a name="wp1133176"> </a>
+Dynamic advertisement
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133181"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpadvertise(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133186"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPADVERTISE(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133188"> </a>
+Advertise a service name
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133195"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpunadvertise(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133200"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPUNADVERTISE(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133202"> </a>
+Unadvertise a service name
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="2"><div class="pCellBody"><a name="wp1133204"> </a>
+Resource management
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133209"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpopen(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133214"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPOPEN(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133216"> </a>
+Open a resource manager
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133223"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3c/rf3c.html">tpclose(3c)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133228"> </a>
+<code class="cHyperlinkCode">
+<a href="../rf3cbl/rf3cbl.html">TPCLOSE(3cbl)</a></code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1133230"> </a>
+Close a resource manager
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<a name="wp1155579"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The use of the Oracle Tuxedo ATMI transaction management functions is optional. Because Oracle Tuxedo also supports the <span style="font-style: normal">X/Open TX transaction management functions, you may want to use those functions for transaction management.</span></td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1118560"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1120611"> </a><span class="cHyperlink">
+<a href="../ada/admon.html">&#8220;Using ATMI to Handle System and Application Errors&#8221; </a></span>in Administering a Oracle Tuxedo Application at Run Time</li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1120614"> </a>
+What Are the Oracle Tuxedo ATMI Messaging Paradigms?
+</h2><p class="pBody"><a name="wp1147029"> </a>
+Besides managing an application&#8217;s server processes and managing transactions, Oracle Tuxedo ATMI also manages client/server communications, that is, allows clients (and servers) to invoke an application service using any of the messaging paradigms identified in the following table.
+</p>
+<p class="pGraphic"><a name="wp1146864"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1146835table1146833">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1146835"> </a>
+Oracle Tuxedo ATMI Messaging Paradigm
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1146837"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1146987"> </a>
+<span class="cHyperlink">
+<a href="intatm.html#wp1145626">Request/response</a></span> communication 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1147768"> </a>
+A simple type of dialogue involving a single client request and a single response from the called request/response server. Request/response transactions usually involve people and thus require immediate attention; they run in high-priority mode.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1147017"> </a>
+<span class="cHyperlink">
+<a href="intatm.html#wp1118630">Conversational communication</a></span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1147019"> </a>
+A state-preserving connection&#8212;context kept from message to message&#8212;between a client and the called conversational server. Conversational transactions also usually involve people and thus require immediate attention; they run in high-priority mode.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1146850"> </a>
+<span class="cHyperlink">
+<a href="intatm.html#wp1149066">Message queuing communication</a></span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1147893"> </a>
+Time-independent communication among clients and servers. Queued transactions can run as high-priority or low priority messages. The Oracle Tuxedo system includes its own bundled version of recoverable queues called <span style="font-style: italic">/Q</span>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1146995"> </a>
+<span class="cHyperlink">
+<a href="intatm.html#wp1144565">Publish-and-subscribe communication</a></span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1146997"> </a>
+Asynchronous routing of <em class="cEmphasis">events</em> among the clients and servers in a Oracle Tuxedo ATMI application. Publish-and-subscribe transactions usually run as high-priority messages. The Oracle Tuxedo system has a transactional publish-and-subscribe system called <span style="font-style: italic">EventBroker</span>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1146861"> </a>
+<span class="cHyperlink">
+<a href="intatm.html#wp1118744">Unsolicited notification messaging</a></span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1146863"> </a>
+Communication from any client or server to any clients that were not requested or expected by those clients. Unsolicited notifications are handled by EventBroker.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1145626"> </a>
+Request/Response Communication
+</h3>
+<p class="pBody"><a name="wp1145044"> </a>
+To implement request/response communication between ATMI clients and servers, the Oracle Tuxedo system uses interprocess communication (IPC) message queues. Queues are the key to connectionless communication. Each server is assigned an IPC message queue called a request queue, and each client is assigned a reply queue. Therefore, rather than establishing and maintaining a connection with a server, a client application can send requests to the server by putting those requests on the server&#8217;s queue, and then check and retrieve messages from the server by pulling messages from its own reply queue.
+</p>
+<p class="pBody"><a name="wp1145045"> </a>
+The request/response model is used for both synchronous and asynchronous service requests.
+</p>
+<h4 class="pHeading3"><a name="wp1145046"> </a>
+Synchronous Messaging
+</h4>
+<p class="pBody"><a name="wp1165553"> </a>
+In a synchronous call, a client sends a request to a server, which performs the requested action while the client waits. The server then sends the reply to the client, which receives the reply.
+</p>
+<p class="pBody"><a name="wp1165557"> </a>
+<a href="intatm.html#wp1165559">Figure&#160;2-3</a> shows the synchronous request/response communication.
+</p>
+<div class="pFigureTitle"><a name="wp1165559"> </a>
+Figure&#160;2-3  Synchronous Request/Response Communication
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1145052"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/message.gif" alt="Synchronous Request/Response Communication" id="wp1145050"/></div><p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1145053"> </a>
+Asynchronous Messaging
+</h4>
+<p class="pBody"><a name="wp1145054"> </a>
+In an asynchronous call, the Oracle Tuxedo client does not wait for a service request it has submitted to finish before undertaking other tasks. Instead, after issuing a request, the client performs additional tasks (which may include issuing more requests). When a reply to the first request is available, the client retrieves it.
+</p>
+<p class="pBody"><a name="wp1165562"> </a>
+<a href="intatm.html#wp1145055">Figure&#160;2-4</a> shows the asynchronous request/response communication.
+</p>
+<div class="pFigureTitle"><a name="wp1145055"> </a>
+Figure&#160;2-4  Asynchronous Request/Response Communication
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1145059"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/message1.gif" alt="Asynchronous Request/Response Communication" id="wp1145057"/></div><p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1118630"> </a>
+Conversational Communication
+</h3>
+<p class="pBody"><a name="wp1118631"> </a>
+Conversational communication is the Oracle Tuxedo system implementation of a human-like paradigm for exchanging messages between ATMI clients and servers. In this form of communication, a virtual connection is maintained between the client and server. Just as in a conversation between two people, a number of messages pass back and forth between the two entities until a conclusion is reached. Over the course of the communication, both sides &#8220;remember&#8221; the point (or state) of the conversation so that relatively long operations, such as ad hoc queries, reports, and file transfers, can be supported. By default, conversational servers are available, but more can be spawned automatically if needed.
+</p>
+<p class="pBody"><a name="wp1118632"> </a>
+The Oracle Tuxedo system provides an API that can be used to create conversations in applications; specifically, to connect clients to servers, to send and receive messages, and to end the conversation.
+</p>
+<p class="pBody"><a name="wp1165567"> </a>
+<a href="intatm.html#wp1155950">Figure&#160;2-5</a> shows the conversional communication.
+</p>
+<div class="pFigureTitle"><a name="wp1155950"> </a>
+Figure&#160;2-5  Conversational Communication
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1155954"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/message2.gif" alt="Conversational Communication" id="wp1155952"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1118633"> </a>
+Conversations can be nested but performance may be degraded as a result of doing so. Conversations may contain either transactions or service requests as appropriate. Although a conversational service can make service calls and establish conversations, those service calls and conversations cannot be forwarded. A conversation can be within the scope of&#8212;and controlled by&#8212;a transaction.
+</p>
+<h3 class="pHeading2"><a name="wp1149066"> </a>
+Message Queuing Communication
+</h3>
+<p class="pBody"><a name="wp1149067"> </a>
+The Oracle Tuxedo system offers a queue-based architecture known as <em class="cEmphasis">/Q</em> for ATMI applications that require persistent storage of data. The /Q component allows any client or server to store messages or service requests in queues and guarantees that any stored request is sent through the transaction protocol to ensure safe storage. 
+</p>
+<p class="pBody"><a name="wp1165579"> </a>
+Oracle Tuxedo system queues can be ordered as <em class="cEmphasis">last in, first out</em> (LIFO) or <em class="cEmphasis">first in, first out</em> (FIFO), or on the basis of time or priority. A collection of queues is administered and referred to as a single entity known as a queue space.
+</p>
+<p class="pBody"><a name="wp1165580"> </a>
+<a href="intatm.html#wp1165581">Figure&#160;2-6</a> shows the queue-based messaging.
+</p>
+<div class="pFigureTitle"><a name="wp1165581"> </a>
+Figure&#160;2-6  Queue-Based Messaging
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1118701"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/queue.gif" alt="Queue-Based Messaging" id="wp1118699"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1118703"> </a>
+Application queues are appropriate if you must communicate in a time-independent fashion. Time-independence is a characteristic of programs that operate independently from one another and do not need to synchronize their communications simultaneously. Time-independent programs synchronize by leaving messages for each other in application queues. Messages can be dequeued in any of several ordering schemes, such as FIFO order, priority order, or time-based order. Oracle Tuxedo client and server programs can enqueue messages and dequeue messages from queues. More than one client and server can access the same queue. 
+</p>
+<p class="pBody"><a name="wp1118704"> </a>
+To use an application queue, your program must name the queue to be accessed and the queue space in which it resides. Your application can use more than one queue space and each space can contain more than one message queue. 
+</p>
+<p class="pBody"><a name="wp1118705"> </a>
+Because application queues reside on a disk, the availability of stored messages is guaranteed even after machine failures. To determine when the use of application queues is appropriate, you need to determine when time-independent synchronization occurs in your business, for example, in filling orders. Orders can be enqueued to disk and depending on specific order criteria, such as items or shipment location, placed in different queue spaces. Within each queue space, you can determine additional criteria, such as cost, state, and so on.
+</p>
+<h3 class="pHeading2"><a name="wp1144565"> </a>
+Publish-and-Subscribe Communication
+</h3>
+<p class="pBody"><a name="wp1143441"> </a>
+The Oracle Tuxedo publish-and-subscribe component, known as <em class="cEmphasis">EventBroker</em>, provides a communication paradigm in which an arbitrary number of suppliers can post messages for an arbitrary number of subscribers. ATMI client and server processes using EventBroker communicate with one another based on a set of <em style="font-style: italic" class="cEmphasis">subscriptions</em><span style="font-style: normal">. </span>EventBroker acts like a newspaper delivery person who delivers newspapers only to customers who have paid for a subscription.
+</p>
+<p class="pBody"><a name="wp1165588"> </a>
+<a href="intatm.html#wp1143442">Figure&#160;2-7</a> shows the posting and subscribing to and event.
+</p>
+<div class="pFigureTitle"><a name="wp1143442"> </a>
+Figure&#160;2-7  Posting and Subscribing to an Event
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1143446"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/event1.gif" alt="Posting and Subscribing to an Event" id="wp1143444"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1143447"> </a>
+Event generators (either clients or servers) inform EventBroker of changes and problems as they occur. This process is called posting an event. EventBroker then matches the name of the event to an event name associated with a list of subscribers, and notifies each subscriber on the list of the event. 
+</p>
+<h4 class="pHeading3"><a name="wp1143464"> </a>
+Types of Events Reported
+</h4>
+<p class="pBody"><a name="wp1143465"> </a>
+The Oracle Tuxedo system supports two different types of event reports:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1143467"> </a>Application-defined event reports&#8212;allow application programs to post events when certain criteria are met. A banking application, for example, might post an event for withdrawals over a certain limit.</li>
+<li><a name="wp1154622"> </a>System event reports&#8212;provide details about Oracle Tuxedo system events, such as server and network failures. When an event is posted by clients or servers, EventBroker matches the posted event&#8217;s name to subscriber&#8217;s of the same events and takes appropriate action determined by each subscription.</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1143468"> </a>
+How Events Are Reported
+</h4>
+<p class="pBody"><a name="wp1156015"> </a>
+A process registers a subscription with EventBroker, indicating interest in a particular event. Subsequently, whenever EventBroker is notified by another process that the specified event has occurred, EventBroker reports the occurrence to any process that has subscribed for this event.
+</p>
+<p class="pBody"><a name="wp1165593"> </a>
+<a href="intatm.html#wp1143470">Figure&#160;2-8</a> shows the event-based messaging.
+</p>
+<div class="pFigureTitle"><a name="wp1143470"> </a>
+Figure&#160;2-8  Event-based Messaging
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1143474"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/event.gif" alt="Event-based Messaging" id="wp1143472"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1143475"> </a>
+EventBroker uses several mechanisms for publishing (that is, issuing notices of) events:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1143476"> </a>Disk-based queuing</li>
+<li><a name="wp1143477"> </a>Asynchronous service calls</li>
+<li><a name="wp1143478"> </a>User log entries</li>
+<li><a name="wp1143479"> </a>Unsolicited messages</li>
+<li><a name="wp1143480"> </a>System commands</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1118744"> </a>
+Unsolicited Communication
+</h3>
+<p class="pBody"><a name="wp1118745"> </a>
+The Oracle Tuxedo system offers a powerful communication paradigm called <em style="font-style: italic" class="cEmphasis">unsolicited notification</em><span style="font-style: normal">. When unsolicited notification occurs, an ATMI client receives a message that it has never requested.</span> This capability, which is managed by EventBroker, makes it possible for application clients to receive notification of application-specific events as they occur, without having to request notification explicitly in real time.
+</p>
+<p class="pBody"><a name="wp1118746"> </a>
+Unsolicited messages can be sent to client processes by name (<code class="cCode">tpbroadcast</code>) or by an identifier received with a previously processed message (<code class="cCode">tpnotify</code>). Messages sent via <code class="cCode">tpbroadcast</code> can originate either in a service or in another client. You can target a narrow or wide audience. You can send a message with or without guaranteed delivery to an individual client through <em class="cEmphasis">point-to-point notification </em>(<code class="cCode">tpnotify</code>), or you can send information to a group of clients (<code class="cCode">tpbroadcast</code>). For example, a server may alert a single client that the account about which the client is inquiring has been closed. Or, a server may send a message to all the clients on a machine to remind the users that the machine will be shut down for maintenance at a specific time.
+</p>
+<p class="pBody"><a name="wp1165601"> </a>
+<a href="intatm.html#wp1156118">Figure&#160;2-9</a> shows the unsolicited notification messaging.
+</p>
+<div class="pFigureTitle"><a name="wp1156118"> </a>
+Figure&#160;2-9  Unsolicited Notification Messaging
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1156122"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/message4.gif" alt="Unsolicited Notification Messaging" id="wp1156120"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1118747"> </a>
+Any process that wants to be notified about a particular event (such as a machine being shut down for maintenance) can <em class="cEmphasis">register</em> a request, with the system, to be notified automatically. Once registered, a client or server is informed whenever the specified event occurs. This type of automatic communication about an event is called <em class="cEmphasis">unsolicited notification</em>.
+</p>
+<p class="pBody"><a name="wp1118748"> </a>
+Because there is no limit to the number of clients and servers that may generate events and receive unsolicited notification about such events, the task of managing this category of communication can become complex.
+</p>
+<h3 class="pHeading2"><a name="wp1149900"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1149904"> </a><span class="cHyperlink">
+<a href="../tutor/tutov.html">&#8220;Using the Request/Response Model (Synchronous Calls)&#8221; </a></span>in Tutorials for Developing Oracle Tuxedo ATMI Applications</li>
+<li><a name="wp1149802"> </a><span class="cHyperlink">
+<a href="../tutor/tutov.html">&#8220;Using Conversational Communication&#8221;</a></span> in Tutorials for Developing Oracle Tuxedo ATMI Applications</li>
+<li><a name="wp1157918"> </a><span class="cHyperlink">
+&#8220;Oracle Tuxedo Message Queuing Servers&#8221; on page&#160;3-12</span></li>
+<li><a name="wp1157922"> </a><span class="cHyperlink">
+&#8220;Administering Your Application Queues Using Command-Line Utilities&#8221; on page&#160;4-11</span></li>
+<li><a name="wp1149840"> </a><span class="cHyperlink">
+<a href="../tutor/tutov.html">&#8220;Using Queue-based Communication&#8221;</a></span> in Tutorials for Developing Oracle Tuxedo ATMI Applications</li>
+<li><a name="wp1157504"> </a><span class="cHyperlink">
+&#8220;Oracle Tuxedo Publish-and-Subscribe Servers&#8221; on page&#160;3-13</span></li>
+<li><a name="wp1157914"> </a><span class="cHyperlink">
+&#8220;Managing Events Using EventBroker&#8221; on page&#160;4-15</span></li>
+<li><a name="wp1149887"> </a><span class="cHyperlink">
+<a href="../tutor/tutov.html">&#8220;Using Event-based Communication&#8221;</a></span> in Tutorials for Developing Oracle Tuxedo ATMI Applications</li>
+<li><a name="wp1118758"> </a><span class="cHyperlink">
+<a href="../tutor/tutov.html">&#8220;Using Unsolicited Notification&#8221;</a></span> in Tutorials for Developing Oracle Tuxedo ATMI Applications</li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1150786"> </a>
+What Are Nested and Forwarded Requests?
+</h2><p class="pBody"><a name="wp1150789"> </a>
+Nested and forwarded service requests allow Oracle Tuxedo services to act as ATMI clients and call other services.
+</p>
+<h3 class="pHeading2"><a name="wp1167061"> </a>
+Nested Requests
+</h3>
+<p class="pBody"><a name="wp1167070"> </a>
+Nesting works particularly well in a 3-tier client/server architecture (i.e., a system that comprises a presentation logic layer), a business logic layer, and a database layer. In such a system, the presentation layer is used to formulate a request for a particular business function that involves one or more queries to a database.
+</p>
+<p class="pBody"><a name="wp1167066"> </a>
+<a href="intatm.html#wp1118764">Figure&#160;2-10</a> shows the nested requests.
+</p>
+<div class="pFigureTitle"><a name="wp1118764"> </a>
+Figure&#160;2-10   Nested Service Requests
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1118768"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/nesting.gif" alt=" Nested Service Requests" id="wp1118766"/></div><p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1118769"> </a>
+Benefit of Nested Requests
+</h4>
+<p class="pBody"><a name="wp1118770"> </a>
+One benefit of using nested requests is that doing so enables you to keep your code small and reusable, such that each piece performs a limited task. However, if the services in your system are distributed across several servers, nested requests can lead to poor performance. While a nested request is being processed, the original service (that is, the service that issued the nested request) must wait for a response before continuing. Until a response is received, the original service cannot process another request. As a result, messages can get backed up in the request queue for the server on which this service resides.
+</p>
+<h4 class="pHeading3"><a name="wp1118771"> </a>
+Example of a Nested Service Request
+</h4>
+<p class="pBody"><a name="wp1118772"> </a>
+A customer uses a cash machine to transfer money from his or her savings account to her checking account. A Oracle Tuxedo application performs the work necessary to transfer the money. First, on behalf of the customer, the client issues a request for a service called <code class="cCode">TRANSFER</code>, and the request is placed on a queue for a server that provides that service. Next, the <code class="cCode">TRANSFER</code> service requests two other services, <code class="cCode">WITHDRAW</code> and <code class="cCode">DEPOSIT</code>, which are processed by a second server. The <code class="cCode">WITHDRAW</code> and <code class="cCode">DEPOSIT</code> services return responses to the <code class="cCode">TRANSFER</code> service. Finally, <code class="cCode">TRANSFER</code> sends a response to the client&#8217;s response queue. When the client retrieves the response from the queue, the system displays a message on the screen of the cash machine, notifying the customer that the transfer is complete.
+</p>
+<h3 class="pHeading2"><a name="wp1118773"> </a>
+Forwarded Requests
+</h3>
+<p class="pBody"><a name="wp1118774"> </a>
+One alternative to nesting service requests is called request forwarding. Instead of processing a client&#8217;s request, a service can pass the request to another service. The second service, also, can either process the request or pass it to another service.
+</p>
+<p class="pBody"><a name="wp1165611"> </a>
+<a href="intatm.html#wp1118775">Figure&#160;2-11</a> shows the forwarded service requests.
+</p>
+<div class="pFigureTitle"><a name="wp1118775"> </a>
+Figure&#160;2-11  Forwarded Service Requests
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1118779"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/forward_1.gif" alt="Forwarded Service Requests" id="wp1118777"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1118780"> </a>
+There is no limit to the number of times a request can be forwarded. Because a service that forwards a request does not need to wait for a reply from the service receiving the request, forwarding, unlike nesting requests, does not block servers. Forwarding, however, is not supported by the X/Open protocol X/ATMI, which may be a problem in some applications.
+</p>
+<h3 class="pHeading2"><a name="wp1118781"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1150772"> </a><span class="cHyperlink">
+<a href="../tutor/tutov.html">&#8220;Using Nested Calls&#8221; </a></span>in Tutorials for Developing Oracle Tuxedo ATMI Applications</li>
+<li><a name="wp1158059"> </a><span class="cHyperlink">
+<a href="../tutor/tutov.html">&#8220;Using Forwarded Calls&#8221;</a></span> in Tutorials for Developing Oracle Tuxedo ATMI Applications</li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1158063"> </a>
+How Does Oracle Tuxedo Process Messages?
+</h2><p class="pBody"><a name="wp1158064"> </a>
+All communication within the Oracle Tuxedo ATMI environment is accomplished by transferring messages. The Oracle Tuxedo system passes service request messages between ATMI clients and servers through operating system (OS) interprocess communications (IPC) message queues. System messages and data are passed between OS-supported, memory-based queues of clients and servers in <span style="font-style: normal">buffers</span>. In the Oracle Tuxedo ATMI environment, messages are packaged in <span class="cHyperlink">
+<a href="intatm.html#wp1154866">typed buffers</a></span>, buffers that contain both message data and data identifying the types of message data being sent.
+</p>
+<p class="pBody"><a name="wp1165628"> </a>
+<a href="intatm.html#wp1118795">Figure&#160;2-12</a> shows the processing of a request.
+</p>
+<div class="pFigureTitle"><a name="wp1118795"> </a>
+Figure&#160;2-12  Processing a Request
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1118800"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/servproc.gif" alt="Processing a Request" id="wp1118798"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1118801"> </a>
+A client uses an ATMI function to request a service by name. A <em class="cEmphasis">naming</em> facility is used to check the MIB to determine whether the specified service is currently available.
+</p>
+<p class="pBody"><a name="wp1156163"> </a>
+The Oracle Tuxedo system uses <em class="cEmphasis">data-dependent routing</em>, which is an automatic routing option to map messages that meet specific criteria (message value) to a specific server. If messages use data-dependent routing, the system uses the data in the buffer for the routing algorithm. This algorithm provides a method of selecting a group of servers that can process the service request.
+</p>
+<p class="pBody"><a name="wp1156164"> </a>
+To avoid burdening a few servers with many requests while leaving other servers that advertise the same services idle, the Oracle Tuxedo system maintains a set of metrics in the MIB that help it distribute service requests evenly across all servers. This practice is called <em class="cEmphasis">load balancing</em>. 
+</p>
+<p class="pBody"><a name="wp1118802"> </a>
+A local service request may be prepared for a selected server and enqueued on that server&#8217;s queue with a predefined priority. This practice is called <em class="cEmphasis">service prioritization</em>. Once the service request is on the server, the run-time system retrieves the message in priority order. The message is dispatched to the appropriate service and processed. Then the results are returned to the client queue. 
+</p>
+<p class="pBody"><a name="wp1118803"> </a>
+Oracle Tuxedo system-provided software offers features that an application can automatically and routinely use during message processing. These features include data encoding and decoding, data compression and decompression, transactional context setting, and security processing, to name a few. In addition, the Oracle Tuxedo system software invokes application business logic by dispatching a service function and passing it to the appropriately preprocessed buffer. 
+</p>
+<p class="pBody"><a name="wp1118804"> </a>
+The service routine is executed and returns a reply (also a typed buffer). The run-time system prepares the reply for the client by encoding the message automatically: it packages the data in such a way that it can be transmitted between machines on which different types of byte ordering are used, allowing data to cross network and platform boundaries. The system then sends the message to the client. This process is called <em class="cEmphasis">data encoding</em>. The run-time system on the client retrieves the reply message, decodes it if necessary, and delivers the Field Manipulation Language (FML) buffers (or buffers of another message buffer type) to package the application data. Type validation, encoding, routing, and load balancing are performed as required. Service requests can be performed synchronously or asynchronously.
+</p>
+<p class="pBody"><a name="wp1118805"> </a>
+Remote requests travel through the local bridge to the remote machine, where the remote bridge simply acts as a client and the request is processed as if the client and server were on the same machine. The bridge provides standard data encoding/decoding and uses standard network transports to communicate. Bridges look like ordinary local servers to clients and servers.
+</p>
+<h3 class="pHeading2"><a name="wp1154771"> </a>
+Benefits of Service Request Processing
+</h3>
+<p class="pBody"><a name="wp1118807"> </a>
+The benefits of service request processing include:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1118808"> </a>Connectionless processing&#8212;this processing, coupled with direct client/server communication, reduces the overhead associated with establishing a connection.</li>
+<li><a name="wp1154854"> </a>Reduced network traffic&#8212;service requests invoke potentially complex services on remote machines, sending only the minimum data required and receiving minimal results.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1154855"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1154859"> </a><a href="intatm.html#wp1120614">What Are the Oracle Tuxedo ATMI Messaging Paradigms?</a></li>
+<li><a name="wp1154863"> </a><a href="intatm.html#wp1154866">What Are Typed Buffers?</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1154866"> </a>
+What Are Typed Buffers?
+</h2><p class="pBody"><a name="wp1151679"> </a>
+All ATMI functions send or receive data using typed buffers. The Oracle Tuxedo system handles translations and data conversions between dissimilar machines. By using buffers, Oracle Tuxedo programs avoid the need to translate data that crosses different platforms with different data representations.
+</p>
+<p class="pBody"><a name="wp1151680"> </a>
+A buffer is a memory area that serves as a logical container for data. When a buffer contains no metadata (that is, no information about itself), it is an <em class="cEmphasis">untyped buffer</em>. When a buffer includes metadata such as information that can be stored in it (for example, a type and subtype, or string names that characterize a buffer), it is a<em class="cEmphasis"> typed buffer</em>.
+</p>
+<p class="pBody"><a name="wp1151681"> </a>
+Typed buffers can be transmitted over any network, on any operating system, with any protocol supported by the Oracle Tuxedo system. They can also be used on platforms with different data representations. As a result, the use of typed buffers facilitates the tasks of translation and data conversion between dissimilar machines.
+</p>
+<p class="pBody"><a name="wp1151682"> </a>
+The Oracle Tuxedo system supports five sorts of typed buffers:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1151684"> </a>STRING</li>
+<li><a name="wp1151686"> </a>VIEW</li>
+<li><a name="wp1151688"> </a>CARRAY</li>
+<li><a name="wp1151690"> </a>FML</li>
+<li><a name="wp1151692"> </a>XML</li>
+<li><a name="wp1156224"> </a>MBSTRING </li>
+</ul></div>
+<p class="pBody"><a name="wp1151693"> </a>
+You assign buffer types in the <code class="cCode">ENVFILE</code> parameter defined in the <code class="cCode">MACHINES</code> section of the Oracle Tuxedo (<code class="cCode">UBBCONFIG</code>) configuration file. Assigning or overriding them in the <code class="cCode">ENVFILE</code> parameter in the <code class="cCode">SERVERS</code> section of the Oracle Tuxedo configuration file can make them unavailable to processes that require them.
+</p>
+<p class="pBody"><a name="wp1151694"> </a>
+Definitions of the various types of message buffers are provided in the description of <code class="cCode">tm_typesw</code> in tux<code class="cHyperlinkCode">
+<a href="../rf5/rf5.html"></a></code><span class="cHyperlink">
+types(5)</span> in the Oracle Tuxedo File Formats, Data Descriptions, MIBs, and System Processes Reference.
+</p>
+<h3 class="pHeading2"><a name="wp1154941"> </a>
+Characteristics of Buffer Types
+</h3>
+<p class="pBody"><a name="wp1151593"> </a>
+When you use ATMI communication functions, your application must first use <code class="cCode">tpalloc</code> to get a buffer from the system, specifying its size, type, and optionally subtype. The Oracle Tuxedo system recognizes and processes the buffer type, so that your data is transmitted over any type of network, protocol, and operating system supported by the Oracle Tuxedo system. For descriptions of the different types of Oracle Tuxedo buffers, see &#8220;Managing Typed Buffers&#8221; in<span class="cHyperlink">
+ <a href="../pgc/index.html"></span>Programming a Oracle Tuxedo ATMI Application Using C.
+</p>
+<h3 class="pHeading2"><a name="wp1154919"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1154925"> </a><code class="cHyperlinkCode">
+<a href="../rf5/rf5.html">tuxtypes(5)</a></code>, <code class="cHyperlinkCode">
+<a href="../rf5/rf5.html">typesw(5)</a></code>, and <code class="cHyperlinkCode">
+UBBCONFIG(5)</code> in <span class="cHyperlink">
+<a href="../rf5/index.html"></span>Oracle Tuxedo File Formats, Data Descriptions, MIBs, and System Processes Reference</a>.</li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1156413"> </a>
+What Is Data Compression?
+</h2><p class="pBody"><a name="wp1118966"> </a>
+<em class="cEmphasis">Data compression</em> is the process of shrinking an application buffer so that it can be transmitted more quickly across a network or to a remote domain. By setting a maximum size for an application buffer, you can make sure that compression is triggered automatically for application buffers that match or exceed a specified size. When the buffer arrives at its destination, its data is decompressed, that is, restored to its original size.
+</p>
+<p class="pBody"><a name="wp1118967"> </a>
+Data compression, performed before files are shipped between machines, improves network performance. The process of compression enhances security slightly because it involves scrambling the data.
+</p>
+<a name="wp1118969"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Data compression also occurs frequently during encryption.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1165633"> </a>
+<a href="intatm.html#wp1118970">Figure&#160;2-13</a> shows the data compression.
+</p>
+<div class="pFigureTitle"><a name="wp1118970"> </a>
+Figure&#160;2-13  Data Compression
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1118974"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/compress.gif" alt="Data Compression" id="wp1118972"/></div><p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1118977"> </a>
+What Is Data-Dependent Routing?
+</h2><p class="pBody"><a name="wp1118978"> </a>
+The Oracle Tuxedo system uses an operation called data-dependent routing to enable a client to send requests for the same service to multiple copies of that service. Which copy of the service eventually accepts and processes the request is determined by the data in the request message. Once an administrator has set up data-dependent routing for an application, client requests can be routed automatically to servers based on the data in the requests. 
+</p>
+<p class="pBody"><a name="wp1156816"> </a>
+When an application includes multiple copies of the same service, each copy is assigned a unique purpose, just as the first volume of a multivolume encyclopedia contains entries that begin with the letter &#8220;A.&#8221; A list of all copies of the service, along with identifying information about the purpose of each, is kept in a set of routing tables in the Oracle Tuxedo bulletin board (the dynamic part of the MIB). When the system receives a client request, it finds an identifying string in the request message and searches the routing tables in the bulletin board for the same string. On the basis of this match, the system identifies the appropriate server to which it can forward the client request.
+</p>
+<a name="wp1118980"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The bulletin board routing tables can be modified as necessary.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1118981"> </a>
+Uses of Data-Dependent Routing
+</h3>
+<p class="pBody"><a name="wp1118982"> </a>
+Data-dependent routing is useful when clients issue service requests to:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1118983"> </a>Horizontally partitioned databases</li>
+<li><a name="wp1118984"> </a>Rule-based servers</li>
+<li><a name="wp1129319"> </a>Distributed applications</li>
+</ul></div>
+<p class="pBody"><a name="wp1118985"> </a>
+A horizontally partitioned database is an information repository that has been divided into segments, each of which is used to store a different category of information. This arrangement is similar to a library in which each shelf of a bookcase holds books for a different category (for example, biography, fiction, and so on).
+</p>
+<p class="pBody"><a name="wp1118986"> </a>
+A rule-based server is a server that determines whether service requests meet certain, application-specific criteria before forwarding them to service routines. Rule-based servers are useful when you want to handle requests that are almost identical by taking slightly different actions for business reasons.
+</p>
+<p class="pBody"><a name="wp1129320"> </a>
+A distributed application consists of one or more local or remote clients that communicate with one or more servers on several machines linked through a network. A client (or server acting as a client) issues a request for a particular service. The <em class="cEmphasis">address</em> of the request is determined by data (carried in the same buffer that conveys the request), identifying the server that can fulfill the request. More than one server may be able to do so. The Oracle Tuxedo system selects a server to receive the request by matching the data to the routing criteria provided in the bulletin board.
+</p>
+<h3 class="pHeading2"><a name="wp1118987"> </a>
+Example of Data-Dependent Routing with a Horizontally Partitioned Database
+</h3>
+<p class="pBody"><a name="wp1118988"> </a>
+Suppose two clients in a banking application issue requests for the current balance in two accounts: Account 3 and Account 17. If data-dependent routing is being used in the application, then the Oracle Tuxedo system performs the following actions:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1118989"> </a>Gets the account numbers for the two service requests (3 and 17).</li>
+<li><a name="wp1118990"> </a>Checks the routing tables on the Oracle Tuxedo bulletin board that show which servers handle which range of data. (In this example, server 1 handles all requests for Accounts 1 through 10; server 2 handles all requests for Accounts 11 through 20.)</li>
+<li><a name="wp1118991"> </a>Sends each request to the appropriate server. Specifically, the system forwards the request about Account 3 to server 1, and the request about Account 17 to server 2.</li>
+</ol></div>
+<p class="pBody"><a name="wp1118992"> </a>
+<a href="intatm.html#wp1118993">Figure&#160;2-14</a> illustrates this process.
+</p>
+<div class="pFigureTitle"><a name="wp1118993"> </a>
+Figure&#160;2-14  Data-Dependent Routing with a Horizontally Partitioned Database
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1118997"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/routing.gif" alt="Data-Dependent Routing with a Horizontally Partitioned Database" id="wp1118995"/></div><p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1118998"> </a>
+Example of Data-Dependent Routing with Rule-Based Servers
+</h3>
+<p class="pBody"><a name="wp1118999"> </a>
+A banking application includes the following rules:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1119000"> </a>Customers can withdraw up to $500 without entering a special password.</li>
+<li><a name="wp1119001"> </a>Customers must enter a special password to withdraw more than $500.</li>
+</ul></div>
+<p class="pBody"><a name="wp1119002"> </a>
+Two clients issue withdrawal requests: one for $100 and one for $800. If data-dependent routing is enabled to support the withdrawal rules, the Oracle Tuxedo system performs the following actions:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1119003"> </a>Gets the amount specified for withdrawal in the two service requests ($100 and $800).</li>
+<li><a name="wp1119004"> </a>Checks the routing tables on the Oracle Tuxedo bulletin board that show which servers handle request for the amount being requested. (In this example, server 1 handles all requests to withdraw amounts up to $500; server 2 handles all requests to withdraw amount over $500.)</li>
+<li><a name="wp1119005"> </a>Sends each request to the appropriate server. Specifically, the system forwards the request for $100 to server 1 and the request for $800 to server 2.</li>
+</ol></div>
+<p class="pBody"><a name="wp1119006"> </a>
+<a href="intatm.html#wp1119007">Figure&#160;2-15</a> illustrates this process.
+</p>
+<div class="pFigureTitle"><a name="wp1119007"> </a>
+Figure&#160;2-15  Data-Dependent Routing with Rule-Based Servers
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1129361"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/routing1.gif" alt="Data-Dependent Routing with Rule-Based Servers" id="wp1129359"/></div><p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1129374"> </a>
+Example of Data-Dependent Routing with a Distributed Application
+</h3>
+<p class="pBody"><a name="wp1129392"> </a>
+<a href="intatm.html#wp1129393">Figure&#160;2-16</a> shows how client requests are routed to servers in a distributed application. In this example, a banking application called <code class="cCode">bankapp</code> uses data-dependent routing. <code class="cCode">bankapp</code> has three server groups (<code class="cCode">BANK1</code>, <code class="cCode">BANK2</code>, and <code class="cCode">BANK3</code>) and two routing criteria (<code class="cCode">Account ID</code> and <code class="cCode">Branch ID</code>). The services <code class="cCode">WITHDRAW</code>, <code class="cCode">DEPOSIT</code>, and <code class="cCode">INQUIRY</code> are routed using the <code class="cCode">Account_ID</code> field; the services <code class="cCode">OPEN</code> and <code class="cCode">CLOSE</code> are routed using the <code class="cCode">Branch_ID</code> field.
+</p>
+<div class="pFigureTitle"><a name="wp1129393"> </a>
+Figure&#160;2-16  Sample Banking Application Using Routing Criteria
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1129397"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/disapp.gif" alt="Sample Banking Application Using Routing Criteria" id="wp1129395"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1129398"> </a>
+In the preceding figure, requests are routed as indicated in the following table.
+</p>
+<p class="pGraphic"><a name="wp1129416"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1129401table1129399">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1129401"> </a>
+Withdrawals, Deposits, Inquiries, and Openings or Closings of the Following Accounts . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1129403"> </a>
+Are Routed to . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1129405"> </a>
+Numbers 10000&#8211; 49999 for branches 1&#8211; 4
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1129407"> </a>
+Bank1
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1129409"> </a>
+Numbers 50000&#8211; 79999 for branches 5&#8211; 7
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1129411"> </a>
+Bank2
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1129413"> </a>
+Numbers 80000&#8211; 109999 for branches 8&#8211; 10
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1129415"> </a>
+Bank3
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1129365"> </a>
+What Are Encoding and Decoding of Data?
+</h2><p class="pBody"><a name="wp1129366"> </a>
+<em class="cEmphasis">Encoding</em> and <em class="cEmphasis">decoding</em> enable messages with different data representations (for example, byte ordering or character sets) to be transferred between machines. The Oracle Tuxedo system encodes and decodes data to a machine-independent representation for transmission to other machines involved in a Oracle Tuxedo application.
+</p>
+<p class="pBody"><a name="wp1156725"> </a>
+The Oracle Tuxedo system employs, by default, the External Data Representation (XDR) algorithm, which can be customized by replacing the Oracle Tuxedo system functions with user-written functions. Encoding and decoding are used only between machines and only when a remote machine uses a data representation other than the one used on the local machine. Encoding and decoding allow machines with different data architectures to operate within a heterogeneous Oracle Tuxedo system. Programmers can manage data in representations natural to their own environments.
+</p>
+<p class="pBody"><a name="wp1119017"> </a>
+The Oracle Tuxedo system uses buffer types to determine the type of fields contained in a message, and to perform the mapping required for coding tasks. This mapping is not performed by unstructured buffer types such as <code class="cCode">X_OCTET</code> and <code class="cCode">CARRAY</code>. Thus, developers using <code class="cCode">X_OCTET</code> and <code class="cCode">CARRAY</code> buffers are free to deploy in mixed-machine environments.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1119020"> </a>
+What Is Data Encryption?
+</h2><p class="pBody"><a name="wp1119021"> </a>
+<em class="cEmphasis">Encryption</em> is the act of converting a message into a coded format that is unintelligible to all users except the user for which the message is intended. When an encrypted message arrives at its destination, it is decrypted, that is, converted back to its original format. 
+</p>
+<p class="pBody"><a name="wp1165653"> </a>
+<a href="intatm.html#wp1119022">Figure&#160;2-17</a> illustrates the data encryption.
+</p>
+<div class="pFigureTitle"><a name="wp1119022"> </a>
+Figure&#160;2-17  Data Encryption
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1119026"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/encrypt.gif" alt="Data Encryption" id="wp1119024"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1119027"> </a>
+Encryption does not increase the number of bits in the data, but it adds processing time to the task of sending a message. Because data is compressed during encryption, however, lost processing time may be bought back, since less data is being sent across the network. When data is compressed, there is also a moderate boost to security, because the data is somewhat scrambled during compression.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1119040"> </a>
+What Is Load Balancing?
+</h2><p class="pBody"><a name="wp1119041"> </a>
+<em class="cEmphasis">Load balancing</em> is a technique used by the Oracle Tuxedo system for distributing service requests evenly among servers that offer the same service. Load balancing avoids overburdening some servers while leaving others idle or infrequently used. Before sending a request to a service routine, the Oracle Tuxedo system identifies all servers capable of handling the request and selects the one most appropriate for maintaining a balanced load across all the servers in the configuration.
+</p>
+<p class="pBody"><a name="wp1119043"> </a>
+<em class="cEmphasis">Load</em> refers to a number assigned to a service request based on the amount of time required to execute that service. Loads are assigned to services so that the Oracle Tuxedo system can understand the relationship between requests. To keep track of the amount of work, or total load, being performed by each server in a configuration, the administrator assigns a <em class="cEmphasis">load factor</em> to every service and service request. A load factor is a number indicating the amount of time needed to execute a service or a request. On the basis of these numbers, statistics are generated for each server and maintained on the bulletin board on each machine. Each bulletin board keeps track of the cumulative load associated with each server, so that when all servers are busy, the Oracle Tuxedo system can select the one with the lightest load. 
+</p>
+<p class="pBody"><a name="wp1119044"> </a>
+You can control whether a load-balancing algorithm is used on the system as a whole. Such as algorithm should be used only when necessary, that is, only when a service is offered by servers that use more than one queue. Services offered by only one server, or by multiple servers in a <em class="cEmphasis">Multiple Server, Single Queue</em> (MSSQ) do not need load balancing. The <code class="cCode">LDBAL</code> parameter for these services should be set to <code class="cCode">N</code>. In other cases, you may want to set <code class="cCode">LDBAL</code> to <code class="cCode">Y</code>. 
+</p>
+<p class="pBody"><a name="wp1119045"> </a>
+To determine how to assign load factors (in the <code class="cCode">SERVICES</code> section of <code class="cCode">UBBCONFIG</code>), run an application for a long period of time and note the average time it takes to perform each service. Assign a <code class="cCode">LOAD</code> value of <code class="cCode">50</code> (<code class="cCode">LOAD=50</code>) to any service that takes roughly the average amount of time. Any service taking longer than average should have a <code class="cCode">LOAD&gt;50</code>; any service taking less than the average should have a <code class="cCode">LOAD&lt;50</code>.
+</p>
+<p class="pBody"><a name="wp1165658"> </a>
+<a href="intatm.html#wp1119046">Figure&#160;2-18</a> illustrates the load balancing.
+</p>
+<div class="pFigureTitle"><a name="wp1119046"> </a>
+Figure&#160;2-18  Load Balancing
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1119050"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/loadbal3.gif" alt="Load Balancing" id="wp1119048"/></div><p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1119054"> </a>
+What Is Message Prioritization?
+</h2><p class="pBody"><a name="wp1119055"> </a>
+Priorities determine the order in which service requests are dequeued by a server. Priority is assigned by a client to individual services and can range from 1 to100, where 100 represents the highest priority.
+</p>
+<p class="pBody"><a name="wp1119056"> </a>
+All services are assigned a starting priority of 50. A server&#8217;s starting priority can be changed during application configuration. After you have defined your set of services, you can assign the appropriate priorities to them. For example, your business may require that some services have a relatively high priority of 70, which means those services are dequeued before those with the lower priority of 50. In the following illustration, a server offers services A (with a priority of 50), B (with a priority of 50), and C (with a priority of 70). 
+</p>
+<p class="pBody"><a name="wp1165663"> </a>
+<a href="intatm.html#wp1119057">Figure&#160;2-19</a> illustrates the prioritization of messages.
+</p>
+<div class="pFigureTitle"><a name="wp1119057"> </a>
+Figure&#160;2-19  Prioritization of Messages
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1119061"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/priority1.gif" alt="Prioritization of Messages" id="wp1119059"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1119062"> </a>
+A request for service C is always dequeued before a request for A or B due to the higher priority of C. Requests for A and B have equal priority. This feature is useful in applications in which not all requests are equally urgent or important.
+</p>
+<p class="pBody"><a name="wp1119063"> </a>
+A &#8220;starvation prevention&#8221; mechanism prevents low-priority messages from waiting endlessly on the queue. Every tenth message is dequeued in <em class="cEmphasis">first in, first out</em> (FIFO) order regardless of priority; the first through the ninth messages are dequeued in order of priority.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1119066"> </a>
+What Is Meant by Naming?
+</h2><p class="pBody"><a name="wp1119067"> </a>
+The Oracle Tuxedo system uses three naming devices: service names, message queue names, and event names. Names can be any words or alphanumeric strings, as long as they do not begin with a period (.). Because administrative servers use the Oracle Tuxedo system infrastructure, system and application resources must be clearly distinguished.
+</p>
+<h3 class="pHeading2"><a name="wp1119068"> </a>
+Naming Services
+</h3>
+<p class="pBody"><a name="wp1119069"> </a>
+When services are named, an application component can locate another component through a name. Names can be simple words (such as &#8220;deposit&#8221;) or alphanumeric strings (such as &#8220;deposit2&#8221;). Names should be selected on the basis of the scope of the application and a map that contains the global picture of the relationships among application components. These maps or services are like the pages in a telephone book for application components.
+</p>
+<p class="pBody"><a name="wp1119070"> </a>
+When a Oracle Tuxedo system server is activated, the bulletin board advertises the names of its services. Service names are associated with a server&#8217;s physical address so that requests can be routed to that server. Names that programmers use in their applications are completely location transparent. When a client program asks for a service by name, the Oracle Tuxedo system consults its name registry in the bulletin board. The name registry provides the information necessary to convert the string name (for example, <code class="cCode">TICKET</code>) to a machine name and the physical address of a server that advertises that service. The Oracle Tuxedo system then sends the request to the appropriate server.
+</p>
+<p class="pBody"><a name="wp1165668"> </a>
+<a href="intatm.html#wp1119071">Figure&#160;2-20</a> illustrates the locating of a service by name.
+</p>
+<div class="pFigureTitle"><a name="wp1119071"> </a>
+Figure&#160;2-20  Locating a Service by Name
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1119075"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/naming.gif" alt="Locating a Service by Name" id="wp1119073"/></div><p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1119082"> </a>
+Naming Events
+</h3>
+<p class="pBody"><a name="wp1119083"> </a>
+The Oracle Tuxedo system offers a publish-and-subscribe mechanism: clients and servers can dynamically register or unregister a standing request to receive alerts (or messages) when a particular event occurs. Other clients and servers post user-defined or system events as they occur in the application. When a client or server no longer needs to be notified about a particular event, the relevant subscription can be cancelled.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1166303"> </a>
+What is Client/Server Affinity?
+</h2><p class="pBody"><a name="wp1166937"> </a>
+Client/Server Affinity allows you to:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1166938"> </a>Put resources (such as database connection objects or handlers) into the user server-side context when the affinity session is created, and</li>
+<li><a name="wp1166939"> </a>Retain the resources in consequent requests that are involved in the same session.</li>
+</ul></div>
+<p class="pBody"><a name="wp1166304"> </a>
+The Oracle Tuxedo Client/Server Affinity provides the flexibility to set up a simple session-aware application model. It creates a &quot;virtual&quot; request routing scope using the Oracle Tuxedo ATMI RPC infrastructure. When a session is established, all subsequent calls are impacted by the routing scope until the session is terminated (explicitly or implicitly). 
+</p>
+<h3 class="pHeading2"><a name="wp1166334"> </a>
+Configuring the UBBCONFIG and TM_MIB Files
+</h3>
+<p class="pBody"><a name="wp1166335"> </a>
+To initiate C/SA, you must configure the follwing:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1166336"> </a>UBBCONFIG <code class="cCode">*SERVICES</code> section</li>
+<li><a name="wp1166337"> </a>TM_MIB</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1166338"> </a>T_SERVICE Class Definition</li>
+<li><a name="wp1166339"> </a>T_SVCGRP Class Definition</li>
+</ul></div>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1166342"> </a>
+Client/Server Affinity UBBCONFIG Example
+</h4>
+<p class="pBody"><a name="wp1166346"> </a>
+<a href="intatm.html#wp1166348">Listing&#160;2</a> provides a Client/Server Affinity UBBCONFIG example.
+</p>
+<div class="pCodeTitle"><a name="wp1166348"> </a>
+Listing&#160;2	   Client/Server Affinity UBBCONFIG Example
+</div> <a name="wp1166349"> </a><div class="pPreformatted"><pre>*SERVICES<br />SVCSTART SESSIONROLE=BEGIN AFFINITYSCOPE=SERVER AFFINITYSTRICT=MANDATORY<br />SVCSTOP SESSIONROLE=END</pre></div><p class="pBody"><a name="wp1166824"> </a>
+For more information, see <span class="cHyperlink">
+<a href="../rf5/rf5.html">UBBCONFIG(5)</a></span> and <span class="cHyperlink">
+<a href="../rf5/rf5.html">TM_MIB(5) </a></span>in the File Formats, Data Descriptions, MIBs, and System Processes Reference in the Oracle Tuxedo Reference Guide.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1119084"> </a>
+See Also
+</h2><div class="pSmartList1Bullet"><ul>
+<li><a name="wp1137117"> </a><a href="intatm.html#wp1144565">Publish-and-Subscribe Communication</a></li>
+</ul></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="intatm.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="intbas.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="intarch.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

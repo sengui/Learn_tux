@@ -1,0 +1,619 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/rli/fm/rliover.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:36:14" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Introduction to CORBA Request-Level Interceptors</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Using CORBA Request-Level Interceptors
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="index.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="cppdevproc.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/rli.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1027225"> </a>
+Introduction to CORBA Request-Level Interceptors
+</h1>
+<a name="wp1027442"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Notes:</strong></td>
+<td>The Oracle Tuxedo CORBA Java client and Oracle Tuxedo CORBA Java client ORB were deprecated in Tuxedo 8.1 and are no longer supported. All Oracle Tuxedo CORBA Java client and Oracle Tuxedo CORBA Java client ORB text references, associated code samples, should only be used to help implement/run third party Java ORB libraries, and for programmer reference only.</td></tr>
+</table>
+
+<a name="wp1027443"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>Technical support for third party CORBA Java ORBs should be provided by their respective vendors. Oracle Tuxedo does not provide any technical support or documentation for third party CORBA Java ORBs.</td>
+</tr>
+</table>
+<p class="pBody"><a name="wp1027228"> </a>
+A <b class="cBold">request-level interceptor is a user-written CORBA object that </b>provides a means to insert functionality, such as security or monitoring components, into the invocation path between the client and server components of a CORBA application. When you have an interceptor installed and registered with an Object Request Broker (ORB) on a particular machine, the interceptor is involved with all the CORBA applications on that machine. You can use interceptors to insert any additional functionality into the invocation path of an object invocation, at either the client, or the server, or both ends of the invocation.
+</p>
+<p class="pBody"><a name="wp1022242"> </a>
+Request-level interceptors are not usually part of a typical CORBA environment. Implementing them is considered an advanced programming task.
+</p>
+<p class="pBody"><a name="wp1022243"> </a>
+The CORBA environment in the Oracle Tuxedo system supports two categories of interceptors:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1022244"> </a>Client-side interceptors, which are called by the ORB at the client side of an invocation and are run in the process of an entity making a request. Client-side interceptors inherit from the <code class="cCode">ClientRequestInterceptor</code> class.</li>
+<li><a name="wp1022245"> </a>Target-side interceptors, which are called by the ORB at the target side of an invocation and are run with the target application process. The target of an invocation may be a CORBA server application or a CORBA joint client/server application. Target-side interceptors inherit from the <code class="cCode">TargetRequestInterceptor</code> class.</li>
+</ul></div>
+<p class="pBody"><a name="wp1022246"> </a>
+The CORBA environment Oracle Tuxedo system is very flexible about where you can install and use interceptors, with respect to the relative location of the client and target objects. It is transparent to a client application whether the target of its request is in the same or a different process.
+</p>
+<p class="pBody"><a name="wp1027184"> </a>
+Although client- and target-side interceptors inherit from separate interfaces, it is often convenient to implement the interceptors in a single source file. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1027186"> </a>
+Interceptor Architecture
+</h2><p class="pBody"><a name="wp1022250"> </a>
+The following figure shows the relationship between request-level interceptors and the Oracle Tuxedo system.
+</p>
+<p class="pGraphic"><a name="wp1023487"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/2ndInter1.gif" height="240" width="539" alt="Multiple Interceptors on an ORB" id="wp1023507"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1022258"> </a>
+Note the following about the Oracle Tuxedo implementation of CORBA interceptors:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1022259"> </a>Interceptors are registered administratively and are called by the ORB at the appropriate time during the execution of the application. </li>
+<li><a name="wp1022260"> </a>When a client-side interceptor is installed and registered with an ORB, that interceptor is called with every request coming from any CORBA client application on that machine.</li>
+<p class="pBodyRelative"><a name="wp1022261"> </a>
+During the course of a single, successful request-response cycle of an invocation, a client-side interceptor is called twice by the ORB:
+</p>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp1022262"> </a>When the request is first issued from the client application and arrives at the ORB (the <code class="cCode">client_invoke</code> operation)</li>
+<li><a name="wp1022263"> </a>When the target response arrives back at the client application process (the <code class="cCode">client_response</code> operation)</li>
+</ol></div>
+<li><a name="wp1022264"> </a>When a target-side interceptor is installed and registered with an ORB, that interceptor is called with every request that arrives for any target object on that machine.</li>
+<p class="pBodyRelative"><a name="wp1022265"> </a>
+During the course of a single request-response cycle of an invocation, a target-side interceptor is called twice by the ORB:
+</p>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp1022266"> </a>When the client request first arrives at the ORB (the <code class="cCode">target_invoke</code> operation)</li>
+<li><a name="wp1022267"> </a>When the target object response arrives at the ORB (the <code class="cCode">target_response</code> operation)</li>
+</ol></div>
+<li><a name="wp1022268"> </a>You can install and register multiple client- or target-side interceptors with an ORB.</li>
+<li><a name="wp1022269"> </a>Interceptors are independent of each other, and they do not require knowledge about the potential presence of other interceptors.</li>
+<li><a name="wp1022270"> </a>Interceptors can <em class="cEmphasis">short-circuit</em> an invocation by returning a response directly to the client without involving the target object at all.</li>
+<li><a name="wp1022271"> </a>Interceptors impact overall application performance because they add an additional step in the execution of every request.</li>
+</ul></div>
+<p class="pBody"><a name="wp1022272"> </a>
+The ORB maintains a list of registered interceptors. Registering an interceptor is something you do as an administrative task. During application run time, the ORB uses this list to determine when to call the interceptors and in what order, because multiple interceptors can be installed and created. When you have multiple interceptors registered, the ORB executes each interceptor consecutively. Establishing the order in which multiple interceptors are called is also an administrative task.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1022277"> </a>
+Capabilities and Limitations
+</h2><p class="pBody"><a name="wp1022278"> </a>
+Request-level interceptors are especially useful for implementing several different types of service applications, such as: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1022279"> </a>Instrumentation points for collecting statistics</li>
+<li><a name="wp1022280"> </a>Probe points that include monitoring or tracing facilities</li>
+<li><a name="wp1022281"> </a>Security checks to determine whether a particular type of invocation should be permitted, or whether a specific bit of information can be returned to a client application. For more information about interceptors and security, see <a href="isec.html">InterceptorSec Sample Interceptors.</a></li>
+</ul></div>
+<p class="pBody"><a name="wp1022285"> </a>
+The following are current limitations on CORBA interceptors:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1022286"> </a>Interceptors are called only by an ORB. Neither CORBA client nor server applications can call an interceptor directly.</li>
+<li><a name="wp1022288"> </a>Interceptors implemented in a specific programming language can intercept invocations only from entities that are also implemented in that same language.</li>
+<li><a name="wp1022289"> </a>Interceptors cannot write to the <code class="cCode">DataInputStream</code> object.</li>
+<li><a name="wp1022290"> </a>Interceptors cannot pass or manipulate the service context object.</li>
+<li><a name="wp1022291"> </a>Interceptors cannot pass or manipulate the transaction current object.</li>
+<li><a name="wp1022292"> </a>Interceptors cannot invoke methods on the <code class="cCode">Tobj_Bootstrap</code> object.</li>
+<li><a name="wp1022293"> </a>The <code class="cCode">REPLY_NO_EXCEPTION</code> return status value is not supported, although it appears in the method signatures operations on interceptor classes.</li>
+<li><a name="wp1022294"> </a>An interceptor can make invocations on other objects; however, those invocations are subject to interception as well. When an interceptor invokes an object, make sure the interceptor doesn&#8217;t intercept its own invocation in an infinite loop&#8212;which will happen if the object being invoked is in the same server process as the interceptor.  In such a situation, the system can hang. </li>
+<li><a name="wp1022295"> </a>The method signatures for operations on classes derived from the <code class="cCode">RequestLevelInterceptor</code> interface include parameters for the following interfaces:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1022296"> </a><code class="cCode">RequestLevelInterceptor::DataOutputStream</code></li>
+<li><a name="wp1022297"> </a><code class="cCode">RequestLevelInterceptor::ServiceContextList</code></li>
+<p class="pBodyRelative"><a name="wp1022298"> </a>
+These interfaces are not used in the Oracle Tuxedo product. These interfaces are defined in the Oracle Tuxedo software so that you do not need to recompile your CORBA application if an implementation of these interfaces is ever provided in a future release of the Oracle Tuxedo product. The ORB will always pass a nil object for the actual argument. You should not attempt to use these arguments; doing so will likely end the process with a serious error.
+</p>
+</ul></div>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1022300"> </a>
+Execution Flow
+</h2><p class="pBody"><a name="wp1022301"> </a>
+The following sections explain what happens during the execution of a CORBA application that uses interceptors. In general, request-level interceptors are instantiated and initialized only when the ORB is initialized. At no other time can request-level interceptors be instantiated.
+</p>
+<p class="pBody"><a name="wp1022302"> </a>
+The return status of an interceptor controls the execution flow of the ORB run-time and any other request-level interceptors that may be installed.
+</p>
+<p class="pBody"><a name="wp1022303"> </a>
+Depending on the return status of an interceptor after it has been called, one of the following events may occur:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1022304"> </a>The invocation resumes its normal path to the target object, back to the client application, or to another interceptor.</li>
+<li><a name="wp1022305"> </a>The interceptor on either the client or the server side services the client request and sends an exception back to the client. (In this case, the request may never be sent to the target object, or the target object may provide a response that the interceptor replaces with an exception. This would happen transparently to the client application.)</li>
+</ul></div>
+<p class="pBody"><a name="wp1022306"> </a>
+Multiple request-level interceptors can be involved in a single invocation, and no interceptor needs to know about any other interceptor.
+</p>
+<p class="pBody"><a name="wp1022307"> </a>
+The events that take place during a request-response cycle of an invocation are presented in two categories:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1022308"> </a>Client-side execution</li>
+<li><a name="wp1022309"> </a>Target-side execution</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1022311"> </a>
+Client-side Execution
+</h3>
+<p class="pBody"><a name="wp1022312"> </a>
+Each interceptor is called twice during the request-response cycle of an invocation: once when a request is going from the client towards the target, and again when a response returns back to the client. The client interceptor class, <code class="cCode">ClientRequestInterceptor</code>, has two corresponding operations, among others, for these two calls:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1022313"> </a><code class="cCode">client_invoke()</code>&#8212;called when the request made on an object reference arrives at the client-side ORB.</li>
+<li><a name="wp1022314"> </a><code class="cCode">client_response()</code>&#8212;called when the response is returned back towards the entity making the request.</li>
+</ul></div>
+<p class="pBody"><a name="wp1022315"> </a>
+The flow of execution of a CORBA application that uses a client-side interceptor is shown in <a href="rliover.html#wp1022320">Figure&#160;1-1</a>. This figure shows a basic and successful request-response invocation cycle (that is, no exceptions are raised). 
+</p>
+<div class="pFigureTitle"><a name="wp1022320"> </a>
+Figure&#160;1-1  Client-side Interceptor
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1023861"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/2ndInter2.gif" height="406" width="529" alt="Client-side Interceptor" id="wp1023865"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1022327"> </a>
+In <a href="rliover.html#wp1022320">Figure&#160;1-1</a>, note the following events that are called out:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1022329"> </a>The request leaves the client and arrives at the ORB.</li>
+<li><a name="wp1022330"> </a>The ORB calls the <code class="cCode">client_invoke</code> operation on the client-side interceptor. (The section <a href="rliover.html#wp1022505"><span class="cHyperlink">
+Using Multiple Request-Level Interceptors,</span></a> explains what happens when you have multiple client-side interceptors installed.)</li>
+<li><a name="wp1022334"> </a>The client-side interceptor processes the request and returns a status code to the ORB.</li>
+<li><a name="wp1022335"> </a>If no exception is returned as a result of the <code class="cCode">client_invoke</code> operation, the request resumes its path toward the target object.</li>
+<li><a name="wp1022336"> </a>The target object processes the request and issues a response.</li>
+<li><a name="wp1022337"> </a>The response arrives back at the ORB, and the ORB calls the <code class="cCode">client_response</code> operation on the interceptor.</li>
+<li><a name="wp1022338"> </a>The interceptor processes the response and returns a status code to the ORB.</li>
+<li><a name="wp1022339"> </a>The response is sent to the client application.</li>
+</ol></div>
+<h4 class="pHeading3"><a name="wp1022341"> </a>
+Client-side Exception Handling
+</h4>
+<p class="pBody"><a name="wp1022342"> </a>
+The <code class="cCode">client_invoke</code> and <code class="cCode">client_response</code> operations each return a status value that indicates whether the client interceptor processing should continue. The interceptors may return exception status values, which cause exception handling to take place. <a href="rliover.html#wp289950">Table&#160;1-1</a> shows what happens depending on what status value is returned from these operations, and shows how the interceptors, together with the ORB, handle exceptions.
+</p>
+<p class="pGraphic"><a name="wp1022396"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp289950table1022348"><caption><a name="wp289950"> </a>
+Table 1-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Client Interceptor Return Status Values</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1022350"> </a>
+Operation
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1022352"> </a>
+Return Status Value
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1022354"> </a>
+What Happens
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="3"><div class="pCellBody"><a name="wp1022356"> </a>
+<code class="cCode">client_invoke()</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022358"> </a>
+<code class="cCode">INVOKE_NO_EXCEPTION</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022360"> </a>
+The ORB continues normal processing of the request toward the target, calling other interceptors, if any.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022364"> </a>
+<code class="cCode">REPLY_NO_EXCEPTION</code>
+</div>
+<div class="pCellBody"><a name="wp1022366"> </a>
+(In version 8.0 of the Oracle Tuxedo product, the ORB cannot process this return value, so do not implement this as a return value in your interceptors.)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022368"> </a>
+The interceptor has serviced the request and no further process toward the target is needed. The request will be considered serviced as if the target processed it. Thus, the ORB <em class="cEmphasis">short circuits</em> the invocation and starts calling interceptors back towards the client. The <code class="cCode">client_response</code> operation is not called on the same interceptor, but this operation on any previously invoked interceptor is called. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022378"> </a>
+<code class="cCode">REPLY_EXCEPTION</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022380"> </a>
+The interceptor returns an exception to the ORB. The ORB then calls each previous client-side interceptors&#8217; <code class="cCode">exception_occurred</code> operation. The <code class="cCode">exception_occurred</code> method gives these previous interceptors an opportunity to clean up state before the ORB returns an exception back to the client application. Thus, the ORB <em class="cEmphasis">short circuits</em> the invocation, and the invocation is now complete. For more information about the <code class="cCode">exception_occurred</code> method, see the section <a href="rliover.html#wp1022487"><span class="cHyperlink">
+The exception_occurred Method on page&#160;1-12</span></a>. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="2"><div class="pCellBody"><a name="wp1022385"> </a>
+<code class="cCode">client_response()</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022387"> </a>
+<code class="cCode">RESPONSE_NO_EXCEPTION</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022389"> </a>
+The ORB continues normal processing of the request toward the client, calling other interceptors, if any.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022393"> </a>
+<code class="cCode">RESPONSE_EXCEPTION</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022395"> </a>
+The interceptor passes an exception back to the ORB, overriding any previous result of the request. The ORB invokes the <code class="cCode">exception_occurred</code> method on each previous interceptor back towards the client, then returns an exception to the client application.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1022398"> </a>
+Target-side Execution
+</h3>
+<p class="pBody"><a name="wp1022399"> </a>
+As on the client side, a target-side interceptor is called twice during a request-response cycle. Target-side interceptors inherit from the <code class="cCode">TargetRequestInterceptor</code> class, which includes the following operations:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1022400"> </a><code class="cCode">target_invoke()</code>&#8212;called when the request arrives at the ORB that is part of the target object process.</li>
+<li><a name="wp1022401"> </a><code class="cCode">target_response()</code>&#8212;called when the response is sent back to the client.</li>
+</ul></div>
+<p class="pBody"><a name="wp1022402"> </a>
+The flow of execution of a CORBA application that uses a target-side interceptor is shown in <a href="rliover.html#wp1022407">Figure&#160;1-2</a>. This figure shows a basic and successful request-response invocation cycle (that is, no exceptions are raised). 
+</p>
+<div class="pFigureTitle"><a name="wp1022407"> </a>
+Figure&#160;1-2  Target-side Interceptor
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1023919"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/2ndInter3.gif" height="402" width="527" alt="Target-side Interceptor" id="wp1023923"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1022416"> </a>
+In <a href="rliover.html#wp1022407">Figure&#160;1-2</a>, note the following events that are called out:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1022418"> </a>The client request arrives at the ORB.</li>
+<li><a name="wp1022419"> </a>The ORB calls the <code class="cCode">target_invoke</code> operation on the target-side interceptor. (The section <a href="rliover.html#wp1022505"><span class="cHyperlink">
+Using Multiple Request-Level Interceptors,</span></a> explains what happens when you have multiple target-side interceptors installed.)</li>
+<li><a name="wp1022423"> </a>The target-side interceptor processes the request and returns a status code to the ORB.</li>
+<li><a name="wp1022424"> </a>If no exception is raised during the execution of the <code class="cCode">target_invoke</code> operation, the request resumes its path toward the target object.</li>
+<li><a name="wp1022425"> </a>The target object processes the request and issues a response.</li>
+<li><a name="wp1022426"> </a>The target-side ORB calls the <code class="cCode">target_response</code> operation on the interceptor.</li>
+<li><a name="wp1022427"> </a>The interceptor processes the response and returns a status code to the ORB.</li>
+<li><a name="wp1022428"> </a>The response is sent to the client application.</li>
+</ol></div>
+<h4 class="pHeading3"><a name="wp1022430"> </a>
+Target-side Exception Handling
+</h4>
+<p class="pBody"><a name="wp1022433"> </a>
+<a href="rliover.html#wp290015">Table&#160;1-2</a> shows what happens to an invocation on the target side depending on what status values are returned by the <code class="cCode">target_invoke</code> and <code class="cCode">target_response</code> operations, explaining what happens when exceptions are thrown.
+</p>
+<p class="pGraphic"><a name="wp1022485"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp290015table1022437"><caption><a name="wp290015"> </a>
+Table 1-2  Target Interceptor Return Status Values
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1022439"> </a>
+Operation
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1022441"> </a>
+Return Status Value
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1022443"> </a>
+What Happens
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="3"><div class="pCellBody"><a name="wp1022445"> </a>
+<code class="cCode">target_invoke()</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022447"> </a>
+<code class="cCode">INVOKE_NO_EXCEPTION</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022449"> </a>
+The ORB continues normal processing of the request toward the target (the object implementation), calling other interceptors, if any.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022453"> </a>
+<code class="cCode">REPLY_NO_EXCEPTION</code>
+</div>
+<div class="pCellBody"><a name="wp1022455"> </a>
+(In version 8.0 of the Oracle Tuxedo product, the ORB cannot process this return value, so do not implement this as a return value in your interceptors.)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022457"> </a>
+The interceptor has serviced the request and no further process toward the target is needed. The request will be considered serviced as if the target processed it. Thus, the ORB <em class="cEmphasis">short circuits</em> the invocation and starts calling interceptors back towards the client. The <code class="cCode">target_response</code> operation is not called on the same interceptor, but this operation on any previously invoked interceptor is called.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022461"> </a>
+<code class="cCode">REPLY_EXCEPTION</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022463"> </a>
+The interceptor returns an exception to the ORB. The ORB then calls each previous target-side interceptors&#8217; <code class="cCode">exception_occurred</code> operation. The <code class="cCode">exception_occurred</code> method gives these previous interceptors an opportunity to clean up state before the ORB returns an exception back to the client ORB. Thus, the target ORB <em class="cEmphasis">short circuits</em> the invocation, and the invocation is now complete. For more information about the <code class="cCode">exception_occurred</code> method, see the section <a href="rliover.html#wp1022487"><span class="cHyperlink">
+The exception_occurred Method on page&#160;1-12</span></a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="2"><div class="pCellBody"><a name="wp1022474"> </a>
+<code class="cCode">target_response()</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022476"> </a>
+<code class="cCode">RESPONSE_NO_EXCEPTION</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022478"> </a>
+The ORB continues normal processing of the request toward the client, calling other interceptors, if any.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022482"> </a>
+<code class="cCode">RESPONSE_EXCEPTION</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022484"> </a>
+The interceptor passes a new exception back ORB, overriding any previous result of the request. Instead of calling the <code class="cCode">target_response</code> operation for interceptors on the way back to the client, the ORB calls the <code class="cCode">exception_occurred</code> operation on those interceptors instead. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1022487"> </a>
+The exception_occurred Method
+</h3>
+<p class="pBody"><a name="wp1022488"> </a>
+Every interceptor has the <code class="cCode">exception_occurred</code> method, which the ORB may call under the following circumstances:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1022489"> </a>The ORB has found an internal problem; for example, an operating system resource error or a communication problem.</li>
+<li><a name="wp1022490"> </a>A different interceptor has set an exception (rather than an exception being generated by the ORB or the method). For example, the ORB is calling Interceptors A and B, respectively. Interceptor A has set an exception, so the ORB then calls the <code class="cCode">exception_occurred</code> method on Interceptor B instead of the <code class="cCode">client_response</code> or <code class="cCode">target_response </code>methods. Your interceptor can take advantage of this behavior to examine both the context in which the response containing the exception is being processed and the actual value of the exception without reading the exception from the <code class="cCode">DataInputStream</code> structure.</li>
+<li><a name="wp1022491"> </a>The client application is using a deferred synchronous DII invocation on a <code class="cCode">Request</code> object and then releases the <code class="cCode">Request</code> object. In this case no response is delivered to the client.</li>
+</ul></div>
+<p class="pBody"><a name="wp1022492"> </a>
+When one of the preceding situations has occurred, calling the <code class="cCode">exception_occurred</code> method is an alternative to calling the <code class="cCode">client_response</code> or <code class="cCode">target_response</code> methods; however, the effect is essentially the same in that the client invocation is complete. 
+</p>
+<p class="pBody"><a name="wp1022495"> </a>
+For more information about keeping track of requests, see the section <a href="cppdevproc.html#wp1022763"><span class="cHyperlink">
+Implementing the Interceptor&#8217;s Response Operation on page&#160;2-5</span></a>.
+</p>
+<h3 class="pHeading2"><a name="wp1022500"> </a>
+About Short-circuit Behavior
+</h3>
+<p class="pBody"><a name="wp1022501"> </a>
+As mentioned earlier, an interceptor can short-circuit a client request by servicing the request itself or by returning an exception. In either case, the client request is never actually serviced by the target object.
+</p>
+<p class="pBody"><a name="wp1022502"> </a>
+This short-circuit behavior works only in the <code class="cCode">client_invoke</code> or <code class="cCode">target_invoke</code> methods. It doesn&#8217;t apply to the <code class="cCode">client_response</code> or <code class="cCode">target_response</code> methods.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1022505"> </a>
+Using Multiple Request-Level Interceptors
+</h2><p class="pBody"><a name="wp1022506"> </a>
+Multiple request-level interceptors are installed in a queue such that the ORB can execute one after the other in a sequential order. The ORB gives each request-level interceptor the request in succession until there are no more request-level interceptors left in the queue to execute. If all interceptors indicate success, the request is processed. The ORB delivers the resulting response to the transport in the client case, or to the object implementation in the target case. The ORB executes the interceptors servicing a response in the reverse order than that of servicing a request. 
+</p>
+<p class="pBody"><a name="wp1022507"> </a>
+When an interceptor does not indicate success, a short circuit response results. This short circuit can be performed by the <code class="cCode">client_invoke</code> or <code class="cCode">target_invoke</code> operations. The status returned from the interceptor tells the ORB that the interceptor itself has decided to respond to the request with an exception, rather than to allow the target object to handle the request. (An interceptor&#8217;s <code class="cCode">client_response</code> or <code class="cCode">target_response</code> operation cannot perform any short-circuit behavior, but it can replace the target response.)
+</p>
+<p class="pBody"><a name="wp1022508"> </a>
+Each interceptor is normally unaware of the other interceptors, unless they explicitly share information. This independent programming model is preserved by the execution semantics with regards to short circuits: When an interceptor indicates that a response should be short-circuited and not reach its intended destination (which is the transport on the client side, and the object implementation on the target side), the response circulates back through the interceptors through which it has successfully passed. For example, if Interceptor A returns the status value <code class="cCode">INVOKE_NO_EXCEPTION</code> after processing a <code class="cCode">client_invoke</code> operation, expecting the request to be delivered, and the next Interceptor, B, denies the request with an exception, that exception gets put into the response and is delivered to Interceptor A&#8217;s <code class="cCode">exception_occurred</code> operation. The analogous execution model on the target side is in effect also. 
+</p>
+<p class="pBody"><a name="wp1022511"> </a>
+<a href="rliover.html#wp1022514">Figure&#160;1-3</a> shows the sequence of execution when multiple client-side interceptors are installed on an ORB. (A similar series of operations occur with multiple target-side interceptors.)
+</p>
+<div class="pFigureTitle"><a name="wp1022514"> </a>
+Figure&#160;1-3  Multiple Interceptors on an ORB
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1023965"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/2ndMulti.gif" height="406" width="529" alt="Multiple Interceptors on an ORB" id="wp1023969"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1022521"> </a>
+In <a href="rliover.html#wp1022514">Figure&#160;1-3</a>, note the following events that are called out:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1022523"> </a>The client request arrives in the ORB, and the ORB calls Interceptors A through D in sequence. </li>
+<li><a name="wp1022524"> </a>The request goes to the target object.</li>
+<li><a name="wp1022525"> </a>The target object processes the request and returns a response.</li>
+<li><a name="wp1022526"> </a>The response arrives back at the ORB with the client-side interceptors. The ORB then calls each of the registered interceptors in a sequence that&#8217;s the reverse of the order in which they were called when the request went out.</li>
+<li><a name="wp1022527"> </a>The response arrives back at the client application.</li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1022528"> </a>
+Multiple Client-side Interceptors
+</h3>
+<p class="pBody"><a name="wp1022529"> </a>
+When the ORB receives a request, the ORB calls each client-side interceptor&#8217;s <code class="cCode">client_invoke</code> operation in turn. If the return value <code class="cCode">INVOKE_NO_EXCEPTION</code> is returned from each <code class="cCode">client_invoke</code> operation (the normal case), the resulting request is marshaled into a message by the ORB and sent to the target object.
+</p>
+<p class="pBody"><a name="wp1022530"> </a>
+Under the following circumstances, instead of calling the <code class="cCode">client_response</code> operation on remaining interceptors back towards the client, the ORB calls the <code class="cCode">exception_occurred</code> on those interceptors, and then returns an exception back to the client application:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1022531"> </a>The return value from any <code class="cCode">client_invoke</code> operation is <code class="cCode">REPLY_EXCEPTION</code>. </li>
+<p class="pBodyRelative"><a name="wp1022532"> </a>
+In this instance, the ORB ceases to propagate the request to remaining interceptors or to the transport. The ORB thus short-circuits the request.
+</p>
+<li><a name="wp1022533"> </a>The return value from any <code class="cCode">client_response</code> operation is <code class="cCode">RESPONSE_EXCEPTION</code>. </li>
+<p class="pBodyRelative"><a name="wp1022534"> </a>
+In this instance, the interceptor passes an exception back to the ORB, overriding any previous result of the request.
+</p>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1022535"> </a>
+Multiple Target-side Interceptors
+</h3>
+<p class="pBody"><a name="wp1022536"> </a>
+As with the client-side interceptor processing, the ORB calls each target-side interceptor&#8217;s <code class="cCode">target_invoke</code> operation in succession. If the return value <code class="cCode">INVOKE_NO_EXCEPTION</code> is returned from each <code class="cCode">target_invoke</code> operation, the request is passed onto the target object.
+</p>
+<p class="pBody"><a name="wp1022537"> </a>
+Under the following circumstances, instead of calling the <code class="cCode">target_response</code> operation on remaining interceptors back towards the client, the ORB calls the <code class="cCode">exception_occurred</code> on those interceptors, and then returns an exception back towards the client application:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1022538"> </a>The return value from any <code class="cCode">target_invoke</code> operation is <code class="cCode">REPLY_EXCEPTION</code>. </li>
+<p class="pBodyRelative"><a name="wp1022539"> </a>
+In this instance, the ORB ceases to propagate the request to any remaining interceptors and the target object. At this point the ORB returns a response to the client ORB, and the target ORB short-circuits the request.
+</p>
+<li><a name="wp1022540"> </a>The return value from any <code class="cCode">target_response</code> operation is <code class="cCode">RESPONSE_EXCEPTION</code>. </li>
+<p class="pBodyRelative"><a name="wp1022541"> </a>
+In this instance, the interceptor passes an exception back to the ORB, overriding any previous result of the request. 
+</p>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1022553"> </a>
+Interceptors and Meta-Operations
+</h2><p class="pBody"><a name="wp1022554"> </a>
+Meta-operations are operations that support the <code class="cCode">CORBA Object</code> interface, such as <code class="cCode">is_a</code>, <code class="cCode">get_interface</code>, and <code class="cCode">non_existent</code>. Some meta-operations can be performed by the ORB without issuing an invocation, but other operations sometimes need to invoke the object; namely, the <code class="cCode">is_a</code>, <code class="cCode">get_interface</code>, and <code class="cCode">non_existent</code> methods. These operations can thus trigger interceptors.
+</p>
+<p class="pBody"><a name="wp1022555"> </a>
+The CORBA-specified language binding of these operations converts the operation names from the names defined in IDL to the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1022556"> </a><code class="cCode">_is_a</code></li>
+<li><a name="wp1022557"> </a><code class="cCode">_interface</code></li>
+<li><a name="wp1022558"> </a><code class="cCode">_non_existent</code> (or <code class="cCode">_not_existent</code>)</li>
+</ul></div>
+<p class="pBody"><a name="wp1022559"> </a>
+If you are implementing a security-based interceptor, be aware of this behavior because the ORB may invoke these operations as part of a client request. You typically should avoid the situation where an interceptor permits only a specific set of client requests to be sent to a target object, but fails to take these meta-operations into account.
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="rliover.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="index.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="cppdevproc.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

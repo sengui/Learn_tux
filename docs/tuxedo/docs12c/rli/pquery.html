@@ -1,0 +1,881 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/rli/fm/pquery.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:36:17" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>PersonQuery Sample Application</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Using CORBA Request-Level Interceptors
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="admin.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="isimp.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/rli.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1027255"> </a>
+PersonQuery Sample Application
+</h1>
+<p class="pBody"><a name="wp1023165"> </a>
+To understand and use the interceptor examples packaged with the Oracle Tuxedo software, you need to build and run the PersonQuery sample application. The PersonQuery sample application itself does not contain any interceptors; however, this application is used as the basis for the sample interceptor applications that are described in the three chapters that follow.
+</p>
+<p class="pBody"><a name="wp1023173"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023176"> </a><a href="pquery.html#wp1023194">How the PersonQuery Sample Application Works</a></li>
+<li><a name="wp1023178"> </a><a href="pquery.html#wp1023350">The OMG IDL for the PersonQuery Sample Application</a></li>
+<li><a name="wp1023184"> </a><a href="pquery.html#wp1023364">Building and Running the PersonQuery Sample Application</a></li>
+</ul></div>
+<a name="wp1027472"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Notes:</strong></td>
+<td>The Oracle Tuxedo CORBA Java client and Oracle Tuxedo CORBA Java client ORB were deprecated in Tuxedo 8.1 and are no longer supported. All Oracle Tuxedo CORBA Java client and Oracle Tuxedo CORBA Java client ORB text references, associated code samples, should only be used to help implement/run third party Java ORB libraries, and for programmer reference only.</td></tr>
+</table>
+
+<a name="wp1027473"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>Technical support for third party CORBA Java ORBs should be provided by their respective vendors. Oracle Tuxedo does not provide any technical support or documentation for third party CORBA Java ORBs.</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023194"> </a>
+How the PersonQuery Sample Application Works
+</h2><p class="pBody"><a name="wp1023196"> </a>
+The PersonQuery sample application implements a simple database query interface. Using the PersonQuery application, a user can get information about people in the database that match specific search criteria, such as:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023197"> </a>Physical characteristics, such as age, weight, hair color, eye color, or skin color</li>
+<li><a name="wp1023198"> </a>Name, address, or other details</li>
+</ul></div>
+<p class="pBody"><a name="wp1023199"> </a>
+The PersonQuery application contains the following components:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023200"> </a>A client application, which issues requests that contain a variety of data types as parameters. The client application accepts command line input from the user in a specific form, packages the input according to the sample interface, and sends the appropriate request. </li>
+<p class="pBodyRelative"><a name="wp1023201"> </a>
+When the client application receives the result of the query from the server, it will report the number of items that were found. The user can then enter the command that displays the result of the latest query, or specify a new query.
+</p>
+<li><a name="wp1023202"> </a>A server application, which contains a simple, built-in database. The server application accesses the database to service the client request. </li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1023204"> </a>
+PersonQuery Database
+</h3>
+<p class="pBody"><a name="wp1023205"> </a>
+The PersonQuery database in the server application contains the following information about each person in the database:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023206"> </a>Name</li>
+<li><a name="wp1023207"> </a>Address</li>
+<li><a name="wp1023208"> </a>U.S. Social Security number</li>
+<li><a name="wp1023209"> </a>Sex</li>
+<li><a name="wp1023210"> </a>Age</li>
+<li><a name="wp1023211"> </a>Marital status</li>
+<li><a name="wp1023212"> </a>Hobby</li>
+<li><a name="wp1023213"> </a>Date of birth</li>
+<li><a name="wp1023214"> </a>Height</li>
+<li><a name="wp1023215"> </a>Weight</li>
+<li><a name="wp1023216"> </a>Hair color</li>
+<li><a name="wp1023217"> </a>Skin color</li>
+<li><a name="wp1023218"> </a>Eye color</li>
+<li><a name="wp1023219"> </a>Other physical characteristics</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1023221"> </a>
+Client Application Command-line Interface
+</h3>
+<p class="pBody"><a name="wp1023222"> </a>
+The PersonQuery sample application implements a simple command-line interface in the client component with which the user can enter database query commands and the command to exit from the application.
+</p>
+<p class="pBody"><a name="wp1023223"> </a>
+The database query commands have the following syntax:
+</p>
+<a name="wp1023224"> </a><div class="pPreformatted"><pre>Option? <code class="cCodeEmphasis">command </code><code class="cCode">[</code><code class="cCodeEmphasis">keyword</code><code class="cCode">] [</code><code class="cCodeEmphasis">command</code><code class="cCode"> [</code><em class="cEmphasis">keyword</em><code class="cCode">]]...</code></pre></div><p class="pBody"><a name="wp1023225"> </a>
+In this command syntax:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023226"> </a><code class="cCode">Option?</code> is the PersonQuery command prompt.</li>
+<li><a name="wp1023229"> </a><code class="cCodeEmphasis">command</code> is one of the PersonQuery commands from <a href="pquery.html#wp82215">Table&#160;4-1</a>.</li>
+<li><a name="wp1023233"> </a><code class="cCodeEmphasis">keyword</code> is one of the keywords from <a href="pquery.html#wp82215">Table&#160;4-1</a>. Note the following rules on specifying keywords:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023235"> </a>Compound keywords, as typically supplied for the name and address commands, must be separated by spaces and enclosed in double-quote characters (&quot;&quot;), as in the following command:</li>
+<a name="wp1023236"> </a><div class="pPreformattedRelative"><pre><code class="cCode">Option?</code> <code class="cCodeBold">name &quot;Thomas Mann&quot;</code></pre></div><li><a name="wp1023237"> </a>When specifying an address, always separate street name, city name, state or province, country name, and other parts of the address with commas, as in the following command:</li>
+<a name="wp1023238"> </a><div class="pPreformattedRelative"><pre><code class="cCode">Option?</code> <b class="cBold">address &quot;116 Einbahnstrasse, Frankfurt am Main, BRD&quot;</b></pre></div></ul></div>
+<li><a name="wp1023239"> </a>You may specify multiple commands in a single line, as in <a href="pquery.html#wp82215">Table&#160;4-1</a>:</li>
+<a name="wp1023240"> </a><div class="pPreformattedRelative"><pre><code class="cCode">Option?</code> <b class="cBold">hair brown eyes blue</b></pre></div><p class="pGraphic"><a name="wp1023346"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp82215table1023243"><caption><a name="wp82215"> </a>
+Table 4-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">PersonQuery Application Commands and Keywords</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1023245"> </a>
+Command
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023247"> </a>
+Keyword
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023249"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023251"> </a>
+<code class="cCode">name</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023253"> </a>
+<code class="cCodeEmphasis">&quot;firstname lastname&quot;</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023255"> </a>
+Queries by name. Strings with spaces must be quoted.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023257"> </a>
+<code class="cCode">address</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023259"> </a>
+<code class="cCodeEmphasis">&quot;number street, city...&quot;</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023261"> </a>
+Queries by address. Strings with spaces must be quoted. Address parts are street number, street, town, state, and country.  Entries for street, town, state, and country must be separated by commas.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023263"> </a>
+ss
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023265"> </a>
+xxx-xx-xxxx
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023267"> </a>
+Queries by U.S. Social Security number.  The keyword must in the form <em class="cEmphasis">xxx-xx-xxxx</em>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023269"> </a>
+<code class="cCode">sex</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023271"> </a>
+<code class="cCodeEmphasis">sex</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023273"> </a>
+Queries by sex. Choices are <code class="cCode">male</code>, <code class="cCode">female</code>, and <code class="cCode">cant_tell.</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023275"> </a>
+<code class="cCode">age</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023277"> </a>
+<code class="cCodeEmphasis">age</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023279"> </a>
+Queries by age.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023281"> </a>
+marriage
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023283"> </a>
+status
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023285"> </a>
+Queries by marital status. Choices are <code class="cCode">married</code>, <code class="cCode">single</code>, <code class="cCode">divorced</code>, and <code class="cCode">not_known.</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023287"> </a>
+hobby
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023289"> </a>
+hobby
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023291"> </a>
+Queries by hobby. Choices are <code class="cCode">who_cares</code>, <code class="cCode">rocks</code>, <code class="cCode">swim</code>, <code class="cCode">tv</code>, <code class="cCode">stamps</code>, <code class="cCode">photo</code>, and <code class="cCode">weaving.</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023293"> </a>
+dob
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023295"> </a>
+mm/dd/yyyy
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023297"> </a>
+Queries by date.  The keyword must be in the form <em class="cEmphasis">mm/dd/yyyy</em><code class="cCode">.</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023299"> </a>
+<code class="cCode">height</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023301"> </a>
+<code class="cCodeEmphasis">inches</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023303"> </a>
+Queries by height, in inches.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023305"> </a>
+<code class="cCode">weight</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023307"> </a>
+<code class="cCodeEmphasis">pounds</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023309"> </a>
+Queries by weight, in pounds.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023311"> </a>
+<code class="cCode">hair</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023313"> </a>
+<code class="cCodeEmphasis">color</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023315"> </a>
+Queries by hair color. Choices are white, black, red, brown, green, yellow, blue, gray, and unknown.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023317"> </a>
+<code class="cCode">skin</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023319"> </a>
+<code class="cCodeEmphasis">color</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023321"> </a>
+Queries by skin color.  Choices are white, black, brown, yellow, green, and red<code class="cCode">.</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023323"> </a>
+<code class="cCode">eyes</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023325"> </a>
+<code class="cCodeEmphasis">color</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023327"> </a>
+Queries by eye color.  Choices are blue, brown, gray, green, violet, black, and hazel.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023329"> </a>
+<code class="cCode">other</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023331"> </a>
+<em class="cEmphasis">feature</em>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023333"> </a>
+Queries by other physical features. Choices are tattoo, limb (that is, a limb is missing), scar, and none.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023335"> </a>
+result
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023339"> </a>
+Displays the result of last query on output<code class="cCode">.</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023341"> </a>
+<code class="cCode">exit</code>
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023345"> </a>
+Displays bill for services rendered and closes application.
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023350"> </a>
+The OMG IDL for the PersonQuery Sample Application
+</h2><p class="pBody"><a name="wp1023354"> </a>
+<a href="pquery.html#wp1023357">Listing&#160;4-1</a> provides the OMG IDL code for the implemented in the PersonQuery sample application.
+</p>
+<div class="pCodeTitle"><a name="wp1023357"> </a>
+Listing&#160;4-1	   OMG IDL Code for the PersonQuery Application Interfaces
+</div> <a name="wp1028378"> </a><div class="pPreformatted"><pre>#pragma prefix &#8220;beasys.com&#8221;<br /><br />interface PersonQuery<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;enum MONTHS {Empty,Jan, Feb, Mar, Apr, May, Jun, Jul, Aug,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Sep, Oct, Nov, Dec};<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;struct date_ {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MONTHS Month;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;short Day;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;short Year;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;};<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;typedef date_ Date;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;struct addr_ {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;short number;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;string street;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;string town;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;string state;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;string country;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;};<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;typedef addr_ Address;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;enum MARRIAGE {not_known, single, married, divorced};<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;enum HOBBIES {who_cares, rocks, swim, tv, stamps, photo,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;weaving};<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;enum SEX {cant_tell, male, female};<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;enum COLOR {white, black, brown, yellow, red, green, blue,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;gray, violet, hazel, unknown, dontcare};<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;enum MARKINGS {dont_care, tattoo, scar, missing_limb,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;none};<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;struct person_ {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;string&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;name;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Address&#160;&#160;&#160;&#160;&#160;&#160;&#160;addr;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;string&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ss;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SEX&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;sex;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;short&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;age;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MARRIAGE&#160;&#160;&#160;&#160;&#160;&#160;mar;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;HOBBIES&#160;&#160;&#160;&#160;&#160;&#160;&#160;rec;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Date&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;dob;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;short&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ht;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;long&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;wt;	<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;COLOR&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;hair;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;COLOR&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;eye;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;COLOR&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;skin;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MARKINGS&#160;&#160;&#160;&#160;&#160;&#160;other;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;};<br />typedef person_ Person;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;typedef sequence &lt;Person&gt; Possibles;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;union reason_ switch (short)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case 0:&#160;&#160;&#160;&#160;&#160;&#160;string&#160;&#160;&#160;&#160;&#160;&#160;name;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case 1:&#160;&#160;&#160;&#160;&#160;&#160;Address&#160;&#160;&#160;&#160;&#160;addr;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case 2:&#160;&#160;&#160;&#160;&#160;&#160;string&#160;&#160;&#160;&#160;&#160;&#160;ss;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case 3:&#160;&#160;&#160;&#160;&#160;&#160;SEX&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;sex;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case 4:&#160;&#160;&#160;&#160;&#160;&#160;short&#160;&#160;&#160;&#160;&#160;&#160;&#160;age;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case 5:&#160;&#160;&#160;&#160;&#160;&#160;MARRIAGE&#160;&#160;&#160;&#160;mar;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case 6:&#160;&#160;&#160;&#160;&#160;&#160;HOBBIES&#160;&#160;&#160;&#160;&#160;rec;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case 7:&#160;&#160;&#160;&#160;&#160;&#160;Date&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;dob;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case 8:&#160;&#160;&#160;&#160;&#160;&#160;short&#160;&#160;&#160;&#160;&#160;&#160;&#160;ht;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case 9:&#160;&#160;&#160;&#160;&#160;&#160;long&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;wt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case 10:&#160;&#160;&#160;&#160;&#160;COLOR&#160;&#160;&#160;&#160;&#160;&#160;&#160;hair;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case 11:&#160;&#160;&#160;&#160;&#160;COLOR&#160;&#160;&#160;&#160;&#160;&#160;&#160;eyes;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case 12:&#160;&#160;&#160;&#160;&#160;COLOR&#160;&#160;&#160;&#160;&#160;&#160;&#160;skin;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;case 13:&#160;&#160;&#160;&#160;&#160;MARKINGS&#160;&#160;&#160;&#160;other;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;};<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;typedef reason_ Reason;<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;exception DataOutOfRange<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Reason why;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;};<br />&#160;&#160;&#160;&#160;&#160;&#160;boolean   findPerson (<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in Person who, out Possibles hits)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises (DataOutOfRange);<br />&#160;&#160;&#160;&#160;&#160;&#160;boolean   findPersonByName (<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in string name, out Possibles hits)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises (DataOutOfRange);<br />&#160;&#160;&#160;&#160;&#160;&#160;boolean   findPersonByAddress (<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in Address addr, out Possibles hits)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises (DataOutOfRange);<br />&#160;&#160;&#160;&#160;&#160;&#160;boolean   findPersonBySS (<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in string ss, out Possibles hits)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises (DataOutOfRange);<br />&#160;&#160;&#160;&#160;&#160;&#160;boolean   findPersonByAge (<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in short age, out Possibles hits)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises (DataOutOfRange);<br />&#160;&#160;&#160;&#160;&#160;&#160;boolean   findPersonByMarriage (<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in MARRIAGE mar, out Possibles hits)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises (DataOutOfRange);<br />&#160;&#160;&#160;&#160;&#160;&#160;boolean   findPersonByHobbies (<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in HOBBIES rec, out Possibles hits)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises (DataOutOfRange);<br />&#160;&#160;&#160;&#160;&#160;&#160;boolean   findPersonBydob (<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in Date dob, out Possibles hits)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises (DataOutOfRange);<br />&#160;&#160;&#160;&#160;&#160;&#160;boolean   findPersonByHeight (<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in short ht, out Possibles hits)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises (DataOutOfRange);<br />&#160;&#160;&#160;&#160;&#160;&#160;boolean   findPersonByWeight (<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in long wt, out Possibles hits)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises (DataOutOfRange);<br />&#160;&#160;&#160;&#160;&#160;&#160;boolean   findPersonByHairColor (<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in COLOR col, out Possibles hits)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises (DataOutOfRange);<br />&#160;&#160;&#160;&#160;&#160;&#160;boolean   findPersonBySkinColor (<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in COLOR col, out Possibles hits)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises (DataOutOfRange);<br />&#160;&#160;&#160;&#160;&#160;&#160;boolean   findPersonByEyeColor (<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in COLOR col, out Possibles hits)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises (DataOutOfRange);<br />&#160;&#160;&#160;&#160;&#160;&#160;boolean   findPersonByOther (<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in MARKINGS other, out Possibles hits)<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;raises (DataOutOfRange);<br />&#160;&#160;&#160;&#160;&#160;&#160;void&#160;&#160;&#160;&#160;&#160;&#160;exit();<br />};<br />interface QueryFactory<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;PersonQuery createQuery (in string name);<br />};</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023364"> </a>
+Building and Running the PersonQuery Sample Application
+</h2><p class="pBody"><a name="wp1025068"> </a>
+To build and run the PersonQuery sample application: 
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023371"> </a>Copy the files for the PersonQuery sample application into a work directory.</li>
+<li><a name="wp1023372"> </a>Change the protection of the files for the PersonQuery sample application.</li>
+<li><a name="wp1023373"> </a>Set the environment variables.</li>
+<li><a name="wp1023374"> </a>Build the CORBA client and server sample applications.</li>
+<li><a name="wp1023375"> </a>Start the PersonQuery client and server applications.</li>
+<li><a name="wp1023376"> </a>Using the client application, enter a number of commands to search the database on the server.</li>
+<li><a name="wp1023377"> </a>Stop the PersonQuery sample application.</li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1023379"> </a>
+Copying the Files for the PersonQuery Sample Application
+</h3>
+<p class="pBody"><a name="wp1023380"> </a>
+The request-level interceptor sample application files are located in the following directory:
+</p>
+<a name="wp1023381"> </a><div class="pPreformatted"><pre>$TUXDIR\samples\corba\interceptors_cxx</pre></div><p class="pBody"><a name="wp1023382"> </a>
+To create a copy of these files so that you can build them and run them, do the following:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023383"> </a>Create a working directory into which to copy the sample files.</li>
+<li><a name="wp1023384"> </a>Copy the <code class="cCode">interceptors_cxx</code> samples to the working directory created in the previous step:</li>
+</ol></div>
+<p class="pBody"><a name="wp1023385"> </a>
+<b class="cBold">Windows 2003</b>
+</p>
+<a name="wp1023386"> </a><div class="pPreformatted"><pre>&gt; xcopy /s/i %TUXDIR%\samples\corba\interceptors_cxx &lt;<code class="cCodeEmphasis">workdirectory</code>&gt;\cxx</pre></div><p class="pBody"><a name="wp1023387"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<a name="wp1023388"> </a><div class="pPreformatted"><pre>&gt; cp -R $TUXDIR/samples/corba/interceptors_cxx &lt;<code class="cCodeEmphasis">workdirectory</code>&gt;/cxx</pre></div><div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023389"> </a>Change to the working directory containing the sample files:</li>
+</ol></div>
+<p class="pBody"><a name="wp1023390"> </a>
+<b class="cBold">Windows 2003</b>
+</p>
+<a name="wp1023391"> </a><div class="pPreformatted"><pre>&gt; cd &lt;<code class="cCodeEmphasis">workdirectory</code>&gt;\cxx</pre></div><p class="pBody"><a name="wp1023392"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<a name="wp1023393"> </a><div class="pPreformatted"><pre>&gt; cd &lt;<code class="cCodeEmphasis">workdirectory</code>&gt;/cxx</pre></div><p class="pBody"><a name="wp1023396"> </a>
+You will use the files listed and described in  <a href="pquery.html#wp82509">Table&#160;4-2</a> in the PersonQuery sample application.
+</p>
+<p class="pGraphic"><a name="wp1023671"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp82509table1023400"><caption><a name="wp82509"> </a>
+Table 4-2  Files Included in the Interceptors Sample Applications
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1023402"> </a>
+Directory
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023404"> </a>
+File
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023406"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="9"><div class="pCellBody"><a name="wp1023408"> </a>
+<code class="cCode">app_cxx </code> (subdirectory under <code class="cCode">interceptors</code>_cxx)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023410"> </a>
+<code class="cCode">Readme.txt</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023412"> </a>
+The file that provides the latest information about building and running the set of interceptor sample applications<code class="cCode">.</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023416"> </a>
+<code class="cCode">makefile.mk</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023418"> </a>
+The makefile for building the entire set of interceptor sample applications (the PersonQuery application and all the sample interceptors) on UNIX systems<code class="cCode">.</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023422"> </a>
+makefile.nt
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023424"> </a>
+The makefile for building the entire set of interceptors sample applications (the PersonQuery application and all the sample interceptors) on Windows 2003 systems<code class="cCode">.</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023428"> </a>
+makefile.inc
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023430"> </a>
+The generic makefile that uses the macros defined in the appropriate <code class="cCodeEmphasis">platform</code><code class="cCode">.inc</code> file<code class="cCode">.</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023434"> </a>
+personquery_i.h and<br />personquery_i.cpp
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023436"> </a>
+The implementation of the PersonQuery interfaces<code class="cCode">.</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023440"> </a>
+personquery<code class="cCode">c.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023442"> </a>
+The PersonQuery client application source file<code class="cCode">.</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023446"> </a>
+personquerys.cpp
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023448"> </a>
+The PersonQuery database server source file<code class="cCode">.</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023452"> </a>
+<code class="cCode">setenv.ksh</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023454"> </a>
+The shell file that sets all the required environment variables for building the entire set of interceptor sample applications on UNIX systems<code class="cCode">.</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023458"> </a>
+setenv.cmd
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023460"> </a>
+The command file that sets all the required environment variables for building the entire set of interceptor sample applications on Windows 2003 systems<code class="cCode">.</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="5"><div class="pCellBody"><a name="wp1023468"> </a>
+<code class="cCode">data_cxx<br /></code>(subdirectory under <code class="cCode">interceptors</code>_cxx)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023470"> </a>
+<code class="cCode">InterceptorData.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023472"> </a>
+The InterceptorData C++ source file<code class="cCode">.</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023476"> </a>
+<code class="cCode">InterceptorData.h</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023478"> </a>
+The InterceptorData class definition file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023482"> </a>
+<code class="cCode">makefile.inc</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023484"> </a>
+The generic makefile that uses the macros defined in the appropriate <code class="cCodeEmphasis">platform</code><code class="cCode">.inc</code> file to build the InterceptorData interceptors.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023488"> </a>
+<code class="cCode">makefile.mk</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023490"> </a>
+The makefile that builds the InterceptorData interceptors on UNIX systems.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023494"> </a>
+makefile.nt
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023496"> </a>
+The makefile that builds the InterceptorData interceptors on Windows 2003 systems.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="5"><div class="pCellBody"><a name="wp1023504"> </a>
+<code class="cCode">simple_cxx</code> (subdirectory under <code class="cCode">interceptors</code>_cxx)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023506"> </a>
+<code class="cCode">InterceptorSimp.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023508"> </a>
+The InterceptorSimp C++ source file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023512"> </a>
+<code class="cCode">InterceptorSimp.h</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023514"> </a>
+The InterceptorSimp class definition file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023518"> </a>
+<code class="cCode">makefile.inc</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023520"> </a>
+The generic makefile that uses the macros defined in the appropriate <code class="cCodeEmphasis">platform</code><code class="cCode">.inc</code> file to build the InterceptorSimp interceptors.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023524"> </a>
+<code class="cCode">makefile.mk</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023526"> </a>
+The makefile that builds the InterceptorSimp interceptors on UNIX systems.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023530"> </a>
+makefile.nt
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023532"> </a>
+The makefile that builds the InterceptorSimp interceptors on Windows 2003 systems.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="5"><div class="pCellBody"><a name="wp1023540"> </a>
+<code class="cCode">security_cxx</code> (subdirectory under <code class="cCode">interceptors</code>_cxx)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023542"> </a>
+<code class="cCode">InterceptorSec.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023544"> </a>
+The InterceptorSec C++ source file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023548"> </a>
+<code class="cCode">InterceptorSec.h</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023550"> </a>
+The InterceptorSec class definition file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023554"> </a>
+<code class="cCode">makefile.inc</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023556"> </a>
+The generic makefile that uses the macros defined in the appropriate <code class="cCodeEmphasis">platform</code><code class="cCode">.inc</code> file to build the InterceptorSec interceptors.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023560"> </a>
+<code class="cCode">makefile.mk</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023562"> </a>
+The makefile that builds the InterceptorSec interceptors on UNIX systems.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023566"> </a>
+makefile.nt
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023568"> </a>
+The makefile that builds the InterceptorSec interceptors on Windows 2003 systems.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="7"><div class="pCellBody"><a name="wp1023576"> </a>
+<code class="cCode">common</code> (subdirectory under <code class="cCode">interceptors</code>_cxx)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023578"> </a>
+app.inc
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023580"> </a>
+The file that contains the makefile definitions for the application configuration.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023584"> </a>
+<code class="cCodeEmphasis">platform</code><code class="cCode">.inc</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023586"> </a>
+The file that contains platform-specific make definitions for building the set of interceptor sample applications, where <code class="cCodeEmphasis">platform</code> represents the system platform for the machine you are using.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023596"> </a>
+<code class="cCode">common.mk</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023598"> </a>
+The file that contains makefile definitions for UNIX systems.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023650"> </a>
+<code class="cCode">makefile.inc</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023652"> </a>
+The generic makefile that uses the macros defined in the appropriate <code class="cCodeEmphasis">platform</code><code class="cCode">.inc</code> file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023656"> </a>
+<code class="cCode">makefile.mk</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023658"> </a>
+The makefile that builds the entire set of sample application files on UNIX systems.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023662"> </a>
+makefile.nt
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023664"> </a>
+The makefile that builds the entire set of sample application files on Windows systems.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023668"> </a>
+<code class="cCode">personquery.idl</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023670"> </a>
+The OMG IDL file that defines the interfaces for the PersonQuery sample application.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1023672"> </a>
+Changing the Protection on PersonQuery Application Files
+</h3>
+<p class="pBody"><a name="wp1023673"> </a>
+During the installation of the Oracle Tuxedo software, the sample application files are marked read-only. Before you can edit or build the files in the PersonQuery sample application, you need to change the protection attribute of the files you copied into your work directory, as follows.  First make sure you are in the working directory into which you copied the sample application files.
+</p>
+<p class="pBody"><a name="wp1023674"> </a>
+<b class="cBold">Windows 2003</b>
+</p>
+<a name="wp1023675"> </a><div class="pPreformatted"><pre>prompt&gt;attrib -r /s *.* </pre></div><p class="pBody"><a name="wp1023676"> </a>
+<b class="cBold">UNIX </b>
+</p>
+<a name="wp1023677"> </a><div class="pPreformatted"><pre>prompt&gt;/bin/ksh <br />ksh prompt&gt;chmod -R u+w *.* </pre></div><h3 class="pHeading2"><a name="wp1023679"> </a>
+Setting the Environment Variables
+</h3>
+<p class="pBody"><a name="wp1023680"> </a>
+Before building and running the PersonQuery sample application, you need to set the environment in which the application runs. To set the environment variables and other property settings needed to build and run the PersonQuery sample application, enter the following command:
+</p>
+<p class="pBody"><a name="wp1023681"> </a>
+<b class="cBold">Windows 2003</b>
+</p>
+<a name="wp1023682"> </a><div class="pPreformatted"><pre><code class="cCode">&gt; setenv.cmd</code></pre></div><p class="pBody"><a name="wp1023683"> </a>
+<b class="cBold">UNIX:</b>
+</p>
+<a name="wp1023684"> </a><div class="pPreformatted"><pre>&gt; $ . ./setenv.ksh</pre></div><h3 class="pHeading2"><a name="wp1023685"> </a>
+Building the CORBA Client and Server Applications
+</h3>
+<p class="pBody"><a name="wp1023686"> </a>
+The following command builds the PersonQuery application, creates a machine-specific <code class="cCode">UBBCONFIG</code> file, and loads the <code class="cCode">UBBCONFIG</code> file:
+</p>
+<p class="pBody"><a name="wp1023687"> </a>
+<b class="cBold">Windows 2003</b>
+</p>
+<a name="wp1023688"> </a><div class="pPreformatted"><pre>&gt; nmake -f makefile.nt</pre></div><p class="pBody"><a name="wp1023689"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<a name="wp1023690"> </a><div class="pPreformatted"><pre>$ make -f makefile.mk</pre></div><a name="wp1023691"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For convenience, the makefile executed in this step builds the entire set of interceptor samples. This includes the InterceptorSimp, InterceptorSec, and InterceptorData interceptors as well. Details on implementing and building those interceptors, as well as running them with the PersonQuery sample application, are provided in the chapters that follow.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1023692"> </a>
+Start the PersonQuery Client and Server Applications
+</h3>
+<p class="pBody"><a name="wp1023693"> </a>
+Start the PersonQuery sample application by entering the following command:
+</p>
+<a name="wp1023694"> </a><div class="pPreformatted"><pre>prompt&gt; tmboot -y</pre></div><h3 class="pHeading2"><a name="wp1023696"> </a>
+Running the PersonQuery Sample Application
+</h3>
+<p class="pBody"><a name="wp1023697"> </a>
+A typical usage scenario of the PersonQuery sample application involves the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023698"> </a>Enter a query command for one feature, and check for number of returned items, for example:</li>
+<a name="wp1023699"> </a><div class="pPreformattedRelative"><pre>Option? <b class="cBold">hair brown eyes blue</b></pre></div><li><a name="wp1023700"> </a>Enter additional query data about the feature queried in the preceding step.</li>
+<li><a name="wp1023701"> </a>Continue queries until all the query data is narrowed down to a desirable level.</li>
+<li><a name="wp1023702"> </a>Enter the <code class="cCode">result</code> command to see the final query result.</li>
+<li><a name="wp1023703"> </a>Start a new query cycle.</li>
+<li><a name="wp1023704"> </a>Enter the <code class="cCode">exit</code> command to quit from the application.</li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1023707"> </a>
+Stopping the PersonQuery Sample Application
+</h3>
+<p class="pBody"><a name="wp1023709"> </a>
+To stop the PersonQuery sample application, enter the following command:
+</p>
+<a name="wp1023710"> </a><div class="pPreformatted"><pre>prompt&gt;tmshutdown -y</pre></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="pquery.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="admin.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="isimp.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

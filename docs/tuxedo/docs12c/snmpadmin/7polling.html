@@ -1,0 +1,859 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/snmpadmin/fm/7polling.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:43:07" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Using the Oracle SNMP Agent Integrator for Polling</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">SNMP Agent Administration Guide
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="6multag.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="8agincom.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/snmpadmin.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp72074"> </a>
+Using the Oracle SNMP Agent Integrator for Polling
+</h1>
+<p class="pBody"><a name="wp65217"> </a>
+The following sections describe how to use the Oracle SNMP Agent Integrator as a proxy for the management station to poll locally on the managed node:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp65221"> </a><a href="7polling.html#wp65243">Overview of Polling</a></li>
+<li><a name="wp65225"> </a><a href="7polling.html#wp65248">Procedure for Setting Up Local Polling</a></li>
+<li><a name="wp65229"> </a><a href="7polling.html#wp65310">Oracle SNMP Agent Integrator Rules</a></li>
+<li><a name="wp65233"> </a><a href="7polling.html#wp65587">Starting Oracle SNMP Agent Integrator Polling Activity</a></li>
+<li><a name="wp65237"> </a><a href="7polling.html#wp65617">Stopping Oracle SNMP Agent Integrator Polling Activity</a></li>
+<li><a name="wp65241"> </a><a href="7polling.html#wp65633">Restarting Oracle SNMP Agent Integrator Polling Activity</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp65243"> </a>
+Overview of Polling
+</h2><p class="pBody"><a name="wp65244"> </a>
+Polling is the activity of checking the value of an attribute of a managed resource at a specific interval. To track faults in critical system components or applications, management systems use polling to determine whether attributes of the managed resource have crossed a significant threshold. However, direct polling by a management station becomes increasingly inefficient as the number of components being polled increases&#8212;the load on network bandwidth increases as does the load on the management station itself.
+</p>
+<p class="pBody"><a name="wp65245"> </a>
+The Oracle SNMP Agent Integrator can be configured to act as a proxy for the manager and do the polling locally on the managed node. The load on the management station is reduced and less network bandwidth is consumed by off-loading polling to distributed integrator agents.
+</p>
+<p class="pBody"><a name="wp65246"> </a>
+You can specify the threshold to check, and polling can be activated during Oracle SNMP Agent Integrator startup or by an SNMP Set request from the management station. The Oracle SNMP Agent Integrator sends an enterprise-specific SNMP trap when the threshold is crossed. To indicate the cause of the alarm, you can configure a specific-trap type number to be sent in the trap generated when a given threshold is crossed. Communication between the manager and Oracle SNMP Agent Integrator occurs only when the manager sends a Set request to de-activate (or re-activate) the polling, or when the Oracle SNMP Agent Integrator sends an SNMP trap if it detects the specified event in the managed resource. The Oracle SNMP Agent Integrator can also be configured to execute a script or program when a threshold is crossed.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp65248"> </a>
+Procedure for Setting Up Local Polling
+</h2><p class="pBody"><a name="wp65250"> </a>
+The steps in using the Oracle SNMP Agent Integrator for local polling can be summarized as follows:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp65251"> </a>Decide which resources you want to monitor.</li>
+<p class="pBodyRelative"><a name="wp65252"> </a>
+The attributes of the resource that you want to monitor must be defined as MIB objects. These MIB objects must be supported by an agent or subagent that has been installed on the managed node.
+</p>
+<li><a name="wp65254"> </a>Make the managed resource accessible to the Oracle SNMP Agent Integrator.</li>
+<p class="pBodyRelative"><a name="wp65255"> </a>
+The Oracle SNMP Agent Integrator must know how to access the managed object. This means the object identifier for that object must lie within branches of the OID tree that are known to the Oracle SNMP Agent Integrator.
+</p>
+<p class="pBodyRelative"><a name="wp65256"> </a>
+If the managed object you want to monitor is supported by a SMUX subagent that has been installed on the managed node, the subagent automatically registers its section of the OID tree with the Oracle SNMP Agent Integrator when the subagent is started. This can be modified using <code class="cCode">OID_CLASS</code> entries in the Oracle SNMP Agent configuration file, as described in <a href="9cnfgfl.html">Configuration Files</a>.
+</p>
+<p class="pBodyRelative"><a name="wp65263"> </a>
+For peer SNMP agents (or DPI or SMUX master agents), you must define the segments of the OID tree supported by those agents in <code class="cCode">NON_SMUX_PEER</code> entries in the Oracle SNMP Agent configuration file. This is described in <a href="6multag.html#wp59050">Configuring the Oracle SNMP Agent Integrator for Use with Multiple SNMP Agents</a>.
+</p>
+<p class="pBodyRelative"><a name="wp65271"> </a>
+The Oracle SNMP Agent Integrator directly supports the following MIB groups: MIB-II <code class="cCode">system</code> and <code class="cCode">snmp </code>groups, the SMUX MIB, and the Oracle SNMP Agent <code class="cCode">beaintAgtTable</code> in the SNMP agent MIB.
+</p>
+<li><a name="wp65275"> </a>Define polling instructions for the Oracle SNMP Agent Integrator</li>
+<p class="pBodyRelative"><a name="wp65276"> </a>
+This task consists of two main subtasks:
+</p>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp65277"> </a>Define the desired threshold.</li>
+<li><a name="wp65278"> </a>Specify the action to take if the threshold is crossed.</li>
+<p class="pBodyRelative"><a name="wp65280"> </a>
+Each polling instruction for the SNMP Integrator is called a<em class="cEmphasis"> rule</em>. Rules are defined under the <code class="cCode">RULE_ACTION</code> entry in the Oracle SNMP Agent <code class="cCode">beamgr.conf</code> configuration file. You can use your favorite text editor to modify this file. (For information on how to create rules, see <a href="7polling.html#wp65600">Creating New Polling Rules</a>.) Rules are explained in <a href="7polling.html#wp65310">Oracle SNMP Agent Integrator Rules</a>, while <a href="9cnfgfl.html">Configuration Files</a> provides the complete syntax for the <code class="cCode">RULE_ACTION</code> entries.
+</p>
+</ul></div>
+<li><a name="wp65293"> </a>Configure your SNMP management system for Oracle SNMP Agent Integrator traps</li>
+<p class="pBodyRelative"><a name="wp65294"> </a>
+When a polling threshold is crossed, the Oracle SNMP Agent Integrator sends an enterprise-specific SNMP trap notification to the destinations specified by the <code class="cCode">TRAP_HOST</code> entries in the Oracle SNMP Agent configuration file. Some configuration is required on your SNMP-compliant management system to make use of the traps that are thus generated. The exact set of steps you need to perform varies, depending upon which management system you are using. Typically, some configuration or mapping is required to get the management system to perform a desired action when a trap is received. For example, you might want the management system to turn an icon red when a trap is received. Consult your management system documentation for specific instructions.
+</p>
+<li><a name="wp65298"> </a>Start the Oracle SNMP Agent Integrator polling.</li>
+<p class="pBodyRelative"><a name="wp65299"> </a>
+The Oracle SNMP Agent Integrator begins executing all valid polling rules when it is started. For more information, see <a href="7polling.html#wp65587">Starting Oracle SNMP Agent Integrator Polling Activity</a>.
+</p>
+<li><a name="wp65303"> </a>De-activate or re-activate Oracle SNMP Agent Integrator polling, when desired.</li>
+<p class="pBodyRelative"><a name="wp65304"> </a>
+Polling rules are available as MIB objects; thus you can de-activate or re-activate polling from the management station by means of an SNMP Set request. This topic is described in <a href="7polling.html#wp65587">Starting Oracle SNMP Agent Integrator Polling Activity</a>.
+</p>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp65310"> </a>
+Oracle SNMP Agent Integrator Rules
+</h2><p class="pBody"><a name="wp65311"> </a>
+An Oracle SNMP Agent Integrator rule is a polling instruction for the SNMP Oracle SNMP Agent Integrator, and it consists of the following parts: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp65312"> </a>A unique name for the rule (can be a maximum of eight characters long)</li>
+<li><a name="wp65313"> </a>A <em class="cEmphasis">condition </em>(or threshold) for which the integrator is to check. (This is described further in <a href="7polling.html#wp65325">Conditions</a>.)</li>
+<li><a name="wp65317"> </a>An <em class="cEmphasis">action</em> to take if the specified threshold is crossed. (This is described in <a href="7polling.html#wp65519">States and Transitions</a>.)</li>
+<li><a name="wp65321"> </a>A<em class="cEmphasis"> polling frequency </em>(specified in seconds), that is, the time delay between each access of the specified object value</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp65325"> </a>
+Conditions
+</h3>
+<p class="pBody"><a name="wp65326"> </a>
+When the Oracle SNMP Agent Integrator polls, it checks to determine if a specified condition holds. A <em class="cEmphasis">condition</em> is defined as a relationship between an object (specified by its object identifier) and a value.
+</p>
+<h4 class="pHeading3"><a name="wp65329"> </a>
+Relations for Defining Conditions
+</h4>
+<p class="pBody"><a name="wp65331"> </a>
+The condition obtains (the threshold is crossed) if and only if the specified relation holds between the object and the value. For example, the relation &#8220;greater than&#8221; defines the following condition: &#8220;disk capacity in use greater than 90 percent.&#8221;
+</p>
+<p class="pBody"><a name="wp65332"> </a>
+In this case, the condition holds (evaluates to true) if the object (percentage of disk capacity in use) has a value that is greater than 90. (In this example, the condition is described in English, not the actual code used to define Oracle SNMP Agent Integrator polling rules.)
+</p>
+<p class="pBody"><a name="wp65334"> </a>
+Any of the relations shown in the following table can be used to define conditions.
+</p>
+<p class="pGraphic"><a name="wp65368"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp65341table65335">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp65341"> </a>
+<span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Symbol</span>
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp65343"> </a>
+Meaning
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp65345"> </a>
+==
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp65347"> </a>
+Is identical to
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp65349"> </a>
+!=
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp65351"> </a>
+Is not identical to
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp65353"> </a>
+&lt;
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp65355"> </a>
+Is less than (for numeric values<br />is a substring of (for strings)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp65357"> </a>
+&gt;
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp65359"> </a>
+Is greater than (for numeric values)<br />contains (for strings)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp65361"> </a>
+&lt;=
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp65363"> </a>
+Is less than or equal to
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp65365"> </a>
+&gt;=
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp65367"> </a>
+Is greater than or equal to
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp65369"> </a>
+Polling with a SMUX Subagent
+</h4>
+<p class="pBody"><a name="wp65370"> </a>
+For example, suppose that you want the Oracle SNMP Agent Integrator to check if any server group is inactive. The state of the server group is represented by the <code class="cCode">tuxTgroupState</code> object in the <code class="cCode">beaSysPerf</code> group. The Oracle SNMP Agent component uses SNMP multiplexing (SMUX) protocol to talk to the Oracle SNMP Agent Integrator, and to supply the value of the object to the Oracle SNMP Agent Integrator on the same machine.object in the <code class="cCode">beaSysPerf</code> group. This subagent uses SMUX protocol to talk to the Oracle SNMP Agent Integrator.
+</p>
+<h5 class="pHeading4"><a name="wp65371"> </a>
+Examples
+</h5>
+<p class="pBody"><a name="wp65372"> </a>
+You can use the following condition to define a polling rule for the Oracle SNMP Agent Integrator:
+</p>
+<p class="pBody"><a name="wp65373"> </a>
+<code class="cCode">(VAL(.1.3.6.1.4.1.140.300.4.1.1.4.*) !=1)</code>
+</p>
+<p class="pBody"><a name="wp65374"> </a>
+The expression <code class="cCode">VAL()</code> is used to obtain the value of the <code class="cCode">tuxTgroupState</code> object. The specified condition is obtained if any server group is not active (<code class="cCode">!=1</code>). In this example, the initial dot indicates that this is an absolute OID; that is, the path to the <code class="cCode">tuxTgroupState</code> object is <code class="cCode">.1.3.6.1.4.1.140.300.4.1.1.4.</code> The asterisk (<code class="cCode">*</code>) wildcard for the instance index indicates that the condition is satisfied if any <code class="cCode">tuxTgroupState</code> is not equal to 1. Use 0 as the instance index for scalar objects. For more information, see <a href="7polling.html#wp65492">Instance Indexes</a>.
+</p>
+<p class="pBody"><a name="wp65378"> </a>
+The following example is of an Oracle SNMP Agent Integrator rule that uses the condition previously specified:
+</p>
+<p class="pBody"><a name="wp65379"> </a>
+<code class="cCode">RULE_ACTION grpState 60 if (VAL(140.300.4.1.1.4.*) !=1) <br />   {TRAPID_ERR=300}</code>
+</p>
+<p class="pBody"><a name="wp65380"> </a>
+In this example, <code class="cCode">grpState</code> is the name of the rule. The Oracle SNMP Agent Integrator checks the server group state every 1 minute (60). If any value of<code class="cCode"> tuxTgroupState</code> is not equal to 1, <code class="cCode">TRAPID_ERR=300</code> instructs the Oracle SNMP Agent Integrator to generate an enterprise-specific trap with a specific-trap type number of 300.
+</p>
+<a name="wp65382"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>(The MIB objects whose values the Oracle SNMP Agent Integrator can obtain depend on the MIB objects supported by the agents or subagents that the Oracle SNMP Agent Integrator is managing. In the previous example, the Oracle SNMP Agent Integrator can poll for the <code class="cCode">tuxTgroupState</code> object value only if the <code class="cCode">tux_snmpd</code> subagent is running on the managed node. The MIB objects that the Oracle SNMP Agent Integrator can access through a peer SNMP agent depend on the <code class="cCode">NON_SMUX_PEER</code> entries in the Oracle SNMP Agent configuration file, as explained in <a href="6multag.html">Using Multiple SNMP Agents</a>.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp65391"> </a>
+Polling with SNMP Peer Agents
+</h4>
+<p class="pBody"><a name="wp65393"> </a>
+The Oracle SNMP Agent Integrator can also obtain MIB object values from SNMP peer (non-SMUX peer) agents on either the same machine or other machines in the network. For example, suppose that a peer SNMP agent supports the MIB-II <code class="cCode">interfaces</code> group. If so, you might want the Oracle SNMP Agent Integrator to check if a physical interface is not operational. This feature of the interface is represented by the <code class="cCode">ifOperStatus</code> object in the <code class="cCode">ifTable</code> in the MIB-II <code class="cCode">interfaces</code> group. In this case, you want to know whether the value of <code class="cCode">ifOperStatus</code> is not equal to 1. (An interface is operational if its <code class="cCode">ifOperStatus</code> value is 1.) If you want to check the <code class="cCode">ifOperStatus</code> value for the first interface on the machine, you could use the following condition:
+</p>
+<p class="pBody"><a name="wp65394"> </a>
+<code class="cCode">(VAL(.1.3.6.1.2.1.2.2.1.8.1) != 1)</code>
+</p>
+<p class="pBody"><a name="wp65395"> </a>
+This condition holds if, and only if, the first interface in the <code class="cCode">ifTable</code> is operational. The last numeral, <code class="cCode">1</code>, specifies the instance index&#8212;the first interface entry in the table.
+</p>
+<p class="pBody"><a name="wp65396"> </a>
+If the condition is satisfied, you want the Oracle SNMP Agent Integrator to take some action. For example, if the <code class="cCode">ifOperStatus</code> value for an interface is not 1 (that is, the interface is not up), you might want the Oracle SNMP Agent Integrator to notify the management station. To do this, you can specify that the Oracle SNMP Agent Integrator send an enterprise-specific SNMP trap to the management station with a special specific-trap value that identifies the cause of the trap to you (the system administrator).
+</p>
+<p class="pBody"><a name="wp65397"> </a>
+Instead of requesting this notification if a specific interface (such as the first one in the <code class="cCode">ifTable</code>) is down, you might want to be notified if <em class="cEmphasis">any</em> of the interfaces is down.
+</p>
+<p class="pBody"><a name="wp65398"> </a>
+Here is an example of a rule entry that would do this:
+</p>
+<p class="pBody"><a name="wp65399"> </a>
+<code class="cCode">RULE_ACTION checkIf 120 <br />   if (VAL(.1.3.6.1.2.1.2.2.1.8.*) != 1) {TRAPID_ERR=300}</code>
+</p>
+<p class="pBody"><a name="wp65400"> </a>
+In this example, <code class="cCode">checkIf</code> is the name given to this particular rule. The value <code class="cCode">120</code> indicates that the Oracle SNMP Agent Integrator should check the interface every two minutes. By using the asterisk wildcard for the instance index, the condition is satisfied if any interface in the <code class="cCode">ifTable</code> has an <code class="cCode">ifOperStatus</code> not equal to 1; that is, all instances are checked. If the value of the OID is not equal to 1 (the interface is not up) for any instance, an enterprise-specific trap is sent with a specific trap ID of 300.
+</p>
+<a name="wp65401"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This rule only causes a trap to be generated when the Oracle SNMP Agent Integrator first detects that an interface is down. If the interface continues to be down, it does not generate additional traps.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp65403"> </a>
+Use of Logical Operators in Conditions
+</h4>
+<p class="pBody"><a name="wp65405"> </a>
+Conditions are of two types, simple and complex. A <em class="cEmphasis">simple</em> condition consists of a relation between a managed object and a value. All of the examples in the previous sections have been simple conditions.
+</p>
+<p class="pBody"><a name="wp65406"> </a>
+You can use the logical operators AND, OR, and NOT to define <em class="cEmphasis">complex</em> conditions. For example, if A and B are two simple conditions, you can specify a complex condition where <em class="cEmphasis">both</em> A and B occur.
+</p>
+<p class="pBody"><a name="wp65408"> </a>
+The symbols in the following table can be used to define complex conditions.
+</p>
+<p class="pGraphic"><a name="wp65430"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp65415table65409">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp65415"> </a>
+Symbol
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp65417"> </a>
+Meaning
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp65419"> </a>
+<code class="cCode">!(condition_A)</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp65421"> </a>
+Logical negation. The threshold is crossed if and only if <em class="cEmphasis">condition_A</em> does not hold.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp65423"> </a>
+<code class="cCode">(condition_A || condition_B)</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp65425"> </a>
+Logical disjunction. The threshold is crossed if and only if either <em class="cEmphasis">condition_A </em>or <em class="cEmphasis">condition_B</em> obtain.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp65427"> </a>
+<code class="cCode">(condition_A &amp;&amp; condition_B)</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp65429"> </a>
+Logical conjunction. The threshold is crossed if and only if both <em class="cEmphasis">condition_A</em> and <em class="cEmphasis">condition_B</em> obtain.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h5 class="pHeading4"><a name="wp65431"> </a>
+Scenario for Using a Complex Condition
+</h5>
+<p class="pBody"><a name="wp65432"> </a>
+For example, you might not want the Oracle SNMP Agent Integrator to send an alarm when <code class="cCode">ifOperStatus</code> is not up for an interface if you have taken that interface down for repair. In that case, you could define a rule that asks the Oracle SNMP Agent Integrator to determine if two conditions hold: <code class="cCode">ifOperStatus</code> is not up AND <code class="cCode">ifAdminStatus</code> is up. That is, you want to be notified if the interface <em class="cEmphasis">should</em> be up but is not.
+</p>
+<a name="wp65434"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The MIB objects whose values the Oracle SNMP Agent Integrator can obtain depend on the MIB objects supported by the agents or subagents that the Oracle SNMP Agent Integrator is managing.</td>
+</tr>
+</table>
+
+<h5 class="pHeading4"><a name="wp65436"> </a>
+Sample Code for this Scenario
+</h5>
+<p class="pBody"><a name="wp65437"> </a>
+To do this, you might modify your <code class="cCode">checkIf</code> rule as follows:
+</p>
+<p class="pBody"><a name="wp65438"> </a>
+<code class="cCode">RULE_ACTION checkIf 60 <br />   if ((VAL(.1.3.6.1.2.1.2.2.1.8.*) != 1) &amp;&amp; <br />      (VAL(.1.3.6.1.2.1.2.2.1.7.*) == 1)) <br />         {TRAPID_ERR=301}</code>
+</p>
+<h5 class="pHeading4"><a name="wp65440"> </a>
+How this Rule Works
+</h5>
+<p class="pBody"><a name="wp65441"> </a>
+In this example, the Oracle SNMP Agent Integrator checks the interfaces every minute (<code class="cCode">60</code>) and generates an enterprise-specific trap, with a specific trap value of 301, if any of the interfaces is not up (<code class="cCode">ifOperStatus</code> not equal to 1) but has an <code class="cCode">ifAdminStatus</code> value of up (that is, the interface should be up but it is not).
+</p>
+<a name="wp65442"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This rule causes this trap to be generated only when the condition first evaluates to true. As long as the interface continues in the same state, a new trap is not generated.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp65444"> </a>
+Data Types for Defining Conditions
+</h4>
+<p class="pBody"><a name="wp65446"> </a>
+The syntax for a simple condition is as follows:
+</p>
+<p class="pBody"><a name="wp65448"> </a>
+<code class="cCode">(VAL(oid) relation value)</code>
+</p>
+<p class="pBody"><a name="wp65449"> </a>
+where
+</p>
+<h4 class="pDefTerm"><a name="wp65450"> </a>
+<code class="cCode">relation</code>
+</h4><p class="pBodyRelative"><a name="wp65453"> </a>
+Is one of the relations described in the table titled <a href="7polling.html#wp65329">Relations for Defining Conditions</a>.
+</p>
+<h4 class="pDefTerm"><a name="wp65455"> </a>
+<code class="cCode">oid</code>
+</h4><p class="pBodyRelative"><a name="wp65458"> </a>
+Is specified in one of the formats described in <a href="7polling.html#wp65469">Specifying Object Identifiers in Conditions</a>.
+</p>
+<h4 class="pDefTerm"><a name="wp65460"> </a>
+<code class="cCode">value</code>
+</h4><p class="pBodyRelative"><a name="wp65462"> </a>
+Can be one of the following data types:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp65463"> </a>integer</li>
+<li><a name="wp65464"> </a>string</li>
+<li><a name="wp65466"> </a>IP address (in the form <em class="cEmphasis">number1.number2.number3.number4</em>)</li>
+<li><a name="wp65467"> </a>Object identifier, surrounded by single quotes (‘). The OID should be specified exactly as returned by the agent managing that object.</li>
+</ul></div>
+</ul></div>
+<h4 class="pHeading3"><a name="wp65469"> </a>
+Specifying Object Identifiers in Conditions
+</h4>
+<p class="pBody"><a name="wp65470"> </a>
+In defining polling conditions, the object identifier (OID) must be specified numerically, not using textual symbols (other than MIB II [<code class="cCode">mib-2</code>] or <code class="cCode">enterprises</code> as indicated in the following list). One of the following formats can be used to specify the object identifier:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp65472"> </a>An absolute object identifier, that is, the full path to the object is specified from the root of the OID tree. An initial dot is used to indicate that the path starts at root, (for example, <code class="cCode">.1.3.6.1.2.1.1.1.0</code>). Note that the trailing zero in this example is the instance index.</li>
+<li><a name="wp65473"> </a>A relative OID under the MIB-II branch can be specified in the form:</li>
+<p class="pBodyRelative"><a name="wp65474"> </a>
+<code class="cCode">mib-2.number.number ...</code>
+</p>
+<p class="pBodyRelative"><a name="wp65475"> </a>
+When the reserved word <code class="cCode">mib-2</code> appears as the leading sub-oid, <code class="cCode">.1.3.6.1.2.1 </code>is assumed to be prefixed to the rest of OID. For example:
+</p>
+<p class="pBodyRelative"><a name="wp65476"> </a>
+<code class="cCode">mib-2.1.1.0</code>
+</p>
+<p class="pBodyRelative"><a name="wp65477"> </a>
+represents the absolute OID:
+</p>
+<p class="pBodyRelative"><a name="wp65478"> </a>
+<code class="cCode">.1.3.6.1.2.1.1.1.0</code>
+</p>
+<li><a name="wp65479"> </a>A relative OID under the enterprises branch can be specified in the form:</li>
+<p class="pBodyRelative"><a name="wp65480"> </a>
+<code class="cCode">enterprises.number.number ...</code>
+</p>
+<p class="pBodyRelative"><a name="wp65481"> </a>
+When the reserved word <code class="cCode">enterprises</code> appears as the leading sub-oid, <code class="cCode">.1.3.6.1.4.1 </code>is assumed to be prefixed to the rest of OID. For example:
+</p>
+<p class="pBodyRelative"><a name="wp65482"> </a>
+<code class="cCode">enterprises.140.1.0</code>
+</p>
+<p class="pBodyRelative"><a name="wp65483"> </a>
+represents the absolute OID:
+</p>
+<p class="pBodyRelative"><a name="wp65484"> </a>
+<code class="cCode">.1.3.6.1.4.1.140.1.0</code>
+</p>
+<li><a name="wp65485"> </a>A relative OID under the enterprises branch can also be specified in purely numeric form:</li>
+<p class="pBodyRelative"><a name="wp65486"> </a>
+<code class="cCode">number.number.number ... ,</code>
+</p>
+<p class="pBodyRelative"><a name="wp65487"> </a>
+If there is no leading &#8220;.&#8221; and the OID starts with a number, <code class="cCode">.1.3.6.1.4.1 </code>is assumed to be prefixed to the rest of OID. For example:
+</p>
+<p class="pBodyRelative"><a name="wp65488"> </a>
+<code class="cCode">140.1.1.0</code>
+</p>
+<p class="pBodyRelative"><a name="wp65489"> </a>
+represents the absolute OID:
+</p>
+<p class="pBodyRelative"><a name="wp65490"> </a>
+<code class="cCode">.1.3.6.1.4.1.140.1.1.0</code>
+</p>
+</ul></div>
+<h5 class="pHeading4"><a name="wp65492"> </a>
+Instance Indexes
+</h5>
+<p class="pBody"><a name="wp65494"> </a>
+<em class="cEmphasis">Columnar</em> objects are used to represent a column of a tabular MIB group. Columnar objects, accordingly, can have multiple instances. To specify an instance, the index is appended to the rest of the OID. If the index is a single attribute, the last number in an OID is used to specify the particular instance. If the more than one attribute is required to uniquely identify an instance, an instance number for each attribute is appended to the OID, separated by a dot, in the order specified by the INDEX definition in the <code class="cCode">ASN.1</code> file.
+</p>
+<p class="pBody"><a name="wp65495"> </a>
+For example, suppose that you want to check for the condition in which the state of a particular server is anything but active. To uniquely specify a server instance, you require both the group number and the server ID. The INDEX entry for <code class="cCode">tuxTsrvrTbl</code> in the <code class="cCode">ASN.1</code> file specifies the following as an INDEX to particular instances.
+</p>
+<p class="pBody"><a name="wp65496"> </a>
+<code class="cCode">INDEX (tuxTsrvrGrpNo,tuxTsrvrId)</code>
+</p>
+<p class="pBody"><a name="wp65497"> </a>
+The relative OID for <code class="cCode">tuxTsrverState</code> is the following:
+</p>
+<p class="pBody"><a name="wp65498"> </a>
+<code class="cCode">140.300.20.1.1.5</code>
+</p>
+<p class="pBody"><a name="wp65499"> </a>
+Thus, to specify the particular server instance for group 55 and server ID 3, you use the following OID:
+</p>
+<p class="pBody"><a name="wp65500"> </a>
+<code class="cCode">140.300.20.1.1.5.55.3</code>
+</p>
+<p class="pBody"><a name="wp65501"> </a>
+Note that the order of the two attribute instances added to the <code class="cCode">tuxTsrvrState</code> OID is indicated by the INDEX definition above: <code class="cCode">tuxTsrvrGrpNo</code> followed by <code class="cCode">tuxTsrvrId</code>.
+</p>
+<p class="pBody"><a name="wp65502"> </a>
+You can thus define the condition that you want to check as follows:
+</p>
+<p class="pBody"><a name="wp65503"> </a>
+<code class="cCode">VAL(140.300.20.1.1.5.55.3) != 1</code>
+</p>
+<p class="pBody"><a name="wp65504"> </a>
+This condition evaluates to true whenever this particular server instance is not active.
+</p>
+<p class="pBody"><a name="wp65505"> </a>
+You can use a specific number to specify a particular instance or the asterisk wildcard to specify all instances. Use zero as the instance index in the case of <em class="cEmphasis">scalar</em> objects (objects that can have only one instance). Use the asterisk wildcard only to represent all instances of a columnar object. For example:
+</p>
+<p class="pBody"><a name="wp65508"> </a>
+<code class="cCode">.1.3.6.1.4.1.140.1.1.0</code>
+</p>
+<p class="pBody"><a name="wp65509"> </a>
+specifies the single instance of a scalar object while: 
+</p>
+<p class="pBody"><a name="wp65510"> </a>
+<code class="cCode">.1.3.6.1.4.1.140.2.22.1.2.*</code>
+</p>
+<p class="pBody"><a name="wp65511"> </a>
+specifies all of the instances of a columnar object. When a wildcard is used to define a condition, the condition is satisfied if <em class="cEmphasis">any</em> instance satisfies the condition.
+</p>
+<a name="wp65512"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Notes:</strong></td>
+<td></td></tr>
+</table>
+
+<div class="pSmartList1NoteBullet"><ul>
+<li><a name="wp65513"> </a>When you specify multiple OIDs in a complex rule, the OIDs should either all use wildcards or none should. That is, you should not combine an OID that specifies a particular instance with an OID that uses a wildcard in the same rule.</li>
+<li><a name="wp65514"> </a>When you use multiple OIDs with wildcards in a single rule, all the OIDs should specify objects only within the same table.</li>
+<li><a name="wp65515"> </a>In complex conditions, when you use asterisk (*) as the index for the OIDs, the condition is checked between columns of the same row, for all rows available in that table.</li>
+<li><a name="wp65517"> </a>When you use a wildcard to define a condition, the condition is satisfied if any instance satisfies the condition. For example,<code class="cCode"> VAL(.1.3.6.1.2.1.2.1.2.2.1.8.*) == 1</code> is satisfied if <code class="cCode">1</code> is the value of any instance. Once the condition is satisfied, the rule is in the ERR state. The rule remains in the ERR state as long as any instance satisfies the condition. The rule transitions to the OK state only when no instance satisfies the rule.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp65519"> </a>
+States and Transitions
+</h3>
+<p class="pBody"><a name="wp65520"> </a>
+Associated with each active polling rule is a <em class="cEmphasis">state</em>. There are two possible states for an active rule:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp65522"> </a>OK&#8212;A rule is in the OK state when the specified condition does not hold (threshold is not crossed).</li>
+<li><a name="wp65523"> </a>ERR&#8212;A rule is in the ERR state when the specified condition does hold (threshold is crossed).</li>
+</ul></div>
+<p class="pBody"><a name="wp65526"> </a>
+Transitions determine when an action is to be taken in response to a poll. Oracle SNMP Agent Integrator polling rules execute an action (such as generating a trap notification) only when a polling rule undergoes a transition from OK to ERR or from ERR to OK.
+</p>
+<p class="pBody"><a name="wp65527"> </a>
+When the Oracle SNMP Agent Integrator begins executing a polling rule, the rule is initially in the OK state. As long as the threshold is not crossed, the rule remains in the OK state. If the threshold is crossed, the rule undergoes a transition from the OK state to the ERR state. As long as the condition continues to evaluate as true, the rule remains in the ERR state. If the condition subsequently evaluates to false, the rule then transitions back to the OK state. Thus, there are two types of transition:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp65528"> </a>A transition from the OK state to the ERR state</li>
+<li><a name="wp65529"> </a>A transition from the ERR state to the OK state</li>
+</ul></div>
+<a name="wp65530"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>When conditions are defined for all instances of a columnar object using a wildcard (&#8220;*&#8221;), the rule transitions from the OK state to the ERR state if the column in any row of the table evaluates to true for the defined condition. The rule transitions to OK if the condition evaluates to false for the column in all rows of the table.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp65532"> </a>
+Actions
+</h3>
+<p class="pBody"><a name="wp65533"> </a>
+An Oracle SNMP Agent Integrator rule can specify two types of action to be taken if the polling rule undergoes a transition:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp65534"> </a>An enterprise-specific trap with a user-specified specific trap number.</li>
+<li><a name="wp65535"> </a>A specified program or script (or batch file).</li>
+</ul></div>
+<p class="pBody"><a name="wp65536"> </a>
+Both types of action can be specified in the same rule.
+</p>
+<a name="wp65537"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The Oracle SNMP Agent Integrator carries out an action <em class="cEmphasis">only</em> when a transition occurs. Continued polling does not result in duplicate actions as long as the rule remains in the same state. This restriction prevents duplicate traps from being generated in response to detection of a single event.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp65538"> </a>
+Four keywords are used to define actions:
+</p>
+<h4 class="pDefTerm"><a name="wp65539"> </a>
+<code class="cCode">TRAPID_ERR = specific-trap-number</code>
+</h4><div class="pDefPara"><a name="wp65540"> </a>
+Indicates that a trap should be sent if the state of the rule transitions from OK to ERR.
+</div>
+<h4 class="pDefTerm"><a name="wp65542"> </a>
+<code class="cCode">TRAPID_OK = specific-trap-number</code>
+</h4><div class="pDefPara"><a name="wp65543"> </a>
+Indicates that a trap should be sent if the state of the rule transitions from ERR to OK.
+</div>
+<h4 class="pDefTerm"><a name="wp65545"> </a>
+<code class="cCode">COMMAND_ERR = &#8220;command&#8221;</code>
+</h4><div class="pDefPara"><a name="wp65546"> </a>
+The program specified by <code class="cCodeEmphasis">command</code> is executed if the state of the rule transitions from OK to ERR.
+</div>
+<h4 class="pDefTerm"><a name="wp65548"> </a>
+<code class="cCode">COMMAND_OK = &#8220;command&#8221;</code>
+</h4><div class="pDefPara"><a name="wp65549"> </a>
+The program specified by <code class="cCodeEmphasis">command</code> is executed if the state of the rule transitions from ERR to OK.
+</div>
+<a name="wp65551"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The string specifying the command to be executed must be in quotes. For example: <code class="cCode">COMMAND_ERR = &#8220;usr/mybin/test.ksh&#8221;</code>.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp65552"> </a>
+If you do not specify the absolute path to the executable or script, the path should be specified in the Oracle SNMP Agent Integrator&#8217;s environment settings.
+</p>
+<p class="pBody"><a name="wp65553"> </a>
+The statements specifying actions must be placed within curly braces. When multiple commands are specified in a rule, the commands must be separated by spaces and <code class="cCode">command</code> must be enclosed in quotes.
+</p>
+<p class="pBody"><a name="wp65555"> </a>
+A string containing the name of the rule and the direction of the state transition (OK to ERR or ERR to OK) is passed as an argument to the script or program called by the <code class="cCode">COMMAND_ERR</code> or <code class="cCode">COMMAND_OK</code> actions.
+</p>
+<h4 class="pHeading3"><a name="wp65558"> </a>
+Trap Information
+</h4>
+<p class="pBody"><a name="wp65559"> </a>
+The following information is passed in the enterprise-specific traps generated by Oracle SNMP Agent Integrator polling rules:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp65561"> </a>User-defined specific trap number</li>
+<li><a name="wp65562"> </a>Rule name and state change</li>
+<p class="pBodyRelative"><a name="wp65563"> </a>
+A <code class="cCode">TRAPID_ERR</code> action passes a string in the variable bindings of the trap that takes the following form:
+</p>
+<p class="pBodyRelative"><a name="wp65564"> </a>
+<code class="cCode">Rule id rule-name has triggered from OK to ERR state</code>
+</p>
+<p class="pBodyRelative"><a name="wp65565"> </a>
+A <code class="cCode">TRAPID_OK</code> action passes a string in the variable bindings of the trap that takes the following form:
+</p>
+<p class="pBodyRelative"><a name="wp65566"> </a>
+<code class="cCode">Rule id rule-name has triggered from ERR to OK state</code>
+</p>
+<li><a name="wp65567"> </a>Enterprise ID</li>
+<p class="pBodyRelative"><a name="wp65568"> </a>
+When a threshold is crossed, the Oracle SNMP Agent Integrator generates an SNMP trap packet (PDU) that has the following enterprise OID in its enterprise field: 
+</p>
+<p class="pBodyRelative"><a name="wp65570"> </a>
+<code class="cCode">.1.3.6.1.4.1.140.1.1</code>
+</p>
+<a name="wp72413"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Oracle SNMP Agent Integrator polling alarms have a different enterprise identifier in the enterprise field of the trap than the Oracle SNMP Agent traps that forward Tuxedo system events. Oracle SNMP Agent Integrator polling alarms use <code class="cCode">bea</code></td>
+</tr>
+</table>
+
+</ul></div>
+<p class="pComment"><a name="wp72422"> </a>
+what is bea?the last word in &#8220;<span style="font-weight: normal">Oracle SNMP Agent Integrator polling alarms use </span><code class="cCode">bea</code>&#8220;
+</p>
+<a name="wp72420"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>as an enterprise identifier, whereas the Oracle Tuxedo SNMP Agent system traps use <code class="cCode">tuxedo</code> as the enterprise identifier.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp65575"> </a>
+Examples
+</h4>
+<p class="pBody"><a name="wp65576"> </a>
+In the following example, the Oracle SNMP Agent Integrator polls every ten minutes (<code class="cCode">600</code>) to determine if disk capacity in use is greater than 90 percent. If any file system has more than 90 percent capacity in use, an enterprise-specific trap with number 102 is generated. If subsequently all the file systems have less than or equal to 90 percent of capacity in use, an enterprise-specific trap with trap number 202 is generated.
+</p>
+<p class="pBody"><a name="wp65577"> </a>
+<code class="cCode">RULE_ACTION diskchk 600 <br />   if (VAL(140.2.22.1.5.*) &gt; 90) {TRAPID_ERR = 102 TRAPID_OK = 202}</code>
+</p>
+<p class="pBody"><a name="wp65578"> </a>
+In the next example, a Tuxedo application is checked to determine if the transaction <code class="cCode">triptime </code>exceeds 36 msec. If the threshold is crossed, an enterprise-specific trap is generated and a user script, <code class="cCode">logtime</code>, is invoked to log the time of the event. If the <code class="cCode">triptime</code> is subsequently less than 36 msec after having crossed that threshold on the previous poll, an enterprise-specific trap with a number of 302 is generated.
+</p>
+<p class="pBody"><a name="wp65579"> </a>
+<code class="cCode">RULE_ACTION triptime 20 <br />   if (VAL(140.150.1.3.*) &gt; 36) <br />      {TRAPID_ERR = 301 TRAPID_OK = 302 <br />         COMMAND_ERR = &#8220;/usr/sbin/logtime&#8221;}</code>
+</p>
+<a name="wp65580"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The object identifier in this example is not defined in the Oracle MIB, which is an example of an object that might be defined in a user-supplied custom MIB.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp65581"> </a>
+In the next example, the Oracle SNMP Agent Integrator polls every five seconds to check whether the number of requests completed by the Tuxedo server <code class="cCode">Server1</code> is greater than six. If it is, an enterprise-specific trap is generated with a specific trap number of 210 and the command <code class="cCode">C:/etc/srv_reqs.cmd</code> is executed. 
+</p>
+<p class="pBody"><a name="wp65583"> </a>
+<code class="cCode">RULE_ACTION Server1 5 <br />   if ((VAL(140.300.20.2.1.12.*) &gt; 6)) <br />      { TRAPID_ERR=210  COMMAND_ERR=&quot;C:/etc/srv_reqs.cmd&quot; }</code>
+</p>
+<p class="pBody"><a name="wp65584"> </a>
+In the next example, the Oracle SNMP Agent Integrator is checking a particular server instance in any state other than active. The server that is being checked is uniquely identified by its group number and server ID: group number 55 and server ID 3. 
+</p>
+<p class="pBody"><a name="wp65585"> </a>
+<code class="cCode">RULE_ACTION srvrUp 60 if (VAL(140.300.20.1.1.5.55.3) != 1 <br />   {TRAPID_ERR = 306 TRAPID_OK = 307}</code>
+</p>
+<p class="pBody"><a name="wp65586"> </a>
+Whenever the server satisfies the condition, the rule transitions to the ERR state and generates an enterprise-specific trap with the specific trap number of 306. Whenever the server becomes active again, it transitions back to the OK state and issues a trap with the specific trap number of 307.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp65587"> </a>
+Starting Oracle SNMP Agent Integrator Polling Activity
+</h2><p class="pBody"><a name="wp65591"> </a>
+Polling rules are defined as <code class="cCode">RULE_ACTION</code> entries in the Oracle SNMP Agent <code class="cCode">beamgr.conf</code> configuration file. The default location of this file is <code class="cCode">C:\etc</code> on Windows systems and <code class="cCode">/etc</code> on UNIX systems. Individual rules are MIB objects, stored as an entry (row) in the <code class="cCode">beaIntAgtTable</code>.
+</p>
+<p class="pBody"><a name="wp65592"> </a>
+The status of each rule entry determines whether the Oracle SNMP Agent Integrator executes that rule (that is, whether the Oracle SNMP Agent Integrator actively checks the condition specified in the rule). The status of each rule entry is stored in the <code class="cCode">beaIntAgtStatus </code>object. Polling is active for a rule if the status of that rule is valid (integer value of 1). Polling is inactive for a rule if its status has been set to inactive (integer value of 3). The specific rule can be Set from a management station (such as OpenView or SunNet Manager) by using the unique name of the rule as the key field used to specify the entry instance (row).
+</p>
+<a name="wp65593"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The Oracle SNMP Agent Integrator must be running in order to successfully Set objects in the <code class="cCode">beaIntAgtTable</code>.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp65594"> </a>
+The Oracle SNMP Agent Integrator begins to execute all polling rules defined in <code class="cCode">RULE_ACTION</code> entries in the Oracle SNMP Agent <code class="cCode">beamgr.conf</code> configuration file when it first starts up. The status of each rule object in the <code class="cCode">beaIntAgtTable</code> is valid at startup.
+</p>
+<h3 class="pHeading2"><a name="wp65600"> </a>
+Creating New Polling Rules
+</h3>
+<p class="pBody"><a name="wp65602"> </a>
+You can add rules to the configuration file in two ways:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp65603"> </a>Use a text editor, such as <code class="cCode">vi</code>, to add a <code class="cCode">RULE_ACTION</code> entry to file, making sure that you conform to the syntax of the rule, as described in <a href="9cnfgfl.html">Configuration Files</a>. However, if the Oracle SNMP Agent Integrator is already running, the new rule does not take effect until you execute the following command:</li>
+<p class="pBodyRelative"><a name="wp65607"> </a>
+<code class="cCode">reinit_agent snmp_integrator</code>
+</p>
+<p class="pBodyRelative"><a name="wp65608"> </a>
+Executing this command causes the Oracle SNMP Agent Integrator to re-read its configuration file.
+</p>
+<li><a name="wp65609"> </a>Since individual rules are MIB objects, stored as an entry (row) in the <code class="cCode">beaIntAgtTable</code>, you can use an SNMP manager (or the <code class="cCode">snmptest</code> utility) to create a new entry (row) in the <code class="cCode">beaIntMgtTable</code>. (The SNMP manager must have the ability to issue SNMP Set requests that contain multiple objects in a single Set request.) To create the new row, issue a Set request after you specify an index value that does not already exist in the table. This Set request causes a new <code class="cCode">RULE_ACTION</code> entry to be created in the configuration file.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp65611"> </a>
+Deleting or Modifying Polling Rules
+</h3>
+<p class="pBody"><a name="wp65612"> </a>
+Oracle SNMP Agent Integrator polling rules can be modified in the same two ways they can be created:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp65613"> </a>Use a text editor to delete (or comment out) or modify a <code class="cCode">RULE_ACTION</code> entry in the <code class="cCode">beamgr.conf</code> file. This change does not take effect unless you issue the following command to force the Oracle SNMP Agent Integrator to re-read its configuration file:</li>
+<p class="pBodyRelative"><a name="wp65614"> </a>
+<code class="cCode">reinit_agent snmp_integrator</code>
+</p>
+<li><a name="wp65615"> </a>Use SNMP Set commands to delete or modify rules.</li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp65617"> </a>
+Stopping Oracle SNMP Agent Integrator Polling Activity
+</h2><p class="pBody"><a name="wp65618"> </a>
+Polling can be de-activated in one of two ways:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp65620"> </a>Remove the <code class="cCode">RULE_ACTION</code> entry from the configuration file.</li>
+<p class="pBodyRelative"><a name="wp65621"> </a>
+You can turn off a polling rule by commenting out or deleting that <code class="cCode">RULE_ACTION</code> entry in the Oracle SNMP Agent <code class="cCode">beamgr.conf</code> configuration file. However, for this to take effect, you need to execute <code class="cCode">reinit_agent snmp_integrator</code>. This execution, in turn, causes the Oracle SNMP Agent Integrator to re-read its configuration file.
+</p>
+<li><a name="wp65625"> </a>Use<b class="cBold"> </b><code class="cCode">snmptest</code><b class="cBold"> </b>or an SNMP-compliant manager to Set the value of the rule status to inactive.</li>
+<p class="pBodyRelative"><a name="wp65626"> </a>
+Polling for that rule can be de-activated from the management station (or by using the <code class="cCode">snmptest</code> utility packaged with the Oracle SNMP Agent Integrator) by setting the value of that object to inactive (an integer value of 3). Setting the value to 2 (invalid) causes the <code class="cCode">RULE_ACTION</code> entry to be deleted from the configuration file. The following figure shows the rule <code class="cCode">diskchk</code>, discussed earlier, being set to <code class="cCode">inactive</code>. Note that the read/write community string (in this example, <code class="cCode">iview</code>) is required for set permission.
+</p>
+<div class="pFigureTitle"><a name="wp65627"> </a>
+Figure&#160;7-1  Setting a Polling Rule to Inactive
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp65631"> </a>
+<br />
+<img src="wwimages/6_1sunsc.gif" alt="Setting a Polling Rule to Inactive" id="wp65629"/><br />
+
+</p>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp65633"> </a>
+Restarting Oracle SNMP Agent Integrator Polling Activity
+</h2><p class="pBody"><a name="wp65635"> </a>
+When a polling rule has been de-activated using a Set request from a management station, the rule can be re-activated using a Set request to set the value of the corresponding <code class="cCode">beaIntAgtStatus</code> object to valid (integer value of 1).
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="7polling.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="6multag.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="8agincom.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

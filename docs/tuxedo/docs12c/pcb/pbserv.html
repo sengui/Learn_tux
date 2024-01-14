@@ -1,0 +1,868 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/pcb/fm/pbserv.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:23:24" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Writing Servers</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Programming an Oracle Tuxedo Application Using COBOL
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pbclt.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pbreq.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/pcb.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1398991"> </a>
+Writing Servers
+</h1>
+<p class="pBody"><a name="wp1292153"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1391596"> </a><a href="pbserv.html#wp1391638">Oracle Tuxedo System Controlling Program</a></li>
+<li><a name="wp1167666"> </a><a href="pbserv.html#wp1167723">System-supplied Server and Services</a></li>
+<li><a name="wp1167670"> </a><a href="pbserv.html#wp1167805">Guidelines for Writing Servers</a></li>
+<li><a name="wp1167674"> </a><a href="pbserv.html#wp1250152">Defining a Service</a></li>
+<li><a name="wp1167682"> </a><a href="pbserv.html#wp1167959">Terminating a Service Routine</a></li>
+<li><a name="wp1167686"> </a><a href="pbserv.html#wp1168128">Advertising and Unadvertising Services</a></li>
+<li><a name="wp1167690"> </a><a href="pbserv.html#wp1250188">Building Servers</a><a href="pbserv.html#wp1168259"></a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1391638"> </a>
+Oracle Tuxedo System Controlling Program
+</h2><p class="pBody"><a name="wp1167695"> </a>
+To facilitate the development of ATMI servers, the Oracle Tuxedo system provides a predefined controlling program for server load modules. When you execute the <a href="pbserv.html#wp1250188">buildserver</a><code class="cCode"> -C</code> command, the controlling program is automatically included as part of the server.
+</p>
+<a name="wp1167697"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The controlling program that the system provides is a closed abstraction; you cannot modify it.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1167698"> </a>
+In addition to joining and exiting from an application, the predefined controlling program accomplishes the following tasks on behalf of the server.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1167699"> </a>Executes the process ignoring any hangups (that is, it ignores the <code class="cCode">SIGHUP</code> signal). </li>
+<li><a name="wp1167700"> </a>Initiates the cleanup process on receipt of the standard operating system software termination signal (<code class="cCode">SIGTERM</code>). The server is shut down and must be rebooted if needed again.</li>
+<li><a name="wp1167701"> </a>Attaches to shared memory for bulletin board services.</li>
+<li><a name="wp1167702"> </a>Creates a message queue for the process.</li>
+<li><a name="wp1167703"> </a>Advertises the initial services to be offered by the server. The initial services are either all the services link edited with the predefined controlling program, or a subset specified by the Oracle Tuxedo system administrator in the configuration file.</li>
+<li><a name="wp1252685"> </a>Processes command-line arguments up to the double dash (<code class="cCode">--</code>), which indicates the end of system-recognized arguments.</li>
+<li><a name="wp1252687"> </a>Calls the routine <code class="cCode">TPSVRINIT</code> to process any command-line arguments listed after the double dash (<code class="cCode">--</code>) and optionally to open the resource manager. These command-line arguments are used for application-specific initialization.</li>
+<li><a name="wp1167706"> </a>Until ordered to halt, checks its request queue for service request messages.</li>
+<li><a name="wp1167707"> </a>When a service request message arrives on the request queue, <code class="cCode">main()</code> performs the following tasks until ordered to halt: </li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1167708"> </a>If the <code class="cCode">-r</code> option is specified, records the starting time of the service request.</li>
+<li><a name="wp1167709"> </a>Updates the bulletin board to indicate that the server is <code class="cCode">BUSY</code>.</li>
+<li><a name="wp1391788"> </a>Dispatches the service; that is, calls the service subroutine.</li>
+</ul></div>
+<li><a name="wp1167711"> </a>When the service returns from processing its input, <code class="cCode">main()</code> performs the following tasks until ordered to halt: </li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1167712"> </a>If the <code class="cCode">-r</code> option is specified, records the ending time of the service request.</li>
+<li><a name="wp1167713"> </a>Updates statistics.</li>
+<li><a name="wp1167714"> </a>Updates the bulletin board to indicate that the server is <code class="cCode">IDLE</code>; that is, that the server is ready for work.</li>
+<li><a name="wp1167715"> </a>Checks its queue for the next service request.</li>
+</ul></div>
+<li><a name="wp1167716"> </a>When the server is required to halt, calls <code class="cCode">TPSVRDONE</code> to perform any required shutdown operations.</li>
+</ul></div>
+<p class="pBody"><a name="wp1167717"> </a>
+As indicated above, the <code class="cCode">main()</code> routine handles all of the details associated with joining and exiting from an application, managing records and transactions, and handling communication.
+</p>
+<a name="wp1167718"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Because the system-supplied controlling program accomplishes the work of joining and leaving the application, you should not include calls to the <code class="cCode">TPINITIALIZE</code> or <code class="cCode">TPTERM</code> routine in your code. If you do, the routine encounters an error and returns <code class="cCode">TPEPROTO</code> in <code class="cCode">TP-STATUS</code>. For more information on the <code class="cCode">TPINITIALIZE</code> or <code class="cCode">TPTERM</code> routine, refer to <span class="cHyperlink">
+<a href="../pgc/pgclt.html">&#8220;Writing Clients&#8221; </a></span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em>.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1167723"> </a>
+System-supplied Server and Services
+</h2><p class="pBody"><a name="wp1167724"> </a>
+The controlling program provides one system-supplied ATMI server, <code class="cCode">AUTHSVR</code>, and two subroutines, <code class="cCode">TPSVRINIT</code> and <code class="cCode">TPSVRDONE</code>. The default versions of all three, which are described in the following sections, can be modified to suit your application.
+</p>
+<a name="wp1167725"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Notes:</strong></td>
+<td>If you want to write your own versions of <code class="cCode">TPSVRINIT</code> and <code class="cCode">TPSVRDONE</code>, remember that the default versions of these two routines call <code class="cCode">tx_open()</code> and <code class="cCode">tx_close()</code>, respectively. If you write a new version of <code class="cCode">TPSVRINIT</code> that calls <code class="cCode">tpopen()</code> rather than <code class="cCode">tx_open()</code>, you should also write a new version of <code class="cCode">TPSVRDONE</code> that calls <code class="cCode">tpclose()</code>. In other words, both routines in an open/close pair must belong to the same set.</td></tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1167730"> </a>
+System-supplied Server: AUTHSVR( )
+</h3>
+<p class="pBody"><a name="wp1167731"> </a>
+You can use the <a href="../rf5/rf5.html">AUTHSVR(5)</a> server to provide individual client authentication for an application. The <code class="cCode">TPINITIALIZE</code> routine calls this server when the level of security for the application is <code class="cCode">TPAPPAUTH</code>, <code class="cCode">USER_AUTH</code>, <code class="cCode">ACL</code>, or <code class="cCode">MANDATORY_ACL</code>.
+</p>
+<p class="pBody"><a name="wp1167732"> </a>
+The service in <code class="cCode">AUTHSVR</code> looks in the <code class="cCode">USER-DATA-REC</code> record for a user password (not to be confused with the application password specified in the <code class="cCode">PASSWD</code> field of the <code class="cCode">TPINFDEF-REC</code> record). By default, the system takes the string in <code class="cCode">data</code> and searches for a matching string in the <code class="cCode">/etc/passwd</code> file.
+</p>
+<p class="pBody"><a name="wp1167733"> </a>
+When called by a native-site client, <code class="cCode">TPINITIALIZE</code> forwards the <code class="cCode">USER-DATA-REC</code> record as it is received. This means that if the application requires the password to be encrypted, the client program must be coded accordingly. 
+</p>
+<p class="pBody"><a name="wp1167734"> </a>
+When called by a Workstation client, <code class="cCode">TPINITIALIZE</code> encrypts the data before sending it across the network.
+</p>
+<h3 class="pHeading2"><a name="wp1392301"> </a>
+System-supplied Services: TPSVRINIT Routine
+</h3>
+<p class="pBody"><a name="wp1167736"> </a>
+When a server is booted, the Oracle Tuxedo system controlling program calls TPSVR<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>INIT(3cbl)</span> during its initialization phase, before handling any service requests.
+</p>
+<p class="pBody"><a name="wp1167737"> </a>
+If an application does not provide a custom version of this routine within the server, the system uses the default routine provided by the controlling program, which opens the resource manager and logs an entry in the central event log indicating that the server has successfully started. The central user log is an automatically generated file to which processes can write messages by calling the USERLOG(<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>3cbl)</span> routine. Refer to <span class="cHyperlink">
+<a href="../pgc/pgerr.html">&#8220;Managing Errors&#8221; </a></span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em> for more information on the central event log. 
+</p>
+<p class="pBody"><a name="wp1167741"> </a>
+You can use the <code class="cCode">TPSVRINIT</code> routine for any initialization processes that might be required by an application, such as the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1167742"> </a>Receiving command-line options</li>
+<li><a name="wp1167743"> </a>Opening a database</li>
+</ul></div>
+<p class="pBody"><a name="wp1167744"> </a>
+The following sections provide code samples showing how these initialization tasks are performed through calls to <code class="cCode">TPSVRINIT</code>. Although it is not illustrated in the following examples, message exchanges can also be performed within this routine. However, <code class="cCode">TPSVRINIT</code> fails if it returns with asynchronous replies pending. In this case, the replies are ignored by the Oracle Tuxedo system, and the server exits gracefully.
+</p>
+<p class="pBody"><a name="wp1167745"> </a>
+You can also use the <code class="cCode">TPSVRINIT</code> routine to start and complete transactions, as described in <span class="cHyperlink">
+<a href="../pgc/pgerr.html">&#8220;Managing Errors&#8221; </a></span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em>.
+</p>
+<p class="pBody"><a name="wp1167749"> </a>
+Use the following signature to call the <code class="cCode">TPSVRINIT</code> :routine 
+</p>
+<a name="wp1392601"> </a><div class="pPreformatted"><pre>LINKAGE SECTION.<br />01 <em class="cEmphasis">CMD-LINE.<br />     05 ARGC         PIC 9(4) COMP-5.<br />     05 ARGV.<br />          10 ARGS PIC X OCCURS 0 TO 9999 DEPENDING ON ARGC</em>.<br />01 <em class="cEmphasis">TPSTATUS-REC</em>.<br />   COPY TPSTATUS.<br />PROCEDURE DIVISION USING <em class="cEmphasis">CMD-LINE TPSTATUS-REC</em>.<br />* User code<br />EXIT PROGRAM.</pre></div><h4 class="pHeading3"><a name="wp1167752"> </a>
+Receiving Command-line Options
+</h4>
+<p class="pBody"><a name="wp1167753"> </a>
+When a server is booted, its first task is to read the server options specified in the configuration file. The options are passed through <code class="cCode">ARGC</code>, which contains the number of arguments, and <code class="cCode">ARGV</code>, which contains the arguments separated by a single <code class="cCode">SPACE</code> character. The predefined controlling program then calls <code class="cCode">TPSVRINIT</code>.
+</p>
+<p class="pBody"><a name="wp1167754"> </a>
+The following code example shows how the <code class="cCode">TPSVRINIT</code> routine is used to receive command-line options.
+</p>
+<div class="pCodeTitle"><a name="wp1392710"> </a>
+Listing&#160;5-1	   Receiving Command-line Options in TPSVRINIT
+</div> <a name="wp1392711"> </a><div class="pPreformatted"><pre>&#160;&#160;IDENTIFICATION DIVISION.<br />&#160;&#160;PROGRAM-ID. TPSVRINIT.<br />&#160;&#160;ENVIRONMENT DIVISION.<br />&#160;&#160;CONFIGURATION SECTION.<br />&#160;&#160;SOURCE-COMPUTER. USL-486.<br />&#160;&#160;OBJECT-COMPUTER. USL-486.<br />*<br />&#160;&#160;DATA DIVISION.<br />&#160;&#160;WORKING-STORAGE SECTION.<br />*<br />&#160;&#160;LINKAGE SECTION.<br />*<br />&#160;&#160;01 CMD-LINE.<br />&#160;&#160;&#160;&#160;&#160;&#160;05 ARGC PIC 9(4) COMP-5.<br />&#160;&#160;&#160;&#160;&#160;&#160;05 ARGV.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;10 ARGS PIC X OCCURS 0 TO 9999 DEPENDING ON ARGC.<br />&#160;&#160;01 SERVER-INIT-STATUS.<br />&#160;&#160;COPY TPSTATUS.<br />*<br />&#160;PROCEDURE DIVISION USING CMD-LINE SERVER-INIT-STATUS.<br />**********************************************************<br />* ARGC indicates the number of arguments and ARGV contains the<br />* arguments separated by a single SPACE.<br />**********************************************************<br />&#160;&#160;A-START.<br />*<br />&#160;&#160;&#160;. . . INSPECT <em class="cEmphasis">the ARGV line and process arguments<br /></em>&#160;&#160;&#160;IF <em class="cEmphasis">arguments are invalid<br /></em>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SET TPEINVAL IN SERVER-INIT-STATUS TO TRUE.<br />&#160;&#160;&#160;ELSE <em class="cEmphasis">arguments are OK continue<br /></em>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SET TPOK IN SERVER-INIT-STATUS TO TRUE.<br />*<br />&#160;&#160;&#160;EXIT PROGRAM.</pre></div><h4 class="pHeading3"><a name="wp1167764"> </a>
+Opening a Resource Manager
+</h4>
+<p class="pBody"><a name="wp1167765"> </a>
+The following example illustrates another common use of <code class="cCode">TPSVRINIT</code>: opening a resource manager. The Oracle Tuxedo system provides routines to open a resource manager, TPOPEN(<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>3cbl)</span> and TX<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>OPEN(3cbl)</span><code class="cCode">.</code> It also provides the complementary routines, TPCLOSE(3c<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>bl)</span> and TXCLOSE(3<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>cbl)</span>. Applications that use these routines to open and close their resource managers are portable in this respect. They work by accessing the resource manager instance-specific information that is available in the configuration file.
+</p>
+<p class="pBody"><a name="wp1167770"> </a>
+These routine calls are optional and can be used in place of the resource manager specific calls that are sometimes part of the Data Manipulation Language (DML) if the resource manager is a database. Note the use of the USERL<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>OG(3cbl)</span> routine to write to the central event log.
+</p>
+<a name="wp1167771"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>To create an initialization function that both receives command-line options and opens a database, combine the following example with the previous example.</td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1392979"> </a>
+Listing&#160;5-2	   Opening a Resource Manager in TPSVRINIT
+</div> <a name="wp1400229"> </a><div class="pPreformatted"><pre>&#160;&#160;IDENTIFICATION DIVISION.<br />&#160;&#160;PROGRAM-ID. TPSVRINIT.<br />&#160;&#160;ENVIRONMENT DIVISION.<br />&#160;&#160;CONFIGURATION SECTION.<br />&#160;&#160;SOURCE-COMPUTER. USL-486.<br />&#160;&#160;OBJECT-COMPUTER. USL-486.<br />*<br />&#160;&#160;DATA DIVISION.<br />&#160;&#160;WORKING-STORAGE SECTION.<br />&#160;&#160;&#160;&#160;01 TPSTATUS-REC.<br />&#160;&#160;&#160;&#160;&#160;&#160;COPY TPSTATUS.<br />&#160;&#160;&#160;&#160;01 LOGMSG &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PIC X(50).<br />&#160;&#160;&#160;&#160;01 LOGMSG-LEN&#160;&#160;&#160;&#160;PIC S9(9) COMP-5.<br />*<br />&#160;&#160;LINKAGE SECTION.<br />&#160;&#160;&#160;&#160;01 CMD-LINE.<br />&#160;&#160;&#160;&#160;&#160;&#160;05 ARGC PIC 9(4) COMP-5.<br />&#160;&#160;&#160;&#160;&#160;&#160;05 ARGV.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;10 ARGS PIC X OCCURS 0 TO 9999 DEPENDING ON ARGC.<br />&#160;&#160;&#160;&#160;01 SERVER-INIT-STATUS.<br />&#160;&#160;&#160;&#160;&#160;COPY TPSTATUS.<br />*<br />&#160;&#160;PROCEDURE DIVISION USING CMD-LINE SERVER-INIT-STATUS.<br />&#160;&#160;A-START.<br />&#160;&#160;&#160;&#160;. . . INSPECT <em class="cEmphasis">the ARGV line and process arguments<br /></em>&#160;&#160;&#160;&#160;IF <em class="cEmphasis">arguments are invalid<br /></em>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;Invalid Arguments Passed&quot; TO LOGMSG<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM EXIT-NOW.<br />&#160;&#160;&#160;&#160;ELSE <em class="cEmphasis">arguments are OK continue<br /></em>&#160;<br />&#160;&#160;&#160;&#160;CALL &quot;TPOPEN&quot; USING TPSTATUS-REC.<br />&#160;&#160;&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;TPOPEN Failed&quot; TO LOGMSG<br />&#160;&#160;&#160;&#160;ELSE IF TPESYSTEM<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;System /T error has occurred&quot; TO LOGMSG<br />&#160;&#160;&#160;&#160;ELSE IF TPEOS<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;An Operating System error has occurred&quot; TO LOGMSG<br />&#160;&#160;&#160;&#160;ELSE IF TPEPROTO<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;TPOPEN was called in an improper Context&quot; TO LOGMSG<br />&#160;&#160;&#160;&#160;ELSE IF TPERMERR<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;Resource manager Failed to Open&quot; TO LOGMSG<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM EXIT-NOW.<br />&#160;&#160;&#160;&#160;SET TPOK IN SERVER-INIT-STATUS TO TRUE.<br />&#160;&#160;&#160;&#160;EXIT PROGRAM.<br />&#160;EXIT-NOW.<br />&#160;&#160;SET TPEINVAL IN SERVER-INIT-STATUS TO TRUE<br />&#160;&#160;&#160;&#160;MOVE 50 LOGMSG-LEN.<br />&#160;&#160;&#160;&#160;CALL &quot;USERLOG&quot; USING LOGMSG<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LOGMSG-LEN<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;EXIT PROGRAM.</pre></div><p class="pBody"><a name="wp1167780"> </a>
+To guard against errors that may occur during initialization, <code class="cCode">TPSVRINIT</code> can be coded to allow the server to exit gracefully before starting to process service requests.
+</p>
+<h3 class="pHeading2"><a name="wp1393020"> </a>
+System-supplied Services: TPSVRDONE Routine
+</h3>
+<p class="pBody"><a name="wp1167782"> </a>
+The <code class="cCode">TPSVRDONE</code> routine calls <code class="cCode">TPCLOSE</code> to close the resource manager, similarly to the way <code class="cCode">TPSVRINIT</code> calls <code class="cCode">TPOPEN</code> to open it. 
+</p>
+<p class="pBody"><a name="wp1167787"> </a>
+Use the following signature to call the <code class="cCode">TPSVRDONE</code> routine:
+</p>
+<a name="wp1393180"> </a><div class="pPreformatted"><pre>  01 <em class="cEmphasis">TPSTATUS-REC</em>.<br />     COPY TPSTATUS.<br />  PROCEDURE DIVISION.<br />* User code<br />  EXIT PROGRAM.</pre></div><p class="pBody"><a name="wp1167796"> </a>
+The following example illustrates how to use the <code class="cCode">TPSVRDONE</code> routine to close a resource manager and exit gracefully.
+</p>
+<div class="pCodeTitle"><a name="wp1393252"> </a>
+Listing&#160;5-3	   Closing a Resource Manager with TPSVRDONE
+</div> <a name="wp1393253"> </a><div class="pPreformatted"><pre>&#160;&#160;IDENTIFICATION DIVISION.<br />&#160;&#160;PROGRAM-ID. TPSVRDONE.<br />&#160;&#160;ENVIRONMENT DIVISION.<br />&#160;&#160;CONFIGURATION SECTION.<br />&#160;&#160;SOURCE-COMPUTER. USL-486.<br />&#160;&#160;OBJECT-COMPUTER. USL-486.<br />*<br />&#160;&#160;DATA DIVISION.<br />&#160;&#160;WORKING-STORAGE SECTION.<br />&#160;&#160;&#160;01 TPSTATUS-REC.<br />&#160;&#160;&#160;&#160;&#160;&#160;COPY TPSTATUS.<br />&#160;&#160;&#160;01 LOGMSG                PIC X(50).<br />&#160;&#160;&#160;01 LOGMSG-LEN            PIC S9(9) COMP-5.<br />&#160;&#160;&#160;01 SERVER-DONE-STATUS.<br />&#160;&#160;&#160;&#160;&#160;&#160;COPY TPSTATUS.<br />&#160;&#160;PROCEDURE DIVISION.<br />&#160;&#160;A-START.<br />&#160;&#160;&#160;CALL &quot;TPCLOSE&quot; USING TPSTATUS-REC.<br />&#160;&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;TPCLOSE Failed&quot; TO LOGMSG<br />&#160;&#160;&#160;ELSE IF TPESYSTEM<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;System /T error has occurred&quot; TO LOGMSG<br />&#160;&#160;&#160;ELSE IF TPEOS<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;An Operating System error has occurred&quot; TO LOGMSG<br />&#160;&#160;&#160;ELSE IF TPEPROTO<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;TPCLOSE was called in an improper Context&quot; TO LOGMSG<br />&#160;&#160;&#160;ELSE IF TPERMERR<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;Resource manager Failed to Open&quot; TO LOGMSG<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM EXIT-NOW.<br />&#160;&#160;&#160;SET TPOK IN SERVER-DONE-STATUS TO TRUE.<br />&#160;&#160;&#160;EXIT PROGRAM.<br />&#160;&#160;EXIT-NOW.<br />&#160;&#160;&#160;SET TPEINVAL IN SERVER-DONE-STATUS TO TRUE<br />&#160;&#160;&#160;MOVE 50 LOGMSG-LEN.<br />&#160;&#160;&#160;CALL &quot;USERLOG&quot; USING LOGMSG<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LOGMSG-LEN<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;&#160;EXIT PROGRAM.</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1167805"> </a>
+Guidelines for Writing Servers
+</h2><p class="pBody"><a name="wp1167806"> </a>
+Because the communication details are handled by the Oracle Tuxedo system controlling program, you can concentrate on the application service logic rather than communication implementation. For compatibility with the system-supplied controlling program, however, application services must adhere to certain conventions. These conventions are referred to, collectively, as the service template for coding service routines. They are summarized in the following list. 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1167810"> </a>A request/response service can receive only one request at a time and can send only one reply.</li>
+<li><a name="wp1167811"> </a>When processing a request, a request/response service works only on that request. It can accept another only after it has either sent a reply to the requester or forwarded the request to another service for additional processing.</li>
+<li><a name="wp1167812"> </a>Service routines must terminate by calling either the <code class="cCode">TPRETURN</code> or <code class="cCode">TPFORWAR</code> routine. </li>
+<li><a name="wp1167813"> </a>When communicating with another server via <code class="cCode">TPACALL</code>, the initiating service must either wait for all outstanding replies or invalidate them with <code class="cCode">TPCANCEL</code> before calling <code class="cCode">TPRETURN</code> or <code class="cCode">TPFORWAR</code>.</li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1250152"> </a>
+Defining a Service
+</h2><p class="pBody"><a name="wp1393485"> </a>
+When writing a service routine, you must call the TPSV<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>CSTART(3cbl)</span> routine before any others. This routine is used to retrieve the service&#8217;s parameters and data. Use the following signature to call the <code class="cCode">TPSVCSTART</code> routine
+</p>
+<a name="wp1393486"> </a><div class="pPreformatted"><pre>01 <em class="cEmphasis">TPSVCDEF-REC</em>.<br />   COPY TPSVCDEF.<br />01 <em class="cEmphasis">TPTYPE-REC</em>.<br />   COPY TPTYPE.<br />01 <em class="cEmphasis">DATA-REC</em>.<br />   COPY User Data.<br />01 <em class="cEmphasis">TPSTATUS-REC</em>.<br />   COPY TPSTATUS.<br />CALL &quot;TPSVCSTART&quot; USING <em class="cEmphasis">TPSVCDEF-REC TPTYPE-REC DATA-REC TPSTATUS-REC</em>.</pre></div><p class="pBody"><a name="wp1393487"> </a>
+The service information data structure is defined as <code class="cCode">TPSVCDEF</code> in the COBOL <code class="cCode">COPY</code> file. It includes the following members:
+</p>
+<a name="wp1393488"> </a><div class="pPreformatted"><pre> 05 COMM-HANDLE          PIC S9(9) COMP-5.<br /> 05 TPBLOCK-FLAG         PIC S9(9) COMP-5.<br />        88 TPBLOCK       VALUE 0.<br />        88 TPNOBLOCK     VALUE 1.<br /> 05 TPTRAN-FLAG          PIC S9(9) COMP-5.<br />        88 TPTRAN        VALUE 0.<br />        88 TPNOTRAN      VALUE 1.<br /> 05 TPREPLY-FLAG         PIC S9(9) COMP-5.<br />        88 TPREPLY       VALUE 0.<br />        88 TPNOREPLY     VALUE 1.<br /> 05 TPACK-FLAG         PIC S9(9) COMP-5 REDEFINES TPREPLY-FLAG.<br />        88 TPNOACK        VALUE 0.<br />        88 TPACK          VALUE 1.<br /> 05 TPTIME-FLAG          PIC S9(9) COMP-5.<br />        88 TPTIME        VALUE 0.<br />        88 TPNOTIME      VALUE 1.<br /> 05 TPSIGRSTRT-FLAG      PIC S9(9) COMP-5.<br />        88 TPNOSIGRSTRT   VALUE 0.<br />        88 TPSIGRSTRT     VALUE 1.<br /> 05 TPGETANY-FLAG        PIC S9(9) COMP-5.<br />        88 TPGETHANDLE   VALUE 0.<br />        88 TPGETANY      VALUE 1.<br /> 05 TPSENDRECV-FLAG      PIC S9(9) COMP-5.<br />        88 TPSENDONLY     VALUE 0.<br />        88 TPRECVONLY     VALUE 1.<br /> 05 TPNOCHANGE-FLAG      PIC S9(9) COMP-5.<br />        88 TPCHANGE      VALUE 0.<br />        88 TPNOCHANGE    VALUE 1.<br /> 05 TPSERVICETYPE-FLAG   PIC S9(9) COMP-5.<br />        88 TPREQRSP      VALUE 0.<br />        88 TPCONV        VALUE 1.<br />*<br /> 05 APPKEY               PIC S9(9) COMP-5.<br /> 05 CLIENTID OCCURS 4 TIMES PIC S9(9) COMP-5.<br /> 05 SERVICE-NAME         PIC X(127).</pre></div><p class="pBody"><a name="wp1393489"> </a>
+The following table describes the members of a <code class="cCode">TPSVCDEF</code> data structure.
+</p>
+<p class="pGraphic"><a name="wp1393518"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp274863table1393490"><caption><a name="wp274863"> </a>
+Table 5-1  TPSVCDEF Data Structure
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1393492"> </a>
+Field
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1393494"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1393496"> </a>
+<code class="cCode">COMM-HANDLE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1393498"> </a>
+Specifies, to the service routine, the communication handle used by the requesting process to invoke the service.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1393500"> </a>
+<code class="cCode">SETTINGS<br /></code>(<code class="cCode">TPBLOCK-FLAG<br /> TPTRAN-FLAG</code>, etc.)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1393502"> </a>
+Miscellaneous settings that control server characteristics. For more information on the settings, refer to the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1393507"> </a>
+<code class="cCode">APPKEY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1393509"> </a>
+Reserved for use by the application. If application-specific authentication is part of your design, the application-specific authentication server, which is called at the time a client joins the application, should return a client authentication key, as well as a success or failure indication. The Oracle Tuxedo system holds the <code class="cCode">APPKEY</code> on behalf of the client and passes the information to subsequent service requests in this field. By the time the <code class="cCode">APPKEY</code> is passed to the service, the client has already been authenticated. However, the <code class="cCode">APPKEY</code> field can be used within the service to identify the user invoking the service or some other parameters associated with the user. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1393511"> </a>
+<code class="cCode">CLIENTID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1393513"> </a>
+Identifier of the client that originates a request.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1393515"> </a>
+<code class="cCode">SERVICE-NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1393517"> </a>
+Name of the service routine used by the requesting process to invoke the service.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1393522"> </a>
+For a description of the <code class="cCode">TPTYPE-REC</code> data structure, refer to <a href="pbbuf.html#wp1266946">Defining Typed Records</a>.
+</p>
+<p class="pBody"><a name="wp1393523"> </a>
+You must code the service in such a way that when it accesses the request data to be placed in <code class="cCode">DATA-REC</code>, it expects the data to be in a record of the type defined for the service in the configuration file. Upon successful return, <code class="cCode">DATA-REC</code> contains the data received and <code class="cCode">LEN</code> contains the actual number of bytes moved.
+</p>
+<p class="pBody"><a name="wp1393524"> </a>
+The following sample listing shows a typical service definition.
+</p>
+<div class="pCodeTitle"><a name="wp1393526"> </a>
+Listing&#160;5-4	   Typical Service Definition
+</div> <a name="wp1393527"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;IDENTIFICATION DIVISION.<br />&#160;&#160;&#160;&#160;PROGRAM-ID. BUYSR.<br />&#160;&#160;&#160;&#160;AUTHOR. TUXEDO DEVELOPMENT.<br />&#160;&#160;&#160;&#160;ENVIRONMENT DIVISION.<br />&#160;&#160;&#160;&#160;CONFIGURATION SECTION.<br />&#160;&#160;&#160;&#160;SOURCE-COMPUTER. USL-486.<br />&#160;&#160;&#160;&#160;OBJECT-COMPUTER. USL-486.<br />*<br />&#160;&#160;&#160;&#160;INPUT-OUTPUT SECTION.<br />&#160;&#160;&#160;&#160;. . .<br />******************************************************<br />* Tuxedo definitions<br />******************************************************<br />&#160;&#160;&#160;&#160;01 TPSVCRET-REC.<br />&#160;&#160;&#160;&#160;COPY TPSVCRET.<br />*<br />&#160;&#160;&#160;&#160;01 TPTYPE-REC.<br />&#160;&#160;&#160;&#160;COPY TPTYPE.<br />*<br />&#160;&#160;&#160;&#160;01 TPSTATUS-REC.<br />&#160;&#160;&#160;&#160;COPY TPSTATUS.<br />*<br />&#160;&#160;&#160;&#160;01 TPSVCDEF-REC.<br />&#160;&#160;&#160;&#160;COPY TPSVCDEF.<br />******************************************************<br />* Log message definitions<br />******************************************************<br />&#160;&#160;&#160;&#160;01 LOGMSG.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;05 LOGMSG-TEXT        PIC X(50).<br />*<br />&#160;&#160;&#160;&#160;01 LOGMSG-LEN                 PIC S9(9) COMP-5.<br />******************************************************<br />* User defined data records<br />******************************************************<br />&#160;&#160;&#160;&#160;01 CUST-REC.<br />&#160;&#160;&#160;&#160;COPY CUST.<br />*<br />&#160;&#160;&#160;&#160;LINKAGE SECTION.<br />*<br />&#160;&#160;&#160;&#160;PROCEDURE DIVISION.<br />*<br /> START-BUYSR.<br />&#160;&#160;&#160;&#160;MOVE LENGTH OF LOGMSG TO LOGMSG-LEN.<br />&#160;&#160;&#160;&#160;OPEN files or DATABASE<br />******************************************************<br />* Get the data that was sent by the client<br />******************************************************<br />&#160;&#160;&#160;&#160;MOVE &quot;Server Started&quot; TO LOGMSG-TEXT.<br />&#160;&#160;&#160;&#160;PERFORM DO-USERLOG.<br />&#160;&#160;&#160;&#160;MOVE LENGTH OF CUST-REC TO LEN IN TPTYPE-REC.<br />&#160;&#160;&#160;&#160;CALL &quot;TPSVCSTART&quot; USING TPSVCDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CUST-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;&#160;&#160;IF TPTRUNCATE<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;Input data exceeded CUST-REC length&quot; TO LOGMSG-TEXT<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM DO-USERLOG<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM A-999-EXIT.<br />&#160;&#160;&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;TPSVCSTART Failed&quot; TO LOGMSG-TEXT<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM DO-USERLOG<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM A-999-EXIT.<br />&#160;&#160;&#160;&#160;IF REC-TYPE NOT = &quot;VIEW&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;REC-TYPE in not VIEW&quot; TO LOGMSG-TEXT<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM DO-USERLOG<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM A-999-EXIT.<br />&#160;&#160;&#160;&#160;IF SUB-TYPE NOT = &quot;cust&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;SUB-TYPE in not cust&quot; TO LOGMSG-TEXT<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM DO-USERLOG<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM A-999-EXIT.<br />&#160;&#160;&#160;&#160;&#160;. . .<br />   <em class="cEmphasis">  set consistency level of the transaction<br /></em>&#160;&#160;&#160;&#160;&#160;. . .<br />******************************************************<br />* Exit<br />******************************************************<br />&#160;&#160;A-999-EXIT.<br />&#160;&#160;&#160;&#160;&#160;MOVE &quot;Exiting&quot; TO LOGMSG-TEXT.<br />&#160;&#160;&#160;&#160;&#160;PERFORM DO-USERLOG.<br />&#160;&#160;&#160;&#160;&#160;SET TPFAIL TO TRUE.<br />&#160;&#160;&#160;&#160;&#160;COPY TPRETURN REPLACING TPSVCRET-REC BY TPSVCRET-REC<br />&#160;&#160;&#160;&#160;&#160;TPTYPE-REC BY TPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;DATA-REC BY CUST-REC<br />&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC BY TPSTATUS-REC.<br />******************************************************<br />* Write to userlog<br />******************************************************<br />&#160;&#160;DO-USERLOG.<br />&#160;&#160;&#160;&#160;&#160;CALL &quot;USERLOG&quot; USING LOGMSG<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LOGMSG-LEN<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.</pre></div><p class="pBody"><a name="wp1393529"> </a>
+In the preceding example, the request record on the client side was originally sent with <code class="cCode">REC-TYPE</code> set to <code class="cCode">VIEW</code> and the <code class="cCode">SUB-TYPE</code> set to <code class="cCode">cust</code>. The <code class="cCode">BUYSR</code> service is defined in the configuration file as a service that knows about the <code class="cCode">VIEW</code> typed record. <code class="cCode">BUYSR</code> retrieves the data record by accessing the <code class="cCode">CUST-REC</code> record. The consistency level of the transaction is specified after this record is retrieved but before the first database access is made. For more details on transaction consistency levels, refer to <span class="cHyperlink">
+<a href="../pgc/pgglob.html">&#8220;Writing Global Transactions&#8221; </a></span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em>.
+</p>
+<a name="wp1167941"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The <code class="cCode">TPGPRIO</code> and <code class="cCode">TPSPRIO</code> routines, used for getting and setting priorities, respectively, are described in detail in <span class="cHyperlink">
+<a href="../pgc/pgreq.html">&#8220;Setting and Getting Message Priorities&#8221; </a></span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em>.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1167945"> </a>
+The example code in this section shows how a service called <code class="cCode">PRINTER</code> tests the priority level of the request just received using the <code class="cCode">TPGPRIO</code> routine. Then, based on the priority level, the application routes the print job to the appropriate destination printer <code class="cCode">RNAME</code>.
+</p>
+<p class="pBody"><a name="wp1252868"> </a>
+Next, the contents of <code class="cCode">INPUT-REC</code> are sent to the printer. The application queries <code class="cCode">TPSVCDEF-REC</code> to determine whether a reply is expected. If so, it returns the name of the destination printer to the client. For more information on the <code class="cCode">TPRETURN</code> routine, refer to <a href="pbserv.html#wp1167959">Terminating a Service Routine</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1393800"> </a>
+Listing&#160;5-5	   Checking the Priority of a Received Request
+</div> <a name="wp1393801"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;IDENTIFICATION DIVISION.<br />&#160;&#160;&#160;&#160;PROGRAM-ID. PRINTSR.<br />&#160;&#160;&#160;&#160;AUTHOR. TUXEDO DEVELOPMENT.<br />&#160;&#160;&#160;&#160;ENVIRONMENT DIVISION.<br />&#160;&#160;&#160;&#160;CONFIGURATION SECTION.<br />&#160;&#160;&#160;&#160;SOURCE-COMPUTER. USL-486.<br />&#160;&#160;&#160;&#160;OBJECT-COMPUTER. USL-486.<br />*<br />&#160;&#160;&#160;&#160;INPUT-OUTPUT SECTION.<br />&#160;&#160;&#160;&#160;. . .<br />******************************************************<br />* Tuxedo definitions<br />******************************************************<br />&#160;&#160;&#160;&#160;01 TPSVCRET-REC.<br />&#160;&#160;&#160;&#160;COPY TPSVCRET.<br />*<br />&#160;&#160;&#160;&#160;01 TPTYPE-REC.<br />&#160;&#160;&#160;&#160;COPY TPTYPE.<br />*<br />&#160;&#160;&#160;&#160;01 TPSTATUS-REC.<br />&#160;&#160;&#160;&#160;COPY TPSTATUS.<br />*<br />&#160;&#160;&#160;&#160;01 TPSVCDEF-REC.<br />&#160;&#160;&#160;&#160;COPY TPSVCDEF.<br />*<br />&#160;&#160;&#160;&#160;01 TPPRIDEF-REC.<br />&#160;&#160;&#160;&#160;COPY TPPRIDEF.<br />******************************************************<br />* Log message definitions<br />******************************************************<br />&#160;&#160;&#160;&#160;01 LOGMSG.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;05 FILLER           PIC S9(9) VALUE<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;TP-STATUS=&quot;.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;05 LOG-TP-STATUS    PIC S9(9).<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;05 LOGMSG-TEXT      PIC X(50).<br />*<br />&#160;&#160;&#160;&#160;01 LOGMSG-LEN  PIC S9(9) COMP-5.<br />******************************************************<br />* User defined data records<br />******************************************************<br />&#160;&#160;&#160;&#160;01 INPUT-REC           PIC X(1000).<br />&#160;&#160;&#160;&#160;01 PRNAME              PIC X(20).<br />*<br />&#160;&#160;&#160;&#160;LINKAGE SECTION.<br />*<br />&#160;&#160;&#160;&#160;PROCEDURE DIVISION.<br />*<br />&#160;START-PRINTSR.<br />&#160;&#160;&#160;&#160;MOVE LENGTH OF LOGMSG TO LOGMSG-LEN.<br />&#160;&#160;&#160;&#160;OPEN files or DATABASE<br />******************************************************<br />* Get the data that was sent by the client<br />******************************************************<br />&#160;&#160;&#160;&#160;MOVE ZERO to TP-STATUS.<br />&#160;&#160;&#160;&#160;MOVE &quot;Server Started&quot; TO LOGMSG-TEXT.<br />&#160;&#160;&#160;&#160;PERFORM DO-USERLOG.<br />&#160;&#160;&#160;&#160;MOVE LENGTH OF INPUT-REC TO LEN.<br />&#160;&#160;&#160;&#160;CALL &quot;TPSVCSTART&quot; USING TPSVCDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;INPUT-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;TPSVCSTART Failed&quot; TO LOGMSG-TEXT<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM DO-USERLOG<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SET TPFAIL TO TRUE.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM A-999-EXIT.<br />&#160;&#160;&#160;&#160;. . .<br />&#160;&#160;&#160;&#160;<em class="cEmphasis">Check other parameters<br /></em>&#160;&#160;&#160;&#160;CALL &quot;TPGPRIO&quot; USING TPPRIDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;TPGPRIO Failed&quot; TO LOGMSG-TEXT<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM DO-USERLOG<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SET TPFAIL TO TRUE.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM A-999-EXIT.<br />&#160;&#160;&#160;&#160;IF PRIORITY &lt; 20<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;BIGJOBS&quot; TO RNAME<br />&#160;&#160;&#160;&#160;ELSE IF PRIORITY &lt; 60<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;MEDJOBS&quot; TO RNAME<br />&#160;&#160;&#160;&#160;ELSE<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;HIGHSPEED&quot; TO RNAME.<br />&#160;&#160;&#160;&#160;. . .<br />&#160;&#160;&#160;&#160;<em class="cEmphasis">Print INPUT-REC on RNAME printer<br /></em>&#160;&#160;&#160;&#160;. . .<br />&#160;&#160;&#160;&#160;IF TPNOREPLY<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE SPACES TO REC-TYPE<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE 0 TO LEN<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SET TPSUCCESS TO TRUE<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM A-999-EXIT<br />&#160;&#160;&#160;&#160;IF TPREPLY<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;STRING&quot; TO REC-TYPE<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE LENGTH OF PRNAME TO LEN<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SET TPSUCCESS TO TRUE<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM A-999-EXIT.<br />******************************************************<br />* Exit<br />******************************************************<br /> A-999-EXIT.<br />&#160;&#160;&#160;&#160;&#160;MOVE &quot;Exiting&quot; TO LOGMSG-TEXT.<br />&#160;&#160;&#160;&#160;&#160;PERFORM DO-USERLOG.<br />&#160;&#160;&#160;&#160;&#160;SET TPSUCCESS TO TRUE.<br />&#160;&#160;&#160;&#160;&#160;COPY TPRETURN REPLACING TPSVCRET-REC BY TPSVCRET-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTYPE-REC buTPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DATA-REC BY PRNAME<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC BY TPSTATUS-REC.<br />******************************************************<br />* Write to userlog<br />******************************************************<br /> DO-USERLOG.<br />&#160;&#160;&#160;&#160;&#160;MOVE TP-STATUS TO LOG-TP-STATUS.<br />&#160;&#160;&#160;&#160;&#160;CALL &quot;USERLOG&quot; USING LOGMSG<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LOGMSG-LEN<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1167959"> </a>
+Terminating a Service Routine
+</h2><p class="pBody"><a name="wp1167960"> </a>
+The TPRET<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>URN(3cbl)</span>, TPCANCEL(3<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>cbl)</span>, and TPFO<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>RWAR(3cbl)</span> routines specify that a service routine has completed with one of the following actions:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1167961"> </a><code class="cCode">TPRETURN</code> sends a reply to the calling client.</li>
+<li><a name="wp1167962"> </a><code class="cCode">TPCANCEL</code> cancels the current request.</li>
+<li><a name="wp1167963"> </a><code class="cCode">TPFORWAR</code> forwards a request to another service for further processing.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1167965"> </a>
+Sending Replies
+</h3>
+<p class="pBody"><a name="wp1167966"> </a>
+The TPRETUR<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>N(3cbl)</span> and TPFORWA<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>R(3cbl)</span> calls are COBOL copy files that contain <code class="cCode">EXIT</code> statements to mark the end of a service routine and send a message to the requester or forward the request to another service, respectively. Use the following signature to call the <code class="cCode">TPRETURN</code> routine:
+</p>
+<a name="wp1394030"> </a><div class="pPreformatted"><pre> 01 <em class="cEmphasis">TPSVCRET-REC</em>.<br />    COPY TPSVCRET.<br /> 01 <em class="cEmphasis">TPTYPE-REC</em>.<br />    COPY TPTYPE.<br /> 01 <em class="cEmphasis">DATA-REC</em>.<br />    COPY User Data.<br /> 01 <em class="cEmphasis">TPSTATUS-REC</em>.<br />    COPY TPSTATUS.<br /> COPY TPRETURN REPLACING TPSVCRET-REC BY <em class="cEmphasis">TPSVCRET-REC<br /></em>               TPTYPE-REC BY <em class="cEmphasis">TPTYPE-REC<br /></em>               DATA-REC BY <em class="cEmphasis">DATA-REC<br /></em>                TPSTATUS-REC BY <em class="cEmphasis">TPSTATUS-REC</em>.</pre></div><a name="wp1394031"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>You must use <code class="cCode">COPY</code> here instead of <code class="cCode">CALL</code> to ensure that the <code class="cCode">EXIT</code> statement is called properly, and the COBOL service routine returns control to the Oracle Tuxedo system.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1394032"> </a>
+The following listing provides the <code class="cCode">TPSVCRET-REC</code> record signature:
+</p>
+<a name="wp1394033"> </a><div class="pPreformatted"><pre> 05 <em class="cEmphasis">TPRETURN-VAL    PIC S9(9) COMP-5.<br /></em>   88 TPSUCCESS     VALUE 0.<br />   88 TPFAIL        VALUE 1.<br />   88 TPFAIL        VALUE 2.<br /> 05 <em class="cEmphasis">APPL-CODE      PIC S9(9) COMP-5.</em></pre></div><p class="pBody"><a name="wp1167972"> </a>
+<a href="pbserv.html#wp274782">Table&#160;5-2</a> describes the members of a <code class="cCode">TPSVCRET-REC</code> data structure.
+</p>
+<p class="pGraphic"><a name="wp1167973"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp274782table1167974"><caption><a name="wp274782"> </a>
+Table 5-2  TPSVCRET-REC Data Structure Members
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1167976"> </a>
+Member
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1167978"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1167980"> </a>
+<code class="cCode">TP-RETURN-VAL</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1167982"> </a>
+Indicates whether or not the service has completed successfully on an application-level. The value is an integer that is represented by a symbolic name. Valid settings include:
+</div>
+<div class="pSmartList1TableBullet"><ul class="SmartList1TableBullet">
+<li><a name="wp1167983"> </a><code class="cCode">TPSUCCESS</code>&#8212;the calling routine succeeded. The routine stores the reply message in the caller&#8217;s record. If there is a reply message, it is in the caller&#8217;s record. </li>
+<li><a name="wp1167984"> </a><code class="cCode">TPFAIL</code> (default)&#8212;the service terminated unsuccessfully. The routine reports an error message to the client process waiting for the reply. In this case, the client&#8217;s <code class="cCode">TPCALL</code> or <code class="cCode">TPGETRPLY</code> routine call fails and the system sets the <code class="cCode">TP-STATUS</code> variable to <code class="cCode">TPESVCFAIL</code> to indicate an application-defined failure. If a reply message was expected, it is available in the caller&#8217;s record. </li>
+<li><a name="wp1200777"> </a><code class="cCode">TPEXIT</code>&#8212;the service terminated unsuccessfully. The routine reports an error message to the client process waiting for the reply, and exits.</li>
+</ul></div>
+<div class="pCellBody"><a name="wp1167986"> </a>
+For a description of the effect that the value of this argument has on global transactions, refer to <span class="cHyperlink">
+&#8220;Writing </span><a href="../pgc/pgglob.html"></a>Global Transactions&#8221; in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1167991"> </a>
+<code class="cCode">APPLC-CODE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1167993"> </a>
+Returns an application-defined return code to the caller. The client can access the value returned in <code class="cCode">APPLC-CODE</code> by querying <code class="cCode">APPL-RETURN-CODE IN TPSTATUS-REC</code>. The routine returns this code regardless of success or failure.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1394090"> </a>
+Refer to <a href="pbserv.html#wp1250152">Defining a Service</a> for a description of the <code class="cCode">TPTYPE-REC</code> record.
+</p>
+<p class="pBody"><a name="wp1253421"> </a>
+The primary function of a service routine is to process a request and return a reply to a client process. It is not necessary, however, for a single service to do all the work required to perform the requested function. A service can act as a requester and pass a request call to another service the same way a client issues the original request: through calls to <code class="cCode">TPCALL</code> or <code class="cCode">TPACALL</code>. 
+</p>
+<a name="wp1253426"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The <code class="cCode">TPCALL</code> and <code class="cCode">TPACALL</code> routines are described in detail in <span class="cHyperlink">
+<a href="../pgc/pgreq.html">&#8220;Writing Request/Response Clients and Servers&#8221; </a></span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em>.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1233856"> </a>
+When <code class="cCode">TPRETURN</code> is called, control always returns to the controlling program. If a service has sent requests with asynchronous replies, it must receive all expected replies or invalidate them with <code class="cCode">TPCANCEL</code> before returning control to the controlling program. Otherwise, the outstanding replies are automatically dropped when they are received by the Oracle Tuxedo system controlling program, and an error is returned to the caller.
+</p>
+<p class="pBody"><a name="wp1168022"> </a>
+If the client invokes the service with <code class="cCode">TPCALL</code>, after a successful call to <code class="cCode">TPRETURN</code>, the reply message is available in the <code class="cCode">O-DATA-REC</code> record. If <code class="cCode">TPACALL</code> is used to send the request, and <code class="cCode">TPRETURN</code> returns successfully, the reply message is available in the <code class="cCode">DATA-REC</code> record of <code class="cCode">TPGETRPLY</code>. 
+</p>
+<p class="pBody"><a name="wp1206182"> </a>
+If a reply is expected and <code class="cCode">TPRETURN</code> encounters errors while processing its arguments, it sends a <code class="cCode">failed</code> message to the calling process. The caller detects the error by checking the value placed in <code class="cCode">TP-STATUS</code>. In the case of failed messages, the system sets the <code class="cCode">TP-STATUS</code> to <code class="cCode">TPESVCERR</code>. This situation takes precedence over the value of <code class="cCode">APPL-RETURN-CODE IN TPSTATUS-REC</code>. If this type of error occurs, no reply data is returned, and both the contents and length of the caller&#8217;s output record remain unchanged.
+</p>
+<p class="pBody"><a name="wp1168024"> </a>
+If <code class="cCode">TPRETURN</code> returns a message in a record of an unknown type or a record that is not allowed by the caller (that is, if the call is made with <code class="cCode">TPNOCHANGE</code>), the system returns <code class="cCode">TPEOTYPE</code> in <code class="cCode">TP-STATUS</code>. In this case, application success or failure cannot be determined, and the contents and length of the output record remain unchanged.
+</p>
+<p class="pBody"><a name="wp1168025"> </a>
+The value returned in <code class="cCode">APPL-RETURN-CODE IN TPSTATUS-REC</code> is not relevant if the <code class="cCode">TPRETURN</code> routine is invoked and a timeout occurs for the call waiting for the reply. This situation takes precedence over all others in determining the value that is returned in <code class="cCode">TP-STATUS</code>. In this case, <code class="cCode">TP-STATUS</code> is set to <code class="cCode">TPETIME</code> and the reply data is not sent, leaving the contents and length of the caller&#8217;s reply record unchanged. There are two types of timeouts in the Oracle Tuxedo system: blocking and transaction timeouts (discussed in <span class="cHyperlink">
+<a href="../pgc/pgglob.html">&#8220;Writing Global Transactions&#8221; </a></span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em>).
+</p>
+<p class="pBody"><a name="wp1252364"> </a>
+The example code in this section shows the <code class="cCode">TRANSFER</code> service that is part of the <code class="cCode">XFER</code> server. Basically, the <code class="cCode">TRANSFER</code> service makes synchronous calls to the <code class="cCode">WITHDRAWAL</code> and <code class="cCode">DEPOSIT</code> services. It allocates a separate record for the reply message since it must use the request record for the calls to both the <code class="cCode">WITHDRAWAL</code> and the <code class="cCode">DEPOSIT</code> services. If the call to <code class="cCode">WITHDRAWAL</code> fails, the service writes the message <code class="cCode">cannot withdraw</code> on the status line of the form and sets <code class="cCode">TP-RETURN-VAL IN TPSVCRET-REC</code> of the <code class="cCode">TPRETURN</code> routine to <code class="cCode">TPFAIL</code>. If the call succeeds, the debit balance is retrieved from the reply record.
+</p>
+<a name="wp1168030"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>In the following example, the application moves the identifier for the &#8220;destination account&#8221; (which is retrieved from the <code class="cCode">cr_id</code> variable) to the zeroth occurrence of the <code class="cCode">ACCOUNT_ID</code> field in the <code class="cCode">transf</code> fielded record. This move is necessary because this occurrence of the field in an <code class="cCode">FML</code> record is used for data-dependent routing. Refer to <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em> for more information.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1168034"> </a>
+A similar scenario is followed for the call to <code class="cCode">DEPOSIT</code>. On success, the service sets the <code class="cCode">TP-RETURN-VAL IN TPSVCRET-REC</code> to <code class="cCode">TPSUCCESS</code>, returning the pertinent account information to the status line.
+</p>
+<div class="pCodeTitle"><a name="wp1394887"> </a>
+Listing&#160;5-6	   TPRETURN Routine
+</div> <a name="wp1401847"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;IDENTIFICATION DIVISION.<br />&#160;&#160;&#160;PROGRAM-ID. TRANSFER.<br />&#160;&#160;&#160;AUTHOR. TUXEDO DEVELOPMENT.<br />&#160;&#160;&#160;ENVIRONMENT DIVISION.<br />&#160;&#160;&#160;CONFIGURATION SECTION.<br />&#160;&#160;&#160;SOURCE-COMPUTER. USL-486.<br />&#160;&#160;&#160;OBJECT-COMPUTER. USL-486.<br />*<br />&#160;&#160;&#160;INPUT-OUTPUT SECTION.<br />&#160;&#160;&#160;. . .<br />******************************************************<br />* Tuxedo definitions<br />******************************************************<br />&#160;&#160;&#160;01  TPSVCRET-REC.<br />&#160;&#160;&#160;COPY TPSVCRET.<br />*<br />&#160;&#160;&#160;01  TPTYPE-REC.<br />&#160;&#160;&#160;COPY TPTYPE.<br />*<br />&#160;&#160;&#160;01 TPSTATUS-REC.<br />&#160;&#160;&#160;COPY TPSTATUS.<br />*<br />&#160;&#160;&#160;01  TPSVCDEF-REC.<br />&#160;&#160;&#160;COPY TPSVCDEF.<br />******************************************************<br />* User defined data records<br />******************************************************<br />&#160;&#160;&#160;01 TRANS-REC.<br />&#160;&#160;&#160;&#160;&#160;&#160;COPY TRANS-AMOUNT.<br />*<br />&#160;&#160;&#160;LINKAGE SECTION.<br />*<br />&#160;&#160;&#160;PROCEDURE DIVISION.<br />*<br />&#160;&#160;&#160;START-TRANSFER.<br />******************************************************<br />* Get the data that was sent by the client<br />******************************************************<br />&#160;&#160;&#160;&#160;MOVE LENGTH OF TRANS-REC TO LEN.<br />&#160;&#160;&#160;&#160;CALL &quot;TPSVCSTART&quot; USING TPSVCDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TRANS-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;Transaction Encountered An Error&quot; TO STATUS-LINE<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SET TPFAIL TO TRUE.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;COPY TPRETURN REPLACING TPSVCRET-REC BY TPSVCRET-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTYPE-REC BY TPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DATA-REC BY TRANS-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC BY TPSTATUS-REC.<br />&#160;&#160;&#160;&#160;ELSE<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;. . . <em class="cEmphasis">Check other parameters<br /></em>******************************************************<br />* must have a valid debit and credit account number<br />******************************************************<br />&#160;&#160;&#160;&#160;CALL &quot;FIND-ACCOUNT-FUNCTION&quot; USING TRANS-DEBIT-ACCOUNT IN  TRANS-REC.<br /><br />&#160;&#160;&#160;&#160;IF TRANS-DEBIT-ACCOUNT is not valid<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;Invalid Debit Account Number&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TO STATUS-LINE IN TRANS-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SET TPFAIL TO TRUE<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;COPY TPRETURN REPLACING<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DATA-REC BY TRANS-REC.<br /><br />&#160;&#160;&#160;&#160;CALL &quot;FIND-ACCOUNT-FUNCTION&quot; USING TRANS-CREDIT-ACCOUNT IN TRANS-REC.<br />&#160;&#160;<br />&#160;&#160;&#160;&#160;IF TRANS-CREDIT-ACCOUNT <em class="cEmphasis">is not valid<br /></em>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;Invalid Credit Account Number&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TO STATUS-LINE IN TRANS-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SET TPFAIL TO TRUE<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;COPY TPRETURN REPLACING<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DATA-REC BY TRANS-REC.<br />******************************************************<br />*  Check amount to transfer<br />******************************************************<br />&#160;&#160;&#160;&#160;IF TRANS-AMOUNT IN TRANS-REC &lt; 0<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;Invalid Transfer Amount Requested&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TO STATUS-LINE IN TRANS-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SET TPFAIL TO TRUE<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;COPY TPRETURN REPLACING<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DATA-REC BY TRANS-REC.<br />******************************************************<br />*  Make Withdrawal using another service<br />******************************************************<br />&#160;&#160;&#160;&#160;MOVE &quot;WITHDRAWAL&quot; TO SERVICE-NAME.<br />&#160;&#160;&#160;&#160;. . . <em class="cEmphasis">set other TPCALL parameters<br /></em>&#160;&#160;&#160;&#160;CALL &quot;TPCALL&quot; USING . . .<br />&#160;&#160;&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;Cannot withdraw from debit account&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TO STATUS-LINE IN TRANS-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SET TPFAIL TO TRUE<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;COPY TPRETURN REPLACING<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DATA-REC BY TRANS-REC.<br />******************************************************<br />*  Make Deposit using another service<br />******************************************************<br />&#160;&#160;&#160;&#160;MOVE &quot;DEPOSIT&quot; TO SERVICE-NAME.<br />&#160;&#160;&#160;&#160;. . . <em class="cEmphasis">set other TPCALL parameters<br /></em>&#160;&#160;&#160;&#160;CALL &quot;TPCALL&quot; USING . . .<br />&#160;&#160;&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;Cannot Deposit into credit account&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TO STATUS-LINE IN TRANS-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SET TPFAIL TO TRUE<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;COPY TPRETURN REPLACING<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DATA-REC BY TRANS-REC.<br />&#160;&#160;&#160;&#160;. . .<br />&#160;&#160;&#160;&#160;MOVE &quot;Transfer completed&quot; TO STATUS-LINE IN TRANS-REC<br />&#160;&#160;&#160;&#160;. . . MOVE <em class="cEmphasis">all the data into TRANS-REC needed by the client<br /></em>&#160;&#160;&#160;&#160;SET TPSUCCESS TO TRUE<br />&#160;&#160;&#160;&#160;COPY TPRETURN REPLACING<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DATA-REC BY TRANS-REC.</pre></div><h3 class="pHeading2"><a name="wp1168043"> </a>
+Invalidating Descriptors
+</h3>
+<p class="pBody"><a name="wp1168048"> </a>
+If a service calling <code class="cCode">TPGETRPLY</code> (described in detail in <span class="cHyperlink">
+<a href="../pgc/pgreq.html">&#8220;Writing Request/Response Clients and Servers&#8221; </a></span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em>) fails with <code class="cCode">TPETIME</code> and decides to cancel the request, it can invalidate the descriptor with a call to TPCANC<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>EL(3cbl)</span>. If a reply subsequently arrives, it is silently discarded.
+</p>
+<p class="pBody"><a name="wp1168051"> </a>
+<code class="cCode">TPCANCEL</code> cannot be used for transaction replies (that is, for replies to requests made without the <code class="cCode">TPNOTRAN</code> flag set). Within a transaction, TPABO<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>RT(3cbl)</span> does the same job of invalidating the transaction call descriptor. 
+</p>
+<p class="pBody"><a name="wp1168052"> </a>
+<a href="pbserv.html#wp1395011">Listing&#160;5-7</a> shows how to invalidate a reply after timing out.
+</p>
+<div class="pCodeTitle"><a name="wp1395011"> </a>
+Listing&#160;5-7	   Invalidating a Reply After Timing Out
+</div> <a name="wp1395012"> </a><div class="pPreformatted"><pre>. . .  <em class="cEmphasis">Set up parameters to TPACALL<br /></em>SET TPNOTRAN TO TRUE.<br />CALL &quot;TPACALL&quot; USING TPSVCDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DEBIT-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />IF  NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">error processing<br /></em>. . .<br />CALL &quot;TPGETRPLY&quot; USING TPSVCDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DEBIT-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />IF  NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">error processing<br /></em>IF TPETIME<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;CALL &quot;TPCANCEL&quot; TPSVCDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;&#160;&#160;. . .<br />&#160;&#160;&#160;&#160;SET TPSUCCESS TO TRUE.<br />&#160;&#160;&#160;&#160;COPY TPRETURN REPLACING TPSVCRET-REC BY TPSVCRET-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTYPE-REC BY TPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DATA-REC BY DEBIT-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC BY TPSTATUS-REC.</pre></div><h3 class="pHeading2"><a name="wp1168061"> </a>
+Forwarding Requests
+</h3>
+<p class="pBody"><a name="wp1168062"> </a>
+The TPFORWA<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>R(3cbl)</span> routine allows a service to forward a request to another service for further processing. 
+</p>
+<p class="pBody"><a name="wp1168063"> </a>
+Use the following signature to call the <code class="cCode">TPFORWAR</code> routine:
+</p>
+<a name="wp1395112"> </a><div class="pPreformatted"><pre>01 <em class="cEmphasis">TPSVCDEF-REC</em>.<br />   COPY TPSVCDEF.<br />01 <em class="cEmphasis">TPTYPE-REC</em>.<br />   COPY TPTYPE.<br />01 <em class="cEmphasis">DATA-REC</em>.<br />   COPY User Data.<br />01 <em class="cEmphasis">TPSTATUS-REC</em>.<br />   COPY TPSTATUS.<br />COPY TPFORWAR REPLACING TPSVCDEF-REC BY <em class="cEmphasis">TPSVCDEF-REC<br /></em>              TPTYPE-REC BY <em class="cEmphasis">TPTYPE-REC<br /></em>              DATA-REC BY <em class="cEmphasis">DATA-REC<br /></em>              TPSTATUS-REC BY <em class="cEmphasis">TPSTATUS-REC</em>.</pre></div><p class="pBody"><a name="wp1395120"> </a>
+For descriptions of the <code class="cCode">TPSVCDEF-REC</code> and <code class="cCode">TPTYPE-REC</code> records, refer to <a href="pbserv.html#wp1250152">Defining a Service</a>.
+</p>
+<p class="pBody"><a name="wp1168100"> </a>
+The functionality of <code class="cCode">TPFORWAR</code> differs from a service call: a service that forwards a request does not expect a reply. The responsibility for providing the reply is passed to the service to which the request has been forwarded. The latter service sends the reply to the process that originated the request. It becomes the responsibility of the last server in the forward chain to send the reply to the originating client by invoking <code class="cCode">TPRETURN</code>.
+</p>
+<p class="pBody"><a name="wp1168101"> </a>
+<a href="pbserv.html#wp1395282">Figure&#160;5-1</a> shows one possible sequence of events when a request is forwarded from one service to another. Here a client initiates a request using the <code class="cCode">TPCALL</code> routine and the last service in the chain (<code class="cCode">SVC_C</code>) provides a reply using the <code class="cCode">TPRETURN</code> routine.
+</p>
+<div class="pFigureTitle"><a name="wp1395282"> </a>
+Figure&#160;5-1  Forwarding a Request
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1395286"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/forwcbl.gif" alt="Forwarding a Request" id="wp1395284"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1168114"> </a>
+Service routines can forward requests at specified priorities in the same manner that client processes send requests, by using the <code class="cCode">TPSPRIO</code> routine.
+</p>
+<p class="pBody"><a name="wp1168115"> </a>
+When a process calls <code class="cCode">TPFORWAR</code>, the system that supplied the controlling program regains control, and the server process is free to do more work. 
+</p>
+<a name="wp1168116"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If a server process is acting as a client and a reply is expected, the server is not allowed to request services from itself. If the only available instance of the desired service is offered by the server process making the request, the call fails, indicating that a recursive call cannot be made. However, if a service routine sends a request (to itself) with the <code class="cCode">TPNOREPLY</code> communication flag set, or if it forwards the request, the call does not fail because the service is not waiting for itself.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1168117"> </a>
+Calling <code class="cCode">TPFORWAR</code> can be used to indicate success up to that point in processing the request. If no application errors have been detected, you can invoke <code class="cCode">TPFORWAR</code>, otherwise, you can call <code class="cCode">TPRETURN</code> with <code class="cCode">TP-RETURN-VAL IN TPSVCRET-REC</code> set to <code class="cCode">TPFAIL</code>.
+</p>
+<p class="pBody"><a name="wp1168118"> </a>
+The following example illustrates how the service sends its data record to the <code class="cCode">DEPOSIT</code> service by calling <code class="cCode">TPFORWAR</code>. If the new account is added successfully, the branch record is updated to reflect the new account, and the data record is forwarded to the <code class="cCode">DEPOSIT</code> service. On failure, <code class="cCode">TPRETURN</code> is called with <code class="cCode">TP-RETURN-VAL IN TPSVCRET-REC</code> set to <code class="cCode">TPFAIL</code> and the failure is reported on the status line of the form.
+</p>
+<div class="pCodeTitle"><a name="wp1395571"> </a>
+Listing&#160;5-8	   How to Use TPFORWAR
+</div> <a name="wp1395572"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;. . .<br />******************************************************<br />* Get the data that was sent by the client<br />******************************************************<br />&#160;&#160;&#160;&#160;MOVE LENGTH OF TRANS-REC TO LEN.<br />&#160;&#160;&#160;&#160;CALL &quot;TPSVCSTART&quot; USING TPSVCDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TRANS-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;Transaction Encountered An Error&quot; TO STATUS-LINE<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SET TPFAIL TO TRUE.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;COPY TPRETURN REPLACING<br />                      DATA-REC BY TRANS-REC.<br />&#160;&#160;&#160;&#160;ELSE<br />             . . . <em class="cEmphasis">Check other parameters<br /></em>******************************************************<br />* Insert new account record<br />******************************************************<br />&#160;&#160;&#160;&#160;CALL &quot;ADD-NEW-ACCOUNT-FUNCTION&quot; USING TRANS-ACCOUNT IN TRANS-REC.<br />&#160;&#160;&#160;&#160;IF <em class="cEmphasis">Adding New Account Failed<br /></em>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;Account not added&quot; TO STATUS-LINE IN TRANS-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SET TPFAIL TO TRUE<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;COPY TPRETURN REPLACING<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DATA-REC BY TRANS-REC.<br />******************************************************<br />* Forward record to the DEPOSIT service to add initial<br />* balance into account<br />******************************************************<br />&#160;&#160;&#160;&#160;MOVE &quot;DEPOSIT&quot; TO SERVICE-NAME.<br />&#160;&#160;&#160;&#160;. . . <em class="cEmphasis">set other TPFORWAR parameters<br /></em>&#160;&#160;&#160;&#160;COPY TPFORWAR REPLACING<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DATA-REC BY TRANS-REC.</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1168128"> </a>
+Advertising and Unadvertising Services
+</h2><p class="pBody"><a name="wp1168129"> </a>
+When a server is booted, it advertises the services it offers based on the values specified for the <code class="cCode">CLOPT</code> parameter in the configuration file.
+</p>
+<a name="wp1397974"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The services that a server may advertise are initially defined when the <a href="pbserv.html#wp1250188">buildserver</a> command is executed. The <code class="cCode">-s</code> option allows a comma-separated list of services to be specified. It also allows you to specify a routine with a name that differs from that of the advertised service that is to be called to process the service request. Refer to the <a href="../rfcm/rfcmd.html">buildserver(1)</a> in the <em class="cEmphasis">Oracle Tuxedo Command Reference</em> for more information.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1168134"> </a>
+The default specification calls for the server to advertise all services with which it was built. Refer to the <a href="../rf5/rf5.html">UBBCONFIG(5)</a> or <a href="../rf5/rf5.html">servopts(5)</a> reference page in the <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em> for more information.
+</p>
+<p class="pBody"><a name="wp1168138"> </a>
+Because an advertised service uses a service table entry in the bulletin board, and can therefore be resource-expensive, an application may boot its servers in such a way that only a subset of the services offered are available. To limit the services available in an application, define the <code class="cCode">CLOPT</code> parameter, within the appropriate entry in the <code class="cCode">SERVERS</code> section of the configuration file, to include the desired services in a comma-separated list following the <code class="cCode">-s</code> option. The <code class="cCode">-s</code> option also allows you to specify a routine with a name other than that of the advertised service to be called to process the request. Refer to the <a href="../rf5/rf5.html">servopts(5)</a> reference page in the <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em> for more information.
+</p>
+<p class="pBody"><a name="wp1168142"> </a>
+An Oracle Tuxedo application administrator can use the <code class="cCode">advertise</code> and <code class="cCode">unadvertise</code> commands of <a href="../rfcm/rfcmd.html">tmadmin(1)</a> to control the services offered by servers. The <code class="cCode">TPADVERTISE</code> and <code class="cCode">TPUNADVERTISE</code> routines enable you to dynamically control the advertisement of a service in a request/response or conversational server. The service to be advertised (or unadvertised) must be available within the same server as the service making the request.
+</p>
+<h3 class="pHeading2"><a name="wp1168143"> </a>
+Advertising Services
+</h3>
+<p class="pBody"><a name="wp1168144"> </a>
+Use the following signature to call the TPADVERT<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>ISE(3cbl)</span> routine:
+</p>
+<a name="wp1395726"> </a><div class="pPreformatted"><pre>01 <em class="cEmphasis">SERVICE-NAME</em>           PIC X(127).<br />01 <em class="cEmphasis">PROGRAM-NAME</em>           PIC X(32).<br />01 <em class="cEmphasis">TPSTATUS-REC</em>.<br />    COPY TPSTATUS.<br />CALL &quot;TPADVERTISE&quot; USING <em class="cEmphasis">SERVICE-NAME PROGRAM-NAME TPSTATUS-REC</em>.</pre></div><p class="pBody"><a name="wp1168147"> </a>
+<a href="pbserv.html#wp274804">Table&#160;5-3</a> describes the members of a <code class="cCode">TPADVERTISE</code> data structure.
+</p>
+<p class="pGraphic"><a name="wp1168148"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp274804table1168149"><caption><a name="wp274804"> </a>
+Table 5-3  TPADVERTISE Data Structure Members
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1168151"> </a>
+Member
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1168153"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1168155"> </a>
+<code class="cCode">SERVICE-NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1168157"> </a>
+Name of the service to be advertised. The service name must be a character string of up to 127 characters. Names longer than 127 characters are truncated. The <code class="cCode">SPACES</code> string is not a valid value. If it is specified, an error (<code class="cCode">TPEINVAL</code>) results.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1168159"> </a>
+<code class="cCode">PROGRAM-NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1168161"> </a>
+Oracle Tuxedo system routine that is called to perform a service. Frequently, this name is the same as the name of the service. The <code class="cCode">SPACES</code> string is not a valid value. If it is specified, an error results.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1168162"> </a>
+Unadvertising Services
+</h3>
+<p class="pBody"><a name="wp1168163"> </a>
+The TPUNA<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>DVERTISE(3cbl)</span> routine removes the name of a service from the service table of the bulletin board so that the service is no longer advertised.
+</p>
+<p class="pBody"><a name="wp1168164"> </a>
+Use the following signature for the <code class="cCode">TPUNADVERTISE</code> routine:
+</p>
+<a name="wp1395858"> </a><div class="pPreformatted"><pre>01 <em class="cEmphasis">SERVICE-NAME</em>           PIC X(127).<br />01 <em class="cEmphasis">TPSTATUS-REC</em>.<br />   COPY TPSTATUS.<br />CALL &quot;TPUNADVERTISE&quot; USING <em class="cEmphasis">SERVICE-NAME TPSTATUS-REC</em>.</pre></div><p class="pBody"><a name="wp1168167"> </a>
+The <code class="cCode">TPUNADVERTISE</code> data structure contains one member, which is described in <a href="pbserv.html#wp274820">Table&#160;5-4</a>.
+</p>
+<p class="pGraphic"><a name="wp1168168"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp274820table1168169"><caption><a name="wp274820"> </a>
+Table 5-4  TPUNADVERTISE Data Structure Member
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1168171"> </a>
+Member
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1168173"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1168175"> </a>
+<code class="cCode">SERVICE-NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1168177"> </a>
+Name of the service to be advertised. The service name must be a character string of up to 127 characters. Names longer than 127 characters are truncated. The <code class="cCode">SPACES</code> string is not a valid value. If it is specified, an error (<code class="cCode">TPEINVAL</code>) results.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1168178"> </a>
+Example: Dynamic Advertising and Unadvertising of a Service
+</h3>
+<p class="pBody"><a name="wp1168179"> </a>
+The following example shows how to use the <code class="cCode">TPADVERTISE</code> routine. In this example, a server called <code class="cCode">TLR</code> is programmed to offer only the service called <code class="cCode">TLRINIT</code> when booted. After some initialization, <code class="cCode">TLRINIT</code> advertises two services called <code class="cCode">DEPOSIT</code> and <code class="cCode">WITHDRAW</code>. Both are performed by the <code class="cCode">TLRFUNCS</code> routine, and both are built into the <code class="cCode">TLR</code> server.
+</p>
+<p class="pBody"><a name="wp1168180"> </a>
+After advertising <code class="cCode">DEPOSIT</code> and <code class="cCode">WITHDRAW</code>, <code class="cCode">TLRINIT</code> unadvertises itself.
+</p>
+<div class="pCodeTitle"><a name="wp1396055"> </a>
+Listing&#160;5-9	   Dynamic Advertising and Unadvertising
+</div> <a name="wp1396056"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;. . .<br />**************************************************<br />* Advertise DEPOSIT service to be processed by<br />* routine TLRFUNCS<br />**************************************************<br />&#160;&#160;&#160;&#160;MOVE &quot;DEPOSIT&quot; TO SERVICE-NAME.<br />&#160;&#160;&#160;&#160;MOVE &quot;TLRFUNCS&quot; TO PROGRAM-NAME.<br />&#160;&#160;&#160;&#160;CALL &quot;TPADVERTISE&quot; USING SERVICE-NAME<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PROGRAM-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">error processing<br /></em>**************************************************<br />* Advertise WITHDRAW service to be processed by<br />* the same routine TLRFUNCS<br />**************************************************<br />&#160;&#160;&#160;&#160;MOVE &quot;WITHDRAW&quot; TO SERVICE-NAME.<br />&#160;&#160;&#160;&#160;MOVE &quot;TLRFUNCS&quot; TO PROGRAM-NAME.<br />&#160;&#160;&#160;&#160;CALL &quot;TPADVERTISE&quot; USING SERVICE-NAME<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PROGRAM-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">error processing<br /></em>**************************************************<br />* Unadvertise TLRINIT service  (yourself)<br />**************************************************<br />&#160;&#160;&#160;&#160;MOVE &quot;TLRINIT&quot; TO SERVICE-NAME.<br />&#160;&#160;&#160;&#160;CALL &quot;TPUNADVERTISE&quot; USING SERVICE-NAME<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">error processing</em></pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1250188"> </a>
+Building Servers
+</h2><p class="pBody"><a name="wp1399625"> </a>
+To build an executable ATMI server, compile your application service subroutines with the Oracle Tuxedo system server adaptor and all other referenced files using the <a href="../rfcm/rfcmd.html">buildserver(1)</a> command with the <code class="cCode">-C</code> option. 
+</p>
+<a name="wp1253660"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The Oracle Tuxedo server adaptor accepts messages, dispatches work, and manages transactions (if transactions are enabled). </td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1168195"> </a>
+Use the following syntax for the <code class="cCode">buildserver</code> command:
+</p>
+<a name="wp1168196"> </a><div class="pPreformatted"><pre>buildserver -C -o <code class="cCodeEmphasis">filename</code> -f <code class="cCodeEmphasis">filenames</code> -l <code class="cCodeEmphasis">filenames </code><code class="cCode">-s -v</code></pre></div><p class="pBody"><a name="wp1374398"> </a>
+<a href="pbserv.html#wp1374454">Table&#160;5-5</a> describes the <code class="cCode">buildserver</code> command-line options:
+</p>
+<p class="pGraphic"><a name="wp1399489"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1374454table1374399"><caption><a name="wp1374454"> </a>
+Table 5-5  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">buildserver Command-line Options</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1374401"> </a>
+This Option . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1374403"> </a>
+Allows You to Specify the . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1374405"> </a>
+<code class="cCode">-o </code><code class="cCodeEmphasis">filename</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1374408"> </a>
+Name of the executable output file. The default is <code class="cCode">SERVER</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1374410"> </a>
+<code class="cCode">-f </code><code class="cCodeEmphasis">filenames</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1374412"> </a>
+List of files that are link edited before the Oracle Tuxedo system libraries. You can specify the <code class="cCode">-f</code> option more than once, and multiple filenames for each occurrence of <code class="cCode">-f</code>. If you specify a COBOL program file (<code class="cCodeEmphasis">file.</code><code class="cCode">cbl</code>), it is compiled before it is linked. You can specify other object files (<code class="cCodeEmphasis">file.</code><code class="cCode">o</code>) separately, or in groups in an archive file (<code class="cCodeEmphasis">file.</code><code class="cCode">a</code>).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1374416"> </a>
+<code class="cCode">-l </code><code class="cCodeEmphasis">filenames</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1374418"> </a>
+List of files that are link edited after the Oracle Tuxedo system libraries. You can specify the <code class="cCode">-l</code> option more than once, and multiple filenames for each occurrence of <code class="cCode">-l</code>. If you specify a COBOL program file (<code class="cCodeEmphasis">file.</code><code class="cCode">cbl</code>), it is compiled before it is linked. You can specify other object files (<code class="cCodeEmphasis">file.</code><code class="cCode">o</code>) separately, or in groups in an archive file (<code class="cCodeEmphasis">file.</code><code class="cCode">a</code>).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1374422"> </a>
+-r <code class="cCodeEmphasis">filenames</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1374424"> </a>
+List of resource manager access libraries that are link edited with the executable server. The application administrator is responsible for predefining all valid resource manager information in the <code class="cCode">$TUXDIR/updataobj/RM</code> file using the buil<a href="../rfcm/rfcmd.html"></a>dtms(1) command. You can specify only one resource manager. Refer to <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em> for more information.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1374433"> </a>
+-s [<code class="cCodeEmphasis">service</code>:]<code class="cCodeEmphasis">routine</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1374435"> </a>
+Name of service or services offered by the server and the name of the routine that performs each service. You can specify the <code class="cCode">-s</code> option more than once, and multiple services for each occurrence of <code class="cCode">-s</code>. The server uses the specified service names to advertise its services to clients. 
+</div>
+<div class="pCellBody"><a name="wp1374437"> </a>
+Typically, you should assign the same name to both the service and the routine that performs that service. Alternatively, you can specify any names. To assign names, use the following syntax: <code class="cCodeEmphasis">service</code>:<code class="cCodeEmphasis">routine</code>.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<a name="wp1374445"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Notes:</strong></td>
+<td>The Oracle Tuxedo libraries are linked in automatically. You do not need to specify the Oracle Tuxedo library names on the command line.</td></tr>
+</table>
+
+<a name="wp1402287"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>Link editing must be done by running the <code class="cCode">buildclient</code> command. </td>
+</tr>
+</table>
+<p class="pBody"><a name="wp1168233"> </a>
+The order in which you specify the library files to be link edited is significant: it depends on the order in which routines are called and which libraries contain references to those functions. 
+</p>
+<p class="pBody"><a name="wp1168234"> </a>
+By default, the <code class="cCode">buildserver</code> command invokes the UNIX <code class="cCode">cobcc</code> command, which uses the MicroFocus Net Express compiler. To use Fujitsu&#8217;s NetCOBOL <code class="cCode">ALTCC</code> must be set, even on a Windows system. You must set <code class="cCode">ALTCC=cobcc85</code> for NetCOBOL. You can specify an alternative compile command and set your own flags for the compile and link-edit phases, however, by setting the <code class="cCode">ALTCC</code> and <code class="cCode">ALTCFLAGS</code> environment variables, respectively. For more information, refer to <span class="cHyperlink">
+<a href="../pgc/pgglob.html">&#8220;Setting Environment Variables&#8221; </a></span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em>.
+</p>
+<a name="wp1396160"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>On a Windows system, the <code class="cCode">ALTCC</code> and <code class="cCode">ALTCFLAGS</code> environment variables are not applicable and setting them will produce unexpected results. You must compile your application first using a COBOL compiler and then pass the resulting object file to the <code class="cCode">buildserver</code> command.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1168238"> </a>
+The following command processes the <code class="cCode">acct.o</code> application file and creates a server called <code class="cCode">ACCT</code> that contains two services: <code class="cCode">NEW_ACCT</code>, which calls the <code class="cCode">OPEN_ACCT</code> routine, and <code class="cCode">CLOSE_ACCT</code>, which calls a routine of the same name.
+</p>
+<a name="wp1168239"> </a><div class="pPreformatted"><pre>buildserver -C &#8211; o ACCT &#8211; f acct.o &#8211; s NEW_ACCT:OPEN_ACCT &#8211; s CLOSE_ACCT</pre></div><h3 class="pHeading2"><a name="wp1251995"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1251999"> </a><span class="cHyperlink">
+<a href="../pgc/pgclt.html">&#8220;Buildi</a>ng Clients&#8221; </span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em></li>
+<li><a name="wp1252006"> </a><a href="../rfcm/rfcmd.html">buildclient(1)</a> in the <em class="cEmphasis">Oracle Tuxedo Command Reference</em></li>
+</ul></div>
+<p class="pBody"><a name="wp1168259"> </a>
+
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="pbserv.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pbclt.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pbreq.html"><img id="LongDescNotReq9" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/Jolt_wls/fm/EXsimpapp.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:15:51" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Simple Servlet Example</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Using Oracle Jolt with Oracle WebLogic Server
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="JoltAPI.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="EJB_example.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/Jolt_wls.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp7541"> </a>
+Simple Servlet Example
+</h1>
+<p class="pBody"><a name="wp52"> </a>
+This example demonstrates how to use Oracle Jolt to connect to Oracle Tuxedo from a WebLogic servlet.  It uses the WebLogic Server to deliver an HTML FORM front end in a standard Web browser. 
+</p>
+<p class="pBody"><a name="wp6018"> </a>
+Text entered by a user into the FORM is sent back to the WebLogic Server via the HTTP POST method that is serviced by a registered WebLogic HTTP Servlet, which calls a Tuxedo service using Oracle Jolt. The text received by the servlet is sent to a Tuxedo service, where it is transposed to uppercase before being returned to the servlet. The form is compiled into a dynamically-generated HTML page by the servlet, then sent back to the Web browser, where the uppercase version of the original text is displayed.
+</p>
+<p class="pBody"><a name="wp4409"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp4410"> </a><a href="EXsimpapp.html#wp56">Example Components and Prerequisites</a></li>
+<li><a name="wp4418"> </a><a href="EXsimpapp.html#wp2544">Using the Example</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp56"> </a>
+Example Components and Prerequisites
+</h2><p class="pBody"><a name="wp2513"> </a>
+There are two parts to the <code class="cCode">simpapp</code> example for Jolt for WebLogic Server: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp2514"> </a>The HTTP servlet that is shipped with the examples that are installed in the <code class="cCode">samples</code> directory where Oracle Tuxedo is installed. </li>
+<li><a name="wp4424"> </a>The Tuxedo service application that is shipped with the Tuxedo examples that are installed with Oracle Tuxedo. The Tuxedo <code class="cCode">simpapp</code> server contains the <code class="cCodeEmphasis">TOUPPER</code> service, which converts a given string to uppercase.</li>
+</ul></div>
+<p class="pBody"><a name="wp2517"> </a>
+The source code for the Jolt servlet <code class="cCode">simpapp</code> example is located in the <code class="cCode">/samples/jolt/wls/servlet/</code> directory in the Tuxedo distribution. 
+</p>
+<p class="pBody"><a name="wp2535"> </a>
+The <code class="cCode">simpapp</code> sample directory contains the following files: 
+</p>
+<p class="pGraphic"><a name="wp7750"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp2520table2518">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp2520"> </a>
+File Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp2522"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp2524"> </a>
+<code class="cCode">SimpAppServlet.java</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp2526"> </a>
+Sample source code that issues a call to Tuxedo and returns an HTML page with the results
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp2528"> </a>
+<code class="cCode">simpapp.html</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp2530"> </a>
+HTML form for user input
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp2532"> </a>
+<code class="cCode">simpapp.rep	</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp2534"> </a>
+REP file for repository bulk loading
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp6639"> </a>
+<code class="cCode">web.xml	</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp6641"> </a>
+Configuration XML file for Web applications
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp4576"> </a>
+A complete listing of the Tuxedo server-side source code of the <code class="cCode">simpapp</code> application service is located in <code class="cCode">$TUXDIR/samples/atmi/simpapp</code> on UNIX systems and in  <code class="cCode">%TUXDIR%\samples\atmi\simpapp</code> on Windows 2003 systems (where <code class="cCodeEmphasis">TUXDIR</code> is the Tuxedo home directory). 
+</p>
+<p class="pBody"><a name="wp4577"> </a>
+To run this example, you should be familiar with: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp2538"> </a>The Oracle Tuxedo architecture and the <code class="cCode">simpapp</code> application</li>
+<li><a name="wp2539"> </a>Oracle Jolt </li>
+<li><a name="wp2540"> </a>HTML </li>
+<li><a name="wp2541"> </a>Java language and servlet API </li>
+<li><a name="wp2542"> </a>WebLogic Server HTTP servlets </li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp2544"> </a>
+Using the Example 
+</h2><p class="pBody"><a name="wp2545"> </a>
+The <code class="cCode">simpapp</code> example is easy to follow. Just launch the <code class="cCode">simpapp.html</code> page from the WebLogic Server. The <code class="cCode">simpapp.html</code> page loads an HTML form which contains a text field for entering the string. Type in a string and click the Post button to submit the string as a post request. The <code class="cCode">SimpAppServlet</code> formats the string you typed for use with the Jolt for WebLogic class libraries, and then dispatches the request to the Tuxedo <code class="cCode">TOUPPER</code> service, which transposes the string to uppercase and returns it for display in the browser.
+</p>
+<p class="pBody"><a name="wp2952"> </a>
+Configuring the <code class="cCode">simpapp</code> servlet example requires the following steps:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp3034"> </a><a href="EXsimpapp.html#wp2547">Step 1. Perform Preparatory Steps</a></li>
+<li><a name="wp5663"> </a><a href="EXsimpapp.html#wp5581">Step 2. Start the WebLogic Server</a></li>
+<li><a name="wp3106"> </a><a href="EXsimpapp.html#wp2560">Step 3. Configure the Servlet in WebLogic Server</a></li>
+<li><a name="wp3134"> </a><a href="EXsimpapp.html#wp2593">Step 4. Stop and Restart the WebLogic Server</a></li>
+<li><a name="wp6805"> </a><a href="EXsimpapp.html#wp6537">Step 5. Compile the Servlet</a></li>
+<li><a name="wp3157"> </a><a href="EXsimpapp.html#wp2597">Step 6. Display the simpapp.html Form</a></li>
+<li><a name="wp3169"> </a><a href="EXsimpapp.html#wp2609">Step 7. Post the FORM Data from the Browser</a></li>
+<li><a name="wp3183"> </a><a href="EXsimpapp.html#wp2628">Step 8. Process the Request</a></li>
+<li><a name="wp3187"> </a><a href="EXsimpapp.html#wp5694">Step 9. Return the Results to the Client</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp2547"> </a>
+Step 1. Perform Preparatory Steps
+</h3>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp2548"> </a>Check that you have a supported browser installed on your client machine:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp4597"> </a>Netscape Communicator 4.7 or later		</li>
+<li><a name="wp4590"> </a>Internet Explorer 5.0 or later</li>
+</ul></div>
+<li><a name="wp4589"> </a>The client machine must have a network connection to the WebLogic Server that is used to connect to the Tuxedo environment. </li>
+<li><a name="wp2549"> </a>Configure and boot Tuxedo and the <code class="cCode">simpapp</code> example. </li>
+<li><a name="wp2550"> </a>Follow the directions in the Tuxedo user documentation to bring up the server-side simpapp application. Make sure the <code class="cCode">TOUPPER</code> service is available. </li>
+<li><a name="wp2551"> </a>Set up the Jolt Server. Refer to the <em class="cEmphasis">Using Oracle Jolt</em> for information about how to configure a Jolt Server. </li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp2552"> </a>Note the hostname and port number associated with your Jolt Server Listener (JSL). </li>
+<li><a name="wp2553"> </a>Use the Jolt Repository BulkLoader file to ensure that the <code class="cCode">TOUPPER</code> service is defined in the Jolt Repository. </li>
+<p class="pBodyRelative"><a name="wp2554"> </a>
+The <code class="cCode">simpapp</code> example directory has a <code class="cCode">simpapp.rep</code> file that contains the <code class="cCode">TOUPPER</code> service definition. Your system administrator should use the Jolt Repository BulkLoader to add this service definition to the existing Jolt Repository on the Tuxedo server. The Jolt Repository BulkLoader package is supplied with the Jolt distribution for Tuxedo. Refer to <em class="cEmphasis">Using Oracle Jolt </em>for details on how to install this. 
+</p>
+<p class="pBodyRelative"><a name="wp7627"> </a>
+On the Tuxedo server, the following code example uses the Jolt BulkLoader to add the <code class="cCode">TOUPPER</code> service definition: 
+</p>
+<p class="pBodyRelative"><a name="wp7628"> </a>
+<code class="cCode"> $ java bea.jolt.admin.jbld //host:port simpapp.rep</code>
+</p>
+<p class="pBodyRelative"><a name="wp7629"> </a>
+where <code class="cCodeEmphasis">host </code>and <code class="cCodeEmphasis">port</code> are the hostname and port number of your Jolt Server Listener (JSL), and the <code class="cCode">simpapp.rep</code> is the BulkLoader file provided by Oracle Jolt, located in one of the following locations:
+</p>
+<p class="pBodyRelative"><a name="wp6849"> </a>
+<code class="cCode">$TUXDIR/samples/jolt/wls/servlet/</code> on UNIX 
+</p>
+<p class="pBodyRelative"><a name="wp6858"> </a>
+<code class="cCode">%TUXDIR%\samples\jolt\wls\servlet\</code> on Windows 2003
+</p>
+</ul></div>
+<li><a name="wp2558"> </a>Confirm that you have properly set up your <code class="cCode">CLASSPATH</code> during installation. The WebLogic Server classes library contains the three <code class="cCode">.jar</code> files that you will need to run this example:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp5717"> </a> <code class="cCode">jolt.jar</code></li>
+<li><a name="wp5718"> </a><code class="cCode">joltjse.jar</code></li>
+<li><a name="wp5724"> </a><code class="cCode">joltwls.jar</code>.</li>
+</ul></div>
+</ol></div>
+<h3 class="pHeading2"><a name="wp5581"> </a>
+Step 2. Start the WebLogic Server 
+</h3>
+<p class="pBody"><a name="wp5582"> </a>
+If you are using a Windows 2003 system, you can start the WebLogic Server from the Start menu. Otherwise, use the <code class="cCode">startWebLogic</code> script on the command line, in the root directory of the WebLogic Server distribution. 
+</p>
+<p class="pBody"><a name="wp5583"> </a>
+For more information on starting the WebLogic Server, see &#8220;Starting and Stopping the WebLogic Server&#8221; in the <span style="font-style: italic">Oracle WebLogic Server </span><em class="cEmphasis">Administration Guide</em>.
+</p>
+<h3 class="pHeading2"><a name="wp2560"> </a>
+Step 3. Configure the Servlet in WebLogic Server
+</h3>
+<p class="pBody"><a name="wp5218"> </a>
+Configuration of the Jolt connection pool and startup class MBeans for WebLogic Server 6.0 or later is done through Administration Console. 
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp4609"> </a>Copy the <code class="cCode">simpapp.html</code> page into your WebLogic document root directory. </li>
+<p class="pBodyRelative"><a name="wp4610"> </a>
+By default, this is the <code class="cCode">\config\mydomain\applications\simpapp</code> directory in your WebLogic Server distribution. The HTTP server built into WebLogic looks in this directory for HTML pages and other MIME types. 
+</p>
+<li><a name="wp2566"> </a>Start the WebLogic Server Administration Console by typing the following address in your browser:</li>
+<p class="pBodyRelative"><a name="wp4714"> </a>
+ <code class="cCode">http://hostname:listenport#/console</code>
+</p>
+<li><a name="wp4896"> </a>Open the Services folder in the left frame of the console, and then click the Jolt folder. The Jolt Connection Pools table displays in the right frame showing all the Jolt connection pools defined in the domain.</li>
+<li><a name="wp4900"> </a>Click the Create a New Jolt Connection Pool link. A tabbed dialog box displays in the right frame for configuring a new connection pool.</li>
+<li><a name="wp4904"> </a>On the General tab, complete the following information:</li>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp5493"> </a>Enter values in the Name, Minimum Pool Size, Maximum Pool Size, and the   Recv Timeout attribute fields. </li>
+<li><a name="wp5058"> </a>Select the Security Context Enabled check box to enable security context (to propagate the security information from the WebLogic Server environment to the Tuxedo environment).</li>
+<li><a name="wp4909"> </a>Click Create to create a connection pool instance with the name that you specified in the Name field. The new instance is added under the Jolt node in the left frame.</li>
+</ol></div>
+<li><a name="wp4913"> </a>Click the Config-Addresses and the Config-User tabs individually to change the attribute fields or accept the default values as assigned, and then click Apply to save your changes.</li>
+<li><a name="wp4918"> </a>Click the Targets tab and select an available server where you want the Jolt connection pool started.  </li>
+<li><a name="wp4921"> </a>Under the Deployments folder in the left frame, click the Startup &amp; Shutdown folder. The Startup and Shutdown table displays in the right frame showing all the startup classes defined for your domain.</li>
+<li><a name="wp4926"> </a>Click the Create a New Startup Class link. In the tabbed dialog box that displays in the right frame, configure a new startup class, as follows.</li>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp5403"> </a>Enter values in the Name, Class Name, and Arguments attribute fields. </li>
+<li><a name="wp5444"> </a>Select the Abort Startup on Failure check box to prevent starting the WebLogic Server whenever a failure occurs. </li>
+<li><a name="wp5141"> </a>For the Class Name, enter the following name: <code class="cCode">bea.jolt.pool.servlet.weblogic.PoolManagerStartUp</code> <br />There are no arguments for this startup class.</li>
+<li><a name="wp5909"> </a>Click Create to create a startup-class instance with the name that you specified in the Name field. The new instance is added under the Startup &amp; Shutdown folder in the left frame.</li>
+</ol></div>
+<li><a name="wp5608"> </a> Register the <code class="cCode">simpapp</code> servlet as a Web application, as follows:</li>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp5801"> </a>Open the Deployments folder in the left frame of the console, and then click the Web Applications icon.</li>
+<li><a name="wp5812"> </a>On the Install or Update an Application dialog box, click the Install a New Web Application link.</li>
+<li><a name="wp5817"> </a>For Step 1, either accept the default a destination directory for the <code class="cCode">simpapp</code> servlet or select a different one.</li>
+<li><a name="wp5818"> </a>For Step 2, enter the path to the <code class="cCode">simpapp</code> servlet (or use the Browse feature), and then click the Upload button.</li>
+<p class="pBodyRelative"><a name="wp5835"> </a>
+The <code class="cCode">simpapp</code> servlet is registered as a Web application in WebLogic and appears as an icon under the Deployments\Web Applications folder.
+</p>
+</ol></div>
+</ol></div>
+<h3 class="pHeading2"><a name="wp2593"> </a>
+Step 4. Stop and Restart the WebLogic Server
+</h3>
+<p class="pBody"><a name="wp2594"> </a>
+In order to start the Jolt session pool, you must shut down the WebLogic Server, and then restart it. For more information on restarting the WebLogic Server, see &#8220;Starting and Stopping the WebLogic Server&#8221; in the <span style="font-style: italic">Oracle WebLogic Server </span><em class="cEmphasis">Administration Guide</em>. 
+</p>
+<h3 class="pHeading2"><a name="wp6537"> </a>
+Step 5. Compile the Servlet
+</h3>
+<p class="pBody"><a name="wp6596"> </a>
+After restarting the WebLogic Server, compile the <code class="cCode">SimpAppServlet</code> file, as follows:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp6610"> </a>Under your WebLogic <code class="cCode">\config\mydomain\applications\simpapp</code> document root directory, create a new <code class="cCode">WEB-INF</code> directory.</li>
+<li><a name="wp6618"> </a>Copy the <code class="cCode">web.xml</code> file from the Tuxedo installation directory <code class="cCode">\samples\jolt\wls\servlet\</code> into the new <code class="cCode">WEB-INF</code> directory.</li>
+<li><a name="wp6619"> </a>Compile the <code class="cCode">SimpAppServlet.java</code> file, as follows:</li>
+<a name="wp6686"> </a><div class="pPreformatted"><pre><code class="cCode">javac -d %WL.HOME%\config\mydomain\applications\simpapp\WEB-INF\classes SimpAppServlet.java</code></pre></div><p class="pBodyRelative"><a name="wp6693"> </a>
+This step also copies the necessary java classes into a <code class="cCode">WEB-INF\classes </code>directory.
+</p>
+</ol></div>
+<h3 class="pHeading2"><a name="wp2597"> </a>
+Step 6. Display the simpapp.html Form
+</h3>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp2598"> </a>Open your browser. </li>
+<li><a name="wp2599"> </a>Enter the URL for the <code class="cCode">simpapp.html</code> file. For example, the default URL is: </li>
+<a name="wp2600"> </a><div class="pPreformattedRelative"><pre>http://<span style="font-style: italic">localhost:port</span>/simpapp/simpapp.html</pre></div><p class="pBodyRelative"><a name="wp2601"> </a>
+where <code class="cCodeEmphasis">localhost</code> is the host name of the WebLogic Server, and <code class="cCodeEmphasis">port</code> is the port at which the WebLogic Server is listening for login requests. 
+</p>
+<p class="pBodyRelative"><a name="wp2602"> </a>
+A page similar to the one shown in <a href="EXsimpapp.html#wp2603">Figure&#160;B-1</a> is displayed: 
+</p>
+<div class="pFigureTitle"><a name="wp2603"> </a>
+Figure&#160;B-1  simpapp.html Example
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp2607"> </a>
+<br />
+<img src="wwimages/simpapp1_drop.gif" alt="simpapp.html Example" id="wp2605"/><br />
+
+</p>
+</ol></div>
+<p class="pBody"><a name="wp2608"> </a>
+If you have problems displaying the form, be sure that the <code class="cCode">simpapp.html</code> file is in the WebLogic document root. 
+</p>
+<h3 class="pHeading2"><a name="wp2609"> </a>
+Step 7. Post the FORM Data from the Browser 
+</h3>
+<p class="pBody"><a name="wp2610"> </a>
+Enter some text into the text field on the HTML page and submit it by clicking the POST button. Along with the text you entered, other parameters are submitted to the <code class="cCode">simpapp</code> servlet class running in WebLogic Server. 
+</p>
+<p class="pBody"><a name="wp5738"> </a>
+The following is the relevant section from the <code class="cCode">simpapp.html</code> file that describes the HTML form: 
+</p>
+<a name="wp2611"> </a><div class="pPreformattedRelative"><pre>  &lt;form name=&quot;simpapp&quot; action=&quot;simpapp&quot; method=&quot;post&quot;&gt;<br />  &lt;input type=&quot;hidden&quot; name=&quot;SVCNAME&quot; value=&quot;TOUPPER&quot;&gt;<br /><br />  &lt;table bgcolor=#dddddd border=1&gt;<br />  &lt;tr&gt;<br />  &lt;td&gt;Type some text here and click the Post button:<br />  &lt;input type=&quot;text&quot; name=&quot;string&quot;&gt;<br />  &lt;/td&gt;&lt;/tr&gt;<br /><br />  &lt;tr&gt;<br />  &lt;td align=center&gt;&lt;input type=&quot;submit&quot; value=&quot;Post!&quot;&gt;<br />  &lt;/td&gt;&lt;/tr&gt;<br />  &lt;/table&gt;<br />  &lt;/form&gt;</pre></div><p class="pBody"><a name="wp2625"> </a>
+This HTML form specifies two input fields: the text you enter and a hidden field. In this example, the value of the hidden field actually specifies the name of the Tuxedo service to be invoked. Although putting the name of the Tuxedo service within the HTML page is flexible and efficient, it is not recommended for production use for security reasons. In this HTML page, you can submit an HTTP request specifying a different service name as the hidden field. 
+</p>
+<a name="wp5789"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Tuxedo service names are case-sensitive. </td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp2626"> </a>
+When the WebLogic Server receives the HTTP form request, it invokes the <code class="cCode">doPost()</code> method of the <code class="cCode">simpapp</code> servlet and passes the form data into an <code class="cCode">HttpServletRequest</code>. 
+</p>
+<h3 class="pHeading2"><a name="wp2628"> </a>
+Step 8. Process the Request 
+</h3>
+<p class="pBody"><a name="wp5638"> </a>
+Before the first request to the <code class="cCode">simpapp</code> servlet, WebLogic initializes the servlet by calling its <code class="cCode">init()</code> method. The Jolt session pool is established in the following manner:
+</p>
+<p class="pBody"><a name="wp5644"> </a>
+<code class="cCode">ServletSessionPoolManager b_mgr =<br /> (ServletSessionPoolManager).SessionPoolManager.poolmanager;</code>
+</p>
+<p class="pBody"><a name="wp5657"> </a>
+Next, the servlet&#8217;s <code class="cCode">doPost()</code> method is executed. This method contains the code to get a connection from the <code class="cCode">simpapp</code> session pool that was created during the startup of the WebLogic Server. The following code snippet shows the code that is used to retrieve the <code class="cCode">simpapp</code> session pool. 
+</p>
+<a name="wp2639"> </a><div class="pPreformatted"><pre>  // Get the &quot;simpapp&quot; session pool<br />  ServletSessionPool session =<br />    (ServletSessionPool) b_mgr.getSessionPool(&quot;simpapp&quot;);</pre></div><p class="pBody"><a name="wp5739"> </a>
+The Tuxedo service that will be called is identified in a hidden field, which is retrievable from the request object. Retrieve the service name parameter as follows: 
+</p>
+<a name="wp2643"> </a><div class="pPreformatted"><pre>  String svcnm[] = req.getParameterValues(&quot;SVCNAME&quot;);</pre></div><p class="pBody"><a name="wp2644"> </a>
+You retrieve the value of the <code class="cCode">SVCNAME</code> field in a string array that contains a single value; use only the first element of the array. The value set for the <code class="cCode">SVCNAME</code> hidden field in the form is <code class="cCode">TOUPPER</code>. This is the name of the Tuxedo service that the servlet invokes, which is passed to the <code class="cCode">call()</code> method as follows: 
+</p>
+<a name="wp2645"> </a><div class="pPreformatted"><pre>  // Invoke a service and get the result.<br />  result = session.call(svcnm[0], req);</pre></div><p class="pBody"><a name="wp2647"> </a>
+The <code class="cCode">session</code> object in this example is a <code class="cCode">ServletSessionPool</code> that can accept the <code class="cCode">HttpServletRequest</code> object directly. Internally, it converts the data into a Jolt DataSet object, which contains the parameters for the <code class="cCode">TOUPPER</code> service. 
+</p>
+<a name="wp2648"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The <code class="cCode">TOUPPER</code> service expects a case-sensitive parameter called <code class="cCode">&quot;STRING&quot;</code>, so it is essential for the text field within the HTML form to be labeled exactly the same, that is, <code class="cCode">&quot;STRING&quot;</code>. Note also that the other data fields, such as the <code class="cCodeEmphasis">SVCNAME,</code> are not relevant as parameters but don&#39;t disrupt the Tuxedo service. </td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp2649"> </a>
+The form parameter is used to actually name the service, which you don&#39;t have to pass as a service parameter. It is passed automatically because it is already contained in the <code class="cCode">HttpServletRequest</code> object. 
+</p>
+<p class="pBody"><a name="wp5690"> </a>
+The <code class="cCode">TOUPPER</code> service converts the text in the <code class="cCode">&quot;STRING&quot;</code> parameter to uppercase text and passes it back to the servlet in a <code class="cCode">ServletResult</code> object that contains the results of an executed call, as well as details about exceptions if any are thrown during the service call. 
+</p>
+<h3 class="pHeading2"><a name="wp5694"> </a>
+Step 9. Return the Results to the Client 
+</h3>
+<p class="pBody"><a name="wp5695"> </a>
+The final step constructs and sends an HTML page, which contains the results of the service call, back to the client through the HttpResponse output stream. The uppercase result is retrieved from the <code class="cCode">ServletResult</code> object using the <code class="cCode">result.getValue()</code> method. 
+</p>
+<p class="pBody"><a name="wp5740"> </a>
+The following is a simple example of passing this data back as HTML that the browser can display: 
+</p>
+<a name="wp2654"> </a><div class="pPreformatted"><pre>  out.println(&quot;&lt;p&gt;&lt;center&gt;&lt;font size=+1&gt;&lt;b&gt;&quot;+<br />              result.getValue(&quot;STRING&quot;, &quot;&quot;)+<br />              &quot;&lt;/b&gt;&lt;/font&gt;&lt;/center&gt;&lt;p&gt;&lt;hr <br />              width=80%&gt;&quot;);</pre></div><p class="pBody"><a name="wp2658"> </a>
+The output stream produces a page similar to the one shown in <a href="EXsimpapp.html#wp2660">Figure&#160;B-2</a>: 
+</p>
+<div class="pFigureTitle"><a name="wp2660"> </a>
+Figure&#160;B-2  Output Stream Results Example
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp2664"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/simpapp3_drop.gif" alt="Output Stream Results Example" id="wp2662"/></div><p class="pGraphic">
+
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="EXsimpapp.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="JoltAPI.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="EJB_example.html"><img id="LongDescNotReq9" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

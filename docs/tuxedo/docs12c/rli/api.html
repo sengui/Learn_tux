@@ -1,0 +1,1254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/rli/fm/api.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:36:18" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Request-Level Interceptor API</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Using CORBA Request-Level Interceptors
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pqint.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="cppimpl.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/rli.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1075259"> </a>
+Request-Level Interceptor API
+</h1>
+<p class="pBody"><a name="wp1075260"> </a>
+This chapter documents the following interfaces that you use to implement request-level interceptors:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1075261"> </a><code class="cCode">Interceptors::Interceptor</code></li>
+<li><a name="wp1075262"> </a><code class="cCode">RequestLevelInterceptor::RequestInterceptor</code></li>
+<li><a name="wp1075263"> </a><code class="cCode">RequestLevelInterceptor::ClientRequestInterceptor</code></li>
+<li><a name="wp1075264"> </a><code class="cCode">RequestLevelInterceptor::TargetRequestInterceptor</code></li>
+<li><a name="wp1075265"> </a><code class="cCode">CORBA::DataInputStream</code></li>
+</ul></div>
+<p class="pBody"><a name="wp1075266"> </a>
+Each of these interfaces is a <b class="cBold">locality-constrained object</b>. Any attempt to pass a reference outside its locality (that is, its process), or any attempt to externalize an object supporting this interface using the CORBA ORB <code class="cCode">object_to_string </code>operation, results in the CORBA <code class="cCode">MARSHAL</code> system exception (<code class="cCode">CORBA::MARSHAL</code>) being raised.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1075268"> </a>
+Interceptor Hierarchy
+</h2><p class="pBody"><a name="wp1075269"> </a>
+Request-level interceptors are divided into two interfaces, providing separate client- and target-side functionality. The following figure illustrates the inheritance hierarchy of the request-level interceptors supported in the Oracle Tuxedo product.
+</p>
+<p class="pGraphic"><a name="wp1076873"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/interceptor.gif" id="wp1076889"/></div><p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1075275"> </a>
+Note on Unused Interfaces
+</h3>
+<p class="pBody"><a name="wp1075276"> </a>
+The method signatures for operations on classes derived from the <code class="cCode">RequestLevelInterceptor</code> interface include parameters for the following interfaces:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1075277"> </a><code class="cCode">RequestLevelInterceptor::DataOutputStream</code></li>
+<li><a name="wp1075278"> </a><code class="cCode">RequestLevelInterceptor::ServiceContextList</code></li>
+</ul></div>
+<p class="pBody"><a name="wp1075279"> </a>
+These interfaces are not used in the Oracle Tuxedo product. However, they are defined in the Oracle Tuxedo product so that you do not need to recompile your CORBA application if an implementation of these interfaces is ever provided in a future release of the Oracle Tuxedo product. The ORB always passes a nil for the actual argument. You should not attempt to use this argument; doing so will likely end the process with a serious error.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1075282"> </a>
+Interceptors::Interceptor Interface
+</h2><p class="pBody"><a name="wp1075283"> </a>
+The <code class="cCode">Interceptors::Interceptor</code> interface is defined as the base interface of all types of interceptors, including request-level interceptors.  This interface contains the set of operations and attributes that are supported by all types of interceptors. The <code class="cCode">Interceptors::Interceptor</code> interface is defined as an abstract interface; thus an instance of the interface cannot be instantiated.
+</p>
+<div class="pCodeTitle"><a name="wp1075284"> </a>
+Listing&#160;8-1	   OMG IDL for the Interceptors::Interceptor Interface
+</div> <a name="wp1075285"> </a><div class="pPreformatted"><pre>//File: Interceptors.idl<br />#ifndef _INTERCEPTORS_IDL<br />#define _INTERCEPTORS_IDL<br /><br />#pragma prefix &quot;beasys.com&quot;<br /><br />module Interceptors<br />&#160;&#160;{<br />&#160;&#160;native ExceptionValue;<br /><br />&#160;&#160;local Interceptor <br />&#160;&#160;&#160;&#160;{ <br />&#160;&#160;&#160;&#160;readonly attribute string   id; // identifier of interceptor<br /><br />&#160;&#160;&#160;&#160;// called by ORB when interceptor is being shutdown<br />&#160;&#160;&#160;&#160;ShutdownReturnStatus shutdown( <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in  ShutdownReason   reason,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;out ExceptionValue   excep_val<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;);<br />&#160;&#160;&#160;&#160;};  // locality constrained<br />&#160;&#160;};<br />#endif /* _INTERCEPTORS_IDL */</pre></div><p class="pBody"><a name="wp1075286"> </a>
+The implementation of the operations <code class="cCode">_duplicate</code>, <code class="cCode">_narrow</code>, and <code class="cCode">_nil</code> are inherited from the implementation of the <code class="cCode">CORBA::LocalBase</code> interface provided by the CORBA ORB in the Oracle Tuxedo product.
+</p>
+<div class="pCodeTitle"><a name="wp1075287"> </a>
+Listing&#160;8-2	   C++ Declaration of the Interceptors::Interceptor Interface
+</div> <a name="wp1075288"> </a><div class="pPreformatted"><pre>#ifndef _INTERCEPTORS_H<br />#define _INTERCEPTORS_H<br /><br />#include &lt;string.h&gt;<br />#include &lt;CORBA.h&gt;<br /><br />class OBBEXPDLL Interceptors<br />&#160;&#160;{<br />&#160;&#160;public:<br />&#160;&#160;class Interceptor;<br />&#160;&#160;typedef Interceptor * Interceptor_ptr;<br /><br />&#160;&#160;enum InvokeReturnStatus<br />&#160;&#160;&#160;&#160;{<br />&#160;&#160;&#160;&#160;INVOKE_NO_EXCEPTION,// proceed normally<br />&#160;&#160;&#160;&#160;REPLY_NO_EXCEPTION, // stop proceeding; start reply processing<br />&#160;&#160;&#160;&#160;REPLY_EXCEPTION     // stop proceeding; reply with exception<br />&#160;&#160;&#160;&#160;};<br /><br />&#160;&#160;enum ResponseReturnStatus<br />&#160;&#160;&#160;&#160;{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;RESPONSE_NO_EXCEPTION,  // proceed normally<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;RESPONSE_EXCEPTION<br />&#160;&#160;&#160;&#160;};<br /><br />&#160;&#160;enum ShutdownReturnStatus<br />&#160;&#160;&#160;&#160;{<br />&#160;&#160;&#160;&#160;SHUTDOWN_NO_EXCEPTION,<br />&#160;&#160;&#160;&#160;SHUTDOWN_EXCEPTION<br />&#160;&#160;&#160;&#160;};<br /><br />&#160;&#160;enum ShutdownReason<br />&#160;&#160;&#160;&#160;{<br />&#160;&#160;&#160;&#160;ORB_SHUTDOWN,<br />&#160;&#160;&#160;&#160;CONNECTION_ABORTED,<br />&#160;&#160;&#160;&#160;RESOURCES_EXCEEDED<br />&#160;&#160;&#160;&#160;};<br /><br />&#160;&#160;struct Version<br />&#160;&#160;&#160;&#160;{<br />&#160;&#160;&#160;&#160;CORBA::Octet    major_version;<br />&#160;&#160;&#160;&#160;CORBA::Octet    minor_version;<br />&#160;&#160;&#160;&#160;};<br />&#160;&#160;typedef Version *   Version_ptr;<br /><br />&#160;&#160;//+<br />&#160;&#160;// Abstract base interface for all Interceptors<br />&#160;&#160;//-<br />&#160;&#160;class OBBEXPDLL Interceptor : public virtual CORBA::LocalBase<br />&#160;&#160;&#160;&#160;{<br />&#160;&#160;&#160;&#160;public:<br />&#160;&#160;&#160;&#160;&#160;&#160;static Interceptor_ptr _duplicate(Interceptor_ptr obj);<br />&#160;&#160;&#160;&#160;&#160;&#160;static Interceptor_ptr _narrow(Interceptor_ptr obj);<br />&#160;&#160;&#160;&#160;&#160;&#160;static Interceptor_ptr _nil();<br />&#160;&#160;&#160;&#160;&#160;&#160;virtual ShutdownReturnStatus <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;shutdown( ShutdownReason reason,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CORBA::Exception_ptr &amp; excep_val) = 0;<br />&#160;&#160;&#160;&#160;&#160;&#160;virtual CORBA::String id() = 0;<br /><br />&#160;&#160;&#160;&#160;protected:<br />&#160;&#160;&#160;&#160;&#160;&#160;Interceptor();<br />&#160;&#160;&#160;&#160;&#160;&#160;virtual ~Interceptor();<br />&#160;&#160;&#160;&#160;};<br />&#160;&#160;};#endif /* _INTERCEPTORS_H */</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp1075291"> </a>
+Interceptor::id
+</h3>
+<h4 class="pHeading3"><a name="wp1075292"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1075293"> </a>
+Obtains the vendor assigned identity of the interceptor as a string value.
+</p>
+<h4 class="pHeading3"><a name="wp1075294"> </a>
+C++ Mapping
+</h4>
+<a name="wp1075295"> </a><div class="pPreformatted"><pre>virtual CORBA::String id() = 0;</pre></div><h4 class="pHeading3"><a name="wp1075296"> </a>
+Parameters
+</h4>
+<p class="pBody"><a name="wp1075297"> </a>
+None.
+</p>
+<h4 class="pHeading3"><a name="wp1075298"> </a>
+Exceptions
+</h4>
+<p class="pBody"><a name="wp1075299"> </a>
+None.
+</p>
+<h4 class="pHeading3"><a name="wp1075300"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1075301"> </a>
+The <code class="cCode">id</code> accessor operation is used by the ORB to obtain the vendor assigned identity of the interceptor as a string value. This attribute is used primarily for debugging and tracing of operations on the interceptors called by the ORB.
+</p>
+<h4 class="pHeading3"><a name="wp1075302"> </a>
+Return Values
+</h4>
+<p class="pBody"><a name="wp1075303"> </a>
+This operation returns a pointer to a null-terminated string containing the identity of the interceptor as assigned by the provider of the interceptor implementation.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp1075305"> </a>
+Interceptor::shutdown
+</h3>
+<h4 class="pHeading3"><a name="wp1075306"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1075307"> </a>
+Notifies an implementation of an interceptor that the interceptor is being shut down.
+</p>
+<h4 class="pHeading3"><a name="wp1075308"> </a>
+C++ Binding
+</h4>
+<a name="wp1075309"> </a><div class="pPreformatted"><pre>virtual ShutdownReturnStatus <br />        shutdown( ShutdownReason reason,<br />                  CORBA::Exception_ptr &amp; excep_val) = 0;</pre></div><h4 class="pHeading3"><a name="wp1075310"> </a>
+Parameters
+</h4>
+<h4 class="pDefTerm"><a name="wp1075311"> </a>
+<code class="cCode">reason</code>
+</h4><div class="pDefPara"><a name="wp1075312"> </a>
+A<code class="cCode"> ShutdownReason</code> value that indicates the reason why the interceptor is being shut down. The following <code class="cCode">ShutdownReason</code> values can be passed to the operation:
+<p class="pGraphic"><a name="wp1075330"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1075315table1075313">
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1075315"> </a>
+<span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Status Value</span>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1075317"> </a>
+Description
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075319"> </a>
+<code class="cCode">ORB_SHUTDOWN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075321"> </a>
+Indicates that the ORB is being shut down.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075323"> </a>
+<code class="cCode">RESOURCES_EXCEEDED</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075325"> </a>
+Indicates that resources of the process have been exhausted.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075327"> </a>
+<code class="cCode">CONNECTION_ABORTED</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075329"> </a>
+This exception is not reported in Oracle Tuxedo 8.0.
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</div>
+<h4 class="pDefTerm"><a name="wp1075331"> </a>
+<code class="cCode">excep_val</code>
+</h4><div class="pDefPara"><a name="wp1075332"> </a>
+A reference to an <code class="cCode">ExceptionValue</code> in which the operation is to store any exception raised. This parameter is valid only if a value of <code class="cCode">SHUTDOWN_EXCEPTION</code> is returned from the operation.
+<a name="wp1075333"> </a>
+<code class="cCode">ExceptionValue</code> is mapped to the class <code class="cCode">CORBA::Exception</code>.
+</div>
+<h4 class="pHeading3"><a name="wp1075334"> </a>
+Exceptions
+</h4>
+<p class="pBody"><a name="wp1075335"> </a>
+None.
+</p>
+<h4 class="pHeading3"><a name="wp1075336"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1075337"> </a>
+The<code class="cCode"> shutdown </code>operation is used by the ORB to notify an implementation of an interceptor that the interceptor is being shut down. The ORB destroys the instance of the interceptor once control is returned from the operation back to the ORB.
+</p>
+<h4 class="pHeading3"><a name="wp1075338"> </a>
+Return Values
+</h4>
+<h4 class="pDefTerm"><a name="wp1075339"> </a>
+<code class="cCode">SHUTDOWN_NO_EXCEPTION</code>
+</h4><div class="pDefPara"><a name="wp1075340"> </a>
+Indicates that the operation has not raised an exception.
+</div>
+<h4 class="pDefTerm"><a name="wp1075341"> </a>
+<code class="cCode">SHUTDOWN_EXCEPTION</code>
+</h4><div class="pDefPara"><a name="wp1075342"> </a>
+Indicates that the operation has raised an exception. The value of the exception is stored in the <code class="cCode">excep_val</code> parameter.
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1075344"> </a>
+RequestLevelInterceptor::<br />RequestInterceptor Interface
+</h2><p class="pBody"><a name="wp1075345"> </a>
+The <code class="cCode">RequestLevelInterceptor::RequestInterceptor</code> interface is the base interface of all request-level interceptors. It inherits directly from the <code class="cCode">Interceptors::Interceptor</code> interface. The <code class="cCode">RequestLevelInterceptor::RequestInterceptor</code> interface:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1075346"> </a>Contains the set of operations and attributes that are supported by all request-level interceptors.</li>
+<li><a name="wp1075347"> </a>Is defined as an abstract interface; therefore, an instance of the interface cannot be instantiated.</li>
+</ul></div>
+<p class="pBody"><a name="wp1075348"> </a>
+The <code class="cCode">local</code> keyword in OMG IDL indicates that the <code class="cCode">RequestInterceptor</code> interface is not a normal CORBA object, so it cannot be used as such. 
+</p>
+<div class="pCodeTitle"><a name="wp1075349"> </a>
+Listing&#160;8-3	   OMG IDL for the RequestLevelInterceptor::RequestInterceptor Interface
+</div> <a name="wp1075350"> </a><div class="pPreformatted"><pre>#ifndef _REQUEST_LEVEL_INTERCEPTOR_IDL<br />#define _REQUEST_LEVEL_INTERCEPTOR_IDL<br /><br />#include &lt;orb.idl&gt;<br />#include &lt;Giop.idl&gt;<br />#include &lt;Interceptors.idl&gt;<br /><br />#pragma prefix &#8220;beasys.com&#8221;<br /><br />module RequestLevelInterceptor<br />&#160;&#160;{<br />&#160;&#160;local RequestInterceptor : Interceptors::Interceptor<br />&#160;&#160;&#160;&#160;{<br />&#160;&#160;&#160;&#160;void exception_occurred(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in  ReplyContext       reply_context,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in  ExceptionValue     excep_val<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;);<br />&#160;&#160;&#160;&#160;};<br />&#160;&#160;};<br />#endif /* _REQUEST_LEVEL_INTERCEPTOR_IDL */</pre></div><p class="pBody"><a name="wp1075351"> </a>
+The implementation of the <code class="cCode">RequestInterceptor</code> interface inherits from <code class="cCode">CORBA::LocalBase</code> rather than from <code class="cCode">CORBA::Object</code>. <code class="cCode">CORBA::LocalBase</code> provides an implementation of the operations <code class="cCode">_duplicate</code>, <code class="cCode">_narrow</code>, and <code class="cCode">_nil</code>, similar to those of <code class="cCode">CORBA::Object</code>. 
+</p>
+<div class="pCodeTitle"><a name="wp1075352"> </a>
+Listing&#160;8-4	   C++ Declaration for the RequestInterceptor Interface
+</div> <a name="wp1078731"> </a><div class="pPreformatted"><pre>#ifndef _RequestLevelInterceptor_h<br />#define _RequestLevelInterceptor_h<br /><br />#include &lt;CORBA.h&gt;<br />#include &lt;IOP.h&gt;<br />#include &lt;GIOP.h&gt;<br />#include &lt;Interceptors.h&gt;<br /><br />class OBBEXPDLL RequestLevelInterceptor<br />&#160;&#160;{<br />&#160;&#160;public:<br />&#160;&#160;&#160;&#160;class   RequestInterceptor;<br />&#160;&#160;&#160;&#160;typedef RequestInterceptor *    RequestInterceptor_ptr;<br /><br />&#160;&#160;&#160;&#160;struct  RequestContext <br />&#160;&#160;&#160;&#160;&#160;&#160;{<br />&#160;&#160;&#160;&#160;&#160;&#160;Interceptors::Version struct_version;<br />&#160;&#160;&#160;&#160;&#160;&#160;CORBA::ULong request_id;<br />&#160;&#160;&#160;&#160;&#160;&#160;CORBA::Octet response_flags;<br />&#160;&#160;&#160;&#160;&#160;&#160;GIOP::TargetAddress target;<br />&#160;&#160;&#160;&#160;&#160;&#160;CORBA::String_var interface_id;<br />&#160;&#160;&#160;&#160;&#160;&#160;CORBA::String_var operation;<br />&#160;&#160;&#160;&#160;&#160;&#160;RequestContext &amp;operator=(const RequestContext &amp;_obj);<br />&#160;&#160;&#160;&#160;&#160;&#160;};<br /><br />&#160;&#160;&#160;&#160;typedef RequestContext *    RequestContext_ptr;<br />&#160;&#160;&#160;&#160;typedef GIOP::ReplyStatusType_1_2 ReplyStatus;<br /><br />&#160;&#160;&#160;&#160;struct  ReplyContext <br />&#160;&#160;&#160;&#160;&#160;{<br />&#160;&#160;&#160;&#160;&#160;&#160;Interceptors::Version struct_version;<br />&#160;&#160;&#160;&#160;&#160;&#160;CORBA::ULong request_id;<br />&#160;&#160;&#160;&#160;&#160;&#160;ReplyStatus reply_status;<br />&#160;&#160;&#160;&#160;&#160;&#160;};<br /><br />&#160;&#160;&#160;&#160;typedef ReplyContext *  ReplyContext_ptr;<br /><br />&#160;&#160;&#160;&#160;class OBBEXPDLL RequestInterceptor : <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;public virtual  Interceptors::Interceptor<br />&#160;&#160;&#160;&#160;&#160;&#160;{<br />&#160;&#160;&#160;&#160;&#160;&#160;public:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;static RequestInterceptor_ptr <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;_duplicate(RequestInterceptor_ptr obj);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;static RequestInterceptor_ptr <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;_narrow(RequestInterceptor_ptr obj);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;inline static RequestInterceptor_ptr _nil() { return 0; }<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;virtual void <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exception_occurred( const ReplyContext &amp; reply_context,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CORBA::Exception_ptr excep_val) = 0;<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;protected:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;RequestInterceptor(CORBA::LocalBase_ptr obj = 0) { }<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;virtual ~RequestInterceptor(){ }<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;private:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;RequestInterceptor( const RequestInterceptor&amp;) { }<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void operator=(const RequestInterceptor&amp;) { }<br />&#160;&#160;&#160;&#160;&#160;&#160;};  // class RequestInterceptor<br />#endif /* _RequestLevelInterceptor_h */</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp1075357"> </a>
+RequestContext Structure
+</h3>
+<h4 class="pHeading3"><a name="wp1075358"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1075359"> </a>
+Contains the information that represents the context in which a request is to be processed.
+</p>
+<h4 class="pHeading3"><a name="wp1075360"> </a>
+C++ Binding
+</h4>
+<a name="wp1075361"> </a><div class="pPreformatted"><pre>struct  <code class="cCode">RequestContext <br /></code>      {<br />      Interceptors::Version struct_version;<br />      CORBA::ULong request_id;<br />      CORBA::Octet response_flags;<br />      GIOP::TargetAddress target;<br />      CORBA::String_var interface_id;<br />      CORBA::String_var operation;<br />      RequestContext <code class="cCode">&amp;operator=(const RequestContext &amp;_</code>obj);<br />      };</pre></div><h4 class="pHeading3"><a name="wp1075362"> </a>
+Members
+</h4>
+<h4 class="pDefTerm"><a name="wp1075363"> </a>
+<code class="cCode">struct_version</code>
+</h4><div class="pDefPara"><a name="wp1075364"> </a>
+An indication of the version of the RequestContext that provides an indication of the format and members. The version information is separated into the following two pieces:
+<p class="pGraphic"><a name="wp1075378"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1075367table1075365">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1075367"> </a>
+Version Member
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1075369"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075371"> </a>
+<code class="cCode">major_version</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075373"> </a>
+Indicates the major version value. The value of this member is incremented anytime a change is made to the contents or layout of a <code class="cCode">RequestContext</code> that is not backward compatible with previous versions.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075375"> </a>
+<code class="cCode">minor_version</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075377"> </a>
+Indicates the minor version value. The value of this member is incremented anytime a change is made to the contents or layout of a <code class="cCode">RequestContext</code> that is backward compatible with previous versions.
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</div>
+<h4 class="pDefTerm"><a name="wp1075379"> </a>
+<code class="cCode">request_id</code>
+</h4><div class="pDefPara"><a name="wp1075380"> </a>
+An unsigned long value that specifies the identifier assigned to a request by the initiating ORB.
+</div>
+<h4 class="pDefTerm"><a name="wp1075381"> </a>
+<code class="cCode">response_flags</code>
+</h4><div class="pDefPara"><a name="wp1075382"> </a>
+The lowest order bit of <code class="cCode">response_flag</code>s<span style="font-weight: bold"> </span>is set to 1<span style="font-weight: bold"> </span>if a reply message is expected for this request. If the operation is not defined as<code class="cCode"> oneway</code>, and the request is not invoked via the DII with the<code class="cCode"> INV_NO_RESPONSE</code> flag set, <code style="font-weight: normal" class="cCode">response_flags</code><span style="font-weight: bold"> </span>will be set to<code class="cCode"> \x03</code>.
+<a name="wp1075383"> </a>
+If the operation is defined as oneway, or the request is invoked via the DII with the <code style="font-weight: normal" class="cCode">INV_NO_RESPONSE</code><span style="font-weight: bold"> </span>flag set, <code style="font-weight: normal" class="cCode">response_flags</code><span style="font-weight: bold"> </span>may be set to <code style="font-weight: normal" class="cCode">\x00</code><span style="font-weight: bold"> </span>or<span style="font-weight: bold"> </span><code class="cCode">\x01</code>.
+<a name="wp1075384"> </a>
+When this flag is set to <code class="cCode">\x01</code> for a <code class="cCode">oneway</code> operation, receipt of a reply does not imply that the operation has necessarily completed.
+</div>
+<h4 class="pDefTerm"><a name="wp1075385"> </a>
+<code class="cCode">target</code>
+</h4><div class="pDefPara"><a name="wp1075386"> </a>
+A discriminated union that identifies the object that is the target of the invocation. The discriminator indicates the format in which the target addressing is presented. The possible discriminator values are:
+<p class="pGraphic"><a name="wp1075406"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1075389table1075387">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1075389"> </a>
+Discriminator
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1075391"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075393"> </a>
+<code class="cCode">KeyAddr</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075395"> </a>
+The <code class="cCode">object_key</code> field from the transport-specific GIOP profile (for example, from the encapsulated IIOP profile of the IOR for the target object). This value is meaningful only to the server and is not interpreted or modified by the client.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075397"> </a>
+<code class="cCode">ProfileAddr</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075399"> </a>
+The transport-specific GIOP profile selected for the target&#8217;s IOR by the client ORB.
+</div>
+<p class="pTableNote"><a name="wp1075400"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>In the Oracle Tuxedo 8.0 product, this discriminator value is not supported, but is provided for future support of GIOP 1.2.</td></tr>
+</table>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075402"> </a>
+<code class="cCode">ReferenceAddr</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075404"> </a>
+The full IOR of the target object. The <code class="cCode">selected_profile_index</code> indicates the transport-specific GIOP profile that was selected by the client ORB.
+</div>
+<p class="pTableNote"><a name="wp1075405"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>In the Oracle Tuxedo 8.0 product, this discriminator value is not supported, but is provided for future support of GIOP 1.2.</td></tr>
+</table>
+</p>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</div>
+<h4 class="pDefTerm"><a name="wp1075407"> </a>
+<code class="cCode">interface_id</code>
+</h4><div class="pDefPara"><a name="wp1075408"> </a>
+A NULL-terminated string that specifies the repository identifier assigned to the interface of the object.
+</div>
+<h4 class="pDefTerm"><a name="wp1075409"> </a>
+<code class="cCode">operation</code>
+</h4><div class="pDefPara"><a name="wp1075410"> </a>
+A NULL-terminated string that specifies the name of the operation being requested on the target object indicated by the target member and that supports the interface specified by the value of the <code class="cCode">interface_id</code> member.
+</div>
+<h4 class="pHeading3"><a name="wp1075411"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1075412"> </a>
+The <code class="cCode">RequestContext</code> data object contains the information that represents the context in which a request is to be processed. The context information contained in the <code class="cCode">RequestContext</code> provides information necessary to coordinate between the processing of a given request and its corresponding reply.
+</p>
+<p class="pBody"><a name="wp1075413"> </a>
+The context information in the <code class="cCode">RequestContext</code> structure cannot be modified by the interceptor implementation. The ORB maintains ownership of the <code class="cCode">RequestContext</code> and is responsible for freeing any resources associated with the <code class="cCode">RequestContext</code> when it has completed using it.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp1075416"> </a>
+ReplyContext Structure
+</h3>
+<h4 class="pHeading3"><a name="wp1075417"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1075418"> </a>
+Contains the information that represents the context in which a reply is to be processed.
+</p>
+<h4 class="pHeading3"><a name="wp1075419"> </a>
+C++ Binding
+</h4>
+<a name="wp1075420"> </a><div class="pPreformatted"><pre>struct  ReplyContext <br />      {<br />      Interceptors::Version struct_version;<br />      CORBA::ULong request_id;<br />      ReplyStatus reply_status;<br />      };</pre></div><h4 class="pHeading3"><a name="wp1075421"> </a>
+Members
+</h4>
+<h4 class="pDefTerm"><a name="wp1075422"> </a>
+<code class="cCode">struct_version</code>
+</h4><div class="pDefPara"><a name="wp1075423"> </a>
+An indication of the version of the <code class="cCode">ReplyContext</code> that provides an indication of the format and members. The version information is separated into the following two pieces:
+<p class="pGraphic"><a name="wp1075437"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1075426table1075424">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1075426"> </a>
+Version Member
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1075428"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075430"> </a>
+<code class="cCode">major_version</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075432"> </a>
+Indicates the major version value. The value of this member is incremented anytime a change is made to the contents or layout of a <code class="cCode">ReplyContext</code> that is not backward compatible with previous versions.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075434"> </a>
+<code class="cCode">minor_version</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075436"> </a>
+Indicates the minor version value. The value of this member is incremented anytime a change is made to the contents or layout of a <code class="cCode">ReplyContext</code> that is backward compatible with previous versions.
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</div>
+<h4 class="pDefTerm"><a name="wp1075438"> </a>
+<code class="cCode">request_id</code>
+</h4><div class="pDefPara"><a name="wp1075439"> </a>
+An unsigned long value that specifies the identifier assigned to a request by the initiating ORB.
+</div>
+<h4 class="pDefTerm"><a name="wp1075440"> </a>
+<code class="cCode">reply_status</code>
+</h4><div class="pDefPara"><a name="wp1075441"> </a>
+Indicates the completion status of the associated request, and also determines part of the reply body contents.
+<p class="pGraphic"><a name="wp1075471"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1075444table1075442">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1075444"> </a>
+Status Value
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1075446"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075448"> </a>
+<code class="cCode">NO_EXCEPTION</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075450"> </a>
+Indicates that the requested operation completed successfully and that the value of the <code class="cCode">arg_stream</code> parameter contains the return values of the operation.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075452"> </a>
+<code class="cCode">USER_EXCEPTION</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075454"> </a>
+Indicates that the requested operation failed because of an exception reported by the target object. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075456"> </a>
+<code class="cCode">SYSTEM_EXCEPTION</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075458"> </a>
+Indicates that the request operation failed because of an exception reported either by the target object or by the infrastructure. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075460"> </a>
+<code class="cCode">LOCATION_FORWARD</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075462"> </a>
+Indicates that the body contains an object reference (IOR). The client ORB is responsible for resending the original request to that (different) object. This resending is transparent to the client program making the request, but the resending is not transparent to the interceptor.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075464"> </a>
+<code class="cCode">LOCATION_FORWARD_PERM</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075466"> </a>
+Indicates that the body contains an object reference. The usage is similar to <code class="cCode">LOCATION_FORWARD</code>, but when used by a server, this value also provides an indication to the client that the client may replace the old IOR with the new IOR. Both the old IOR and the new IOR are valid, but the new IOR is preferred for future use. This resending is transparent to the client program making the request, but the resending is not transparent to the interceptor.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075468"> </a>
+<code class="cCode">NEEDS_ADDRESSING_MODE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075470"> </a>
+Indicates that the body contains a <code class="cCode">GIOP::AddressingDisposition</code>. The client ORB is responsible for resending the original request using the requested addressing mode. This resending is transparent to the client program making the request, but the resending is not transparent to the interceptor.
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</div>
+<h4 class="pHeading3"><a name="wp1075472"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1075473"> </a>
+The <code class="cCode">ReplyContext</code> data object contains the information that represents the context in which a reply is to be processed. The context information contained in <code class="cCode">ReplyContext</code> provides information necessary to coordinate between the processing of a given request and its corresponding reply.
+</p>
+<p class="pBody"><a name="wp1075474"> </a>
+The context information in <code class="cCode">ReplyContext</code> cannot be modified by the interceptor implementation. The ORB maintains ownership of <code class="cCode">ReplyContext</code> and is responsible for freeing any resources associated with <code class="cCode">ReplyContext</code> when it has completed using it.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp1075477"> </a>
+RequestInterceptor::exception_occurred
+</h3>
+<h4 class="pHeading3"><a name="wp1075478"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1075479"> </a>
+Is called by the ORB to allow the interceptor to clean up any state that the interceptor might have been managing that is specific to a request.
+</p>
+<h4 class="pHeading3"><a name="wp1075480"> </a>
+C++ Binding
+</h4>
+<a name="wp1075481"> </a><div class="pPreformatted"><pre>virtual void <br />          exception_occurred( const ReplyContext &amp; reply_context,<br />                              CORBA::Exception_ptr excep_val) = 0;</pre></div><h4 class="pHeading3"><a name="wp1075482"> </a>
+Parameters
+</h4>
+<h4 class="pDefTerm"><a name="wp1075483"> </a>
+<code class="cCode">reply_context</code>
+</h4><div class="pDefPara"><a name="wp1075484"> </a>
+A reference to a <code class="cCode">ReplyContext</code> that contains information about the context in which the reply is being performed.
+</div>
+<h4 class="pDefTerm"><a name="wp1075485"> </a>
+<code class="cCode">excep_val</code>
+</h4><div class="pDefPara"><a name="wp1075486"> </a>
+A pointer to the exception reported by the ORB or by another interceptor.
+</div>
+<h4 class="pHeading3"><a name="wp1075487"> </a>
+Exceptions
+</h4>
+<p class="pBody"><a name="wp1075488"> </a>
+None.
+</p>
+<h4 class="pHeading3"><a name="wp1075489"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1075490"> </a>
+The <code class="cCode">exception_occurred</code> operation is called on a request-level interceptor implementation in one of three cases:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1075491"> </a>Another interceptor sets an exception (rather than an exception being generated by the ORB or the method).</li>
+<li><a name="wp1075492"> </a>The ORB detects an operating system or communication-related problem.</li>
+<li><a name="wp1075493"> </a>A client deletes a <code class="cCode">Request</code> object that was used to initiate a deferred synchronous DII. The <code class="cCode">exception_occurred</code> method is called instead of the <code class="cCode">client_response</code> or <code class="cCode">target_response</code> method of that interceptor. The ORB calls the <code class="cCode">exception_occurred</code> method to allow the interceptor implementation to clean up any state that it might have been managing that is specific to a request.</li>
+</ol></div>
+<h4 class="pHeading3"><a name="wp1075494"> </a>
+Return Values
+</h4>
+<p class="pBody"><a name="wp1075495"> </a>
+None.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1075497"> </a>
+RequestLevelInterceptor::<br />ClientRequestInterceptor Interface
+</h2><p class="pBody"><a name="wp1075498"> </a>
+This is the base interface of all request-level interceptors. It inherits directly from the <code class="cCode">RequestLevelInterceptor::RequestInterceptor</code> interface. The interface contains the set of operations and attributes that are supported by all client-side request-level interceptors.
+</p>
+<div class="pCodeTitle"><a name="wp1075499"> </a>
+Listing&#160;8-5	   OMG IDL Definition
+</div> <a name="wp1075500"> </a><div class="pPreformatted"><pre>//File: RequestLevelInterceptor.idl<br /><br />#ifndef _REQUEST_LEVEL_INTERCEPTOR_IDL<br />#define _REQUEST_LEVEL_INTERCEPTOR_IDL<br /><br />#include &lt;orb.idl&gt;<br />#include &lt;Giop.idl&gt;<br />#include &lt;Interceptors.idl&gt;<br /><br />#pragma prefix &#8220;beasys.com&#8221;<br /><br />module RequestLevelInterceptor<br />&#160;&#160;{<br />&#160;&#160;local ClientRequestInterceptor : RequestInterceptor<br />&#160;&#160;&#160;&#160;{<br />&#160;&#160;&#160;&#160;InvokeReturnStatus <br />&#160;&#160;&#160;&#160;&#160;&#160;client_invoke( <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in&#160;&#160;&#160;&#160;RequestContext&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;request_context,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in&#160;&#160;&#160;&#160;ServiceContextList&#160;&#160;&#160;&#160;&#160;&#160;&#160;service_context,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in&#160;&#160;&#160;&#160;CORBA::DataInputStream&#160;&#160;&#160;request_arg_stream,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in&#160;&#160;&#160;&#160;CORBA::DataOutputStream&#160;&#160;reply_arg_stream,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;out&#160;&#160;&#160;ExceptionValue &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;excep_val<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;);<br /><br />&#160;&#160;&#160;&#160;ResponseReturnStatus <br />&#160;&#160;&#160;&#160;&#160;&#160;client_response(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in&#160;&#160;&#160;&#160;ReplyContext&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;reply_context,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in&#160;&#160;&#160;&#160;ServiceContextList&#160;&#160;&#160;&#160;&#160;service_context,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in&#160;&#160;&#160;&#160;CORBA::DataInputStream arg_stream,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;out&#160;&#160;&#160;ExceptionValue&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;excep_val<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;);<br />&#160;&#160;&#160;&#160;};<br />&#160;&#160;};<br />#endif /* _REQUEST_LEVEL_INTERCEPTOR_IDL */</pre></div><p class="pBody"><a name="wp1075501"> </a>
+The implementation of the operations <code class="cCode">_duplicate</code>, <code class="cCode">_narrow</code>, and <code class="cCode">_nil</code> are inherited indirectly from the implementation of the <code class="cCode">CORBA::LocalBase</code> interface provided by the CORBA ORB in the Oracle Tuxedo product.
+</p>
+<div class="pCodeTitle"><a name="wp1075502"> </a>
+Listing&#160;8-6	   C++ Declaration
+</div> <a name="wp1075503"> </a><div class="pPreformatted"><pre>#ifndef _RequestLevelInterceptor_h<br />#define _RequestLevelInterceptor_h<br /><br />#include &lt;CORBA.h&gt;<br />#include &lt;IOP.h&gt;<br />#include &lt;GIOP.h&gt;<br />#include &lt;Interceptors.h&gt;<br /><br />class OBBEXPDLL RequestLevelInterceptor<br />&#160;&#160;{<br />&#160;&#160;public:<br />&#160;&#160;&#160;&#160;class&#160;&#160;&#160;ClientRequestInterceptor;<br />&#160;&#160;&#160;&#160;typedef ClientRequestInterceptor *  <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ClientRequestInterceptor_ptr;<br /><br />&#160;&#160;&#160;&#160;class OBBEXPDLL ClientRequestInterceptor : <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;public virtual  RequestInterceptor<br />&#160;&#160;&#160;&#160;&#160;&#160;{<br />&#160;&#160;&#160;&#160;&#160;&#160;public:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;static ClientRequestInterceptor_ptr <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;_duplicate(ClientRequestInterceptor_ptr obj);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;static ClientRequestInterceptor_ptr <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;_narrow(ClientRequestInterceptor_ptr obj);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;inline static ClientRequestInterceptor_ptr <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;_nil() { return 0; }<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;virtual Interceptors::InvokeReturnStatus <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;client_invoke( <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;const RequestContext &amp; request_context,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ServiceContextList_ptr service_context,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CORBA::DataInputStream_ptr request_arg_stream,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CORBA::DataOutputStream_ptr reply_arg_stream,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CORBA::Exception_ptr &amp; excep_val ) = 0;<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;virtual Interceptors::ResponseReturnStatus <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;client_response(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;const ReplyContext &amp; reply_context,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ServiceContextList_ptr service_context,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CORBA::DataInputStream_ptr arg_stream,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CORBA::Exception_ptr &amp; excep_val ) = 0;<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;protected:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ClientRequestInterceptor(CORBA::LocalBase_ptr obj = 0) { }<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;virtual ~ClientRequestInterceptor(){ }<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;private:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ClientRequestInterceptor( const ClientRequestInterceptor&amp;) <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;{ }<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void operator=(const ClientRequestInterceptor&amp;) { }<br />&#160;&#160;&#160;&#160;&#160;&#160;};  // class ClientRequestInterceptor<br />&#160;&#160;};<br />#endif /* _RequestLevelInterceptor_h */</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp1075506"> </a>
+ClientRequestInterceptor::client_invoke
+</h3>
+<h4 class="pHeading3"><a name="wp1075507"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1075508"> </a>
+Is called by the client-side ORB anytime the client application sends an invocation to a target object.
+</p>
+<h4 class="pHeading3"><a name="wp1075509"> </a>
+C++ Binding
+</h4>
+<a name="wp1075510"> </a><div class="pPreformatted"><pre>virtual Interceptors::InvokeReturnStatus <br />          client_invoke( <br />              const RequestContext &amp; request_context,<br />              ServiceContextList_ptr service_context,<br />              CORBA::DataInputStream_ptr request_arg_stream,<br />              CORBA::DataOutputStream_ptr reply_arg_stream,<br />              CORBA::Exception_ptr &amp; excep_val ) = 0;</pre></div><h4 class="pHeading3"><a name="wp1075511"> </a>
+Parameters
+</h4>
+<h4 class="pDefTerm"><a name="wp1075512"> </a>
+<code class="cCode">request_context</code>
+</h4><div class="pDefPara"><a name="wp1075513"> </a>
+A reference to a RequestContext that contains information about the context in which the request is being performed.
+</div>
+<h4 class="pDefTerm"><a name="wp1075514"> </a>
+<code class="cCode">service_context</code>
+</h4><div class="pDefPara"><a name="wp1075515"> </a>
+A pointer to a <code class="cCode">ServiceContextList</code> containing service context information to be sent as part of the request to the target object.
+</div>
+<div class="pDefParaCont"><a name="wp1075516"> </a>
+<b class="cBold">Note: </b>In Oracle Tuxedo 8.0, the value of this parameter is always a nil object.
+</div>
+<h4 class="pDefTerm"><a name="wp1075517"> </a>
+<code class="cCode">request_arg_stream</code>
+</h4><div class="pDefPara"><a name="wp1075518"> </a>
+A pointer to a <code class="cCode">DataInputStream</code> that can be used by the interceptor implementation to retrieve the value of the parameter of the operation.
+<a name="wp1075519"> </a>
+The <code class="cCode">DataInputStream</code> contains all <code class="cCode">in</code> and <code class="cCode">inout</code> parameters, in the order in which they are specified in the operation&#8217;s IDL definition, from left to right. A nil <code class="cCode">DataInputStream</code> indicates that no arguments exist.
+</div>
+<h4 class="pDefTerm"><a name="wp1075520"> </a>
+<code class="cCode">reply_arg_stream</code>
+</h4><div class="pDefPara"><a name="wp1075521"> </a>
+A pointer to a <code class="cCode">CORBA::DataOutputStream</code> that can be used to populate the parameters to be returned to the initiator of the invocation as a reply. The use of this parameter is only valid if a status of <code class="cCode">REPLY_NO_EXCEPTION</code> is returned.
+</div>
+<div class="pDefParaCont"><a name="wp1075522"> </a>
+<b class="cBold">Note:</b> In Oracle Tuxedo 8.0, the value of this parameter is always a nil object.
+</div>
+<h4 class="pDefTerm"><a name="wp1075523"> </a>
+<code class="cCode">excep_val</code>
+</h4><div class="pDefPara"><a name="wp1075524"> </a>
+A reference to a location in which the interceptor can return an exception in order to report an error. The use of this parameter is only valid if a status of <code class="cCode">REPLY_EXCEPTION</code> is returned. Note that the ORB is responsible for the memory management for the <code class="cCode">excep_val</code> parameter.
+</div>
+<h4 class="pHeading3"><a name="wp1075525"> </a>
+Exceptions
+</h4>
+<p class="pBody"><a name="wp1075526"> </a>
+None.
+</p>
+<h4 class="pHeading3"><a name="wp1075527"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1075528"> </a>
+The <code class="cCode">client_invoke</code> operation is called on an interceptor implementation that supports the <code class="cCode">RequestLevelInterceptor::ClientRequestInterceptor</code> interceptor interface. The operation is called by the ORB anytime that an invocation is being sent to a target object, regardless of whether the target object is in a different address space or the same address space as the target object.
+</p>
+<h4 class="pHeading3"><a name="wp1075529"> </a>
+Return Values
+</h4>
+<h4 class="pDefTerm"><a name="wp1075530"> </a>
+<code class="cCode">INVOKE_NO_EXCEPTION</code>
+</h4><div class="pDefPara"><a name="wp1075531"> </a>
+Indicates that the interceptor successfully performed any processing required and that the ORB should continue processing the invocation in order to deliver it to the target object.
+</div>
+<h4 class="pDefTerm"><a name="wp1075532"> </a>
+<code class="cCode">REPLY_NO_EXCEPTION</code>
+</h4><div class="pDefPara"><a name="wp1075533"> </a>
+Indicates that the interceptor successfully performed any processing required to totally satisfy the request. The ORB should consider the request completed and begins processing any information in the <code class="cCode">reply_arg_stream</code>, if any, as the return parameter values for the request.
+</div>
+<div class="pDefParaCont"><a name="wp1075534"> </a>
+<b class="cBold">Note:</b> In Oracle Tuxedo 8.0, an interceptor cannot return this status value.
+</div>
+<h4 class="pDefTerm"><a name="wp1075535"> </a>
+<code class="cCode">REPLY_EXCEPTION</code>
+</h4><div class="pDefPara"><a name="wp1075536"> </a>
+Indicates that the interceptor encountered an error that should result in the discontinued processing of the request toward the target. The parameter <code class="cCode">excep_val</code> is used to report the exception to the ORB. The ORB calls interceptors on the way back to the client application with the <code class="cCode">exception_occurred</code> operation rather than with the <code class="cCode">client_response</code> operation.  Note that the ORB is responsible for the memory management for the <code class="cCode">excep_val</code> parameter.
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp1075538"> </a>
+ClientRequestInterceptor::client_response
+</h3>
+<h4 class="pHeading3"><a name="wp1075539"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1075540"> </a>
+Is called on an interceptor implementation that supports the <code class="cCode">RequestLevelInterceptor::ClientRequestInterceptor</code> interface.
+</p>
+<h4 class="pHeading3"><a name="wp1075541"> </a>
+C++ Binding
+</h4>
+<a name="wp1075542"> </a><div class="pPreformatted"><pre>virtual Interceptors::ResponseReturnStatus <br />          client_response( <br />              const ReplyContext &amp; reply_context,<br />              ServiceContextList_ptr service_context,<br />              CORBA::DataInputStream_ptr arg_stream,<br />              CORBA::Exception_ptr &amp; excep_val ) = 0;</pre></div><h4 class="pHeading3"><a name="wp1075543"> </a>
+Parameters
+</h4>
+<h4 class="pDefTerm"><a name="wp1075544"> </a>
+<code class="cCode">reply_context</code>
+</h4><div class="pDefPara"><a name="wp1075545"> </a>
+A reference to a <code class="cCode">ReplyContext</code> that contains information about the context in which the reply is being performed.
+</div>
+<h4 class="pDefTerm"><a name="wp1075546"> </a>
+<code class="cCode">service_context</code>
+</h4><div class="pDefPara"><a name="wp1075547"> </a>
+A pointer to a <code class="cCode">ServiceContextList</code> containing service context information received as a result of processing the request by the target object.
+<a name="wp1075548"> </a>
+<b class="cBold">Note:</b> In Oracle Tuxedo 8.0, the value of this parameter is always a nil object.
+</div>
+<h4 class="pDefTerm"><a name="wp1075549"> </a>
+<code class="cCode">arg_stream</code>
+</h4><div class="pDefPara"><a name="wp1075550"> </a>
+A pointer to a <code class="cCode">DataInputStream</code> that can be used by the interceptor implementation to retrieve the value of the reply parameters of the operation.
+</div>
+<div class="pDefParaCont"><a name="wp1075551"> </a>
+The following table identifies what the <code class="cCode">client_response</code> method returns in the <code class="cCode">DataInputStream</code> object based on the status contained in the <code class="cCode">ReplyContext</code> object:
+<p class="pGraphic"><a name="wp1075569"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1075554table1075552">
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1075554"> </a>
+Status Value
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1075556"> </a>
+Description
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075558"> </a>
+<code class="cCode">LOCATION_FORWARD</code>, <code class="cCode">LOCATION_FORWARD_PERM</code>, or <code class="cCode">NEEDS_ADDRESSING_MODE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075560"> </a>
+A nil <code class="cCode">DataInputStream</code> is supplied.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075562"> </a>
+<code class="cCode">NO_EXCEPTION</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075564"> </a>
+The <code class="cCode">DataInputStream</code> contains first any operation return value, then any <code class="cCode">inout</code> and <code class="cCode">out</code> parameters in the order in which they appear in the operation&#39;s IDL definition, from left to right. A nil <code class="cCode">DataInputStream</code> indicates that no arguments exist.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075566"> </a>
+<code class="cCode">USER_EXCEPTION</code> or <code class="cCode">SYSTEM_EXCEPTION</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075568"> </a>
+The <code class="cCode">DataInputStream</code> contains the exception that was raised by the operation.
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</div>
+<div class="pDefPara"><a name="wp1075570"> </a>
+<b class="cBold">Note:</b> Exceptions contain a string followed by any exception members. The string contains the repository ID for the exception. The exception members are passed in the same manner as a struct. A system exception contains two unsigned long members, a minor code, and a completion status.
+</div>
+<h4 class="pDefTerm"><a name="wp1075571"> </a>
+<code class="cCode">excep_val</code>
+</h4><div class="pDefPara"><a name="wp1075572"> </a>
+A reference to a location in which the interceptor can return an exception in order to report an error. The use of this parameter is only valid if a status of <code class="cCode">REPLY_EXCEPTION</code> is returned.  Note that the ORB is responsible for the memory management for the <code class="cCode">excep_val</code> parameter.
+</div>
+<h4 class="pHeading3"><a name="wp1075573"> </a>
+Exceptions
+</h4>
+<p class="pBody"><a name="wp1075574"> </a>
+None.
+</p>
+<h4 class="pHeading3"><a name="wp1075575"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1075576"> </a>
+The <code class="cCode">client_response</code> operation is called on an interceptor implementation that supports the <code class="cCode">RequestLevelInterceptor::ClientRequestInterceptor</code> interface. The operation is called by the ORB anytime that a reply to an invocation is being received by the initiator of the request, regardless of whether the initiator is in a different address space or the same address space as the target object.
+</p>
+<h4 class="pHeading3"><a name="wp1075577"> </a>
+Return Values
+</h4>
+<h4 class="pDefTerm"><a name="wp1075578"> </a>
+<code class="cCode">RESPONSE_NO_EXCEPTION</code>
+</h4><div class="pDefPara"><a name="wp1075579"> </a>
+Indicates that the interceptor successfully performed any processing required and that the ORB should continue processing the reply to the request to deliver it to the initiator of the request.
+</div>
+<h4 class="pDefTerm"><a name="wp1075580"> </a>
+<code class="cCode">RESPONSE_EXCEPTION</code>
+</h4><div class="pDefPara"><a name="wp1075581"> </a>
+Indicates that the interceptor encountered an error. The parameter <code class="cCode">excep_val</code> is used to report the exception to the ORB. Any interceptors not yet called on the way back to the client have their <code class="cCode">exception_occurred</code> operation called by the ORB to notify them that processing the request has failed.
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1075583"> </a>
+RequestLevelInterceptor::<br />TargetRequestInterceptor Interface
+</h2><p class="pBody"><a name="wp1075584"> </a>
+This is the base interface of all request-level interceptors. It inherits directly from the <code class="cCode">RequestLevelInterceptor::RequestInterceptor</code> interface. The interface contains the set of operations and attributes that are supported by all target-side request-level interceptors.
+</p>
+<div class="pCodeTitle"><a name="wp1075585"> </a>
+Listing&#160;8-7	   OMG IDL Definition
+</div> <a name="wp1075586"> </a><div class="pPreformatted"><pre>//File: RequestLevelInterceptor.idl<br /><br />#ifndef _REQUEST_LEVEL_INTERCEPTOR_IDL<br />#define _REQUEST_LEVEL_INTERCEPTOR_IDL<br /><br />#include &lt;orb.idl&gt;<br />#include &lt;Giop.idl&gt;<br />#include &lt;Interceptors.idl&gt;<br /><br />#pragma prefix &#8220;beasys.com&#8221;<br /><br />module RequestLevelInterceptor<br />&#160;&#160;{<br />&#160;&#160;local TargetRequestInterceptor : RequestInterceptor<br />&#160;&#160;&#160;&#160;{<br />&#160;&#160;&#160;&#160;InvokeReturnStatus <br />&#160;&#160;&#160;&#160;&#160;&#160;target_invoke( <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in&#160;&#160;&#160;&#160;RequestContext&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;request_context,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in&#160;&#160;&#160;&#160;ServiceContextList&#160;&#160;&#160;&#160;&#160;&#160;&#160;service_context,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in&#160;&#160;&#160;&#160;CORBA::DataInputStream&#160;&#160;&#160;request_arg_stream,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in&#160;&#160;&#160;&#160;CORBA::DataOutputStream&#160;&#160;reply_arg_stream,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;out&#160;&#160;&#160;&#160;ExceptionValue&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;excep_val<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;);<br /><br />&#160;&#160;&#160;&#160;ResponseReturnStatus<br />&#160;&#160;&#160;&#160;&#160;&#160;target_response( <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in&#160;&#160;&#160;&#160;ReplyContext&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;reply_context,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in&#160;&#160;&#160;&#160;ServiceContextList&#160;&#160;&#160;&#160;&#160;&#160;service_context,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in&#160;&#160;&#160;&#160;CORBA::DataInputStream&#160;&#160;arg_stream,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;out&#160;&#160;&#160;ExceptionValue&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;excep_val<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;);<br />&#160;&#160;&#160;&#160;};<br />&#160;&#160;};<br />#endif /* _REQUEST_LEVEL_INTERCEPTOR_IDL */</pre></div><p class="pBody"><a name="wp1075588"> </a>
+The implementation of the operations <code class="cCode">_duplicate</code>, <code class="cCode">_narrow</code>, and <code class="cCode">_nil</code> are inherited indirectly from the implementation of the <code class="cCode">CORBA::LocalBase</code> interface provided by the CORBA ORB in the Oracle Tuxedo product.
+</p>
+<div class="pCodeTitle"><a name="wp1075589"> </a>
+Listing&#160;8-8	   C++ Declaration
+</div> <a name="wp1081868"> </a><div class="pPreformatted"><pre>#ifndef _RequestLevelInterceptor_h<br />#define _RequestLevelInterceptor_h<br /><br />#include &lt;CORBA.h&gt;<br />#include &lt;IOP.h&gt;<br />#include &lt;GIOP.h&gt;<br />#include &lt;Interceptors.h&gt;<br /><br />class OBBEXPDLL RequestLevelInterceptor<br />&#160;&#160;{<br />&#160;&#160;public:<br />&#160;&#160;&#160;&#160;class   TargetRequestInterceptor;<br />&#160;&#160;&#160;&#160;typedef TargetRequestInterceptor *  <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TargetRequestInterceptor_ptr;<br /><br />&#160;&#160;&#160;&#160;class OBBEXPDLL TargetRequestInterceptor : <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;public virtual  RequestInterceptor<br />&#160;&#160;&#160;&#160;&#160;&#160;{<br />&#160;&#160;&#160;&#160;&#160;&#160;public:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;static TargetRequestInterceptor_ptr<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;_duplicate(TargetRequestInterceptor_ptr obj);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;static TargetRequestInterceptor_ptr <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;_narrow(TargetRequestInterceptor_ptr obj);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;inline static TargetRequestInterceptor_ptr <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;_nil() { return 0; }<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;virtual Interceptors::InvokeReturnStatus&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;target_invoke(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;const RequestContext &amp; request_context,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ServiceContextList_ptr service_context,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CORBA::DataInputStream_ptr request_arg_stream,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CORBA::DataOutputStream_ptr reply_arg_stream,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CORBA::Exception_ptr &amp; excep_val ) = 0;<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;virtual Interceptors::ResponseReturnStatus <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;target_response(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;const ReplyContext &amp; reply_context,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ServiceContextList_ptr service_context,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CORBA::DataInputStream_ptr arg_stream,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CORBA::Exception_ptr &amp; excep_val ) = 0;<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;protected:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TargetRequestInterceptor(CORBA::LocalBase_ptr obj = 0) { }<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;virtual ~TargetRequestInterceptor(){ }<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;private:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TargetRequestInterceptor( const TargetRequestInterceptor&amp;) <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;{ }<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void operator=(const TargetRequestInterceptor&amp;) { }<br />&#160;&#160;&#160;&#160;&#160;&#160;};  // class TargetRequestInterceptor<br />&#160;&#160;};<br />#endif /* _RequestLevelInterceptor_h */</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp1075593"> </a>
+TargetRequestInterceptor::target_invoke
+</h3>
+<h4 class="pHeading3"><a name="wp1075594"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1075595"> </a>
+Is called by the target-side ORB anytime an invocation is being received by a target object.
+</p>
+<h4 class="pHeading3"><a name="wp1075596"> </a>
+C++ Binding
+</h4>
+<a name="wp1075597"> </a><div class="pPreformatted"><pre>virtual Interceptors::InvokeReturnStatus <br />          target_invoke( <br />              const RequestContext &amp; request_context,<br />              ServiceContextList_ptr service_context,<br />              CORBA::DataInputStream_ptr request_arg_stream,<br />              CORBA::DataOutputStream_ptr reply_arg_stream,<br />              CORBA::Exception_ptr &amp; excep_val ) = 0;</pre></div><h4 class="pHeading3"><a name="wp1075598"> </a>
+Parameters
+</h4>
+<h4 class="pDefTerm"><a name="wp1075599"> </a>
+<code class="cCode">request_context</code>
+</h4><div class="pDefPara"><a name="wp1075600"> </a>
+A reference to a <code class="cCode">RequestContext</code> that contains information about the context in which the request is being performed.
+</div>
+<h4 class="pDefTerm"><a name="wp1075601"> </a>
+<code class="cCode">service_context</code>
+</h4><div class="pDefPara"><a name="wp1075602"> </a>
+A pointer to a <code class="cCode">ServiceContextList</code> containing service context information received as part of the request to the target object.
+<a name="wp1075603"> </a>
+In Oracle Tuxedo 8.0, the value of this parameter is always a nil object.
+</div>
+<h4 class="pDefTerm"><a name="wp1075604"> </a>
+<code class="cCode">request_arg_stream</code>
+</h4><div class="pDefPara"><a name="wp1075605"> </a>
+A pointer to a <code class="cCode">DataInputStream</code> that can be used by the interceptor implementation to retrieve the value of the parameter of the operation.
+<a name="wp1075606"> </a>
+The <code class="cCode">DataInputStream</code> contains all <code class="cCode">in</code> and <code class="cCode">inout</code> parameters, in the order in which they are specified in the operation&#8217;s IDL definition, from left to right. A nil <code class="cCode">DataInputStream</code> indicates that no arguments exist.
+</div>
+<h4 class="pDefTerm"><a name="wp1075607"> </a>
+<code class="cCode">reply_arg_stream</code>
+</h4><div class="pDefPara"><a name="wp1075608"> </a>
+A pointer to a <code class="cCode">DataOutputStream</code> that can be used to populate the parameters to be returned to the initiator of the invocation as a reply. The use of this parameter is only valid if a status of <code class="cCode">REPLY_NO_EXCEPTION</code> is returned.
+</div>
+<div class="pDefParaCont"><a name="wp1075609"> </a>
+In Oracle Tuxedo 8.0, the value of this parameter is always a nil object.
+</div>
+<h4 class="pDefTerm"><a name="wp1075610"> </a>
+<code class="cCode">excep_val</code>
+</h4><div class="pDefPara"><a name="wp1075611"> </a>
+A reference to a location in which the interceptor can return an exception in order to report an error. The use of this parameter is only valid if a status of <code class="cCode">REPLY_EXCEPTION</code> is returned.  Note that the ORB is responsible for the memory management for the <code class="cCode">excep_val</code> parameter.
+</div>
+<h4 class="pHeading3"><a name="wp1075612"> </a>
+Exceptions
+</h4>
+<p class="pBody"><a name="wp1075613"> </a>
+None.
+</p>
+<h4 class="pHeading3"><a name="wp1075614"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1075615"> </a>
+The <code class="cCode">target_invoke</code> operation is called on an interceptor implementation that supports the <code class="cCode">RequestLevelInterceptor::TargetRequestInterceptor</code> interface. The operation is called by the ORB anytime that an invocation is being received by a target object, regardless of whether the target object is in a different address space or the same address space as the target object.
+</p>
+<h4 class="pHeading3"><a name="wp1075616"> </a>
+Return Values
+</h4>
+<h4 class="pDefTerm"><a name="wp1075617"> </a>
+<code class="cCode">INVOKE_NO_EXCEPTION</code>
+</h4><div class="pDefPara"><a name="wp1075618"> </a>
+Indicates that the interceptor successfully performed any processing required and that the ORB should continue processing the invocation in order to deliver it to the target object.
+</div>
+<h4 class="pDefTerm"><a name="wp1075619"> </a>
+<code class="cCode">REPLY_NO_EXCEPTION</code>
+</h4><div class="pDefPara"><a name="wp1075620"> </a>
+Indicates that the interceptor successfully performed any processing required to totally satisfy the request. The ORB should consider the request completed and begins processing any information in the <code class="cCode">reply_arg_stream</code>, if any, as the return parameter values for the request.
+</div>
+<div class="pDefParaCont"><a name="wp1075621"> </a>
+<b class="cBold">Note:</b> In Oracle Tuxedo 8.0, an interceptor cannot return this status value.
+</div>
+<h4 class="pDefTerm"><a name="wp1075622"> </a>
+<code class="cCode">REPLY_EXCEPTION</code>
+</h4><div class="pDefPara"><a name="wp1075623"> </a>
+Indicates that the interceptor encountered an error that should result in the discontinued processing of the request in order to deliver it to the target object. The parameter <code class="cCode">excep_val</code> is used to report the exception to the ORB.   The ORB calls interceptors on the way back to the client with the <code class="cCode">exception_occurred</code> operation, rather than with the <code class="cCode">target_response</code> operation.  Note that the ORB is responsible for the memory management for the <code class="cCode">excep_val</code> parameter.
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp1075625"> </a>
+TargetRequestInterceptor::target_response
+</h3>
+<h4 class="pHeading3"><a name="wp1075626"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1075627"> </a>
+Is called by the target-side ORB anytime that a reply to an invocation is being sent to the initiator of the request.
+</p>
+<h4 class="pHeading3"><a name="wp1075628"> </a>
+C++ Binding
+</h4>
+<a name="wp1075629"> </a><div class="pPreformatted"><pre>virtual Interceptors::ResponseReturnStatus <br />          target_response( <br />              const ReplyContext &amp; reply_context,<br />              ServiceContextList_ptr service_context,<br />              CORBA::DataInputStream_ptr arg_stream,<br />              CORBA::Exception_ptr &amp; excep_val ) = 0;</pre></div><h4 class="pHeading3"><a name="wp1075630"> </a>
+Parameters
+</h4>
+<h4 class="pDefTerm"><a name="wp1075631"> </a>
+<code class="cCode">reply_context</code>
+</h4><div class="pDefPara"><a name="wp1075632"> </a>
+A reference to a <code class="cCode">ReplyContext</code> that contains information about the context in which the reply is being performed.
+</div>
+<h4 class="pDefTerm"><a name="wp1075633"> </a>
+<code class="cCode">service_context</code>
+</h4><div class="pDefPara"><a name="wp1075634"> </a>
+A pointer to a <code class="cCode">ServiceContextList</code> containing service context information to be sent as a result of processing the request by the target object.
+<a name="wp1075635"> </a>
+<b class="cBold">Note: </b>In Oracle Tuxedo 8.0, the value of this parameter is always a nil object.
+</div>
+<h4 class="pDefTerm"><a name="wp1075636"> </a>
+<code class="cCode">arg_stream</code>
+</h4><div class="pDefPara"><a name="wp1075637"> </a>
+A pointer to a <code class="cCode">DataInputStream</code> that can be used by the interceptor implementation to retrieve the value of the reply parameters of the operation.
+</div>
+<div class="pDefParaCont"><a name="wp1075638"> </a>
+The following table identifies what the <code class="cCode">target_response</code> method returns in the <code class="cCode">DataInputStream</code> object based on the status contained in the <code class="cCode">ReplyContext</code> object:
+<p class="pGraphic"><a name="wp1075656"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1075641table1075639">
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1075641"> </a>
+Status Value
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1075643"> </a>
+Description
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075645"> </a>
+<code class="cCode">LOCATION_FORWARD</code>, <code class="cCode">LOCATION_FORWARD_PERM</code>, or <code class="cCode">NEEDS_ADDRESSING_MODE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075647"> </a>
+A nil <code class="cCode">DataInputStream</code> is supplied
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075649"> </a>
+<code class="cCode">NO_EXCEPTION</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075651"> </a>
+The <code class="cCode">DataInputStream</code> contains first any operation return value, then any <code class="cCode">inout</code> and <code class="cCode">out</code> parameters in the order in which they appear in the operation&#39;s IDL definition, from left to right. A nil <code class="cCode">DataInputStream</code> indicates that no arguments exist.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075653"> </a>
+<code class="cCode">USER_EXCEPTION</code> or <code class="cCode">SYSTEM_EXCEPTION</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1075655"> </a>
+The <code class="cCode">DataInputStream</code> contains the exception that was raised by the operation.
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+<a name="wp1075657"> </a>
+<b class="cBold">Note: </b>Exceptions contain a string followed by any exception members. The string contains the repository ID for the exception. The exception members are passed in the same manner as a <code class="cCode">struct</code>. A system exception contains two unsigned long members, a minor code, and a completion status.
+</div>
+<h4 class="pDefTerm"><a name="wp1075658"> </a>
+<code class="cCode">excep_val</code>
+</h4><div class="pDefPara"><a name="wp1075659"> </a>
+A reference to a location in which the interceptor can return an exception in order to report an error. The use of this parameter is valid only if a status of <code class="cCode">REPLY_EXCEPTION</code> is returned.  Note that the ORB is responsible for the memory management for the <code class="cCode">excep_val</code> parameter.
+</div>
+<h4 class="pHeading3"><a name="wp1075660"> </a>
+Exceptions
+</h4>
+<p class="pBody"><a name="wp1075661"> </a>
+None.
+</p>
+<h4 class="pHeading3"><a name="wp1075662"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1075663"> </a>
+The <code class="cCode">target_response</code> operation is called on an interceptor implementation that supports the <code class="cCode">RequestLevelInterceptor::TargetRequestInterceptor</code> interface. The operation is called by the target-side ORB anytime that a reply to an invocation is being sent to the initiator of the request, regardless of whether the initiator is in a different address space or the same address space as the target object.
+</p>
+<h4 class="pHeading3"><a name="wp1075664"> </a>
+Return Values
+</h4>
+<a name="wp1075665"> </a><div class="pPreformatted"><pre>RESPONSE_NO_EXCEPTION</pre></div><div class="pDefPara"><a name="wp1075666"> </a>
+Indicates that the interceptor successfully performed any processing required and that the ORB should continue processing the reply to the request to deliver it to the initiator of the request.
+<a name="wp1075667"> </a><div class="pPreformatted"><pre>RESPONSE_EXCEPTION</pre></div><a name="wp1075668"> </a>
+Indicates that the interceptor encountered an error. The parameter <code class="cCode">excep_val</code> is used to report the exception to the ORB. Any interceptors not yet called on the way back to the client have their <code class="cCode">exception_occurred</code> operation called by the ORB in order to notify them that processing the request has failed. Note that the ORB is responsible for the memory management for the <code class="cCode">excep_val</code> parameter.
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp1075670"> </a>
+AppRequestInterceptorInit
+</h3>
+<h4 class="pHeading3"><a name="wp1075671"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1075672"> </a>
+Instantiates and initializes client-side and target-side interceptors.
+</p>
+<h4 class="pHeading3"><a name="wp1075673"> </a>
+C++ Binding
+</h4>
+<a name="wp1075674"> </a><div class="pPreformatted"><pre>typedef void (*AppRequestInterceptorInit)(<br />    CORBA::ORB_ptr  TheORB,<br />    RequestLevelInterceptor::ClientRequestInterceptor ** ClientPtr,<br />    RequestLevelInterceptor::TargetRequestInterceptor ** TargetPtr,<br />    CORBA::Boolean * RetStatus);</pre></div><h4 class="pHeading3"><a name="wp1075675"> </a>
+Parameters
+</h4>
+<h4 class="pDefTerm"><a name="wp1075676"> </a>
+<code class="cCode">TheORB</code>
+</h4><div class="pDefPara"><a name="wp1075677"> </a>
+A pointer to the ORB object with which the implementation of the interceptors are associated.
+</div>
+<h4 class="pDefTerm"><a name="wp1075678"> </a>
+<code class="cCode">ClientPtr</code>
+</h4><div class="pDefPara"><a name="wp1075679"> </a>
+A pointer in which to return a pointer to the instance of the <code class="cCode">RequestLevelInterceptor::ClientRequestInterceptor</code> that was instantiated for use by the ORB.
+</div>
+<h4 class="pDefTerm"><a name="wp1075680"> </a>
+<code class="cCode">TargetPtr</code>
+</h4><div class="pDefPara"><a name="wp1075681"> </a>
+A pointer in which to return a pointer to the instance of the <code class="cCode">RequestLevelInterceptor::TargetRequestInterceptor</code> that was instantiated for use by the ORB.
+</div>
+<h4 class="pDefTerm"><a name="wp1075682"> </a>
+<code class="cCode">RetStatus</code>
+</h4><div class="pDefPara"><a name="wp1075683"> </a>
+A pointer to a location into which the interceptor implementation indicates whether the instantiation and initialization of the interceptor was successful. A value of <code class="cCode">CORBA::TRUE</code> is used to indicate that instantiation and initialization of the interceptors was successful. A value of <code class="cCode">CORBA::FALSE</code> is used to indicate that the instantiation and initialization of the interceptors was unsuccessful for some reason.
+</div>
+<h4 class="pHeading3"><a name="wp1075684"> </a>
+Exceptions
+</h4>
+<p class="pBody"><a name="wp1075685"> </a>
+None.
+</p>
+<h4 class="pHeading3"><a name="wp1075686"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1075687"> </a>
+The <code class="cCode">AppRequestInterceptorInit</code> function is a user-provided function that is used by the ORB to instantiate and initialize client-side and target-side interceptors.
+</p>
+<h4 class="pHeading3"><a name="wp1075688"> </a>
+Return Values
+</h4>
+<p class="pBody"><a name="wp1075689"> </a>
+None.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1075691"> </a>
+CORBA::DataInputStream Interface
+</h2><p class="pBody"><a name="wp1075692"> </a>
+The <code class="cCode">abstract valuetype</code> keywords in IDL applied to <code class="cCode">DataInputStream</code> indicates that it is not the same as an interface. 
+</p>
+<div class="pCodeTitle"><a name="wp1075693"> </a>
+Listing&#160;8-9	   OMG IDL Definition
+</div> <a name="wp1081626"> </a><div class="pPreformatted"><pre>module CORBA  {<br />//... all the rest<br /><br />// Definitions used by DataInputStream <br />&#160;&#160;typedef sequence&lt;any&gt;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;AnySeq;<br />&#160;&#160;typedef sequence&lt;boolean&gt;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;BooleanSeq;<br />&#160;&#160;typedef sequence&lt;char&gt;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CharSeq;<br />&#160;&#160;typedef sequence&lt;octet&gt;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;OctetSeq;<br />&#160;&#160;typedef sequence&lt;short&gt;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ShortSeq;<br />&#160;&#160;typedef sequence&lt;unsigned short&gt;&#160;UShortSeq;<br />&#160;&#160;typedef sequence&lt;long&gt;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LongSeq;<br />&#160;&#160;typedef sequence&lt;unsigned long&gt;&#160;&#160;ULongSeq;<br />&#160;&#160;typedef sequence&lt;float&gt;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;FloatSeq;<br />&#160;&#160;typedef sequence&lt;double&gt;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DoubleSeq;<br /><br />// DataInputStream - for reading data from the stream<br />&#160;&#160;abstract valuetype DataInputStream <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;any&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_any();  // Raises NO_IMPLEMENT<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;boolean&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_boolean();<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;char&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_char();<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;octet&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_octet();<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;short&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_short();<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;unsigned short&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_ushort();<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;long&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_long();<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;unsigned long&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_ulong();<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;float&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_float();<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;double&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_double();<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;string&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_string ();<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Object&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_Object();<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TypeCode&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_TypeCode();<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_any_array( inout AnySeq seq,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in unsigned long offset,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in unsigned long length);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Raises NO_IMPLEMENT<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_boolean_array(inout BooleanSeq seq,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in unsigned long offset,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in unsigned long length);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_char_array( inout CharSeq seq,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in unsigned long offset,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in unsigned long length);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_octet_array(inout OctetSeq seq,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in unsigned long offset,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in unsigned long length);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_short_array(inout ShortSeq seq,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in unsigned long offset,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in unsigned long length);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_ushort_array(inout UShortSeq seq,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in unsigned long offset,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in unsigned long length);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_long_array( inout LongSeq seq,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in unsigned long offset,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in unsigned long length);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_ulong_array(inout ULongSeq seq,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in unsigned long offset,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in unsigned long length);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_float_array(inout FloatSeq seq,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in unsigned long offset,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in unsigned long length);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;void&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_double_array(inout DoubleSeq seq,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in unsigned long offset,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;in unsigned long length);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;};<br />};</pre></div><p class="pBody"><a name="wp1075696"> </a>
+The implementation of <code class="cCode">CORBA::DataInputStream</code> inherits from <code class="cCode">CORBA::ValueBase</code> rather than from <code class="cCode">CORBA::Object</code>. You cannot use, for example, <code class="cCode">_duplicate</code>, <code class="cCode">_narrow</code>, and <code class="cCode">_nil</code> operations since they apply only to <code class="cCode">CORBA::Object</code>. At this time, there is nothing of interest for users in the <code class="cCode">CORBA::ValueBase</code> interface. 
+</p>
+<div class="pCodeTitle"><a name="wp1075697"> </a>
+Listing&#160;8-10	   C++ Declaration
+</div> <a name="wp1075698"> </a><div class="pPreformatted"><pre>class  CORBA<br />{<br /> public:<br /><br />&#160;&#160;class&#160;&#160;&#160;&#160;&#160;&#160;AnySeq {/* Normal sequence definition */};<br />&#160;&#160;typedef&#160;&#160;&#160;&#160;AnySeq *&#160;&#160;&#160;&#160;AnySeq_ptr;<br /><br />&#160;&#160;class&#160;&#160;&#160;&#160;&#160;&#160;BooleanSeq {/* Normal sequence definition */};<br />&#160;&#160;typedef&#160;&#160;&#160;&#160;BooleanSeq *&#160;&#160;&#160;&#160;BooleanSeq_ptr;<br />&#160;&#160;static const CORBA::TypeCode_ptr _tc_BooleanSeq;<br /><br />&#160;&#160;class&#160;&#160;&#160;&#160;&#160;&#160;CharSeq {/* Normal sequence definition */};<br />&#160;&#160;typedef&#160;&#160;&#160;&#160;CharSeq *&#160;&#160;&#160;&#160;CharSeq_ptr;<br />&#160;&#160;static const CORBA::TypeCode_ptr _tc_CharSeq;<br /><br />&#160;&#160;class&#160;&#160;&#160;&#160;&#160;&#160;OctetSeq {/* Normal sequence definition */};<br />&#160;&#160;typedef&#160;&#160;&#160;&#160;OctetSeq *&#160;&#160;&#160;&#160;OctetSeq_ptr;<br />&#160;&#160;static const CORBA::TypeCode_ptr _tc_OctetSeq;<br /><br />&#160;&#160;class&#160;&#160;&#160;&#160;&#160;&#160;ShortSeq {/* Normal sequence definition */};<br />&#160;&#160;typedef&#160;&#160;&#160;&#160;ShortSeq *&#160;&#160;&#160;&#160;ShortSeq_ptr;<br />&#160;&#160;static const CORBA::TypeCode_ptr _tc_ShortSeq;<br /><br />&#160;&#160;class&#160;&#160;&#160;&#160;&#160;&#160;UshortSeq {/* Normal sequence definition */};<br />&#160;&#160;typedef&#160;&#160;&#160;&#160;UShortSeq *&#160;&#160;&#160;&#160;UShortSeq_ptr;<br />&#160;&#160;static const CORBA::TypeCode_ptr _tc_UShortSeq;<br /><br />&#160;&#160;class&#160;&#160;&#160;&#160;&#160;&#160;LongSeq {/* Normal sequence definition */};<br />&#160;&#160;typedef&#160;&#160;&#160;&#160;LongSeq *&#160;&#160;&#160;&#160;LongSeq_ptr;<br />&#160;&#160;static const CORBA::TypeCode_ptr _tc_LongSeq;<br /><br />&#160;&#160;class&#160;&#160;&#160;&#160;&#160;&#160;UlongSeq {/* Normal sequence definition */};<br />&#160;&#160;typedef&#160;&#160;&#160;&#160;ULongSeq *&#160;&#160;&#160;&#160;ULongSeq_ptr;<br />&#160;&#160;static const CORBA::TypeCode_ptr _tc_ULongSeq;<br /><br />&#160;&#160;class&#160;&#160;&#160;&#160;&#160;&#160;FloatSeq {/* Normal sequence definition */};<br />&#160;&#160;typedef&#160;&#160;&#160;&#160;FloatSeq *&#160;&#160;&#160;&#160;FloatSeq_ptr;<br />&#160;&#160;static const CORBA::TypeCode_ptr _tc_FloatSeq;<br /><br />&#160;&#160;class&#160;&#160;&#160;&#160;&#160;&#160;DoubleSeq {/* Normal sequence definition */};<br />&#160;&#160;typedef&#160;&#160;&#160;&#160;DoubleSeq *&#160;&#160;&#160;&#160;DoubleSeq_ptr;<br />&#160;&#160;static const CORBA::TypeCode_ptr _tc_DoubleSeq;<br /><br />&#160;&#160;class OBBEXPDLL DataInputStream : public virtual ValueBase<br />&#160;&#160;{<br />&#160;&#160;&#160;public:<br />&#160;&#160;&#160;&#160;static DataInputStream_ptr _downcast(ValueBase_ptr obj);<br /><br />&#160;&#160;&#160;&#160;virtual Any *&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_any (); // Raises NO_IMPLEMENT<br />&#160;&#160;&#160;&#160;virtual Boolean&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_boolean (); <br />&#160;&#160;&#160;&#160;virtual Char&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_char (); <br />&#160;&#160;&#160;&#160;virtual Octet&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_octet (); <br />&#160;&#160;&#160;&#160;virtual Short&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_short (); <br />&#160;&#160;&#160;&#160;virtual UShort&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_ushort (); <br />&#160;&#160;&#160;&#160;virtual Long&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_long (); <br />&#160;&#160;&#160;&#160;virtual ULong&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_ulong (); <br />&#160;&#160;&#160;&#160;virtual Float&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_float (); <br />&#160;&#160;&#160;&#160;virtual Double&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_double (); <br />&#160;&#160;&#160;&#160;virtual Char *&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;read_string (); <br />&#160;&#160;&#160;&#160;virtual Object_ptr&#160;&#160;&#160;&#160;read_Object (); <br />&#160;&#160;&#160;&#160;virtual TypeCode_ptr&#160;&#160;read_TypeCode (); <br /><br />&#160;&#160;&#160;&#160;virtual void read_any_array  (    AnySeq &amp; seq, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ULong offset, ULong length); <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Raises NO_IMPLEMENT<br />&#160;&#160;&#160;&#160;virtual void read_boolean_array(BooleanSeq &amp; seq,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ULong offset, ULong length); <br />&#160;&#160;&#160;&#160;virtual void read_char_array (    CharSeq &amp; seq,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ULong offset, ULong length); <br />&#160;&#160;&#160;&#160;virtual void read_octet_array (    OctetSeq &amp; seq,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ULong offset, ULong length); <br />&#160;&#160;&#160;&#160;virtual void read_short_array (    ShortSeq &amp; seq,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ULong offset, ULong length); <br />&#160;&#160;&#160;&#160;virtual void read_ushort_array (UShortSeq &amp; seq,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ULong offset, ULong length); <br />&#160;&#160;&#160;&#160;virtual void read_long_array (    LongSeq &amp; seq,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ULong offset, ULong length); <br />&#160;&#160;&#160;&#160;virtual void read_ulong_array (    ULongSeq &amp; seq,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ULong offset, ULong length); <br />&#160;&#160;&#160;&#160;virtual void read_float_array (    FloatSeq &amp; seq,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ULong offset, ULong length); <br />&#160;&#160;&#160;&#160;virtual void read_double_array (DoubleSeq &amp; seq,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ULong offset, ULong length); <br /><br />&#160;&#160;&#160;protected:<br />&#160;&#160;&#160;&#160;DataInputStream(){ };<br />&#160;&#160;&#160;&#160;virtual ~DataInputStream(){ }<br /><br />&#160;&#160;&#160;&#160;private:<br />&#160;&#160;&#160;&#160;void operator=(const DataInputStream&amp;) { }<br />  };<br /><br />typedef&#160;&#160;&#160;&#160;DataInputStream *&#160;&#160;&#160;&#160;DataInputStream_ptr;<br />}; </pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp1075703"> </a>
+DataInputStream::read_&lt;primitive&gt;
+</h3>
+<h4 class="pHeading3"><a name="wp1075704"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1075705"> </a>
+Returns a value from the stream.
+</p>
+<h4 class="pHeading3"><a name="wp1075706"> </a>
+C++ Binding
+</h4>
+<a name="wp1075707"> </a><div class="pPreformatted"><pre>&lt;primitive&gt; read_&lt;<code class="cCodeEmphasis">primitive</code>&gt;();</pre></div><h4 class="pHeading3"><a name="wp1075708"> </a>
+Parameters
+</h4>
+<p class="pBody"><a name="wp1075709"> </a>
+None.
+</p>
+<h4 class="pHeading3"><a name="wp1075710"> </a>
+Exceptions
+</h4>
+<p class="pBody"><a name="wp1075711"> </a>
+None.
+</p>
+<h4 class="pHeading3"><a name="wp1075712"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1075713"> </a>
+The operations to read a primitive element (<code class="cCode">&lt;</code><code class="cCodeEmphasis">primitive</code><code class="cCode">&gt;</code>) from a <code class="cCode">DataInputStream</code> all have the same format. Each operation returns a value from the stream.
+</p>
+<a name="wp1075714"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td><code class="cCode">String_var</code>, <code class="cCode">TypeCode_var</code>, or <code class="cCode">Object_var</code> can be used for memory management. Otherwise, strings must be released using the <code class="cCode">string_free()</code> operation on the CORBA object, and <code class="cCode">TypeCode</code> or <code class="cCode">Object</code> pointers must be released using the <code class="cCode">release()</code> operation on the CORBA object.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1075715"> </a>
+The primitives are the following:
+</p>
+<a name="wp1075716"> </a><div class="pPreformatted"><pre>AnySeq  (Not implemented)<br />BooleanSeq<br />CharSeq<br />OctetSeq<br />ShortSeq <br />UshortSeq<br />LongSeq<br />UlongSeq<br />FloatSeq<br />DoubleSeq</pre></div><h4 class="pHeading3"><a name="wp1075717"> </a>
+Return Values
+</h4>
+<p class="pBody"><a name="wp1075718"> </a>
+None.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp1075720"> </a>
+DataInputStream::read_array_&lt;<span style="font-style: normal">primitive</span>&gt;
+</h3>
+<h4 class="pHeading3"><a name="wp1075721"> </a>
+Synopsis
+</h4>
+<p class="pBody"><a name="wp1075722"> </a>
+Returns an array of primitive values from the stream into a <code class="cCode">CORBA</code> sequence.
+</p>
+<h4 class="pHeading3"><a name="wp1075723"> </a>
+C++ Binding
+</h4>
+<a name="wp1075724"> </a><div class="pPreformatted"><pre>void read_array_&lt;<code class="cCodeEmphasis">primitive</code>&gt;(     <span style="font-style: italic">&lt;primitive&gt;</span>Seq &amp; seq, <br />                                 ULong offset, <br />                                  ULong length);</pre></div><h4 class="pHeading3"><a name="wp1075725"> </a>
+Parameters
+</h4>
+<h4 class="pDefTerm"><a name="wp1075726"> </a>
+<code class="cCode">&lt;</code><code class="cCodeEmphasis">primitive</code><code class="cCode">&gt;Seq</code>
+</h4><div class="pDefPara"><a name="wp1075727"> </a>
+A sequence of the appropriate type that will receive the array elements read.
+</div>
+<div class="pDefParaCont"><a name="wp1075728"> </a>
+If the sequence was not long enough to contain the additional elements, the length will be set to the sum offset+length. (The length will not be adjusted down.)
+</div>
+<h4 class="pDefTerm"><a name="wp1075729"> </a>
+<code class="cCode">Offset</code>
+</h4><div class="pDefPara"><a name="wp1075730"> </a>
+The offset into the array to read the elements. That is, the array will have new elements starting at array index offset up to array index offset+length-1.
+</div>
+<h4 class="pDefTerm"><a name="wp1075731"> </a>
+<code class="cCode">Length</code>
+</h4><div class="pDefPara"><a name="wp1075732"> </a>
+The number of elements of the array to be returned into the <code class="cCode">seq</code> parameter.
+</div>
+<h4 class="pHeading3"><a name="wp1075733"> </a>
+Exceptions
+</h4>
+<p class="pBody"><a name="wp1075734"> </a>
+None.
+</p>
+<h4 class="pHeading3"><a name="wp1075735"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp1075736"> </a>
+The operations to read an array of primitive elements (<code class="cCode">&lt;</code><code class="cCodeEmphasis">primitive</code><code class="cCode">&gt;</code>) from a <code class="cCode">DataInputStream</code> all have the same format. Each operation returns an array of primitive values from the stream into a <code class="cCode">CORBA</code> sequence of that same primitive type. 
+</p>
+<p class="pBody"><a name="wp1075737"> </a>
+The primitives are the following:
+</p>
+<a name="wp1075738"> </a><div class="pPreformatted"><pre>AnySeq (Not implemented)<br />BooleanSeq<br />CharSeq<br />OctetSeq<br />ShortSeq <br />UshortSeq<br />LongSeq<br />UlongSeq<br />FloatSeq<br />DoubleSeq</pre></div><h4 class="pHeading3"><a name="wp1075739"> </a>
+Return Values
+</h4>
+<p class="pBody"><a name="wp1075740"> </a>
+None.
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="api.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pqint.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="cppimpl.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

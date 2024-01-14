@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>Security Management</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = ohj/ohw) - Version 5.1.2 Build 050" />
+<meta name="date" content="2013-02-27T17:52:29Z" />
+<meta name="robots" content="noarchive" />
+<meta name="doctitle" content="Security Management" />
+<meta name="relnum" content="" />
+<meta name="partnum" content="" />
+<meta name="topic-id" content="/txdo/resbroker/security" />
+<link rel="copyright" href="./dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+<link rel="stylesheet" href="./dcommon/css/blafdoc.css" title="Oracle BLAFDoc" type="text/css" />
+<link rel="contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="prev" href="resbroker003.htm" title="Previous" type="text/html" />
+<link rel="next" href="resbroker005.htm" title="Next" type="text/html" />
+</head>
+<body>
+<div class="zz-skip-header"><a href="#BEGIN">Skip Headers</a></div>
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<col width="86%" />
+<col width="*" />
+<tr valign="bottom">
+<td align="left"></td>
+<td align="center"><a href="resbroker003.htm"><img src="./dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="resbroker005.htm"><img src="./dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+<p><a id="/txdo/resbroker/security" name="/txdo/resbroker/security"></a></p>
+<div class="sect1"><!-- infolevel="all" infotype="General" --><a id="sthref82" name="sthref82"></a>
+<h1>Security Management</h1>
+<a name="BEGIN" id="BEGIN"></a>
+<p>If you enable the Tuxedo SECURITY while assembling a Tuxedo application, you need to configure certain authentication and authorization related information in the Security Management page, which can be brought out by clicking Security Management button in Domain UBBCONFIG Editor.</p>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="sthref83" name="sthref83"></a>
+<h2>Adding Application Password</h2>
+<p>If the <code>SECURITY</code> parameter in <code>UBBCONFIG</code> is not set to <code>NONE</code>, you should specify an application password in the Security Management page, otherwise, a validation error will occur when saving the domain status.</p>
+</div>
+<!-- class="sect2" -->
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="sthref84" name="sthref84"></a>
+<h2>Adding a Group</h2>
+<p>If the <code>SECURITY</code> parameter in <code>UBBCONFIG</code> is set to one of <code>USER_AUTH | ACL | MANDATORY_ACL</code>, you should add Tuxedo user groups in the Security Management page. A table is used for collecting the group related information in the Group Management section. You can add, delete and edit a group in the table.</p>
+<p>To add a group, do the following:</p>
+<ol>
+<li>
+<p>From the Group Management section, click <span class="bold">Add</span>.</p>
+</li>
+<li>
+<p>In the page that appears, specify the following options:</p>
+<ul>
+<li>
+<p><span class="bold">GID</span>: Tuxedo GID</p>
+</li>
+<li>
+<p><span class="bold">Group Name</span>: Tuxedo group name</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <span class="bold">OK</span>.</p>
+</li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="sthref85" name="sthref85"></a>
+<h2>Adding a User</h2>
+<p>If the <code>SECURITY</code> parameter in <code>UBBCONFIG</code> is set to one of <code>USER_AUTH | ACL | MANDATORY_ACL</code>, you should add Tuxedo users in the Security Management page. A table is used for collecting the user related information in the User Management section. You can add, delete, and edit a user in the table.</p>
+<p>To add a user, do the following:</p>
+<ol>
+<li>
+<p>From the User Management section, click <span class="bold">Add</span>.</p>
+</li>
+<li>
+<p>In the page that appears, specify the following options:</p>
+<ul>
+<li>
+<p><span class="bold">User Name</span>: Tuxedo user name</p>
+</li>
+<li>
+<p><span class="bold">Password</span>: User password</p>
+</li>
+<li>
+<p><span class="bold">UID</span>: Tuxedo UID</p>
+</li>
+<li>
+<p><span class="bold">Group Name</span>: Choose an existing group from the list</p>
+</li>
+<li>
+<p>Client Name: Tuxedo client name</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Click <span class="bold">OK</span>.</p>
+<p>If the <code>SECURITY</code> parameter in <code>RESOURCES</code> section is set to one of <code>USER_AUTH | ACL | MANDATORY_ACL</code>, Resource Broker component checks whether there is at least one user configured with client name "<code>tpsysadm</code>". If not, an error message is shown up.</p>
+</li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="sthref86" name="sthref86"></a>
+<h2>Adding an Access Control List</h2>
+<p>If the <code>SECURITY</code> parameter in <code>UBBCONFIG</code> is set to ACL or MANDATORY_ACL, you should add Tuxedo ACL in the Security Management page. A table is used for collecting the user related information in the Access Control List section. You can add, delete, and edit an access control list in the table.</p>
+<p>To add an access control list, do the following:</p>
+<ol>
+<li>
+<p>From the Access Control List section, click <span class="bold">Add</span>.</p>
+</li>
+<li>
+<p>In the page that appears, specify the following options:</p>
+<ul>
+<li>
+<p><span class="bold">Group Name</span>: Choose an existing group from the list</p>
+</li>
+<li>
+<p><span class="bold">Resource Type</span>: The type of the object. You can choose one of the following: <code>ENQ, DEQ, SERVICE</code>, and <code>POSTEVENT</code>. The default is <code>SERVICE</code>.</p>
+</li>
+<li>
+<p><span class="bold">Resource Name</span>: Enter a service name. If the resource type <code>SERVICE</code> is selected, all service items in the SERVICES section of current UBBCONFIG file are listed. You can either choose an existing service or enter a new name.</p>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<!-- Start Footer -->
+<div class="footer">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<col width="86%" />
+<col width="*" />
+<tr>
+<td align="left"><span class="copyrightlogo">Copyright&nbsp;&copy;&nbsp;2013,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span><br />
+<a href="./dcommon/html/cpyr.htm"><span class="copyrightlogo">Legal Notices</span></a></td>
+<td align="center"><a href="resbroker003.htm"><img src="./dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="resbroker005.htm"><img src="./dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</div>
+<!-- class="footer" -->
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/pcb/fm/pbreq.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:23:25" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Writing Request/Response Clients and Servers</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Programming an Oracle Tuxedo Application Using COBOL
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pbserv.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pbconv.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/pcb.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1128778"> </a>
+Writing Request/Response Clients and Servers
+</h1>
+<p class="pBody"><a name="wp1118758"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1055312"> </a><a href="pbreq.html#wp1055327">Overview of Request/Response Communication</a></li>
+<li><a name="wp1055316"> </a><a href="pbreq.html#wp1055338">Sending Synchronous Messages</a></li>
+<li><a name="wp1055320"> </a><a href="pbreq.html#wp1055477">Sending Asynchronous Messages</a></li>
+<li><a name="wp1055324"> </a><a href="pbreq.html#wp1055592">Setting and Getting Message Priorities</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1055327"> </a>
+Overview of Request/Response Communication
+</h2><p class="pBody"><a name="wp1055328"> </a>
+In request/response communication mode, one software module sends a request to a second software module and waits for a response. Because the first software module performs the role of the client, and the second, the role of the server, this mode is also referred to as client/server interaction. Many online banking tasks are programmed in request/response mode. For example, a request for an account balance is executed as follows:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1055329"> </a>A customer (the client) sends a request for an account balance to the Account Record Storage System (the server).</li>
+<li><a name="wp1055330"> </a>The Account Record Storage System (the server) sends a reply to the customer (the client), specifying the dollar amount in the designated account.</li>
+<div class="pFigureTitle"><a name="wp1055331"> </a>
+Figure&#160;6-1  Example of Request/Response Communication in Online Banking
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1055335"> </a>
+<br />
+<img src="wwimages/request.jpg" alt="Example of Request/Response Communication in Online Banking" id="wp1055333" border="0" hspace="0" vspace="0"/><br />
+
+</p>
+</ol></div>
+<p class="pBody"><a name="wp1055336"> </a>
+Once a client process has joined an application, it can then send the request message to a service subroutine for processing and receive a reply message. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1055338"> </a>
+Sending Synchronous Messages
+</h2><p class="pBody"><a name="wp1055339"> </a>
+The TPCAL<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>L(3cbl)</span> call sends a request to a service subroutine and synchronously waits for a reply. Use the following signature to call the <code class="cCode">TPCALL</code> routine:
+</p>
+<a name="wp1124728"> </a><div class="pPreformatted"><pre>01 <em class="cEmphasis">TPSVCDEF-REC</em>.<br />   COPY TPSVCDEF.<br />01 <em class="cEmphasis">ITPTYPE-REC</em>.<br />   COPY TPTYPE.<br />01 <em class="cEmphasis">IDATA-REC</em>.<br />   COPY User Data.<br />01 <em class="cEmphasis">OTPYTPE-REC</em>.<br />   COPY TPTYPE.<br />01 <em class="cEmphasis">ODATA-REC</em>.<br />   COPY User Data.<br />01 <em class="cEmphasis">TPSTATUS-REC</em>.<br />   COPY TPSTATUS.<br />CALL &quot;TPCALL&quot; USING <em class="cEmphasis">TPSVCDEF-REC <br />              ITPTYPE-REC <br />              IDATA-REC <br />              OTPTYPE-REC<br />              ODATA-REC <br />               TPSTATUS-REC</em>.</pre></div><p class="pBody"><a name="wp1124732"> </a>
+For more information on the <code class="cCode">TPSVCDEF</code> data structure, refer to <a href="../pgc/pgserv.html">Programming Oracle Tuxedo ATMI Applications Using C</a>. The <code class="cCode">IDATA-REC</code> and <code class="cCode">ITPTYPE-REC</code> structures define the request record. The <code class="cCode">ODATA-REC</code> and <code class="cCode">OTPTYPE-REC</code> structures define the reply record. The <code class="cCode">ITPTYPE-REC</code> and <code class="cCode">OTPTYPE-REC</code> data structures are similar to the <code class="cCode">TPTYPE-REC</code> data structure.
+</p>
+<p class="pBody"><a name="wp1066879"> </a>
+<code class="cCode">TPCALL</code> waits for the expected reply. 
+</p>
+<a name="wp1055386"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Calling the <code class="cCode">TPCALL</code> routine is logically the same as calling the <code class="cCode">TPACALL</code> routine, immediately followed by <code class="cCode">TPGETRPLY</code>, as described in <a href="pbreq.html#wp1055477">Sending Asynchronous Messages</a>.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1055390"> </a>
+The request carries the priority set by the system for the specified service (<code class="cCode">SERVICE-NAME</code>) unless a different priority has been explicitly set by a call to the <code class="cCode">TPSPRIO</code> routine (described in <a href="pbreq.html#wp1055592">Setting and Getting Message Priorities</a>).
+</p>
+<p class="pBody"><a name="wp1055394"> </a>
+<code class="cCode">TPCALL</code> returns an integer. On failure, the value of <code class="cCode">TP-STATUS</code> is set to a value that reflects the type of error that occurred. For information on valid error codes, refer to TPC<a href="../rf3cbl/rf3cbl.html"></a>ALL(3cbl) in the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em>. 
+</p>
+<a name="wp1055401"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Communication calls may fail for a variety of reasons, many of which can be corrected at the application level. Possible causes of failure include: application defined errors (<code class="cCode">TPESVCFAIL</code>), errors in processing return arguments (<code class="cCode">TPESVCERR</code>), typed record errors (<code class="cCode">TPEITYPE</code>, <code class="cCode">TPEOTYPE</code>), timeout errors (<code class="cCode">TPETIME</code>), and protocol errors (<code class="cCode">TPEPROTO</code>), among others. For a detailed discussion of errors, refer to <span class="cHyperlink">
+<a href="../pgc/pgerr.html">&#8220;Managing Errors&#8221; </a></span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em>. For a complete list of possible errors, refer to TPC<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>ALL(3cbl)</span> in the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em>. </td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1055411"> </a>
+The Oracle Tuxedo system automatically adjusts a record used for receiving a message if the received message is too large for the allocated record. You should test for whether or not the reply records have been resized. 
+</p>
+<p class="pBody"><a name="wp1055412"> </a>
+To access the new size of the record, use the address returned in *<code class="cCode">LEN IN OTPTYPE-REC</code>. To determine whether a reply record has changed in size, compare the size of the reply record before the call to <code class="cCode">TPCALL</code> with the value of <code class="cCode">LEN IN OTPTYPE-REC</code> after its return. If <code class="cCode">LEN IN OTPTYPE-REC</code> is larger than the original size, the record has grown. If not, the record size has not changed. 
+</p>
+<h3 class="pHeading2"><a name="wp1125298"> </a>
+Example: Using the Same Record for Request and Reply Messages
+</h3>
+<p class="pBody"><a name="wp1055417"> </a>
+The following example shows how the client program makes a synchronous call using the same record for both the request and reply messages. In this case, using the same record is appropriate because the <code class="cCode">AUDV-REC</code> message record has been set up to accommodate both request and reply information. The following actions are taken in this code:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1055418"> </a>The service queries the <code class="cCode">B_ID</code> field, but does not overwrite it. </li>
+<li><a name="wp1055419"> </a>The application initializes the <code class="cCode">BALANCE</code> field to zero in preparation for the values to be returned by the service. </li>
+<li><a name="wp1055420"> </a>The <code class="cCode">SERVICE-NAME</code> represents the service name requested. In this example, these variables represent <code class="cCode">account</code> and <code class="cCode">teller</code>, respectively.</li>
+<div class="pCodeTitle"><a name="wp1125497"> </a>
+Listing&#160;6-1	   Using the Same Record for Request and Reply Messages
+</div> <a name="wp1125498"> </a><div class="pPreformatted"><pre>WORKING-STORAGE SECTION.<br />*****************************************************<br />* Tuxedo definitions<br />*****************************************************<br />&#160;&#160;01  TPTYPE-REC.<br />&#160;&#160;COPY TPTYPE.<br />*<br />&#160;&#160;01 TPSTATUS-REC.<br />&#160;&#160;COPY TPSTATUS.<br />*<br />&#160;&#160;01  TPSVCDEF-REC.<br />&#160;&#160;COPY TPSVCDEF.<br />*****************************************************<br />* Log messages definitions<br />*****************************************************<br />&#160;&#160;01  LOGMSG.<br />&#160;&#160;&#160;&#160;&#160;05  FILLER           PIC X(6) VALUE  &quot;FIG =&gt;&quot;.<br />&#160;&#160;&#160;&#160;&#160;05  LOGMSG-TEXT      PIC X(50).<br />&#160;&#160;01  LOGMSG-LEN          PIC S9(9)  COMP-5.<br />*<br />&#160;&#160;01  USER-DATA-REC       PIC X(75).<br />*****************************************************<br />* This VIEW record (audv) will be sent to the server<br />*****************************************************<br />&#160;&#160;01 AUDV-REC.<br />&#160;&#160;COPY AUDV.<br />*<br />******************************************************<br />&#160;&#160;PROCEDURE DIVISION.<br />&#160;&#160;START-FIG.<br />&#160;&#160;MOVE LENGTH OF LOGMSG TO LOGMSG-LEN.<br />*****************************************************<br />*  Prepare the audv record<br />*****************************************************<br />&#160;&#160;MOVE &quot;BRANCH&quot; TO B-ID IN AUDV-REC.<br />&#160;&#160;MOVE 0 TO BALANCE IN AUDV-REC.<br />&#160;&#160;MOVE LENGTH OF AUDV-REC TO LEN.<br />&#160;&#160;MOVE &quot;VIEW&quot; TO REC-TYPE.<br />&#160;&#160;MOVE &quot;audv&quot; TO SUB-TYPE.<br />&#160;&#160;MOVE &quot;SOMESERVICE&quot; TO SERVICE-NAME.<br />&#160;&#160;SET TPBLOCK TO TRUE.<br />&#160;&#160;SET TPNOTRAN TO TRUE.<br />&#160;&#160;SET TPNOTIME TO TRUE.<br />&#160;&#160;SET TPSIGRSTRT TO TRUE.<br />&#160;&#160;SET TPNOCHANGE TO TRUE.<br />&#160;&#160;CALL &quot;TPCALL&quot; USING TPSVCDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;AUDV-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;AUDV-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;Service Failed&quot; TO LOGMSG-TEXT<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM DO-USERLOG<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM EXIT-PROGRAM.<br />&#160;&#160;<em class="cEmphasis">DISPLAY BRANCH and BALANCE<br /></em>&#160;&#160;. . .</pre></div></ol></div>
+<p class="pBody"><a name="wp1125500"> </a>
+If the reply is larger than <code class="cCode">ODATA-REC</code>, then <code class="cCode">ODATA-REC</code> contains as much of the message as fits in the record. The remainder is discarded and <code class="cCode">TPCALL</code> sets <code class="cCode">TP-STATUS IN TPSTATUS-REC</code> to <code class="cCode">TPTRUNCATE</code>.
+</p>
+<h3 class="pHeading2"><a name="wp1080614"> </a>
+Example: Sending a Synchronous Message with TPSIGRSTRT Set
+</h3>
+<p class="pBody"><a name="wp1055434"> </a>
+The following example is based on the <code class="cCode">TRANSFER</code> service, which is part of the <code class="cCode">XFER</code> server process of <code class="cCode">bankapp</code>. (<code class="cCode">bankapp</code> is a sample ATMI application delivered with the Oracle Tuxedo system.) The example is based on a service that assumes the role of a client when it calls the <code class="cCode">WITHDRAWAL</code> and <code class="cCode">DEPOSIT</code> services. The application sets the communication flag to <code class="cCode">TPSIGRSTRT</code> in these service calls to give the transaction a better chance of committing. The <code class="cCode">TPSIGRSTRT</code> flag specifies the action to take if there is a signal interrupt. For more information on communication flags, refer to TPCALL<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>(3cbl)</span> in the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em>.
+</p>
+<div class="pCodeTitle"><a name="wp1125604"> </a>
+Listing&#160;6-2	   Sending a Synchronous Message with TPSIGRSTRT Set
+</div> <a name="wp1125605"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;WORKING-STORAGE SECTION.<br />*****************************************************<br />* Tuxedo definitions<br />*****************************************************<br />&#160;&#160;&#160;01 TPTYPE-REC.<br />&#160;&#160;&#160;COPY TPTYPE.<br />*<br />&#160;&#160;&#160;01 TPSTATUS-REC.<br />&#160;&#160;&#160;COPY TPSTATUS.<br />&#160;*<br />&#160;&#160;&#160;01 TPSVCDEF-REC.<br />&#160;&#160;&#160;COPY TPSVCDEF.<br />*****************************************************<br />* This VIEW record (audv) will be sent to the server<br />*****************************************************<br />&#160;&#160;&#160;01 AUDV-REC.<br />&#160;&#160;&#160;COPY AUDV.<br />*<br />******************************************************<br />&#160;&#160;&#160;PROCEDURE DIVISION.<br />&#160;START-FIG.<br />*****************************************************<br />* Prepare the audv record for withdrawal<br />*****************************************************<br />&#160;&#160;. . .<br />&#160;&#160;MOVE &quot;WITHDRAWAL&quot; TO SERVICE-NAME.<br />&#160;&#160;SET TPSIGRSTRT TO TRUE.<br />&#160;&#160;PERFORM DO-TPCALL.<br />&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;Cannot withdraw from debit account&quot; TO LOGMSG-TEXT<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM DO-USERLOG<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM EXIT-PROGRAM.<br />&#160;&#160;MOVE &quot;DEPOSIT&quot; TO SERVICE-NAME.<br />&#160;&#160;SET TPSIGRSTRT TO TRUE.<br />&#160;&#160;PERFORM DO-TPCALL.<br />&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;Cannot deposit into credit account&quot; TO LOGMSG-TEXT<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM DO-USERLOG<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM EXIT-PROGRAM.<br />&#160;&#160;. . .<br />*****************************************************<br />*  Perform a TPCALL<br />*****************************************************<br /> DO-TPCALL.<br />&#160;&#160;&#160;MOVE LENGTH OF AUDV-REC TO LEN.<br />&#160;&#160;&#160;MOVE &quot;VIEW&quot; TO REC-TYPE.<br />&#160;&#160;&#160;MOVE &quot;audv&quot; TO SUB-TYPE.<br />&#160;&#160;&#160;SET TPBLOCK TO TRUE.<br />&#160;&#160;&#160;SET TPNOTRAN TO TRUE.<br />&#160;&#160;&#160;SET TPNOTIME TO TRUE.<br />&#160;&#160;&#160;SET TPNOCHANGE TO TRUE.<br />&#160;&#160;&#160;CALL &quot;TPCALL&quot; USING TPSVCDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;AUDV-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;AUDV-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;&#160;. . .</pre></div><h3 class="pHeading2"><a name="wp1055449"> </a>
+Example: Sending a Synchronous Message with TPNOTRAN Set
+</h3>
+<p class="pBody"><a name="wp1055450"> </a>
+The following example illustrates a communication call that suppresses transaction mode. The call is made to a service that is not affiliated with a resource manager; it would be an error to allow the service to participate in the transaction. The application prints an accounts receivable report, <code class="cCode">ACCRV</code>, generated from information obtained from a database named <code class="cCode">ACCOUNTS</code>. 
+</p>
+<p class="pBody"><a name="wp1055451"> </a>
+The service routine <code class="cCode">REPORT</code> interprets the specified parameters and sends the byte stream for the completed report as a reply. The client uses <code class="cCode">TPCALL</code> to send the byte stream to a service called <code class="cCode">PRINTER</code>, which, in turn, sends the byte stream to a printer that is conveniently close to the client. The reply is printed. Finally, the <code class="cCode">PRINTER</code> service notifies the client that the hard copy is ready to be picked up. 
+</p>
+<a name="wp1055454"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The example <a href="pbreq.html#wp1126427">Sending an Asynchronous Message with TPNOTRAN or TPNOREPLY</a> shows a similar example using an asynchronous message call.</td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1125681"> </a>
+Listing&#160;6-3	   Sending a Synchronous Message with TPNOTRAN Set
+</div> <a name="wp1129865"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;WORKING-STORAGE SECTION.<br />*****************************************************<br />* Tuxedo definitions<br />*****************************************************<br />&#160;&#160;&#160;&#160;01  ITPTYPE-REC.<br />&#160;&#160;&#160;&#160;COPY TPTYPE.<br />&#160;&#160;&#160;&#160;01  OTPTYPE-REC.<br />&#160;&#160;&#160;&#160;COPY TPTYPE.<br />*<br />&#160;&#160;&#160;&#160;01 TPSTATUS-REC.<br />&#160;&#160;&#160;&#160;COPY TPSTATUS.<br />*<br />&#160;&#160;&#160;&#160;01  TPSVCDEF-REC.<br />&#160;&#160;&#160;&#160;COPY TPSVCDEF.<br />*****************************************************<br />&#160;&#160;&#160;&#160;01 REPORT-REQUEST         PIC X(100) VALUE SPACES.<br />&#160;&#160;&#160;&#160;01 REPORT-OUTPUT          PIC X(50000) VALUE SPACES.<br />******************************************************<br />&#160;&#160;&#160;&#160;PROCEDURE DIVISION.<br />&#160;&#160;START-FIG.<br />&#160;&#160;&#160;&#160;. . .<br />&#160;&#160;<span style="font-style: normal">&#160;&#160;</span><span style="font-style: italic">join application<br /></span>&#160;&#160;<span style="font-style: normal">&#160;&#160;</span><span style="font-style: italic">start transaction<br /></span>&#160;&#160;&#160;&#160;. . .<br />********************************************************<br />* Send report request to REPORT service<br />* Receive results into REPORT-OUTPUT<br />********************************************************<br />&#160;&#160;&#160;&#160;MOVE &quot;REPORT=accrcv DBNAME=accounts&quot; TO REPORT-REQUEST.<br />&#160;&#160;&#160;&#160;MOVE &quot;STRING&quot; TO REC-TYPE IN ITYPE-REC.<br />&#160;&#160;&#160;&#160;MOVE 29 TO LEN IN ITYPE-REC.<br />&#160;&#160;&#160;&#160;MOVE &quot;STRING&quot; TO REC-TYPE IN OITYPE-REC.<br />&#160;&#160;&#160;&#160;MOVE 50000 TO LEN IN OTYPE-REC.<br />&#160;&#160;&#160;&#160;MOVE &quot;REPORT&quot; TO SERVICE-NAME.<br />&#160;&#160;&#160;&#160;SET TPTRAN TO TRUE.<br />&#160;&#160;&#160;&#160;SET TPBLOCK TO TRUE.<br />&#160;&#160;&#160;&#160;SET TPNOTIME TO TRUE.<br />&#160;&#160;&#160;&#160;SET TPSIGRSTRT TO TRUE.<br />&#160;&#160;&#160;&#160;SET TPNOCHANGE TO TRUE.<br />&#160;&#160;&#160;&#160;CALL &quot;TPCALL&quot; USING TPSVCDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ITPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;REPORT-REQUEST<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;OTPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;REPORT-OUTPUT<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">error processing<br /></em>&#160;&#160;&#160;&#160;IF TPETRUNCATE<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">The report was truncated<br /></em>&#160;&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">error processing<br /></em>********************************************************<br />* Send REPORT-OUTPUT to PRINTER service<br />********************************************************<br />&#160;&#160;&#160;&#160;MOVE &quot;PRINTER&quot; TO SERVICE-NAME.<br />&#160;&#160;&#160;&#160;SET TPNOTRAN TO TRUE.<br />&#160;&#160;&#160;&#160;MOVE &quot;STRING&quot; TO REC-TYPE IN ITTYPE-REC.<br />&#160;&#160;&#160;&#160;MOVE LEN IN OTYPE-REC TO LEN IN ITYPE-REC.<br />&#160;&#160;&#160;&#160;CALL &quot;TPCALL&quot; USING TPSVCDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;ITPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;REPORT-OUTPUT<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;OTPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;REPORT-OUTPUT<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">error processing<br /></em>&#160;&#160;&#160;&#160;<em class="cEmphasis">. . .<br /></em>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">terminate transaction<br /></em>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">leave application</em></pre></div><a name="wp1055464"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>In the preceding example, the term <code class="cCode">error routine</code> indicates that the following tasks are performed: an error message is printed, the transaction is aborted, the client leaves the application, and the program is exited.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1055471"> </a>
+This example also shows how the <code class="cCode">TPNOCHANGE</code> communication setting is used to enforce strong record type checking by indicating that the reply message must be returned in the same type of record that was originally allocated. The strong type check flag, <code class="cCode">TPNOCHANGE</code>, forces the reply to be returned in a record of type <code class="cCode">STRING</code>. 
+</p>
+<p class="pBody"><a name="wp1055472"> </a>
+A possible reason for this check is to guard against errors that may occur in the <code class="cCode">REPORT</code> service subroutine, resulting in the use of a reply record of an incorrect type. Another reason is to prevent changes that are not made consistently across all areas of dependency. For example, another programmer may have changed the <code class="cCode">REPORT</code> service to standardize all replies in another <code class="cCode">STRING</code> format without modifying the client process to reflect the change.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1055477"> </a>
+Sending Asynchronous Messages
+</h2><p class="pBody"><a name="wp1055478"> </a>
+This section explains how to:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1055479"> </a>Send an asynchronous request using the <code class="cCode">TPACALL</code> routine</li>
+<li><a name="wp1055480"> </a>Get an asynchronous reply using the <code class="cCode">TPGETRPLY</code> routine</li>
+</ul></div>
+<p class="pBody"><a name="wp1055481"> </a>
+The type of asynchronous processing discussed in this section is sometimes referred to as <em class="cEmphasis">fan-out parallelism</em> because it allows a client&#8217;s requests to be distributed (or &#8220;fanned out&#8221;) simultaneously to several services for processing.
+</p>
+<p class="pBody"><a name="wp1055482"> </a>
+The other type of asynchronous processing supported by the Oracle Tuxedo system is pipeline parallelism in which the <code class="cCode">TPFORWAR</code> routine is used to pass (or forward) a process from one service to another. For a description of the <code class="cCode">TPFORWAR</code> routine, refer to <span class="cHyperlink">
+<a href="../pgc/pgserv.html">&#8220;Writing Servers&#8221; </a></span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em>.
+</p>
+<h3 class="pHeading2"><a name="wp1055487"> </a>
+Sending an Asynchronous Request
+</h3>
+<p class="pBody"><a name="wp1055488"> </a>
+The TPACA<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>LL(3cbl)</span> routine sends a request to a service and immediately returns. Use the following signature to call the <code class="cCode">TPACALL</code> routine:
+</p>
+<a name="wp1126016"> </a><div class="pPreformatted"><pre>01 <em class="cEmphasis">TPSVCDEF-REC</em>.<br />   COPY TPSVCDEF.<br />01 <em class="cEmphasis">TPTYPE-REC</em>.<br />   COPY TPTYPE.<br />01 <em class="cEmphasis">DATA-REC</em>.<br />   COPY User Data.<br />01 <em class="cEmphasis">TPSTATUS-REC</em>.<br />   COPY TPSTATUS.<br />CALL &quot;TPACALL&quot; USING <em class="cEmphasis">TPSVCDEF-REC TPTYPE-REC DATA-REC TPSTATUS-REC</em>.</pre></div><p class="pBody"><a name="wp1126019"> </a>
+For more information on the <code class="cCode">TPSVCDEF</code> and <code class="cCode">TPTYPE-REC</code> data structures, refer to <span class="cHyperlink">
+<a href="../pgc/pgserv.html">&#8220;Defining a Service&#8221; </a></span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em>.
+</p>
+<p class="pBody"><a name="wp1055521"> </a>
+The <code class="cCode">TPACALL</code> routine sends a request message to the service named in the <code class="cCode">SERVICE-NAME</code> and immediately returns from the call. Upon successful completion of the call, the <code class="cCode">TPACALL</code> routine returns an integer that serves as a communication handle used to access the correct reply for the relevant request. While <code class="cCode">TPACALL</code> is in transaction mode (as described in <span class="cHyperlink">
+<a href="../pgc/pgglob.html">&#8220;Writing Global Transactions&#8221; </a></span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em>) there may not be any outstanding replies when the transaction commits; that is, within a given transaction, for each request for which a reply is expected, a corresponding reply must eventually be received.
+</p>
+<p class="pBody"><a name="wp1055525"> </a>
+If the value <code class="cCode">TPNOREPLY</code> is set, the parameter signals to <code class="cCode">TPACALL</code> that a reply is not expected. When set, on success <code class="cCode">TPACALL</code> returns a value of <code class="cCode">0</code> as the reply descriptor. If subsequently passed to the <code class="cCode">TPGETRPLY</code> routine, this value becomes invalid, this value becomes invalid. Guidelines for using this setting correctly when a process is in transaction mode are discussed in <span class="cHyperlink">
+<a href="../pgc/pgglob.html">&#8220;Writing Global Transactions&#8221;</a></span> in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em>.
+</p>
+<p class="pBody"><a name="wp1055529"> </a>
+On error, <code class="cCode">TPACALL</code> sets <code class="cCode">TP-STATUS</code> to a value that reflects the nature of the error. <code class="cCode">TPACALL</code> returns many of the same error codes as <code class="cCode">TPCALL</code>. The differences between the error codes for these functions are based on the fact that one call is synchronous and the other, asynchronous. These errors are discussed at length in <span class="cHyperlink">
+<a href="../pgc/pgerr.html">&#8220;Managing Errors&#8221; </a></span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em>.
+</p>
+<p class="pBody"><a name="wp1110168"> </a>
+The following example shows how <code class="cCode">TPACALL</code> uses the <code class="cCode">TPNOTRAN</code> and <code class="cCode">TPNOREPLY</code> settings. This code is similar to the code in <a href="pbreq.html#wp1055449">Example: Sending a Synchronous Message with TPNOTRAN Set</a>. In this case, however, a reply is not expected from the <code class="cCode">PRINTER</code> service. By setting both <code class="cCode">TPNOTRAN</code> and <code class="cCode">TPNOREPLY</code>, the client is indicating that no reply is expected and the <code class="cCode">PRINTER</code> service will not participate in the current transaction. This situation is discussed more fully in <span class="cHyperlink">
+<a href="../pgc/pgerr.html">&#8220;Managing Errors&#8221; </a></span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em>.
+</p>
+<div class="pCodeTitle"><a name="wp1126427"> </a>
+Listing&#160;6-4	   Sending an Asynchronous Message with TPNOTRAN or TPNOREPLY
+</div> <a name="wp1130059"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;WORKING-STORAGE SECTION.<br />*****************************************************<br />* Tuxedo definitions<br />*****************************************************<br />&#160;&#160;&#160;01 ITPTYPE-REC.<br />&#160;&#160;&#160;COPY TPTYPE.<br />&#160;&#160;&#160;01 OTPTYPE-REC.<br />&#160;&#160;&#160;COPY TPTYPE.<br />*<br />&#160;&#160;&#160;01 TPSTATUS-REC.<br />&#160;&#160;&#160;COPY TPSTATUS.<br />*<br />&#160;&#160;&#160;01 TPSVCDEF-REC.<br />&#160;&#160;&#160;COPY TPSVCDEF.<br />*****************************************************<br />&#160;&#160;&#160;01 REPORT-REQUEST        PIC X(100) VALUE SPACES.<br />&#160;&#160;&#160;01 REPORT-OUTPUT         PIC X(50000) VALUE SPACES.<br />******************************************************<br />&#160;&#160;&#160;PROCEDURE DIVISION.<br /> START-FIG.<br />&#160;&#160;&#160;. . .<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span><span style="font-style: italic">join application<br /></span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span><span style="font-style: italic">start transaction<br /></span>    . . .<br /> ********************************************************<br /> * Send report request to REPORT service<br /> * Receive results into REPORT-OUTPUT<br /> ********************************************************<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>MOVE &quot;REPORT=accrcv DBNAME=accounts&quot; TO REPORT-REQUEST.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>MOVE &quot;STRING&quot; TO REC-TYPE IN ITPTYPE-REC.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>MOVE 29 TO LEN IN ITPTYPE-REC.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>MOVE &quot;STRING&quot; TO REC-TYPE IN OITYPE-REC.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>MOVE 50000 TO LEN IN OTPTYPE-REC.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>MOVE &quot;REPORT&quot; TO SERVICE-NAME.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>SET TPTRAN TO TRUE.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>SET TPBLOCK TO TRUE.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>SET TPNOTIME TO TRUE.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>SET TPSIGRSTRT TO TRUE.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>SET TPREPLY TO TRUE.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>SET TPNOCHANGE TO TRUE.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>CALL &quot;TPCALL&quot; USING TPSVCDEF-REC<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;ITPTYPE-REC<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;REPORT-REQUEST<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;OTPTYPE-REC<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;REPORT-OUTPUT<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>IF NOT TPOK<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<em class="cEmphasis">error processing<br /></em>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>IF TPETRUNCATE<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<em class="cEmphasis">The report was truncated<br /></em>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<em class="cEmphasis">error processing<br /></em>********************************************************<br />* Send REPORT-OUTPUT to PRINTER service<br />********************************************************<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>MOVE &quot;PRINTER&quot; TO SERVICE-NAME.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>SET TPNOTRAN TO TRUE.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>SET TPNOREPLY TO TRUE.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>MOVE &quot;STRING&quot; TO REC-TYPE IN ITPTYPE-REC.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>MOVE LEN IN OTPTYPE-REC TO LEN IN ITPTYPE-REC.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>CALL &quot;TPACALL&quot; USING TPSVCDEF-REC<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>ITPTYPE-REC<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>REPORT-OUTPUT<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>TPSTATUS-REC.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>IF NOT TPOK<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;<em class="cEmphasis">error processing<br /></em>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>. . .<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span><span style="font-style: italic">commit transaction<br /></span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span><span style="font-style: italic">leave application</span></pre></div><h3 class="pHeading2"><a name="wp1098002"> </a>
+Getting an Asynchronous Reply
+</h3>
+<p class="pBody"><a name="wp1055556"> </a>
+A reply to a service call can be received asynchronously by calling the TPGE<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>TRPLY(3cbl)</span> routine. The <code class="cCode">TPGETRPLY</code> routine dequeues a reply to a request previously sent by <code class="cCode">TPACALL</code>. 
+</p>
+<p class="pBody"><a name="wp1055557"> </a>
+Use the following signature to call the <code class="cCode">TPGETRPLY</code> routine:
+</p>
+<a name="wp1126546"> </a><div class="pPreformatted"><pre>01 <em class="cEmphasis">TPSVCDEF-REC</em>.<br />   COPY TPSVCDEF.<br />01 <em class="cEmphasis">TPTYPE-REC</em>.<br />   COPY TPTYPE.<br />01 <em class="cEmphasis">DATA-REC</em>.<br />   COPY User Data.<br />01 <em class="cEmphasis">TPSTATUS-REC</em>.<br />   COPY TPSTATUS.<br />CALL &quot;TPGETRPLY&quot; USING <em class="cEmphasis">TPSVCDEF-REC TPTYPE-REC DATA-REC TPSTATUS-REC</em>.</pre></div><p class="pBody"><a name="wp1126549"> </a>
+For more information on the <code class="cCode">TPSVCDEF</code> and <code class="cCode">TPTYPE-REC</code> data structures, refer to <span class="cHyperlink">
+<a href="../pgc/pgserv.html">&#8220;Defining a Service&#8221;</a></span> in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em>.
+</p>
+<p class="pBody"><a name="wp1055590"> </a>
+By default, the function waits for the arrival of the reply that corresponds to the value referenced by the communication handle. During this waiting interval, a blocking timeout may occur. A time-out occurs when <code class="cCode">TPGETRPLY</code> fails and <code class="cCode">TP-STATUS</code> is set to <code class="cCode">TPETIME</code> (unless <code class="cCode">TPNOTIME</code> is set).
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1055592"> </a>
+Setting and Getting Message Priorities
+</h2><p class="pBody"><a name="wp1055593"> </a>
+Two ATMI calls allow you to determine and set the priority of a message request: TPSPRIO<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>(3cbl)</span> and TPGPRIO<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>(3cbl)</span>. The priority affects how soon the request is dequeued by the server; servers dequeue requests with the highest priorities first. 
+</p>
+<p class="pBody"><a name="wp1055594"> </a>
+This section describes:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1055598"> </a><a href="pbreq.html#wp1055604">Setting a Message Priority</a></li>
+<li><a name="wp1055602"> </a><a href="pbreq.html#wp1055635">Getting a Message Priority</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1055604"> </a>
+Setting a Message Priority
+</h3>
+<p class="pBody"><a name="wp1055605"> </a>
+The TPSPRI<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>O(3cbl)</span> routine enables you to set the priority of a message request. 
+</p>
+<p class="pBody"><a name="wp1055606"> </a>
+The <code class="cCode">TPSPRIO</code> routine affects the priority level of only one request: the next request to be sent by <code class="cCode">TPCALL</code> or <code class="cCode">TPACALL</code>, or to be forwarded by a service subroutine. 
+</p>
+<p class="pBody"><a name="wp1055607"> </a>
+Use the following signature to call the <code class="cCode">TPSPRIO</code> routine:
+</p>
+<a name="wp1126850"> </a><div class="pPreformatted"><pre>01 <em class="cEmphasis">TPPRIDEF-REC</em>.<br />   COPY TPPRIDEF.<br />01 <em class="cEmphasis">TPSTATUS-REC</em>.<br />   COPY TPSTATUS.<br />CALL &quot;TPSPRIO&quot; USING <em class="cEmphasis">TPPRIDEF-REC TPSTATUS-REC</em>.</pre></div><p class="pBody"><a name="wp1126851"> </a>
+Use the following signature for the <code class="cCode">TPPRIDEF-REC</code> data structure.
+</p>
+<a name="wp1126852"> </a><div class="pPreformatted"><pre>05 <em class="cEmphasis">PRIORITY     PIC S9(9) COMP-5.<br /></em>05 <em class="cEmphasis">PRIO-FLAG    PIC S9(9) COMP-5.<br /></em>  88 TPABSOLUTE     VALUE 0.<br />  88 TPRELATIVE     VALUE 1.</pre></div><p class="pBody"><a name="wp1055625"> </a>
+<a href="pbreq.html#wp407875">Table&#160;6-1</a> describes the arguments to the <code class="cCode">TPSPRIO</code> routine.
+</p>
+<p class="pGraphic"><a name="wp1061773"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp407875table1055612"><caption><a name="wp407875"> </a>
+Table 6-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">TPSPRIO Routine Fields</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1055614"> </a>
+Field
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1055616"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1055618"> </a>
+<code class="cCode">PRIORITY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1055620"> </a>
+Integer indicating a new priority value. The effect of this argument is controlled by <code class="cCode">PRIO-FLAG</code>. If <code class="cCode">PRIO-FLAG</code> is set to 0, <code class="cCode">PRIORITY</code> specifies a relative value and the sign accompanying the value indicates whether the current priority is incremented or decremented. Otherwise, the value specified indicates an absolute value and <code class="cCode">PRIORITY</code> must be set to a value between 0 and 100. If you do not specify a value within this range, the system sets the value to 50.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1055622"> </a>
+<code class="cCode">PRIO-FLAG</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1055624"> </a>
+Indicates whether the value of <code class="cCode">PRIORITY</code> is treated as a relative value (0, the default) or an absolute value (<code class="cCode">TPABSOLUTE</code>).
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1055626"> </a>
+The following sample code is an excerpt from the <code class="cCode">TRANSFER</code> service. In this example, the <code class="cCode">TRANSFER</code> service acts as a client by sending a synchronous request, via <code class="cCode">TPCALL</code>, to the <code class="cCode">WITHDRAWAL</code> service. <code class="cCode">TRANSFER</code> also invokes <code class="cCode">TPSPRIO</code> to increase the priority of its request message to <code class="cCode">WITHDRAWAL</code>, and to prevent the request from being queued for the <code class="cCode">WITHDRAWAL</code> service (and later the <code class="cCode">DEPOSIT</code> service) after waiting on the <code class="cCode">TRANSFER</code> queue.
+</p>
+<div class="pCodeTitle"><a name="wp1126997"> </a>
+Listing&#160;6-5	   Setting the Priority of a Request Message
+</div> <a name="wp1126998"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>WORKING-STORAGE SECTION.<br />*****************************************************<br />* Tuxedo definitions<br />*****************************************************<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>01 TPTYPE-REC.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;COPY TPTYPE.<br />*<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>01 TPSTATUS-REC.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;COPY TPSTATUS.<br />*<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>01 TPSVCDEF-REC.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;COPY TPSVCDEF.<br />*<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>01 TPPRIDEF-REC.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;COPY TPPRIDEF.<br />*****************************************************<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>01 DATA-REC               PIC X(100) VALUE SPACES.<br />******************************************************<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>PROCEDURE DIVISION.<br /> START-FIG.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>. . .<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span><span style="font-style: italic">join application<br /></span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>. . .<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>MOVE 30 TO PRIORITY.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>SET TPRELATIVE TO TRUE.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>CALL &quot;TPSPRIO&quot; USING TPPRIDEF-REC TPSTATUS-REC<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>IF NOT TPOK<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span><span style="font-style: normal">&#160;&#160;&#160;</span><span style="font-style: italic">error processing<br /></span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>MOVE &quot;CARRAY&quot; TO REC-TYPE.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>MOVE 100 TO LEN.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>MOVE &quot;WITHDRAWAL&quot; TO SERVICE-NAME.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>SET TPTRAN TO TRUE .<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>SET TPBLOCK TO TRUE .<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>SET TPNOTIME TO TRUE .<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>SET TPSIGRSTRT TO TRUE .<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>SET TPREPLY TO TRUE .<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>CALL &quot;TPACALL&quot; USING TPSVCDEF-REC<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;TPTYPE-REC<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;DATA-REC<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>IF NOT TPOK<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span><span style="font-style: normal">&#160;&#160;&#160;</span><span style="font-style: italic">error processing<br /></span>&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span>. . .<br />&#160;&#160;&#160;<span style="font-style: oblique">&#160;</span><span style="font-style: italic">leave application</span></pre></div><h3 class="pHeading2"><a name="wp1055635"> </a>
+Getting a Message Priority
+</h3>
+<p class="pBody"><a name="wp1055636"> </a>
+The TPGPR<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>IO(3cbl)</span> routine enables you to get the priority of a message request.
+</p>
+<p class="pBody"><a name="wp1055637"> </a>
+Use the following signature to call the <code class="cCode">TPGPRIO</code> routine:
+</p>
+<a name="wp1127061"> </a><div class="pPreformatted"><pre>01 <em class="cEmphasis">TPPRIDEF-REC</em>.<br />   COPY TPPRIDEF.<br />01 <em class="cEmphasis">TPSTATUS-REC</em>.<br />   COPY TPSTATUS.<br />CALL &quot;TPGPRIO&quot; USING <em class="cEmphasis">TPPRIDEF-REC TPSTATUS-REC</em>.</pre></div><p class="pBody"><a name="wp1055640"> </a>
+A requester can call the <code class="cCode">TPGPRIO</code> routine after invoking the <code class="cCode">TPCALL</code> or <code class="cCode">TPACALL</code> routine to retrieve the priority of the request message. If a requester calls the function but no request is sent, the routine fails, setting <code class="cCode">TP-STATUS</code> to <code class="cCode">TPENOENT</code>. Upon success, <code class="cCode">TPGPRIO</code> sets <code class="cCode">TP-STATUS</code> to <code class="cCode">TPOK</code> and returns an integer value in the range of 1 to 100 (where the highest priority value is 100). 
+</p>
+<p class="pBody"><a name="wp1055641"> </a>
+If a priority has not been explicitly set using the <code class="cCode">TPSPRIO</code> routine, the system sets the message priority to that of the service routine that handles the request. Within an application, the priority of the request-handling service is assigned a default value of 50 unless a system administrator overrides this value.
+</p>
+<p class="pBody"><a name="wp1055642"> </a>
+The following example shows how to determine the priority of a message that was sent in an asynchronous call.
+</p>
+<div class="pCodeTitle"><a name="wp1127247"> </a>
+Listing&#160;6-6	   Determining the Priority of the Sent Request
+</div> <a name="wp1130894"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;WORKING-STORAGE SECTION.<br />*****************************************************<br />* Tuxedo definitions<br />*****************************************************<br />&#160;&#160;&#160;01 TPTYPE-REC-1.<br />&#160;&#160;&#160;COPY TPTYPE.<br />&#160;&#160;&#160;01 TPTYPE-REC-2.<br />&#160;&#160;&#160;COPY TPTYPE.<br />*<br />&#160;&#160;&#160;01 TPSTATUS-REC.<br />&#160;&#160;&#160;COPY TPSTATUS.<br />*<br />&#160;&#160;&#160;01 TPSVCDEF-REC-1.<br />&#160;&#160;&#160;COPY TPSVCDEF.<br />&#160;&#160;&#160;01 TPSVCDEF-REC-2.<br />&#160;&#160;&#160;COPY TPSVCDEF.<br />*<br />&#160;&#160;&#160;01 TPPRIDEF-REC-1.<br />&#160;&#160;&#160;COPY TPPRIDEF.<br />&#160;&#160;&#160;01 TPPRIDEF-REC-2.<br />&#160;&#160;&#160;COPY TPPRIDEF.<br />*****************************************************<br />&#160;&#160;&#160;01 DATA-REC-1     PIC X(100) VALUE SPACES.<br />&#160;&#160;&#160;01 DATA-REC-2     PIC X(100) VALUE SPACES.<br />******************************************************<br />&#160;&#160;&#160;PROCEDURE DIVISION.<br />START-FIG.<br />&#160;&#160;&#160;. . .<br />&#160;&#160;&#160;<em class="cEmphasis">join application<br /></em>&#160;&#160;&#160;<em class="cEmphasis">populate DATA-REC1 and DATA-REC2 with send request<br /></em>&#160;&#160;&#160;. . .<br />&#160;&#160;&#160;MOVE &quot;CARRAY&quot; TO REC-TYPE IN TYPE-REC-1.<br />&#160;&#160;&#160;MOVE 100 TO LEN IN TYPE-REC-1.<br />&#160;&#160;&#160;MOVE &quot;SERVICE1&quot; TO SERVICE-NAME IN TPSVCDEV-REC-1.<br />&#160;&#160;&#160;SET TPTRAN TO TRUE IN TPSVCDEV-REC-1.<br />&#160;&#160;&#160;SET TPBLOCK TO TRUE IN TPSVCDEV-REC-1.<br />&#160;&#160;&#160;SET TPNOTIME TO TRUE IN TPSVCDEV-REC-1.<br />&#160;&#160;&#160;SET TPSIGRSTRT TO TRUE IN TPSVCDEV-REC-1.<br />&#160;&#160;&#160;SET TPREPLY TO TRUE IN TPSVCDEV-REC-1.<br />&#160;&#160;&#160;CALL &quot;TPACALL&quot; USING TPSVCDEF-REC-1<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTYPE-REC-1<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DATA-REC-1<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">error processing<br /></em>&#160;&#160;&#160;CALL &quot;TPGPRIO&quot; USING TPPRIDEF-REC-1 TPSTATUS-REC<br />&#160;&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">error processing<br /></em>&#160;&#160;&#160;MOVE &quot;CARRAY&quot; TO REC-TYPE IN TYPE-REC-2.<br />&#160;&#160;&#160;MOVE 100 TO LEN IN TYPE-REC-2.<br />&#160;&#160;&#160;MOVE &quot;SERVICE2&quot; TO SERVICE-NAME IN TPSVCDEV-REC-2.<br />&#160;&#160;&#160;SET TPTRAN TO TRUE IN TPSVCDEV-REC-2.<br />&#160;&#160;&#160;SET TPBLOCK TO TRUE IN TPSVCDEV-REC-2.<br />&#160;&#160;&#160;SET TPNOTIME TO TRUE IN TPSVCDEV-REC-2.<br />&#160;&#160;&#160;SET TPSIGRSTRT TO TRUE IN TPSVCDEV-REC-2.<br />&#160;&#160;&#160;SET TPREPLY TO TRUE IN TPSVCDEV-REC-2.<br />&#160;&#160;&#160;CALL &quot;TPACALL&quot; USING TPSVCDEF-REC-2<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTYPE-REC-2<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DATA-REC-2<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">error processing<br /></em>&#160;&#160;&#160;CALL &quot;TPGPRIO&quot; USING TPPRIDEF-REC-2 TPSTATUS-REC<br />&#160;&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">error processing<br /></em>&#160;&#160;&#160;IF PRIORITY IN TPSVCDEF-REC-1 &gt;= PRIORITY IN TPSVCDEF-REC-2<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM DO-GETREPLY1<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM DO-GETREPLY2<br />&#160;&#160;&#160;ELSE<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM DO-GETREPLY2<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM DO-GETREPLY1<br />&#160;&#160;&#160;END-IF.<br />&#160;&#160;&#160;. . .<br />&#160;&#160;&#160;<em class="cEmphasis">leave application<br /></em>DO-GETRPLY1.<br />&#160;&#160;&#160;SET TPGETHANDLE TO TRUE IN TPSVCDEV-REC-1.<br />&#160;&#160;&#160;SET TPCHANGE TO TRUE IN TPSVCDEV-REC-1.<br />&#160;&#160;&#160;SET TPBLOCK TO TRUE IN TPSVCDEV-REC-1.<br />&#160;&#160;&#160;SET TPNOTIME TO TRUE IN TPSVCDEV-REC-1.<br />&#160;&#160;&#160;SET TPSIGRSTRT TO TRUE IN TPSVCDEV-REC-1.<br />&#160;&#160;&#160;CALL &quot;TPGETRPLY&quot; USING TPSVCDEF-REC-1<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTYPE-REC-1<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DATA-REC-1<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">error processing<br /></em> DO-GETRPLY2<br />&#160;&#160;&#160;SET TPGETHANDLE TO TRUE IN TPSVCDEV-REC-2.<br />&#160;&#160;&#160;SET TPCHANGE TO TRUE IN TPSVCDEV-REC-2.<br />&#160;&#160;&#160;SET TPBLOCK TO TRUE IN TPSVCDEV-REC-2.<br />&#160;&#160;&#160;SET TPNOTIME TO TRUE IN TPSVCDEV-REC-2.<br />&#160;&#160;&#160;SET TPSIGRSTRT TO TRUE IN TPSVCDEV-REC-2.<br />&#160;&#160;&#160;CALL &quot;TPGETRPLY&quot; USING TPSVCDEF-REC-2<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTYPE-REC-2<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;DATA-REC-2<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;&#160;IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<em class="cEmphasis">error processing</em></pre></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="pbreq.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pbserv.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pbconv.html"><img id="LongDescNotReq9" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

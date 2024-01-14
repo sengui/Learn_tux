@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>Configuring ART Batch Specific Servers</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = ohj/ohw) - Version 5.1.2 Build 050" />
+<meta name="date" content="2013-02-27T17:52:29Z" />
+<meta name="robots" content="noarchive" />
+<meta name="doctitle" content="Configuring ART Batch Specific Servers" />
+<meta name="relnum" content="" />
+<meta name="partnum" content="" />
+<meta name="topic-id" content="/txdo/resbroker/jesconfig" />
+<link rel="copyright" href="./dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+<link rel="stylesheet" href="./dcommon/css/blafdoc.css" title="Oracle BLAFDoc" type="text/css" />
+<link rel="contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="prev" href="resbroker005.htm" title="Previous" type="text/html" />
+<link rel="next" href="resbroker007.htm" title="Next" type="text/html" />
+</head>
+<body>
+<div class="zz-skip-header"><a href="#BEGIN">Skip Headers</a></div>
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<col width="86%" />
+<col width="*" />
+<tr valign="bottom">
+<td align="left"></td>
+<td align="center"><a href="resbroker005.htm"><img src="./dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="resbroker007.htm"><img src="./dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+<p><a id="/txdo/resbroker/jesconfig" name="/txdo/resbroker/jesconfig"></a></p>
+<div class="sect1"><!-- infolevel="all" infotype="General" --><a id="sthref91" name="sthref91"></a>
+<h1>Configuring ART Batch Specific Servers</h1>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Use JES Configuration page to configure ART Batch specific Tuxedo system servers in the Tuxedo domain. To enter the JES Configuration page, click <span class="bold">JESConfig</span> in the Controls panel of domain editor.</p>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="sthref92" name="sthref92"></a>
+<h2>Server Template</h2>
+<p>The ART Batch related servers can be added using the server template.</p>
+<p>The machine list contains all the machines that have been added into this domain.</p>
+<p>Selecting one or more machines, and then click <span class="bold">Apply Server Template</span>. Following servers are added to the machine.</p>
+<ul>
+<li>
+<p><code>JESQUEGRP</code></p>
+<ul>
+<li>
+<p><code>TMQUEUE</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>ARTJESGRP</code></p>
+<ul>
+<li>
+<p><code>TMUSREVT</code></p>
+</li>
+<li>
+<p><code>ARTJESADM</code></p>
+</li>
+<li>
+<p><code>ARTJESCONV</code></p>
+</li>
+<li>
+<p><code>ARTJESINITIATOR</code></p>
+</li>
+<li>
+<p><code>ARTJESPURGE</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Since the <code>TMS_QM</code> used by server <code>TMQUEUE</code> requires TLOG device, after applying the server template, <code>TLOGDEVICE</code> and <code>TLOGSIZE</code> parameter of the corresponding machine will be configured to <code>$APPDIR/TLOG</code> if no path is specified.</p>
+</div>
+<!-- class="sect2" -->
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="sthref93" name="sthref93"></a>
+<h2>JES Configuration File</h2>
+<p>A JES configuration file is used by the TuxJES administration server <code>ARTJESADM</code>. You can configure the following parameters of the JES configuration file:</p>
+<ul>
+<li>
+<p>JES Base Directory</p>
+<p>The base directory to store the JESROOT. If it is not set, the base directory is <code>$APPDIR</code>.</p>
+</li>
+<li>
+<p>JESROOT</p>
+<p>The root repository to store job information. This directory is created under the path set in JES Base Directory. For example, if JESROOT is set to jesroot and JES Base Directory is set to $APPDIR, the full path of the JESROOT directory is <code>{$APPDIR}/jesroot</code>.</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+If ART Batch related servers are configured on two Tuxedo machines, they must share the same JESROOT repository, which means only an absolute JESROOT path is acceptable and the directory should exist in Network File System.</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</li>
+<li>
+<p>DEFAULTJOBCLASS</p>
+<p>The default job class if the job class has not been set in JCL. It is optional. The default job class is A if this option is not set.</p>
+</li>
+<li>
+<p>DEFAULTJOBPRIORITY</p>
+<p>The default job priority if the job priority has not been set in JCL. It is optional. The default job priority is 0 if this option is not set.</p>
+</li>
+<li>
+<p>DUPL_JOB</p>
+<p>If <span class="bold">NODELAY</span> is not checked, only one job can be in execution status for a job name. When it is checked, NODELAY will remove the dependency check.</p>
+</li>
+<li>
+<p>EVENTPOST</p>
+<p>Specifies whether events are posted for a job at particular stages.</p>
+<ul>
+<li>
+<p><span class="bold">S</span>: Job submission event.</p>
+</li>
+<li>
+<p><span class="bold">C</span>: Job conversion complete event.</p>
+</li>
+<li>
+<p><span class="bold">E</span>: Job execution complete event.</p>
+</li>
+<li>
+<p><span class="bold">P</span>: Job purge event.</p>
+</li>
+<li>
+<p><span class="bold">A</span>: all supported events</p>
+</li>
+</ul>
+<p>If <span class="bold">EVENTPOST</span> is not specified, no event is posted. The data buffer with event post is FML32 type and the fields are defined in <code>tuxjes/include/jesflds.h</code>.</p>
+</li>
+<li>
+<p>JOBREPOSITORY</p>
+<p>The path of the stored job repository. The job submitting script file path may be a relative path in <span class="bold">JOBREPOSITORY</span> if it is set.</p>
+</li>
+<li>
+<p>PRIVILEGE MODE</p>
+<p>Specifies whether and how to enable the user substitution.</p>
+<ul>
+<li>
+<p><span class="bold">NONE</span>: Default value. Indicates jobs are executed by the OS user who starts JES system. This is compatible with all previous implementations on JES system.</p>
+</li>
+<li>
+<p><span class="bold">USER_IDENTICAL</span>: Indicates jobs are executed by the Oracle Tuxedo user with which JES client joins JES system. Make sure that each Oracle Tuxedo user corresponds to an existing OS user before you choose this option.</p>
+</li>
+<li>
+<p><span class="bold">USER_MAPPING</span>: When this option is selected, the JES system looks up the TuxJES user mapping file and finds out the OS user corresponding to the Oracle Tuxedo user with which JES client joins JES system, and then appoints this OS user as the job executor.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>USER MAPPING FILE</p>
+<p>This option is enabled when you choose <span class="bold">USER_MAPPING</span> as Privilege Mode. Specify the user mapping file name. User mapping file is put under $APPDIR directory by default.</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+User Mapping File name cannot be:
+<ul>
+<li>
+<p>one of Logs, QUE,TLOG, UBBCONFIG, acc, crlog, data, data_source, jesconfig, jesqinit, tools, tpacl, tpgrp, tpusr, and tuxconfig.</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>same with JESROOT if JESROOT is under $APPDIR directory.</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</li>
+<li>
+<p>USER MAPPING Table</p>
+<p>User mapping table displays the mapping relationship between Oracle Tuxedo users and OS users. When the Privilege Mode is <span class="bold">USER_MAPPING</span>, the user mapping table is enabled, allowing you to add, edit, or delete a user mapping entry. Every line in the mapping table is in the format as below:</p>
+<p><code>tuxedousername OSusername</code></p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+<ul>
+<li>
+<p>No duplicated user pair is allowed.</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>One Oracle Tuxedo user can only be mapped to one OS user.</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</li>
+</ul>
+</div>
+<!-- class="sect2" -->
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="sthref94" name="sthref94"></a>
+<h2>Misc Configuration</h2>
+<p>There are several fields used for collecting ART Batch related information:</p>
+<ul>
+<li>
+<p>JES queue init script</p>
+<p>The JES queue initializing script. The one provided in the JES simpjob sample is used as the default template. You can customize it in the text field, if you do so, the queue file name must be "<span class="bold">QUE</span>".</p>
+</li>
+<li>
+<p>JES install dir</p>
+<p>The ART Batch installation directory must be specified in the page. It is a mandatory option.</p>
+<p>There is a requirement here, when configuring a MP domain, the ART Batch installation directory path on all the machines must be the same.</p>
+</li>
+<li>
+<p>PDKSH</p>
+<p>The PDKSH executable file which is used for ART Batch running. This is an optional option. If it is not specified, the system default ksh command is used at runtime.</p>
+</li>
+</ul>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+If configuring an MP domain, the PDKSH executable file on all machines must be set the same.</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<!-- Start Footer -->
+<div class="footer">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<col width="86%" />
+<col width="*" />
+<tr>
+<td align="left"><span class="copyrightlogo">Copyright&nbsp;&copy;&nbsp;2013,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span><br />
+<a href="./dcommon/html/cpyr.htm"><span class="copyrightlogo">Legal Notices</span></a></td>
+<td align="center"><a href="resbroker005.htm"><img src="./dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="resbroker007.htm"><img src="./dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</div>
+<!-- class="footer" -->
+</body>
+</html>

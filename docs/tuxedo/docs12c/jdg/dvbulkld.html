@@ -1,0 +1,630 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="3" />
+<meta name="LOC_US_CHANGE" content="41861" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/jdg/fm/dvbulkld.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/26/12 11:22:56" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Bulk Loading Oracle Tuxedo Services</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Using Oracle Jolt
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="dvintro.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="dvconfig.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/jdg.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1034941"> </a>
+Bulk Loading Oracle Tuxedo Services
+</h1>
+<p class="pBody"><a name="wp1029856"> </a>
+As a systems administrator, you may have an existing Oracle Tuxedo application with multiple Oracle Tuxedo services. Manually creating these definitions in the repository database may take hours to complete. The Jolt Bulk Loader is a command utility that allows you to load multiple, previously defined Oracle Tuxedo services to the Jolt Repository database in a single step. Using the <code class="cCode">jbld</code> program, the Bulk Loader utility reads the Oracle Tuxedo service definitions from the specified text file and bulk loads them into the Jolt Repository. The services are loaded to the repository database in one &#8220;bulk load.&#8221; After the services populate the Jolt Repository, you can create, edit, and group services with the Jolt Repository Editor.
+</p>
+<p class="pBody"><a name="wp999695"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1026188"> </a><a href="dvbulkld.html#wp1023008">Using the Bulk Loader</a></li>
+<li><a name="wp1026165"> </a><a href="dvbulkld.html#wp1019784">Syntax of the Bulk Loader Data Files</a></li>
+<li><a name="wp1026166"> </a><a href="dvbulkld.html#wp1024318">Troubleshooting</a></li>
+<li><a name="wp1026167"> </a><a href="dvbulkld.html#wp1024712">Sample Bulk Load Data</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023008"> </a>
+Using the Bulk Loader
+</h2><p class="pBody"><a name="wp1023009"> </a>
+The <code class="cCode">jbld</code> program is a Java application. Before running the <code class="cCode">jbld</code> command, set the <code class="cCode">CLASSPATH</code> environment variable (or its equivalent) to point to the directory where the Jolt class directory (that is, <code class="cCode">jolt.jar </code>and<code class="cCode"> joltadmin.jar</code>) is located. If the <code class="cCode">CLASSPATH</code> variable is not set, the Java Virtual Machine (JVM) cannot locate any Jolt classes.
+</p>
+<p class="pBody"><a name="wp1023011"> </a>
+For security reasons, <code class="cCode">jbld</code> does not use command-line arguments to specify user authentication information (user password or application password). Depending on the server&#8217;s security level, <code class="cCode">jbld</code> automatically prompts the user for passwords.
+</p>
+<p class="pBody"><a name="wp1024752"> </a>
+The Bulk Loader utility gets its input from command-line arguments and from the input file.
+</p>
+<h3 class="pHeading2"><a name="wp1030627"> </a>
+Activating the Bulk Loader
+</h3>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1030181"> </a>Type the following at the prompt (with the correct options):</li>
+<p class="pBodyRelative"><a name="wp1030396"> </a>
+<code class="cCode">java bea.jolt.admin.jbld [-n][-p </code><code class="cCodeEmphasis">package</code><code class="cCode">][-u </code><code class="cCodeEmphasis">usrname</code><code class="cCode">][-r </code><code class="cCodeEmphasis">usrrole</code><code class="cCode">] </code><code class="cCodeEmphasis">//host:port filename</code>
+</p>
+<li><a name="wp1032314"> </a>Use <a href="dvbulkld.html#wp1032229">Table&#160;2-1</a> to correctly specify the command-line options.</li>
+</ol></div>
+<h4 class="pHeading3"><a name="wp1032225"> </a>
+Command-line Options 	
+</h4>
+<p class="pGraphic"><a name="wp1032260"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1032229table1032226"><caption><a name="wp1032229"> </a>
+Table 2-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Bulk Loader Command-line Options</span>&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1032233"> </a>
+Option
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1032235"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032237"> </a>
+<code class="cCode">-u </code><code class="cCodeEmphasis">usrname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032239"> </a>
+Specifies the username (default is your account name). (Mandatory if required by security.)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032241"> </a>
+<code class="cCode">-r </code><code class="cCodeEmphasis">usrrole</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032243"> </a>
+Specifies the user role (default is <code class="cCode">admin</code>). (Mandatory if required by security.)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032245"> </a>
+<code class="cCode">-n</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032247"> </a>
+Validates input file against the current repository; no updates are made to the repository. (Optional)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032249"> </a>
+-p package 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032251"> </a>
+Repository package name (default is BULKPKG).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032253"> </a>
+<code class="cCodeEmphasis">//host:port</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032255"> </a>
+Specifies the JRLY or JSL address (host name and IP port number). (Mandatory)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032257"> </a>
+<code class="cCodeEmphasis">filename</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032259"> </a>
+Specifies the file containing the service definitions. (Mandatory)
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1032262"> </a>
+The Bulk Load File
+</h3>
+<p class="pBody"><a name="wp1025424"> </a>
+The bulk load file is a text file that defines services and their associated parameters. The Bulk Loader loads the services defined in the bulk loader file into the Jolt Repository using the package name &#8220;BULKPKG&#8221; by default. The <code class="cCode">-p</code> command overrides the default and you can give the package any name you choose. If another load is performed from a bulk loader file with the same<code class="cCode"> -p</code> option, all the services in the original package are deleted and a new package is created with the services from the new bulk loader file. 
+</p>
+<p class="pBody"><a name="wp1025425"> </a>
+If a service exists in a package other than the package you name that uses the<code class="cCode"> -p</code> option, the Bulk Loader reports the conflict and does not load a service from the bulk loader file into the repository. Use the Repository Editor to remove duplicate services and load the bulk loader file again. See <a href="dvrepos.html">Using the Jolt Repository Editor</a> for additional information.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1019784"> </a>
+Syntax of the Bulk Loader Data Files
+</h2><p class="pBody"><a name="wp1023501"> </a>
+Each service definition consists of service properties and parameters that have a set number of parameter properties. Each property is represented by a keyword and a value.
+</p>
+<p class="pBody"><a name="wp1022443"> </a>
+Keywords are divided into two levels:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1020478"> </a>Service-level</li>
+<li><a name="wp1020479"> </a>Parameter-level</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1024115"> </a>
+Guidelines for Using Keywords
+</h3>
+<p class="pBody"><a name="wp1024116"> </a>
+The <code class="cCode">jbld</code> program reads the service definitions from a text file. To use the keywords, observe the guidelines in <a href="dvbulkld.html#wp1024208">Table&#160;2-2</a>.
+</p>
+<p class="pGraphic"><a name="wp1024153"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024208table1024117"><caption><a name="wp1024208"> </a>
+Table 2-2  Guidelines for Using Keywords&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1024212"> </a>
+Guideline
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024214"> </a>
+Example
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024216"> </a>
+Each keyword must be followed by an equal sign (=) and the value. 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024218"> </a>
+<b class="cBold">Correct:</b> <code class="cCode">type=string</code>
+</div>
+<div class="pCellBody"><a name="wp1024219"> </a>
+<b class="cBold">Incorrect: </b><code class="cCode">type</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024221"> </a>
+Only one keyword is allowed on each line. 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024223"> </a>
+<b class="cBold">Correct:</b><code class="cCode"> type=string</code>
+</div>
+<div class="pCellBody"><a name="wp1024224"> </a>
+<b class="cBold">Incorrect:</b> <code class="cCode">type=string access=out</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024226"> </a>
+Any lines not having an equal sign (=) are ignored. 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024228"> </a>
+<b class="cBold">Correct:</b> <code class="cCode">type=string</code>
+</div>
+<div class="pCellBody"><a name="wp1024229"> </a>
+<b class="cBold">Incorrect:</b> <code class="cCode">type string</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024231"> </a>
+Certain keywords only accept a well-defined set of values. 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024233"> </a>
+The keyword <b class="cBold">access</b> accepts only these values: <b class="cBold">in</b>,<b class="cBold"> out</b>,<b class="cBold"> inout</b>, <b class="cBold">noaccess</b>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024285"> </a>
+The input file can contain multiple service definitions.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024287"> </a>
+<code class="cCode">service=INQUIRY<br />&lt;service keywords and values&gt;<br />service=DEPOSIT<br />&lt;service keywords and values&gt;<br />service=WITHDRAWAL<br />&lt;service keywords and values&gt;<br />service=TRANSFER<br />&lt;service keywords and values&gt;</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024265"> </a>
+Each service definition consists of multiple keywords and values.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024396"> </a>
+<code class="cCode">service=DEPOSIT<br />export=true<br />inbuf=VIEW32<br />outbuf=VIEW32<br />inview=INVIEW<br />outview=OUTVIEW</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1020480"> </a>
+Keyword Order in the Bulk Loader Data File
+</h3>
+<p class="pBody"><a name="wp1026449"> </a>
+Keyword order must be maintained within the data files to ensure an error-free transfer during the bulk load.
+</p>
+<p class="pBody"><a name="wp1026450"> </a>
+The first keyword definition in the bulk loader data text file must be the initial <code class="cCode">service=&lt;NAME&gt;</code> keyword definition (shown in the listing <a href="dvbulkld.html#wp1021019">&quot;Keyword Hierarchical Order in a Data File&quot;</a>). Following the <code class="cCode">service=&lt;NAME&gt;</code> keyword, all remaining service keywords that apply to the named service must be specified before the first <code class="cCode">param=&lt;NAME&gt;</code> definition. These remaining service keywords can be in any order. 
+</p>
+<p class="pBody"><a name="wp1031380"> </a>
+All parameters associated with the service must be specified. Following each <code class="cCode">param=&lt;NAME&gt;</code> keywords are all the parameter keywords that apply to the named parameter until the next occurrence of a parameter definition. These remaining parameter keywords can be in any order. When all the parameters associated with the first service are defined, specify a new <code class="cCode">service=&lt;NAME&gt;</code> keyword definition.
+</p>
+<p class="pBody"><a name="wp1035193"> </a>
+<a href="dvbulkld.html#wp1021019">Listing&#160;2-1</a> lists the keyword hierarchical order in a data file.
+</p>
+<div class="pCodeTitle"><a name="wp1021019"> </a>
+Listing&#160;2-1	   Keyword Hierarchical Order in a Data File
+</div> <a name="wp1026415"> </a><div class="pPreformatted"><pre><b class="cBold">service</b>=&lt;NAME&gt;<br />&lt;service keyword&gt;=&lt;value&gt;<br />&lt;service keyword&gt;=&lt;value&gt;<br />&lt;service keyword&gt;=&lt;value&gt;<br /><b class="cBold">param</b>=&lt;NAME&gt;<br />&lt;parameter keyword&gt;=&lt;value&gt;<br />&lt;parameter keyword&gt;=&lt;value&gt;<br /><b class="cBold">param</b>=&lt;NAME&gt;<br />&lt;parameter keyword&gt;=&lt;value&gt;<br />&lt;parameter keyword&gt;=&lt;value&gt;</pre></div><h3 class="pHeading2"><a name="wp1026418"> </a>
+Using Service-Level Keywords and Values
+</h3>
+<p class="pBody"><a name="wp1026419"> </a>
+A service definition must begin with the <code class="cCode">service=&lt;NAME&gt; </code>keyword. Services using CARRAY, STRING, or XML buffer types should only have one parameter in the service. The recommended parameter name for a service that uses a <code class="cCode">CARRAY</code> buffer type is <code class="cCode">CARRAY</code> with <code class="cCode">carray</code> as the data type. For a service that uses a <code class="cCode">STRING</code> buffer type, the recommended parameter name is <code class="cCode">STRING</code> with <code class="cCode">string</code> as the data type. For a service that uses a <code class="cCode">XML</code> buffer type, the recommended parameter name is <code class="cCode">XML</code> with <code class="cCode">xml</code> as the data type.
+</p>
+<p class="pBody"><a name="wp1020666"> </a>
+<a href="dvbulkld.html#wp1029207">Table&#160;2-3</a> contains the guidelines for use of the service-level keywords and acceptable values for each.
+</p>
+<p class="pGraphic"><a name="wp1018012"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1029207table1018015"><caption><a name="wp1029207"> </a>
+Table 2-3  Service-Level Keywords and Values&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1018021"> </a>
+Keyword
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1018023"> </a>
+Value
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018025"> </a>
+<code class="cCode">service</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018027"> </a>
+Any Oracle Tuxedo service name
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018029"> </a>
+<code class="cCode">export</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018031"> </a>
+True or false (default is false)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018044"> </a>
+<code class="cCode">inbuf/outbuf</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018046"> </a>
+Select one of these buffer types:
+</div>
+<div class="pCellBody"><a name="wp1024309"> </a>
+<code class="cCode">FML<br />FML32<br />VIEW<br />VIEW32<br />STRING<br />CARRAY</code>
+</div>
+<div class="pCellBody"><a name="wp1033353"> </a>
+XML
+</div>
+<div class="pCellBody"><a name="wp1030584"> </a>
+<code class="cCode">X_OCTET</code>
+</div>
+<div class="pCellBody"><a name="wp1030585"> </a>
+<code class="cCode">X_COMMON</code>
+</div>
+<div class="pCellBody"><a name="wp1030586"> </a>
+<code class="cCode">X_C_TYPE</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018033"> </a>
+<code class="cCode">inview</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032451"> </a>
+Any view name for input parameters 
+</div>
+<div class="pCellBody"><a name="wp1032419"> </a>
+(This keyword is optional <em class="cEmphasis">only</em> if one of the following buffer types is used: <code class="cCode">VIEW</code>, <code class="cCode">VIEW32</code>, <code class="cCode">X_COMMON</code>, <code class="cCode">X_C_TYPE</code>.)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018037"> </a>
+<code class="cCode">outview</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018039"> </a>
+Any view name for output parameters (Optional)
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1017782"> </a>
+Using Parameter-Level Keywords and Values
+</h3>
+<p class="pBody"><a name="wp1024968"> </a>
+A parameter begins with the <code class="cCode">param=&lt;NAME&gt;</code> keyword followed by a number of parameter keywords. It ends when another <code class="cCode">param</code> or <code class="cCode">service</code> keyword, or end-of-file is encountered. The parameters can be in any order after the <code class="cCode">param=&lt;NAME&gt;</code> keyword.
+</p>
+<p class="pBody"><a name="wp1020669"> </a>
+<a href="dvbulkld.html#wp1029225">Table&#160;2-4</a> contains the guidelines for use of the parameter-level keywords and acceptable values for each.
+</p>
+<p class="pGraphic"><a name="wp1022808"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1029225table1022774"><caption><a name="wp1029225"> </a>
+Table 2-4  Parameter-Level Keywords and Values
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1022780"> </a>
+Keyword
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1022782"> </a>
+Values
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022784"> </a>
+<code class="cCode">param</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022786"> </a>
+Any parameter name
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022788"> </a>
+<code class="cCode">type</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022790"> </a>
+<code class="cCode">byte<br />short<br />integer<br />float<br />double<br />string<br />carray</code>
+</div>
+<div class="pCellBody"><a name="wp1033499"> </a>
+<code class="cCode">xml</code>
+</div>
+<div class="pCellBody"><a name="wp1035230"> </a>
+bool
+</div>
+<div class="pCellBody"><a name="wp1035231"> </a>
+long
+</div>
+<div class="pCellBody"><a name="wp1035232"> </a>
+view32
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022798"> </a>
+<code class="cCode">access</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022800"> </a>
+<code class="cCode">in <br />out<br />inout<br />noaccess</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022805"> </a>
+<code class="cCode">count</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022807"> </a>
+Maximum number of occurrences (default is 1). The value for unlimited occurrences is 0. Used only by the Repository Editor to format test screens.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035256"> </a>
+Subtype
+</div>
+<div class="pCellBody"><a name="wp1035257"> </a>
+&quot;(&quot; and &quot;)&quot;
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035254"> </a>
+If the parameter is of v<code class="cCode">iew32</code> type, this field specifies the view structure name. Otherwise, this field is ignored. All the sub-parameters of nested view32 are enclosed in parentheses.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024318"> </a>
+Troubleshooting
+</h2><p class="pBody"><a name="wp1034284"> </a>
+If you encounter problems using the Bulk Loader utility, refer to <a href="dvbulkld.html#wp1034289">Table&#160;2-5</a>. For a complete list of Bulk Loader utility error messages and solutions, see <a href="../messages/index.html">&#8220;System Messages</a>.&#8221;
+</p>
+<p class="pGraphic"><a name="wp1034316"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1034289table1034286"><caption><a name="wp1034289"> </a>
+Table 2-5  Bulk Loader Troubleshooting Table
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1034293"> </a>
+If . . . 
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1034295"> </a>
+Then . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034297"> </a>
+The data file is not found 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034299"> </a>
+Check to ensure that the path is correct.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034301"> </a>
+The keyword is invalid 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034303"> </a>
+Check to ensure that the keyword is valid for the package, service, or parameter.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034305"> </a>
+The value of the keyword is null
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034307"> </a>
+Type a value for the keyword.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034309"> </a>
+The value is invalid
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034311"> </a>
+Check to ensure that the value of a parameter is within the allocated range for that parameter.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034313"> </a>
+The data type is invalid
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034315"> </a>
+Check to ensure that the parameter is using a valid data type.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024712"> </a>
+Sample Bulk Load Data
+</h2><p class="pBody"><a name="wp1024427"> </a>
+<a href="dvbulkld.html#wp1024354">Listing&#160;2-2</a> contains a sample data file in the correct format using the UNIX command <code class="cCode">cat servicefile</code>. This sample loads TRANSFER, LOGIN, and PAYROLL service definitions to the <code class="cCode">BULKPKG</code>.
+</p>
+<div class="pCodeTitle"><a name="wp1024354"> </a>
+Listing&#160;2-2	   Sample Bulk Load Data
+</div> <a name="wp1024541"> </a><div class="pPreformatted"><pre>service=TRANSFER<br />export=true<br />inbuf=FML<br />outbuf=FML<br />param=ACCOUNT_ID<br />type=integer<br />access=in<br />count=2<br />param=SAMOUNT<br />type=string<br />access=in<br />param=SBALANCE<br />type=string<br />access=out<br />count=2<br />param=STATLIN<br />type=string<br />access=out</pre></div><a name="wp1025953"> </a><div class="pPreformatted"><pre>service=LOGIN<br />inbuf=VIEW<br />inview=LOGINS<br />outview=LOGINR<br />export=true<br />param=user<br />type=string<br />access=in<br />param=passwd<br />type=string<br />access=in<br />param=token<br />type=integer<br />access=out</pre></div><a name="wp1024484"> </a><div class="pPreformatted"><pre>service=PAYROLL<br />inbuf=FML<br />outbuf=FML<br />param=EMPLOYEE_NUM<br />type=integer<br />access=in<br />param=SALARY<br />type=float<br />access=inout<br />param=HIRE_DATE<br />type=string<br />access=inout<br />service=QUERY<br />export=true<br />inbuf=VIEW32<br />outbuf=VIEW32<br />inview=MYVIEW2<br />outview=MYVIEW2<br />	param=Long1<br />	type=long<br />	access=inout<br />	count=1<br /><br />	param=Myview1<br />	type=view32<br />	subtype=MYVIEW1<br />	access=inout<br />	count=1<br />(<br />	param=Float1<br />	type=float<br />	access=inout<br />	count=1<br /><br />	param=Double1<br />	type=double<br />	access=inout<br />	count=1<br /><br />	param=Long1<br />	type=long<br />	access=inout<br />	count=3<br /><br />	param=String1<br />	type=string<br />	access=inout<br />	count=2<br />)</pre></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="dvbulkld.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="dvintro.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="dvconfig.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

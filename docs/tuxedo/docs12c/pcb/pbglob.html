@@ -1,0 +1,483 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/pcb/fm/pbglob.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:23:26" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Writing Global Transactions</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Programming an Oracle Tuxedo Application Using COBOL
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pbevb.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pbthr.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/pcb.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1137970"> </a>
+Writing Global Transactions
+</h1>
+<p class="pBody"><a name="wp1117103"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1100692"> </a><a href="pbglob.html#wp1045289">What Is a Global Transaction?</a></li>
+<li><a name="wp1045271"> </a><a href="pbglob.html#wp1045304">Starting the Transaction</a></li>
+<li><a name="wp1045275"> </a><a href="pbglob.html#wp1045421">Terminating the Transaction</a></li>
+<li><a name="wp1045279"> </a><a href="pbglob.html#wp1045421">Terminating the Transaction</a></li>
+<li><a name="wp1045283"> </a><a href="pbglob.html#wp1045486">Implicitly Defining a Global Transaction</a></li>
+<li><a name="wp1098526"> </a><a href="pbglob.html#wp1045498">Defining Global Transactions for an XA-Compliant Server Group</a></li>
+<li><a name="wp1045287"> </a><a href="pbglob.html#wp1045502">Testing Whether a Transaction Has Started</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1045289"> </a>
+What Is a Global Transaction?
+</h2><p class="pBody"><a name="wp1045290"> </a>
+A global transaction is a mechanism that allows a set of programming tasks, potentially using more than one resource manager and potentially executing on multiple servers, to be treated as one logical unit. 
+</p>
+<p class="pBody"><a name="wp1045291"> </a>
+Once a process is in transaction mode, any service requests made to servers may be processed on behalf of the current transaction. The services that are called and join the transaction are referred to as <em class="cEmphasis">transaction</em> <em class="cEmphasis">participants</em>. The value returned by a participant may affect the outcome of the transaction. 
+</p>
+<p class="pBody"><a name="wp1045292"> </a>
+A global transaction may be composed of several local transactions, each accessing the same resource manager. The resource manager is responsible for performing concurrency control and atomicity of updates. A given local transaction may be either successful or unsuccessful in completing its access; it cannot be partially successful.
+</p>
+<p class="pBody"><a name="wp1045293"> </a>
+A maximum of 16 server groups can participate in a single transaction.
+</p>
+<p class="pBody"><a name="wp1101789"> </a>
+The Oracle Tuxedo system manages a global transaction in conjunction with the participating resource managers and treats it as a specific sequence of operations that is characterized by atomicity, consistency, isolation, and durability. In other words, a global transaction is a logical unit of work in which: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1045294"> </a>All portions either succeed or have no effect.</li>
+<li><a name="wp1045295"> </a>Operations are performed that correctly transform resources from one consistent state to another.</li>
+<li><a name="wp1045296"> </a>Intermediate results are not accessible to other transactions, although some processes in a transaction may access the data associated with another process.</li>
+<li><a name="wp1045297"> </a>Once a sequence is complete, its results cannot be altered by any kind of failure.</li>
+</ul></div>
+<p class="pBody"><a name="wp1045298"> </a>
+The Oracle Tuxedo system tracks the status of each global transaction and determines whether it should be committed or rolled back. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1045304"> </a>
+Starting the Transaction
+</h2><p class="pBody"><a name="wp1045305"> </a>
+To start a global transaction, use the TPBE<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>GIN(3cbl)</span> routine with the following signature:
+</p>
+<a name="wp1138434"> </a><div class="pPreformatted"><pre>*<br />  01 <em class="cEmphasis">TPTRXDEF-REC</em>.<br />     COPY TPTRXDEF.<br />*<br />  01 <em class="cEmphasis">TPSTATUS-REC</em>.<br />     COPY TPSTATUS.<br />*<br />   CALL &quot;TPBEGIN&quot; USING <em class="cEmphasis">TPTRXDEF-REC TPSTATUS-REC</em>.</pre></div><p class="pBody"><a name="wp1138456"> </a>
+<a href="pbglob.html#wp1138437">Table&#160;9-1</a> describes the <code class="cCode">TPTRXDEF-REC</code> structure fields
+</p>
+<p class="pGraphic"><a name="wp1138468"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1138437table1138435"><caption><a name="wp1138437"> </a>
+Table 9-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">TPTRXDEF Structure Field</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1138441"> </a>
+Field
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1138443"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1138445"> </a>
+<code class="cCode">T-OUT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1138447"> </a>
+Specifies the amount of time, in seconds, a transaction can execute before timing out. You can set this value to the maximum number of seconds allowed by the system, by specifying a value of 0. In other words, you can set <code class="cCodeEmphasis">timeout</code> to the maximum value for an unsigned <code class="cCode">long</code> as defined by the system.
+</div>
+<div class="pCellBody"><a name="wp1138448"> </a>
+The use of 0 or an unrealistically large value for the <code class="cCode">T-OUT</code> parameter delays system detection and reporting of errors. The system uses the <code class="cCode">T-OUT</code> parameter to ensure that responses to service requests are sent within a reasonable time, and to terminate transactions that encounter problems such as network failures before executing a commit. 
+</div>
+<div class="pCellBody"><a name="wp1138449"> </a>
+For a transaction in which a person is waiting for a response, you should set this parameter to a small value: if possible, less than 30 seconds. 
+</div>
+<div class="pCellBody"><a name="wp1138450"> </a>
+In a production system, you should set <code class="cCode">T-OUT</code> to a value large enough to accommodate expected delays due to system load and database contention. A small multiple of the expected average response time is often an appropriate choice.
+</div>
+<p class="pTableNote"><a name="wp1138451"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The value assigned to the <code class="cCode">T-OUT</code> parameter should be consistent with that of the <code class="cCode">SCANUNIT</code> parameter set by the Oracle Tuxedo application administrator in the configuration file. The <code class="cCode">SCANUNIT</code> parameter specifies the frequency with which the system checks, or <em class="cEmphasis">scans</em>, for timed-out transactions and blocked calls in service requests. The value of this parameter represents the interval of time between these periodic scans, referred to as the <em class="cEmphasis">scanning unit</em>. <br /><br />You should set the <code class="cCode">T-OUT</code> parameter to a value that is greater than the scanning unit. If you set the <code class="cCode">T-OUT</code> parameter to a value smaller than the scanning unit, there will be a discrepancy between the time at which a transaction times out and the time at which this timeout is discovered by the system. The default value for <code class="cCode">SCANUNIT</code> is 10 seconds. You may need to discuss the setting of the <code class="cCode">T-OUT</code> parameter with your application administrator to make sure the value you assign to the <code class="cCode">T-OUT</code> parameter is compatible with the values assigned to your system parameters.</td></tr>
+</table>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1138453"> </a>
+<code class="cCode">TRANID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1138455"> </a>
+Transaction identifier.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1138457"> </a>
+Any process may call <code class="cCode">TPBEGIN</code> unless the process is already in transaction mode. If <code class="cCode">TPBEGIN</code> is called in transaction mode, the call fails due to a protocol error and <code class="cCode">TP-STATUS</code> is set to <code class="cCode">TPEPROTO</code>. If the process is in transaction mode, the transaction is unaffected by the failure.
+</p>
+<p class="pBody"><a name="wp1045332"> </a>
+The following example provides a high-level view of how a global transaction is defined.
+</p>
+<div class="pCodeTitle"><a name="wp1134352"> </a>
+Listing&#160;9-1	   Delineating a Transaction
+</div> <a name="wp1134353"> </a><div class="pPreformatted"><pre>. . .<br />MOVE 0 TO T-OUT.<br />CALL &quot;TPBEGIN&quot; USING<br />TPTRXDEF-REC<br />TPSTATUS-REC.<br />IF  NOT TPOK<br />&#160;&#160;&#160;&#160;<em class="cEmphasis">error processing<br /></em>. . .<br />&#160;&#160;&#160;&#160;<em class="cEmphasis">program statements<br /></em>. . .<br />CALL &quot;TPCOMMIT&quot; USING<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTRXDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />IF  NOT TPOK<br />&#160;&#160;&#160;&#160;<em class="cEmphasis">error processing</em></pre></div><p class="pBody"><a name="wp1134359"> </a>
+The following example shows how an outstanding reply can cause an error. 
+</p>
+<div class="pCodeTitle"><a name="wp1134361"> </a>
+Listing&#160;9-2	   Error - Starting a Transaction with an Outstanding Reply
+</div> <a name="wp1139072"> </a><div class="pPreformatted"><pre>&#160;&#160;. . .<br />&#160;&#160;MOVE &quot;BUY&quot; TO SERVICE-NAME.<br />&#160;&#160;SET TPBLOCK TO TRUE.<br />&#160;&#160;SET TPNOTRAN TO TRUE.<br />&#160;&#160;SET TPREPLY TO TRUE.<br />&#160;&#160;SET TPNOTIME TO TRUE.<br />&#160;&#160;SET TPSIGRSTRT TO TRUE.<br />&#160;&#160;CALL &quot;TPACALL&quot; USING<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSVCDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;BUY-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;IF  NOT TPOK<br /><span style="font-style: normal">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span style="font-style: italic">error processing<br /></span>&#160;&#160;. . .<br />&#160;&#160;MOVE 0 TO T-OUT.<br />&#160;&#160;CALL &quot;TPBEGIN&quot; USING<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTRXDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />vIF  NOT TPOK<br /><span style="font-style: normal">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span style="font-style: italic">error processing<br /></span>* ERROR TP-STATUS is set to TPEPROTO<br />&#160;&#160;. . .<br /><span style="font-style: normal">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span style="font-style: italic">program statements<br /></span>&#160;&#160;. . .<br />&#160;&#160;SET TPBLOCK TO TRUE.<br />&#160;&#160;SET TPNOTRAN TO TRUE.<br />&#160;&#160;SET TPCHANGE TO TRUE.<br />&#160;&#160;SET TPNOTIME TO TRUE.<br />&#160;&#160;SET TPSIGRSTRT TO TRUE.<br />&#160;&#160;SET TPGETANY TO TRUE.<br />&#160;&#160;CALL &quot;TPGETRPLY&quot; USING<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSVCDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;WK-AREA<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;IF  NOT TPOK<br /><span style="font-style: normal">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span style="font-style: italic">error processing</span></pre></div><p class="pBody"><a name="wp1102135"> </a>
+If a transaction times out, a call to <code class="cCode">TPCOMMIT</code> causes the transaction to be aborted. As a result, <code class="cCode">TPCOMMIT</code> fails and sets <code class="cCode">TP-STATUS</code> to <code class="cCode">TPEABORT</code>.
+</p>
+<p class="pBody"><a name="wp1045352"> </a>
+The following example shows how to test for a transaction timeout. Note that the value of <code class="cCode">T-OUT</code> is set to 30 seconds.
+</p>
+<div class="pCodeTitle"><a name="wp1134465"> </a>
+Listing&#160;9-3	   Testing for Transaction Timeout
+</div> <a name="wp1134466"> </a><div class="pPreformatted"><pre>. . .<br />MOVE 30 TO T-OUT.<br />CALL &quot;TPBEGIN&quot; USING TPTRXDEF-REC TPSTATUS-REC.<br />IF  NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;MOVE &quot;Failed to BEGIN a transaction&quot; TO LOG-REC-TEXT.<br />&#160;&#160;&#160;&#160;&#160;MOVE 29 to LOG-REC-LEN<br />&#160;&#160;&#160;&#160;&#160;CALL &quot;USERLOG&quot; USING<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LOG-REC-TEXT<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LOG-REC-LEN<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC<br />&#160;&#160;&#160;&#160;&#160;CALL &quot;TPTERM&quot; USING<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC<br />&#160;&#160;&#160;&#160;&#160;PERFORM A-999-EXIT.<br />. . .<br /><span style="font-style: normal">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span style="font-style: italic">communication CALL statements<br /></span>. . .<br />IF  TPETIME<br />&#160;&#160;&#160;&#160;&#160;CALL &quot;TPABORT&quot; USING<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTRXDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC<br />IF  NOT TPOK<br /><span style="font-style: normal">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span style="font-style: italic">error processing<br /></span>ELSE<br />&#160;&#160;&#160;&#160;CALL &quot;TPCOMMIT&quot; USING<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTRXDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC<br />&#160;&#160;&#160;&#160;IF  NOT TPOK<br /><span style="font-style: normal">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span style="font-style: italic">error processing</span></pre></div><a name="wp1094513"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>When a process is in transaction mode and makes a communication call with <code class="cCode">TPNOTRAN</code>, it prohibits the called service from becoming a participant in the current transaction. Whether the service request succeeds or fails has no impact on the outcome of the transaction. The transaction can still timeout while waiting for a reply that is due from a service, whether it is part of the transaction or not. Refer to <span class="cHyperlink">
+<a href="../pgc/pgerr.html">&#8220;Managing Errors&#8221; </a></span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em> for more information on the effects of the <code class="cCode">TPNOTRAN</code> flag.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1134501"> </a>
+The following example shows how to define a transaction.
+</p>
+<div class="pCodeTitle"><a name="wp1134503"> </a>
+Listing&#160;9-4	   Defining a Transaction
+</div> <a name="wp1134504"> </a><div class="pPreformatted"><pre> DATA DIVISION.<br /> WORKING-STORAGE SECTION.<br />*<br /> 01  TPTYPE-REC.<br /> COPY TPTYPE.<br />*<br /> 01 TPSTATUS-REC.<br /> COPY TPSTATUS.<br />*<br /> 01 TPINFDEF-REC.<br /> COPY TPINFDEF.<br />*<br /> 01  TPSVCDEF-REC.<br /> COPY TPSVCDEF.<br />*<br /> 01  TPTRXDEF-REC.<br /> COPY TPTRXDEF.<br />*<br /> 01 LOG-REC              PIC X(30) VALUE &quot; &quot;.<br /> 01 LOG-REC-LEN          PIC S9(9)  COMP-5.<br />*<br /> 01 USR-DATA-REC         PIC X(16).<br />*<br /> 01 AUDV-REC.<br />&#160;&#160;&#160;&#160;&#160;&#160;05  AUDV-BRANCH-ID      PIC S9(9) COMP-5.<br />&#160;&#160;&#160;&#160;&#160;&#160;05  AUDV-BALANCE        PIC S9(9) COMP-5.<br />&#160;&#160;&#160;&#160;&#160;&#160;05  AUDV-ERRMSG         PIC X(60).<br />*<br />&#160;&#160;PROCEDURE DIVISION.<br />*<br /> A-000.<br />  . . .<br />* Get Command Line Options  set Variables (Q-BRANCH)<br />&#160;&#160;MOVE SPACES TO USRNAME.<br />&#160;&#160;MOVE SPACES TO CLTNAME.<br />&#160;&#160;MOVE SPACES TO PASSWD.<br />&#160;&#160;MOVE SPACES TO GRPNAME.<br />&#160;&#160;CALL &quot;TPINITIALIZE&quot; USING TPINFDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;USR-DATA-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;IF  NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;Failed to join application&quot; TO LOG-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE 26 TO LOG-REC-LEN<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CALL &quot;USERLOG&quot; USING LOG-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LOG-REC-LEN<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM A-999-EXIT.<br />* Start global transaction<br />&#160;&#160;MOVE 30 TO T-OUT.<br />&#160;&#160;CALL &quot;TPBEGIN&quot; USING TPTRXDEF-REC TPSTATUS-REC.<br />&#160;&#160;IF  NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE 29 to LOG-REC-LEN<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;Failed to begin a transaction&quot; TO LOG-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;CALL &quot;USERLOG&quot; USING LOG-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LOG-REC-LEN<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM DO-TPTERM.<br />* Set up record<br />&#160;&#160;MOVE Q-BRANCH TO AUDV-BRANCH-ID.<br />&#160;&#160;MOVE ZEROS TO AUDV-BALANCE.<br />&#160;&#160;MOVE SPACES TO AUDV-ERRMSG.<br />* Set up TPCALL records<br />&#160;&#160;MOVE &quot;GETBALANCE&quot; TO SERVICE-NAME.<br />&#160;&#160;MOVE &quot;VIEW&quot; TO REC-TYPE.<br />&#160;&#160;MOVE LENGTH OF AUDV-REC TO LEN.<br />&#160;&#160;SET TPBLOCK TO TRUE.<br />&#160;&#160;SET TPTRAN IN TPSVCDEF-REC TO TRUE.<br />&#160;&#160;SET TPNOTIME TO TRUE.<br />&#160;&#160;SET TPSIGRSTRT TO TRUE.<br />&#160;&#160;SET TPCHANGE TO TRUE.<br />*<br />&#160;&#160;CALL &quot;TPCALL&quot; USING TPSVCDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;AUDV-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTYPE-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;AUDV-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;IF  NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE 19 to LOG-REC-LEN<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;Service call failed&quot; TO LOG-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;CALL &quot;USERLOG&quot; USING LOG-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LOG-REC-LEN<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM DO-TPABORT<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM DO-TPTERM.<br />* Commit global transaction<br />&#160;&#160;CALL &quot;TPCOMMIT&quot; USING TPTRXDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC<br />&#160;&#160;IF  NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE 16 to LOG-REC-LEN<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;Failed to commit&quot; TO LOG-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;CALL &quot;USERLOG&quot; USING LOG-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LOG-REC-LEN<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC<br />&#160;&#160;PERFORM DO-TPTERM.<br />* Show results only when transaction has completed successfully<br />&#160;&#160;DISPLAY &quot;BRANCH=&quot; Q-BRANCH.<br />&#160;&#160;DISPLAY &quot;BALANCE=&quot; AUDV-BALANCE.<br />&#160;&#160;PERFORM DO-TPTERM.<br />* Abort the transaction<br /> DO-TPABORT.<br />&#160;&#160;CALL &quot;TPABORT&quot; USING TPTRXDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC<br />&#160;&#160;IF  NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE 26 to LOG-REC-LEN<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;Failed to abort transaction&quot; TO LOG-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;CALL &quot;USERLOG&quot; USING LOG-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LOG-REC-LEN<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />* Leave the application<br /> DO-TPTERM.<br />&#160;&#160;CALL &quot;TPTERM&quot; USING TPSTATUS-REC.<br />&#160;&#160;IF  NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE 27 to LOG-REC-LEN<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;Failed to leave application&quot; TO LOG-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;CALL &quot;USERLOG&quot; USING LOG-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LOG-REC-LEN<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;EXIT PROGRAM.<br />*<br /> A-999-EXIT.<br />*<br /> EXIT PROGRAM.</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1045421"> </a>
+Terminating the Transaction
+</h2><p class="pBody"><a name="wp1045422"> </a>
+To end a global transaction, call TPCOMM<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>IT(3cbl)</span> to commit the current transaction, or TPABORT(<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>3cbl)</span> to abort the transaction and roll back all operations. 
+</p>
+<a name="wp1045423"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If <code class="cCode">TPCALL</code>, <code class="cCode">TPACALL</code>, or <code class="cCode">TPCONNECT</code> is called by a process that has explicitly set <code class="cCode">TPNOTRAN</code>, the operations performed by the called service do not become part of the current transaction. In other words, when you call the <code class="cCode">TPABORT</code> routine, the operations performed by these services are not rolled back.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1045424"> </a>
+Committing the Current Transaction
+</h3>
+<p class="pBody"><a name="wp1045425"> </a>
+The TPCOMM<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>IT(3cbl)</span> routine commits the current transaction. When <code class="cCode">TPCOMMIT</code> returns successfully, all changes to resources as a result of the current transaction become permanent.
+</p>
+<p class="pBody"><a name="wp1045426"> </a>
+Use the following signature to call the <code class="cCode">TPCOMMIT</code> routine:
+</p>
+<a name="wp1134865"> </a><div class="pPreformatted"><pre>*<br />  01 <em class="cEmphasis">TPTRXDEF-REC</em>.<br />     COPY TPTRXDEF.<br />*<br />  01 <em class="cEmphasis">TPSTATUS-REC</em>.<br />     COPY TPSTATUS.<br />*<br />   CALL &quot;TPCOMMIT&quot; USING <em class="cEmphasis">TPTRXDEF-REC TPSTATUS-REC</em>.</pre></div><p class="pBody"><a name="wp1134869"> </a>
+Refer to <a href="pbglob.html#wp1045304">Starting the Transaction</a> for a description of the <code class="cCode">TPTRXDEF-REC</code> structure.
+</p>
+<h4 class="pHeading3"><a name="wp1045434"> </a>
+Prerequisites for a Transaction Commit
+</h4>
+<p class="pBody"><a name="wp1049017"> </a>
+For <code class="cCode">TPCOMMIT</code> to succeed, the following conditions must be true: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1045435"> </a>The calling process must be the same one that initiated the transaction with a call to <code class="cCode">TPBEGIN</code>.</li>
+<li><a name="wp1045436"> </a>The calling process must have no transactional replies (calls made without the <code class="cCode">TPNOTRAN</code> flag) outstanding.</li>
+<li><a name="wp1045437"> </a>The transaction must not be in a rollback-only state and must not be timed out.</li>
+</ul></div>
+<p class="pBody"><a name="wp1091512"> </a>
+If the first condition is false, the call fails and <code class="cCode">TP-STATUS</code> is set to <code class="cCode">TPEPROTO</code>, indicating a protocol error. If the second or third condition is false, the call fails and <code class="cCode">TP-STATUS</code> is set to <code class="cCode">TPEABORT</code>, indicating that the transaction has been rolled back. If <code class="cCode">TPCOMMIT</code> is called by the initiator with outstanding transaction replies, the transaction is aborted and those reply descriptors associated with the transaction become invalid. If a participant calls <code class="cCode">TPCOMMIT</code> or <code class="cCode">TPABORT</code>, the transaction is unaffected. 
+</p>
+<p class="pBody"><a name="wp1045439"> </a>
+A transaction is placed in a rollback-only state if any service call returns <code class="cCode">TPFAIL</code> or indicates a service error. If <code class="cCode">TPCOMMIT</code> is called for a rollback-only transaction, the routine cancels the transaction, returns -1, and sets <code class="cCode">TP-STATUS</code> to <code class="cCode">TPEABORT</code>. The results are the same if <code class="cCode">TPCOMMIT</code> is called for a transaction that has already timed out: <code class="cCode">TPCOMMIT</code> returns -1 and sets <code class="cCode">TP-STATUS</code> to <code class="cCode">TPEABORT</code>. Refer to <span class="cHyperlink">
+<a href="../pgc/pgerr.html">&#8220;Managing Errors&#8221; </a></span>in <em class="cEmphasis">Programming Oracle Tuxedo ATMI Applications Using C</em> for more information on transaction errors.
+</p>
+<h4 class="pHeading3"><a name="wp1049052"> </a>
+Two-phase Commit Protocol
+</h4>
+<p class="pBody"><a name="wp1045443"> </a>
+When the <code class="cCode">TPCOMMIT</code> routine is called, it initiates the <em class="cEmphasis">two-phase commit protocol</em>. This protocol, as the name suggests, consists of two steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1045444"> </a>Each participating resource manager indicates a readiness to commit.</li>
+<li><a name="wp1045445"> </a>The initiator of the transaction gives permission to commit to each participating resource manager.</li>
+</ol></div>
+<p class="pBody"><a name="wp1045446"> </a>
+The commit sequence begins when the transaction initiator calls the <code class="cCode">TPCOMMIT</code> routine. The Oracle Tuxedo TMS server process in the designated coordinator group contacts the TMS in each participant group that is to perform the first phase of the commit protocol. The TMS in each group then instructs the resource manager (RM) in that group to commit using the XA protocol that is defined for communications between the Transaction Managers and RMs. The RM writes, to stable storage, the states of the transaction before and after the commit sequence, and indicates success or failure to the TMS. The TMS then passes the response back to the coordinating TMS.
+</p>
+<p class="pBody"><a name="wp1045447"> </a>
+When the coordinating TMS has received a success indication from all groups, it logs a statement to the effect that a transaction is being committed and sends second-phase commit notifications to all participant groups. The RM in each group then finalizes the transaction updates. 
+</p>
+<p class="pBody"><a name="wp1045448"> </a>
+If the coordinator TMS is notified of a first-phase commit failure from any group, or if it fails to receive a reply from any group, it sends a rollback notification to each RM and the RMs back out all transaction updates. <code class="cCode">TPCOMMIT</code> then fails and sets <code class="cCode">TP-STATUS</code> to <code class="cCode">TPEABORT</code>.
+</p>
+<h5 class="pHeading4"><a name="wp1049497"> </a>
+Selecting Criteria for a Successful Commit 
+</h5>
+<p class="pBody"><a name="wp1049498"> </a>
+When more than one group is involved in a transaction, you can specify which of two criteria must be met for <code class="cCode">TPCOMMIT</code> to return successfully:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1049499"> </a>When all participants have indicated a readiness to commit (that is, when all participants have reported that phase 1 of the two-phase commit has been logged as complete and the coordinating TMS has written its decision to commit to stable storage)</li>
+<li><a name="wp1049500"> </a>When all participants have finished phase 2 of the two-phase commit</li>
+</ul></div>
+<p class="pBody"><a name="wp1129143"> </a>
+To specify one of these prerequisites, set the <code class="cCode">CMTRET</code> parameter in the <code class="cCode">RESOURCES</code> section of the configuration file to one of the following values:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1129144"> </a><code class="cCode">LOGGED</code>&#8212;to require completion of phase 1</li>
+<li><a name="wp1129145"> </a><code class="cCode">COMPLETE</code>&#8212;to require completion of phase 2</li>
+</ul></div>
+<p class="pBody"><a name="wp1049504"> </a>
+By default, <code class="cCode">CMTRET</code> is set to <code class="cCode">COMPLETE</code>.
+</p>
+<h5 class="pHeading4"><a name="wp1049529"> </a>
+Trade-offs Between Possible Commit Criteria
+</h5>
+<p class="pBody"><a name="wp1049530"> </a>
+In most cases, when all participants in a global transaction have logged successful completion of phase 1, they do not fail to complete phase 2. By setting <code class="cCode">CMTRET</code> to <code class="cCode">LOGGED</code>, you allow a slightly faster return of calls to <code class="cCode">TCOMMIT</code>, but you run the slight risk that a participant may heuristically complete its part of the transaction in a way that is not consistent with the commit decision. 
+</p>
+<p class="pBody"><a name="wp1049531"> </a>
+Whether it is prudent to accept the risk depends to a large extent on the nature of your application. If your application demands complete accuracy (for example, if you are running a financial application), you should probably wait until all participants fully complete the two-phase commit process before returning. If your application is more time-sensitive, you may prefer to have the application execute faster at the expense of accuracy.
+</p>
+<h3 class="pHeading2"><a name="wp1045451"> </a>
+Aborting the Current Transaction
+</h3>
+<p class="pBody"><a name="wp1045452"> </a>
+Use the TPABORT<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>(3cbl)</span> routine to indicate an abnormal condition and explicitly abort a transaction. This function invalidates the call descriptors of any outstanding transactional replies. None of the changes produced by the transaction are applied to the resource. Use the following signature to call the <code class="cCode">TPABORT</code> routine:
+</p>
+<a name="wp1135378"> </a><div class="pPreformatted"><pre>*<br />  01 <em class="cEmphasis">TPTRXDEF-REC</em>.<br />     COPY TPTRXDEF.<br />*<br />  01 <em class="cEmphasis">TPSTATUS-REC</em>.<br />     COPY TPSTATUS.<br />*<br />   CALL &quot;TPABORT&quot; USING <em class="cEmphasis">TPTRXDEF-REC TPSTATUS-REC</em>.</pre></div><p class="pBody"><a name="wp1135382"> </a>
+Refer to <a href="pbglob.html#wp1045304">Starting the Transaction</a> for a description of the <code class="cCode">TPTRXDEF-REC</code> structure.
+</p>
+<h3 class="pHeading2"><a name="wp1045460"> </a>
+Example: Committing a Transaction in Conversational Mode
+</h3>
+<p class="pBody"><a name="wp1049613"> </a>
+<a href="pbglob.html#wp1135414">Figure&#160;9-1</a> illustrates a conversational connection hierarchy that includes a global transaction.
+</p>
+<div class="pFigureTitle"><a name="wp1135414"> </a>
+Figure&#160;9-1  Connection Hierarchy in Transaction Mode
+</div>
+
+ 
+ <p class="pBody"><a name="wp1049796"> </a>
+The connection hierarchy is created through the following process:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1049797"> </a>A client (process A) initiates a connection in transaction mode by calling <code class="cCode">TPBEGIN</code> and <code class="cCode">TPCONNECT</code>.</li>
+<li><a name="wp1049798"> </a>The client calls subsidiary services, which are executed.</li>
+<li><a name="wp1049799"> </a>As each subordinate service completes, it sends a reply indicating success or failure (<code class="cCode">TPEV_SVCSUCC</code> or <code class="cCode">TPEV_SVCFAIL</code>, respectively) back up through the hierarchy to the process that initiated the transaction. In this example the process that initiated the transaction is the client (process A). When a subordinate service has completed sending replies (that is, when no more replies are outstanding), it must call <code class="cCode">TPRETURN</code>.</li>
+<li><a name="wp1049800"> </a>The client (process A) determines whether all subordinate services have returned successfully.</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1049846"> </a>If so, the client commits the changes made by those services, by calling <code class="cCode">TPCOMMIT</code>, and completes the transaction.</li>
+<li><a name="wp1049847"> </a>If not, the client calls <code class="cCode">TPABORT</code>, since it knows that <code class="cCode">TPCOMMIT</code> could not be successful.</li>
+</ul></div>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1045475"> </a>
+Example: Testing for Participant Errors
+</h3>
+<p class="pBody"><a name="wp1045476"> </a>
+In the following sample code, a client makes a synchronous call to the fictitious <code class="cCode">REPORT</code> service (line 24). Then the code checks for participant failures by testing for errors that can be returned on a communication call (lines 30-42).
+</p>
+<div class="pCodeTitle"><a name="wp1135587"> </a>
+Listing&#160;9-5	   Testing for Participant Success or Failure
+</div> <a name="wp1135588"> </a><div class="pPreformatted"><pre>01   . . .<br />02   CALL &quot;TPINITIALIZE&quot; USING TPINFDEF-REC<br />03   USR-DATA-REC<br />04   TPSTATUS-REC.<br />05   IF  NOT TPOK<br />06       <em class="cEmphasis">error message</em>,<br />07       EXIT PROGRAM .<br />08   MOVE 30 TO T-OUT.<br />09   CALL &quot;TPBEGIN&quot; USING TPTRXDEF-REC TPSTATUS-REC.<br />10   IF  NOT TPOK<br />11       <em class="cEmphasis">error message</em>,<br />12       PERFORM DO-TPTERM.<br />13  * Set up record<br />14   MOVE &quot;REPORT=accrcv DBNAME=accounts&quot; TP-RECORD.<br />15   MOVE 27 TO LEN.<br />16   MOVE &quot;REPORTS&quot; TO SERVICE-NAME.<br />17   MOVE &quot;STRING&quot; TO REC-TYPE.<br />18   SET TPBLOCK TO TRUE.<br />19   SET TPTRAN IN TPSVCDEF-REC TO TRUE.<br />20   SET TPNOTIME TO TRUE.<br />21   SET TPSIGRSTRT TO TRUE.<br />22 SET TPCHANGE TO TRUE.<br />23  *<br />24   CALL &quot;TPCALL&quot; USING TPSVCDEF-REC<br />25                 TPTYPE-REC<br />26                 TP-RECORD<br />27                 TPTYPE-REC<br />28                 TP-RECORD<br />29                 TPSTATUS-REC.<br />30   IF  TPOK<br />31        PERFORM DO-TPCOMMIT<br />32        PERFORM DO-TPTERM.<br />33  * Check return status<br />34    IF  TPESVCERR<br />35    DISPLAY &quot;REPORT service&#39;s TPRETURN encountered problems&quot;<br />36    ELSE IF  TPESVCFAIL<br />37    DISPLAY &quot;REPORT service FAILED with return code=&quot; APPL-RETURN-CODE<br />38    ELSE IF  TPEOTYPE<br />39    DISPLAY &quot;REPORT service&#39;s reply is not of any known REC-TYPE&quot;<br />40  *<br />41    PERFORM DO-TPABORT<br />42    PERFORM DO-TPTERM.<br />43  * Commit global transaction<br />44   DO-TPCOMMIT.<br />45    CALL &quot;TPCOMMIT&quot; USING TPTRXDEF-REC<br />46                    TPSTATUS-REC<br />47    IF  NOT TPOK<br />48        error message<br />49  * Abort the transaction<br />50   DO-TPABORT.<br />51    CALL &quot;TPABORT&quot; USING TPTRXDEF-REC<br />52                   TPSTATUS-REC<br />53    IF  NOT TPOK<br />54        error message<br />55  * Leave the application<br />56   DO-TPTERM.<br />57    CALL &quot;TPTERM&quot; USING TPSTATUS-REC.<br />58    IF  NOT TPOK<br />59        error message<br />60    EXIT PROGRAM.</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1045486"> </a>
+Implicitly Defining a Global Transaction
+</h2><p class="pBody"><a name="wp1045487"> </a>
+An application can start a global transaction in either of two ways:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1049912"> </a>Explicitly, by calling ATMI calls, as described in <a href="pbglob.html#wp1045304">Starting the Transaction</a>.</li>
+<li><a name="wp1049920"> </a>Implicitly, from within a service routine</li>
+</ul></div>
+<p class="pBody"><a name="wp1049906"> </a>
+This section describes the second method.
+</p>
+<p class="pBody"><a name="wp1045490"> </a>
+You can implicitly place a service routine in transaction mode by setting the system parameter <code class="cCode">AUTOTRAN</code> in the configuration file. If you set <code class="cCode">AUTOTRAN</code> to <code class="cCode">Y</code>, the system automatically starts a transaction in the service subroutine when a request is received from another process. 
+</p>
+<p class="pBody"><a name="wp1049935"> </a>
+When implicitly defining a transaction, observe the following rules:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1045491"> </a>If a process requests a service from another process when the calling process is <span style="font-style: italic">not</span> in transaction mode and the <code class="cCode">AUTOTRAN</code> system parameter is set to start a transaction, the system initiates a transaction.</li>
+<li><a name="wp1045492"> </a>If a process that is already in transaction mode requests a service from another process, the system&#8217;s first response is to determine whether or not the caller is set to <code class="cCode">TPNOTRAN</code>. </li>
+<p class="pBodyRelative"><a name="wp1045493"> </a>
+If not set to <code class="cCode">TPNOTRAN</code>, then the system places the called process in transaction mode through the &#8220;rule of propagation.&#8221; The system does not check the <code class="cCode">AUTOTRAN</code> parameter.
+</p>
+<p class="pBodyRelative"><a name="wp1045494"> </a>
+If <code class="cCode">TPTRN-FLAG IN TPSVCDEF-REC</code> is set to <code class="cCode">TPNOTRAN</code>, the services performed by the called process are not included in the current transaction (that is, the propagation rule is suppressed). The system checks the <code class="cCode">AUTOTRAN</code> parameter.
+</p>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1045495"> </a>If <code class="cCode">AUTOTRAN</code> is set to <code class="cCode">N</code> (or if it is not set), the system does not place the called process in transaction mode.</li>
+<li><a name="wp1045496"> </a>If <code class="cCode">AUTOTRAN</code> is set to <code class="cCode">Y</code>, the system places the called process in transaction mode, but treats it as a new transaction.</li>
+</ul></div>
+</ul></div>
+<a name="wp1045497"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Because a service can be placed in transaction mode automatically, it is possible for a service with the <code class="cCode">TPNOTRAN</code> flag set to call services that have the <code class="cCode">AUTOTRAN</code> parameter set. If such a service requests another service, the member of the service information structure returns <code class="cCode">TPTRAN</code> when queried. For example, if the call is made with <code class="cCode">TPNOTRAN</code> | <code class="cCode">TPNOREPLY</code>, and the service automatically starts a transaction when called, the information structure is set to <code class="cCode">TPTRAN</code> | <code class="cCode">TPNOREPLY</code>.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1045498"> </a>
+Defining Global Transactions for an XA-Compliant Server Group
+</h2><p class="pBody"><a name="wp1045499"> </a>
+Generally, the application programmer writes a service that is part of an XA-compliant server group to perform some operation via the group&#8217;s resource manager. In the normal case, the service expects to perform all operations within a transaction. If, on the other hand, the service is called with the communication setting of <code class="cCode">TPNOTRAN</code>, you may receive unexpected results when executing database operations.
+</p>
+<p class="pBody"><a name="wp1045500"> </a>
+In order to avoid unexpected behavior, design the application so that services in groups associated with XA-compliant resource managers are always called in transaction mode or are always defined in the configuration file with <code class="cCode">AUTOTRAN</code> set to <code class="cCode">Y</code>. You should also test the transaction level in the service code early.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1045502"> </a>
+Testing Whether a Transaction Has Started
+</h2><p class="pBody"><a name="wp1045504"> </a>
+It is important to know whether or not a process is in transaction mode in order to avoid and interpret certain error conditions. For example, it is an error for a process already in transaction mode to call <code class="cCode">TPBEGIN</code>. When <code class="cCode">TPBEGIN</code> is called by such a process, it fails and sets <code class="cCode">TP-STATUS</code> to <code class="cCode">TPEPROTO</code> to indicate that it was invoked while the caller was already participating in a transaction. The transaction is not affected.
+</p>
+<p class="pBody"><a name="wp1045506"> </a>
+You can design a service subroutine so that it tests whether it is in transaction mode before invoking <code class="cCode">TPBEGIN</code>. You can test the transaction level by either of the following methods:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1045507"> </a>Querying the settings of the service information structure that is passed to the service routine. The service is in transaction mode if the value is set to <code class="cCode">TPTRAN</code>. </li>
+<li><a name="wp1045508"> </a>Calling the TPGETL<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>EV(3cbl)</span> routine. </li>
+</ul></div>
+<p class="pBody"><a name="wp1045509"> </a>
+Use the following signature to call the <code class="cCode">TPGETLEV</code> routine:
+</p>
+<a name="wp1135932"> </a><div class="pPreformatted"><pre>01 <em class="cEmphasis">TPTRXLEV-REC</em>.<br />   COPY TPTRXLEV.<br />01 <em class="cEmphasis">TPSTATUS-REC</em>.<br />   COPY TPSTATUS.<br />CALL &quot;TPGETLEV&quot; USING <em class="cEmphasis">TPTRXLEV-REC TPSTATUS-REC</em>.</pre></div><p class="pBody"><a name="wp1135950"> </a>
+<code class="cCode">TPGETLEV</code> returns <code class="cCode">TP-NOT-IN-TRAN</code> if the caller is not in a transaction and <code class="cCode">TP-IN-TRAN</code> if the caller is.
+</p>
+<p class="pBody"><a name="wp1045514"> </a>
+The following code sample shows how to test for transaction level using the <code class="cCode">TPGETLEV</code> routine (line 3). If the process is not already in transaction mode, the application starts a transaction (line 5). If <code class="cCode">TPBEGIN</code> fails, a message is returned to the status line (line 9) and <code class="cCode">APPL-CODE IN TPSVCRET-REC</code> of <code class="cCode">TPRETURN</code> is set to a code that can be retrieved in <code class="cCode">APL-RETURN-CODE IN TPSTATUS-REC</code> (lines 1 and 11).
+</p>
+<div class="pCodeTitle"><a name="wp1136178"> </a>
+Listing&#160;9-6	   Testing Transaction Level
+</div> <a name="wp1139760"> </a><div class="pPreformatted"><pre><span style="font-style: normal">&#160;&#160;&#160;&#160;&#160;</span><span style="font-style: italic">. . . Application defined codes<br /></span>001      77 BEG-FAILED    PIC S9(9) VALUE 3.<br />&#160;&#160;&#160;&#160;&#160;. . .<br />002  PROCEDURE DIVISION.<br />&#160;&#160;&#160;&#160;&#160;. . .<br />003  CALL &quot;TPGETLEV&quot; USING TPTRCLEV-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />004  IF NOT TPOK<br /><span style="font-style: normal">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span style="font-style: italic">error processing</span>  EXIT PROGRAM<br />005  IF TP-NOT-IN-TRAN<br />006         MOVE 30 TO T-OUT.<br />007         CALL &quot;TPBEGIN&quot; USING<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPTRXDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />008         IF  NOT TPOK<br />009              MOVE &quot;Attempt to TPBEGIN within service failed&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TO USER-MESSAGE.<br />010              SET TPFAIL TO TRUE.<br />011              MOVE BEG-FAILED TO APPL-CODE.<br />012              COPY TPRETURN REPLACING<br />013                        DATA-REC BY USER-MESSAGE.<br />&#160;&#160;&#160;&#160;&#160;. . .</pre></div><p class="pBody"><a name="wp1052737"> </a>
+If the <code class="cCode">AUTOTRAN</code> parameter is set to <code class="cCode">Y</code>, you do not need to call the <code class="cCode">TPBEGIN</code>, and <code class="cCode">TPCOMMIT</code> or <code class="cCode">TPABORT</code> transaction routines explicitly. As a result, you can avoid the overhead of testing for transaction level. In addition, you can set the <code class="cCode">TRANTIME</code> parameter to specify the time-out interval: the amount of time that may elapse after a transaction for a service begins, and before it is rolled back if not completed.
+</p>
+<p class="pBody"><a name="wp1052701"> </a>
+For example, suppose you are revising the <code class="cCode">OPEN_ACCT</code> service shown in the preceding code listing. Currently, <code class="cCode">OPEN_ACCT</code> defines the transaction explicitly and then tests for its existence. To reduce the overhead introduced by these tasks, you can eliminate them from the code. Therefore, you need to require that whenever <code class="cCode">OPEN_ACCT</code> is called, it is called in transaction mode. To specify this requirement, enable the <code class="cCode">AUTOTRAN</code> and <code class="cCode">TRANTIME</code> system parameters in the configuration file.
+</p>
+<h3 class="pHeading2"><a name="wp1052775"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1074182"> </a>Description of the <code class="cCode">AUTOTRAN</code> configuration parameter in the section <a href="pbglob.html#wp1045486">Implicitly Defining a Global Transaction</a> of <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em>. </li>
+<li><a name="wp1074197"> </a><code class="cCode">TRANTIME</code> configuration parameter in <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em>.</li>
+</ul></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="pbglob.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pbevb.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pbthr.html"><img id="LongDescNotReq9" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41824" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/creclient/fm/dii.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/26/12 11:02:42" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Using the Dynamic Invocation Interface</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Creating CORBA Client Applications
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="corba.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="except.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/creclient.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1030617"> </a>
+Using the Dynamic Invocation Interface
+</h1>
+<p class="pBody"><a name="wp1012550"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1016804"> </a><a href="dii.html#wp1012539">When to Use DII</a></li>
+<li><a name="wp1016717"> </a><a href="dii.html#wp1016813">DII Concepts</a></li>
+<li><a name="wp1016724"> </a><a href="dii.html#wp1012837">Summary of the Development Process for DII</a></li>
+<li><a name="wp1027204"> </a><a href="dii.html#wp1022648">Step 1: Loading the CORBA Interfaces into the Interface Repository</a></li>
+<li><a name="wp1016729"> </a><a href="dii.html#wp1013394">Step 2: Obtaining the Object Reference for the CORBA Object</a></li>
+<li><a name="wp1016771"> </a><a href="dii.html#wp1026919">Step 3: Creating a Request Object</a></li>
+<li><a name="wp1016772"> </a><a href="dii.html#wp1013597">Step 4: Sending a DII Request and Retrieving the Results</a></li>
+<li><a name="wp1027217"> </a><a href="dii.html#wp1014253">Step 5: Deleting the Request</a></li>
+<li><a name="wp1016781"> </a><a href="dii.html#wp1014254">Step 6: Using the Interface Repository with DII</a></li>
+</ul></div>
+<p class="pBody"><a name="wp1019407"> </a>
+The information in this topic applies to CORBA C++client applications. 
+</p>
+<p class="pBody"><a name="wp1016790"> </a>
+For an overview of the invocation types and DII, see <a href="concepts.html#wp1035757">Static and Dynamic Invocation</a>.
+</p>
+<p class="pBody"><a name="wp1017279"> </a>
+For a complete description of the CORBA member functions mentioned in this topic, see the<em class="cEmphasis"> <a href="../CORBA_ref/index.html"></em>CORBA Programming Reference</a>.
+</p>
+<a name="wp1031158"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Notes:</strong></td>
+<td>The Oracle Tuxedo CORBA Java client and Oracle Tuxedo CORBA Java client ORB were deprecated in Tuxedo 8.1 and are no longer supported. All Oracle Tuxedo CORBA Java client and Oracle Tuxedo CORBA Java client ORB text references, associated code samples, should only be used to help implement/run third party Java ORB libraries, and for programmer reference only.</td></tr>
+</table>
+
+<a name="wp1031159"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>Technical support for third party CORBA Java ORBs should be provided by their respective vendors. Oracle Tuxedo does not provide any technical support or documentation for third party CORBA Java ORBs.</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1012539"> </a>
+When to Use DII
+</h2><p class="pBody"><a name="wp1016837"> </a>
+There are good reasons to use either static or dynamic invocation to send requests from the CORBA client application. You may find you want to use both invocation types in the same CORBA client application. To choose an invocation type, you need to understand the advantages and disadvantages of DII.
+</p>
+<p class="pBody"><a name="wp1016902"> </a>
+One of the major differences between static invocation and dynamic invocation is that, while both support synchronous and one-way communication, only dynamic invocation supports deferred synchronous communication.
+</p>
+<p class="pBody"><a name="wp1016954"> </a>
+In synchronous communication, the CORBA client application sends a request and waits until a response is retrieved; the CORBA client application cannot do any other work while it is waiting for the response. In deferred synchronous communication, the CORBA client application sends the request and is free to do other work. Periodically, the CORBA client application checks to see if the request has completed; when the request has completed, the CORBA client application makes use of the result of that request.
+</p>
+<p class="pBody"><a name="wp1016948"> </a>
+In addition, DII enables a CORBA client application to invoke a method on a CORBA object whose type was unknown at the time the CORBA client application was written. This contrasts with static invocation, which requires that the CORBA client application include a client stub for each type of CORBA object the CORBA client application intends to invoke. However, DII is more difficult to program (your code has to do the work of a client stub). 
+</p>
+<p class="pBody"><a name="wp1022117"> </a>
+A CORBA client application can use DII to obtain better performance. For example, the CORBA client application can send multiple deferred synchronous requests at the same time and can handle the completions as they occur. If the requests go to different server applications, this work can be done in parallel. You cannot do this when you are using synchronous client stubs.
+</p>
+<a name="wp1022234"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The client stubs have optimizations, that allow the client stubs to achieve quicker response time than is achieved with DII when sending a single request and immediately blocking to get the response for that request.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1022118"> </a>
+DII is purely an interface to the CORBA client application; static and dynamic invocations are identical from a CORBA server application&#8217;s point of view.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1016813"> </a>
+DII Concepts
+</h2><p class="pBody"><a name="wp1017111"> </a>
+DII frequently offers more than one way to accomplish a task, the trade-off being programming simplicity versus performance. This section describes the high-level concepts you need to understand to use DII. Details, including code examples, are provided later in this topic.
+</p>
+<p class="pBody"><a name="wp1017114"> </a>
+The concepts presented in this section are as follows:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1017124"> </a>Request objects</li>
+<li><a name="wp1017133"> </a>Request sending options</li>
+<li><a name="wp1017138"> </a>Reply receiving options</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1017143"> </a>
+Request Objects
+</h3>
+<p class="pBody"><a name="wp1017177"> </a>
+A request object represents one invocation on one method of a CORBA object. If you want to make two invocations on the same method, you need to create two request objects. 
+</p>
+<p class="pBody"><a name="wp1023028"> </a>
+To invoke a method, you need an object reference to the CORBA object that contains the method. You use the object reference to create a request object, populate the request object with arguments, send the request, wait for the reply, and obtain the result from the request.
+</p>
+<p class="pBody"><a name="wp1017230"> </a>
+You can create a request object in the following ways:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1017260"> </a>Use the <code class="cCode">CORBA::Object::_request</code> member function.</li>
+<p class="pBodyRelative"><a name="wp1017583"> </a>
+Use the <code class="cCode">CORBA::Object::_request</code> member function to create an empty request object specifying only the interface name you intend to invoke in the request (for example, <code class="cCode">get_course_details)</code>. Once the request object is created, the arguments, if there are any, must be added before the request can be sent to the CORBA server application. You invoke the<code class="cCode"> CORBA::NVList::add_value</code> member function for each argument required by the method you intend to invoke.
+</p>
+<p class="pBodyRelative"><a name="wp1017385"> </a>
+You must also specify the type of the request&#8217;s result using the <code class="cCode">CORBA::Request::result </code>member function. For performance reasons, the messages exchanged between Object Request Brokers (ORBs) do not contain type information. By specifying a place holder for the result type, you give the ORB the information it needs to properly extract the result from the reply. Similarly, if the method you are invoking can raise user exceptions, you must add a place holder for exceptions before sending the request object.
+</p>
+<li><a name="wp1017269"> </a>Use the<code class="cCode"> CORBA::Object::_create_request</code> member function.</li>
+<p class="pBodyRelative"><a name="wp1017459"> </a>
+When you use the <code class="cCode">CORBA::Object:: _create_request</code> member function to create a request object, you pass all the arguments required to make the request and to specify the types of the result and user exceptions, if there are any, that the request may return. Using this member function, you create an empty NVList, add arguments to the NVList one at a time, and create the request object, passing the completed NVList as an argument to the request. The potential advantage of the <code class="cCode">CORBA::Object::_create_request </code>member function is performance. You can reuse the arguments in multiple <code class="cCode">CORBA::ORB::_create_request</code> calls if you invoke the same method on multiple target objects.
+</p>
+</ul></div>
+<p class="pBody"><a name="wp1017697"> </a>
+For a complete description of the CORBA member functions, see the <a href="../CORBA_ref/index.html">CORBA Programming Reference</a>.
+</p>
+<h3 class="pHeading2"><a name="wp1017791"> </a>
+Options for Sending Requests
+</h3>
+<p class="pBody"><a name="wp1017816"> </a>
+Once you have created and populated a request object with arguments, a result type, and exception types, you send the request to the CORBA object. There are several ways to send a request:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1017832"> </a>The simplest way is to call the <code class="cCode">CORBA::Request::invoke</code> member function, which blocks until the reply message is retrieved.</li>
+<li><a name="wp1017979"> </a>More complex, but not blocking, is to use the <code class="cCode">CORBA::Request::send_deferred</code> member function. </li>
+<li><a name="wp1018074"> </a>If you want to invoke multiple CORBA requests in parallel, use the <code class="cCode">CORBA::ORB::send_multiple_requests_deferred </code>member function. It takes a sequence of request objects. </li>
+<li><a name="wp1018075"> </a>Use the <code class="cCode">CORBA::Request::send_oneway</code> member function if, and only if, the CORBA method has been defined as oneway in the OMG IDL file.</li>
+<li><a name="wp1018101"> </a>You can invoke multiple oneway methods in parallel with the ORB&#8217;s <code class="cCode">CORBA::ORB::send_multiple_requests_oneway</code> member function. </li>
+</ul></div>
+<a name="wp1019456"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>When using the <code class="cCode">CORBA::Request::send_deferred</code> member function, the invocation on the request object acts synchronously when the target object is in the same address space as the CORBA client application issuing the invocation. As a result of this behavior, calling the <code class="cCode">CosTransaction::Current::suspend</code> operation does not raise the <code class="cCode">CORBA::BAD_IN_ORDER</code> exception, because the transaction has completed.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1022739"> </a>
+For a complete description of the CORBA member functions, see the <a href="../CORBA_ref/index.html">CORBA Programming Reference</a>.
+</p>
+<h3 class="pHeading2"><a name="wp1018120"> </a>
+Options for Receiving the Results of Requests
+</h3>
+<p class="pBody"><a name="wp1018145"> </a>
+If you send a request using the invoke method, there is only one way to get the result: use the request object&#8217;s <code class="cCode">CORBA::Request::env</code> member function to test for an exception; and if there is not exception, extract the NVList from the request object using the <code class="cCode">CORBA::Request::result </code>member function.
+</p>
+<p class="pBody"><a name="wp1022319"> </a>
+If you send a request using the deferred synchronous method, you can use any of the following member functions to get the result:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1022328"> </a><code class="cCode">CORBA::ORB::poll_response</code></li>
+<p class="pBodyRelative"><a name="wp1023035"> </a>
+This member function determines whether a request has completed and is ready to be processed. This member function does not block. If the request is ready, the CORBA client application has to use the <code class="cCode">get_response() </code>or <code class="cCode">get_next_response()</code> member functions to process the response. Use this member function when you don&#8217;t care about the order in which responses are processed, you want the CORBA client application to process other requests while waiting for a specific response, or you want to impose a timeout.
+</p>
+<li><a name="wp1022382"> </a><code class="cCode">CORBA::ORB::poll_next_response</code></li>
+<p class="pBodyRelative"><a name="wp1023036"> </a>
+This member function indicates whether a response for any outstanding request is ready to be processed. If the request is ready, the CORBA client application has to use the <code class="cCode">get_response()</code> or <code class="cCode">get_next_response()</code> member functions to process the response. Use this member function when the order in which requests are processed is not important and you want the CORBA client application to process other requests while waiting for a specific response.
+</p>
+<li><a name="wp1022401"> </a><code class="cCode">CORBA::ORB::get_response</code></li>
+<p class="pBodyRelative"><a name="wp1023041"> </a>
+This member function blocks until the response for the specific request is completed and processed. Use this member function when you want to process the requests for outstanding requests in a particular order.
+</p>
+<li><a name="wp1022441"> </a><code class="cCode">CORBA::ORB::get_next_response</code></li>
+<p class="pBodyRelative"><a name="wp1023050"> </a>
+This member function blocks until a response for any outstanding requests are completed and processed. Use this member function when the order in which requests are processed is not important.
+</p>
+</ul></div>
+<p class="pBody"><a name="wp1018200"> </a>
+If you used the <code class="cCode">CORBA::Request::send_oneway</code> member function, there is no result.
+</p>
+<p class="pBody"><a name="wp1019496"> </a>
+For a complete description of the CORBA member functions, see the <a href="../CORBA_ref/index.html">CORBA Programming Reference</a>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1012837"> </a>
+Summary of the Development Process for DII
+</h2><p class="pBody"><a name="wp1016622"> </a>
+The steps for using DII in client applications are as follows shown in <a href="dii.html#wp1031487">Table&#160;3-1</a>:
+</p>
+<p class="pGraphic"><a name="wp1018383"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1031487table1018358"><caption><a name="wp1031487"> </a>
+Table 3-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Summary of the Development Process for DII</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1018360"> </a>
+Step
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1018362"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022615"> </a>
+1
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1022617"> </a>
+Load the CORBA interfaces into the Interface Repository.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018364"> </a>
+2
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018366"> </a>
+Obtain an object reference for the CORBA object on which you want to invoke methods.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018368"> </a>
+3
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018370"> </a>
+Create a request object for the CORBA object.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018376"> </a>
+4
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018378"> </a>
+Send the DII request and retrieve the results.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027248"> </a>
+5
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027250"> </a>
+Delete the request.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018380"> </a>
+6
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1018382"> </a>
+Use the Interface Repository with DII.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1018387"> </a>
+The following sections describe these steps in detail and provide C++ code examples.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1022648"> </a>
+Step 1: Loading the CORBA Interfaces into the Interface Repository
+</h2><p class="pBody"><a name="wp1023067"> </a>
+Before you can create CORBA client applications that use DII, the interfaces of the CORBA object need to be loaded into the Interface Repository. If the interfaces of a CORBA object are not loaded in the Interface Repository, they do not appear in the Oracle Application Builder. If a desired CORBA interface does not appear in the Services window, use the<code class="cCode"> idl2ir </code>command to load the OMG IDL that defines the CORBA object into the Interface Repository. The syntax for the<code class="cCode"> idl2ir</code> command is as follows shown in <a href="dii.html#wp1031547">Table&#160;3-2</a>:
+</p>
+<a name="wp1023068"> </a><div class="pPreformatted"><pre><code class="cCode">idl2ir [-f </code><code class="cCodeEmphasis">repositoryfile.idl] file.idl</code></pre></div><p class="pGraphic"><a name="wp1023082"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1031547table1023069"><caption><a name="wp1031547"> </a>
+Table 3-2  Loading the CORBA Interfaces into the Interface Repository
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1023071"> </a>
+Option
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023073"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023075"> </a>
+<code class="cCode">-f</code><code class="cCodeEmphasis"> repositoryfile</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023077"> </a>
+Directs the command to load the OMG IDL files for the CORBA interface into the specified Interface Repository. Specify the name of the Interface Repository in the Oracle Tuxedo domain that the CORBA client application will access.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023079"> </a>
+<code class="cCodeEmphasis">file.idl</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023081"> </a>
+Specifies the OMG IDL file containing definitions for the CORBA interface.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1023086"> </a>
+For a complete description of the<code class="cCode"> idl2ir</code> command, see the <a href="../rfcm/index.html">Oracle Tuxedo Command Reference</a>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1013394"> </a>
+Step 2: Obtaining the Object Reference for the CORBA Object
+</h2><p class="pBody"><a name="wp1026914"> </a>
+Use the Bootstrap object to get a FactoryFinder object. Then use the FactoryFinder object to get a factory for the CORBA object you want to access from the DII request. For an example of using the Boostrap and FactoryFinder objects to get a factory, see <a href="corba.html#wp1026458">Step 4: Writing the CORBA Client Application</a>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1026919"> </a>
+Step 3: Creating a Request Object
+</h2><p class="pBody"><a name="wp1026920"> </a>
+When your CORBA client application invokes a method on a CORBA object, you create a request for the method invocation. The request is written to a buffer and sent to the CORBA server application. When your CORBA client application uses client stubs, this processing occurs transparently. Client applications that want to use DII must create a request object and must send the request. 
+</p>
+<h3 class="pHeading2"><a name="wp1018966"> </a>
+Using the CORBA::Object::_request Member Function
+</h3>
+<p class="pBody"><a name="wp1019760"> </a>
+The following C++ code example illustrates how to use the<code class="cCode"> CORBA::Object::_request</code> member function:
+</p>
+<a name="wp1023371"> </a><div class="pPreformatted"><pre><code class="cCode">Boolean          aResult;<br />CORBA::ULong     long1 = 42;<br />CORBA::Any       in_arg1;<br />CORBA::Any       &amp;in_arg1_ref = in_arg1;<br /><br />in_arg1 &lt;&lt;= long1;</code></pre></div><a name="wp1023272"> </a><div class="pPreformatted"><pre><code class="cCode">// Create the request using the short form<br />Request_ptr reqp = anObj-&gt;_request(&#8220;anOp&#8221;);</code></pre></div><a name="wp1023275"> </a><div class="pPreformatted"><pre><code class="cCode">// Use the argument manipulation helper functions<br />reqp-&gt;add_in_arg() &lt;&lt;= in_arg1_ref;</code></pre></div><a name="wp1023278"> </a><div class="pPreformatted"><pre><code class="cCode">// We want a boolean result<br />reqp-&gt;set_return_type(_tc_boolean);</code></pre></div><a name="wp1023280"> </a><div class="pPreformatted"><pre><code class="cCode">// Provide some place for the result<br />CORBA::Any::from_boolean boolean_return_in(aResult);<br />reqp-&gt;return_value() &lt;&lt;= boolean_return_in;</code></pre></div><a name="wp1023285"> </a><div class="pPreformatted"><pre><code class="cCode">// Do the invoke<br />reqp-&gt;invoke();</code></pre></div><a name="wp1023288"> </a><div class="pPreformatted"><pre><code class="cCode">// No error, so get the return value<br />CORBA::Any::to_boolean boolean_return_out(aResult);<br />reqp-&gt;return_value() &gt;&gt;= boolean_return_out;</code></pre></div><h3 class="pHeading2"><a name="wp1018949"> </a>
+Using the CORBA::Object::create_request Member Function
+</h3>
+<p class="pBody"><a name="wp1019838"> </a>
+When you use the <code class="cCode">CORBA::Object::create_request</code> member function to create a request object, you create an empty NVList and you add arguments to the NVList one at a time. You create the request object, passing the completed NVList as an argument to the request.
+</p>
+<h4 class="pHeading3"><a name="wp1018971"> </a>
+Setting Arguments for the Request Object
+</h4>
+<p class="pBody"><a name="wp1020005"> </a>
+The arguments for a request object are represented with an NVList object that stores named/value objects. Methods are provided for adding, removing, and querying the objects in the list. For a complete description of <code class="cCode">CORBA::NVList</code>, see the <a href="../CORBA_ref/index.html">CORBA Programming Reference</a>.
+</p>
+<h4 class="pHeading3"><a name="wp1018979"> </a>
+Setting Input and Output Arguments with the CORBA::NamedValue Member Function
+</h4>
+<p class="pBody"><a name="wp1019077"> </a>
+The<code class="cCode"> CORBA::NamedValue</code> member function specifies a named/value object that can be used to represent both input and output arguments for a request. The named/value objects are used as arguments to the request object. The <code class="cCode">CORBA::NamedValue</code> pair is also used to represent the result of a request that is returned to the CORBA client application. The name property of a named/value object is a character string, and the value property of a named/value object is represented by a CORBA <code class="cCode">Any</code>. 
+</p>
+<p class="pBody"><a name="wp1024420"> </a>
+For a complete description of the<code class="cCode"> CORBA::NamedValue</code> member function, see the <a href="../CORBA_ref/index.html">CORBA Programming Reference</a>.
+</p>
+<h4 class="pHeading3"><a name="wp1023655"> </a>
+Example of Using CORBA::Object::create_request Member Function
+</h4>
+<p class="pBody"><a name="wp1023643"> </a>
+The following C++ code example illustrates how to use the <code class="cCode">CORBA::Object::create_request</code> member function:
+</p>
+<a name="wp1023707"> </a><div class="pPreformatted"><pre><code class="cCode">CORBA::Request_ptr         reqp;<br />CORBA::Context_ptr         ctx;<br />CORBA::NamedValue_ptr      boolean_resultp = 0;<br />Boolean                    boolean_result;<br />CORBA::Any                 boolean_result_any(CORBA::_tc_boolean, &amp; boolean_result);<br />CORBA::NVList_ptr          arg_list = 0;<br />CORBA::Any                 arg;</code></pre></div><a name="wp1023716"> </a><div class="pPreformatted"><pre><code class="cCode">// Get the default context<br />orbp-&gt;get_default_context(ctx);</code></pre></div><a name="wp1023720"> </a><div class="pPreformatted"><pre><code class="cCode">// Create the named value pair for the result<br />(void) orbp-&gt;create_named_value(boolean_resultp);<br />CORBA::Any *tmpany = boolean_resultp-&gt;value();<br />*tmpany = boolean_result_any;<br /><br />arg.replace(CORBA::_tc_long, &amp;long_arg, CORBA_FALSE)</code></pre></div><a name="wp1023728"> </a><div class="pPreformatted"><pre><code class="cCode">// Create the NVList<br />orbp-&gt;create_list(1, arg_list);<br /><br />// Add an IN argument to the list<br />arg_list-&gt;add_value(&#8220;arg1&#8221;, arg, CORBA::ARG_IN);<br /><br />// Create the request using the long form<br />anObj-&gt;_create_request (ctx,<br />                        &#8220;anOp&#8221;,<br />                        arg_list,<br />                        boolean_resultp,<br />                        reqp,<br />                        CORBA::VALIDATE_REQUEST );<br />// Do the invoke<br />reqp-&gt;invoke();<br /><br />CORBA::NamedValue_ptr	result_namedvalue;<br />Boolean aResult;<br />CORBA::Any *result_any;<br />// Get the result<br />result_namedvalue = reqp-&gt;result();<br />result_any = result_namedvalue-&gt;value();</code></pre></div><a name="wp1023756"> </a><div class="pPreformatted"><pre><code class="cCode">// Extract the Boolean from the any<br />*result_any &gt;&gt;= aResult;</code></pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1013597"> </a>
+Step 4: Sending a DII Request and Retrieving the Results
+</h2><p class="pBody"><a name="wp1020246"> </a>
+You can invoke a request in several ways, depending on what kind of communication type you want to use. This section describes how the CORBA member functions are used to send requests and retrieve the results.
+</p>
+<h3 class="pHeading2"><a name="wp1014037"> </a>
+Synchronous Requests
+</h3>
+<p class="pBody"><a name="wp1020263"> </a>
+If you want synchronous communication, the<code class="cCode"> CORBA::Request::invoke</code> member function sends the request and waits for a response before it returns to the CORBA client application. Use the <code class="cCode">CORBA::Request::result</code> member function to return a reference to a named/value object that represents the return value. Once the results are retrieved, you read the values from the NVList stored in the request.
+</p>
+<h3 class="pHeading2"><a name="wp1019146"> </a>
+Deferred Synchronous Requests
+</h3>
+<p class="pBody"><a name="wp1020412"> </a>
+The nonblocking member function, <code class="cCode">CORBA::Request::send_deferred</code>, is also provided for sending requests. It allows the CORBA client application to send a request and then use the <code class="cCode">CORBA::Request::poll_response </code>member function to determine when the response is available. The<code class="cCode"> CORBA::Request::get_response</code> member function blocks until a response is available.
+</p>
+<p class="pBody"><a name="wp1020590"> </a>
+The following code example illustrates how to use the <code class="cCode">CORBA::Request::send_deferred</code>, <code class="cCode">CORBA::Request::poll_response</code>, and <code class="cCode">CORBA::Request::get_response</code> member functions:
+</p>
+<a name="wp1024430"> </a><div class="pPreformatted"><pre><code class="cCode">request-&gt;send_deferred ();<br /><br />if (poll)<br />{<br />     for ( int k = 0 ; k &lt; 10 ; k++ )<br />     {<br />         CORBA::Boolean done = request-&gt;poll_response();<br />         if ( done ) <br />           break;</code></pre></div><a name="wp1031471"> </a><div class="pPreformatted"><pre><code class="cCode">     }<br />}<br />request-&gt;get_response();</code></pre></div><h3 class="pHeading2"><a name="wp1031473"> </a>
+Oneway Requests
+</h3>
+<p class="pBody"><a name="wp1031474"> </a>
+Use the <code class="cCode">CORBA::Request::send_oneway</code> member function to send a oneway request. Oneway requests do not involve a response from the CORBA server application. For a complete description of the <code class="cCode">CORBA::Request::send_oneway</code> member function, see the <a href="../CORBA_ref/index.html">CORBA Programming Reference</a>.
+</p>
+<p class="pBody"><a name="wp1026735"> </a>
+The following code example illustrates how to use the <code class="cCode">CORBA::Request::send_oneway </code>member function:
+</p>
+<a name="wp1026724"> </a><div class="pPreformatted"><pre>request-&gt;send_oneway();</pre></div><h3 class="pHeading2"><a name="wp1019188"> </a>
+Multiple Requests
+</h3>
+<p class="pBody"><a name="wp1020725"> </a>
+When a sequence of request objects is sent using the <code class="cCode">CORBA::Request::send_multiple_requests_deferred</code> member function, the <code class="cCode">CORBA::ORB::poll_response,</code> <code class="cCode">CORBA::ORB::poll_next_response, CORBA::ORB::get_response,</code> and <code class="cCode">CORBA::ORB::get_next_response</code> member functions can be used to retrieve the response the CORBA server application sends for each request.
+</p>
+<p class="pBody"><a name="wp1022555"> </a>
+The <code class="cCode">CORBA::ORB::poll_response</code> and <code class="cCode">CORBA::ORB::poll_next_response</code> member functions can be used to determine if a response has been retrieved from the CORBA server application. These member functions return a 1 if there is at least one response available, and a zero if there are no responses available.
+</p>
+<p class="pBody"><a name="wp1022556"> </a>
+The <code class="cCode">CORBA::ORB::get_response</code> and <code class="cCode">CORBA::ORB::get_next_response </code>member functions can be used to retrieve a response. If no response is available, these member functions block until a response is retrieved. If you do not want your CORBA client application to block, use the <code class="cCode">CORBA::ORB::poll_next_response</code> member function to first determine when a response is available, and then use the <code class="cCode">CORBA::ORB::get_next_response</code> method to retrieve the result.
+</p>
+<p class="pBody"><a name="wp1020805"> </a>
+You can also send multiple oneway requests by using the <code class="cCode">CORBA::Request::send_multiple_requests_oneway</code> member function. 
+</p>
+<p class="pBody"><a name="wp1020815"> </a>
+The following code example illustrates how to use the <code class="cCode">CORBA::Request::send_multiple_requests_deferred</code>, <code class="cCode">CORBA::Request::poll_next_response</code>, and <code class="cCode">CORBA::Request::get_next_response</code> member functions:
+</p>
+<a name="wp1024666"> </a><div class="pPreformatted"><pre><code class="cCode">CORBA::Context_ptr           ctx;<br />CORBA::Request_ptr           requests[2];<br />CORBA::Request_ptr           request;<br />CORBA::NVList_ptr            arg_list1, arg_list2;<br />CORBA::ULong                 i, nreq;<br />CORBA::Long                  arg1 = 1;<br />Boolean                      aResult1 = CORBA_FALSE;<br />Boolean                      expected_aResult1 = CORBA_TRUE;<br />CORBA::Long                  arg2 = 3;<br />Boolean                      aResult2 = CORBA_FALSE;<br />Boolean                      expected_aResult2 = CORBA_TRUE<br /><br />try<br />{<br />     orbp-&gt;get_default_context(ctx);<br /><br />     populate_arg_list ( &amp;arg_list1, &amp;arg1, &amp;aResult1 );<br /><br />     nreq = 0;<br /><br />     anObj-&gt;_create_request ( ctx, <br />                            &#8220;Multiply&#8221;,<br />                             arg_list1, <br />                             0,<br />                             requests[nreq++],<br />                             0);<br /><br />     populate_arg_list ( &amp;arg_list2, &amp;arg2, &amp;aResult2 );<br /><br />     anObj-&gt;_create_request ( ctx, <br />                              &#8220;Multiply&#8221;,<br />                              arg_list2, <br />                              0,<br />                              requests[nreq++],<br />                              0 );<br /><br />// Declare a request sequence variable...<br />CORBA::ORB::RequestSeq rseq ( nreq, nreq, requests, CORBA_FALSE );<br /><br />orbp-&gt;send_multiple_requests_deferred ( rseq );<br />for ( i = 0 ; i &lt; nreq ; i++ )</code></pre></div><a name="wp1026752"> </a><div class="pPreformatted"><pre><code class="cCode">{<br />      requests[i]-&gt;get_response();<br />}</code></pre></div><a name="wp1024713"> </a><div class="pPreformatted"><pre><code class="cCode">// Now check the results</code></pre></div><a name="wp1024714"> </a><div class="pPreformatted"><pre><code class="cCode">if ( aResult1 != expected_aResult1 )<br />{<br />      cout &lt;&lt; &#8220;aResult1=&#8221; &lt;&lt; aResult1 &lt;&lt; &#8220; different than expected: &#8220; &lt;&lt;<br />expected_aResult1;<br />}</code></pre></div><a name="wp1024719"> </a><div class="pPreformatted"><pre><code class="cCode">if ( aResult2 != expected_aResult2 )<br />{<br />      cout &lt;&lt; &#8220;aResult2=&#8221; &lt;&lt; aResult2 &lt;&lt; &#8220; different than expected: &#8220; &lt;&lt;<br />expected_aResult2;<br />}</code></pre></div><a name="wp1024724"> </a><div class="pPreformatted"><pre><code class="cCode">aResult1 = CORBA_FALSE;<br />aResult2 = CORBA_FALSE;</code></pre></div><a name="wp1024727"> </a><div class="pPreformatted"><pre><code class="cCode">// Using the same argument lists, multiply the numbers again.<br />// This time we intend to poll for response...<br /><br />orbp-&gt;send_multiple_requests_deferred ( rseq );<br /><br />// Now poll for response...</code></pre></div><a name="wp1024732"> </a><div class="pPreformatted"><pre><code class="cCode">for ( i = 0 ; i &lt; nreq ; i++ )<br />{</code></pre></div><a name="wp1024734"> </a><div class="pPreformatted"><pre><code class="cCode">// We will randomly poll maximum 10 times...<br />     for ( int j = 0 ; j &lt; 10 ; j++ )<br />     {<br />      CORBA::Boolean done = requests[i]-&gt;poll_response();<br /><br />      if ( done ) break;<br />      }<br />}<br />// Now actually get the response...<br />for ( i = 0 ; i &lt; nreq ; i++ )<br />{<br />     requests[i]-&gt;get_response();<br />}</code></pre></div><a name="wp1024749"> </a><div class="pPreformatted"><pre><code class="cCode">// Now check the results<br />if ( aResult1 != expected_aResult1 )<br />{<br />      cout &lt;&lt; &#8220;aResult1=&#8221; &lt;&lt; aResult1 &lt;&lt; &#8220; different than expected: &#8220; &lt;&lt; <br />expected_aResult1<br />}<br />if ( aResult2 != expected_aResult2 )<br />{<br />       cout &lt;&lt; &#8220;aResult2=&#8221; &lt;&lt; aResult2 &lt;&lt; &#8220; different than expected: &#8220; &lt;&lt; <br />expected_aResult2;<br />}</code></pre></div><a name="wp1024760"> </a><div class="pPreformatted"><pre><code class="cCode">aResult1 = CORBA_FALSE;<br />aResult2 = CORBA_FALSE;</code></pre></div><a name="wp1024763"> </a><div class="pPreformatted"><pre><code class="cCode">// Using the same argument lists, multiply the numbers again.<br />// Call get_next_response, and WAIT for a response.<br />orbp-&gt;send_multiple_requests_deferred ( rseq );<br /><br />// Poll until we get a response and then use get_next_response get it...<br />for ( i = 0 ; i &lt; nreq ; i++ )<br />     {<br />           CORBA::Boolean res = 0;<br />           <br />           while ( ! res )<br />           {<br />             res = orbp-&gt;poll_next_response();<br />           }<br />           orbp-&gt;get_next_response(request);<br />           CORBA::release(request);<br />     }<br />// Now check the results<br />if ( aResult1 != expected_aResult1 )<br />{<br />      cout &lt;&lt; &#8220;aResult1=&#8221; &lt;&lt; aResult1 &lt;&lt; &#8220; different than expected: &#8220; &lt;&lt; <br />expected_aResult1;<br />}<br />if ( aResult2 != expected_aResult2 )<br />{<br />      cout &lt;&lt; &#8220;aResult2=&#8221; &lt;&lt; aResult2 &lt;&lt; &#8220; different than expected: &#8220; &lt;&lt; <br />expected_aResult2;<br />}</code></pre></div><a name="wp1024797"> </a><div class="pPreformatted"><pre><code class="cCode">static void populate_arg_list (<br />CORBA::NVList_ptr          ArgList,<br />CORBA::Long                * Arg1,<br />CORBA::Long                * Result )<br />{<br />CORBA::Any                 any_arg1;<br />CORBA::Any                 any_result;<br /><br />(* ArgList) = 0;<br />orbp-&gt;create_list(3, *ArgList);<br /><br />any_arg1 &lt;&lt;= *Arg1;<br />any_result.replace(CORBA::_tc_boolean, Result, CORBA_FALSE);</code></pre></div><a name="wp1024812"> </a><div class="pPreformatted"><pre><code class="cCode">(*ArgList)-&gt;add_value(&#8220;arg1&#8221;, any_arg1, CORBA::ARG_IN);<br />(*ArgList)-&gt;add_value(&#8220;result&#8221;, any_result, CORBA::ARG_OUT);<br /><br />return;</code></pre></div><a name="wp1024817"> </a><div class="pPreformatted"><pre><code class="cCode">}</code></pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1014253"> </a>
+Step 5: Deleting the Request
+</h2><p class="pBody"><a name="wp1014346"> </a>
+Once you have been notified that the request has successfully completed, you need to decide if you want to delete the existing request, or reuse portions of the request in the next invocation.
+</p>
+<p class="pBody"><a name="wp1014347"> </a>
+To delete the entire request, use the <code class="cCode">CORBA::Release(request) </code>member function on the request to be deleted.  This operation releases all memory associated with the request. Deleting a request that was issued using the deferred synchronous communication type causes that request to be canceled if it has not completed. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1014254"> </a>
+Step 6: Using the Interface Repository with DII
+</h2><p class="pBody"><a name="wp1020882"> </a>
+A CORBA client application can create, populate, and send requests for objects that were not known to the CORBA client application when it was built. To do this, the CORBA client application uses the Interface Repository to retrieve information needed to create and populate the requests. The CORBA client application uses DII to send the requests, since it does not have client stubs for the interfaces.
+</p>
+<p class="pBody"><a name="wp1026693"> </a>
+Although this technique is useful for invoking operations on a CORBA object whose type is unknown, performance becomes an issue because of the overhead interaction with the Interface Repository. You might consider using this type of DII request when creating a CORBA client application that browses for objects, or when creating a CORBA client application that is an administration tool.
+</p>
+<p class="pBody"><a name="wp1020888"> </a>
+The steps for using the Interface Repository in a DII request are as follows:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1026694"> </a>Set <code class="cCode">ORB_INCLUDE_REPOSITORY</code> in <code class="cCode">CORBA.h</code> to the location of the Interface Repository file in your Oracle Tuxedo system.</li>
+<li><a name="wp1021407"> </a>Use the Bootstrap object to obtain the InterfaceRepository object, which contains a reference to the Interface Repository in a particular Oracle Tuxedo domain. Once the reference to the Interface Repository is obtained, you can navigate the Interface Repository from the root.</li>
+<li><a name="wp1026707"> </a>Use the <code class="cCode">CORBA::Object::_get_interface </code>member function to communicate with the CORBA server application that implements the desired CORBA object. </li>
+<li><a name="wp1026699"> </a>Use <code class="cCode">CORBA::InterfaceDef_ptr </code>to get the definition of the CORBA interface that is stored in the Interface Repository. </li>
+<li><a name="wp1026715"> </a>Locate the <code class="cCode">OperationDescription</code> for the desired operation in the <code class="cCode">FullInterfaceDescription</code> operations.</li>
+<li><a name="wp1026716"> </a>Retrieve the repository ID from the <code class="cCode">OperationDescription</code>.</li>
+<li><a name="wp1026717"> </a>Call <code class="cCode">CORBA::Repository::lookup_id</code> using the repository ID returned in the <code class="cCode">OperationDescription</code> to look up the <code class="cCode">OperationDef</code> in the Interface Repository. This call returns the contained object.</li>
+<li><a name="wp1022606"> </a>Narrow the contained object to an <code class="cCode">OperationDef</code>.</li>
+<li><a name="wp1022607"> </a>Use the <code class="cCode">CORBA::ORB::create_operation_list</code> member function, using the  <code class="cCode">OperationDef</code> argument, to build an argument list for the operation. </li>
+<li><a name="wp1022610"> </a>Set the argument value within the operation list.</li>
+<li><a name="wp1021449"> </a>Send the request and retrieve the results as you would any other request. You can use any of the options described in this topic to send a request and to retrieve the results.</li>
+</ol></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="dii.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="corba.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="except.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

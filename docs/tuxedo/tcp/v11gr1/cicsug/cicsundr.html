@@ -1,0 +1,677 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="40264" />
+<meta name="LOC_US_SRCFILE" content="//depot/ecs/tcp/v11gr1/cicsug/fm/cicsundr.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="08/24/10 07:21:33" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Understanding How Oracle TMA TCP for CICS Works</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">CICS User Guide
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="cicsintr.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="cicssec.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/cicsug.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1026371"> </a>
+Understanding How Oracle TMA TCP for CICS Works
+</h1>
+<p class="pBody"><a name="wp1023856"> </a>
+To understand how the Oracle Tuxedo Mainframe Adapter for TCP (CICS) (hereafter referenced as TMA TCP for CICS) product works, you should know how the product performs the following functions:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023871"> </a><a href="cicsundr.html#wp1023879"><span class="cHyperlink">
+Starting the Listener Program</span></a> </li>
+<li><a name="wp1025489"> </a><a href="cicsundr.html#wp1023900"><span class="cHyperlink">
+Running Oracle TMA TCP for CICS</span></a> </li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1025490"> </a><a href="cicsundr.html#wp1023910"><span class="cHyperlink">
+Initializing the Handler</span></a> </li>
+<li><a name="wp1025494"> </a><a href="cicsundr.html#wp1023935"><span class="cHyperlink">
+Processing Remote Service Requests</span></a> </li>
+<li><a name="wp1025512"> </a><a href="cicsundr.html#wp1023982"><span class="cHyperlink">
+Shutting Down the Handler</span></a> </li>
+<li><a name="wp1025516"> </a><a href="cicsundr.html#wp1024011"><span class="cHyperlink">
+Starting the Requester Program</span></a> </li>
+<li><a name="wp1025547"> </a><a href="cicsundr.html#wp1024019"><span class="cHyperlink">
+Processing TMA TCP for CICS Originated Service Requests</span></a> </li>
+<li><a name="wp1025567"> </a><a href="cicsundr.html#wp1024041"><span class="cHyperlink">
+Shutting Down the Requester</span></a> </li>
+</ul></div>
+<li><a name="wp1025587"> </a><a href="cicsundr.html#wp1025685"><span class="cHyperlink">
+Translating Data with TMA TCP gateway</span></a> </li>
+</ul></div>
+<p class="pBody"><a name="wp1023872"> </a>
+Each of these operations is described in the following sections. Additionally, this document describes some programming considerations that may be useful when you develop or change programs that interoperate with TMA TCP for CICS.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023879"> </a>
+Starting the Listener Program
+</h2><p class="pBody"><a name="wp1023880"> </a>
+The Listener program is supplied by IBM and is part of the Sockets for CICS software product which must be purchased from IBM. 
+</p>
+<a name="wp1023884"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Before you can use TMA TCP for CICS, you must install and configure both IBM TCP/IP and the Sockets for CICS product as outlined in the documentation that accompanies those products.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1023885"> </a>
+The Listener&#8217;s job is to wait for connection requests at a particular network address and port of your choosing. When the Listener receives a connection request it invokes the appropriate CICS program automatically, based on the name supplied as part of the Listener&#8217;s connection protocol buffer. For example, if the Listener receives a connection request from TMA TCP gateway running on a remote Oracle Tuxedo node, it processes the connection and invokes the TMA TCP Handler.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023900"> </a>
+Running Oracle TMA TCP for CICS
+</h2><p class="pBody"><a name="wp1023905"> </a>
+The TMA TCP Handler is invoked automatically by the Listener process. Once invoked, the Handler takes control of the socket connection and retains control until either the Handler is shut down or until there is a network problem that affects the socket connection. The Handler processes service requests up to the configured multiplex count. To process more service requests than the configured multiplex count, TMA TCP gateway starts more than one Handler. For limitations of the IBM Sockets for CICS Listener, refer to the appropriate IBM product documentation.
+</p>
+<h3 class="pHeading2"><a name="wp1023910"> </a>
+Initializing the Handler
+</h3>
+<p class="pBody"><a name="wp1023914"> </a>
+The very first service request that is sent from the TMA TCP gateway gateway running on a remote Oracle Tuxedo node causes the following to occur.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023921"> </a>CICS Sockets Listener starts the TMA TCP for CICS Handler</li>
+<li><a name="wp1023923"> </a>Listener issues a <code class="cCode">givesocket()</code> function call</li>
+<li><a name="wp1023925"> </a>Handler issues a <code class="cCode">takesocket()</code> function call</li>
+<li><a name="wp1023926"> </a>Listener resumes listening for new connection requests</li>
+<li><a name="wp1023930"> </a>Handler communicates directly with the remote TMA TCP gateway gateway using TCP/IP</li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1023935"> </a>
+Processing Remote Service Requests
+</h3>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023941"> </a>The TMA TCP Handler receives the request from the remote TMA TCP gateway gateway (in the Oracle Tuxedo region) over TCP/IP. If necessary, the data is translated and/or converted into the proper data format or layout.</li>
+<li><a name="wp1023946"> </a>If the multiplex count is 1 and security is disabled, or if the service request came from a version of TMA TCP gateway prior to Version 3.0, then the following tasks occur.</li>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp1023950"> </a>The Handler issues a CICS <code class="cCode">LINK</code> command to execute the program specified in the TMA TCP protocol header. With the <code class="cCode">LINK</code> command it also passes along any request data provided by the client application that made the original Oracle Tuxedo service request.</li>
+<li><a name="wp1023957"> </a>The Handler waits for the CICS program to finish and receives any returned data from the CICS program.</li>
+<li><a name="wp1023961"> </a>The Handler transmits the response to the remote TMA TCP gateway gateway.</li>
+<li><a name="wp1023962"> </a>The Handler stays connected to the remote gateway awaiting another service request.</li>
+</ol></div>
+<li><a name="wp1023963"> </a>If the multiplex count is greater than 1 or security is enabled, then the following tasks occur.</li>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp1023964"> </a>The Handler issues an <code class="cCode">EXEC CICS START TRANS</code> call with the transaction specified in the Inbound Service File for the service specified in the TMA TCP protocol header. The transaction should be the same as the Application Handler program.</li>
+<a name="wp1023968"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If security is enabled, the <code class="cCode">EXEC CICS START TRANSID</code> call uses the user ID<code class="cCodeEmphasis"> </code>specified in the TMA TCP protocol header.</td>
+</tr>
+</table>
+
+<li><a name="wp1023972"> </a>For any completed service requests, the Handler retrieves the response data from the Application Handler.</li>
+<li><a name="wp1023976"> </a>The Handler transmits the response to the remote TMA TCP gateway gateway.</li>
+<li><a name="wp1023977"> </a>The connection between the Handler and the gateway remains and the Handler waits for another service request.</li>
+</ol></div>
+</ol></div>
+<p class="pBody"><a name="wp1023979"> </a>
+For <code class="cCode">tpacall/TPNOREPLY</code> requests, the remote program is invoked by a <code class="cCode">CICS</code> <code class="cCode">START TRANSID</code> command and no data is returned to the original caller. In this case, a unique transaction must be defined for the service. Use the Inbound Service Information screen to enter this unique transaction name rather than using the transaction name that starts the Application Handler. 
+</p>
+<h3 class="pHeading2"><a name="wp1023982"> </a>
+Shutting Down the Handler
+</h3>
+<p class="pBody"><a name="wp1023985"> </a>
+When the network connection is lost, the Handler process automatically shuts down. The next service request sent causes the Listener to automatically start a new Handler, if necessary.
+</p>
+<p class="pBody"><a name="wp1023989"> </a>
+Use the supplied shutdown transaction <code class="cCode">BDWN</code> to terminate active TMA TCP for CICS programs. Depending on the options specified, this causes <em class="cEmphasis">all</em> Handlers to shut down gracefully. The name of the <code class="cCode">BDWN</code> transaction may have been changed at your site during installation, so verify the name. 
+</p>
+<h4 class="pHeading3"><a name="wp1023990"> </a>
+Using BDWN to Shut Down the Handler
+</h4>
+<p class="pBody"><a name="wp1023992"> </a>
+You can use the <code class="cCode">BDWN</code> transaction in a CICS region with the following parameters to shut down Handlers in various ways. The command line syntax for <code class="cCode">BDWN</code> is illustrated in the following listing.
+</p>
+<div class="pCodeTitle"><a name="wp1023993"> </a>
+Listing&#160;2-1	   <code class="cCodeBold">BDWN</code> Command Line Syntax for Handlers
+</div> <a name="wp1023994"> </a><div class="pPreformatted"><pre>BDWN [ALL | CLEANUP | HANDLER I | HANDLER]</pre></div><h4 class="pDefTerm"><a name="wp1024588"> </a>
+<code class="cCode">BDWN</code>
+</h4><div class="pDefPara"><a name="wp1023998"> </a>
+Shuts down all Handlers or all Requesters or both. It also frees shared memory that was allocated by a Handler that has abended without freeing the shared memory that it allocated. You can specify optional parameters with the <code class="cCode">BDWN</code> transaction to shut down Handlers immediately or after the processing of all requests has completed. The default is <code class="cCode">ALL</code>.
+</div>
+<div class="pDefTerm2"><h4 class="pDefTerm2"><a name="wp1023999"> </a>
+<code class="cCode">ALL</code>
+</h4></div>
+<div class="pDefPara2"><a name="wp1024000"> </a>
+Shuts down all Handlers and Requesters gracefully allowing them to complete all processing of all requests that were received before the execution of the <code class="cCode">BDWN</code> transaction. Specifying <code class="cCode">ALL</code> also frees any shared memory. 
+</div><div class="pDefPara2"><a name="wp1024002"> </a>
+This is the default for <code class="cCode">BDWN</code>.
+</div><div class="pDefTerm2"><h4 class="pDefTerm2"><a name="wp1024004"> </a>
+<code class="cCode">CLEANUP</code>
+</h4></div>
+<div class="pDefPara2"><a name="wp1024005"> </a>
+Frees any shared memory of Handlers that have abended. <code class="cCode">CLEANUP</code> does <em class="cEmphasis">not</em> shut down any Handlers or Requesters.
+</div><div class="pDefTerm2"><h4 class="pDefTerm2"><a name="wp1024006"> </a>
+<code class="cCode">HANDLER I</code>
+</h4></div>
+<div class="pDefPara2"><a name="wp1024007"> </a>
+Shuts down all Handlers immediately and frees any shared memory of Handlers that have abended. This parameter does <em class="cEmphasis">not</em> shut down any Requesters.
+</div><div class="pDefTerm2"><h4 class="pDefTerm2"><a name="wp1024008"> </a>
+<code class="cCode">HANDLER</code>
+</h4></div>
+<div class="pDefPara2"><a name="wp1024009"> </a>
+Shuts down all Handlers gracefully allowing them to complete all processing off all requests that were received before the execution of the <code class="cCode">BDWN</code> transaction. This parameter also frees any shared memory of Handlers that have abended. It does <em class="cEmphasis">not</em> shut down any Requesters.
+</div><h3 class="pHeading2"><a name="wp1024011"> </a>
+Starting the Requester Program
+</h3>
+<p class="pBody"><a name="wp1024012"> </a>
+The Requester is started automatically when the first service request for it is made by a CICS client program. At that point, the Requester establishes a connection with its remote endpoint and updates its control tables with run-time information for use by subsequent requests. If the connection with the remote endpoint is lost for any reason, the Requester attempts to re-establish the connection automatically. After a configured number of unsuccessful connection attempts, the Requester marks itself disabled.
+</p>
+<p class="pBody"><a name="wp1024013"> </a>
+If the gateway receives additional service requests, they are accommodated as long as the maximum multiplex count for the existing connection is not exceeded. Also, additional connections are opened, as necessary, until the configured maximum connection count is reached or all requests are accommodated.
+</p>
+<h3 class="pHeading2"><a name="wp1024019"> </a>
+Processing TMA TCP for CICS Originated Service Requests 
+</h3>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1024021"> </a>The CICS client program (your program) issues an <code class="cCode">EXEC CICS LINK </code>command to the TMA TCP for CICS Pre-requester. </li>
+<li><a name="wp1024026"> </a>The Pre-requester verifies that the request is valid, and then determines whether a Requester has been started for the specific endpoint for which this request is destined. If a Requester is not already running, the Pre-requester starts one.</li>
+<li><a name="wp1024028"> </a>The request is then handed over to the Requester.</li>
+<li><a name="wp1024032"> </a>The Requester transmits the request information to the remote Oracle Tuxedo domain. </li>
+<li><a name="wp1024033"> </a>If the request is a type that needs a response, the Requester receives that response back from Oracle Tuxedo, and hands the data over to the Pre-requester. </li>
+<li><a name="wp1024038"> </a>The Pre-requester issues an <code class="cCode">EXEC CICS RETURN</code> command to the client program (your program). The client receives its response in the <code class="cCode">COMMAREA</code>.</li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1024041"> </a>
+Shutting Down the Requester
+</h3>
+<p class="pBody"><a name="wp1024042"> </a>
+There are two ways to shut down the Requester:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024045"> </a>Use the administrative tool (described in <a href="cicsconf.html"><span class="cHyperlink">
+Configuring and Administering Oracle TMA TCP for CICS</span></a>) to disable the Requester. This method causes the selected Requester to clean up its tables and shut down gracefully. It also prohibits any service requests invoking it. When you are ready, use the administrative tool to enable the Requester.</li>
+<li><a name="wp1024050"> </a>Use the supplied shutdown transaction <code class="cCode">BDWN</code>. This method causes ALL Requesters to shut down gracefully. The name of the <code class="cCode">BDWN</code> transaction may have been changed at your site during installation. Check with the person who installed TMA TCP for CICS at your site. </li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1024054"> </a>
+Using BDWN to Shut Down the Requester
+</h4>
+<p class="pBody"><a name="wp1024056"> </a>
+You can use the <code class="cCode">BDWN</code> transaction in a CICS region with the following parameters to shut down Requesters in various ways. The command line syntax for <code class="cCode">BDWN</code> is illustrated in the following listing.
+</p>
+<div class="pCodeTitle"><a name="wp1024057"> </a>
+Listing&#160;2-2	   <code class="cCodeBold">BDWN</code> Command Line Syntax for Requesters
+</div> <a name="wp1024058"> </a><div class="pPreformatted"><pre>BDWN [ALL | REQUESTER I | REQUESTER]</pre></div><h4 class="pDefTerm"><a name="wp1024740"> </a>
+<code class="cCode">BDWN</code>
+</h4><div class="pDefPara"><a name="wp1024062"> </a>
+Shuts down all Handlers or all Requesters or both. It also frees shared memory used by the Requesters associated with each logical machine ID (<code class="cCode">LMID</code>). You can specify optional parameters with the <code class="cCode">BDWN</code> transaction to shut down Handlers or Requesters immediately or after processing of all requests has completed. The default is <code class="cCode">ALL</code>.
+</div>
+<div class="pDefTerm2"><h4 class="pDefTerm2"><a name="wp1024063"> </a>
+<code class="cCode">ALL</code>
+</h4></div>
+<div class="pDefPara2"><a name="wp1024064"> </a>
+Shuts down all Handlers and Requesters gracefully allowing them to complete all processing of all requests that were received before the execution of the <code class="cCode">BDWN</code> transaction. Specifying <code class="cCode">ALL</code> also frees any shared memory. 
+</div><div class="pDefPara2"><a name="wp1024066"> </a>
+This is the default for <code class="cCode">BDWN</code>.
+</div><div class="pDefTerm2"><h4 class="pDefTerm2"><a name="wp1024067"> </a>
+<code class="cCode">REQUESTER I</code>
+</h4></div>
+<div class="pDefPara2"><a name="wp1024068"> </a>
+Shuts down all Requesters immediately and frees memory associated with each <code class="cCode">LMID</code>. This parameter does <em class="cEmphasis">not</em> shut down any Handlers.
+</div><div class="pDefTerm2"><h4 class="pDefTerm2"><a name="wp1024069"> </a>
+<code class="cCode">REQUESTER</code>
+</h4></div>
+<div class="pDefPara2"><a name="wp1025680"> </a>
+Shuts down all Requesters gracefully allowing them to complete all processing off all requests that were received before the execution of the <code class="cCode">BDWN</code> transaction. It also frees memory associated with each <code class="cCode">LMID</code>. This parameter does <em class="cEmphasis">not</em> shut down any Handlers.
+</div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1025685"> </a>
+Translating Data with TMA TCP gateway
+</h2><p class="pBody"><a name="wp1025691"> </a>
+Due to the way TMA TCP gateway translates and converts data on the remote Oracle Tuxedo system, the CICS programmer does not need to do anything to prepare data that is destined for the remote Oracle Tuxedo system.
+</p>
+<p class="pBody"><a name="wp1024089"> </a>
+The key to this high degree of transparency is the TMA TCP gateway configuration. It is through this mechanism that environmental differences, such as naming conventions and data formats, are concealed from programmers and programs.
+</p>
+<p class="pBody"><a name="wp1024093"> </a>
+Although all data is converted and translated automatically by the remote TMA TCP gateway gateway, the rules implemented are outlined in the following subsections to assist the CICS programmer in understanding how the data is manipulated. It is important for the CICS programmer to remember that this information is written from the point of view of the Oracle Tuxedo environment.
+</p>
+<p class="pBody"><a name="wp1024101"> </a>
+When a client program on the remote Oracle Tuxedo system sends data to (or receives data from) a service routine on a different model of computer, TMA TCP gateway automatically translates data as required. Translation involves changing the representation of intrinsic data types by changing attributes such as word length and byte order.
+</p>
+<p class="pBody"><a name="wp1024108"> </a>
+The following subsections describe the basic rules that TMA TCP gateway follows when it translates data and provide detailed information about how TMA TCP gateway handles string and numeric data.
+</p>
+<h3 class="pHeading2"><a name="wp1024115"> </a>
+Oracle Tuxedo Terminology
+</h3>
+<p class="pBody"><a name="wp1024120"> </a>
+The following terms are some commonly used Oracle Tuxedo terms for buffer types.
+</p>
+<p class="pGraphic"><a name="wp1026538"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024762table1024760"><caption><a name="wp1024762"> </a>
+Table 2-1  Oracle Tuxedo Terminology
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1024766"> </a>
+Term
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024768"> </a>
+Definition
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024770"> </a>
+<code class="cCode">STRING</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024837"> </a>
+A buffer of character data that is terminated by the first null character in the buffer. Typically, character string buffers undergo translation when sent to a system that is different from the sending system.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024774"> </a>
+<code class="cCode">CARRAY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024888"> </a>
+A <code class="cCode">CARRAY</code> is a buffer of raw data that contains no terminating character and that undergoes no conversion or translation; the data is sent from one system to another without modification. A <code class="cCode">CARRAY</code> is an exemplary buffer type for a graphics file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024778"> </a>
+<code class="cCode">VIEW</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024931"> </a>
+A <code class="cCode">VIEW</code> buffer is a collection of field definitions that can be treated as a single entity. It is comparable to a record layout in COBOL or a structure in C.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024782"> </a>
+<code class="cCode">FML</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024993"> </a>
+<code class="cCode">FML</code> (Fielded Manipulation Language) buffers are variable length, dynamic, self-describing buffers. Each field in the buffer has its own descriptive header. In Oracle Tuxedo, <code class="cCode">FML</code> buffers can be tied closely to <code class="cCode">VIEW</code> buffers so that conversion from one to the other is direct.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1024132"> </a>
+Data Translation Rules
+</h3>
+<p class="pBody"><a name="wp1024136"> </a>
+The following table lists the data translation rules that TMA TCP gateway follows.
+</p>
+<p class="pGraphic"><a name="wp1024166"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp214311table1024137"><caption><a name="wp214311"> </a>
+Table 2-2  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Data Translation Rules</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1024139"> </a>
+Field Type
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024141"> </a>
+Translation Rules
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024143"> </a>
+<code class="cCode">CARRAY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024145"> </a>
+Passed untranslated as sequences of bytes
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024147"> </a>
+<code class="cCode">STRING </code>and<code class="cCode"> CHAR</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024149"> </a>
+Translated from ASCII to EBCDIC (if needed)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024151"> </a>
+<code class="cCode">SHORT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024153"> </a>
+Translated to S9(4) COMP
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024155"> </a>
+<code class="cCode">LONG</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024157"> </a>
+Translated to S9(9) COMP
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024159"> </a>
+<code class="cCode">FLOAT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024161"> </a>
+Translated to COMP-1
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024163"> </a>
+<code class="cCode">DOUBLE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024165"> </a>
+Translated to COMP-2
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<a name="wp1024170"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Oracle Tuxedo provides a field type named dec_t that supports decimal values within <code class="cCode">VIEW</code>s. The TMA TCP gateway product translates these fields into machine independent representations of packed decimals. For example, <code class="cCode">dec_t(m,n)</code> becomes <code class="cCode">S9(2*m-(n+1))V9(n) COMP-3</code>. Therefore, a decimal field with a size of 8,5 corresponds to <code class="cCode">S9(10)V9(5) COMP-3</code>. </td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1024174"> </a>
+The following table summarizes the translation rules between C and IBM/370 data types.
+</p>
+<p class="pGraphic"><a name="wp1024238"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp214407table1024175"><caption><a name="wp214407"> </a>
+Table 2-3  Translation Rules Between C and IBM/370 Data Types
+
+</caption>
+
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1024177"> </a>
+Remote Data Type
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1024179"> </a>
+Description
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1024181"> </a>
+View Field Type/Length
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024183"> </a>
+<code class="cCode">PIC X(n)</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024185"> </a>
+Alpha-numeric Characters
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024187"> </a>
+string / n
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024189"> </a>
+<code class="cCode">PIC X</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024191"> </a>
+Single Alpha-numeric Character
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024193"> </a>
+char
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024195"> </a>
+<code class="cCode">PIC X(n)</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024197"> </a>
+Raw Bytes
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024199"> </a>
+carray / n
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024201"> </a>
+<code class="cCode">PIC X</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024203"> </a>
+Single Numeric Byte
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024205"> </a>
+carray / 1
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024207"> </a>
+<code class="cCode">PIC S9(4) COMP</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024209"> </a>
+16-bit Integer
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024211"> </a>
+short
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024213"> </a>
+<code class="cCode">PIC S9(9) COMP</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024215"> </a>
+32-bit Integer
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024217"> </a>
+long
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024219"> </a>
+<code class="cCode">COMP-1</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024221"> </a>
+Single-precision Floating Point
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024223"> </a>
+float
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024225"> </a>
+<code class="cCode">COMP-2</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024227"> </a>
+Double-precision Floating Point
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024229"> </a>
+double
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024231"> </a>
+<code class="cCode">PIC</code>
+</div>
+<div class="pCellBody"><a name="wp1024232"> </a>
+<code class="cCode">S9((m+(n+1))/2)V9(n)</code>
+</div>
+<div class="pCellBody"><a name="wp1024233"> </a>
+<code class="cCode">COMP-3</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024235"> </a>
+Packed Decimal
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024237"> </a>
+dec_t / m,n
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1024239"> </a>
+Strings and Numeric Data: A Closer Look
+</h3>
+<p class="pBody"><a name="wp1024240"> </a>
+This subsection provides suggestions that help you develop <code class="cCode">VIEW</code> definitions for input and output buffers and records. It also explains how string data and numeric data are treated in the TMA TCP gateway environment.
+</p>
+<h4 class="pHeading3"><a name="wp1024246"> </a>
+Including NULL Characters in String Length Calculations
+</h4>
+<p class="pBody"><a name="wp1024247"> </a>
+When you create <code class="cCode">VIEW</code> definitions for input and output records that are used by CICS applications, do not specify an extra position for the terminating NULL characters that are used in string fields.
+</p>
+<p class="pBody"><a name="wp1024248"> </a>
+For example, when a CICS application program expects 10 characters in an input record, specify <span style="font-style: italic">10</span> for that field, not 10 plus 1.
+</p>
+<a name="wp1024252"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Although TMA TCP gateway does not require strings to be NULL-terminated, it respects NULL termination. Therefore, when TMA TCP gateway detects a NULL (zero) character within a string, it does not process any subsequent characters. To pass full 8-bit data that contains embedded NULL values, use a <code class="cCode">CARRAY</code> type field or buffer.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1024259"> </a>
+The character set translations performed by TMA TCP gateway can be fully localized, in accordance with the X/Open XPG Portability Guides. ASCII and EBCDIC translations are loadable from message files. The TMA TCP gateway software contains default behaviors which should meet the requirements of most English-language applications. However, you may find it necessary to customize tables. See the <em class="cEmphasis">Oracle </em>TMA TCP gateway<em class="cEmphasis"> User Guide </em>for complete instructions.
+</p>
+<h4 class="pHeading3"><a name="wp1024266"> </a>
+Converting Numeric Data
+</h4>
+<p class="pBody"><a name="wp1024267"> </a>
+You can convert numeric data into different data types easily, provided that you have enough range in the intermediate and destination types to handle the maximum value you need to represent.
+</p>
+<p class="pBody"><a name="wp1024268"> </a>
+For example, you can convert an FML field of double into a packed decimal field on the remote target system by specifying an appropriate <code class="cCode">dec_t type VIEW</code> element.
+</p>
+<p class="pBody"><a name="wp1024269"> </a>
+In addition, you can convert numeric values into strings (and the reverse). For example, while FML buffers do not directly support the <code class="cCode">dec_t type</code>, you can place decimal values in string fields and map these to <code class="cCode">dec_t fields</code> within <code class="cCode">VIEW</code> definitions.
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="cicsundr.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="cicsintr.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="cicssec.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

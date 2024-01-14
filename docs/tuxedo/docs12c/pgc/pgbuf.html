@@ -1,0 +1,2611 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41824" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/pgc/fm/pgbuf.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/26/12 11:37:52" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Managing Typed Buffers</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Programming an Oracle Tuxedo ATMI Application Using C
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pgint.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pgenv.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/pgc.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1290395"> </a>
+Managing Typed Buffers
+</h1>
+<p class="pBody"><a name="wp1251796"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1261621"> </a><a href="pgbuf.html#wp1261747">Overview of Typed Buffers</a></li>
+<li><a name="wp1261629"> </a><a href="pgbuf.html#wp1262141">Allocating a Typed Buffer</a></li>
+<li><a name="wp1261633"> </a><a href="pgbuf.html#wp1262221">Putting Data in a Buffer</a></li>
+<li><a name="wp1261637"> </a><a href="pgbuf.html#wp1262255">Resizing a Typed Buffer</a></li>
+<li><a name="wp1261641"> </a><a href="pgbuf.html#wp1262318">Checking for Buffer Type</a></li>
+<li><a name="wp1261645"> </a><a href="pgbuf.html#wp1262377">Freeing a Typed Buffer</a></li>
+<li><a name="wp1261649"> </a><a href="pgbuf.html#wp1262459">Using a VIEW Typed Buffer</a></li>
+<li><a name="wp1261677"> </a><a href="pgbuf.html#wp1263099">Using an FML Typed Buffer</a></li>
+<li><a name="wp1272022"> </a><a href="pgbuf.html#wp1274232">Using an XML Typed Buffer and the Apache Xerces C++ Parser</a></li>
+<li><a name="wp1272029"> </a><a href="pgbuf.html#wp1294003">Using an MBSTRING Typed Buffer</a></li>
+<li><a name="wp1261725"> </a><a href="pgbuf.html#wp1263695">Customizing a Buffer</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1261747"> </a>
+Overview of Typed Buffers
+</h2><p class="pBody"><a name="wp1127043"> </a>
+Before a message can be sent from one process to another, a buffer must be allocated for the message data. Oracle Tuxedo ATMI clients use typed buffers to send messages to ATMI servers. A typed buffer is a memory area with a category (type) and optionally a subcategory (subtype) associated with it. Typed buffers make up one of the fundamental features of the distributed programming environment supported by the Oracle Tuxedo system.
+</p>
+<p class="pBody"><a name="wp1305179"> </a>
+Why<span style="font-style: italic"> typed</span>? In a distributed environment, an application may be installed on heterogeneous systems that communicate across multiple networks using different protocols. Different types of buffers require different routines to initialize, send and receive messages, and encode and decode data. Each buffer is designated as a specific type so that the appropriate routines can be called automatically without programmer intervention.
+</p>
+<p class="pBody"><a name="wp1127045"> </a>
+<a href="pgbuf.html#wp1269954">Table&#160;2-1</a> lists the typed buffers supported by the Oracle Tuxedo system and indicates whether or not:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1127046"> </a>The buffer is <em class="cEmphasis">self-describing</em>; in other words, the buffer data type and length can be determined simply by (a) knowing the type and subtype, and (b) looking at the data.</li>
+<li><a name="wp1127047"> </a>The buffer requires a subtype.</li>
+<li><a name="wp1127048"> </a>The system supports data-dependent routing for the typed buffer.</li>
+<li><a name="wp1127049"> </a>The system supports encoding and decoding for the typed buffer.</li>
+</ul></div>
+<p class="pBody"><a name="wp1127050"> </a>
+If any routing functions are required, the application programmer must provide them as part of the application.
+</p>
+<p class="pGraphic"><a name="wp1270126"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1269954table1269949"><caption><a name="wp1269954"> </a>
+Table 2-1  Typed Buffers&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1269966"> </a>
+Typed Buffer
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1269968"> </a>
+Description
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1269970"> </a>
+Self-<br />Describing
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1269972"> </a>
+Subtype 
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1269974"> </a>
+Data-<br />Dependent Routing
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1269976"> </a>
+Encoding/<br />Decoding
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1269978"> </a>
+CARRAY
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1269980"> </a>
+Undefined array of characters, any of which can be NULL. This typed buffer is used to handle the data opaquely, as the Oracle Tuxedo system does not interpret the semantics of the array. Because a CARRAY is not self-describing, the length must always be provided during transmission. Encoding and decoding are not supported for messages sent between machines because the bytes are not interpreted by the system.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1269982"> </a>
+No
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1269984"> </a>
+No
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1269986"> </a>
+No
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1269988"> </a>
+No
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1269990"> </a>
+FML (Field Manipulation Language) 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1269992"> </a>
+Proprietary Oracle Tuxedo system type of self-describing buffer in which each data field carries its own identifier, an occurrence number, and possibly a length indicator. Because all data manipulation is done via FML function calls rather than native C statements, the FML buffer offers data-independence and greater flexibility at the expense of some processing overhead.
+</div>
+<div class="pCellBody"><a name="wp1269993"> </a>
+The FML buffer uses 16 bits for field identifiers and lengths of fields. 
+</div>
+<div class="pCellBody"><a name="wp1269996"> </a>
+For more information about the FML buffer, see <a href="pgbuf.html#wp1263099">Using an FML Typed Buffer</a>.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1269999"> </a>
+Yes
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270001"> </a>
+No
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270003"> </a>
+Yes
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270005"> </a>
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270007"> </a>
+FML32
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270009"> </a>
+Equivalent to FML but uses 32 bits for field identifiers and lengths of fields, which allows for larger and more fields and, consequently, larger overall buffers. 
+</div>
+<div class="pCellBody"><a name="wp1270012"> </a>
+For more information about the FML32 buffer, see <a href="pgbuf.html#wp1263099">Using an FML Typed Buffer</a>.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270015"> </a>
+Yes
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270017"> </a>
+No
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270019"> </a>
+Yes
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270021"> </a>
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270023"> </a>
+STRING
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270025"> </a>
+Array of characters that terminates with a NULL character. The STRING buffer is self-describing, so the Oracle Tuxedo system can convert data automatically when data is exchanged by machines with different character sets.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270027"> </a>
+Yes
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270029"> </a>
+No
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270031"> </a>
+No
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270033"> </a>
+No
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270035"> </a>
+VIEW
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270037"> </a>
+C structure defined by the application. VIEW types must have subtypes that designate individual data structures. A <span class="cHyperlink">
+<a href="pgbuf.html#wp1127546">view description file</a></span>, in which the fields and types that appear in the data structure are defined, must be available to client and server processes that use a data structure described in a VIEW typed buffer. Encoding and decoding are performed automatically if the buffer is passed between machines of different types.
+</div>
+<div class="pCellBody"><a name="wp1314577"> </a>
+VIEW <span style="font-style: italic">does not</span> support mbstring type buffers.
+</div>
+<div class="pCellBody"><a name="wp1271882"> </a>
+For more information about the VIEW buffer, see <a href="pgbuf.html#wp1262459">Using a VIEW Typed Buffer</a>.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270043"> </a>
+No
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270045"> </a>
+Yes
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270047"> </a>
+Yes
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270049"> </a>
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270051"> </a>
+VIEW32
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270053"> </a>
+Equivalent to VIEW but uses 32 bits for length and count fields, which allows for larger and more fields and, consequently, larger overall buffers. 
+</div>
+<div class="pCellBody"><a name="wp1314580"> </a>
+VIEW32 supports mbstring type buffers and treat mbstring data in the same manner as carray.
+</div>
+<div class="pCellBody"><a name="wp1270056"> </a>
+For more information about the VIEW32 buffer, see <a href="pgbuf.html#wp1262459">Using a VIEW Typed Buffer</a>.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270059"> </a>
+No
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270061"> </a>
+Yes
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270063"> </a>
+Yes
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270065"> </a>
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270067"> </a>
+X_C_TYPE
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270069"> </a>
+Equivalent to VIEW.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270071"> </a>
+No
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270073"> </a>
+Yes
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270075"> </a>
+Yes
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270077"> </a>
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270079"> </a>
+X_COMMON
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270081"> </a>
+Equivalent to VIEW, but used for compatibility between COBOL and C programs. Field types should be limited to short, long, and string.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270083"> </a>
+No
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270085"> </a>
+Yes
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270087"> </a>
+Yes
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270089"> </a>
+Yes
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270091"> </a>
+XML
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270093"> </a>
+An XML document that consists of:
+</div>
+<div class="pSmartList1TableBullet"><ul class="SmartList1TableBullet">
+<li><a name="wp1270094"> </a>Text, in the form of a sequence of encoded characters</li>
+<li><a name="wp1270095"> </a>A description of the logical structure of the document and information about that structure</li>
+</ul></div>
+<div class="pCellBody"><a name="wp1270096"> </a>
+The routing of an XML document can be based on element content, or on element type and an attribute value. The XML parser, such as the Apache Xerces C++ Version 2.5 parser available in Oracle Tuxedo 9.x, determines the character encoding being used; if the encoding differs from the native character sets (US-ASCII or EBCDIC) used in the Oracle Tuxedo configuration files (<a href="../rf5/rf5.html">UBBCONFIG(5)</a> and <a href="../rf5/rf5.html">DMCONFIG(5)</a>), the element and attribute names are converted to US-ASCII or EBCDIC.
+</div>
+<div class="pCellBody"><a name="wp1271841"> </a>
+For more information about the XML buffer and the Xerces C++ parser, see <a href="pgbuf.html#wp1274232">Using an XML Typed Buffer and the Apache Xerces C++ Parser</a>.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270107"> </a>
+No
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270109"> </a>
+No
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270111"> </a>
+Yes
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270113"> </a>
+No
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270115"> </a>
+X_OCTET
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270117"> </a>
+Equivalent to CARRAY.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270119"> </a>
+No
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270121"> </a>
+No
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270123"> </a>
+No
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1270125"> </a>
+No
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1271984"> </a>
+MBSTRING
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1271986"> </a>
+Character array for multibyte characters&#8212;available in Oracle Tuxedo 8.1. For more information about the MBSTRING buffer, see <a href="pgbuf.html#wp1294003">Using an MBSTRING Typed Buffer</a>.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1271988"> </a>
+No
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1271990"> </a>
+No
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1271992"> </a>
+No
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1271994"> </a>
+No
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1127210"> </a>
+All buffer types are defined in a file called <code class="cCode">tmtypesw.c</code> in the <code class="cCode">$TUXDIR/lib</code> directory. Only buffer types defined in <code class="cCode">tmtypesw.c</code> are known to your client and server programs. You can edit the <code class="cCode">tmtypesw.c</code> file to add or remove buffer types. In addition, you can use the <code class="cCode">BUFTYPE</code> parameter (in <code class="cCode">UBBCONFIG</code>) to restrict the types and subtypes that can be processed by a given service.
+</p>
+<p class="pBody"><a name="wp1127211"> </a>
+The <code class="cCode">tmtypesw.c</code> file is used to build a shared object or dynamic link library. This object is dynamically loaded by both Oracle Tuxedo administrative servers, and application clients and servers.
+</p>
+<h3 class="pHeading2"><a name="wp1127212"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1127216"> </a> <a href="pgbuf.html#wp1262459">Using a VIEW Typed Buffer</a></li>
+<li><a name="wp1262095"> </a><a href="pgbuf.html#wp1263099">Using an FML Typed Buffer</a></li>
+<li><a name="wp1262103"> </a><a href="pgbuf.html#wp1274232">Using an XML Typed Buffer and the Apache Xerces C++ Parser</a></li>
+<li><a name="wp1273114"> </a><a href="pgbuf.html#wp1294003">Using an MBSTRING Typed Buffer</a></li>
+<li><a name="wp1127227"> </a><a href="../rf5/rf5.html">tuxtypes(5)</a> in <em class="cEmphasis">Oracle Tuxedo File Formats, Data Descriptions, MIBs, and System Processes Reference</em></li>
+<li><a name="wp1127231"> </a><a href="../rf5/rf5.html">UBBCONFIG(5)</a> in <em class="cEmphasis">Oracle Tuxedo File Formats, Data Descriptions, MIBs, and System Processes Reference</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1262141"> </a>
+Allocating a Typed Buffer
+</h2><p class="pBody"><a name="wp1262143"> </a>
+Initially, no buffers are associated with a client process. Before a message can be sent, a client process must allocate a buffer of a supported type to carry a message. A typed buffer is allocated using the tpacall<span class="cHyperlink">
+<a href="../rf3c/rf3c.html"></a>(3c)</span> function, as follows:
+</p>
+<a name="wp1262147"> </a><div class="pPreformatted"><pre><code class="cCode">char*<br />tpalloc(char *</code><code class="cCodeEmphasis">type</code><code class="cCode">, char *</code><code class="cCodeEmphasis">subtype</code><code class="cCode">, long </code><code class="cCodeEmphasis">size</code><code class="cCode">)</code></pre></div><p class="pBody"><a name="wp1262148"> </a>
+<a href="pgbuf.html#wp1282888">Table&#160;2-2</a> describes the arguments to the <code class="cCode">tpalloc()</code> function.
+</p>
+<p class="pGraphic"><a name="wp1282867"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1282888table1262149"><caption><a name="wp1282888"> </a>
+Table 2-2  tpalloc() Function Arguments
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1262151"> </a>
+Argument
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1262153"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1262155"> </a>
+<code class="cCodeEmphasis">type</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1262157"> </a>
+Pointer to a valid typed buffer.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1262159"> </a>
+<code class="cCodeEmphasis">subtype</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1262161"> </a>
+Pointer to the name of a subtype being specified (in the <span class="cHyperlink">
+<a href="pgbuf.html#wp1127546">view description file</a></span>) for a <code class="cCode">VIEW</code>, <code class="cCode">VIEW32</code>, or <code class="cCode">X_COMMON</code> typed buffer.
+</div>
+<div class="pCellBody"><a name="wp1262163"> </a>
+In the cases where a <code class="cCodeEmphasis">subtype</code> is not relevant, assign the NULL value to this argument.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1262165"> </a>
+<code class="cCodeEmphasis">size</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1262167"> </a>
+Size of the buffer. 
+</div>
+<div class="pCellBody"><a name="wp1262168"> </a>
+The Oracle Tuxedo system automatically associates a default buffer size with all typed buffers except <code class="cCode">CARRAY</code>, <code class="cCode">X_OCTET</code>, and <code class="cCode">XML</code>, which require that you specify a size, so that the end of the buffer can be identified. 
+</div>
+<div class="pCellBody"><a name="wp1262169"> </a>
+For all typed buffers other than <code class="cCode">CARRAY</code>, <code class="cCode">X_OCTET</code>, and <code class="cCode">XML</code>, if you specify a value of zero, the Oracle Tuxedo system uses the default associated with that typed buffer. If you specify a size, the Oracle Tuxedo system assigns the larger of the following two values: the specified size or the default size associated with that typed buffer. 
+</div>
+<div class="pCellBody"><a name="wp1262170"> </a>
+The default size for all typed buffers other than <code class="cCode">STRING</code>, <code class="cCode">CARRAY</code>, <code class="cCode">X_OCTET</code>, and <code class="cCode">XML</code> is 1024 bytes. The default size for <code class="cCode">STRING</code> typed buffers is 512 bytes. There is no default value for <code class="cCode">CARRAY</code>, <code class="cCode">X_OCTET</code>, and <code class="cCode">XML</code>; for these typed buffers you must specify a size value greater than zero. If you do not specify a size, the argument defaults to 0. As a result, the <code class="cCode">tpalloc()</code> function returns a NULL pointer and sets <code class="cCode">tperrno</code> to <code class="cCode">TPEINVAL</code>. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1262172"> </a>
+The <code class="cCode">VIEW</code>, <code class="cCode">VIEW32</code>, <code class="cCode">X_C_TYPE</code>, and <code class="cCode">X_COMMON</code> typed buffers require the <code class="cCodeEmphasis">subtype</code> argument, as shown in <a href="pgbuf.html#wp1262173">Listing&#160;2-1</a>. 
+</p>
+<div class="pCodeTitle"><a name="wp1262173"> </a>
+Listing&#160;2-1	   Allocating a VIEW Typed Buffer
+</div> <a name="wp1262174"> </a><div class="pPreformatted"><pre>struct aud *audv; /* pointer to aud view structure */<br /> . . .<br />audv = (struct aud *) tpalloc(&quot;VIEW&quot;, &quot;aud&quot;, sizeof(struct aud));<br /> . . .</pre></div><p class="pBody"><a name="wp1262176"> </a>
+<a href="pgbuf.html#wp1262178">Listing&#160;2-2</a> shows how to allocate an FML typed buffer. Note that a value of NULL is assigned to the <code class="cCodeEmphasis">subtype</code> argument.
+</p>
+<div class="pCodeTitle"><a name="wp1262178"> </a>
+Listing&#160;2-2	   Allocating an FML Typed Buffer
+</div> <a name="wp1262179"> </a><div class="pPreformatted"><pre>FBFR *fbfr; /* pointer to an FML buffer structure */<br /> . . .<br />fbfr = (FBFR *)tpalloc(&quot;FML&quot;, NULL, Fneeded(f, v))<br /> . . .</pre></div><p class="pBody"><a name="wp1262181"> </a>
+<a href="pgbuf.html#wp1262183">Listing&#160;2-3</a> shows how to allocate a <code class="cCode">CARRAY</code> typed buffer, which requires that a <code class="cCodeEmphasis">size</code> value be specified.
+</p>
+<div class="pCodeTitle"><a name="wp1262183"> </a>
+Listing&#160;2-3	   Allocating a CARRAY Typed Buffer
+</div> <a name="wp1262184"> </a><div class="pPreformatted"><pre>char *cptr;<br />long casize;<br />. . .<br />casize = 1024;<br />cptr = tpalloc(&quot;CARRAY&quot;, NULL, casize);<br />. . .</pre></div><p class="pBody"><a name="wp1262186"> </a>
+Upon success, the <code class="cCode">tpalloc()</code> function returns a pointer of type <code class="cCode">char</code>. For types other than <code class="cCode">STRING</code> and <code class="cCode">CARRAY</code>, you should cast the pointer to the proper C structure or FML pointer. 
+</p>
+<p class="pBody"><a name="wp1262187"> </a>
+If the <code class="cCode">tpalloc()</code> function encounters an error, it returns the NULL pointer. The following list provides examples of error conditions:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1262188"> </a>Failure to specify a <code class="cCodeEmphasis">size</code> value for a <code class="cCode">CARRAY</code>, <code class="cCode">X_OCTET</code>, or <code class="cCode">XML</code> typed buffer</li>
+<li><a name="wp1262189"> </a>Failure to specify a <code class="cCodeEmphasis">type</code> (or <code class="cCodeEmphasis">subtype</code> in the case of <code class="cCode">VIEW</code>)</li>
+<li><a name="wp1262190"> </a>Specifying a <code class="cCodeEmphasis">type</code> that is not known to the system</li>
+<li><a name="wp1318608"> </a>Failure to join the application before attempting allocation</li>
+</ul></div>
+<p class="pBody"><a name="wp1318611"> </a>
+For a complete list of error codes and explanations of them, refer to <a href="../rf3c/rf3c.html">tpalloc(3c)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em>.
+</p>
+<p class="pBody"><a name="wp1262199"> </a>
+<a href="pgbuf.html#wp1262201">Listing&#160;2-4</a> shows how to allocate a <code class="cCode">STRING</code> typed buffer. In this example, the associated default size is used as the value of the <code class="cCodeEmphasis">size</code> argument to <code class="cCode">tpalloc()</code>.
+</p>
+<div class="pCodeTitle"><a name="wp1262201"> </a>
+Listing&#160;2-4	   Allocating a STRING Buffer
+</div> <a name="wp1262202"> </a><div class="pPreformatted"><pre>char *cptr;<br /> . . .<br />cptr = tpalloc(&quot;STRING&quot;, NULL, 0);<br />. . .</pre></div><h3 class="pHeading2"><a name="wp1262204"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1262208"> </a><a href="pgbuf.html#wp1262221">Putting Data in a Buffer</a></li>
+<li><a name="wp1262212"> </a><a href="pgbuf.html#wp1262255">Resizing a Typed Buffer</a></li>
+<li><a name="wp1262219"> </a><a href="../rf3c/rf3c.html">tpalloc(3c)</a> in <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1262221"> </a>
+Putting Data in a Buffer
+</h2><p class="pBody"><a name="wp1262222"> </a>
+Once you have allocated a buffer, you can put data in it. 
+</p>
+<p class="pBody"><a name="wp1262223"> </a>
+In <a href="pgbuf.html#wp1262225">Listing&#160;2-5</a>, a <code class="cCode">VIEW</code> typed buffer called <code class="cCode">aud</code> is created with three members (fields). The three members are <code class="cCode">b_id</code>, the branch identifier taken from the command line (if provided); <code class="cCode">balance</code>, used to return the requested balance; and <code class="cCode">ermsg</code>, used to return a message to the status line for the user. When <code class="cCode">audit</code> is used to request a specific branch balance, the value of the <code class="cCode">b_id</code> member is set to the branch identifier to which the request is being sent, and the <code class="cCode">balance</code> and <code class="cCode">ermsg</code> members are set to zero and the NULL string, respectively. 
+</p>
+<div class="pCodeTitle"><a name="wp1262225"> </a>
+Listing&#160;2-5	   Putting Data in a Message Buffer - Example 1
+</div> <a name="wp1262226"> </a><div class="pPreformatted"><pre>...<br />audv = (struct aud *)tpalloc(&quot;VIEW&quot;, &quot;aud&quot;, sizeof(struct aud));<br /> <br />/* Prepare aud structure */<br /> <br />audv-&gt;b_id = q_branchid;<br />audv-&gt;balance = 0.0;<br />(void)strcpy(audv-&gt;ermsg, &quot;&quot;);<br />...</pre></div><p class="pBody"><a name="wp1262228"> </a>
+When <code class="cCode">audit</code> is used to query the total bank balance, the total balance at each site is obtained by a call to the <code class="cCode">BAL</code> server. To run a query on each site, a representative branch identifier is specified. Representative branch identifiers are stored in an array named <code class="cCode">sitelist[]</code>. Hence, the <code class="cCode">aud</code> structure is set up as shown in <a href="pgbuf.html#wp1262230">Listing&#160;2-6</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1262230"> </a>
+Listing&#160;2-6	   Placing Data in a Message Buffer - Example 2
+</div> <a name="wp1262231"> </a><div class="pPreformatted"><pre>...<br />/* Prepare aud structure */<br /> <br />audv-&gt;b_id = sitelist[i];/* routing done on this field */<br />audv-&gt;balance = 0.0;<br />(void)strcpy(audv-&gt;ermsg, &quot;&quot;);<br />...</pre></div><p class="pBody"><a name="wp1262236"> </a>
+The process of putting data into a <code class="cCode">STRING</code> buffer is illustrated in the listing titled <a href="pgbuf.html#wp1262293">Resizing a Buffer</a>.
+</p>
+<h3 class="pHeading2"><a name="wp1262237"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1262241"> </a><a href="pgbuf.html#wp1262141">Allocating a Typed Buffer</a></li>
+<li><a name="wp1262245"> </a><a href="pgbuf.html#wp1262255">Resizing a Typed Buffer</a></li>
+<li><a name="wp1262252"> </a>tpalloc<span class="cHyperlink">
+<a href="../rf3c/rf3c.html"></a>(3c)</span> in <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1262255"> </a>
+Resizing a Typed Buffer
+</h2><p class="pBody"><a name="wp1262260"> </a>
+You can change the size of a buffer allocated with <a href="pgbuf.html#wp1262143">tpalloc()</a> by using the tprealloc<span class="cHyperlink">
+<a href="../rf3c/rf3c.html"></a>(3c)</span> function as follows:
+</p>
+<a name="wp1262261"> </a><div class="pPreformatted"><pre>char*<br />tprealloc(char *<span style="font-style: italic">ptr</span>, long <span style="font-style: italic">size</span>)</pre></div><p class="pBody"><a name="wp1262262"> </a>
+<a href="pgbuf.html#wp47834">Table&#160;2-3</a> describes the arguments to the <code class="cCode">tprealloc()</code> function.
+</p>
+<p class="pGraphic"><a name="wp1262279"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp47834table1262263"><caption><a name="wp47834"> </a>
+Table 2-3  tprealloc() Function Arguments
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1262265"> </a>
+Argument
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1262267"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1262269"> </a>
+<code class="cCodeEmphasis">ptr</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1262271"> </a>
+Pointer to the buffer that is to be resized. This pointer must have been allocated originally by a call to <code class="cCode">tpalloc()</code>. If it was not, the call fails and <a href="../rf5/rf5.html">tperrno(5)</a> is set to <code class="cCode">TPEINVAL</code> to signify that invalid arguments have been passed to the function.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1262276"> </a>
+<code class="cCodeEmphasis">size</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1262278"> </a>
+Long integer specifying the new size of the buffer.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1262280"> </a>
+The pointer returned by <code class="cCode">tprealloc()</code> points to a buffer of the same type as the original buffer. You must use the returned pointer to reference the resized buffer because the location of the buffer may have changed. 
+</p>
+<p class="pBody"><a name="wp1262281"> </a>
+When you call the <code class="cCode">tprealloc()</code> function to increase the size of the buffer, the Oracle Tuxedo system makes new space available to the buffer. When you call the <code class="cCode">tprealloc()</code> function to make a buffer smaller, the system does not actually resize the buffer; instead, it renders the space beyond the specified size unusable. The actual content of the typed buffer remains unchanged. If you want to free up unused space, it is recommended that you copy the data into a buffer of the desired size and then <span class="cHyperlink">
+<a href="pgbuf.html#wp1262377">free</a></span> the larger buffer. 
+</p>
+<p class="pBody"><a name="wp1262283"> </a>
+On error, the <code class="cCode">tprealloc()</code> function returns the NULL pointer and sets <code class="cCode">tperrno</code> to an appropriate value. Refer to tpalloc<span class="cHyperlink">
+<a href="../rf3c/rf3c.html"></a>(3c)</span> in <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em> for information on error codes.
+</p>
+<a name="wp1262290"> </a>
+<table class="Note">
+<tr>
+<td valign="top"><strong>WARNING:</strong></td>
+<td>If the <code class="cCode">tprealloc()</code> function returns the NULL pointer, the contents of the buffer passed to it may have been altered and may be no longer valid.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1262291"> </a>
+<a href="pgbuf.html#wp1262293">Listing&#160;2-7</a> shows how to reallocate space for a <code class="cCode">STRING</code> buffer. 
+</p>
+<div class="pCodeTitle"><a name="wp1262293"> </a>
+Listing&#160;2-7	   Resizing a Buffer
+</div> <a name="wp1262294"> </a><div class="pPreformatted"><pre>#include &lt;stdio.h&gt;<br />#include &#8220;atmi.h&#8221;<br /><br />char instr[100];      /* string to capture stdin input strings */<br />long s1len, s2len;    /* string 1 and string 2 lengths */<br />char *s1ptr, *s2ptr;  /* string 1 and string 2 pointers */<br /><br />main<code class="cCode">()<br /></code><br />{<br />&#160;&#160;(void)gets(instr);              /* get line from stdin */<br />&#160;&#160;s1len = (long)strlen(instr)+1;  /* determine its length */<br /> <br />&#160;&#160;join application<br /> <br />&#160;&#160;if ((s1ptr = tpalloc(&#8220;STRING&#8221;, NULL, s1len)) == NULL) {<br />&#160;&#160;&#160;&#160;&#160;fprintf(stderr, &#8220;tpalloc failed for echo of: %s\n&#8221;, instr);<br />&#160;&#160;&#160;&#160;&#160;leave application<br />&#160;&#160;&#160;&#160;&#160;exit(1);<br />&#160;&#160;&#160;}<br />&#160;&#160;&#160;(void)strcpy(s1ptr, instr);<br /> <br />&#160;&#160;&#160;make communication call with buffer pointed to by s1ptr<br /> <br />&#160;&#160;&#160;(void)gets(instr);       /* get another line from stdin */<br />&#160;&#160;&#160;s2len = (long)strlen(instr)+1; /* determine its length */<br />&#160;&#160;&#160;if ((s2ptr = tprealloc(s1ptr, s2len)) == NULL) {<br />&#160;&#160;&#160;&#160;&#160;fprintf(stderr, &#8220;tprealloc failed for echo of: %s\n&#8221;, instr);<br />&#160;&#160;&#160;&#160;&#160;free s1ptr&#39;s buffer<br />&#160;&#160;&#160;&#160;&#160;leave application<br />&#160;&#160;&#160;&#160;&#160;exit(1);<br />&#160;&#160;&#160;}<br />&#160;&#160;&#160;(void)strcpy(s2ptr, instr);<br /> <br />  make communication call with buffer pointed to by s2ptr<br />  . . .<br />}</pre></div><p class="pBody"><a name="wp1262296"> </a>
+<a href="pgbuf.html#wp1262297">Listing&#160;2-8</a> (an expanded version of the previous example) shows how to check for occurrences of all possible error codes.
+</p>
+<div class="pCodeTitle"><a name="wp1262297"> </a>
+Listing&#160;2-8	   	   Error Checking for tprealloc()
+</div> <a name="wp1262298"> </a><div class="pPreformatted"><pre>. . .<br />if ((s2ptr=tprealloc(s1ptr, s2len)) == NULL)<br />&#160;&#160;&#160;switch(tperrno) {<br />&#160;&#160;&#160;case TPEINVAL:<br />&#160;&#160;&#160;&#160;&#160;fprintf(stderr, &quot;given invalid arguments\n&quot;);<br />&#160;&#160;&#160;&#160;&#160;fprintf(stderr, &quot;will do tpalloc instead\n&quot;);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpfree(s1ptr);<br />&#160;&#160;&#160;&#160;&#160;if ((s2ptr=tpalloc(&quot;STRING&quot;, NULL, s2len)) == NULL) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;fprintf(stderr, &quot;tpalloc failed for echo of: %s\n&quot;, instr);<br />&#160;&#160;&#160;&#160;&#160;leave application<br />&#160;&#160;&#160;&#160;exit(1);<br />&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;break;<br />&#160;&#160;case TPEPROTO:<br />&#160;&#160;&#160;&#160;&#160;fprintf(stderr, &quot;tried to tprealloc before tpinit;\n&quot;);<br />&#160;&#160;&#160;&#160;&#160;fprintf(stderr, &quot;program error; contact product support\n&quot;);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;leave application<br />&#160;&#160;&#160;&#160;&#160;exit(1);<br />&#160;&#160;case TPESYSTEM:<br />&#160;&#160;&#160;&#160;&#160;fprintf(stderr,<br />&#160;&#160;&#160;&#160;&#160;&#160;&quot;BEA Tuxedo error occurred; consult today&#39;s userlog file\n&quot;);<br />&#160;&#160;&#160;&#160;&#160;&#160;leave application<br />&#160;&#160;&#160;&#160;exit(1);<br />&#160;&#160;case TPEOS:<br />&#160;&#160;&#160;&#160;&#160;fprintf(stderr, &quot;Operating System error %d occurred\n&quot;,Uunixerr);<br />&#160;&#160;&#160;&#160;&#160;leave application<br />&#160;&#160;&#160;&#160;&#160;exit(1);<br />&#160;&#160;default:<br />&#160;&#160;&#160;&#160;&#160;fprintf(stderr,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;Error from tpalloc: %s\n&quot;, tpstrerror(tperrno));<br />&#160;&#160;&#160;&#160;&#160;break;<br />}</pre></div><h3 class="pHeading2"><a name="wp1262300"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1262304"> </a><a href="pgbuf.html#wp1262141">Allocating a Typed Buffer</a></li>
+<li><a name="wp1262308"> </a><a href="pgbuf.html#wp1262221">Putting Data in a Buffer</a></li>
+<li><a name="wp1262315"> </a><a href="../rf3c/rf3c.html">tprealloc(3c)</a> in <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1262318"> </a>
+Checking for Buffer Type
+</h2><p class="pBody"><a name="wp1262322"> </a>
+The tptypes<span class="cHyperlink">
+<a href="../rf3c/rf3c.html"></a>(3c)</span> function returns the type and subtype (if one exists) of a buffer. The <code class="cCode">tptypes()</code> function signature is as follows:
+</p>
+<a name="wp1262323"> </a><div class="pPreformatted"><pre>long<br />tptypes(char *<span style="font-style: italic">ptr</span>, char *<span style="font-style: italic">type</span>, char *<span style="font-style: italic">subtype</span>)</pre></div><p class="pBody"><a name="wp1262324"> </a>
+<a href="pgbuf.html#wp1283088">Table&#160;2-4</a> describes the arguments to the <code class="cCode">tptypes()</code> function.
+</p>
+<p class="pGraphic"><a name="wp1283031"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1283088table1262325"><caption><a name="wp1283088"> </a>
+Table 2-4  tptypes() Function Arguments
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1262327"> </a>
+Argument
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1262329"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1262331"> </a>
+<code class="cCodeEmphasis">ptr</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1262333"> </a>
+Pointer to a data buffer. This pointer must have been originally allocated by a call to tpalloc()<a href="pgbuf.html#wp1262143"></a> or tprealloc()<code class="cCode"><a href="pgbuf.html#wp1262255"></a></code>, it may not be NULL, and it must be cast as a character type; otherwise, the tptypes() function reports an invalid argument error.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1262337"> </a>
+<code class="cCodeEmphasis">type</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1262339"> </a>
+Pointer to the type of the data buffer. <code class="cCodeEmphasis">type</code> is of character type.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1262341"> </a>
+<code class="cCodeEmphasis">subtype</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1262343"> </a>
+Pointer to the subtype of the data buffer, if one exists. <code class="cCodeEmphasis">subtype</code> is of character type. For all types other than <code class="cCode">VIEW</code>, <code class="cCode">VIEW32</code>, <code class="cCode">X_C_TYPE</code>, and <code class="cCode">X_COMMON</code>, upon return the <code class="cCodeEmphasis">subtype</code> parameter points to a character array containing the NULL string. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1262345"> </a>
+Upon success, the <code class="cCode">tptypes()</code> function returns the length of the buffer in the form of a long integer. 
+</p>
+<p class="pBody"><a name="wp1262349"> </a>
+In the event of an error, <code class="cCode">tptypes()</code> returns a value of <code class="cCode">-1</code> and sets <a href="../rf5/rf5.html">tperrno(5)</a> to the appropriate error code. For a list of these error codes, refer to the <span class="cHyperlink">
+&#8220;Introduction to the </span><a href="../rf3c/rf3c.html"></a>C Language Application-to-Transaction Monitor Interface&#8221; and <a href="../rf3c/rf3c.html">tpalloc(3c)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em>.
+</p>
+<p class="pBody"><a name="wp1262359"> </a>
+You can use the size value returned by <code class="cCode">tptypes()</code> upon success to determine whether the default buffer size is large enough to hold your data, as shown in <a href="pgbuf.html#wp1262360">Listing&#160;2-9</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1262360"> </a>
+Listing&#160;2-9	   Getting Buffer Size
+</div> <a name="wp1321785"> </a><div class="pPreformatted"><pre>. . .<br />iptr = (FBFR *)tpalloc(&quot;FML&quot;, NULL, 0);<br />ilen = tptypes(iptr, NULL, NULL);<br />. . .<br />if (ilen &lt; mydatasize)<br />&#160;&#160;&#160;&#160;&#160;&#160;iptr=tprealloc(iptr, mydatasize);</pre></div><h3 class="pHeading2"><a name="wp1262363"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1262367"> </a><a href="pgbuf.html#wp1262141">Allocating a Typed Buffer</a></li>
+<li><a name="wp1262374"> </a>tptypes<span class="cHyperlink">
+<a href="../rf3c/rf3c.html"></a>(3c)</span> in <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1262377"> </a>
+Freeing a Typed Buffer
+</h2><p class="pBody"><a name="wp1262383"> </a>
+The tpfree<span class="cHyperlink">
+<a href="../rf3c/rf3c.html"></a>(3c)</span> function frees a buffer allocated by <a href="pgbuf.html#wp1262143">tpalloc()</a> or reallocated by <a href="pgbuf.html#wp1262255">tprealloc()</a>. The <code class="cCode">tpfree()</code> function signature is as follows: 
+</p>
+<a name="wp1262384"> </a><div class="pPreformatted"><pre>void<br />tpfree(char *<span style="font-style: italic">ptr</span>)</pre></div><p class="pBody"><a name="wp1262385"> </a>
+The <code class="cCode">tpfree()</code> function takes only one argument, <code class="cCodeEmphasis">ptr</code>, which is described in <a href="pgbuf.html#wp47883">Listing&#160;2-5</a>.
+</p>
+<p class="pGraphic"><a name="wp1262397"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp47883table1262386"><caption><a name="wp47883"> </a>
+Table 2-5  tpfree() Function Argument
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1262388"> </a>
+Argument
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1262390"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1262392"> </a>
+<code class="cCodeEmphasis">ptr</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1262394"> </a>
+Pointer to a data buffer. This pointer must have been allocated originally by a call to <a href="pgbuf.html#wp1262143">tpalloc()</a> or <a href="pgbuf.html#wp1262255">tprealloc()</a>, it may not be NULL, and it must be cast as a character type; otherwise, the function returns without freeing anything or reporting an error condition.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1262398"> </a>
+When freeing an <code class="cCode">FML32</code> buffer using <code class="cCode">tpfree()</code>, the routine recursively frees all embedded buffers to prevent memory leaks. In order to preserve the embedded buffers, you should assign the associated pointer to NULL before issuing the <code class="cCode">tpfree()</code> routine. When <em class="cEmphasis">ptr</em> is NULL, no action occurs.
+</p>
+<p class="pBody"><a name="wp1262399"> </a>
+<a href="pgbuf.html#wp1262400">Listing&#160;2-10</a> shows how to use the <code class="cCode">tpfree()</code> function to free a buffer.
+</p>
+<div class="pCodeTitle"><a name="wp1262400"> </a>
+Listing&#160;2-10	   Freeing a Buffer
+</div> <a name="wp1262401"> </a><div class="pPreformatted"><pre>struct aud *audv; /* pointer to aud view structure */<br />. . .<br />audv = (struct aud *)tpalloc(&quot;VIEW&quot;, &quot;aud&quot;, sizeof(struct aud));<br />. . .<br />tpfree((char *)audv);</pre></div><h3 class="pHeading2"><a name="wp1262403"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1262407"> </a><a href="pgbuf.html#wp1262141">Allocating a Typed Buffer</a></li>
+<li><a name="wp1262411"> </a><a href="pgbuf.html#wp1262255">Resizing a Typed Buffer</a></li>
+<li><a name="wp1262418"> </a>tpfree<span class="cHyperlink">
+<a href="../rf3c/rf3c.html"></a>(3c)</span> in <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1262459"> </a>
+Using a VIEW Typed Buffer
+</h2><p class="pBody"><a name="wp1127507"> </a>
+There are two kinds of <code class="cCode">VIEW</code> typed buffers. The first, <code class="cCode">FML VIEW</code>, is a C structure generated from an <code class="cCode">FML</code> buffer. The second is simply an independent C structure. 
+</p>
+<p class="pBody"><a name="wp1128322"> </a>
+The reason for converting <code class="cCode">FML</code> buffers into C structures and back again (and the purpose of the <code class="cCode">FML VIEW</code> typed buffers) is that while <code class="cCode">FML</code> buffers provide data-independence and convenience, they incur processing overhead because they must be manipulated using <code class="cCode">FML</code> function calls. C structures, while not providing flexibility, offer the performance required for lengthy manipulations of buffer data. If you need to perform a significant amount of data manipulation, you can improve performance by transferring fielded buffer data to C structures, operating on the data using normal C functions, and then converting the data back to the FML buffer for storage or message transmission.
+</p>
+<p class="pBody"><a name="wp1128326"> </a>
+For more information on the <code class="cCode">FML</code> typed buffer and <code class="cCode">FML</code> file conversion, refer to the <em class="cEmphasis">Oracle Tuxedo ATMI FML Function Reference</em>.
+</p>
+<p class="pBody"><a name="wp1128327"> </a>
+To use <code class="cCode">VIEW</code> typed buffers, you must perform the following steps:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1127515"> </a><span class="cHyperlink">
+<a href="pgbuf.html#wp1127521">Set the appropriate environment variables</a></span>.</li>
+<li><a name="wp1127517"> </a><span class="cHyperlink">
+<a href="pgbuf.html#wp1127546">Describe each structure in view description files</a></span>.</li>
+<li><a name="wp1127519"> </a><span class="cHyperlink">
+Compile the view description files using </span>viewc<a href="pgbuf.html#wp1127615">, the Oracle Tuxedo view compiler</a>. Specify the resulting header file in the <code class="cCode">#include</code> statement for your application program.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1127521"> </a>
+Setting Environment Variables for a VIEW Typed Buffer
+</h3>
+<p class="pBody"><a name="wp1127522"> </a>
+To use a VIEW typed buffer in an application, you must set the following environment variables shown in <a href="pgbuf.html#wp47739">Table&#160;2-6</a>.
+</p>
+<p class="pGraphic"><a name="wp1127544"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp47739table1127523"><caption><a name="wp47739"> </a>
+Table 2-6  Environment Variables for a VIEW Typed Buffer
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1127525"> </a>
+Environment Variable
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1127527"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1127529"> </a>
+<code class="cCode">FIELDTBLS</code> or <code class="cCode">FIELDTBLS32</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1127531"> </a>
+Comma-separated list of field table filenames for <code class="cCode">FML</code> or <code class="cCode">FML32</code> typed buffers. Required only for <code class="cCode">FML</code> <code class="cCode">VIEW</code> types.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1127533"> </a>
+<code class="cCode">FLDTBLDIR</code> or <code class="cCode">FLDTBLDIR32</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1127535"> </a>
+Colon-separated list of directories to search for the field table files for <code class="cCode">FML</code> and <code class="cCode">FML32</code> typed buffers. For Microsoft Windows, use a semicolon-separated list. Required only for <code class="cCode">FML</code> <code class="cCode">VIEW</code> types.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1127537"> </a>
+<code class="cCode">VIEWFILES</code> or <code class="cCode">VIEWFILES32</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1127539"> </a>
+Comma-separated list of allowable filenames for <code class="cCode">VIEW</code> or <code class="cCode">VIEW32</code> description files.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1127541"> </a>
+<code class="cCode">VIEWDIR</code> or <code class="cCode">VIEWDIR32</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1127543"> </a>
+Colon-separated list of directories to search for <code class="cCode">VIEW</code> or <code class="cCode">VIEW32</code> files. For Microsoft Windows, use a semicolon-separated list.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1127546"> </a>
+Creating a View Description File 
+</h3>
+<p class="pBody"><a name="wp1127547"> </a>
+To use a <code class="cCode">VIEW</code> typed buffer, you must define the C record in a view description file. The view description file includes, a view for each entry, a view that describes the characteristic C structure mapping and the potential <code class="cCode">FML</code> conversion pattern. The name of the view corresponds to the name of the C language structure. 
+</p>
+<p class="pBody"><a name="wp1128201"> </a>
+The following format is used for each structure in the view description file:
+</p>
+<p class="pBody"><a name="wp1128202"> </a>
+<code class="cCode">$ /* View structure */<br />  VIEW viewname<br />  </code><code class="cCodeEmphasis">type    cname     fbname   count   flag    size    null</code>
+</p>
+<p class="pBody"><a name="wp1127550"> </a>
+<a href="pgbuf.html#wp1265402">Table&#160;2-7</a> describes the fields that must be specified in the view description file for each C structure.
+</p>
+<p class="pGraphic"><a name="wp1265337"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1265402table1265354"><caption><a name="wp1265402"> </a>
+Table 2-7  View Description File Fields&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1265418"> </a>
+Field
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1265420"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1265425"> </a>
+<code class="cCodeEmphasis">type</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1265427"> </a>
+Data type of the field. Can be set to <code class="cCode">short</code>, <code class="cCode">long</code>, <code class="cCode">float</code>, <code class="cCode">double</code>, <code class="cCode">char</code>, <code class="cCode">string</code>, or <code class="cCode">carray</code>. 
+</div>
+<p class="pTableNote"><a name="wp1314636"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>mbstring data type is supported by the <code class="cCode">VIEW32</code> typed buffer only.</td></tr>
+</table>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1265429"> </a>
+<code class="cCodeEmphasis">cname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1265431"> </a>
+Name of the field as it appears in the C structure. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1265433"> </a>
+<code class="cCodeEmphasis">fbname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1265435"> </a>
+If you will be using the <code class="cCode">FML</code>-to-<code class="cCode">VIEW</code> or <code class="cCode">VIEW</code>-to-<code class="cCode">FML</code> conversion functions, this field must be included to indicate the corresponding <code class="cCode">FML</code> name. This field name must also appear in the FML <span class="cHyperlink">
+<a href="pgbuf.html#wp1127688">field table file</a></span>. This field is not required for <code class="cCode">FML</code>-independent <code class="cCode">VIEW</code>s.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1265438"> </a>
+<code class="cCodeEmphasis">count</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1265440"> </a>
+Number of times field occurs.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1265442"> </a>
+<code class="cCodeEmphasis">flag</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1265444"> </a>
+Specifies any of the following optional flag settings:
+</div>
+<div class="pSmartList1TableBullet"><ul class="SmartList1TableBullet">
+<li><a name="wp1265445"> </a><code class="cCode">P</code>&#8212;change the interpretation of the NULL value</li>
+<li><a name="wp1265446"> </a><code class="cCode">S</code>&#8212;one-way mapping from fielded buffer to structure</li>
+<li><a name="wp1265447"> </a><code class="cCode">F</code>&#8212;one-way mapping from structure to fielded buffer</li>
+<li><a name="wp1265448"> </a><code class="cCode">N</code>&#8212;zero-way mapping</li>
+<li><a name="wp1265449"> </a><code class="cCode">C</code>&#8212;generate additional field for associated count member (ACM)</li>
+<li><a name="wp1265450"> </a><code class="cCode">L</code>&#8212;hold number of bytes transferred for <code class="cCode">STRING</code>, <code class="cCode">CARRAY</code>, <code class="cCode">and MBSTRING</code></li>
+</ul></div>
+<p class="pTableNote"><a name="wp1314692"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The <code class="cCode">view32</code> command automatically adds the <code class="cCode">L</code> option flag for <code class="cCode">MBSTRING</code> typed buffers</td></tr>
+</table>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1265452"> </a>
+<code class="cCodeEmphasis">size</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1265454"> </a>
+For <code class="cCode">STRING</code> and <code class="cCode">CARRAY</code> buffer types, specifies the maximum length of the value. This field is ignored for all other buffer types. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1265456"> </a>
+<code class="cCodeEmphasis">null</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1265458"> </a>
+User-specified NULL value, or minus sign (<code class="cCode">-</code>) to indicate the default value for a field. NULL values are used in <code class="cCode">VIEW</code> typed buffers to indicate empty C structure members. 
+</div>
+<div class="pCellBody"><a name="wp1265459"> </a>
+The default NULL value for all numeric types is 0 (0.0 for <code class="cCode">dec_t</code>). For character types, the default NULL value is ‘<code class="cCode">\0</code>&#8217;. For <code class="cCode">STRING</code>, <code class="cCode">CARRAY</code>, and <code class="cCode">MBSTRING</code> types, the default NULL value is &#8220; &#8221;. 
+</div>
+<div class="pCellBody"><a name="wp1265460"> </a>
+Constants used, by convention, as escape characters can also be used to specify a NULL value. The view compiler recognizes the following escape constants: <code class="cCode">\ddd</code> (where <code class="cCode">d</code> is an octal digit), <code class="cCode">\0</code>, <code class="cCode">\n</code>, <code class="cCode">\t</code>, <code class="cCode">\v</code>, <code class="cCode">\r</code>, <code class="cCode">\f</code>, <code class="cCode">\\</code>, <code class="cCode">\&#8217;</code>, and <code class="cCode">\&#8221;</code>. 
+</div>
+<div class="pCellBody"><a name="wp1265461"> </a>
+You may enclose <code class="cCode">STRING</code>, <code class="cCode">CARRAY</code>, <code class="cCode">MBSTRING</code>, and <code class="cCode">char</code> NULL values in double or single quotes. The view compiler does not accept unescaped quotes within a user-specified NULL value. 
+</div>
+<div class="pCellBody"><a name="wp1265462"> </a>
+You can also specify the keyword NONE in the NULL field of a view member description, which means that there is no NULL value for the member. The maximum size of default values for string and character array members is 2660 characters. For more information, see <em class="cEmphasis">Oracle Tuxedo ATMI FML Function Reference</em>.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1127599"> </a>
+You can include a comment line by prefixing it with the # or $ character. Lines prefixed by a $ sign are included in the <code class="cCode">.h</code> file. 
+</p>
+<p class="pBody"><a name="wp1127600"> </a>
+<a href="pgbuf.html#wp1127604">Listing&#160;2-11</a> is an excerpt from an example view description file based on an <code class="cCode">FML</code> buffer. In this case, the <code class="cCodeEmphasis">fbname</code> field must be specified and match that which appears in the corresponding <span class="cHyperlink">
+<a href="pgbuf.html#wp1127688">field table file</a></span>. Note that the <code class="cCode">CARRAY1</code> field includes an occurrence count of <code class="cCode">2</code> and sets the <code class="cCode">C</code> flag to indicate that an additional count element should be created. In addition, the <code class="cCode">L</code> flag is set to establish a length element that indicates the number of characters with which the application populates the <code class="cCode">CARRAY1</code> field.
+</p>
+<div class="pCodeTitle"><a name="wp1127604"> </a>
+Listing&#160;2-11	   View Description File for FML VIEW
+</div> <a name="wp1325823"> </a><div class="pPreformatted"><pre>$ /* View structure */<br />$ /* View structure */<br />VIEW empname<br />#TYPE          CNAME  FBNAME    COUNT FLAG SIZE NULL<br />string         fname  EMP_FNAME     1    -   25    -<br />char        minit  EMP_MINIT     1    -    -    -<br />string         lname  EMP_LNAME     1    -   25    -<br />END<br />$<br />VIEW MYVIEW<br />#type cname fbname count flag size null<br />float float1 FLOAT1 1 - - 0.0<br />double double1 DOUBLE1 1 - - 0.0<br />long long1 LONG1 1 - - 0<br />short short1 SHORT1 1 - - 0<br />int int1 INT1 1 - - 0<br />dec_t dec1 DEC1 1 - 9,16 0<br />char char1 CHAR1 1 - - &#39;\0&#39;<br />string string1 STRING1 1 - 20 &#39;\0&#39;<br />carray carray1 CARRAY1 2 CL 20 &#39;\0&#39;<br />bool bool1 BOOL1 1 - - 0<br />signedchar signedchar1 SIGNEDCHAR1 1 - - 0<br />unsignedchar unsignedchar1 UNSIGNEDCHAR1 1 - - 0<br />wchar_t wchar_t1 WCHAR_T1 1 - - 0<br />unsignedint unsignedint1 UNSIGNEDINT1 1 - - 0<br />unsignedlong unsignedlong1 UNSIGNEDLONG1 1 - - 0<br />longlong longlong1 LONGLONG1 1 - - 0<br />unsignedlonglong unsignedlonglong1 UNSIGNEDLONGLONG1 1 - - 0<br />longdouble longdouble1 LONGDOUBLE1 1 - - 0<br />struct empname ename 1 - - 0<br />END</pre></div><p class="pBody"><a name="wp1127607"> </a>
+<a href="pgbuf.html#wp1127609">Listing&#160;2-12</a> illustrates the same view description file for an independent <code class="cCode">VIEW</code>.
+</p>
+<div class="pCodeTitle"><a name="wp1127609"> </a>
+Listing&#160;2-12	   View Description File for an Independent View
+</div> <a name="wp1325994"> </a><div class="pPreformatted"><pre>$ /* View structure */<br />VIEW empname<br />#TYPE CNAME FBNAME COUNT FLAG SIZE NULL<br />string fname - 1 - 25 -<br />char minit - 1 - - -<br />string lname - 1 - 25 -<br />END<br />$<br />VIEW MYVIEW<br />#type cname fbname count flag size null<br />float float1 - 1 - - 0.0<br />double double1 - 1 - - 0.0<br />long long1 - 1 - - 0<br />short short1 - 1 - - 0<br />int int1 - 1 - - 0<br />dec_t dec1 - 1 - 9,16 0<br />char char1 - 1 - - &#39;\0&#39;<br />string string1 - 1 - 20 &#39;\0&#39;<br />carray carray1 - 2 CL 20 &#39;\0&#39;<br />bool bool1 - 1 - - 0<br />signedchar signedchar1 - 1 - - 0<br />unsignedchar unsignedchar1 - 1 - - 0<br />wchar_t wchar_t1 - 1 - - 0<br />unsignedint unsignedint1 - 1 - - 0<br />unsignedlong unsignedlong1 - 1 - - 0<br />longlong longlong1 - 1 - - 0<br />unsignedlonglong unsignedlonglong1 - 1 - - 0<br />longdouble longdouble1 - 1 - - 0<br />struct empname ename 1 - - 0<br />END</pre></div><p class="pBody"><a name="wp1127612"> </a>
+Note that the format is similar to the <code class="cCode">FML</code>-dependent view, except that the <code class="cCodeEmphasis">fbname</code> and <code class="cCodeEmphasis">null</code> fields are not relevant and are ignored by the <a href="pgbuf.html#wp1127615">viewc</a> compiler. You must include a value (for example, a dash) as a placeholder in these fields.
+</p>
+<h3 class="pHeading2"><a name="wp1127615"> </a>
+Executing the VIEW Compiler
+</h3>
+<p class="pBody"><a name="wp1127616"> </a>
+To compile a <code class="cCode">VIEW</code> typed buffer, run the <code class="cCode">viewc</code> command, specifying the name of the view description file as an argument. To specify an independent <code class="cCode">VIEW</code>, use the <code class="cCode">-n</code> option. You can optionally specify a directory in which the resulting output file should be written. By default, the output file is written to the current directory. 
+</p>
+<p class="pBody"><a name="wp1127617"> </a>
+For example, for an <code class="cCode">FML</code>-dependent <code class="cCode">VIEW</code>, the compiler is invoked as follows:
+</p>
+<a name="wp1127618"> </a><div class="pPreformatted"><pre>viewc myview.v</pre></div><a name="wp1127619"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>To compile a <code class="cCode">VIEW32</code> typed buffer, run the <code class="cCode">viewc32</code> command.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1127620"> </a>
+For an independent <code class="cCode">VIEW</code>, use the <code class="cCode">-n</code> option on the command line, as follows:
+</p>
+<a name="wp1127621"> </a><div class="pPreformatted"><pre>viewc -n myview.v</pre></div><p class="pBody"><a name="wp1127622"> </a>
+The output of the <code class="cCode">viewc</code> command includes:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1127623"> </a>One or more COBOL <code class="cCode">COPY</code> files; for example, <code class="cCode">MYVIEW.cbl</code></li>
+<li><a name="wp1127624"> </a>Header file containing a structure definition that may be used by application programs</li>
+<li><a name="wp1127625"> </a>Binary version of the source description file; for example, <code class="cCode">myview.V</code></li>
+<a name="wp1127626"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>On case-insensitive platforms (for example, Microsoft Windows), the extension used for the names of such files is <code class="cCode">vv</code>; for example, <code class="cCode">myview.vv</code>. </td>
+</tr>
+</table>
+
+</ul></div>
+<p class="pBody"><a name="wp1127627"> </a>
+<a href="pgbuf.html#wp1263017">Listing&#160;2-13</a> provides an example of the header file created by <code class="cCode">viewc</code>.
+</p>
+<div class="pCodeTitle"><a name="wp1263017"> </a>
+Listing&#160;2-13	   Header File Created Using the VIEW Compiler
+</div> <a name="wp1326080"> </a><div class="pPreformatted"><pre>/* View structure */<br />struct empname {<br />char fname[25];  /* null=&quot;\0&quot; */<br />char minit;  /* null=&#39;\0&#39; */<br />char lname[25];  /* null=&quot;\0&quot; */<br />};<br /><br />struct MYVIEW {<br />float float1;  /* null=0.000000 */<br />double double1;  /* null=0.000000 */<br />long long1;  /* null=0 */<br />short short1;  /* null=0 */<br />long int1;  /* null=0 */<br />dec_t dec1;  /* null=0.0 */<br />char char1;  /* null=&#39;\0&#39; */<br />char string1[20];  /* null=&quot;\0&quot; */<br />unsigned long L_carray1[2]; /* length array of carray1 */<br />long C_carray1; /* count of carray1 */<br />char carray1[2][20];  /* null=&quot;\0&quot; */<br />char bool1;  /* null= */<br />signed char signedchar1;  /* null=&quot;&quot; */<br />unsigned char unsignedchar1;  /* null=&quot;&quot; */<br />wchar_t wchar_t1;  /* null= */<br />unsigned int unsignedint1;  /* null= */<br />unsigned long unsignedlong1;  /* null=0 */<br />long long longlong1;  /* null= */<br />unsigned long long unsignedlonglong1;  /* null= */<br />long double longdouble1;  /* null= */<br />struct empname ename;  /* null= */<br />};<br /></pre></div><p class="pBody"><a name="wp1263020"> </a>
+The same header file is created for FML-dependent and independent VIEWs. 
+</p>
+<p class="pBody"><a name="wp1263021"> </a>
+In order to use a <code class="cCode">VIEW</code> typed buffer in client programs or service subroutines, you must specify the header file in the application <code class="cCode">#include</code> statements.
+</p>
+<h3 class="pHeading2"><a name="wp1127643"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1263054"> </a><a href="pgbuf.html#wp1263099">Using an FML Typed Buffer</a></li>
+<li><a name="wp1274650"> </a><a href="pgbuf.html#wp1274232">Using an XML Typed Buffer and the Apache Xerces C++ Parser</a></li>
+<li><a name="wp1274654"> </a><a href="pgbuf.html#wp1294003">Using an MBSTRING Typed Buffer</a></li>
+<li><a name="wp1127655"> </a><a href="../rfcm/rfcmd.html">viewc,&#160;viewc3</a><a href="../rfcm/rfcmd.html">2(1)</a> in <em class="cEmphasis">Oracle Tuxedo Command Reference</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1263099"> </a>
+Using an FML Typed Buffer
+</h2><p class="pBody"><a name="wp1127659"> </a>
+To use <code class="cCode">FML</code> typed buffers, you must perform the following steps:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1127661"> </a><span class="cHyperlink">
+<a href="pgbuf.html#wp1127671">Set the appropriate environment variables</a></span>.</li>
+<li><a name="wp1127663"> </a><span class="cHyperlink">
+<a href="pgbuf.html#wp1127688">Describe the potential fields in an FML field table</a></span>.</li>
+<li><a name="wp1127665"> </a>Create an <code class="cCode">FML</code> header file and specify the header file in a <code class="cCode">#include</code> statement in the application.</li>
+</ul></div>
+<p class="pBody"><a name="wp1127666"> </a>
+<code class="cCode">FML</code> functions are used to manipulate typed buffers, including those that convert fielded buffers to C structures and vice versa. By using these functions, you can access and update data values without having to know how data is structured and stored. For more information on <code class="cCode">FML</code> functions, see <em class="cEmphasis">Oracle Tuxedo ATMI FML Function Reference</em>.
+</p>
+<h3 class="pHeading2"><a name="wp1127671"> </a>
+Setting Environment Variables for an FML Typed Buffer
+</h3>
+<p class="pBody"><a name="wp1127672"> </a>
+To use an FML typed buffer in an application program, you must set the following environment variables shown in <a href="pgbuf.html#wp47809">Table&#160;2-8</a>.
+</p>
+<p class="pGraphic"><a name="wp1127686"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp47809table1127673"><caption><a name="wp47809"> </a>
+Table 2-8  FML Typed Buffer Environment Variables
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1127675"> </a>
+Environment Variable
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1127677"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1127679"> </a>
+<code class="cCode">FIELDTBLS</code> or <code class="cCode">FIELDTBLS32</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1127681"> </a>
+Comma-separated list of field table filenames for <code class="cCode">FML</code> or <code class="cCode">FML32</code> typed buffers, respectively. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1127683"> </a>
+<code class="cCode">FLDTBLDIR</code> or <code class="cCode">FLDTBLDIR32</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1127685"> </a>
+Colon-separated list of directories to search for the field table files for <code class="cCode">FML</code> and <code class="cCode">FML32</code>, respectively. For Microsoft Windows, use a semicolon-separated list. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1127688"> </a>
+Creating a Field Table File
+</h3>
+<p class="pBody"><a name="wp1127689"> </a>
+Field table files are always required when <code class="cCode">FML</code> buffers and/or <code class="cCode">FML</code>-dependent <code class="cCode">VIEW</code>s are used. A field table file maps the logical name of a field in an <code class="cCode">FML</code> buffer to a string that uniquely identifies the field. 
+</p>
+<p class="pBody"><a name="wp1127690"> </a>
+The following format is used for the description of each field in the <code class="cCode">FML</code> field table:
+</p>
+<a name="wp1127691"> </a><div class="pPreformatted"><pre>$ /* FML structure */<br />   *base <code class="cCodeEmphasis">value<br /></code>   <code class="cCodeEmphasis">name    number     type   flags   comments</code></pre></div><p class="pBody"><a name="wp1276260"> </a>
+<a href="pgbuf.html#wp1276318">Table&#160;2-9</a> describes the fields that must be specified in the <code class="cCode">FML</code> field table file for each <code class="cCode">FML</code> field.
+</p>
+<p class="pGraphic"><a name="wp1276295"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1276318table1276261"><caption><a name="wp1276318"> </a>
+Table 2-9  Field Table File Fields&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1276263"> </a>
+Field
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1276265"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1276267"> </a>
+<code class="cCodeEmphasis">*</code><code class="cCode">base</code><code class="cCodeEmphasis"> value</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1276269"> </a>
+Specifies a base for offsetting subsequent field numbers, providing an easy way to group and renumber sets of related fields. The <code class="cCode">*base</code> option allows field numbers to be reused. For a 16-bit buffer, the base plus the relevant number must be greater than or equal to 100 and less than 8191. This field is optional.
+</div>
+<p class="pTableNote"><a name="wp1276270"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The Oracle Tuxedo system reserves field numbers 1-100 and 6000-7000 for internal use. Field numbers 101-8191 are available for application-defined fields with <code class="cCode">FML</code>; field numbers 101-33, 554, and 431, for <code class="cCode">FML32</code>.</td></tr>
+</table>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1276272"> </a>
+<code class="cCodeEmphasis">name</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1276274"> </a>
+Identifier for the field. The value must be a string of up to 256 characters, consisting of alphanumeric and underscore characters only.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1276276"> </a>
+<code class="cCodeEmphasis">rel-number</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1276278"> </a>
+Relative numeric value of the field. This value is added to the current base, if specified, to calculate the field number.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1276280"> </a>
+<code class="cCodeEmphasis">type</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1276282"> </a>
+Type of the field. This value can be any of the following: <code class="cCode">char</code>, <code class="cCode">string</code>, <code class="cCode">short</code>, <code class="cCode">long</code>, <code class="cCode">float</code>, <code class="cCode">double</code>, or <code class="cCode">carray</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1276284"> </a>
+<code class="cCodeEmphasis">flag</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1276286"> </a>
+Reserved for future use. A dash (-) should be included as a placeholder.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1276288"> </a>
+<code class="cCodeEmphasis">comment</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1276290"> </a>
+Optional comment.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1276292"> </a>
+All fields are optional, and may be included more than once.
+</p>
+<p class="pBody"><a name="wp1127725"> </a>
+<a href="pgbuf.html#wp1127727">Listing&#160;2-14</a> illustrates a field table file that may be used with the FML-dependent VIEW<a href="pgbuf.html#wp1127604"> example</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1127727"> </a>
+Listing&#160;2-14	   Field Table File for FML VIEW
+</div> <a name="wp1326322"> </a><div class="pPreformatted"><pre># name number type flags comments<br />EMP_FNAME 101 string - -<br />EMP_MINIT 102 char   - -<br />EMP_LNAME 103 string - -<br />#<br />FLOAT1 110 float - -<br />DOUBLE1 111 double - -<br />LONG1 112 long - -<br />SHORT1 113 short - -<br />INT1 114 long - -<br />DEC1 115 string - -<br />CHAR1 116 char - -<br />STRING1 117 string - -<br />CARRAY1 118 carray - -<br />BOOL1 119 char - -<br />SIGNEDCHAR1 120 char - -<br />UNSIGNEDCHAR1 121 char - -<br />WCHAR_T1 122 long - -<br />UNSIGNEDINT1 123 long - -<br />UNSIGNEDLONG1 124 long - -<br />LONGLONG1 125 long - -<br />UNSIGNEDLONGLONG1 126 long - -<br />LONGDOUBLE1 127 double - -<br />ename  128 fml32 - -</pre></div><h3 class="pHeading2"><a name="wp1296843"> </a>
+Creating an FML Header File
+</h3>
+<p class="pBody"><a name="wp1296686"> </a>
+In order to use an <code class="cCode">FML</code> typed buffer in client programs or service subroutines, you must create an <code class="cCode">FML</code> header file and specify it in the application <code class="cCode">#include</code> statements. 
+</p>
+<p class="pBody"><a name="wp1127750"> </a>
+To create an <code class="cCode">FML</code> header file from a field table file, use the <code class="cCode">mkfldhdr(1)</code> command. For example, to create a file called <code class="cCode">myview.flds.h</code>, enter the following command:
+</p>
+<a name="wp1127751"> </a><div class="pPreformatted"><pre>mkfldhdr myview.flds</pre></div><p class="pBody"><a name="wp1127752"> </a>
+For <code class="cCode">FML32</code> typed buffers, use the <code class="cCode">mkfldhdr32</code> command.
+</p>
+<p class="pBody"><a name="wp1127753"> </a>
+<a href="pgbuf.html#wp1127755">Listing&#160;2-15</a> shows the <code class="cCode">myview.flds.h</code> header file that is created by the <code class="cCode">mkfldhdr</code> command.
+</p>
+<div class="pCodeTitle"><a name="wp1127755"> </a>
+Listing&#160;2-15	   myview.flds.h Header File
+</div> <a name="wp1326450"> </a><div class="pPreformatted"><pre>/* fname fldid            */<br />/* ----- -----            */<br />#define EMP_FNAME ((FLDID32)167772261) /* number: 101  type: string */<br />#define EMP_MINIT ((FLDID32)67108966) /* number: 102  type: char */<br />#define EMP_LNAME ((FLDID32)167772263) /* number: 103  type: string */<br />#define FLOAT1 ((FLDID32)100663406) /* number: 110  type: float */<br />#define DOUBLE1 ((FLDID32)134217839) /* number: 111  type: double */<br />#define LONG1 ((FLDID32)33554544) /* number: 112  type: long */<br />#define SHORT1 ((FLDID32)113) /* number: 113  type: short */<br />#define INT1 ((FLDID32)33554546) /* number: 114  type: long */<br />#define DEC1 ((FLDID32)167772275) /* number: 115  type: string */<br />#define CHAR1 ((FLDID32)67108980) /* number: 116  type: char */<br />#define STRING1 ((FLDID32)167772277) /* number: 117  type: string */<br />#define CARRAY1 ((FLDID32)201326710) /* number: 118  type: carray */<br />#define BOOL1 ((FLDID32)67108983) /* number: 119  type: char */<br />#define SIGNEDCHAR1 ((FLDID32)67108984) /* number: 120  type: char */<br />#define UNSIGNEDCHAR1 ((FLDID32)67108985) /* number: 121  type: char */<br />#define WCHAR_T1 ((FLDID32)33554554) /* number: 122  type: long */<br />#define UNSIGNEDINT1 ((FLDID32)33554555) /* number: 123  type: long */<br />#define UNSIGNEDLONG1 ((FLDID32)33554556) /* number: 124  type: long */<br />#define LONGLONG1 ((FLDID32)33554557) /* number: 125  type: long */<br />#define UNSIGNEDLONGLONG1 ((FLDID32)33554558) /* number: 126  type: long */<br />#define LONGDOUBLE1 ((FLDID32)134217855) /* number: 127  type: double */<br />#define ename ((FLDID32)335544448) /* number: 128  type: fml32 */</pre></div><p class="pBody"><a name="wp1324875"> </a>
+Specify the new header file in the <code class="cCode">#include</code> statement of your application. Once the header file is included, you can refer to fields by their symbolic names. 
+</p>
+<h3 class="pHeading2"><a name="wp1127760"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1127764"> </a> <a href="pgbuf.html#wp1262459">Using a VIEW Typed Buffer</a></li>
+<li><a name="wp1274665"> </a><a href="pgbuf.html#wp1274232">Using an XML Typed Buffer and the Apache Xerces C++ Parser</a></li>
+<li><a name="wp1274669"> </a><a href="pgbuf.html#wp1294003">Using an MBSTRING Typed Buffer</a></li>
+<li><a name="wp1270488"> </a><a href="../rfcm/rfcmd.html">mkfldhdr,&#160;mkfldhdr32</a><a href="../rfcm/rfcmd.html">(1)</a> in <em class="cEmphasis">Oracle Tuxedo Command Reference</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1274232"> </a>
+Using an XML Typed Buffer and the Apache Xerces C++ Parser
+</h2><p class="pBody"><a name="wp1276529"> </a>
+As XML continues to gain acceptance as a data standard, Oracle Tuxedo customers are increasingly using XML typed buffers in their applications. To assist customers in this effort, Oracle has integrated the Apache Xerces C++ Version 2.5 parser into the Oracle Tuxedo software distribution.
+</p>
+<p class="pBody"><a name="wp1310924"> </a>
+This section introduces the following topics:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1310925"> </a><a href="pgbuf.html#wp1273707">About the XML Typed Buffer</a></li>
+<li><a name="wp1310939"> </a><a href="pgbuf.html#wp1273797">About the Apache Xerces C++ Parser</a></li>
+<li><a name="wp1310950"> </a><a href="pgbuf.html#wp1292396">Converting XML Data To and From FML/FML32 Buffers</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1273707"> </a>
+About the XML Typed Buffer
+</h3>
+<p class="pBody"><a name="wp1270491"> </a>
+XML buffers enable Oracle Tuxedo applications to use XML for exchanging data within and between applications. Oracle Tuxedo applications can send and receive simple XML buffers, and route those buffers to the appropriate servers. All logic for dealing with XML documents, including parsing, resides in the application. 
+</p>
+<p class="pBody"><a name="wp1127772"> </a>
+An XML document consists of:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1127773"> </a>A sequence of characters that encode the text of a document</li>
+<li><a name="wp1127774"> </a>A description of the logical structure of the document and information about that structure</li>
+</ul></div>
+<p class="pBody"><a name="wp1263525"> </a>
+The programming model for the <code class="cCode">XML</code> buffer type is similar to that for the <code class="cCode">CARRAY</code> buffer type: you must specify the length of the buffer with the <a href="pgbuf.html#wp1262143">tpalloc()</a> function. The maximum supported size of an XML document is 4 GB. 
+</p>
+<p class="pBody"><a name="wp1127776"> </a>
+Formatting and filtering for Events processing (which are supported when a STRING buffer type is used) are not supported for the XML buffer type. Therefore, the <code class="cCode">_tmfilter</code> and  <code class="cCode">_tmformat</code> function pointers in the buffer type switch for XML buffers are set to NULL.
+</p>
+<p class="pBody"><a name="wp1127777"> </a>
+The XML parser in the Oracle Tuxedo system performs the following functions:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1127778"> </a>Autodetection of character encodings</li>
+<li><a name="wp1127779"> </a>Character code conversion</li>
+<li><a name="wp1127780"> </a>Detection of element content and attribute values</li>
+<li><a name="wp1127781"> </a>Data type conversion</li>
+</ul></div>
+<p class="pBody"><a name="wp1127782"> </a>
+Data-dependent routing is supported for XML buffers. The routing of an XML document can be based on element content, or on element type and an attribute value. The XML parser determines the character encoding being used; if the encoding differs from the native character sets (US-ASCII or EBCDIC) used in the Oracle Tuxedo configuration files (<code class="cCode">UBBCONFIG</code> and <code class="cCode">DMCONFIG</code>), the element and attribute names are converted to US-ASCII or EBCDIC.
+</p>
+<p class="pBody"><a name="wp1127783"> </a>
+Attributes configured for routing must be included in an XML document. If an attribute is configured as a routing criteria but it is not included in the XML document, routing processing fails.
+</p>
+<p class="pBody"><a name="wp1127784"> </a>
+The content of an element and the value of an attribute must conform to the syntax and semantics required for a routing field value. The user must also specify the type of the routing field value. XML supports only character data. If a range field is numeric, the content or value of that field is converted to a numeric value during routing processing.
+</p>
+<h3 class="pHeading2"><a name="wp1273797"> </a>
+About the Apache Xerces C++ Parser
+</h3>
+<p class="pBody"><a name="wp1275565"> </a>
+The Xerces-C++ 2.5.0 parser, written in a portable subset of C++, comes with a shared library for parsing, generating, manipulating, and validating XML documents. It complies with the XML 1.0 recommendation and associated standards DOM 1.0, DOM 2.0. SAX 1.0, SAX 2.0, Namespaces, and W3C&#8217;s XML Schema recommendation version 1.0.
+</p>
+<p class="pBody"><a name="wp1320566"> </a>
+Because the Xerces-C++ 1.7 parser did not cache the Document Type Definition (DTD) and XML Schema files when validation was required, or cache external entity files used in DTD, Oracle Tuxedo 8.1 improved the performance of the Xerces-C++ 1.7 parser by adding an option to cache external DTD, Schema, and entity files that might otherwise be retrieved repeatedly over the Web. Continued support for this modification is available with Tuxedo 9.x and Xerces C++ 2.5.0.
+</p>
+<h4 class="pHeading3"><a name="wp1309717"> </a>
+XML Parser Control
+</h4>
+<p class="pBody"><a name="wp1312621"> </a>
+There are two ways to turn on/off caching for the Xerces-C++ parser:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1312654"> </a>Administratively by using two environment variables named <code class="cCode">URLENTITYCACHING</code> and <code class="cCode">URLENTITYCACHEDIR</code></li>
+<li><a name="wp1312655"> </a>Programmatically by using four ATMI functions that specify particular Xerces parser class methods:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1312671"> </a><code class="cCode">getURLEntityCaching()</code></li>
+<li><a name="wp1312656"> </a><code class="cCode">setURLEntityCaching()</code></li>
+<li><a name="wp1312677"> </a><code class="cCode">getURLEntityCacheDir()</code></li>
+<li><a name="wp1312727"> </a><code class="cCode">setURLEntityCacheDir()</code></li>
+</ul></div>
+</ul></div>
+<a name="wp1312728"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>These four methods are Oracle Tuxedo enhancements to the Apache Xerces-C++ parser. They are used exclusively in conjunction with the following two Xerces objects:</td>
+</tr>
+</table>
+
+<div class="pSmartList1NoteBullet"><ul>
+<li><a name="wp1312695"> </a><code class="cCode">XercesDOMParser</code></li>
+<li><a name="wp1312696"> </a><code class="cCode">SAXParser</code></li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1275574"> </a>
+XML Parser Support for ICU
+</h4>
+<p class="pBody"><a name="wp1291776"> </a>
+The International Components for Unicode (ICU) 3.0 library, a C/C++ library that supports over 200 different coded character sets (encoding forms) on a wide variety of platforms, is included with the Oracle Tuxedo distribution. The Xerces-C++ 2.5.0 parser is built with the ICU 3.0 library.
+</p>
+<h4 class="pHeading3"><a name="wp1315476"> </a>
+XML Parser Sample Application
+</h4>
+<p class="pBody"><a name="wp1315493"> </a>
+A sample application for using the Xerces-C++ parser ATMI functions is provided in the Oracle Tuxedo user documentation. Among other things, the sample demonstrates how to write a wrapper for the Xerces-C++ parser so that Tuxedo clients and servers written in C can call the Xerces-C++ ATMI functions.
+</p>
+<h4 class="pHeading3"><a name="wp1315495"> </a>
+Xerces Schema Sample
+</h4>
+<p class="pBody"><a name="wp1314371"> </a>
+A sample application for using XML schemas with the Xerces parser is provided in the Oracle Tuxedo documentation. See <span class="cHyperlink">
+Tutorial for xmlfmlapp: </span><a href="../tutor/tutxmlfmlapp.html"></a>A Full C XML/FML32 Conversion Application in <em class="cEmphasis">Tutorials for Developing Oracle Tuxedo ATMI Applications</em>
+</p>
+<h3 class="pHeading2"><a name="wp1313813"> </a>
+See Also
+</h3>
+<p class="pBody"><a name="wp1313818"> </a>
+<a href="../rf3c/rf3c.html">getURLEntityCacheDir(3c)</a>, <a href="../rf3c/rf3c.html">setURLEntityCacheDir(3c)</a>, <a href="../rf3c/rf3c.html">getURLEntityCaching(3c)</a>, <a href="../rf3c/rf3c.html">setURLEntityCaching(3c)</a>, <a href="../xmlparser/html/apiDocs/index.html"><span class="cHyperlink">
+Xerces API parser on-line documentation</span></a>. 
+</p>
+<h3 class="pHeading2"><a name="wp1292396"> </a>
+Converting XML Data To and From FML/FML32 Buffers
+</h3>
+<p class="pBody"><a name="wp1292399"> </a>
+As an input/output format, XML data is gaining broader use in modern application development. Most Tuxedo customers, in contrast, have large investments in existing defined services that make use of Tuxedo FML/FML32 buffers as the preferred data transport. 
+</p>
+<p class="pBody"><a name="wp1292400"> </a>
+Oracle Tuxedo addresses this issue by adding functionality that allows for data conversion of XML to and from FML/FML32 buffers. This conversion can be initiated one of two ways:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1292401"> </a><b class="cBold">On-demand conversion</b></li>
+<p class="pBodyRelative"><a name="wp1309754"> </a>
+<b style="font-style: normal" class="cBold">For programmers</b><b style="font-style: italic" class="cBold">, </b>on-demand conversion of XML data to and from FML/FML32 buffers features four new ATMI functions for manual conversion. For more information, see <a href="pgbuf.html#wp1299058">Using On-Demand Conversion.</a>
+</p>
+<li><a name="wp1298970"> </a>Automatic conversion</li>
+<p class="pBodyRelative"><a name="wp1309762"> </a>
+For application administrators<span style="font-style: italic; font-weight: bold">,</span><span style="font-style: italic"> </span>automatic conversion of XML to and from FML/FML32 buffers features a new <code class="cCode">BUFTYPECONV</code> parameter in the <code class="cCode">SERVICES</code> section of the <code class="cCode">UBBCONFIG</code> configuration file initiates conversion when the server is booted. For more information, see <a href="pgbuf.html#wp1296588">Using Automatic Conversion.</a>
+</p>
+</ul></div>
+<p class="pBody"><a name="wp1309984"> </a>
+Regardless of the method used for conversion, the FML/FML32 field types are mapped to XML in a particular manner. For information on conversion mapping, see <a href="pgbuf.html#wp1308645">Mapping XML To and From FML/FML32 Field Types.</a>
+</p>
+<a name="wp1314978"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>XML to and from FML/FML32 conversion uses third-party libraries (for example, libticudata.so) that may be substantial in size. </td>
+</tr>
+</table>
+
+<a name="wp1314979"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>Increasing the size of shared libraries may cause running Tuxedo application processes (that directly or indirectly depend on those libraries) to consume increased amounts of memory which, in turn, can impact performance.</td>
+</tr>
+</table>
+<a name="wp1310687"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>XML to and from FML/FML32 conversion should not be used by a Tuxedo system process.</td>
+</tr>
+</table>
+<a name="wp1314976"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>For other known issues or limitations regarding conversion between XML and FML/FML32 buffers using the Xerces parser, see <a href="pgbuf.html#wp1301046">Conversion Limitations.</a></td>
+</tr>
+</table>
+<h4 class="pHeading3"><a name="wp1299058"> </a>
+Using On-Demand Conversion
+</h4>
+<p class="pBody"><a name="wp1299060"> </a>
+On-demand conversion gives you the option to manually execute conversion of XML data to FML/FML32 buffers or conversion of FML/FML32 buffers to XML.
+</p>
+<p class="pBody"><a name="wp1304857"> </a>
+The following four ATMI functions provide on-demand conversion:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1297174"> </a>tpxmltofml() - converts XML to FML</li>
+<li><a name="wp1297175"> </a>tpfmltoxml() - converts FML to XML</li>
+<li><a name="wp1299108"> </a>tpxmltofml32() - converts XML to FML32</li>
+<li><a name="wp1299109"> </a>tpfml32toxml() - converts FML32 to XML</li>
+</ul></div>
+<p class="pBody"><a name="wp1299113"> </a>
+For a detailed description of these functions and their arguments, see &#8220;Oracle Tuxedo ATMI C Function Reference.&#8221;
+</p>
+<h5 class="pHeading4"><a name="wp1304489"> </a>
+Initiating On-Demand Conversion
+</h5>
+<p class="pBody"><a name="wp1304490"> </a>
+For on-demand conversion of XML data to and from FML/FML32 buffers, perform the following steps:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1304491"> </a>Set the appropriate environment variables</li>
+<li><a name="wp1304492"> </a>Determine the conversion ATMI function you want to use</li>
+<li><a name="wp1314404"> </a>Use the <code class="cCode">rtag</code> argument to specify the input/output XML root tag for the buffer type conversion in the function call (optional)</li>
+<li><a name="wp1314405"> </a>Set the <code class="cCode">flag</code> argument to select Xerces parser options (optional)</li>
+</ul></div>
+<h5 class="pHeading4"><a name="wp1304681"> </a>
+On-Demand Conversion and Xerces Parser XML Validation
+</h5>
+<p class="pBody"><a name="wp1311806"> </a>
+If you are using the ATMI functions to initiate conversion of XML to and from FML/FML32 buffers, parser validation is determined one of two ways. 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1311808"> </a>Accepting the default parser validation settings</li>
+<li><a name="wp1311809"> </a>Specifying validation options through the flag argument in the ATMI functions</li>
+</ul></div>
+<p class="pBody"><a name="wp1311790"> </a>
+For a detailed description of the ATMI functions and their Xerces parser flag arguments, see <span class="cHyperlink">
+&#8220;</span><em style="font-style: italic" class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em><span style="font-style: normal">.&#8221;</span>
+</p>
+<h4 class="pHeading3"><a name="wp1296588"> </a>
+Using Automatic Conversion
+</h4>
+<p class="pBody"><a name="wp1308591"> </a>
+Automatic conversion starts and ends with XML. That is, XML buffers are input, converted and processed to FML/FML32 buffers, and finally reconverted back to XML.
+</p>
+<p class="pBody"><a name="wp1312604"> </a>
+To initiate conversion between XML and FML/FML32 buffers you must specify the <code class="cCode">BUFTYPECONV</code> parameter in the <code class="cCode">SERVICES</code> section of the <code class="cCode">UBBCONFIG</code> file. This parameter accepts only one of two value options: <code class="cCode">XML2FML</code> or <code class="cCode">XML2FML32</code>.
+</p>
+<p class="pBody"><a name="wp1314415"> </a>
+When you boot a server with this parameter, the input buffer is converted from an XML buffer to an FML/FML32 buffer via client <code class="cCode">tpcall()</code>, <code class="cCode">tpacall()</code>, <code class="cCode">tpconnect()</code>, or <code class="cCode">tpsend()</code>before being delivered to the service. When <code class="cCode">tpreturn()</code> or <code class="cCode">tpsend()</code> is called, an FML/FML32 buffer is converted to XML before it is returned.
+</p>
+<p class="pBody"><a name="wp1314416"> </a>
+Services using the <code class="cCode">BUFTYPECONV</code> parameter allow clients or other services to send and receive XML buffers without changing how the existing service handles FML/FML32 buffers. 
+</p>
+<a name="wp1314417"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Keep in mind the following regarding <code class="cCode">BUFTYPECONV</code> parameter use:</td>
+</tr>
+</table>
+
+<div class="pSmartList1NoteBullet"><ul>
+<li><a name="wp1314421"> </a>When a service uses the <code class="cCode">BUFTYPECONV</code> parameter, <span style="font-style: italic">all </span>output FML/FML32 buffers are converted to XML. Creating a new service name using the <code class="cCode">BUFTYPECONV</code> parameter allows you to output XML and keep the original service name to output FML/FML32 buffers.</li>
+<li><a name="wp1314422"> </a>Automatic<span style="font-style: italic"> </span>XML to FML/FML32 buffers conversion only takes action on input XML data. All other input buffers are not converted even if specified in <code class="cCode">BUFTYPECONV</code>.</li>
+<li><a name="wp1314423"> </a>XML, FML, and FML32 input/output service data is converted only if the service acts as a <code class="cCode">server</code>. In other words, if a client or other service makes a request to the service using the <code class="cCode">BUFTYPECONV</code> parameter. </li>
+<li><a name="wp1314424"> </a>If a service using the <code class="cCode">BUFTYPECONV</code> parameter acts as a client, conversion does not take place. For example, a service with the <code class="cCode">BUFTYPECONV</code> parameter using <code class="cCode">tpcall()</code> on another service.</li>
+<li><a name="wp1314425"> </a>In <code class="cCode">/Q</code> messaging mode, <code class="cCode">TMQFORWARD </code>uses <code class="cCode">tpcall()</code> to call a service. If the called service uses the <code class="cCode">BUFTYPECONV</code> parameter, automatic conversion will take place.</li>
+</ul></div>
+<p class="pBody"><a name="wp1314429"> </a>
+During automatic conversion, the input XML root element name cannot be saved, so the output XML root tag<span class="cHyperlink">
+ </span>uses the default root tag <code class="cCode">&lt;FML Type=&quot;FML&quot;&gt;</code> or <code class="cCode">&lt;FML Type=&quot;FML32&quot;&gt;</code>.
+</p>
+<h5 class="pHeading4"><a name="wp1304512"> </a>
+Initiating Automatic Conversion
+</h5>
+<p class="pBody"><a name="wp1314433"> </a>
+For automatic conversion of XML data to and from FML/FML32 buffers, perform the following steps:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1314434"> </a>Add the <code class="cCode">BUFTYPECONV</code> parameter specifying either <code class="cCode">XML2FML</code> or <code class="cCode">XML2FML32</code>, as appropriate.</li>
+<li><a name="wp1314435"> </a>Use <code class="cCode">TPXPARSFILE</code> environment variable to control Xerces parser attributes and settings<span class="cHyperlink">
+ </span>(optional).</li>
+<li><a name="wp1314436"> </a>Use <code class="cCode">tmloadcf -y</code> to compile and load the<code class="cCode"> UBBCONFIG</code> file. </li>
+<li><a name="wp1314437"> </a>Use <code class="cCode">tmboot -y</code> to boot the server</li>
+</ul></div>
+<h5 class="pHeading4"><a name="wp1307040"> </a>
+Automatic Conversion and Xerces Parser XML Validation
+</h5>
+<p class="pBody"><a name="wp1314441"> </a>
+The Xerces parser uses default attribute settings to control XML validation during automatic conversion. However, Tuxedo supports 14 specific Xerces DOMParser class attributes that provide some automatic conversion customizing flexibility.
+</p>
+<p class="pBody"><a name="wp1314442"> </a>
+If you are using the automatic conversion method, parser validation is determined one of two ways:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1314443"> </a>Accepting the default parser validation settings</li>
+<li><a name="wp1314444"> </a>Specifying validation options through the <code class="cCode">TPXPARSFILE</code> environment variable</li>
+<p class="pBodyRelative"><a name="wp1314448"> </a>
+The <code class="cCode">TPXPARSFILE</code> environment variable designates the fully qualified path to a text file that contains the XercesDOMParser class attribute settings you want to modify. 
+</p>
+<p class="pBodyRelative"><a name="wp1314449"> </a>
+Each attribute in the text file is written on a separate line in the following format:
+</p>
+<a name="wp1314450"> </a><div class="pPreformattedRelative"><pre>&lt;parser attribute&gt;=&lt;setting&gt;</pre></div><p class="pBodyRelative"><a name="wp1314451"> </a>
+The <code class="cCode">&lt;parser attribute&gt;</code> can be any or all of the 14 parser attributes in the following table, where (D) denotes the default setting.
+</p>
+<a name="wp1312022"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For a detailed description of these attributes, see <a href="../xmlparser/html/apiDocs/index.html"><span class="cHyperlink">
+Xerces parser 2.5.0 documentation</a></span>.</td>
+</tr>
+</table>
+
+<p class="pGraphic"><a name="wp1312086"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1312027table1312025">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1312027"> </a>
+Parser Attribute
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1312029"> </a>
+Setting
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312031"> </a>
+CacheGrammarFromParse
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312033"> </a>
+True or False (D)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312035"> </a>
+DoNameSpaces
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312037"> </a>
+True or False (D)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312039"> </a>
+DoSchema
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312041"> </a>
+True or False (D)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312043"> </a>
+ExternalSchemaLocation
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312045"> </a>
+Fully qualified path to <code class="cCode">file_name.xsd</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312047"> </a>
+ExitOnFirstFatalError
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312049"> </a>
+True or False (D)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312051"> </a>
+IncludeIgnorableWhiteSpace
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312053"> </a>
+True or False (D)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312055"> </a>
+LoadGrammar
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312057"> </a>
+Fully qualified name of validating file
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312059"> </a>
+NoNamespaceSchemaLocation
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312061"> </a>
+Fully qualified path to <code class="cCode">file_name.xsd</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312063"> </a>
+StandardUriConformant
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312065"> </a>
+True or False (D)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312067"> </a>
+UseCachedGrammarInParse
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312069"> </a>
+True or False (D)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312071"> </a>
+UseScanner
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312073"> </a>
+WF, DG, SG, or IG (D)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312075"> </a>
+ValidationConstraintFatal
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312077"> </a>
+True or False (D)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312079"> </a>
+ValidationScheme
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312081"> </a>
+Val_Never, Val_Always, or Val_Auto (D)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312083"> </a>
+ValidationSchemaFullChecking
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1312085"> </a>
+True or False (D)
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</ul></div>
+<p class="pBody"><a name="wp1310990"> </a>
+<a href="pgbuf.html#wp1310623">Listing&#160;2-16</a> is a sample input plain text file for the <code class="cCode">TPXPARSFILE</code> environment variable.
+</p>
+<div class="pCodeTitle"><a name="wp1310623"> </a>
+Listing&#160;2-16	   Sample Input for TXPARSFILE Environment Variable
+</div> <p class="pBody"><a name="wp1314455"> </a>
+<code class="cCode">CacheGrammarFromParse=True<br />DoNameSpaces=True<br />DoSchema=True<br />ExternalSchemaLocation= http://www.xml.org/sch.xsd<br />ExitOnFirstFatalError=c:\xml\example.xsd<br />IncludeIgnorableWhiteSpace=True<br />LoadGrammar=<br />NoNamespaceSchemaLocation=<br />StandardUriConformant=True<br />UseCachedGrammarInParse=True<br />UseScanner=WF<br />ValidationConstraintFatal=True<br />ValidationScheme=Val_Auto<br />ValidationSchemaFullChecking=True</code>
+</p>
+<h4 class="pHeading3"><a name="wp1308645"> </a>
+Mapping XML To and From FML/FML32 Field Types 
+</h4>
+<p class="pBody"><a name="wp1314461"> </a>
+The relationship between the XML format and the FML/FML32 fields is one in which the XML element names are the same as the FML/FML32 field names, and the XML values are interpreted using the corresponding field type. 
+</p>
+<p class="pBody"><a name="wp1314462"> </a>
+The opening and closing tag uses the name of the field. Attributes are optionally provided for <code class="cCode">FLD_FML32, FLD_MBSTRING</code> and <code class="cCode">FLD_VIEW32</code>. Field names and attributes are <span style="font-style: italic">case sensitive</span>.
+</p>
+<p class="pBody"><a name="wp1314463"> </a>
+The field value is read as a string and converted to the following field type:
+</p>
+<p class="pBody"><a name="wp1314464"> </a>
+<code class="cCode">&lt;FIELDNAME Attribute=&quot;Attribute Value&quot;&gt; FIELDVALUE &lt;/FIELDNAME&gt;</code>
+</p>
+<p class="pBody"><a name="wp1314465"> </a>
+FML/FML32 field types are mapped to XML buffer types as follows:
+</p>
+<p class="pGraphic"><a name="wp1314063"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1314006table1314004">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1314006"> </a>
+Field Type
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1314008"> </a>
+Conversion Mapping
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1314010"> </a>
+Example
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1314012"> </a>
+SHORT<br />LONG<br />CHAR<br />FLOAT<br />DOUBLE<br />STRING
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1314014"> </a>
+The <code class="cCode">FLD_SHORT,</code> <code class="cCode">FLD_LONG, FLD_CHAR,</code> <code class="cCode">FLD_FLOAT, FLD_DOUBLE,</code> and <code class="cCode">FLD_STRING </code>fields are simple conversions to and from the XML string values.
+</div>
+<div class="pCellBody"><a name="wp1314015"> </a>
+Formatting of type values will follow the style, where possible, that has been used in <code class="cCode">Ftypcvt()</code>.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1314017"> </a>
+<code class="cCode">FML:AMOUNT=10.00<br />XML:&lt;AMOUNT&gt;10.00&lt;/AMOUNT&gt;</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1314019"> </a>
+CARRAY
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1314021"> </a>
+During <code class="cCode">FLD_CARRAY</code> field conversion, the XML byte stream value is converted from two alphanumeric characters in XML to one byte value in Tuxedo. That is, each XML pair of characters represents a hex byte value.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1314023"> </a>
+<code class="cCode">FML: BEA=TUXEDO<br />XML:&lt;BEA&gt;54555845444F&lt;/BEA&gt;</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1314025"> </a>
+PTR
+</div>
+</td>
+    <td class="table" scope="row"><p class="pBody"><a name="wp1314027"> </a>
+During conversion to XML, the <code class="cCode">FLD_PTR</code> fieldname points to one of the following valid Tuxedo buffer types: <code class="cCode">STRING</code>, <code class="cCode">MBSTRING</code>, <code class="cCode">CARRAY</code>, <code class="cCode">FML</code>, <code class="cCode">FML32</code>, and <code class="cCode">VIEW32</code> and ignores any invalid buffer types. When the buffer content is converted to XML, the <code class="cCode">BUFTYPE</code> attribute is included in the buffer type tag (see example 1).
+</p>
+<p class="pBody"><a name="wp1314477"> </a>
+During conversion to FML32, the <code class="cCode">BUFTYPE</code> attribute must be included in the buffer type tag. The only valid values are Tuxedo buffer types: <code class="cCode">STRING</code>, <code class="cCode">MBSTRING</code>, <code class="cCode">CARRAY</code>, <code class="cCode">FML</code>, <code class="cCode">FML32</code>, and <code class="cCode">VIEW32</code>. If the <code class="cCode">BUFTYPE</code> attribute is not specified or an invalid value is used, the element is ignored in FML32.
+</p>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1314029"> </a>
+Example 1 - XML Conversion:
+</div>
+<div class="pCellBody"><a name="wp1314030"> </a>
+<code class="cCode">&lt;stringptr BUFTYPE=&#8221;STRING&#8221;&gt;teststringptr&lt;/stringptr&gt;</code>
+</div>
+<div class="pCellBody"><a name="wp1314032"> </a>
+Example 2 - FML32 Conversion:
+</div>
+<div class="pCellBody"><a name="wp1314033"> </a>
+&lt;fml32ptr BUFTYPE=&#8221;FML32&#8221;&gt;&lt;id&gt;2323&lt;/id&gt;<br />&lt;/fml32ptr&gt;
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1314035"> </a>
+FML32
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1314037"> </a>
+The<code class="cCode"> FLD_FML32</code> fieldname is supported with the opening and closing tags based upon the FML field name. This XML document includes multiple descriptions of <code class="cCode">&lt;fieldname&gt;value&lt;/fieldname&gt;</code> for each field contained in the buffer.
+</div>
+<div class="pCellBody"><a name="wp1314038"> </a>
+Embedded FML32 is allowed so hierarchal XML descriptions are permitted.
+</div>
+<p class="pTableNote"><a name="wp1314039"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>An optional attribute, <code class="cCode">Tpmbenc,</code> can be used to specify the encoding for the entire MBSTRING field of FML32 buffers during XML to FML32 conversion</td></tr>
+</table>
+</p>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1314041"> </a>
+The first example below includes an encoding attribute and the second example is an FML32 definition for a BANK field containing an embedded FML32 field named ID.
+</div>
+<div class="pCellBody"><a name="wp1314043"> </a>
+Example 1: <br /><code class="cCode">&lt;ACCT Tpmbenc=&quot;EUC&quot;&gt;&lt;NM&gt;Smith&lt;/NM&gt;&lt;TRAN&gt;OPEN&lt;/TRAN&gt;&lt;/ACCT&gt;</code>
+</div>
+<div class="pCellBody"><a name="wp1314044"> </a>
+Example 2: <code class="cCode">&lt;BANK&gt;&lt;BID&gt;001&lt;/BID&gt;&lt;ID&gt;&lt;NM&gt;Jones&lt;/NM&gt;&lt;AC&gt;001&lt;/AC&gt;&lt;/ID&gt;<br />&lt;/BANK&gt;</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1314046"> </a>
+VIEW32
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1314048"> </a>
+The <code class="cCode">FLD_VIEW32</code> fieldname is supported, and therefore, the <code class="cCode">FLD_INT</code> and <code class="cCode">FLD_DECIMAL</code> fields are also recognized. <code class="cCode">FLD_INT</code> is treated like <code class="cCode">FLD_LONG.</code>
+</div>
+<div class="pCellBody"><a name="wp1314049"> </a>
+The start and end tag is based on the <code class="cCode">FLD_VIEW32</code> field name. It will take a <code class="cCode">Vname</code> attribute for specifying the view name to use. This XML document includes multiple descriptions of
+</div>
+<div class="pCellBody"><a name="wp1314492"> </a>
+<code class="cCode">&lt;fbname&gt; value &lt;/fbname&gt;<br /></code>
+</div>
+<div class="pCellBody"><a name="wp1314499"> </a>
+where <code class="cCode">fbname</code> is the buffer name of the view member field.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1314051"> </a>
+<code class="cCode">&lt;CURR Vname=&quot;Myview&quot;&gt; &lt;FB1&gt;001&lt;/FB1&gt;&lt;FB1&gt;002&lt;/FB1&gt;&lt;FB2&gt;7.50&lt;/FB2&gt;&lt;FB3&gt;Y&lt;/FB3&gt;<br />&lt;/CURR&gt;</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1314053"> </a>
+MBSTRING
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1314055"> </a>
+The <code class="cCode">FLD_MBSTRING</code> field conversion uses the Encoding attribute and the field data to describe the FML32 field. This conversion is similar to <code class="cCode">Fmbpack32</code> usage. Please note the following conditions:
+</div>
+<div class="pSmartList1Table"><ol type="1" class="pSmartList1Table">
+<li value="1"><a name="wp1314056"> </a>If the <code class="cCode">Encoding</code> attribute is present and the value is specified, the data values are used to create the <code class="cCode">FLD_MBSTRING</code> value.</li>
+<li value="2"><a name="wp1314057"> </a>If the <code class="cCode">Encoding</code> attribute is not present and <code class="cCode">Tpmbenc</code> has been set for the full FML32 buffer, then the <code class="cCode">FLD_MBSTRING</code> adopts the <code class="cCode">Tpmbenc</code> value. </li>
+<li value="3"><a name="wp1314058"> </a>If the <code class="cCode">Encoding</code> attribute is not present and <code class="cCode">Tpmbenc</code> is not specified, then an attempt is made to get the process environment <code class="cCode">TPMBENC</code> (<span style="font-style: italic">all caps</span>) and use that encoding as the <code class="cCode">FLD_MBSTRING</code> value in place of the attribute definition.</li>
+<li value="4"><a name="wp1314059"> </a>If all three of the previous conditions are not met, Tuxedo ignores those elements and no conversion takes place.</li>
+</ol></div>
+<div class="pCellBody"><a name="wp1314060"> </a>
+Data is treated in the same manner as a <code class="cCode">FLD_CARRAY</code> field.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1314062"> </a>
+&lt;MBIN Encoding=&quot;SJIS&quot;&gt;C7E8D9CAB3&lt;/MBIN&gt;
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1301046"> </a>
+Conversion Limitations
+</h4>
+<p class="pBody"><a name="wp1311492"> </a>
+The following limitations exist for conversion of XML data to and from FML/FML32 buffers using the Xerces 2.5.0 parser delivered with Tuxedo.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1314505"> </a>XML documents are treated as a constrained XML message set, and not as a flexible XML grammar. This constraint is based upon the definitions specified in the FML/FML32 header file. </li>
+<li><a name="wp1301049"> </a>Digitally signed XML, FML or FML32 buffers fail signature checking when using automatic conversion. The<span class="cHyperlink">
+ </span>tpenvelope() function for digital signatures can only be used during on-demand conversion.</li>
+<li><a name="wp1314513"> </a>Parsing limitations are those inherited from the Xerces library. </li>
+<li><a name="wp1314514"> </a>The Xerces parser does not support output XML DTD/Schema validation.</li>
+<li><a name="wp1314515"> </a>Conversion between XML and FML/FML32 buffers does not <span style="font-style: italic">necessarily </span>create the exact same XML document as which you started. Tuxedo FML/FML32 buffers group<span style="font-style: italic; font-weight: bold"> </span>equivalent field types within a buffer and bases output order on that grouping; therefore, specific element ordering based on input XML is lost. The Xerces parser cannot track FML/FML32 field input order, or control FML/FML32 field<span class="cHyperlink">
+ </span>output order.</li>
+<p class="pBodyRelative"><a name="wp1314516"> </a>
+Please note the following:
+</p>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1314518"> </a>All input format structure is lost during XML conversion.</li>
+<li><a name="wp1314519"> </a>You can input a partial listing of view32 members to XML, However, when XML is converted to FML32, the FML32 output will include all view32 members defined in the view definition file.</li>
+</ul></div>
+<li><a name="wp1314520"> </a>During automatic conversion, input XML root tag names are not saved and the default output root tag <code class="cCode">&lt;FML Type=&quot;FML&quot;&gt;</code> or <code class="cCode">&lt;FML Type=&quot;FML32&quot;&gt;</code> is used.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1310743"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1316244"> </a><span style="font-style: italic"><a href="../interm/atmitutr.html">&#8220;Tutorial for xmlstockapp, a C and C++ XML Parser Application&#8221;</a></span> in <em class="cEmphasis">Tutorials for Developing Oracle Tuxedo ATMI Applications</em></li>
+<li><a name="wp1316260"> </a><a href="../rf3c/rf3c.html">tpfml32toxml(3c)</a>, <a href="../rf3c/rf3c.html">tpfmltoxml(3c)</a>, <a href="../rf3c/rf3c.html">tpxmltofml32(3c)</a>,<span class="cHyperlink">
+ </span>and<span class="cHyperlink">
+ </span><a href="../rf3c/rf3c.html">tpxmltofml(3c)</a> in <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em></li>
+<li><a name="wp1310760"> </a><a href="../rf5/rf5.html">tuxenv(5)</a>and <a href="../rf5/rf5.html">UBBCONFIG(5)</a>in <em class="cEmphasis">Oracle Tuxedo File Formats, Data Descriptions, MIBs, and System Processes Reference</em></li>
+<li><a name="wp1310765"> </a><a href="pgbuf.html#wp1262459">Using a VIEW Typed Buffer</a></li>
+<li><a name="wp1310769"> </a><a href="pgbuf.html#wp1263099">Using an FML Typed Buffer</a></li>
+<li><a name="wp1310773"> </a><a href="pgbuf.html#wp1294003">Using an MBSTRING Typed Buffer</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1294003"> </a>
+Using an MBSTRING Typed Buffer
+</h2><p class="pBody"><a name="wp1292386"> </a>
+To support the multibyte coded character sets required by Chinese, Japanese, Korean, and other Asian Pacific languages, Oracle Tuxedo includes the MBSTRING typed buffer for transport of multibyte character user data. Chinese, Japanese, Korean, and other Asian Pacific languages use coded character sets that use more than one byte to represent a character.
+</p>
+<p class="pBody"><a name="wp1276861"> </a>
+Using the MBSTRING typed buffer and the multibyte character encoding feature, the Oracle Tuxedo system can convert user data from one encoding representation to another encoding representation when an MBSTRING buffer (or an <code class="cCode">FLD_MBSTRING</code> field in an FML32 buffer) is transmitted between processes. <a href="pgbuf.html#wp1278200">Figure&#160;2-1</a> shows through example how encoding conversion works.
+</p>
+<div class="pFigureTitle"><a name="wp1278200"> </a>
+Figure&#160;2-1  Encoding Conversion Using MBSTRING Buffers&#8212;Example
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1278248"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/pgc-02-1-1.gif" height="503" width="456" alt="Encoding Conversion Using MBSTRING Buffers&#8212;Example" id="wp1278202"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1278670"> </a>
+As indicated in the example, the MBSTRING typed buffer is capable of carrying information identifying the code-set <em class="cEmphasis">character encoding</em>, or simply <em class="cEmphasis">encoding</em>, of its user data. In the example, the client-request MBSTRING buffer holds Japanese user data represented by the Shift-JIS (SJIS) encoding, while the server-reply MBSTRING buffer holds Japanese user data represented by the Extended UNIX Code (EUC) encoding. The multibyte character encoding feature reads environment variables <code class="cCode">TPMBENC</code> and <code class="cCode">TPMBACONV</code> to determine the source encoding, the target encoding, and the state (on or off) of automatic encoding conversion.
+</p>
+<p class="pBody"><a name="wp1278883"> </a>
+The encoding conversion capability enables the underlying Tuxedo system software to convert the encoding representation of an incoming message to an encoding representation supported by the machine on which the receiving process is running. The conversion is neither a conversion between character code sets nor a translation between languages, but rather a conversion between different character encodings for the same language.
+</p>
+<h3 class="pHeading2"><a name="wp1276863"> </a>
+Multibyte Character Encoding Control
+</h3>
+<p class="pBody"><a name="wp1276864"> </a>
+There are two ways of controlling character encoding conversions:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1276865"> </a>Administratively by using environment variables <code class="cCode">TPMBENC</code> and <code class="cCode">TPMBACONV</code></li>
+<li><a name="wp1276866"> </a>Programmatically by using ATMI functions</li>
+</ul></div>
+<p class="pBody"><a name="wp1279055"> </a>
+The following two flowcharts demonstrate how the environment variables and ATMI are used during the allocating, sending, receiving, and converting of an MBSTRING buffer.
+</p>
+<div class="pFigureTitle"><a name="wp1279116"> </a>
+Figure&#160;2-2  Allocating and Sending an MBSTRING Buffer
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1281080"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/pgc-02-1-2.gif" height="623" width="456" alt="Allocating and Sending an MBSTRING Buffer" id="wp1280996"/></div><p class="pGraphic">
+
+</p>
+<div class="pFigureTitle"><a name="wp1281081"> </a>
+Figure&#160;2-3  Receiving and Converting an MBSTRING Buffer (Sheet 1 of 2)
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1281184"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/pgc-02-1-3.gif" height="621" width="552" alt="Receiving and Converting an MBSTRING Buffer (Sheet 1 of 2)" id="wp1281083"/></div><p class="pGraphic">
+
+</p>
+<div class="pFigureTitle"><a name="wp1281223"> </a>
+Figure&#160;2-3   Receiving and Converting an MBSTRING Buffer (Sheet 2 of 2)
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1281326"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/pgc-02-1-4.gif" height="621" width="552" alt="Receiving and Converting an MBSTRING Buffer (Sheet 2 of 2)" id="wp1281225"/></div><p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1315104"> </a>
+Enabling MBSTRING to be Self-describing
+</h3>
+<p class="pBody"><a name="wp1315108"> </a>
+<code class="cCode">MBSTRING</code> can be self-describing if <code class="cCode">sendlen</code> is set to zero. Some Tuxedo buffers provide a capability for the buffer to determine its own length if the user does not provide it. This self-describing behavior is triggered when an application sets the <code class="cCode">sendlen</code> argument of a Tuxedo function call (for example, <code class="cCode">tpcall()</code>) to zero. 
+</p>
+<h4 class="pHeading3"><a name="wp1315157"> </a>
+Implementation
+</h4>
+<p class="pBody"><a name="wp1315115"> </a>
+This self-describing behavior is implemented by adding the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1315116"> </a> <code class="cCode">_mbspresend()</code> function to the <code class="cCode">MBSTRING</code> typeswitch function list </li>
+<li><a name="wp1315117"> </a>A protective file, <code class="cCode">$TUXDIR/udataobj/sendlen0_unsafe_tpmbenc</code>, containing the names of the codeset encoding names which are considered unsafe to use with the feature. </li>
+</ul></div>
+<p class="pBody"><a name="wp1315118"> </a>
+The <code class="cCode">_mbspresend()</code> addition requires any user who customizes Tuxedo buffers to rebuild their applications.
+</p>
+<h4 class="pHeading3"><a name="wp1315177"> </a>
+Safe/Unsafe Encoding Names
+</h4>
+<p class="pBody"><a name="wp1315178"> </a>
+The idea of safe or unsafe encoding names specified by <code class="cCode">TPMBENC</code> comes from whether or not the multibyte character data for these encodings can contain embedded NULLs. Because the <code class="cCode">_mbspresend()</code> function uses <code class="cCode">strlen()</code> to determine the length of the data, an embedded NULL causes the length to be incorrectly set and the wrong number of data bytes are sent.
+</p>
+<p class="pBody"><a name="wp1315179"> </a>
+The default list in <code class="cCode">sendlen0_unsafe_tpmbenc</code> has the multibyte Unicode encoding names (in uppercase and lowercase, for convenience) which can contain embedded NULLs. You should modify this list as application administration or performance is considered. 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1315180"> </a>If the file exists but is empty, then Tuxedo assumes all encoding names are safe for <code class="cCode">MBSTRING</code> self-describing attempts.</li>
+<li><a name="wp1315181"> </a>If the file does not exist, then Tuxedo assumes that all encoding names are unsafe to use for <code class="cCode">MBSTRING</code> self-describing attempts (<code class="cCode">tperrno</code> will be <code class="cCode">TPEINVAL</code>).</li>
+<li><a name="wp1315182"> </a>If the file exists and contains a list of names, then Tuxedo reads this file once (at <code class="cCode">_mbsinit()</code>) and stores the list internally. During <code class="cCode">mbsinit()</code>, the <code class="cCode">TPMBENC</code> name is compared to the stored list and the buffer is set as safe or unsafe to use. When <code class="cCode">_mbspresend()</code> is called (<code class="cCode">sendlen</code> argument is set to zero) and the buffer is marked safe, then the length is set internally by Tuxedo.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1315350"> </a>
+Multibyte Character Support Limitations
+</h3>
+<p class="pBody"><a name="wp1315354"> </a>
+The following limitations exist for the multibyte character support in Oracle Tuxedo:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1315355"> </a>UBBCONFIG and DMCONFIG parameters should not use non-ASCII characters.</li>
+<li><a name="wp1315356"> </a>The field data on Data Dependent Routing should not use non-ASCII characters.</li>
+<li><a name="wp1315360"> </a>The multibyte character feature is not supported in Oracle Jolt.</li>
+<li><a name="wp1315361"> </a>The multibyte character feature is not supported in Oracle WebLogic Tuxedo Connector (WTC) Release 8.x and earlier.</li>
+<li><a name="wp1315362"> </a>The multibyte character feature is not supported in Tuxedo VIEW buffer types.</li>
+<li><a name="wp1315363"> </a>There are no COBOL APIs equivalent to the Tuxedo APIs supporting <code class="cCode">MBSTRING</code> and <code class="cCode">FLD_MBSTRING</code>.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1315348"> </a>
+Multibyte Character Encoding Support for libiconv
+</h3>
+<p class="pBody"><a name="wp1283823"> </a>
+<code class="cCode">libiconv</code>, an encoding conversion library that provides support for many coded character sets and encodings, is included with the Oracle Tuxedo 8.1 or later software distribution. The multibyte character encoding feature uses the character conversion functions in this library to convert from any of the supported character encodings to any other supported character encoding, through Unicode conversion.
+</p>
+<p class="pBody"><a name="wp1287134"> </a>
+<code class="cCode">libiconv</code> provides support for the following encodings:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1287136"> </a>European languages</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1287137"> </a>ASCII, ISO-8859-{1,2,3,4,5,7,9,10,13,14,15,16},</li>
+<li><a name="wp1287138"> </a>KOI8-R, KOI8-U, KOI8-RU,</li>
+<li><a name="wp1287139"> </a>CP{1250,1251,1252,1253,1254,1257}, CP{850,866},</li>
+<li><a name="wp1287140"> </a>Mac{Roman,CentralEurope,Iceland,Croatian,Romania},</li>
+<li><a name="wp1287141"> </a>Mac{Cyrillic,Ukraine,Greek,Turkish},</li>
+<li><a name="wp1287142"> </a>Macintosh</li>
+</ul></div>
+<li><a name="wp1287143"> </a>Semitic languages</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1287144"> </a>ISO-8859-{6,8}, CP{1255,1256}, CP862, Mac{Hebrew,Arabic}</li>
+</ul></div>
+<li><a name="wp1287145"> </a>Japanese</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1287146"> </a>EUC-JP, SHIFT-JIS, CP932, ISO-2022-JP, ISO-2022-JP-2, ISO-2022-JP-1</li>
+</ul></div>
+<li><a name="wp1287147"> </a>Chinese</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1287148"> </a>EUC-CN, HZ, GBK, GB18030, EUC-TW, BIG5, CP950, BIG5-HKSCS,</li>
+<li><a name="wp1287149"> </a>ISO-2022-CN, ISO-2022-CN-EXT</li>
+</ul></div>
+<li><a name="wp1287150"> </a>Korean</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1287151"> </a>EUC-KR, CP949, ISO-2022-KR, JOHAB</li>
+</ul></div>
+<li><a name="wp1287152"> </a>Armenian</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1287153"> </a>ARMSCII-8</li>
+</ul></div>
+<li><a name="wp1287154"> </a>Georgian</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1287155"> </a>Georgian-Academy, Georgian-PS</li>
+</ul></div>
+<li><a name="wp1287156"> </a>Thai</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1287157"> </a>TIS-620, CP874, MacThai</li>
+</ul></div>
+<li><a name="wp1287158"> </a>Laotian</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1287159"> </a>MuleLao-1, CP1133</li>
+</ul></div>
+<li><a name="wp1287160"> </a>Vietnamese</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1287161"> </a>VISCII, TCVN, CP1258</li>
+</ul></div>
+<li><a name="wp1287162"> </a>Platform specifics</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1287163"> </a>HP-ROMAN8, NEXTSTEP</li>
+</ul></div>
+<li><a name="wp1287164"> </a>Full Unicode</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1287165"> </a>UTF-8</li>
+<li><a name="wp1287513"> </a>UCS-2, UCS-2BE, UCS-2LE</li>
+<li><a name="wp1287167"> </a>UCS-4, UCS-4BE, UCS-4LE</li>
+<li><a name="wp1287168"> </a>UTF-16, UTF-16BE, UTF-16LE</li>
+<li><a name="wp1287169"> </a>UTF-32, UTF-32BE, UTF-32LE</li>
+<li><a name="wp1287170"> </a>UTF-7</li>
+<li><a name="wp1287171"> </a>JAVA</li>
+</ul></div>
+<li><a name="wp1287172"> </a>Full Unicode, in terms of `uint16_t&#39; or `uint32_t&#39; (with machine-dependent endianness and alignment)</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1287174"> </a>UCS-2-INTERNAL, UCS-4-INTERNAL</li>
+</ul></div>
+<li><a name="wp1287175"> </a>Locale dependent, in terms of `char&#39; or `wchar_t&#39; (with machine-dependent endianness and alignment, and with OS and locale dependent semantics)</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1287178"> </a>char, wchar_t</li>
+</ul></div>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1276874"> </a>
+See Also
+</h3>
+<p class="pBody"><a name="wp1276875"> </a>
+For more information about multibyte character encoding, see the following documents:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1282152"> </a><a href="../rf3c/rf3c.html">buffer(3c)</a>, <a href="../rf3c/rf3c.html">tpmbconv(3c)</a>, <a href="../rf3c/rf3c.html">tpgetmbenc(3c)</a>, <a href="../rf3c/rf3c.html">tpsetmbenc(3c)</a>, <a href="../rf3c/rf3c.html">tuxgetmbenc(3c)</a>, and <a href="../rf3c/rf3c.html">tuxsetmbenc(3c)</a>, <a href="../rf3c/rf3c.html">tuxgetmbaconv(3c)</a>, and <a href="../rf3c/rf3c.html">tuxsetmbaconv(3c)</a> in <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em></li>
+<li><a name="wp1282165"> </a><a href="../rf5/rf5.html">tuxenv(5)</a>, <a href="../rf5/rf5.html">tuxtypes(5)</a>, and <a href="../rf5/rf5.html">typesw(5)</a> in <em class="cEmphasis">Oracle Tuxedo File Formats, Data Descriptions, MIBs, and System Processes Reference</em></li>
+<li><a name="wp1276878"> </a><span class="cHyperlink">
+<a href="../interm/atmiprog.html#fml">Programming an Oracle Tuxedo ATMI Application Using FML</a></span></li>
+<li><a name="wp1276880"> </a><span class="cHyperlink">
+<a href="../rf3fml/rf3fml.html">Oracle Tuxedo ATMI FML Function Reference</a></span></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1263695"> </a>
+Customizing a Buffer
+</h2><p class="pBody"><a name="wp1263696"> </a>
+You may find that the buffer types supplied by the Oracle Tuxedo system do not meet your needs. For example, perhaps your application uses a data structure that is not flat, but has pointers to other data structures, such as a parse tree for an SQL database query. To accommodate unique application requirements, the Oracle Tuxedo system supports customized buffers.
+</p>
+<p class="pBody"><a name="wp1263697"> </a>
+To customize a buffer, you need to identify the following characteristics shown in <a href="pgbuf.html#wp1283319">Table&#160;2-10</a>.
+</p>
+<p class="pGraphic"><a name="wp1283306"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1283319table1263698"><caption><a name="wp1283319"> </a>
+Table 2-10  Custom Buffer Type Characteristics
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1263700"> </a>
+Characteristic
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1263702"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263704"> </a>
+<em class="cEmphasis">Buffer type</em>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263706"> </a>
+Name of the buffer type, specified by a string of up to eight characters.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263708"> </a>
+<em class="cEmphasis">Buffer subtype</em>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263710"> </a>
+Name of the buffer subtype, specified by a string of up to 16 characters. The system uses a subtype to identify different processing requirements for buffers of a given type. When the wildcard character (*) is specified as the subtype value, all buffers of a given type can be processed using the same generic routine. Any buffers for which a subtype is defined must appear before the wildcard in the list, in order to be processed correctly.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263712"> </a>
+<em class="cEmphasis">Default size</em>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263714"> </a>
+Minimum size of the associated buffer type that can be allocated or reallocated. For buffer types that have a value greater than zero and that are sized appropriately, you can specify a buffer size of zero when allocating or reallocating a buffer to use this default size.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1263716"> </a>
+<a href="pgbuf.html#wp1283269">Table&#160;2-11</a> defines the list of routines that you may need to specify for each buffer type. If a particular routine is not applicable, you can simply provide a NULL pointer; the Oracle Tuxedo system uses default processing, as necessary.
+</p>
+<p class="pGraphic"><a name="wp1283244"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1283269table1263717"><caption><a name="wp1283269"> </a>
+Table 2-11  Custom Buffer Type Routines
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1263719"> </a>
+Routine
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1263721"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263723"> </a>
+<em class="cEmphasis">Buffer initialization</em>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263725"> </a>
+Initializes a newly allocated typed buffer.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263727"> </a>
+<em class="cEmphasis">Buffer reinitialization</em>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263729"> </a>
+Reinitializes a typed buffer. This routine is called after a buffer has been reallocated (that is, assigned a new size).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263731"> </a>
+<em class="cEmphasis">Buffer uninitialization</em>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263733"> </a>
+Uninitializes a typed buffer. This routine is called just before a typed buffer is freed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263735"> </a>
+<em class="cEmphasis">Buffer presend</em>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263737"> </a>
+Prepares the typed buffer for sending. This routine is called before a typed buffer is sent as a message to another client or server. It returns the length of the data to be transmitted.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263739"> </a>
+<em class="cEmphasis">Buffer postsend</em>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263741"> </a>
+Returns the typed buffer to its original state. This routine is called after the message is sent.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263743"> </a>
+<em class="cEmphasis">Buffer postreceive</em>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263745"> </a>
+Prepares the typed buffer once it has been received by the application. It returns the length of the application data.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263747"> </a>
+<em class="cEmphasis">Encode/decode</em>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263749"> </a>
+Performs all the encoding and decoding necessary for the buffer type. A request to encode or decode is passed to the routine, along with input and output buffers and lengths. The format used for encoding is determined by the application and, as with the other routines, it may be dependent on the buffer type.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263751"> </a>
+<em class="cEmphasis">Routing</em>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263753"> </a>
+Specifies the routing information. This routine is called with a typed buffer, the length of the data for that buffer, a logical routing name configured by an administrator, and a target service. Based on this information, the application must select the server group to which the message should be sent or indicate that the message is not needed. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263755"> </a>
+<em class="cEmphasis">Filter</em>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263757"> </a>
+Specifies filter information. This routine is called to evaluate an expression against a typed buffer and to return a match if it finds one. If the typed buffer is <code class="cCode">VIEW</code> or <code class="cCode">FML</code>, the <code class="cCode">FML</code> Boolean expressions are used. This routine is used by the EventBroker to evaluate matches for events<em class="cEmphasis">.</em>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263759"> </a>
+<em class="cEmphasis">Format</em>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263761"> </a>
+Specifies a printable string for a typed buffer.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1263763"> </a>
+Defining Your Own Buffer Types
+</h3>
+<p class="pBody"><a name="wp1263764"> </a>
+The application programmer is responsible for the code that manipulates buffers, which allocates and frees space, and sends and receives messages. For applications in which the default buffer types do not meet the needs of the application, other buffer types can be defined, and new routines can be written and then incorporated into the buffer type switch.
+</p>
+<p class="pBody"><a name="wp1263765"> </a>
+To define other buffer types, complete the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1263766"> </a>Code any switch element routines that may be required.</li>
+<li><a name="wp1263767"> </a>Add your new types and the names of your buffer management modules to <code class="cCode">tm_typesw</code>.</li>
+<li><a name="wp1263768"> </a>Build a new shared object or a DLL. The shared object or DLL must contain your updated buffer type switch and associated functions.</li>
+<li><a name="wp1263769"> </a>Install your new shared object or DLL so that all servers, clients, and executables provided by the Oracle Tuxedo system are loaded dynamically at run time.</li>
+</ol></div>
+<p class="pBody"><a name="wp1263770"> </a>
+If your application is using static libraries and you are providing a customized buffer type switch, then you must build a custom server to link in your new type switch. For details, see <code class="cCode">buildwsh</code> (1), <code class="cCode">TMQUEUE</code> (5), or <code class="cCode">TMQFORWARD</code> (5).
+</p>
+<p class="pBody"><a name="wp1263771"> </a>
+The rest of the sections in this topic address the steps listed in the preceding procedure to define a new buffer type in a shared-object or DLL environment. First, however, let&#8217;s look at the buffer switch that is delivered with the Oracle Tuxedo system software. <a href="pgbuf.html#wp1263772">Listing&#160;2-17</a> shows the switch delivered with the system.
+</p>
+<div class="pCodeTitle"><a name="wp1263772"> </a>
+Listing&#160;2-17	   Default Buffer Type Switch
+</div> <a name="wp1285507"> </a><div class="pPreformatted"><pre>#include &lt;stdio.h&gt;<br />#include &lt;tmtypes.h&gt;</pre></div><a name="wp1285508"> </a><div class="pPreformatted"><pre>/* <br /> * Initialization of the buffer type switch.<br /> */</pre></div><a name="wp1322275"> </a><div class="pPreformatted"><pre>struct tmtype_sw_t tm_typesw[] = {<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;CARRAY&quot;,     /* type */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;*&quot;,          /* subtype */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;0             /* dfltsize */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,         /* initbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,         /* reinitbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,         /* uninitbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,         /* presend */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,         /* postsend */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,         /* postrecv */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,         /* encdec */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,         /* route */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,         /* filter */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,         /* format */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,         /* presend2 */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL          /* multibyte code-set encoding conversion */<br />},<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;STRING&quot;,        /* type */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;*&quot;,             /* subtype */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;512,             /* dfltsize */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* initbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* reinitbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* uninitbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_strpresend,     /* presend */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* postsend */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* postrecv */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_strencdec,      /* encdec */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* route */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_sfilter,        /* filter */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_sformat,        /* format */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* presend2 */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL             /* multibyte code-set encoding conversion */<br />},<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;FML&quot;,           /* type */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;*&quot;,             /* subtype */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;1024,            /* dfltsize */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_finit,          /* initbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_freinit,        /* reinitbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_funinit,        /* uninitbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_fpresend,       /* presend */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_fpostsend,      /* postsend */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_fpostrecv,      /* postrecv */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_fencdec,        /* encdec */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_froute,         /* route */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_ffilter,        /* filter */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_fformat,        /* format */ <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* presend2 */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL             /* multibyte code-set encoding conversion */<br />},<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;VIEW&quot;,          /* type */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;*&quot;,             /* subtype */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;1024,            /* dfltsize */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vinit,          /* initbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vreinit,        /* reinitbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* uninitbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vpresend,       /* presend */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* postsend */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* postrecv */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vencdec,        /* encdec */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vroute,         /* route */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vfilter,        /* filter */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vformat,        /* format */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* presend2 */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL             /* multibyte code-set encoding conversion */<br />},<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* XATMI - identical to CARRAY */ <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;X_OCTET&quot;,       /* type */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;*&quot;,             /* subtype */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;0                /* dfltsize */<br />},<br />{    /* XATMI - identical to VIEW */ <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;{&#39;X&#39;,&#39;_&#39;,&#39;C&#39;,&#39;_&#39;,&#39;T&#39;,&#39;Y&#39;,&#39;P&#39;,&#39;E&#39;},      /* type */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;*&quot;,             /* subtype */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;1024,            /* dfltsize */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vinit,          /* initbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vreinit,        /* reinitbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* uninitbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vpresend,       /* presend */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* postsend */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* postrecv */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vencdec,        /* encdec */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vroute,         /* route */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vfilter,        /* filter */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vformat,        /* format */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* presend2 */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL             /* multibyte code-set encoding conversion */<br />},<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;/* XATMI - identical to VIEW */ <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;{&#39;X&#39;,&#39;_&#39;,&#39;C&#39;,&#39;O&#39;,&#39;M&#39;,&#39;M&#39;,&#39;O&#39;,&#39;N&#39;},      /* type */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;*&quot;,             /* subtype */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;1024,            /* dfltsize */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vinit,          /* initbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vreinit,        /* reinitbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* uninitbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vpresend,       /* presend */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* postsend */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* postrecv */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vencdec,        /* encdec */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vroute,         /* route */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vfilter,        /* filter */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vformat,        /* format */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* presend2 */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL             /* multibyte code-set encoding conversion */<br />},<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;FML32&quot;,         /* type */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;*&quot;,             /* subtype */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;1024,            /* dfltsize */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_finit32,        /* initbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_freinit32,      /* reinitbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_funinit32,      /* uninitbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_fpresend32,     /* presend */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_fpostsend32,    /* postsend */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_fpostrecv32,    /* postrecv */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_fencdec32,      /* encdec */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_froute32,       /* route */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_ffilter32,      /* filter */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_fformat32,      /* format */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_fpresend232,			 /* presend2 */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_fmbconv32       /* multibyte code-set encoding conversion */<br />},<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;VIEW32&quot;,        /* type */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;*&quot;,             /* subtype */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;1024,            /* dfltsize */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vinit32,        /* initbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vreinit32,      /* reinitbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* uninitbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vpresend32,     /* presend */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* postsend */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* postrecv */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vencdec32,      /* encdec */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vroute32,       /* route */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vfilter32,      /* filter */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vformat32,      /* format */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* presend2 */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_vmbconv32,			/* multibyte code-set encoding conversion */<br />},<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&quot;XML&quot;,            /* type */ <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;*&quot;,             /* subtype */ <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;0,               /* dfltsize */ <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* initbuf */ <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* reinitbuf */ <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* uninitbuf */ <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* presend */ <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* postsend */ <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* postrecv */ <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* encdec */ <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_xroute,         /* route */ <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* filter */ <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* format */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,            /* presend2 */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL             /* multibyte code-set encoding conversion */<br />},<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;MBSTRING&quot;,     /* type */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;*&quot;,            /* subtype */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;0,              /* dfltsize */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_mbsinit,     /* initbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,           /* reinitbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,           /* uninitbuf */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;_mbspresend,		 /* presend */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,           /* postsend */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,           /* postrecv */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,           /* encdec */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,           /* route */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,           /* filter */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,           /* format */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;NULL,           /* presend2 */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;_mbsconv      /* multibyte code-set encoding conversion */<br />},<br />{<br />&quot;&quot;<br />} <br />};</pre></div><a name="wp1285510"> </a><div class="pPreformatted"><pre>struct tmtype_sw_t _TM_FAR *<br />_TMDLLENTRY<br />_tmtypeswaddr(void)<br />{<br />  return(tm_typesw);<br />}</pre></div><p class="pBody"><a name="wp1263775"> </a>
+For a better understanding of the preceding listing, consider the declaration of the buffer type structure that is shown in <a href="pgbuf.html#wp1263776">Listing&#160;2-18</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1263776"> </a>
+Listing&#160;2-18	   Buffer Type Structure
+</div> <a name="wp1285655"> </a><div class="pPreformatted"><pre>/*<br /> * The following definitions are in $TUXDIR/include/tmtypes.h<br /> */<br />#define TMTYPELEN ED_TYPELEN <br />#define TMSTYPELEN ED_STYPELEN<br />struct tmtype_sw_t {<br />&#160;&#160;&#160;char type[TMTYPELEN];      /* type of buffer */<br />&#160;&#160;&#160;char subtype[TMSTYPELEN];  /* subtype of buffer */<br />&#160;&#160;&#160;long dfltsize;             /* default size of buffer */<br />&#160;&#160;&#160;/* buffer initialization function pointer */<br />&#160;&#160;&#160;int (_TMDLLENTRY *initbuf) _((char _TM_FAR *, long));<br />&#160;&#160;&#160;/* buffer reinitialization function pointer */<br />&#160;&#160;&#160;int (_TMDLLENTRY *reinitbuf) _((char _TM_FAR *, long));<br />&#160;&#160;&#160;/* buffer un-initialization function pointer */<br />&#160;&#160;&#160;int (_TMDLLENTRY *uninitbuf) _((char _TM_FAR *, long));<br />&#160;&#160;&#160;/* pre-send buffer manipulation func pointer */<br />&#160;&#160;&#160;long (_TMDLLENTRY *presend) _((char _TM_FAR *, long, long));<br />&#160;&#160;&#160;/* post-send buffer manipulation func pointer */<br />&#160;&#160;&#160;void (_TMDLLENTRY *postsend) _((char _TM_FAR *, long, long));<br />&#160;&#160;&#160;/* post-receive buffer manipulation func pointer*/<br />&#160;&#160;&#160;long (_TMDLLENTRY *postrecv) _((char _TM_FAR *, long, long));<br />&#160;&#160;&#160;/* XDR encode/decode function pointer */<br />&#160;&#160;&#160;long (_TMDLLENTRY *encdec) _((int, char _TM_FAR *, long, char _TM_FAR *, long));<br />&#160;&#160;&#160;/* routing function pointer */<br />&#160;&#160;&#160;int (_TMDLLENTRY *route) _((char _TM_FAR *, char _TM_FAR *, char _TM_FAR *, <br />&#160;&#160;&#160;long, char _TM_FAR *));<br />&#160;&#160;&#160;/* buffer filtering function pointer */<br />&#160;&#160;&#160;int (_TMDLLENTRY *filter) _((char _TM_FAR *, long, char _TM_FAR *, long));<br />&#160;&#160;&#160;/* buffer formatting function pointer */<br />&#160;&#160;&#160;int (_TMDLLENTRY *format) _((char _TM_FAR *, long, char _TM_FAR *, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;char _TM_FAR *, long));<br />&#160;&#160;&#160;/* process buffer before sending, possibly generating copy */<br />&#160;&#160;&#160;long (_TMDLLENTRY *presend2) _((char _TM_FAR *, long, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;long, char _TM_FAR *, long, long _TM_FAR *));<br />&#160;&#160;&#160;/* Multibyte code-set encoding conversion function pointer*/<br />&#160;&#160;&#160;long (_TMDLLENTRY *mbconv) _((char _TM_FAR *, long, <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;char _TM_FAR *, char _TM_FAR *, long, long _TM_FAR *));<br /><br />&#160;&#160;&#160;/* this space reserved for future expansion */<br />&#160;&#160;&#160;void (_TMDLLENTRY *reserved[8]) _((void));<br />};<br />/* <br /> * application types switch pointer<br /> * always use this pointer when accessing the table<br /> */<br />extern struct tmtype_sw_t *tm_typeswp;</pre></div><p class="pBody"><a name="wp1263780"> </a>
+The listing for the default buffer type switch shows the initialization of the buffer type switch. The nine default buffer types are shown, followed by a field for naming a subtype. Except for the <code class="cCode">VIEW</code> (and equivalently <code class="cCode">X_C_TYPE</code> and <code class="cCode">X_COMMON</code>) type, subtype is NULL. The subtype for <code class="cCode">VIEW</code> is given as ``*&#39;&#39;, which means that the default <code class="cCode">VIEW</code> type puts no constraints on subtypes; all subtypes of type <code class="cCode">VIEW</code> are processed in the same manner.
+</p>
+<p class="pBody"><a name="wp1263781"> </a>
+The next field gives the default (minimum) size of the buffer. For the <code class="cCode">CARRAY</code> (and equivalently <code class="cCode">X_OCTET</code>) type this is given as 0, which means that the routine that uses a <code class="cCode">CARRAY</code> buffer type must <code class="cCode">tpalloc()</code> enough space for the expected <code class="cCode">CARRAY</code>.
+</p>
+<p class="pBody"><a name="wp1263782"> </a>
+For the other types, the Oracle Tuxedo system allocates (with a <code class="cCode">tpalloc()</code> call) the space shown in the <code class="cCode">dfltsize</code> field of the entry (unless the size argument of <code class="cCode">tpalloc()</code> specifies a larger size).
+</p>
+<p class="pBody"><a name="wp1263783"> </a>
+The remaining eight fields of entries in the buffer type switch contain the names of switch element routines. These routines are described in the <code class="cCode">buffer(3c)</code> page in the <em class="cEmphasis">Oracle Tuxedo C Function Reference</em>. The name of a routine provides a clue to the purpose of the routine. For example, <code class="cCode">_fpresend</code> on the <code class="cCode">FML</code> type is a pointer to a routine that manipulates the buffer before sending it. If no presend manipulation is needed, a NULL pointer may be specified. NULL means no special handling is required; the default action should be taken. See <code class="cCode">buffer(3c)</code> for details.
+</p>
+<p class="pBody"><a name="wp1263784"> </a>
+It is particularly important that you notice the NULL entry at the end of the switch. Any changes that are made must always leave the NULL entry at the end of the array.
+</p>
+<h4 class="pHeading3"><a name="wp1263785"> </a>
+Coding Switch Element Routines
+</h4>
+<p class="pBody"><a name="wp1263786"> </a>
+Presumably an application that is defining new buffer types is doing so because of a special processing need. For example, let&#8217;s assume the application has a recurring need to compress data before sending a buffer to the next process. The application could write a presend routine. The declaration for the presend routine is shown in <a href="pgbuf.html#wp1263787">Listing&#160;2-19</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1263787"> </a>
+Listing&#160;2-19	   Semantics of the Presend Switch Element
+</div> <a name="wp1263788"> </a><div class="pPreformatted"><pre>long<br />presend(ptr, dlen, mdlen)<br />char *ptr;<br /><br />long dlen, mdlen;</pre></div><div class="pSmartList1Bullet"><ul>
+<li><a name="wp1263790"> </a><code class="cCodeEmphasis">ptr</code> is a pointer to the application data buffer. </li>
+<li><a name="wp1263791"> </a><code class="cCodeEmphasis">dlen</code> is the length of the data as passed into the routine. </li>
+<li><a name="wp1263792"> </a><code class="cCodeEmphasis">mdlen</code> is the size of the buffer in which the data resides.</li>
+</ul></div>
+<p class="pBody"><a name="wp1263793"> </a>
+The data compression that takes place within your presend routine is the responsibility of the system programmer for your application.
+</p>
+<p class="pBody"><a name="wp1263794"> </a>
+On completion the routine should return the new, hopefully shorter length of the data to be sent (in the same buffer), or a <code class="cCode">-1</code> to indicate failure.
+</p>
+<p class="pBody"><a name="wp1263795"> </a>
+The name given to your version of the presend routine can be any identifier accepted by the C compiler. For example, suppose we name it <code class="cCode">_mypresend</code>.
+</p>
+<p class="pBody"><a name="wp1263796"> </a>
+If you use our <code class="cCode">_mypresend</code> compression routine, you will probably also need a corresponding <code class="cCode">_mypostrecv</code> routine to decompress the data at the receiving end. Follow the template shown in the <code class="cCode">buffer</code>(3c) entry in the <em class="cEmphasis">Oracle Tuxedo C Function Reference</em>.
+</p>
+<h4 class="pHeading3"><a name="wp1263798"> </a>
+Adding a New Buffer Type to tm_typesw
+</h4>
+<p class="pBody"><a name="wp1322724"> </a>
+After the new switch element routines have been written and successfully compiled, the new buffer type must be added to the buffer type switch. To do this task, we recommend making a copy of <code class="cCode">$TUXDIR/lib/tmtypesw.c</code> (the source code for the default buffer type switch). Give your copy a name with a <code class="cCode">.c</code> suffix, such as <code class="cCode">mytypesw.c</code>. Add the new type to your copy. The name of the type can be up to 8 characters in length. Subtype can be null (<code class="cCode">&quot;&quot;</code>) or a string of up to 16 characters. Enter the names of your new switch element routines in the appropriate locations, including the <code class="cCode">extern</code> declarations. <a href="pgbuf.html#wp1322729">Listing&#160;2-20</a> provides an example.
+</p>
+<div class="pCodeTitle"><a name="wp1322729"> </a>
+Listing&#160;2-20	   Adding a New Type to the Buffer Switch
+</div> <a name="wp1263801"> </a><div class="pPreformatted"><pre>#include &lt;stdio.h&gt;<br />#include &lt;tmtypes.h&gt;<br /><br />/* Customized the buffer type switch */<br /><br />static struct tmtype_sw_t tm_typesw[] = {<br />{<br />&quot;SOUND&quot;,          /* type */<br />&#8220;&quot;,               /* subtype */<br />50000,            /* dfltsize */<br />snd_init,         /* initbuf */<br />snd_init,         /* reinitbuf */<br />NULL,             /* uninitbuf */<br /><br />snd_cmprs,        /* presend */<br />snd_uncmprs,      /* postsend */<br />snd_uncmprs       /* postrecv */<br />},<br />{<br />&quot;FML&quot;,            /* type */<br />&quot;&quot;,               /* subtype */<br />1024,             /* dfltsize */<br />_finit,           /* initbuf */<br />_freinit,         /* reinitbuf */<br />_funinit,         /* uninitbuf */<br />_fpresend,        /* presend */<br />_fpostsend,       /* postsend */<br />_fpostrecv,       /* postrecv */<br />_fencdec,         /* encdec */<br />_froute,          /* route */<br />_ffilter,         /* filter */<br />_fformat          /* format */<br />},<br />{<br />&quot;&quot;<br />}<br />};</pre></div><p class="pBody"><a name="wp1263803"> </a>
+In the previous listing, we added a new type: <code class="cCode">SOUND</code>. We also removed the entries for <code class="cCode">VIEW</code>, <code class="cCode">X_OCTET</code>, <code class="cCode">X_COMMON</code>, and <code class="cCode">X_C_TYPE</code>, to demonstrate that you can remove any entries that are not needed in the default switch. Note that the array still ends with the NULL entry.
+</p>
+<p class="pBody"><a name="wp1263804"> </a>
+An alternative to defining a new buffer type is to redefine an existing type. Suppose, for the sake of argument, that the data compression for which you defined the buffer type <code class="cCode">MYTYPE</code> was performed on strings. You could substitute your new switch element routines, <code class="cCode">_mypresend</code> and <code class="cCode">_mypostrecv</code>, for the two <code class="cCode">_dfltblen</code> routines in type <code class="cCode">STRING</code>.
+</p>
+<h4 class="pHeading3"><a name="wp1263806"> </a>
+Compiling and Linking Your New tm_typesw
+</h4>
+<p class="pBody"><a name="wp1263807"> </a>
+To simplify installation, the buffer type switch is stored in a shared object.
+</p>
+<a name="wp1263808"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>On some platforms the term &#8220;shared library&#8221; is used instead of &#8220;shared object.&#8221; On the Windows 2003 platform a &#8220;dynamic link library&#8221; is used instead of a &#8220;shared object.&#8221; For the purposes of this discussion, however, the functionality implied by all three terms is equivalent, so we use only one term.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1263809"> </a>
+This section describes how to make all Oracle Tuxedo processes in your application aware of the modified buffer type switch. These processes include application servers and clients, as well as servers and utilities provided by the Oracle Tuxedo system.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1263812"> </a>Copy and modify <code class="cCode">$TUXDIR/lib/tmtypesw.c</code>, as described in <a href="pgbuf.html#wp1263798">Adding a New Buffer Type to tm_typesw</a>. If additional functions are required, store them in either <code class="cCode">tmtypesw.c</code> or a separate C source file.</li>
+<li><a name="wp1263814"> </a>Compile <code class="cCode">tmtypesw.c </code>with the flags required for shared objects.</li>
+<li><a name="wp1263815"> </a>Link together all object files to produce a shared object.</li>
+<li><a name="wp1263816"> </a>Copy <code class="cCode">libbuft.so.71</code> from the current directory to a directory in which it will be visible to applications, and processed before the default shared object supplied by the Oracle Tuxedo system. We recommend using one of the following directories: <code class="cCode">$APPDIR</code>, <code class="cCode">$TUXDIR/lib</code>, or <code class="cCode">$TUXDIR/bin</code> (on a Windows 2003 platform).</li>
+</ol></div>
+<p class="pBody"><a name="wp1263817"> </a>
+Different platforms assign different names to the buffer type switch shared object, to conform to operating system conventions.
+</p>
+<p class="pGraphic"><a name="wp1263851"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1268892table1263818"><caption><a name="wp1268892"> </a>
+Table 2-12  OS-specific Names for the Buffer Type Switch Shared Object
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1263820"> </a>
+On This Platform . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1263822"> </a>
+The Name of the Buffer Type Switch Shared Object Is . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263824"> </a>
+UNIX System <br />(most SVR4)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263826"> </a>
+<code class="cCode">libbuft.so.71</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263828"> </a>
+HP-UX
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263830"> </a>
+<code class="cCode">libbuft.sl</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263832"> </a>
+Sun OS
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263834"> </a>
+<code class="cCode">libbuft.so.71</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263836"> </a>
+Windows (16-bit)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263838"> </a>
+<code class="cCode">wbuft.dll</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263840"> </a>
+Windows (32-bit)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263842"> </a>
+<code class="cCode">wbuft32.dll</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263844"> </a>
+OS/2 (16-bit)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263846"> </a>
+<code class="cCode">obuft.dll</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263848"> </a>
+OS/2 (32-bit)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1263850"> </a>
+<code class="cCode">obuft.dll</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1263852"> </a>
+Please refer to the software development documentation for your platform for instructions on building a shared object library.
+</p>
+<p class="pBody"><a name="wp1263853"> </a>
+As an alternative, it is possible to statically link a new buffer type switch in every client and server process, but doing so is more error-prone and not as efficient as building a shared object library. 
+</p>
+<h4 class="pHeading3"><a name="wp1263854"> </a>
+Compiling and Linking Your New tm_typesw for a 16-bit Windows Platform
+</h4>
+<p class="pBody"><a name="wp1322744"> </a>
+If you have modified <code class="cCode">tmtypesw.c</code> on a Windows platform, as described in <a href="pgbuf.html#wp1263806">Compiling and Linking Your New tm_typesw</a>, then you can use the commands shown in <a href="pgbuf.html#wp1263859">Listing&#160;2-21</a> to make the modified buffer type switch available to your application.
+</p>
+<div class="pCodeTitle"><a name="wp1263859"> </a>
+Listing&#160;2-21	   Sample Code in Microsoft Visual C++
+</div> <a name="wp1263860"> </a><div class="pPreformatted"><pre>CL -AL -I..\e\|sysinclu -I..\e\|include -Aw -G2swx -Zp -D_TM_WIN <br />-D_TMDLL -Od -c TMTYPESW.C<br />LINK /CO /ALIGN:16 TMTYPESW.OBJ, WBUFT.DLL, NUL, WTUXWS /SE:250 /NOD<br />/NOE LIBW LDLLCEW, WBUFT.DEF<br />RC /30 /T /K WBUFT.DLL</pre></div><h3 class="pHeading2"><a name="wp1263862"> </a>
+Data Conversion
+</h3>
+<p class="pBody"><a name="wp1263863"> </a>
+The purpose of the <code class="cCode">TYPE</code> parameter in the <code class="cCode">MACHINES</code> section of the configuration file is to group together machines that have the same form of data representation (and use the same compiler) so that data conversion is done on messages going between machines of different <code class="cCode">TYPE</code>s. For the default buffer types, data conversion between unlike machines is transparent to the user (and to the administrator and programmer, for that matter).
+</p>
+<p class="pBody"><a name="wp1263864"> </a>
+If your application defines new buffer types for messages that move between machines with different data representation schemes, you must also write new encode/decode routines to be incorporated into the buffer type switch. When writing your own data conversion routines, keep the following guidelines in mind:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1263870"> </a>You should use the semantics of the <code class="cCode">_tmencdec</code> routine shown on reference page <a href="../rf3c/rf3c.html">buffer(3c)</a> in <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em>; that is, you should code your routine so that it uses the same arguments and returns the same values on success or failure as the <code class="cCode">_tmencdec</code> routine. When defining new buffer types, follow the procedure provided in <a href="pgbuf.html#wp1263763">Defining Your Own Buffer Types</a> for building servers with services that will use your new buffer type.</li>
+</ul></div>
+<p class="pBody"><a name="wp1263872"> </a>
+The encode/decode routines are called only when the Oracle Tuxedo system determines that data is being sent between two machines that are not of the same <code class="cCode">TYPE</code>.
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="pgbuf.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pgint.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pgenv.html"><img id="LongDescNotReq9" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

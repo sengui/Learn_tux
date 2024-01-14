@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="2" />
+<meta name="LOC_US_CHANGE" content="41908" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/CORBA_ref/fm/imp_cnfg.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/26/12 11:01:17" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Implementation Configuration File (ICF)</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">CORBA Programming Reference
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="idlchap.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="tpfw.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/CORBA_ref.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1015103"> </a>
+Implementation Configuration File (ICF)
+</h1>
+<p class="pBody"><a name="wp1011816"> </a>
+The Oracle Tuxedo CORBA TP Framework application programming interface (API) provides callback methods for object activation and deactivation. These methods provide the ability for application code to implement flexible state management schemes for CORBA objects.
+</p>
+<p class="pBody"><a name="wp1012482"> </a>
+State management is the way you control the saving and restoring of object state during object deactivation and activation. State management also affects the duration of object activation, which influences the performance of servers and their resource usage. The external API of the TP Framework includes the <code class="cCode">activate_object()</code> and <code class="cCode">deactivate_object()</code> methods, which provide a possible location for state management code. Additionally, the TP Framework API includes the <code class="cCode">deactivateEnable()</code> method to enable the user to control the timing of object deactivation. The default duration of object activation is controlled by policies assigned to implementations at OMG IDL compile time.
+</p>
+<p class="pBody"><a name="wp1011509"> </a>
+While CORBA objects are active, their state is contained in a servant. This state must be initialized when objects are first invoked (that is, the first time a method is invoked on a CORBA object after its object reference is created) and on subsequent invocations after objects have been deactivated. 
+</p>
+<p class="pBody"><a name="wp1012495"> </a>
+While a CORBA object is deactivated, its state must be saved outside the process in which the servant was active. When an object is activated, its state must be restored. The object&#8217;s state can be saved in shared memory, in a file, in a database, and so forth. It is up to the programmer to determine what constitutes an object&#8217;s state, and what must be saved before an object is deactivated and restored when an object is activated. 
+</p>
+<p class="pBody"><a name="wp1011495"> </a>
+You can use the Implementation Configuration File (ICF) to set activation policies to control the duration of object activations in each implementation. The ICF file manages object state by specifying the activation policy. The activation policy determines the in-memory activation duration for a CORBA object. A CORBA object is active in a Portable Object Adapter (POA) if the POA&#8217;s active object map contains an entry that associates an object ID with an existing servant. Object deactivation removes the association of an object ID with its active servant. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1011789"> </a>
+ICF Syntax
+</h2><p class="pBody"><a name="wp1011790"> </a>
+ICF syntax is as follows:
+</p>
+<a name="wp1015276"> </a><div class="pPreformatted"><pre><code class="cCode">[#pragma activation_policy method|transaction|process]<br />[#pragma transaction_policy never|ignore|optional|always]<br />[#pragma concurrency_policy user_controlled|system_controlled]<br />[#pragma retry_policy never|always]<br />[Module module-name {]<br />   implementation [implementation-name]<br />     {<br />     implements (module-name::interface-name);<br />     [activation_policy (method|transaction|process);]<br />     [transaction_policy (never|ignore|optional|always);]<br />     [concurrency_policy (user_controlled|system_controlled);]<br />	[retry_policy (never|always)];<br />};[};]</code></pre></div><h4 class="pDefTerm"><a name="wp1015277"> </a>
+<code class="cCode">pragmas</code>
+</h4><div class="pDefPara"><a name="wp1015232"> </a>
+The four optional pragmas allow you to set a specific policy as the default policy for the entire ICF for all implementations that do not have an explicit <code class="cCode">activation_policy</code>, <code class="cCode">transaction_policy</code>, <code class="cCode">concurrency_policy</code>, or <code class="cCode">retry_policy</code> statement. This feature relieves the programmer from having to specify policies for each implementation and/or allows overriding of the defaults.
+</div>
+<h4 class="pDefTerm"><a name="wp1011793"> </a>
+<code class="cCode">Module module-name</code> 
+</h4><div class="pDefPara"><a name="wp1011843"> </a>
+The <code class="cCode">module-name</code> variable is optional if it is optional in the OMG IDL file. This variable is used for scoping and grouping. Its use must be consistent with the way it is used inside the OMG IDL file.
+</div>
+<h4 class="pDefTerm"><a name="wp1011794"> </a>
+<code class="cCode">implementation-name</code> 
+</h4><div class="pDefPara"><a name="wp1011982"> </a>
+This variable is optional and is used as the name of the servant or as the class name in the server. It is constructed using <code class="cCode">interface-name</code> with an <code class="cCode">_i</code> appended if it is not specified by the programmer.
+</div>
+<h4 class="pDefTerm"><a name="wp1011983"> </a>
+<code class="cCode">implements (module-name::interface-name)</code>
+</h4><div class="pDefPara"><a name="wp1011986"> </a>
+This variable identifies the module and the interface to which the activation policy and the transaction policy apply.
+</div>
+<h4 class="pDefTerm"><a name="wp1011985"> </a>
+<code class="cCode">activation_policy</code>
+</h4><div class="pDefPara"><a name="wp1014328"> </a>
+For a description of the activation policies, see <a href="tpfw.html#wp1029465">Activation Policy</a>.
+</div>
+<h4 class="pDefTerm"><a name="wp1013728"> </a>
+<code class="cCode">transaction_policy</code>
+</h4><div class="pDefPara"><a name="wp1014329"> </a>
+For a description of the transaction policies, see <a href="tpfw.html#wp1039795">Transaction Policies</a>.
+</div>
+<h4 class="pDefTerm"><a name="wp1014616"> </a>
+<code class="cCode">concurrency_policy</code>
+</h4><div class="pDefPara"><a name="wp1014622"> </a>
+For description of the concurrency policies, see <a href="tpfw.html#wp1170256">Parallel Objects</a>.
+</div>
+<h4 class="pDefTerm"><a name="wp1015237"> </a>
+<code class="cCode">retry_policy</code>
+</h4><div class="pDefPara"><a name="wp1015238"> </a>
+For a description of the retry policy, see <a href="tpfw.html#wp1155499">IIOP Client Failover</a>.
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1013037"> </a>
+Sample ICF File
+</h2><p class="pBody"><a name="wp1013038"> </a>
+<a href="imp_cnfg.html#wp1013039">Listing&#160;2-1</a> shows a sample ICF file.
+</p>
+<div class="pCodeTitle"><a name="wp1013039"> </a>
+Listing&#160;2-1	   <code class="cCode">Sample ICF</code>
+</div> <a name="wp1013041"> </a><div class="pPreformatted"><pre><code class="cCode">module POA_University1<br />    {<br />    implementation CourseSynopsisEnumerator_i<br />        {<br />        activation_policy ( process );<br />        transaction_policy ( optional );<br />        implements ( University1::CourseSynopsisEnumerator );<br />        };<br />         <br />    };</code></pre></div><a name="wp1013042"> </a><div class="pPreformatted"><pre><code class="cCode">module POA_University1<br />    {<br />    implementation Registrar_i<br />        {        <br />        activation_policy ( method );<br />        transaction_policy ( optional );<br />        implements ( University1::Registrar );<br />        };<br /> <br />   };</code></pre></div><a name="wp1013043"> </a><div class="pPreformatted"><pre><code class="cCode">module POA_University1<br />   {<br />   implementation RegistrarFactory_i<br />       {<br />       activation_policy ( process );<br />       transaction_policy ( optional );<br />       implements ( University1::RegistrarFactory );<br />       };<br /><br />   };</code></pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1013560"> </a>
+Creating the ICF File
+</h2><p class="pBody"><a name="wp1013780"> </a>
+You have the option of either coding the ICF file manually or using the <code class="cCode">genicf</code> command to generate it from the OMG IDL file. For a description of the syntax and options for the <code class="cCode">genicf</code> command, see the <a href="../rfcm/index.html">Oracle Tuxedo Command Reference</a>.
+</p>
+<h3 class="pHeading2"><a name="wp1015249"> </a>
+See Also
+</h3>
+<p class="pBody"><a name="wp1015253"> </a>
+<span class="cHyperlink">
+Steps for Creating a Oracle </span><a href="../cservers/maksrv.html"></a>Tuxedo CORBA Server Application in <em class="cEmphasis">Creating CORBA Server Applications</em>
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="imp_cnfg.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="idlchap.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="tpfw.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

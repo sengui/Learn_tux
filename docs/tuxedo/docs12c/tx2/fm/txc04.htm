@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>Building RPC Client and Server Programs</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = document) - Version 5.1 Build 128" />
+<meta name="date" content="2008-12-09T7:52:55Z" />
+<meta name="robots" content="noarchive" />
+<meta name="doctitle" content="Building RPC Client and Server Programs" />
+<meta name="relnum" content="Release 5.1" />
+<meta name="partnum" content="A12345-01" />
+<link rel="copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+<link rel="stylesheet" href="../../dcommon/css/blafdoc.css" title="Oracle BLAFDoc" type="text/css" />
+<link rel="contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="prev" href="txc03.htm" title="Previous" type="text/html" />
+<link rel="next" href="txc05.htm" title="Next" type="text/html" />
+</head>
+<body>
+<div class="header"><a id="top" name="top"></a>
+<div class="zz-skip-header"><a href="#BEGIN">Skip Headers</a></div>
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td align="left" valign="top"><b>Programming an Oracle Tuxedo Application Using TxRPC</b><b></b></td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+<td align="center" valign="top"><a href="toc.htm"><img src="../../dcommon/gifs/toc.gif" alt="Go To Table Of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<tr>
+<td align="center"><a href="txc03.htm"><img src="../../dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="txc05.htm"><img src="../../dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<a name="BEGIN" id="BEGIN"></a></div>
+<!-- class="header" -->
+<div class="ind"><!-- End Header --><a id="g1023232" name="g1023232"></a><a id="i1007698" name="i1007698"></a>
+  <h1 class="chapter"><span class="secnum">4</span> Building RPC Client and Server Programs</h1>
+<p class="comment">&nbsp;</p>
+<p>This topic includes the following sections:</p>
+<ul>
+<li>
+<p><a href="#i1006512">Prerequisite Knowledge</a></p>
+</li>
+<li>
+<p><a href="#i1006517">Building an RPC Server</a></p>
+</li>
+<li>
+<p><a href="#i1006558">Building an RPC Client</a></p>
+</li>
+<li>
+<p><a href="#i1018899">Building a Windows Workstation RPC Client</a></p>
+</li>
+<li>
+<p><a href="#i1006847">Using C++</a></p>
+</li>
+<li>
+<p><a href="#i1006903">Interoperating with DCE/RPC</a></p>
+</li>
+</ul>
+<a id="i1006512" name="i1006512"></a>
+<div class="sect1">
+<h2 class="sect1">Prerequisite Knowledge</h2>
+<p>The TxRPC programmer should be familiar with the C compilation system and building Oracle Tuxedo ATMI clients and servers. Information on building Oracle Tuxedo ATMI clients and servers is provided in the Programming an Oracle Tuxedo Application Using C, Programming an Oracle Tuxedo Application Using C, and Programming an Oracle Tuxedo Application Using FML. Building Workstation clients is provided in Using the Oracle Tuxedo Workstation Component.</p>
+</div>
+<!-- class="sect1" -->
+<a id="i1006517" name="i1006517"></a>
+<div class="sect1">
+<h2 class="sect1">Building an RPC Server</h2>
+<p>RPC servers are built and configured in much that same way that ATMI Request/Response servers are. In fact, the service name space for RPC and Request/Response servers is the same. However, the names advertised for RPC services are different. For Request/Response servers, a service name is mapped to a procedure. For RPC servers, a service name is mapped to an IDL interface name. The RPC service advertised will be <code>&lt;</code><code><span class="codeinlineitalic">interface</span></code><code>&gt;v&lt;</code><code><span class="codeinlineitalic">major</span></code><code>&gt;_&lt;</code><code><span class="codeinlineitalic">minor</span></code><code>&gt;</code>, where <code>&lt;</code><code><span class="codeinlineitalic">interface</span></code><code>&gt;</code> is the interface name, and <code>&lt;</code><code><span class="codeinlineitalic">major</span></code><code>&gt;</code> and <code>&lt;</code><code><span class="codeinlineitalic">minor</span></code><code>&gt;</code> are the major and minor numbers of the version, as specified (or defaulted to 0.0) in the interface definition. Because the service name is limited to 15 characters, this limits the length of the interface name to 13 characters minus the number of digits in the major and minor version numbers. This also implies that an exact match is used on major AND minor version numbers because of the way name serving is done in the Oracle Tuxedo system. Note that the interface, and not individual operations, are advertised (similar to DCE/RPC). The server stub automatically takes care of calling the correct operation within the interface.</p>
+<p>RPC servers are built using the <code>buildserver(1)</code> command. We recommend using the <code>-s</code> option to specify the service (interface) names at compilation time. The server can then be booted using the <code>-A</code> option to get the services automatically advertised. This approach is used in the sample application, as shown in <a href="txxa.htm#g1027039">Appendix A, "A Sample Application."</a></p>
+<p>The <code>buildserver(1)</code> command automatically links in the Oracle Tuxedo libraries. However, the RPC run time must be linked in explicitly. This is done by specifying the <code>-f -ltrpc</code> option after any application files on the <code>buildserver</code> line. Normally, the output of the <code>tidl(1)</code> command is a server stub object file. This can be passed directly to the <code>buildserver</code> command. Note that the server stub and the application source, object, and library files implementing the operations should be specified ahead of the run-time library, also using the <code>-f</code> option. See the makefile <code>rpcsimp.mk</code>, in <a href="txxa.htm#g1027039">Appendix A, "A Sample Application,"</a> for an example.</p>
+</div>
+<!-- class="sect1" -->
+<a id="i1006558" name="i1006558"></a>
+<div class="sect1">
+<h2 class="sect1">Building an RPC Client</h2>
+<p>A native RPC client is built using the <code>buildclient(1)</code> command. This command automatically links in the Oracle Tuxedo libraries. However, the RPC run time must be linked in explicitly. This is done by specifying the <code>-f -ltrpc</code> option after any application files on the <code>buildclient</code> command line. Generally, the output of the <code>tidl(1)</code> command is a client stub object file. This can be passed directly to the <code>buildclient</code> command. Note that the client stub and the application source, object, and library files executing the remote procedure calls should be specified ahead of the run-time library, also using the <code>-f</code> option. For an example, see the makefile <code>rpcsimp.mk</code> in <a href="txxa.htm#g1027039">Appendix A, "A Sample Application."</a></p>
+<p>To build a UNIX Workstation client, simply add the <code>-w</code> option to the <code>buildclient(1)</code> command line so that the Workstation libraries are linked in instead of the native libraries.</p>
+</div>
+<!-- class="sect1" -->
+<a id="i1018899" name="i1018899"></a>
+<div class="sect1">
+<h2 class="sect1">Building a Windows Workstation RPC Client</h2>
+<p>Compilation of the client stub for Windows requires the <code>-D_TM_WIN</code> definition as a compilation option. This ensures that the correct function prototypes for the TxRPC and Oracle Tuxedo ATMI run time functions are used. While the client stub source is the same, it must be compiled specially to handle the fact that the text and data segments for the DLL will be different from the code calling it. The header file and stub are automatically generated to allow for the declarations to be changed easily, using C preprocessor definitions. The definition <code>_TMF</code> (for "far") appears before all pointers in the header file and <code>_TMF</code> is automatically defined as "<code>_far</code>" if <code>_TM_WIN</code> is defined.</p>
+<p>In most cases, using standard libraries, the <code>buildclient(1)</code> command can be used to link the client. The library to be used is <code>wtrpc.lib</code>.</p>
+<p>The sample also shows how to create a Dynamic Link Library (DLL) using the client stub. This usage will be very popular when used with a visual application builder that requires DLL use (where the application code cannot be statically linked in). Windows functions are traditionally declared to have the <code>_pascal</code> calling convention. The header file and stub are automatically generated to allow for the declarations to be changed easily, using C preprocessor definitions. <code>_TMX</code> (for "eXport") appears before all declared functions. By default, this definition is defined to nothing. When compiling a stub for inclusion in a DLL, <code>_TMX</code> should be defined to <code>_far _pascal</code>. Also, the files to be included in the DLL must be compiled with the large memory model. Because using <code>_pascal</code> automatically converts the function names to uppercase in the library, it is a good idea to run with the <code>-port case</code> option turned on, which does additional validation to see if two declared names differ only in case.</p>
+<p>A complete example of building a Windows DLL is shown in <a href="txxa.htm#g1027039">Appendix A, "A Sample Application."</a></p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+A compilation error may occur if a TxRPC client includes <code>windows.h</code>, due to a duplicate <code>uuid_t</code> definition. It will be necessary for the application to either not include <code>windows.h</code> (because it is included already) or to include it within a different file in the application.</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</div>
+<!-- class="sect1" -->
+<a id="i1006847" name="i1006847"></a>
+<div class="sect1">
+<h2 class="sect1">Using C++</h2>
+<p>Clients and servers can be built using C or C++, interchangeably. The header files and generated stub source files are defined in such a way that all Stub Support functions and generated operations allow for complete interoperability between C++ and C. They are declared with C linkage, that is, as extern "C," so that name mangling is turned off.</p>
+<p>The stub object files can be built using C++ by specifying <code>CC -c</code> for the <code>-cc_cmd</code> option of <code>tidl(1)</code>. The <code>CC</code> command can be used to compile and link client and server programs by setting and exporting the <code>CC</code> environment variable before running <code>buildclient(1)</code> and <code>buildserver(1)</code>. For example:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+tidl -cc_cmd "CC -c" -keep all t.idl
+CC=CC buildserver -o server -s tv1_0 -f "-I. t_sstub.o server.c -ltrpc"
+</pre>
+<p>In the Windows environment, C++ compilation is normally accomplished via a flag on the compilation command line or a configuration option rather than a different command name. Use the appropriate options to get C++ compilation.</p>
+</div>
+<!-- class="sect1" -->
+<a id="i1006903" name="i1006903"></a>
+<div class="sect1">
+<h2 class="sect1">Interoperating with DCE/RPC</h2>
+<p>The Oracle Tuxedo TxRPC compiler uses the same IDL interface as OSF/DCE but the generated stubs do not use the same protocol. Thus, an Oracle Tuxedo TxRPC stub cannot directly communicate with a stub generated by the DCE IDL compiler.</p>
+<p>However, it is possible to have the following interoperations between DCE/RPC and Oracle Tuxedo TxRPC:</p>
+<ul>
+<li>
+<p>Client side stubs from both DCE and Oracle Tuxedo TxRPC can be called from the same program (either client or server).</p>
+</li>
+<li>
+<p>An Oracle Tuxedo ATMI server stub can call application code that calls a DCE client stub (as well as an Oracle Tuxedo TxRPC client stub).</p>
+</li>
+<li>
+<p>A DCE server (manager) can call application code that calls an Oracle Tuxedo TxRPC client stub.</p>
+</li>
+</ul>
+<p>The following sections show possible interactions between Oracle Tuxedo TxRPC and OSF/DCE. In each case, the originator of the request is called the requester. This term is used instead of "client" because the requester could, in fact, be a DCE or Oracle Tuxedo ATMI service making a request of another service. The terms "client" and "server" refer to the client and server stubs generated by the IDL compilers (either DCE <code>idl</code>(1) or Oracle Tuxedo <code>tidl(1)</code>); these terms are used for consistency with the DCE and TxRPC terminology. Finally, the term "application service" is used for the application code that implements the procedure that is being called remotely (it is generally transparent whether the invoking software is the server stub generated by DCE or Oracle Tuxedo).</p>
+<div class="sect2"><a id="sthref14" name="sthref14"></a>
+<h3 class="sect2">Oracle Tuxedo Requester to DCE Service via Oracle Tuxedo Gateway</h3>
+<div class="figure"><a id="sthref15" name="sthref15"></a>
+<p class="titleinfigure">Figure 4-1 Oracle Tuxedo Requester to DCE Service via Oracle Tuxedo Gateway</p>
+<img src="img/tx_4.gif" alt="Description of Figure 4-1 follows" title="Description of Figure 4-1 follows" longdesc="img_text/tx_4.htm" /><br />
+<a id="sthref16" name="sthref16" href="img_text/tx_4.htm">Description of "Figure 4-1 Oracle Tuxedo Requester to DCE Service via Oracle Tuxedo Gateway"</a><br />
+<br /></div>
+<!-- class="figure" -->
+<p>The first approach uses a "gateway" such that the Oracle Tuxedo ATMI client stub invokes an Oracle Tuxedo ATMI server stub, via TxRPC, that has a DCE client stub linked in (instead of the application services) that invokes the DCE services, via DCE RPC. The advantage to this approach is that it is not necessary to have DCE on the client platform. In fact, the set of machines running Oracle Tuxedo and the set of machines running DCE could be disjoint except for one machine where all such gateways are running. This also provides a migration path with the ability to move services between Oracle Tuxedo and DCE. A sample application that implements this approach is described in <a href="txxb.htm#g1026316">Appendix B, "A DCE-Gateway Application."</a></p>
+<p>In this configuration, the requester is built as a normal Oracle Tuxedo ATMI client or server. Similarly, the server is built as a normal DCE server. The additional step is to build the gateway process which acts as an Oracle Tuxedo ATMI server using a TxRPC server stub and a DCE client using a DCE/RPC client stub.</p>
+<p>The process of running the two IDL compilers and linking the resultant files is simplified with the use of the <code>blds_dce(1)</code> command, which builds an Oracle Tuxedo ATMI server with DCE linked in.</p>
+<p>The usage for <code>blds_dce</code> is as follows:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+blds_dce [-o <span class="italic">output_file</span>] [-i <span class="italic">idl_options</span>] [-f <span class="italic">firstfiles</span>] [-l <span class="italic">lastfile</span>] \
+   [<span class="italic">idl_file</span> . . . ]
+</pre>
+<p>The command takes as input one or more IDL files so that the gateway can handle one or more interfaces. For each one of these files, <code>tidl</code> is run to generate a server stub and <code>idl</code> is run to generate a client stub.</p>
+<p>This command knows about various DCE environments and provides the necessary compilation flags and DCE libraries for compilation and linking. If you are developing in a new environment, it may be necessary to modify the command to add the options and libraries for your environment.</p>
+<p>This command compiles the source files in such a way (with -<code>DTMDCEGW</code> defined) that memory allocation is always done using <code>rpc_ss_allocate</code>(3c) and <code>rpc_ss_free</code>(3c), as described in the Oracle Tuxedo C Function Reference. This ensures that memory is freed on return from the Oracle Tuxedo ATMI server. The use of -<code>DTMDCEGW</code> also includes DCE header files instead of Oracle Tuxedo TxRPC header files.</p>
+<p>The IDL output object files are compiled, optionally with specified application files (using the -<code>f</code> and -<code>l</code> options), to generate an Oracle Tuxedo ATMI server using <code>buildserver(1)</code>. The name of the executable server can be specified with the -<code>o</code> option.</p>
+<p>When running this configuration, the DCE server would be started first in the background, then the Oracle Tuxedo configuration including the DCE gateway would be booted, and then the requester would be run. Note that the DCE gateway is single-threaded so you will need to configure and boot as many gateway servers as you want concurrently executing services.</p>
+<p>There are several optional things to consider when building this gateway.</p>
+<div class="sect3"><a id="sthref17" name="sthref17"></a>
+<h4 class="sect3">Setting the DCE Login Context</h4>
+<p>First, as a DCE client, it is normal that the process runs as some DCE principal. There are two approaches to getting a login context. One approach is to "log in" to DCE. In some environments, this occurs simply by virtue of logging into the operating system. In many environments, it requires running <code>dce_login</code>. If the Oracle Tuxedo ATMI server is booted on the local machine, then it is possible to run <code>dce_login</code>, then run <code>tmboot(1)</code> and the booted server will inherit the login context. If the server is to be booted on a remote machine which is done indirectly via <code>tlisten(1)</code>, it is necessary to run <code>dce_login</code> before starting <code>tlisten</code>. In each of these cases, all servers booted in the session will be run by the same principal. The other drawback to this approach is that the credentials will eventually expire.</p>
+<p>The other alternative is to have the process set up and maintain its own login context. The <a href="../../rf3c/rf3c.html"><code>tpsvrinit(3c)</code></a> function provided for the server can set up the context and then start a thread that will refresh the login context before it expires. Sample code to do this is provided in <code>$TUXDIR/lib/dceserver.c</code>; it must be compiled with the -<code>DTPSVRINIT</code> option to generate a simple <code>tpsvrinit()</code> function. (It can also be used as the <code>main()</code> for a DCE server, as described in the following section.) This code is described in further detail in <a href="txxb.htm#g1026316">Appendix B, "A DCE-Gateway Application."</a></p>
+</div>
+<!-- class="sect3" -->
+<div class="sect3"><a id="sthref18" name="sthref18"></a>
+<h4 class="sect3">Using DCE Binding Handles</h4>
+<p>Oracle Tuxedo TxRPC does not support binding handles. When sending an RPC from the requester's client stub to the server stub within the gateway, the Oracle Tuxedo system handles all of the name resolution and choosing the server, doing load balancing between available servers. However, when going from the gateway to the DCE server, it is possible to use DCE binding. If this is done, it is recommended that two versions of the IDL file be used in the same directory or that two different directories be used to build the requester, and the gateway and server. The former approach of using two different filenames is shown in the example with the IDL file linked to a second name. In the initial IDL file, no binding handles or binding attributes are specified. With the second IDL file, which is used to generate the gateway and DCE server, there is an associated ACF file that specifies [explicit_handle] such that a binding handle is inserted as the first parameter of the operation. From the Oracle Tuxedo server stub in the gateway, a NULL handle will be generated (because handles aren't supported). That means that somewhere between the Oracle Tuxedo ATMI server stub and the DCE client stub in the gateway, a valid binding handle must be generated.</p>
+<p>This can be done by making use of the manager entry point vector. By default, the IDL compiler defines a structure with a function pointer prototype for each operation in the interface, and defines and initializes a structure variable with default function names based on the operation names. The structure is defined as:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+&lt;<span class="italic">INTERF</span>&gt;_v&lt;<span class="italic">major</span>&gt;_&lt;<span class="italic">minor</span>&gt;_epv_t&lt;<span class="italic">INTERF</span>&gt;_v&lt;<span class="italic">major</span>&gt;_&lt;<span class="italic">minor</span>&gt;_s_epv 
+</pre>
+<p>where <code>&lt;</code><code><span class="codeinlineitalic">INTERF</span></code><code>&gt;</code> is the interface name and <code>&lt;</code><code><span class="codeinlineitalic">major</span></code><code>&gt;_&lt;</code><code><span class="codeinlineitalic">minor</span></code><code>&gt;</code> is the interface version. This variable is dereferenced when calling the server stub functions. The IDL compiler option, <code>-no_mepv</code>, inhibits the definition and initialization of this variable, allowing the application to provide it in cases where there is a conflict or difference in function names and operation names. In the case where an application wants to provide explicit or implicit binding instead of automatic binding, the <code>-no_mepv</code> option can be specified, and the application can provide a structure definition that points to functions taking the same parameters as the operations but different (or static) names. The functions can then create a valid binding handle that is passed, either explicitly or implicitly, to the DCE/RPC client stub functions (using the actual operation names).</p>
+<p>This is shown in the example in <a href="txxb.htm#g1026316">Appendix B, "A DCE-Gateway Application."</a> The file <code>dcebind.c</code> generates the binding handle, and the entry point vector and associated functions are shown in <code>dceepv.c</code>.</p>
+<p>Note that to specify the <code>-no_mepv</code> option when using the <code>blds_dce</code>, the <code>-i -no_mepv</code> option must be specified so that the option is passed through to the IDL compiler. This is shown in the makefile, <code>rpcsimp.mk</code>, in <a href="txxb.htm#g1026316">Appendix B, "A DCE-Gateway Application."</a></p>
+</div>
+<!-- class="sect3" -->
+<div class="sect3"><a id="sthref19" name="sthref19"></a>
+<h4 class="sect3">Authenticated RPC</h4>
+<p>Now that we have a login context and a handle, it is possible to use authenticated RPC calls. As part of setting up the binding handle, it is also possible to annotate the binding handle for authentication by calling <code>rpc_binding_set_auth_info</code>(), as described in the Oracle Tuxedo C Function Reference. This is shown as part of generating the binding handle in <code>dcebind.c</code> in <a href="txxb.htm#g1026316">Appendix B, "A DCE-Gateway Application."</a> This sets up the authentication (and potentially encryption) between the gateway and the DCE server. If the requester is an Oracle Tuxedo ATMI server, then it is guaranteed to be running as the Oracle Tuxedo administrator. For more information about authentication for Oracle Tuxedo clients, see <span class="italic">Administering the Oracle Tuxedo System</span>.</p>
+</div>
+<!-- class="sect3" -->
+<div class="sect3"><a id="sthref20" name="sthref20"></a>
+<h4 class="sect3">Transactions</h4>
+<p>OSF/DCE does not support transactions. That means that if the gateway is running in a group with a resource manager and the RPC comes into the Oracle Tuxedo ATMI client stub in transaction mode, the transaction will not <code>carray</code> to the DCE server. There is not much you can do to solve this; just be aware of it.</p>
+</div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" -->
+<div class="sect2"><a id="sthref21" name="sthref21"></a>
+<h3 class="sect2">DCE Requester to Oracle Tuxedo Service Using Oracle Tuxedo Gateway</h3>
+<div class="figure"><a id="sthref22" name="sthref22"></a>
+<p class="titleinfigure">Figure 4-2 DCE Requester to Oracle Tuxedo Service Using Oracle Tuxedo Gateway</p>
+<img src="img/tx_5.gif" alt="Surrounding text describes Figure 4-2 ." title="Surrounding text describes Figure 4-2 ." /><br /></div>
+<!-- class="figure" -->
+<p>In the preceding figure, the DCE requester uses a DCE client stub to invoke a DCE service which calls the Oracle Tuxedo ATMI client stub (instead of the application services), which invokes the Oracle Tuxedo ATMI service (via TxRPC). Note that in this configuration, the client has complete control over the DCE binding and authentication. The fact that the application programmer builds the middle server means that the application also controls the binding of the DCE server to Oracle Tuxedo ATMI service. This approach would be used in the case where the DCE requester does not want to directly link in and call the Oracle Tuxedo system.</p>
+<p>The <code>main()</code> for the DCE server should be based on the code provided in <code>$TUXDIR/lib/dceserver.c</code>. If you already have your own template for the <code>main()</code> of a DCE server, there are a few things that may need to be added or modified.</p>
+<p>First, <code>tpinit(3c)</code> should be called to join the ATMI application. If application security is configured, then additional information may be needed in the <code>TPINIT</code> buffer such as the username and application password. Prior to exiting, <code>tpterm(3c)</code> should be called to cleanly terminate participation in the ATMI application. If you look at <code>dceserver.c</code>, you will see that by compiling it with -<code>DTCLIENT</code>, code is included that calls <code>tpinit</code> and <code>tpterm</code>. The code that sets up the <code>TPINIT</code> buffer must be modified appropriately for your application. To provide more information with respect to administration, it might be helpful to indicate that the client is a DCE client in either the user or client name (the example sets the client name to <code>DCECLIENT</code>). This information shows up when printing client information from the administration interface.</p>
+<p>Second, since the Oracle Tuxedo ATMI system software is not thread-safe, the threading level passed to <code>rpc_server_listen</code> must be set to 1. In the sample <code>dceserver.c</code>, the threading level is set to 1 if compiled with -<code>DTCLIENT</code> and to the default, <code>rpc_c_listen_max_calls_default</code>, otherwise. (For more information, refer to the Oracle Tuxedo C Function Reference.)</p>
+<p>In this configuration, the requester is built as a normal DCE client or server. Similarly, the server is built as a normal Oracle Tuxedo ATMI server. The additional step is to build the gateway process, which acts as an Oracle Tuxedo ATMI client using a TxRPC client stub, and a DCE server, using a DCE/RPC server stub.</p>
+<p>The process of running the two IDL compilers and linking the resultant files is simplified with the use of the <code>bldc_dce(1)</code> command which builds an Oracle Tuxedo ATMI client with DCE linked in.</p>
+<p>The usage for <code>bldc_dce</code> is as follows:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+bldc_dce [-o <span class="italic">output_file</span>] [-w] [-i <span class="italic">idl_options</span>] [-f <span class="italic">firstfiles</span>] \
+   [-l <span class="italic">lastfiles</span>] [<span class="italic">idl_file</span> . . . ]
+</pre>
+<p>The command takes as input one or more IDL files so that the gateway can handle one or more interfaces. For each one of these files, <code>tidl</code> is run to generate a client stub and <code>idl</code> is run to generate a server stub.</p>
+<p>This command knows about various DCE environments and provides the necessary compilation flags and DCE libraries. If you are developing in a new environment, it may be necessary to modify the command to add the options and libraries for your environment. The source is compiled in such a way (with -<code>DTMDCEGW</code> defined) that memory allocation is always done using <code>rpc_ss_allocate</code> and <code>rpc_ss_free</code> (described in the Oracle Tuxedo C Function Reference) to ensure that memory is freed on return. The use of -<code>DTMDCEGW</code> also includes DCE header files instead of Oracle Tuxedo TxRPC header files.</p>
+<p>The IDL output object files are compiled, optionally with specified application files (using the -<code>f</code> and -<code>l</code> options), to generate an Oracle Tuxedo ATMI client using <code>buildclient(1)</code>. Note that one of the files included should be the equivalent of the <code>dceserver.o</code>, compiled with the -<code>DTCLIENT</code> option.</p>
+<p>The name of the executable client can be specified with the -<code>o</code> option.</p>
+<p>When running this configuration, the Oracle Tuxedo ATMI configuration must be booted before starting the DCE server so that it can join the Oracle Tuxedo ATMI application before listening for DCE requests.</p>
+</div>
+<!-- class="sect2" -->
+<div class="sect2"><a id="sthref23" name="sthref23"></a>
+<h3 class="sect2">Oracle Tuxedo Requester to DCE Service Using DCE-only</h3>
+<div class="figure"><a id="sthref24" name="sthref24"></a>
+<p class="titleinfigure">Figure 4-3 Oracle Tuxedo Requester to DCE Service Using DCE-only</p>
+<img src="img/tx_6.gif" alt="Surrounding text describes Figure 4-3 ." title="Surrounding text describes Figure 4-3 ." /><br /></div>
+<!-- class="figure" -->
+<p>This approach assumes that the DCE environment is directly available to the client (this can be a restriction or disadvantage in some configurations). The client program has direct control over the DCE binding and authentication. Note that this is presumably a mixed environment in which the requester is either an Oracle Tuxedo ATMI service that calls DCE services, or an Oracle Tuxedo client (or server) that calls both Oracle Tuxedo and DCE services.</p>
+<p>When compiling Oracle Tuxedo TxRPC code that will be used mixed with DCE code, the code must be compiled such that DCE header files are used instead of the TxRPC header files. This is done by defining -<code>DTMDCE</code> at compilation time, both for client and server stub files and for your application code. If you are generating object files from <code>tidl(1)</code>, you must add the <code>-cc_opt -DTMDCE</code> option to the command line. The alternative is to generate <code>c_source</code> from the IDL compiler and pass this C source (not object files) to <code>bldc_dce or blds_dce</code> as in the following examples:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+tidl -keep c_source -server none t.idl
+idl -keep c_source -server none dce.idl
+bldc_dce -o output_file -f client.c -f t_cstub.c -f dce_cstub.c
+</pre>
+<p>or</p>
+<pre xml:space="preserve" class="oac_no_warn">
+blds_dce -o output_file -s service -f server.c -f t_cstub.c -f dce_cstub.c
+</pre>
+<p>In this example, we are not building a gateway process so <code>.idl</code> files <span class="italic">cannot</span> be specified to the <code>build</code> commands. Also note that the <code>blds_dce</code> command cannot figure out the service name associated with the server so it must be supplied on the command line using the -<code>s</code> option.</p>
+</div>
+<!-- class="sect2" -->
+<a id="i1006908" name="i1006908"></a>
+<div class="sect2">
+<h3 class="sect2">DCE Requester to Oracle Tuxedo Service Using Oracle Tuxedo-only</h3>
+<div class="figure"><a id="sthref25" name="sthref25"></a>
+<p class="titleinfigure">Figure 4-4 DCE Requester to Oracle Tuxedo Service Using Oracle Tuxedo-only</p>
+<img src="img/tx_7.gif" alt="Surrounding text describes Figure 4-4 ." title="Surrounding text describes Figure 4-4 ." /><br /></div>
+<!-- class="figure" -->
+<p>In this final case, the DCE requester calls the Oracle Tuxedo client stub directly.</p>
+<p>Again, -<code>DTMDCE</code> must be used at compilation time, both for client and server stub files and for your application code. In this case the requester must be an Oracle Tuxedo ATMI client:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+tidl -keep c_source -client none t.idl
+bldc_dce -o output_file -f -DTCLIENT -f dceserver.c -f t_cstub.c
+</pre>
+<p>Note that <code>dceserver.c</code> should call <code>tpinit(3c)</code> to join the application and <code>tpterm(3c)</code> to leave the application, as was discussed earlier.</p>
+</div>
+<!-- class="sect2" -->
+<div class="sect2"><a id="sthref26" name="sthref26"></a>
+<h3 class="sect2">Building Mixed DCE/RPC and Oracle Tuxedo TxRPC Clients and Servers</h3>
+<p>This section summarizes the rules to follow if you are compiling a mixed client or server without using the <code>bldc_dce(1)</code> or <code>blds_dce(1)</code> commands:</p>
+<ul>
+<li>
+<p>When compiling the generated client and server stubs, and compiling the client and server application software that includes the header file generated by <code>tidl(1)</code>, <code>TMDCE</code> must be defined (for example, <code>-DTMDCE=1</code>). This causes some DCE header files to be used instead of the Oracle Tuxedo TxRPC header files. Also, some versions of DCE have a DCE compilation shell that adds the proper directories for the DCE header files and ensures the proper DCE definitions for the local environment. This shell should be used instead of directly using the C compiler. The DCE/RPC compiler and TMDCE definition can be specified using the <code>-cc_cmd</code> option on <code>tidl</code>. For example:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+tidl -cc_cmd "/opt/dce/bin/cc -c -DTMDCE=1" simp.idl
+</pre>
+<p>or</p>
+<pre xml:space="preserve" class="oac_no_warn">
+tidl -keep c_source simp.idl 
+ /opt/dce/bin/cc -DTMDCE=1 -c -I. -I$TUXDIR/include simp_cstub.c
+ /opt/dce/bin/cc -DTMDCE=1 -c -I. -I$TUXDIR/include client.c
+</pre>
+<p>On a system without such a compiler shell, it might look like the following:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+cc &lt;<span class="italic">DCE options</span>&gt; -DTMDCE=1 -c -I. -I$(<span class="italic">TUXDIR</span>)/include \
+   -I/usr/include/dce simp_cstub.c
+</pre>
+<p>Refer to the DCE/RPC documentation for your environment.</p>
+</li>
+<li>
+<p>If the server makes an RPC call, then <code>set_client_alloc_free()</code> should be called to set the use of <code>rpc_ss_allocate()</code> and <code>rpc_ss_free()</code>, as described earlier. (For more information, refer to the Oracle Tuxedo C Function Reference.)</p>
+</li>
+<li>
+<p>When linking the executable, use <code>-ldrpc</code> instead of <code>-ltrpc</code> to get a version of the Oracle Tuxedo TxRPC runtime that is compatible with DCE/RPC. For example:</p>
+</li>
+</ul>
+<pre xml:space="preserve" class="oac_no_warn">
+buildclient -o client -f client.o -f simp_cstub.o -f dce_cstub.o \
+   -f-ldrpc -f-ldce -f-lpthreads -f-lc_r
+</pre>
+<p>or</p>
+<pre xml:space="preserve" class="oac_no_warn">
+CC=/opt/dce/bin/cc buildclient -d " " -f client.o -f simp_cstub.o \ 
+   -f dce_cstub.o -f -ldrpc -o client
+</pre>
+<p>Assume that <code>simp_cstub.o</code> was generated by <code>tidl(1)</code> and <code>dce_cstub.o</code> was generated by <code>idl</code>. The first example shows building the client without a DCE compiler shell; in this case, the DCE library (<code>-ldce</code>), threads library (<code>-lpthreads</code>), and re-entrant C library (<code>-lc_r</code>) must be explicitly specified. The second example shows the use of a DCE compiler shell which transparently includes the necessary libraries. In some environments, the libraries included by <code>buildserver</code> and <code>buildclient</code> for networking and XDR will conflict with the libraries included by the DCE compiler shell (there may be re-entrant versions of these libraries). In this case, the <code>buildserver(1)</code> and <code>buildclient(1)</code> libraries may be modified using the <code>-d</code> option. If a link problem occurs, trying using <code>-d " "</code> to leave out the networking and XDR libraries, as shown in the example above. If the link still fails, try running the command without the <code>-d</code> option and with the <code>-v</code> option to determine the libraries that are used by default; then use the <code>-d</code> option to specify a subset of the libraries if there is more than one. The correct combination of libraries is environment-dependent because the networking, XDR, and DCE libraries vary from one environment to another.</p>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+Mixing DCE and Oracle Tuxedo TxRPC stubs is not currently supported on Windows.</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" --></div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+<div class="footer">
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<col width="33%" />
+<col width="*" />
+<col width="33%" />
+<tr>
+<td valign="bottom">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<col width="*" />
+<col width="48%" />
+<col width="48%" />
+<tr>
+<td>&nbsp;</td>
+<td align="center"><a href="txc03.htm"><img src="../../dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="txc05.htm"><img src="../../dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="copyrightlogo"><img class="copyrightlogo" src="../../dcommon/gifs/oracle.gif" alt="Oracle Logo" /><br />
+<span class="copyrightlogo">Copyright&nbsp;&copy;&nbsp;1996, 2009,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span> <a href="../../dcommon/html/cpyr.htm"><br />
+<span class="copyrightlogo">Legal Notices</span></a></td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+<td align="center" valign="top"><a href="toc.htm"><img src="../../dcommon/gifs/toc.gif" alt="Go To Table Of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<!-- class="footer" -->
+</body>
+</html>

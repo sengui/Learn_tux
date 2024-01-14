@@ -1,0 +1,773 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="11" />
+<meta name="LOC_US_CHANGE" content="42015" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/ads/fm/adiiop.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/29/12 11:10:29" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Managing Remote Oracle Tuxedo CORBA Client Applications</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Setting Up an Oracle Tuxedo Application
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="adswsc.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="adasv.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/ads.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1028801"> </a>
+Managing Remote Oracle Tuxedo CORBA Client Applications
+</h1>
+<p class="pBody"><a name="wp1029245"> </a>
+This chapter explains how to configure connections from remote Oracle Tuxedo CORBA client applications to CORBA objects via the standard Internet Inter-ORB Protocol (IIOP). This chapter is specific to Oracle Tuxedo CORBA servers.
+</p>
+<a name="wp1029316"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The Oracle Tuxedo CORBA Java client and Oracle Tuxedo CORBA Java client ORB were deprecated in Tuxedo 8.1 and are no longer supported in Tuxedo 9.x. All Oracle Tuxedo CORBA Java client and Oracle Tuxedo CORBA Java client ORB text references, associated code samples, etc. should only be used:</td>
+</tr>
+</table>
+
+<div class="pSmartList1NoteBullet"><ul>
+<li><a name="wp1029317"> </a>to help implement/run third party Java ORB libraries, and </li>
+<li><a name="wp1029318"> </a>for programmer reference only.</li>
+</ul></div>
+<a name="wp1029319"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>Technical support for third party CORBA Java ORBs should be provided by their respective vendors. Oracle Tuxedo does not provide any technical support or documentation for third party CORBA Java ORBs.</td>
+</tr>
+</table>
+<p class="pBody"><a name="wp1017212"> </a>
+This topic includes the following sections: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1016703"> </a><a href="adiiop.html#wp1016724">CORBA Object Terminology</a></li>
+<li><a name="wp1020214"> </a><a href="adiiop.html#wp1016736">Remote CORBA Client Overview</a></li>
+<li><a name="wp1016711"> </a><a href="adiiop.html#wp1016846">Setting Environment Variables for Remote CORBA Clients</a></li>
+<li><a name="wp1016715"> </a><a href="adiiop.html#wp1020272">Setting the Maximum Number of Remote CORBA Clients</a></li>
+<li><a name="wp1016719"> </a><a href="adiiop.html#wp1017608">Configuring a Listener for a Remote CORBA Client</a></li>
+<li><a name="wp1016723"> </a><a href="adiiop.html#wp1024287">Modifying the Configuration File to Support Remote CORBA Clients</a></li>
+<li><a name="wp1021393"> </a><a href="adiiop.html#wp1020778">Configuring Outbound IIOP for Remote Joint Client/Servers</a></li>
+<li><a name="wp1021414"> </a><a href="adiiop.html#wp1021084">Using the ISL Command to Configure Outbound IIOP Support</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1016724"> </a>
+CORBA Object Terminology
+</h2><h4 class="pDefTerm"><a name="wp1016725"> </a>
+The following terms are used in this chapter.
+</h4><h4 class="pDefTerm"><a name="wp1027676"> </a>
+DLL
+</h4><div class="pDefPara"><a name="wp1027677"> </a>
+Dynamic Link Libraries. A DLL is a collection of functions grouped into a load module that is dynamically linked with an executable program at run time for a Windows application.
+</div>
+<h4 class="pDefTerm"><a name="wp1016731"> </a>
+IIOP
+</h4><div class="pDefPara"><a name="wp1017663"> </a>
+Internet Inter-ORB Protocol (IIOP). IIOP is basically TCP/IP with some CORBA-defined message exchanges that serve as a common backbone protocol. 
+</div>
+<h4 class="pDefTerm"><a name="wp1017658"> </a>
+ISH
+</h4><div class="pDefPara"><a name="wp1016732"> </a>
+IIOP Server Handler. This is a client process running on an application site that acts as a surrogate on behalf of the remote client. 
+</div>
+<h4 class="pDefTerm"><a name="wp1017667"> </a>
+ISL
+</h4><div class="pDefPara"><a name="wp1016734"> </a>
+IIOP Server Listener. This is a server process running on an application site that listens for remote clients requesting connection.
+</div>
+<h4 class="pDefTerm"><a name="wp1021522"> </a>
+Server
+</h4><div class="pDefPara"><a name="wp1021526"> </a>
+A server hosted on a machine in an Oracle Tuxedo domain. An Oracle Tuxedo CORBA server is built with the Oracle Tuxedo CORBA <code class="cCode">buildobjserver</code> command. CORBA Servers implement Oracle Tuxedo functionality, such as security, transactions, and object state management. Servers can make invocations on any server, inside or outside an Oracle Tuxedo domain.
+</div>
+<h4 class="pDefTerm"><a name="wp1021548"> </a>
+Native Client
+</h4><div class="pDefPara"><a name="wp1021554"> </a>
+A client located within an Oracle Tuxedo domain, using the CORBA ORB to make invocations on objects either inside or outside the Oracle Tuxedo domain. A native client&#8217;s host contains the Oracle Tuxedo administrative and infrastructure components, such as <code class="cCode">tmadmin</code>, FactoryFinder, and ISL/ISH. Native clients use the environmental objects to access CORBA objects. You build native C++ clients with the <code class="cCode">buildobjclient</code> command or native Java clients using the tools provided by the third-party ORB.
+</div>
+<h4 class="pDefTerm"><a name="wp1021574"> </a>
+Remote Client 
+</h4><div class="pDefPara"><a name="wp1021578"> </a>
+A client not located within an Oracle Tuxedo domain. A remote client can use the CORBA ORB to make invocations on objects either inside or outside the Oracle Tuxedo domain. A remote client&#8217;s host does not contain Oracle Tuxedo administrative and infrastructure components, such as <code class="cCode">tmadmin</code>, FactoryFinder, and ISL/ISH; it does contain supporting software (the CORBA ORB) that allows remote clients to invoke objects. Remote clients use the environmental objects to access CORBA objects. You build remote C++ clients with the <code class="cCode">buildobjclient</code> command or remote Java clients using the tools provided by the third-party ORB.
+</div>
+<h4 class="pDefTerm"><a name="wp1021604"> </a>
+Native Joint Client/server 
+</h4><div class="pDefPara"><a name="wp1021605"> </a>
+A process that has two purposes: (1) execute code acting as the starter for some business actions and (2) execute method code for invocations on objects. A joint client/server located within an Oracle Tuxedo domain. You build native joint C++ client/servers with the <code class="cCode">buildobjclient</code> command. Java native joint client/servers are not supported. 
+<a name="wp1025238"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The server role of the native joint client/server is considerably less robust than that of a server. It has none of the Oracle Tuxedo CORBA administrative and infrastructure components, such as tmadmin, FactoryFinder, and ISL/ISH (hence none of Oracle Tuxedo&#8217;s scalability and reliability attributes), it does not use the Oracle Tuxedo TP Framework, and it requires more direct interaction between the client and the ORB. </td>
+</tr>
+</table>
+
+</div>
+<h4 class="pDefTerm"><a name="wp1021634"> </a>
+Remote Joint Client/server 
+</h4><div class="pDefPara"><a name="wp1026910"> </a>
+A process that has two purposes: (1) execute code acting as the starter for some business actions and (2) execute method code for invocations on objects. A joint client/server located outside an Oracle Tuxedo domain. The joint client/server does not use the Oracle Tuxedo TP Framework and requires more direct interaction between the Client and the ORB. You build remote joint C++ client/servers with the <code class="cCode">buildobjclient</code> command or remote Java client/servers using the tools provided by the third-party ORB.<span style="font-weight: bold"> </span>
+<a name="wp1022022"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>A joint client/server is different from a server that acts as a client as part of its server role. Once the server completes processing of an invocation, it returns to dormancy. A joint client/server is always in the active mode, executing code not related to a server role; the server role temporarily interrupts the active client role, but the client role is always resumed.</td>
+</tr>
+</table>
+
+<a name="wp1022023"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The server role of the remote joint client/server is considerably less robust than that of a server. Neither the client nor the server has any of the Oracle Tuxedo administrative and infrastructure components, such as tmadmin, FactoryFinder, and ISL/ISH (hence, none of Oracle Tuxedo&#8217;s scalability and reliability attributes).</td>
+</tr>
+</table>
+
+</div>
+<h4 class="pDefTerm"><a name="wp1021666"> </a>
+Oracle Tuxedo CORBA object
+</h4><div class="pDefPara"><a name="wp1022092"> </a>
+A CORBA object that is implemented using TP Framework and that implements security, transactions, and object state management. CORBA objects are implemented in Oracle Tuxedo CORBA servers; that is, they are part of an Oracle Tuxedo domain and use the Oracle Tuxedo infrastructure.
+</div>
+<h4 class="pDefTerm"><a name="wp1021669"> </a>
+Callback Object
+</h4><div class="pDefPara"><a name="wp1022129"> </a>
+ A CORBA object supplied as a parameter in a client&#8217;s invocation on a target object. The target object can make invocations on the callback object either during the execution of the target object or at some later time (even after the invocation on the target object has been completed). A callback object might be located inside or outside an Oracle Tuxedo domain.
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1016736"> </a>
+Remote CORBA Client Overview
+</h2><p class="pBody"><a name="wp1016737"> </a>
+In this section, the term &#8220;remote client&#8221; represents a CORBA client application that is deployed on systems that do not have the full Oracle Tuxedo CORBA server software installed. This means that no administration or application servers are running there and that no bulletin board is present. All communication between the client and the application takes place over the network. 
+</p>
+<p class="pBody"><a name="wp1027609"> </a>
+The types of clients are:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1018119"> </a>CORBA C++ client</li>
+</ul></div>
+<p class="pBody"><a name="wp1016738"> </a>
+A client process can run on UNIX or Microsoft Windows. The client has access to the CORBA ORB interface. The networking behind the calls is transparent to the user. The client process registers with the system and has the same status as a native client.
+</p>
+<p class="pBody"><a name="wp1027610"> </a>
+ The client can do the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1016739"> </a>Invoke methods on remote CORBA objects</li>
+<li><a name="wp1016740"> </a>Begin, roll back, or commit transactions</li>
+<li><a name="wp1016742"> </a>Be required to pass application security</li>
+</ul></div>
+<a name="wp1016744"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>A client process communicates with the native domain through the ISH.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1016746"> </a>
+Illustration of an Application with Remote CORBA Clients
+</h3>
+<p class="pBody"><a name="wp1026977"> </a>
+<a href="adiiop.html#wp1026980">Figure&#160;14-1</a> shows an example of an application with remote clients connected. Any request by a remote client to access the CORBA server application is sent over the network to the ISH. This process sends the request to the appropriate server and sends the reply back to the remote client.
+</p>
+<div class="pFigureTitle"><a name="wp1026980"> </a>
+Figure&#160;14-1  Bank Application with Remote Clients
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1026984"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/iiop.gif" alt="Bank Application with Remote Clients" id="wp1026982"/></div><p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1016841"> </a>
+How the Remote Client Connects to an Application
+</h3>
+<p class="pBody"><a name="wp1016842"> </a>
+The client connects to the ISL process in the IIOP Listener/Handler using a known network address. This is initiated when the client calls the Bootstrap object constructor. The ISL process uses a function that is specific to the operating system to pass the connection directly to the selected ISH process. To the client application, there is only one connection. The client application does not know, or need to know, that it is now connected to the ISH process.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1016846"> </a>
+Setting Environment Variables for Remote CORBA Clients
+</h2><p class="pBody"><a name="wp1016847"> </a>
+For CORBA C++ clients, environment variables can be used to pass information to the system, as follows:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1019509"> </a><code class="cCode">TUXDIR</code>&#8212;the location of the Oracle Tuxedo CORBA client software on this remote client. It must be set for the client to connect.</li>
+<li><a name="wp1016849"> </a><code class="cCode">TOBJADDR</code>&#8212;the network address of the ISL that the client wants to contact. This must match the address of an ISL process as specified in the application configuration file.</li>
+<a name="wp1020269"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The network address that is specified by programmers in the Bootstrap constructor or in <code class="cCode">TOBJADDR</code> must exactly match the network address in the server application&#8217;s <code class="cCode">UBBCONFIG</code> file. The format of the address as well as the capitalization must match. If the addresses do not match, the call to the Bootstrap constructor will fail with a seemingly unrelated error message:<br /><br /><code class="cCode">ERROR: Unofficial connection from client at <br />&lt;tcp/ip address&gt;/&lt;port-number&gt;:<br /><br /></code>For example, if the network address is specified as //TRIXIE:3500 in the <code class="cCode">ISL</code> command line option string (in the server application&#8217;s <code class="cCode">UBBCONFIG</code> file), specifying either //192.12.4.6:3500 or //trixie:3500 in the Bootstrap constructor or in TOBJADDR will cause the connection attempt to fail.<br /><br />On UNIX systems, use the uname -n command on the host system to determine the capitalization used. On Windows systems, see the host system&#39;s Network control panel to determine the capitalization used. Or use the environment variable <code class="cCode">COMPUTERNAME</code>. For example:<br /><br /><code class="cCode">echo %COMPUTERNAME%</code></td>
+</tr>
+</table>
+
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1020272"> </a>
+Setting the Maximum Number of Remote CORBA Clients
+</h2><p class="pBody"><a name="wp1016859"> </a>
+To join remote clients to an application, you must specify the <code class="cCode">MAXWSCLIENTS</code> parameter in the <code class="cCode">MACHINES</code> section of the <code class="cCode">UBBCONFIG</code> file.
+</p>
+<p class="pBody"><a name="wp1016860"> </a>
+<code class="cCode">MAXWSCLIENTS</code> tells the Oracle Tuxedo system at boot time how many <span style="font-style: normal">accesser slots</span> to reserve exclusively for remote clients. For native clients, each accesser slot requires one semaphore. However, the ISH process (executing on the native platform on behalf of remote clients) multiplexes remote client accessers through a single accesser slot and, therefore, requires only one semaphore. This points out an additional benefit of the remote extension. By putting more clients out on remote systems and taking them off the native platform, an application reduces its IPC resource requirements.
+</p>
+<p class="pBody"><a name="wp1016861"> </a>
+<code class="cCode">MAXWSCLIENTS</code> takes its specified number of accesser slots from the total set in <code class="cCode">MAXACCESSERS</code>. This is important to remember when specifying <code class="cCode">MAXWSCLIENTS</code>; enough slots must remain to accommodate native clients as well as servers. Do not specify a value for <code class="cCode">MAXWSCLIENTS</code> greater than <code class="cCode">MAXACCESSERS</code>. The following table describes the <code class="cCode">MAXWSCLIENTS</code> parameter.
+</p>
+<p class="pGraphic"><a name="wp1017606"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1017597table1017595">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1017597"> </a>
+<span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Parameter</span>
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1017599"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1017601"> </a>
+<code class="cCode">MAXWSCLIENTS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1017603"> </a>
+Specifies the maximum number of remote clients that may connect to a machine.
+</div>
+<div class="pCellBody"><a name="wp1017604"> </a>
+The default is 0. If a value is not specified, remote clients may not connect to the machine being described.
+</div>
+<div class="pCellBody"><a name="wp1017605"> </a>
+The syntax is <code class="cCode">MAXWSCLIENTS=</code><code class="cCodeEmphasis">number.</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1017608"> </a>
+Configuring a Listener for a Remote CORBA Client
+</h2><p class="pBody"><a name="wp1017609"> </a>
+Remote clients access your application through the services of an ISL process and one or more ISH processes. The ISL is specified in one entry as a server supplied by the Oracle Tuxedo system. The ISL can support multiple remote clients and acts as the single point of contact for all the remote clients connected to your application at the network address specified on the ISL command line. The listener schedules work for one or more remote handler processes. An ISH process acts as a surrogate within the administrative domain of your application for remote clients on remote systems. The ISH uses a multiplexing scheme to support multiple remote clients concurrently.
+</p>
+<p class="pBody"><a name="wp1016877"> </a>
+To join remote clients to an application, you must list the ISL processes in the <code class="cCode">SERVERS</code> section of the <code class="cCode">UBBCONFIG</code> file. The processes follow the same syntax for listing any server.
+</p>
+<h3 class="pHeading2"><a name="wp1016878"> </a>
+Format of the CLOPT Parameter
+</h3>
+<p class="pBody"><a name="wp1016879"> </a>
+You use the following <code class="cCode">ISL</code> command-line options  (<code class="cCode">CLOPT</code>) to pass information to the ISL process for remote clients. The format of the <code class="cCode">CLOPT </code>parameter is as follows: 
+</p>
+<a name="wp1017925"> </a><div class="pPreformatted"><pre>ISL SRVGRP=&#8221;identifier&#8221;<br />    SRVID=&quot;number&quot;<br />    CLOPT=&quot;[ -A ] [ servopts options  ] -- -n netaddr <br />    [ -C {detect|warn|none} ]<br />    [ -d device ]<br />    [ -K {client|handler|both|none} ]<br />    [ -m minh ]<br />    [ -M maxh ]<br />    [ -T client-timeout]<br />    [ -x mpx-factor ] <br />    [ -H external-netaddr&quot;<br /></pre></div><a name="wp1024282"> </a><div class="pPreformatted"><pre>For a detailed description of the <code class="cCode">CLOPT</code> command line options, see the ISL command in the Oracle Tuxedo Command Reference.</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024287"> </a>
+Modifying the Configuration File to Support Remote CORBA Clients
+</h2><p class="pBody"><a name="wp1016898"> </a>
+<a href="adiiop.html#wp1019797">Listing&#160;14-1</a> shows a sample <code class="cCode">UBBCONFIG</code> file to support remote clients, as follows:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1016899"> </a>The <code class="cCode">MACHINES</code> section shows the default <code class="cCode">MAXWSCLIENTS</code> as being overridden for two sites. For <code class="cCode">SITE1</code>, the default is raised to 150, while it is lowered to 0 for <code class="cCode">SITE2</code>, which does not have remote clients connected to it.</li>
+<li><a name="wp1016900"> </a>The <code class="cCode">SERVERS</code> section shows an ISL process listed for group <code class="cCode">BANKB1</code>. Its server ID is 500 and it is marked as restartable.</li>
+<li><a name="wp1016901"> </a>The command line options show the following:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1016902"> </a>The IIOP Listener/Handler will advertise all of its services (<code class="cCode">-A</code>).</li>
+<li><a name="wp1016903"> </a>The IIOP Listener/Handler will listen at host <code class="cCode">TRIXIE </code>on port 2500.</li>
+<li><a name="wp1016904"> </a>The network provider is /dev/tcp (<code class="cCode">-d</code>).</li>
+<li><a name="wp1016905"> </a>The minimum number of ISH processes to boot is 5 (<code class="cCode">-m</code>).</li>
+<li><a name="wp1016906"> </a>The maximum number of ISH processes to boot is 30 (<code class="cCode">-M</code>).</li>
+<li><a name="wp1016907"> </a>Each handler can have a maximum of 5 clients connected at any one time (<code class="cCode">-x</code>).</li>
+<div class="pCodeTitle"><a name="wp1019797"> </a>
+Listing&#160;14-1	   Sample UBBCONFIG File Configuration
+</div> <a name="wp1016909"> </a><div class="pPreformatted"><pre>*MACHINES<br />SITE1<br />              ...<br />              MAXWSCLIENTS=150<br />              ...<br />SITE2<br />              ...<br />              MAXWSCLIENTS=0<br />              ...<br />*SERVERS<br />              ...<br />ISL SRVGRP=&#8221;BANKB1&quot; SRVID=500 RESTART=Y<br />           CLOPT=&#8221;-A -- -n //TRIXIE:2500 -d /dev/tcp<br />                 -m 5 -M 30 -x 5&quot;<br />          ..</pre></div></ul></div>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1020778"> </a>
+Configuring Outbound IIOP for Remote Joint Client/Servers
+</h2><p class="pBody"><a name="wp1020779"> </a>
+Support for outbound IIOP provides native clients and servers acting as native clients the ability to invoke on a remote object reference outside of the Oracle Tuxedo domain. This means that calls can be invoked on remote clients that have registered for callbacks, and objects in remote servers can be accessed.
+</p>
+<p class="pBody"><a name="wp1027098"> </a>
+Administrators are the only users who interact directly with the outbound IIOP support components. Administrators are responsible for booting the ISLs with the correct startup parameters to enable outbound IIOP to objects not located in a connected client. Administrators may need to adjust the number of ISLs they boot and the various startup parameters to obtain the best configuration for their installation&#8217;s specific workload characteristics. 
+</p>
+<p class="pBody"><a name="wp1027106"> </a>
+Administrators have the option of booting the ISLs with the default parameters. However, the default Oracle Tuxedo ISL startup parameters do not enable use of outbound IIOP.
+</p>
+<a name="wp1020782"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Outbound IIOP is not supported for transactions or security.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1020939"> </a>
+Functional Description
+</h3>
+<p class="pBody"><a name="wp1020940"> </a>
+Outbound IIOP support is required to support client callbacks. In Oracle WebLogic Enterprise versions 4.0 and 4.1, the ISL/ISH was an inbound half-gateway. Outbound IIOP support adds the outbound half-gateway to the ISL/ISH. (See <a href="adiiop.html#wp1020944">Figure&#160;14-2</a>.)
+</p>
+<p class="pBody"><a name="wp1022791"> </a>
+There are three types of outbound IIOP connections available, depending on the version of GIOP supported by the native server and the remote joint client/server application:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1022793"> </a>Bidirectional&#8212;outbound IIOP reusing the same connection (supported only for Oracle WebLogic Enterprise release 4.2 or later C++ GIOP 1.2 servers, clients, and joint client/servers)</li>
+<li><a name="wp1022798"> </a>Asymmetric&#8212;outbound IIOP via a second connection (supported for GIOP 1.0, GIOP 1.1, and GIOP 1.2 servers, clients, and joint client/server applications)</li>
+<li><a name="wp1022800"> </a>Dual-paired connection&#8212;outbound IIOP (supported for GIOP 1.0, GIOP 1.1, and GIOP 1.2 servers, clients, and joint client/server applications)</li>
+<a name="wp1022804"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>GIOP 1.2 is supported only by Oracle WebLogic Enterprise release 4.2 (and later) and Oracle Tuxedo release 8.0 (and later) C++ clients, servers, and joint client/servers. Oracle WebLogic Enterprise releases 4.0 and 4.1 C++ clients and servers support GIOP versions 1.0 and 1.1, but not GIOP 1.2. Java clients, servers, and joint client/servers only support GIOP 1.0.</td>
+</tr>
+</table>
+
+</ul></div>
+<p class="pBody"><a name="wp1022811"> </a>
+Bi-directional and dual-paired connection<span style="font-style: italic"> </span>outbound IIOP provides outbound IIOP to object references located in joint client/servers connected to an ISH. Asymmetric outbound IIOP provides outbound IIOP to object references <span style="font-style: italic">not</span> located in a joint client/server connected to an ISH, and also allows Oracle Tuxedo CORBA clients to invoke on any object reference, not only object references located in clients currently connected to an ISH.
+</p>
+<p class="pBody"><a name="wp1022815"> </a>
+Each type of outbound IIOP is described in more detail in the following sections.
+</p>
+<div class="pFigureTitle"><a name="wp1020944"> </a>
+Figure&#160;14-2  Joint Client/Server IIOP Connections Supported
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1020948"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/iiop_fig.gif" alt="Joint Client/Server IIOP Connections Supported" id="wp1025933"/></div><p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1020968"> </a>
+Bidirectional Outbound IIOP
+</h4>
+<p class="pBody"><a name="wp1020970"> </a>
+With bidirectional outbound IIOP, the following operations are executed (see <a href="adiiop.html#wp1020999">Figure&#160;14-3</a>):
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1025845"> </a>A client creates an object reference and invokes on a Oracle Tuxedo CORBA server. The client ORB identifies the connection as being bidirectional using the service context. The service context travels with the message to the Oracle Tuxedo CORBA server. </li>
+<li><a name="wp1025852"> </a>When unmarshaling the object reference, the Oracle Tuxedo CORBA server compares the host/port in the service context with the host/port in the object reference. If they match, the ORB adds the ISH client information needed for routing to the ISH. This client information travels with the object reference whenever it is passed to other Oracle Tuxedo CORBA servers. </li>
+<li><a name="wp1020991"> </a>At some point in time, an Oracle Tuxedo CORBA server or native client invokes on the object reference, and the routing code invokes on the appropriate ISH, given the client information. </li>
+<li><a name="wp1020992"> </a>The ISH sends the request to the client over the same client connection. </li>
+<li><a name="wp1020993"> </a>The client executes the method and sends the reply back to the ISH via the client connection. </li>
+<li><a name="wp1020997"> </a>The ISH receives the reply and sends it to the Oracle Tuxedo CORBA server.</li>
+<div class="pFigureTitle"><a name="wp1020999"> </a>
+Figure&#160;14-3  Bidirectional Connection
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1021003"> </a>
+<br />
+<img src="wwimages/iiop_bi.gif" alt="Bidirectional Connection" id="wp1025952"/><br />
+
+</p>
+</ol></div>
+<h4 class="pHeading3"><a name="wp1021004"> </a>
+Asymmetric Outbound IIOP
+</h4>
+<p class="pBody"><a name="wp1021006"> </a>
+With asymmetric outbound IIOP, the following operations are executed (see <a href="adiiop.html#wp1021031">Figure&#160;14-4</a>):
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1021010"> </a>A server gets an object reference from some source. It could be a naming service, a <code class="cCode">string_to_object</code>, or it could be passed in through a client, but not located in that client. Since the object reference is not located in a client connected to an ISH, the outgoing call cannot be made using the bidirectional method. The Oracle Tuxedo CORBA server invokes on the object reference. </li>
+<li><a name="wp1021015"> </a>On the first invoke, the routing code invokes a service in the ISL and passes in the host/port. </li>
+<li><a name="wp1021016"> </a>The ISL selects an ISH to handle the outbound invoke and returns the ISH information to the Oracle Tuxedo CORBA server. </li>
+<li><a name="wp1021023"> </a>The Oracle Tuxedo CORBA server invokes on the ISH.</li>
+<li><a name="wp1021024"> </a>The ISH determines which outgoing connection to use to send the request to the client. If none is connected, the ISH creates a connection to the host/port.</li>
+<li><a name="wp1021025"> </a>The client executes the method and sends the reply back to the ISH. </li>
+<li><a name="wp1021029"> </a>The ISH receives the reply and sends it to the Oracle Tuxedo CORBA server.</li>
+<div class="pFigureTitle"><a name="wp1021031"> </a>
+Figure&#160;14-4  Asymmetric Outbound IIOP
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1021035"> </a>
+<br />
+<img src="wwimages/iiop_asy.gif" alt="Asymmetric Outbound IIOP" id="wp1025997"/><br />
+
+</p>
+</ol></div>
+<h4 class="pHeading3"><a name="wp1021036"> </a>
+Dual-paired Connection Outbound IIOP
+</h4>
+<p class="pBody"><a name="wp1021038"> </a>
+With dual-paired connection outbound IIOP, the following operations are executed (see <a href="adiiop.html#wp1021072">Figure&#160;14-5</a>):
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1021042"> </a>A client creates an object reference and calls the Bootstrap function (<code class="cCode">register_callback_port</code>) and passes the object reference. </li>
+<li><a name="wp1021043"> </a>The ISH gets the host/port from the IOR and stores it with the client context.</li>
+<li><a name="wp1021047"> </a>The client invokes on an Oracle Tuxedo CORBA server and passes the object reference. From the <code class="cCode">register_callback_port</code> call, the ISH creates a service context containing the host/port. The service context travels with the message to the Oracle Tuxedo CORBA server. </li>
+<li><a name="wp1021055"> </a>When unmarshaling the object reference, the Oracle Tuxedo CORBA server compares the host/port in the service context with the host/port in the object reference. If they match, the ORB adds the ISH client information to the object reference. This client information travels with the object reference whenever it is passed to other Oracle Tuxedo CORBA servers. </li>
+<li><a name="wp1021062"> </a>At some point in time, an Oracle Tuxedo CORBA server or native client invokes on the object reference. The routing code invokes on the appropriate ISH, passing the client information. </li>
+<li><a name="wp1021064"> </a>The ISH creates a second connection to the client. It sends the request to the client over the second connection.</li>
+<li><a name="wp1021065"> </a>The client executes the method and sends the reply back to the ISH via the first client connection.</li>
+<li><a name="wp1021069"> </a>The ISH receives the reply and sends it to the Oracle Tuxedo CORBA server. If the client disconnects from the ISH, the second connection is also disconnected.</li>
+<div class="pFigureTitle"><a name="wp1021072"> </a>
+Figure&#160;14-5  Dual-paired Connections Outbound IIOP
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1021076"> </a>
+<br />
+<img src="wwimages/iiop_pair.gif" alt="Dual-paired Connections Outbound IIOP" id="wp1026034"/><br />
+
+</p>
+</ol></div>
+<h4 class="pHeading3"><a name="wp1021077"> </a>
+How the Routing Code Finds an ISL
+</h4>
+<p class="pBody"><a name="wp1021078"> </a>
+The steps to finding an ISL are as follows:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1021079"> </a>A service is advertised in each ISL. </li>
+<li><a name="wp1021080"> </a>The routing code invokes on that service name.</li>
+<a name="wp1021081"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Normal Oracle Tuxedo routing is used to find an ISL. </td>
+</tr>
+</table>
+
+<li><a name="wp1021082"> </a>An idle ISL on the same machine is always chosen, if available. If not available, NETLOAD ensures that a local ISL is chosen most often. </li>
+<a name="wp1021083"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Some invokes may be made to ISLs on nonlocal machines.</td>
+</tr>
+</table>
+
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1021084"> </a>
+Using the ISL Command to Configure Outbound IIOP Support
+</h2><p class="pBody"><a name="wp1021085"> </a>
+Outbound IIOP support is used when a native C++ or Java client, or a server acting as a native client, invokes on an object reference that is a remote object reference. The routing code recognizes that the object reference is from a non-Oracle Tuxedo CORBA ORB or from a remote Oracle Tuxedo CORBA joint client/server.
+</p>
+<h3 class="pHeading2"><a name="wp1021092"> </a>
+Types of Object References
+</h3>
+<p class="pBody"><a name="wp1021096"> </a>
+There are two kinds of remote object references: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023330"> </a>Object references created by Oracle Tuxedo CORBA remote joint client/servers outside of the Oracle Tuxedo domain</li>
+<li><a name="wp1023342"> </a>Object references created by other vendors&#8217; servers. </li>
+</ul></div>
+<p class="pBody"><a name="wp1023347"> </a>
+Both are detected by the routing code and sent to the outbound IIOP support for handling.
+</p>
+<h3 class="pHeading2"><a name="wp1021108"> </a>
+User Interface
+</h3>
+<p class="pBody"><a name="wp1021109"> </a>
+The user interface to outbound IIOP support is the commandline interface for booting the ISL process(es). New command-line options to configure the outbound IIOP processing were added to the ISL command in this release of the Oracle Tuxedo software. These options enable support for asymmetric IIOP to object references not located in clients connected to an ISH.
+</p>
+<p class="pBody"><a name="wp1021110"> </a>
+The ISL command syntax listed below shows the new options for outbound IIOP support:
+</p>
+<p class="pBody"><a name="wp1021111"> </a>
+<code class="cCode">ISL SRVGRP=&quot;identifier&quot;</code>
+</p>
+<p class="pBody"><a name="wp1021112"> </a>
+<code class="cCode">    SRVID=&quot;number&quot;</code>
+</p>
+<p class="pBody"><a name="wp1021113"> </a>
+<code class="cCode">    CLOPT=&quot;[ -A ] [ servopts options ] -- -n netaddr <br />           [ -C {detect|warn|none} ]<br />           [ -d device ]<br />           [ -K {client|handler|both|none} ]<br />           [ -m minh ]<br />           [ -M maxh ]<br />           [ -T Client-timeout]<br />           [ -x mpx-factor ] <br />           [-H external-netaddr]<br />#NEW options for outbound IIOP<br />           [-O]<br />           [-o outbound-max-connections]<br />           [-s Server-timeout]<br />           [-u out-mpx-users] &quot;</code>
+</p>
+<p class="pBody"><a name="wp1023741"> </a>
+For a detailed description of the <code class="cCode">CLOPT</code> command-line options, see the ISL command in the Oracle Tuxedo Command Reference. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1031492"> </a>
+Applying Service Version to Tuxedo Applications
+</h2><h3 class="pHeading2"><a name="wp1031493"> </a>
+Overview
+</h3>
+<p class="pBody"><a name="wp1031494"> </a>
+It is common that the user wants to keep existing functionality but also want to add new functionality into a service as time going. To reduce the compatible risk, it had better to provide two different version services with the same service name, one for old functionality, and one for new functionality. The old client can still use the existing functionality without any code change while the new client can use the new functionality.
+</p>
+<p class="pBody"><a name="wp1031495"> </a>
+The application service version feature offer a configuration driven way which can be used by Tuxedo customers to plan, develop, test, scale, and deploy their Tuxedo applications in each stage. The user can use the version to partition current Tuxedo application into different virtual application domains, different virtual machines, and different virtual server groups on current Tuxedo management hierarchy. It provide a flexible method to let customers setup their application zone according to a defined version (from this perspective, version can be endowed a new meaning: logical partition identity) to respond all kinds of special business access logic, and on the other hand customers can use version to solve some upgrading requirements in non-stop mode and change the service business logic seamlessly for the end users. 
+</p>
+<h3 class="pHeading2"><a name="wp1031496"> </a>
+Enabling and Disabling Application Service Versioning
+</h3>
+<p class="pBody"><a name="wp1031497"> </a>
+The user can enable/disable the application service version feature in UBB configuration file or through MIB.
+</p>
+<h4 class="pHeading3"><a name="wp1031498"> </a>
+Enable/Disable Application Service Version Using UBB Config File
+</h4>
+<p class="pBody"><a name="wp1031499"> </a>
+To enable the application service version, add the APPVER option to the OPTIONS parameter in *RESOURCES section. For example: 
+</p>
+<a name="wp1031500"> </a><div class="pPreformatted"><pre>*RESOURCES</pre></div><a name="wp1031501"> </a><div class="pPreformatted"><pre>OPTIONS		APPVER, LAN</pre></div><p class="pBody"><a name="wp1031502"> </a>
+To disable the application service version, remove the APPVER option from the OPTIONS parameter in *RESOURCES section. For example:
+</p>
+<a name="wp1031503"> </a><div class="pPreformatted"><pre>*RESOURCES</pre></div><a name="wp1031504"> </a><div class="pPreformatted"><pre>OPTIONS		LAN</pre></div><a name="wp1031505"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If the application version is disabled, the user cannot configure the application service version related configuration in the*RESOURCE and *GROUP sections.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp1031506"> </a>
+Enable/Disable Application Service Version Using MIB
+</h4>
+<p class="pBody"><a name="wp1031507"> </a>
+To enable the application service version through MIB, add the APPVER option to TA_OPTIONS in T_DOMAIN class. For example:
+</p>
+<a name="wp1031508"> </a><div class="pPreformatted"><pre>SRVCNM  .TMIB</pre></div><a name="wp1031509"> </a><div class="pPreformatted"><pre>TA_OPERATION		SET</pre></div><a name="wp1031510"> </a><div class="pPreformatted"><pre>TA_CLASS 		T_DOMAIN</pre></div><a name="wp1031511"> </a><div class="pPreformatted"><pre>TA_OPTIONS		APPVER,LAN</pre></div><p class="pBody"><a name="wp1031512"> </a>
+To disable the application service version through MIB, remove the APPVER option from TA_OPTIONS in T_DOMAIN class. For example:
+</p>
+<p class="pBody"><a name="wp1031513"> </a>
+SRVCNM  .TMIB
+</p>
+<a name="wp1031514"> </a><div class="pPreformatted"><pre>TA_OPERATION		SET</pre></div><a name="wp1031515"> </a><div class="pPreformatted"><pre>TA_CLASS 		T_DOMAIN</pre></div><a name="wp1031516"> </a><div class="pPreformatted"><pre>TA_OPTIONS		LAN</pre></div><a name="wp1031517"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>To disable the application service version through MIB, the user should remove the configured application service version related configuration firstly. For more information, see </td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1031519"> </a>
+UBB Config File Application Service Version Configuration
+</h3>
+<p class="pBody"><a name="wp1031520"> </a>
+Three attributes (REQUEST_VERSION, VERSION_POLICY and VERSION_RANGE), are used in configuration files to specify what version and what allowable version range in a configured Tuxedo management entity. These three attributes can be configured in the *GROUP and *RESOUCEsection of the UBB Config File as shown in <a href="adiiop.html#wp1031522">Listing&#160;14-2</a>
+</p>
+<p class="pBody"><a name="wp1031594"> </a>
+For more information, see UBBCONFIG(5),<span class="cHyperlink">
+<a href="..rf5/rf5.html"> Section 5 - File Formats, Data Descriptions, MIBs, and System Processes Reference in the Oracle Tuxedo Reference Guide</a></span>.
+</p>
+<div class="pCodeTitle"><a name="wp1031522"> </a>
+Listing&#160;14-2	   UBB Config File Application Service Version Configuration
+</div> <a name="wp1031523"> </a><div class="pPreformatted"><pre>*RESOUCE<br />DOMAINID LOCALDOM<br />OPTIONS	  LAN,APPVER<br />REQUEST_VERSION 1 	VERSION_RANGE  &quot;1-2&quot;<br />*GROUP<br />GRP1  GRPNO=1 REQUEST_VERSION=2 							VERSION_POLICY=&quot;PROPAGATE&quot;<br />GRP2 GRPNO=2 VERSION_RANGE=&quot;3-4&quot;<br />GRP3 GRPNO=3 REQUEST_VERSION=3  VERSION_RANGE=&quot;1-3&quot;<br />DMGRP   GRPNO=4 LMID=SITE1<br />GWGRP   GRPNO=5 LMID=SITE1<br />WSGRP GRPNO=6 LMID=SITE1 REQUEST_VERSION=4<br />JGRP GRPNO=7 LMID=SITE1 REQUEST_VERSION=3<br />*SERVER<br />SERVER1 SVRGRP=GRP1<br />SERVER2 SVRGRP=GRP2<br />SERVER3 SVRGRP=GRP3<br />DMADM  SRVGRP=DMGRP<br />GWADM  SRVGRP=GWGRP<br />GWTDOMAIN SRVGRP=GWGRP<br />WSL SRVGRP=WSGRP<br />JSL SRVGRP=JGRP</pre></div><p class="pBody"><a name="wp1031525"> </a>
+server1 advertises SVC2, SVC3. Because server1 belongs to GRP1, the REQUEST_VERSION of the server1, SVC2, SVC3 is inherited from GRP1. The configured REQUEST_VERSION of the GRP1 is 2, so REQUEST_VERSION of the server1, SVC2, SVC3 is 2. 
+</p>
+<p class="pBody"><a name="wp1031526"> </a>
+The VERSION_RANGE, VERSION_POLICY of SVC2, SVC3 are inherited from GRP1. There is no configured VERSION_RANGE for GRP1, so it inherit from the *RESOURCE section, which is &quot;1-2&quot;
+</p>
+<p class="pBody"><a name="wp1031527"> </a>
+The VERSION_POLICY of SVC2, SVC3 are inherited from GRP1. The configured VERSION_POLICY of GRP1 is PROPAGATE, so the VERSION_POLICY of SVC2, SVC3 is PROPAGATE.
+</p>
+<p class="pBody"><a name="wp1031528"> </a>
+server2 advertises SVC1, SVC2, SVC3. According to the same rule described for server1, the REQUEST_VERSION of server2, SVC1, SVC2, SVC3 is 1, the VERSION_RANGE of SVC1, SVC2, SVC3 are &quot;3-4&quot;, the VERSION_POLICY of the SVC1, SVC2, SVC3 is non-PROPAGATE.
+</p>
+<p class="pBody"><a name="wp1031529"> </a>
+server3 advertises SVC1, SVC2. According to the same rule described for server1, the REQUEST_VERSION of the server3, SVC1, SVC2 is 3, the VERSION_RANGE of SVC1, SVC2 are &quot;1-3&quot;, the VERSION_POLICY of the SVC1, SVC2 is non-PROPAGATE.
+</p>
+<p class="pBody"><a name="wp1031530"> </a>
+If a native client joins the application without specifying the group name, its REQUEST_VERSION is 1.
+</p>
+<p class="pBody"><a name="wp1031531"> </a>
+If a native client joins the application with a specific group name, such as GRP3, its REQUEST_VERSION is 3. 
+</p>
+<p class="pBody"><a name="wp1031532"> </a>
+If a /WS client joins the application, its REQUEST_VERSION is determined by the WSL, whose REQUEST_VERSION is 4 according to the UBB config file. So the REQUEST_VERSION of the /WS client is 4.
+</p>
+<p class="pBody"><a name="wp1031533"> </a>
+If a JOLT client joins the application, its REQUEST_VERSION is determined by the JSL, whose REQUEST_VERSION is 3 according to the UBB config file. So the REQUEST_VERSION of the /WS client is 4.
+</p>
+<h3 class="pHeading2"><a name="wp1031534"> </a>
+Domain Configuration File Application Service Version Configuration
+</h3>
+<p class="pBody"><a name="wp1031599"> </a>
+<a href="adiiop.html#wp1031535">Listing&#160;14-3</a> shows a domain configuration file application service configuration example.
+</p>
+<div class="pCodeTitle"><a name="wp1031535"> </a>
+Listing&#160;14-3	   Domain Configuration File Application Service Version Configuration
+</div> <a name="wp1031536"> </a><div class="pPreformatted"><pre>*DM_LOCAL<br />LOCALDOM TYPE=TDOMAIN<br />DOMAINID=&quot;LOCALDOM&quot;<br />*DM_REMOTE<br />REMOTEDOM1   TYPE=TDOMAIN <br />DOMAINID= &quot;DOM1&quot; MTYPE=&quot;Linux&quot;<br />REMOTEDOM2   TYPE=TDOMAIN <br />DOMAINID= &quot;DOM2&quot; MTYPE=&quot;Linux&quot;<br />REQUEST_VERSION=4<br />*DM_IMPORT<br />R_SVC1   RDOM= REMOTEDOM1  VERSION_RANGE=&quot;1-3&quot;<br />R_SVC2   RDOM= REMOTEDOM2  VERSION_RANGE=&quot;4-6&quot;<br />R_SVC3	  RDOM= REMOTEDOM2</pre></div><p class="pBody"><a name="wp1031550"> </a>
+No REQUEST_VERSION is configured for REMOTEDOM1, so the domain gateway will propagate the request version of all the requests come from REMOTEDOM1, I.e the domain gateway will not change the incoming request version.
+</p>
+<p class="pBody"><a name="wp1031551"> </a>
+The REQUEST_VERSION of the REMOTEDOM2 is configured as 4, so the domain gateway will change the request version of all the requests come from REMOTEDOM2 to 4.
+</p>
+<p class="pBody"><a name="wp1031552"> </a>
+The LOCALDOM import R_SVC1 service from REMOTEDOM1 and specify the VERSION_RANGE as &quot;1-3&quot;. So the VERSION_RANGE of the R_SVC1 service in the LOCALDOM is &quot;1-3&quot;.
+</p>
+<p class="pBody"><a name="wp1031553"> </a>
+The LOCALDOM import R_SVC2 service from REMOTEDOM2 and specify the VERSION_RANGE as &quot;4-6&quot;. So the VERSION_RANGE of the R_SVC2 service in the LOCALDOM is &quot;4-6&quot;.
+</p>
+<p class="pBody"><a name="wp1031554"> </a>
+The LOCALDOM import R_SVC3 service without specified VERSION_RANGE. Because the VERSION_RANGE of the imported service is still determined by VERSION_RANGE configuration of the *GROUP and *RESOURCE, the VERSION_RANGE of the *RESOUCE is &quot;1-2&quot;, so the VERSION_RANGE of R_SVC3 is &quot;1-2&quot;.
+</p>
+<p class="pBody"><a name="wp1031558"> </a>
+For more information, see<a href="adiiop.html#wp1031519">UBB Config File Application Service Version Configuration</a>.
+</p>
+<h4 class="pHeading3"><a name="wp1031559"> </a>
+Version Based Routing
+</h4>
+<p class="pBody"><a name="wp1031560"> </a>
+When the application service feature is enabled, the system dispatches the request to the service according to both the service name and the version range of the service. We call the this mechanism as Version Based Routing (VBR). When a service entry matching the requested service name is found, the VBR is used to further routing decision.
+</p>
+<p class="pBody"><a name="wp1031561"> </a>
+VBR only does a simple numeric comparison using current request version number with the two boundary values of version range. VBR return &quot;no entry is found&quot; error to the caller when all of services with matching name are not allowable for this versioned request.
+</p>
+<p class="pBody"><a name="wp1031562"> </a>
+Tuxedo already offers several routing mechanisms: DDR (Data Dependent Routing), TAR (Transaction Affinity Routing), and RAR (Request Affinity Routing). VBR (Version Based Routing) is also a new routing mechanism that can owns same functions as these of existing routing algorithms. 
+</p>
+<p class="pBody"><a name="wp1031563"> </a>
+VBR can be used together with the other routing mechanisms; Tuxedo will choose the services that match all criteria if there are multiple routing mechanisms. But the user had better to understand how the interaction among these routing mechanisms if use them together.
+</p>
+<p class="pBody"><a name="wp1031564"> </a>
+Suppose the configuration describe as above section.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1031565"> </a>If server3 needs to call SVC2 during its initialization period, The REQUEST_VERSION of server3 is 3, the candidate services are:</li>
+<p class="pBodyRelative"><a name="wp1031566"> </a>
+Server1:SVC2 1-2
+</p>
+<p class="pBodyRelative"><a name="wp1031567"> </a>
+Server2:SVC2 3-4
+</p>
+<p class="pBodyRelative"><a name="wp1031568"> </a>
+So server3 will call Server2:SVC2.
+</p>
+<li><a name="wp1031569"> </a>If the native client need to call SVC3, the <code class="cCode">REQUEST_VERSION</code> of the native client is 1, the candidate services are:</li>
+<p class="pBodyRelative"><a name="wp1031570"> </a>
+Server1:SVC1 1-2
+</p>
+<p class="pBodyRelative"><a name="wp1031571"> </a>
+Server2:SVC1 3-4
+</p>
+<p class="pBodyRelative"><a name="wp1031572"> </a>
+So the native client will call Server1:SVC1
+</p>
+<li><a name="wp1031573"> </a>If <code class="cCode">Server1:SVC1</code> needs to call <code class="cCode">SVC3</code>, the <code class="cCode">SVC1</code> will propagate the incoming <code class="cCode">REQUEST_VERSION</code>, in this case the incoming <code class="cCode">REQUEST_VERSION</code> is <code class="cCode">1</code>, so the current <code class="cCode">REQUEST_VERSION</code> of <code class="cCode">Server1:SVC1</code> is <code class="cCode">1</code>, the candidate services are:</li>
+<p class="pBodyRelative"><a name="wp1031574"> </a>
+Server2:SVC3 3-4
+</p>
+<p class="pBodyRelative"><a name="wp1031575"> </a>
+Server3:SVC3 1-3
+</p>
+<p class="pBodyRelative"><a name="wp1031576"> </a>
+So Server1:SVC1 calls Server3:SVC3
+</p>
+<li><a name="wp1031577"> </a>If a request come from REMOTEDOM2, suppose the original REQUEST_VERSION is 6, then the REQUEST_VERSION of the incoming request is changed to 4.</li>
+<li><a name="wp1031578"> </a>If a request comes from REMOTEDOM1, suppose the original REQUEST_VERSION is 2, then the REQUEST_VERSION of the incoming request will still be 2.</li>
+</ol></div>
+<h4 class="pHeading3"><a name="wp1031579"> </a>
+Resetting the User Configured Service Version Information Using MIB
+</h4>
+<p class="pBody"><a name="wp1031580"> </a>
+You can configure the REQUEST_VERSION, VERSION_RANGE or VERSION_POLICY in the *GROUP or *RESOURCE section in the UBB Config file. The low-level configuration overrides the high level-configuration. 
+</p>
+<p class="pBody"><a name="wp1031581"> </a>
+If there is no user configured service version configuration at any level, the system uses the default value. So the result will be very different for the user configured configuration and default value. If the user modifies the REQUEST_VERSION, VERSION_RANGE or VERSION_POLICY through MIB, it is the user configured service version configuration. It is necessary to provide a method to reset this modification to the default value through MIB, otherwise you cannot restore the UBB config file to its original state.
+</p>
+<p class="pBody"><a name="wp1031582"> </a>
+To reset the REQUEST_VERSION, VERSION_RANGE or VERSION_POLICY to default value, you just must set value as DEFAULT. 
+</p>
+<p class="pBody"><a name="wp1031583"> </a>
+For example the you can modify the REQUEST_VERSION through MIB as shown in <a href="adiiop.html#wp1031584">Listing&#160;14-4</a>
+</p>
+<div class="pCodeTitle"><a name="wp1031584"> </a>
+Listing&#160;14-4	   Resetting the User Configured Service Version Information Using MIB
+</div> <a name="wp1031474"> </a><div class="pPreformatted"><pre>SRVCNM  .TMIB<br />TA_OPERATION    SET<br />TA_CLASS        T_GROUP<br />TA_SRVGRP       APPGRP1<br />TA_GRPNO        1<br />TA_CURLMID      SITE1<br />TA_REQUEST_VERSION      4 <br />Then the user reset the REQUEST_VERSION to default value through MIB:<br />SRVCNM  .TMIB<br />TA_OPERATION    SET<br />TA_CLASS        T_GROUP<br />TA_SRVGRP       APPGRP1<br />TA_GRPNO        1<br />TA_CURLMID      SITE1<br />TA_REQUEST_VERSION      DEFAULT </pre></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="adiiop.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="adswsc.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="adasv.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

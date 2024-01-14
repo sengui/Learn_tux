@@ -1,0 +1,475 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41824" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/cservers/fm/wrapper.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/26/12 11:03:55" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Wrapping an Oracle Tuxedo Service in a CORBA Object</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Creating CORBA Server Applications
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="trans.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="scale.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/cservers.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1026770"> </a>
+Wrapping an Oracle Tuxedo Service in a CORBA Object
+</h1>
+<p class="pBody"><a name="wp1023697"> </a>
+This chapter presents an overview of one way in which you can call an Oracle Tuxedo service from within an object managed by a CORBA server application, using the Wrapper sample application as an example.
+</p>
+<p class="pBody"><a name="wp1023701"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1025328"> </a><a href="wrapper.html#wp1023736">Overview of Wrapping an Oracle Tuxedo Service</a></li>
+<p class="pBodyRelative"><a name="wp1025349"> </a>
+This section describes:
+</p>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1025332"> </a><a href="wrapper.html#wp1025921">Designing the Object That Wraps the Oracle Tuxedo Service</a></li>
+<li><a name="wp1025336"> </a><a href="wrapper.html#wp1023780">Creating the Buffer in Which to Encapsulate Oracle Tuxedo Service Calls</a></li>
+<li><a name="wp1023716"> </a><a href="wrapper.html#wp1023813">Implementing the Operations That Send Messages to and from the Oracle Tuxedo Service</a></li>
+</ul></div>
+<li><a name="wp1023720"> </a><a href="wrapper.html#wp1023848">Design Considerations for the Wrapper Sample Application</a></li>
+</ul></div>
+<p class="pBody"><a name="wp1023722"> </a>
+The Wrapper sample application delegates a set of billing operations to an Oracle Tuxedo ATMI teller application, which contains a set of services that perform basic billing procedures. The approach in this chapter shows one technique for incorporating an Oracle Tuxedo application into an Oracle Tuxedo domain. 
+</p>
+<p class="pBody"><a name="wp1023726"> </a>
+The examples shown in this chapter demonstrate a one-to-one relationship between operations on a CORBA object and calls to specific services within an application. In a sense, the calls to the Oracle Tuxedo services are wrapped as operations on a CORBA object; thus, the object delegates its work to the Oracle Tuxedo application. If you have a set of Oracle Tuxedo services that you want to use in a CORBA server application, the technique shown in this chapter may work for you.
+</p>
+<p class="pBody"><a name="wp1023730"> </a>
+This chapter does not provide any details about Oracle Tuxedo ATMI applications. For information about how to build and configure Oracle Tuxedo ATMI applications, and for information about how they work, see the Oracle Tuxedo ATMI information set, which is included in the Oracle Tuxedo online documentation.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023736"> </a>
+Overview of Wrapping an Oracle Tuxedo Service
+</h2><p class="pBody"><a name="wp1023737"> </a>
+The process described in this chapter for wrapping a set of Oracle Tuxedo services encompasses the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023738"> </a>Designing the object that structures a set of tasks that are oriented to the Oracle Tuxedo system as operations on that object.</li>
+<li><a name="wp1023739"> </a>Creating the message buffer used by the Oracle Tuxedo services. You use this message buffer to send and receive messages to and from the Oracle Tuxedo services. You can allocate the buffer in the object&#8217;s constructor in the application&#8217;s implementation file.</li>
+<li><a name="wp1023740"> </a>Implementing on the object the operations that send and receive messages to and from the Oracle Tuxedo services. This step also includes choosing the implementation for how the Oracle Tuxedo services are called.</li>
+</ol></div>
+<p class="pBody"><a name="wp1025912"> </a>
+The following figure shows a high-level view of the relationship among the client application, the CORBA object managed by the CORBA server application, and the Oracle Tuxedo ATMI application that implements the services called from the CORBA object.
+</p>
+<p class="pGraphic"><a name="wp1025916"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/m3uwrp1.gif" height="215" width="369" id="wp1026013"/></div><p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1025921"> </a>
+Designing the Object That Wraps the Oracle Tuxedo Service
+</h3>
+<p class="pBody"><a name="wp1023754"> </a>
+The first step described in this chapter is designing the object that wraps the calls to the Oracle Tuxedo ATMI application. For example, the goal for the Wrapper sample application is to add billing capability to the student registration process, which can be done by delegating a set of billing operations to an existing Oracle Tuxedo ATMI teller application.
+</p>
+<p class="pBody"><a name="wp1023755"> </a>
+The Oracle Tuxedo ATMI teller application used by the Wrapper sample application contains the following services:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023756"> </a><code class="cCode">CURRBALANCE</code>&#8212;obtains the current balance of a given account</li>
+<li><a name="wp1023757"> </a><code class="cCode">CREDIT</code>&#8212;credits an account by a given dollar amount</li>
+<li><a name="wp1023758"> </a><code class="cCode">DEBIT</code>&#8212;debits an account by a given dollar amount</li>
+</ul></div>
+<p class="pBody"><a name="wp1023759"> </a>
+To wrap these services, the Wrapper sample application includes a separate OMG IDL file that defines a new interface, <code class="cCode">Teller</code>, which has the following operations:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023760"> </a><code class="cCode">get_balance()</code></li>
+<li><a name="wp1023761"> </a><code class="cCode">credit()</code></li>
+<li><a name="wp1023762"> </a><code class="cCode">debit()</code></li>
+</ul></div>
+<p class="pBody"><a name="wp1023763"> </a>
+Each of these operations on the <code class="cCode">Teller</code> object maps one-to-one to calls on the services in the Oracle Tuxedo ATMI teller application. 
+</p>
+<p class="pBody"><a name="wp1023764"> </a>
+A typical usage scenario of the <code class="cCode">Teller</code> object may be the following:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023765"> </a>The client application invokes the <code class="cCode">register_for_courses()</code> operation on the <code class="cCode">Registrar</code> object, which requires a student ID.</li>
+<li><a name="wp1023766"> </a>As part of the registration process, the <code class="cCode">Registrar</code> object invokes the <code class="cCode">get_balance()</code> operation on the <code class="cCode">Teller</code> object, passing an account number.</li>
+<li><a name="wp1023767"> </a>The <code class="cCode">get_balance()</code> operation on the <code class="cCode">Teller</code> object puts the account number into a message buffer and sends the buffer to the Oracle Tuxedo ATMI teller application&#8217;s <code class="cCode">CURRBALANCE</code> service. </li>
+<li><a name="wp1023768"> </a>The Oracle Tuxedo ATMI teller application receives the message buffer, extracts its contents, and makes the appropriate call to the <code class="cCode">CURRBALANCE</code> service.</li>
+<li><a name="wp1023769"> </a>The<code class="cCode"> CURRBALANCE</code> service obtains from the University database the current balance of the account and gives it to the Oracle Tuxedo ATMI teller application.</li>
+<li><a name="wp1023770"> </a>The Oracle Tuxedo ATMI teller application inserts the current balance into a message buffer and returns it to the <code class="cCode">Teller</code> object.</li>
+<li><a name="wp1023771"> </a>The <code class="cCode">Teller</code> object extracts the current balance amount from the message buffer and returns the current balance to the <code class="cCode">Registrar</code> object.</li>
+</ol></div>
+<p class="pBody"><a name="wp1023772"> </a>
+For more design information about the <code class="cCode">Teller</code> object and the Wrapper sample application, see the section <a href="wrapper.html#wp1023848">&quot;Design Considerations for the Wrapper Sample Application&quot; on page&#160;-7</a>.
+</p>
+<h3 class="pHeading2"><a name="wp1023780"> </a>
+Creating the Buffer in Which to Encapsulate Oracle Tuxedo Service Calls
+</h3>
+<p class="pBody"><a name="wp1023781"> </a>
+The next step described in this chapter is creating the buffer within which messages are sent between the object and the Oracle Tuxedo service. There are a number of buffer types that may be used by various Oracle Tuxedo ATMI applications, and the examples used in this chapter are based on the FML buffer type. For more information about buffer types in the Oracle Tuxedo system, see the Oracle Tuxedo information set.
+</p>
+<p class="pBody"><a name="wp1023782"> </a>
+In your application implementation file, you need to allocate the chosen buffer type. You can allocate the buffer in the object&#8217;s constructor, because the buffer you allocate does not need to be unique to any particular <code class="cCode">Teller</code> object instance. This allocation operation typically includes specifying the buffer type, passing any flags appropriate for the procedure call to the Oracle Tuxedo service, and specifying a buffer size.
+</p>
+<p class="pBody"><a name="wp1023783"> </a>
+You also need to add to your implementation&#8217;s header file the definition of the variable that represents the buffer.
+</p>
+<p class="pBody"><a name="wp1023784"> </a>
+The following code example shows the constructor for the Wrapper application&#8217;s <code class="cCode">Teller</code> object that allocates the Oracle Tuxedo buffer, <code class="cCode">m_tuxbuf</code>:
+</p>
+<a name="wp1023785"> </a><div class="pPreformatted"><pre>Teller_i::Teller_i() :<br />    m_tuxbuf((FBFR32*)tpalloc(&quot;FML32&quot;, &quot;&quot;, 1000))<br />{<br />    if (m_tuxbuf == 0) {<br />        throw CORBA::INTERNAL();<br />    }<br />}</pre></div><p class="pBody"><a name="wp1023786"> </a>
+Note the following about the line that allocates the FML buffer:
+</p>
+<p class="pGraphic"><a name="wp1023808"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1023789table1023787">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1023789"> </a>
+<span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Code</span>
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023791"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023793"> </a>
+<code class="cCode">tpalloc</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023795"> </a>
+Allocates the buffer.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023797"> </a>
+<code class="cCode">&quot;FML32&quot;</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023799"> </a>
+Specifies the FML buffer type.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023801"> </a>
+<code class="cCode">&quot;&quot;</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023803"> </a>
+Typically enclose any flags passed to the Oracle Tuxedo service. In this example, no flags are passed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023805"> </a>
+<code class="cCode">1000</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023807"> </a>
+Specifies the buffer size in bytes.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1023809"> </a>
+The object&#8217;s implementation file should also deallocate the buffer in the destructor, as in the following statement from the Wrapper application implementation file:
+</p>
+<a name="wp1023810"> </a><div class="pPreformatted"><pre>tpfree((char*)m_tuxbuf);</pre></div><h3 class="pHeading2"><a name="wp1023813"> </a>
+Implementing the Operations That Send Messages to and from the Oracle Tuxedo Service
+</h3>
+<p class="pBody"><a name="wp1023814"> </a>
+The next step is implementing the operations on the object that wraps calls to the Oracle Tuxedo ATMI application. In this step, you choose the implementation of how the Oracle Tuxedo services are called from the object. The Wrapper sample application uses the <code class="cCode">tpcall</code> implementation. 
+</p>
+<p class="pBody"><a name="wp1023815"> </a>
+An operation on an object that wraps an Oracle Tuxedo service typically includes statements that do the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023816"> </a>Fill the message buffer with the data that you want to send to the Oracle Tuxedo service. </li>
+<li><a name="wp1023817"> </a>Call the Oracle Tuxedo service. The following arguments are included in the call:</li>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp1023818"> </a>The Oracle Tuxedo service that you want to invoke.</li>
+<li><a name="wp1023819"> </a>The message buffer to be sent to the Oracle Tuxedo service.</li>
+<li><a name="wp1023820"> </a>The message buffer to be returned from the Oracle Tuxedo service.</li>
+<li><a name="wp1023821"> </a>The size of the buffer in which the Oracle Tuxedo service response is to be placed.</li>
+</ol></div>
+<li><a name="wp1023822"> </a>Extract the response from the Oracle Tuxedo service.</li>
+<li><a name="wp1023823"> </a>Return the results to the client application.</li>
+</ul></div>
+<p class="pBody"><a name="wp1023824"> </a>
+The following example shows the implementation of the <code class="cCode">get_balance()</code> operation in the Wrapper application <code class="cCode">Teller</code> object. This operation retrieves the balance of a specific account, and the Oracle Tuxedo service being called is <code class="cCode">CURRBALANCE</code>.
+</p>
+<a name="wp1023825"> </a><div class="pPreformatted"><pre>CORBA::Double Teller_i::get_balance(BillingW::AccountNumber account)<br />{<br />    // &quot;marshal&quot; the &quot;in&quot; parameters (account number)<br />    Fchg32(m_tuxbuf, ACCOUNT_NO, 0, (char*)&amp;account, 0);<br />    long size = Fsizeof32(tuxbuf);<br />    // Call the CURRBALANCE Tuxedo service<br />    if (tpcall(&quot;CURRBALANCE&quot;, (char*)tuxbuf, 0,<br />               (char**)&amp;tuxbuf, &amp;size, 0) ) {<br />        throw CORBA::PERSIST_STORE();<br />    }<br />    // &quot;unmarshal&quot; the &quot;out&quot; parameters (current balance)<br />    CORBA::Double currbal;<br />    Fget32(m_tuxbuf, CURR_BALANCE, 0, (char*)&amp;currbal, 0);<br />    return currbal;<br />}</pre></div><p class="pBody"><a name="wp1023826"> </a>
+The statement in the following code example fills the message buffer, <code class="cCode">m_tuxbuf</code>, with the student account number. For information about FML, see the <em class="cEmphasis">Oracle Tuxedo ATMI FML Function Reference</em>.
+</p>
+<a name="wp1024851"> </a><div class="pPreformatted"><pre>Fchg32(m_tuxbuf, ACCOUNT_NO, 0, (char*)&amp;account, 0);</pre></div><p class="pBody"><a name="wp1023829"> </a>
+The following statement calls the <code class="cCode">CURRBALANCE</code> Oracle Tuxedo service, via the <code class="cCode">tpcall</code> implementation, passing the message buffer. This statement also specifies where the Oracle Tuxedo service response is to be placed, which in this example is also the same buffer as the one in which the request was sent.
+</p>
+<a name="wp1023830"> </a><div class="pPreformatted"><pre>if (tpcall(&quot;CURRBALANCE&quot;, (char*)tuxbuf, 0,<br />               (char**)&amp;tuxbuf, &amp;size, 0) ) {<br />        throw CORBA::PERSIST_STORE();<br />        }</pre></div><p class="pBody"><a name="wp1023831"> </a>
+The following statement extracts the balance from the returned Oracle Tuxedo message buffer:
+</p>
+<a name="wp1023832"> </a><div class="pPreformatted"><pre>Fget32(m_tuxbuf, CURR_BALANCE, 0, (char*)&amp;currbal, 0);</pre></div><p class="pBody"><a name="wp1023833"> </a>
+The last line in the <code class="cCode">get_balance()</code> operation returns the results to the client application:
+</p>
+<a name="wp1023834"> </a><div class="pPreformatted"><pre>return currbal;</pre></div><h3 class="pHeading2"><a name="wp1023836"> </a>
+Restrictions
+</h3>
+<p class="pBody"><a name="wp1023837"> </a>
+Note the following restrictions regarding how you can incorporate Oracle Tuxedo services within an Oracle Tuxedo domain:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023841"> </a>You may not combine object implementations and Oracle Tuxedo services within the same server application. The Oracle Tuxedo services may only exist within a separate Oracle Tuxedo server application in the same domain as the CORBA server application.</li>
+<li><a name="wp1023845"> </a>You may not include the <code class="cCode">tpreturn()</code> or <code class="cCode">tpforward()</code> Oracle Tuxedo implementations within an object that calls an Oracle Tuxedo service.</li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023848"> </a>
+Design Considerations for the Wrapper Sample Application
+</h2><p class="pBody"><a name="wp1023849"> </a>
+The basic design considerations for the Wrapper sample application are based on the scenario that is described in this section. When a student registers for a course, the <code class="cCode">Registrar</code> object performs, as part of its registration process, invocations to the <code class="cCode">Teller</code> object, which charges the student&#8217;s account for the course.
+</p>
+<p class="pBody"><a name="wp1023850"> </a>
+This section describes the design for the Wrapper sample application, which incorporates an additional server application, Billing, into the configuration. Therefore, the Wrapper sample application consists of the following four server applications:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023851"> </a>University, which has the <code class="cCode">RegistrarFactory</code>, <code class="cCode">Registrar</code>, and <code class="cCode">CourseSynopsisEnumerator</code> objects</li>
+<li><a name="wp1023852"> </a>Billing, which has the <code class="cCode">TellerFactory</code> and <code class="cCode">Teller</code> objects</li>
+<li><a name="wp1023853"> </a>Oracle Tuxedo ATMI Teller Application, which has the <code class="cCode">CURRBALANCE</code>, <code class="cCode">CREDIT</code>, and <code class="cCode">DEBIT</code> services</li>
+<li><a name="wp1023854"> </a>The Oracle Transaction Manager Server (TMS)</li>
+</ul></div>
+<p class="pBody"><a name="wp1023855"> </a>
+In addition, the <code class="cCode">UBBCONFIG</code> file for the Wrapper sample application specifies the following groups:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023856"> </a>ORA_GRP, which contains the University server application, the Oracle Tuxedo ATMI Teller application, and the Oracle TMS. Since these three processes are involved in transactions on the University database, they must all be in the same group, along with the database itself.</li>
+<li><a name="wp1023857"> </a>APP_GRP, which contains the Billing server application. This application does not need to be in ORA_GRP, because this application does not interact with the University database.</li>
+</ul></div>
+<p class="pBody"><a name="wp1023860"> </a>
+The configuration of the Oracle Tuxedo domain in the Wrapper sample application is shown in the following figure.
+</p>
+<p class="pGraphic"><a name="wp1023865"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/m3uwg1.gif" height="304" width="382" id="wp1026079"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1023866"> </a>
+Incorporating an Oracle Tuxedo ATMI application into the University sample applications makes sense from the standpoint of using the Process-Entity design pattern. Oracle Tuxedo ATMI applications generally implement the Process-Entity design pattern, which are also used in the University sample applications.
+</p>
+<p class="pBody"><a name="wp1023867"> </a>
+The University database is updated to include a new table containing account information for each student. Therefore, when services in the Oracle Tuxedo ATMI Teller Application process billing data, they perform transactions using the University database.
+</p>
+<h4 class="pHeading3"><a name="wp1023869"> </a>
+How the Wrapper University Sample Application Works
+</h4>
+<p class="pBody"><a name="wp1023870"> </a>
+A typical usage scenario in the Wrapper sample application encompasses the following sequence of events:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023871"> </a>After the student logon procedure, the client application invokes the <code class="cCode">get_student_details()</code> operation on the <code class="cCode">Registrar</code> object. Included in the implementation of the <code class="cCode">get_student_details()</code> operation is code that retrieves:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023872"> </a>The student&#8217;s account number from the student table in the database</li>
+<li><a name="wp1023873"> </a>The student&#8217;s balance from the account table in the database, which is obtained by invoking the <code class="cCode">get_balance()</code> operation on the <code class="cCode">Teller</code> object</li>
+</ul></div>
+<li><a name="wp1023874"> </a>The student browses courses, as with the Basic sample application, and identifies a list of courses for which he or she wants to register.</li>
+<li><a name="wp1023875"> </a>The client application sends a request to the <code class="cCode">Registrar</code> object, as with the Transactions sample application scenario, to invoke the <code class="cCode">register_for_courses()</code> operation. The request continues to include only a list of course numbers and a student ID.</li>
+<li><a name="wp1023876"> </a>While registering the student for the list of courses, the <code class="cCode">register_for_courses()</code> operation invokes:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023877"> </a>The <code class="cCode">get_balance()</code> operation on the <code class="cCode">Teller</code> object, to make sure that the student does not have a delinquent account</li>
+<li><a name="wp1023878"> </a>The <code class="cCode">debit()</code> operation on the <code class="cCode">Teller</code> object, which is managed by the Billing server application to bill for courses</li>
+</ul></div>
+<li><a name="wp1023879"> </a>The <code class="cCode">get_balance()</code> and <code class="cCode">debit()</code> operations on the <code class="cCode">Teller</code> object each send a request to the Oracle Tuxedo ATMI Teller application. Encapsulated in the request is an FML buffer containing the appropriate calls, including the account number calls to, respectively, the <code class="cCode">CURRBALANCE</code> and <code class="cCode">DEBIT</code> services in the Oracle Tuxedo ATMI Teller application.</li>
+<li><a name="wp1023880"> </a>The <code class="cCode">CURRBALANCE</code> and <code class="cCode">DEBIT</code> services perform the appropriate database calls to, respectively, obtain the current balance and debit the student&#8217;s account to reflect the charges for the courses for which he or she has registered.</li>
+<p class="pBodyRelative"><a name="wp1023881"> </a>
+If the student has a delinquent account, the <code class="cCode">Registrar</code> object returns the <code class="cCode">DelinquentAccount</code> exception to the client application. The client application then rolls back the transaction.
+</p>
+<p class="pBodyRelative"><a name="wp1023882"> </a>
+If the <code class="cCode">debit()</code> operation fails, the <code class="cCode">Teller</code> object invokes the <code class="cCode">rollback_only()</code> operation on the TransactionCurrent object. Because the <code class="cCode">Teller</code> and <code class="cCode">Registrar</code> objects are scoped within the same transaction, this rollback affects the entire registration process and thus prevents the situation where there is an inconsistent database (showing, for example, that the student is registered for the course, but the student&#8217;s account balance has not been debited for the course).
+</p>
+<li><a name="wp1023883"> </a>If no exceptions have been raised, the <code class="cCode">Registrar</code> object registers the student for the desired courses.</li>
+</ol></div>
+<h4 class="pHeading3"><a name="wp1023886"> </a>
+Interface Definitions for the Billing Server Application
+</h4>
+<p class="pBody"><a name="wp1023887"> </a>
+The following interface definitions are defined for the Billing server application:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023888"> </a>The <code class="cCode">TellerFactory</code> object, whose only operation is <code class="cCode">find_teller()</code>. The <code class="cCode">find_teller() </code>operation works exactly the same as the <code class="cCode">find_registrar()</code> operation in the University server <code class="cCode">RegistrarFactory</code> object.</li>
+<li><a name="wp1023889"> </a>The <code class="cCode">Teller</code> object, which, as mentioned earlier, implements the following operations:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023890"> </a><code class="cCode">debit()</code></li>
+<li><a name="wp1023891"> </a><code class="cCode">credit()</code></li>
+<li><a name="wp1023892"> </a><code class="cCode">current_balance()</code></li>
+<p class="pBodyRelative"><a name="wp1023893"> </a>
+Like the <code class="cCode">Registrar</code> object, the <code class="cCode">Teller</code> object has no state data and does not have a unique object ID (OID).
+</p>
+</ul></div>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1023894"> </a>
+Additional Design Considerations for the Wrapper Sample Application
+</h4>
+<p class="pBody"><a name="wp1023895"> </a>
+The following additional considerations influence the design of the Wrapper sample application:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023896"> </a>The <code class="cCode">Registrar</code> object needs a way to send requests to the <code class="cCode">Teller</code> object to handle billing operations.</li>
+<li><a name="wp1023897"> </a>The University server application and the Oracle Tuxedo ATMI teller application need access to the same database. Therefore, for course registration transactions to work properly, both server applications need to be in the same server group as the Oracle TMS and the University database.</li>
+</ul></div>
+<p class="pBody"><a name="wp1023898"> </a>
+Both of these considerations have implications on the <code class="cCode">UBBCONFIG</code> file for the Wrapper sample application. The following sections discuss these and other additional design considerations in detail.
+</p>
+<h5 class="pHeading4"><a name="wp1023900"> </a>
+Sending Requests to the Teller Object
+</h5>
+<p class="pBody"><a name="wp1023901"> </a>
+Up until now, all the objects in the University server application have been defined in the same server process. Therefore, for one object to send a request to another object is fairly straightforward, and is summarized in the following steps, using the <code class="cCode">Registrar</code> and <code class="cCode">CourseSynopsisEnumerator</code> objects as an example:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023902"> </a>The <code class="cCode">Registrar</code> object creates an object reference to the <code class="cCode">CourseSynopsisEnumerator</code> object. </li>
+<li><a name="wp1023903"> </a>Using the newly created object reference, the <code class="cCode">Registrar</code> object sends the request to the <code class="cCode">CourseSynopsisEnumerator</code> object.</li>
+<li><a name="wp1023904"> </a>If the <code class="cCode">CourseSynopsisEnumerator</code> object is not in memory, the TP Framework invokes the <code class="cCode">Server::create_servant()</code> operation on the Server object to instantiate the <code class="cCode">CourseSynopsisEnumerator</code> object.</li>
+</ol></div>
+<p class="pBody"><a name="wp1023905"> </a>
+However, now that there are two server processes running, and an object in one process needs to send a request to an object managed by the second process, the procedure is not quite so straightforward. For example, the notion of getting an object reference to an object in another server process has important implications. For one, the second server process has to be running when the request is made. Also, the factory for the object in the other server process must be available.
+</p>
+<p class="pBody"><a name="wp1023906"> </a>
+The Wrapper sample application addresses this by incorporating the following configuration and design elements:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023907"> </a>The University server application gets the object reference to the <code class="cCode">TellerFactory</code> object in the University Server object&#8217;s <code class="cCode">Server::initialize()</code> operation. The University server application then caches the <code class="cCode">TellerFactory</code> object reference. This introduces a performance optimization because, otherwise, the <code class="cCode">Registrar</code> object would need to do the following each time it needs a <code class="cCode">TellerFactory</code> object:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023908"> </a>Invoke the <code class="cCode">resolve_initial_references()</code> operation on the Bootstrap object to get the FactoryFinder object.</li>
+<li><a name="wp1023909"> </a>Invoke the <code class="cCode">find_one_factory_by_id()</code> operation on the FactoryFinder object to obtain a reference to a <code class="cCode">TellerFactory</code> object.</li>
+</ul></div>
+<li><a name="wp1023910"> </a>The Billing server process is started before the University server process is started. When the <code class="cCode">Registrar</code> object subsequently invokes the <code class="cCode">TellerFactory</code> object, the <code class="cCode">Registrar</code> object uses the object reference acquired by the <code class="cCode">Server::initialize()</code> operation (described in the preceding list item). You specify in the <code class="cCode">UBBCONFIG</code> file the order in which server processes are started.</li>
+<li><a name="wp1023911"> </a>To handle billing during the course registration process, the <code class="cCode">register_for_courses()</code> and <code class="cCode">get_student_details()</code> operations on the <code class="cCode">Registrar</code> object are modified to include code that invokes operations on the <code class="cCode">Teller</code> object.</li>
+</ul></div>
+<h5 class="pHeading4"><a name="wp1023912"> </a>
+Exception Handling
+</h5>
+<p class="pBody"><a name="wp1023913"> </a>
+The Wrapper sample application is designed to handle the situation in which the amount owed by the student exceeds the maximum allowed. If the student tries to register for a course when he or she owes more than is permitted by University, the <code class="cCode">Registrar</code> object generates a user-defined <code class="cCode">DelinquentAccount</code> exception. When this exception is returned to the client application, the client application rolls back the transaction. For information about how to implement user-defined exceptions, see the section <a href="trans.html#wp1023571">&quot;User-defined Exceptions&quot; on page&#160;-17</a>.
+</p>
+<h5 class="pHeading4"><a name="wp1023919"> </a>
+Setting Transaction Policies on the Interfaces in the Wrapper Sample Application
+</h5>
+<p class="pBody"><a name="wp1023920"> </a>
+Another consideration that affects the performance of the Wrapper sample application is setting the appropriate transaction policies for the interfaces of the objects in that application. The <code class="cCode">Registrar</code>, <code class="cCode">CourseSynopsisEnumerator</code>, and <code class="cCode">Teller</code> objects are configured with the <code class="cCode">always</code> transaction policy. The <code class="cCode">RegistrarFactory</code> and <code class="cCode">TellerFactory</code> objects are configured with the <code class="cCode">ignore</code> transaction policy, which prevents the transactional context from being propagated to these objects, which do not need to be included in transactions.
+</p>
+<h5 class="pHeading4"><a name="wp1023922"> </a>
+Configuring the University and Billing Server Applications
+</h5>
+<p class="pBody"><a name="wp1023923"> </a>
+As mentioned earlier, the Billing server application is configured in a group separate from the group containing the University database and the University application, Oracle Tuxedo ATMI Teller application, and Oracle Transaction Manager Server (TMS) application.
+</p>
+<p class="pBody"><a name="wp1023924"> </a>
+However, since the Billing server application participates in the transactions that register students for courses, the Billing server application must include invocations to the <code class="cCode">TP::open_xa_rm()</code> and <code class="cCode">TP::close_xa_rm()</code> operations in the Server object. This is a requirement for any server application that manages an object that is included in any transaction. If that object does not perform any read or write operations on a database, you can specify the NULL resource manager in the following locations:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023925"> </a>In the appropriate group definition in the <code class="cCode">UBBCONFIG</code> file</li>
+<li><a name="wp1023926"> </a>In an argument to the <code class="cCode">buildobjserver</code> command when you build the server application</li>
+</ul></div>
+<p class="pBody"><a name="wp1023927"> </a>
+For information about building, configuring, and running the Wrapper sample application, see the <a href="../usamples/index.html">Guide to the CORBA University Sample Applications</a>.
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="wrapper.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="trans.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="scale.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

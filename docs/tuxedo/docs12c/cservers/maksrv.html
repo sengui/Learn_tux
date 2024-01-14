@@ -1,0 +1,1253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41824" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/cservers/fm/maksrv.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/26/12 11:03:50" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Steps for Creating an Oracle Tuxedo CORBA Server Application</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Creating CORBA Server Applications
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="concepts.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="creasimp.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/cservers.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1032272"> </a>
+Steps for Creating an Oracle Tuxedo CORBA Server Application
+</h1>
+<p class="pBody"><a name="wp1023043"> </a>
+This chapter describes the basic steps involved in creating a CORBA server application. The steps shown in this chapter are not definitive; there may be other steps you may need to take for your particular server application, and you may want to change the order in which you follow some of these steps. However, the development process for every CORBA server application has each of these steps in common. 
+</p>
+<p class="pBody"><a name="wp1023048"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023051"> </a>Summary of the CORBA Server Application Development Process</li>
+<li><a name="wp1023055"> </a>Development and Debugging Tips</li>
+<li><a name="wp1023059"> </a>Servant Pooling</li>
+<li><a name="wp1023063"> </a>Delegation-based Interface Implementation</li>
+</ul></div>
+<p class="pBody"><a name="wp1023065"> </a>
+This chapter begins with a summary of the steps, and also lists the development tools and commands used throughout this book. Your particular deployment environment might use additional software development tools, so the tools and commands listed and described in this chapter are also not definitive.
+</p>
+<p class="pBody"><a name="wp1023066"> </a>
+The chapter uses examples from the Basic University sample application, which is provided with the Oracle Tuxedo software. For complete details about the Basic University sample application, see the <a href="../usamples/index.html">Guide to the CORBA University Sample Applications</a>. For complete information about the tools and commands used throughout this book, see the <a href="../CORBA_ref/index.html">CORBA Programming Reference</a>.
+</p>
+<p class="pBody"><a name="wp1028177"> </a>
+For information about creating multithreaded CORBA server applications, see Chapter&#160;4, &#8220;Creating Multithreaded CORBA Server Applications.&#8221;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023080"> </a>
+Summary of the CORBA Server Application Development Process
+</h2><p class="pBody"><a name="wp1023082"> </a>
+The basic steps to create a server application are:
+</p>
+<p class="pBody"><a name="wp1023085"> </a>
+Step 1: Compile the OMG IDL File for the Server Application<br />Step 2: Write the Methods That Implement Each Interface&#8217;s Operations<br />Step 3: Create the Server Object<br />Step 4: Define the In-memory Behavior of Objects<br />Step 5: Compile and Link the Server Application<br />Step 6: Deploy the Server Application
+</p>
+<p class="pBody"><a name="wp1023105"> </a>
+The Oracle Tuxedo software also provides the following development tools and commands shown in <a href="maksrv.html#wp1032985">Table&#160;2-1</a>:
+</p>
+<p class="pGraphic"><a name="wp1023138"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1032985table1023107"><caption><a name="wp1032985"> </a>
+Table 2-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Development Tools and Commands</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1023109"> </a>
+Tool
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023111"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023113"> </a>
+IDL compiler
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023115"> </a>
+Compiles your application&#8217;s OMG IDL file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023117"> </a>
+<code class="cCode">genicf</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023119"> </a>
+Generates an Implementation Configuration File (ICF file), which you can revise to specify nondefault object activation and transaction policies.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023121"> </a>
+<code class="cCode">buildobjserver</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023125"> </a>
+Creates the executable image of your CORBA server application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023128"> </a>
+<code class="cCode">tmloadcf</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023132"> </a>
+Creates the <code class="cCode">TUXCONFIG</code> file, a binary file for the CORBA domain that specifies the configuration of your server application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023135"> </a>
+<code class="cCode">tmadmin</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023137"> </a>
+Among other things, creates a log of transactional activities, which is used in some of the sample applications.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023141"> </a>
+Step 1: Compile the OMG IDL File for the Server Application
+</h2><p class="pBody"><a name="wp1023142"> </a>
+The basic structure of the client and server portions of the application that runs in the Oracle Tuxedo domain are determined by statements in the application&#8217;s OMG IDL file. When you compile your application&#8217;s OMG IDL file, the IDL compiler generates some or all of the files shown in the following diagram, depending upon which options you specify in the <code class="cCode">idl</code> command. The shaded components are the generated files that you modify to create a server application.
+</p>
+<p class="pGraphic"><a name="wp1032684"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/idlout.gif" height="401" width="314" alt="<span style="font-weight: normal">Inheritance Characteristics of the Interface </span><code class="cCode">Account</code>" id="wp1032682"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1032736"> </a>
+The files produced by the IDL compiler are described in <a href="maksrv.html#wp1032689">Table&#160;2-2</a>
+</p>
+<p class="pGraphic"><a name="wp1032751"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1032689table1032686"><caption><a name="wp1032689"> </a>
+Table 2-2  Files Produced by the IDL Compiler
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1032695"> </a>
+File
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1032697"> </a>
+Default Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1032699"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032701"> </a>
+Client stub file
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032703"> </a>
+<code class="cCodeEmphasis">application</code><code class="cCode">_c.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032705"> </a>
+Contains generated code for sending a request.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032707"> </a>
+Client stub header file
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032709"> </a>
+<code class="cCodeEmphasis">application</code><code class="cCode">_c.h</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032711"> </a>
+Contains class definitions for each interface and type specified in the OMG IDL file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032713"> </a>
+Skeleton file
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032715"> </a>
+<code class="cCodeEmphasis">application</code><code class="cCode">_s.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032717"> </a>
+Contains skeletons for each interface specified in the OMG IDL file. The skeleton maps client requests to the appropriate operation in the server application during run time.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032719"> </a>
+Skeleton header file
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032721"> </a>
+<code class="cCodeEmphasis">application</code><code class="cCode">_s.h</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032723"> </a>
+Contains the skeleton class definitions.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032725"> </a>
+Implementation file
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032727"> </a>
+<code class="cCodeEmphasis">application</code><code class="cCode">_i.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032729"> </a>
+Contains signatures for the methods that implement the operations on the interfaces specified in the OMG IDL file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032731"> </a>
+Implementation header file
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032733"> </a>
+<code class="cCodeEmphasis">application</code><code class="cCode">_i.h</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032735"> </a>
+Contains the initial class definitions for each interface specified in the OMG IDL file.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1032738"> </a>
+Using the IDL Compiler
+</h3>
+<p class="pBody"><a name="wp1028571"> </a>
+To generate the files listed in Table&#160;2-1, enter the following command:
+</p>
+<a name="wp1023206"> </a><div class="pPreformatted"><pre>idl [options] <em class="cEmphasis">idl-filename </em>[<em class="cEmphasis">icf-filename</em>]</pre></div><p class="pBody"><a name="wp1023207"> </a>
+In the <code class="cCode">idl</code> command syntax:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023208"> </a><code class="cCode">options</code> represents one or more command-line options to the IDL compiler. The command-line options are described in the <a href="../CORBA_ref/index.html">CORBA Programming Reference</a>. If you want to generate implementation files, you need to specify the <code class="cCode">-i</code> option.</li>
+<li><a name="wp1023212"> </a><code class="cCodeEmphasis">idl-filename</code> represents the name of your application&#8217;s OMG IDL file. </li>
+<li><a name="wp1023213"> </a><code class="cCodeEmphasis">icf-filename</code> is an optional parameter that represents the name of your application&#8217;s Implementation Configuration File (ICF file), which you use to specify object activation policies or to limit the number of interfaces for which you want skeleton and implementation files generated. Using the ICF file is described in the section &#8220;Step 4: Define the In-memory Behavior of Objects&#8221; on page&#160;2-14.</li>
+</ul></div>
+<a name="wp1024190"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The C++ IDL compiler implementation of pragmas changed in WebLogic Enterprise 5.1 to support CORBA 2.3 functionality and may affect your IDL files. The CORBA 2.3 functionality changes the scope that the pragma prefix definitions can affect. Pragmas do not affect definitions contained within included IDL files, nor do pragma prefix definitions made within included IDL files affect objects outside the included file.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1024192"> </a>
+The C++ IDL compiler has been modified to correct the handling of pragma prefixes. This change can effect the repository ID of objects, resulting in failures for some operations, such as a <code class="cCode">_narrow</code>. 
+</p>
+<p class="pBody"><a name="wp1024194"> </a>
+To prevent such failures:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024196"> </a>If you reload your IDL into the repository, you must also regenerate the client stubs and server skeletons of the application.</li>
+<li><a name="wp1024499"> </a>If you regenerate any client stub or server skeleton, you must regenerate all stubs and skeletons of the application, and you must reload the IDL into the Interface Repository.</li>
+</ul></div>
+<p class="pBody"><a name="wp1024184"> </a>
+For more information about the IDL compiler, including details on the <code class="cCode">idl</code> command, see the <a href="../CORBA_ref/index.html">CORBA Programming Reference</a>.
+</p>
+<h3 class="pHeading2"><a name="wp1023222"> </a>
+Generating the Skeleton and Implementation Files
+</h3>
+<p class="pBody"><a name="wp1023223"> </a>
+The following command line generates client stub, skeleton, and initial implementation files, along with skeleton and implementation header files, for the OMG IDL file <code class="cCode">univb.idl</code>:
+</p>
+<a name="wp1023224"> </a><div class="pPreformatted"><pre>idl -i univb.idl</pre></div><p class="pBody"><a name="wp1023227"> </a>
+For more information about the <code class="cCode">idl</code> command, see the <a href="../CORBA_ref/index.html">CORBA Programming Reference</a>. For more information about generating these files for the Oracle Tuxedo University sample applications, see the <a href="../usamples/index.html">Guide to the CORBA University Sample Applications</a>.
+</p>
+<a name="wp1023235"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If you plan to specify nondefault object activation or transaction policies, or if you plan to limit the number of interfaces for which you want skeleton and implementation files generated, you need to generate and modify an Implementation Configuration File (ICF) and pass the ICF file to the IDL compiler. For more information, see &#8220;Specifying Object Activation and Transaction Policies in the ICF File&#8221; on page&#160;2-14.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1023240"> </a>
+Generating Tie Classes
+</h3>
+<p class="pBody"><a name="wp1023241"> </a>
+The IDL compiler also provides the <code class="cCode">-T</code> command-line option, which you can use for generating tie class templates for your interfaces. For more information about implementing tie classes in a CORBA application, see the section &#8220;Delegation-based Interface Implementation&#8221; on page&#160;2-29.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023246"> </a>
+Step 2: Write the Methods That Implement Each Interface&#8217;s Operations
+</h2><p class="pBody"><a name="wp1023247"> </a>
+As the server application programmer, your task is to write the methods that implement the operations for each interface you have defined in your application&#8217;s OMG IDL file. 
+</p>
+<p class="pBody"><a name="wp1023248"> </a>
+The implementation file contains:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023249"> </a>Method declarations for each operation specified in the OMG IDL file.</li>
+<li><a name="wp1023250"> </a>Your application&#8217;s business logic, include files, and other data you want the application to use.</li>
+<li><a name="wp1023251"> </a>Constructors and destructors for each interface implementation (implementing these is optional).</li>
+<li><a name="wp1023252"> </a>Optionally, the <code class="cCode">Tobj_ServantBase::activate_object()</code> and <code class="cCode">Tobj_ServantBase::deactivate_object()</code> operations.</li>
+<p class="pBodyRelative"><a name="wp1023253"> </a>
+Within the <code class="cCode">Tobj_ServantBase::activate_object()</code> and <code class="cCode">Tobj_ServantBase::deactivate_object()</code>operations, you write code that performs any particular steps related to activating or deactivating an object. This includes reading and writing the object&#8217;s durable state from and to disk, respectively. If you implement these operations in your object, you must also edit the implementation header file and add the definitions for these operations in each implementation that uses them.
+</p>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1023257"> </a>
+The Implementation File Generated by the IDL Compiler
+</h3>
+<p class="pBody"><a name="wp1023258"> </a>
+Although you can create your server application&#8217;s implementation file entirely by hand, the IDL compiler generates an implementation file that you can use as a starting place for writing your implementation file. The implementation file generated by the IDL compiler contains signatures for the methods that implement each of the operations defined for your application&#8217;s interfaces.
+</p>
+<p class="pBody"><a name="wp1023259"> </a>
+You typically generate this implementation file only once, using the <code class="cCode">-i</code> option with the command that invokes the IDL compiler. As you iteratively refine your application&#8217;s interfaces, and modify the operations for those interfaces, including operation signatures, you add all the required changes to the implementation file to reflect those changes.
+</p>
+<h3 class="pHeading2"><a name="wp1023262"> </a>
+Implementing a Factory
+</h3>
+<p class="pBody"><a name="wp1023265"> </a>
+As mentioned in the section &#8220;How Client Applications Access and Manipulate Your Application&#8217;s CORBA Objects&#8221; on page&#160;1-4, you need to create factories so that client applications can easily locate the objects managed by your server application. A factory is like any other CORBA object that you implement, with the exception that you register it with the FactoryFinder object. Registering a factory is described in the section &#8220;Writing the Code That Creates and Registers a Factory&#8221; on page&#160;2-10.
+</p>
+<p class="pBody"><a name="wp1023270"> </a>
+The primary function of a factory is to create object references, which it does by invoking the <code class="cCode">TP::create_object_reference()</code> operation. The <code class="cCode">TP::create_object_reference()</code> operation requires the following input parameters:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023271"> </a>The Interface Repository ID of the object&#8217;s OMG IDL interface</li>
+<li><a name="wp1023272"> </a>The object ID (OID) in string format</li>
+<li><a name="wp1023273"> </a>Optionally, routing criteria</li>
+</ul></div>
+<p class="pBody"><a name="wp1023274"> </a>
+For example, in the Basic University sample application, the <code class="cCode">RegistrarFactory</code> interface specifies only one operation, as follows:
+</p>
+<a name="wp1023275"> </a><div class="pPreformatted"><pre>University::Registrar_ptr RegistrarFactory_i::find_registrar()</pre></div><p class="pBody"><a name="wp1023276"> </a>
+The find_registrar() operation on the <code class="cCode">RegistrarFactory</code> object contains the following invocation to the <code class="cCode">TP::create_object_reference()</code> operation to create a reference to a <code class="cCode">Registrar</code> object:
+</p>
+<a name="wp1023277"> </a><div class="pPreformatted"><pre>CORBA::Object_var v_reg_oref =<br />            TP::create_object_reference(<br />                University::_tc_Registrar-&gt;id(),<br />                object_id,<br />                CORBA::NVlist::_nil()<br />            );</pre></div><p class="pBody"><a name="wp1023278"> </a>
+In the previous code example, notice the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023279"> </a>The following parameter specifies the <code class="cCode">Registrar</code> object&#8217;s Interface Repository ID by extracting it from its typecode:</li>
+<a name="wp1023280"> </a><div class="pPreformattedRelative"><pre>University::_tc_Registrar-&gt;id()</pre></div><li><a name="wp1023281"> </a>The following parameter specifies that no routing criteria are used, with the result that an object reference created for the <code class="cCode">Registrar</code> object is routed to the same group as the <code class="cCode">RegistrarFactory</code> object that created the object reference:</li>
+<a name="wp1023282"> </a><div class="pPreformattedRelative"><pre>CORBA::NVlist::_nil()</pre></div><p class="pBodyRelative"><a name="wp1023283"> </a>
+For information about specifying routing criteria that affect the group to which object references are routed, see Chapter&#160;8, &#8220;Scaling an Oracle Tuxedo CORBA Server Application.&#8221;
+</p>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023288"> </a>
+Step 3: Create the Server Object
+</h2><p class="pBody"><a name="wp1023289"> </a>
+Implementing the Server object is not like implementing other language objects. The header class for the Server object has already been created, and the Server object class has already been instantiated for you. Creating the Server object involves implementing a specific set of methods in the prepackaged Server object class. The methods you implement are described in this section.
+</p>
+<p class="pBody"><a name="wp1023290"> </a>
+To create the Server object, create a new file using a common text editor and implement the following operations shown in <a href="maksrv.html#wp1033004">Table&#160;2-3</a>:
+</p>
+<p class="pGraphic"><a name="wp1023317"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1033004table1023291"><caption><a name="wp1033004"> </a>
+Table 2-3   Create the Server Object
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1023293"> </a>
+Operation
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023295"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023297"> </a>
+<code class="cCode">Server::initialize();</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023299"> </a>
+After the server application is booted, the TP Framework invokes this operation as the last step in the server application initialization process. Within this operation, you perform a number of initialization tasks needed for your particular server application. What you provide within this operation is described in the section &#8220;Initializing the Server Application&#8221; on page&#160;2-9.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023304"> </a>
+<code class="cCode">Server::create_servant();</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023306"> </a>
+When a client request arrives that cannot be serviced by an existing servant, the TP Framework invokes this operation, passing the Interface Repository ID of the OMG IDL interface for the CORBA object to be activated. What you provide within this operation is described in the section &#8220;Creating Servants&#8221; on page&#160;2-11.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023311"> </a>
+<code class="cCode">Server::release();</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023313"> </a>
+The TP Framework invokes this operation when the server application is being shut down. This operation includes code to unregister any object factories managed by the server application and to perform other shutdown tasks. What you provide within this operation is described in the section &#8220;Releasing the Server Application&#8221; on page&#160;2-13.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1023318"> </a>
+There is only one instance of the Server object in any server application. If your server application is managing multiple CORBA object implementations, the <code class="cCode">Server::initialize()</code>, <code class="cCode">Server::create_servant()</code>, and <code class="cCode">Server::release()</code> operations you write must include code that applies to all those implementations.
+</p>
+<p class="pBody"><a name="wp1023319"> </a>
+The code that you write for most of these tasks involves interaction with the TP Framework. The sections that follow explain the code required for each of these Server object operations and shows sample code from the Basic University sample application.
+</p>
+<h3 class="pHeading2"><a name="wp1023321"> </a>
+Initializing the Server Application
+</h3>
+<p class="pBody"><a name="wp1023322"> </a>
+The first operation that you implement in your Server object is the operation that initializes the server application. This operation is invoked when the Oracle Tuxedo system starts the server application. The TP Framework invokes the following operation in the Server object during the startup sequence of the server application:
+</p>
+<a name="wp1023326"> </a><div class="pPreformatted"><pre><code class="cCode">CORBA::Boolean Server::initialize(int argc, char** argv)</code> </pre></div><p class="pBody"><a name="wp1023327"> </a>
+Any command-line options specified in the <code class="cCode">CLOPT</code> parameter for your specific server application in the <code class="cCode">SERVERS</code> section of the Oracle Tuxedo domain&#8217;s <code class="cCode">UBBCONFIG</code> file are passed to the <code class="cCode">Server::initialize()</code> operation as <code class="cCode">argc</code> and <code class="cCode">argv</code>. For more information about passing arguments to the server application, see <a href="../ada/index.html">Administering an Oracle Tuxedo Application at Run Time</a>.  For examples of passing arguments to the server application, see the <a href="../usamples/index.html">Guide to the CORBA University Sample Applications</a>.
+</p>
+<p class="pBody"><a name="wp1023337"> </a>
+Within the <code class="cCode">Server::initialize()</code> operation, you include code that does the following, if applicable:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023338"> </a>Creates and registers factories</li>
+<li><a name="wp1023339"> </a>Allocates any machine resources</li>
+<li><a name="wp1023340"> </a>Initializes any global variables needed by the server application </li>
+<li><a name="wp1023341"> </a>Opens the databases used by the server application</li>
+<li><a name="wp1023342"> </a>Opens the XA resource manager</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1023345"> </a>
+Writing the Code That Creates and Registers a Factory
+</h3>
+<p class="pBody"><a name="wp1023346"> </a>
+If your server application manages a factory that you want client applications to be able to locate easily, you need to write the code that registers that factory with the FactoryFinder object, which is invoked typically as the final step of the server application initialization process. 
+</p>
+<p class="pBody"><a name="wp1023347"> </a>
+To write the code that registers a factory managed by your server application, you do the following: 
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023348"> </a>Create an object reference to the factory. </li>
+<p class="pBodyRelative"><a name="wp1023349"> </a>
+This step involves creating an object reference as described in the section &#8220;Implementing a Factory&#8221; on page&#160;2-7. In this step, you include an invocation to the <code class="cCode">TP::create_object_reference()</code> operation, specifying the Interface Repository ID of the factory&#8217;s OMG IDL interface.The following example creates an object reference, represented by the variable <code class="cCode">s_v_fact_ref</code>, to the <code class="cCode">RegistrarFactory</code> factory:
+</p>
+<a name="wp1023353"> </a><div class="pPreformattedRelative"><pre>University::RegistrarFactory s_v_fact_ref =<br />     TP::create_object_reference(<br />         University::_tc_RegistrarFactory-&gt;id(),<br />         object_id,<br />         CORBA::NVList::_nil()<br />     );</pre></div><li><a name="wp1023356"> </a>Register the factory with the Oracle Tuxedo domain.</li>
+<p class="pBodyRelative"><a name="wp1023358"> </a>
+This step involves invoking the following operation for each of the factories managed by the server application: 
+</p>
+<a name="wp1023359"> </a><div class="pPreformattedRelative"><pre>TP::register_factory (CORBA::Object_ptr factory_or,<br />                      const char* factory_id);</pre></div><p class="pBodyRelative"><a name="wp1023360"> </a>
+The <code class="cCode">TP::register_factory()</code> operation registers the server application&#8217;s factories with the FactoryFinder object. This operation requires the following input parameters:
+</p>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023361"> </a>The object reference for the factory, created in step 1 above.</li>
+<li><a name="wp1023362"> </a>A string identifier, based on the factory object&#8217;s interface typecode, used to identify the Interface Repository ID of the factory&#8217;s OMG IDL interface.</li>
+<p class="pBodyRelative"><a name="wp1023363"> </a>
+The following example registers the <code class="cCode">RegistrarFactory</code> factory with the Oracle Tuxedo domain:
+</p>
+<a name="wp1023367"> </a><div class="pPreformattedRelative"><pre>TP::register_factory(s_v_fact_ref.in(),<br />                     University::_tc_RegistrarFactory-&gt;id());</pre></div><p class="pBodyRelative"><a name="wp1023368"> </a>
+Notice the parameter University::_tc_RegistrarFactory-&gt;id(). This is the same parameter specified in the <code class="cCode">TP::create_object_reference()</code> operation. This parameter extracts the Interface Repository ID of the object&#8217;s OMG IDL interface from its typecode.
+</p>
+</ul></div>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1023372"> </a>
+Creating Servants
+</h3>
+<p class="pBody"><a name="wp1023373"> </a>
+After the server application initialization process is complete, the server application is ready to begin processing client requests. If a request arrives for an operation on a CORBA object for which there is no servant available in memory, the TP Framework invokes the following operation in the Server object: 
+</p>
+<a name="wp1023374"> </a><div class="pPreformatted"><pre>Tobj_Servant Server::create_servant(const char* interfaceName)</pre></div><p class="pBody"><a name="wp1023375"> </a>
+The <code class="cCode">Server::create_servant()</code> operation contains code that instantiates a servant for the object required by the client request. For example, in C++, this code includes a <code class="cCode">new</code> statement on the interface class for the object. 
+</p>
+<p class="pBody"><a name="wp1023376"> </a>
+The <code class="cCode">Server::create_servant()</code> operation does not associate the servant with an OID. The association of a servant with an OID takes place when the TP Framework invokes the <code class="cCode">Tobj_ServantBase::activate_object()</code> operation on the servant, which completes the instantiation of the object. (You cannot associate an OID with an object in the object&#8217;s constructor.) Likewise, the disassociation of a servant with an OID takes place when the TP Framework invokes the <code class="cCode">deactivate_object()</code> operation on the servant. 
+</p>
+<p class="pBody"><a name="wp1023379"> </a>
+This behavior of a servant in the Oracle Tuxedo system makes it possible, after an object has been deactivated, for the TP Framework to make a servant available for another object instantiation. Therefore, do not assume that an invocation of an object&#8217;s <code class="cCode">Tobj_ServantBase::deactivate_object()</code> operation results in an invocation of that object&#8217;s destructor.  If you use the servant pooling feature in your server application, you can implement the <code class="cCode">TP::application_responsibility()</code> operation in an object&#8217;s <code class="cCode">Tobj_ServantBase::deactivate_object()</code> operation to pass a pointer to the servant to a servant pool for later reuse.  Servant pooling is discussed in the section &#8220;Servant Pooling&#8221; on page&#160;2-28.
+</p>
+<p class="pBody"><a name="wp1023384"> </a>
+The <code class="cCode">Server::create_servant()</code> operation requires a single input argument. The argument specifies a character string containing the Interface Repository ID of the OMG IDL interface of the object for which you are creating a servant.
+</p>
+<p class="pBody"><a name="wp1023385"> </a>
+In the code you write for this operation, you specify the Interface Repository IDs of the OMG IDL interfaces for the objects managed by your server application. During run time, the <code class="cCode">Server::create_servant()</code>operation returns the servant needed for the object specified by the request. 
+</p>
+<p class="pBody"><a name="wp1023386"> </a>
+The following code implements the <code class="cCode">Server::create_servant()</code> operation in the University server application from the Basic University sample application:
+</p>
+<a name="wp1023387"> </a><div class="pPreformatted"><pre>Tobj_Servant Server::create_servant(const char* intf_repos_id)<br />{<br />  if (!strcmp(intf_repos_id, University::_tc_RegistrarFactory-&gt;id())) {<br />      return new RegistrarFactory_i();<br />  }<br />  if (!strcmp(intf_repos_id, University::_tc_Registrar-&gt;id())) {<br />      return new Registrar_i();<br />  }<br />  if (!strcmp(intf_repos_id, University::_tc_CourseSynopsisEnumerator-&gt;id())) {<br />      return new CourseSynopsisEnumerator_i();<br />  }<br />  return 0; // unknown interface<br />}</pre></div><h3 class="pHeading2"><a name="wp1023389"> </a>
+Releasing the Server Application
+</h3>
+<p class="pBody"><a name="wp1023392"> </a>
+When the Oracle Tuxedo system administrator enters the <code class="cCode">tmshutdown</code> command, the TP Framework invokes the following operation in the Server object of each running server application in the Oracle Tuxedo domain:
+</p>
+<a name="wp1023397"> </a><div class="pPreformatted"><pre>void Server::release()</pre></div><p class="pBody"><a name="wp1023398"> </a>
+Within the <code class="cCode">Server::release()</code> operation, you may perform any application-specific cleanup tasks that are specific to the server application, such as:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023399"> </a>Unregistering object factories managed by the server application</li>
+<li><a name="wp1023400"> </a>Deallocating resources</li>
+<li><a name="wp1023401"> </a>Closing any databases</li>
+<li><a name="wp1023402"> </a>Closing an XA resource manager</li>
+</ul></div>
+<p class="pBody"><a name="wp1023403"> </a>
+Once a server application receives a request to shut down, the server application can no longer receive requests from other remote objects. This has implications on the order in which server applications should be shut down, which is an administrative task. For example, do not shut down one server process if a second server process contains an invocation in its <code class="cCode">Server::release()</code> operation to the first server process.
+</p>
+<p class="pBody"><a name="wp1023404"> </a>
+During server shutdown, you may want to include the following invocation to unregister each of the server application&#8217;s factories:
+</p>
+<a name="wp1023405"> </a><div class="pPreformatted"><pre>TP::unregister_factory (CORBA::Object_ptr factory_or,<br />				const char* factory_id)</pre></div><p class="pBody"><a name="wp1023406"> </a>
+The invocation of the TP::unregister_factory<code class="cCode">()</code> operation should be one of the first actions in the <code class="cCode">Server::release()</code> implementation. The TP::<code class="cCode">unregister_factory()</code> operation unregisters the server application&#8217;s factories. This operation requires the following input arguments:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023407"> </a>The object reference for the factory.</li>
+<li><a name="wp1023408"> </a>A string identifier, based on the factory object&#8217;s interface typecode, used to identify Interface Repository ID of the object&#8217;s OMG IDL interface.</li>
+</ul></div>
+<p class="pBody"><a name="wp1023409"> </a>
+The following example unregisters the <code class="cCode">RegistrarFactory</code> factory used in the Basic sample application:
+</p>
+<a name="wp1023410"> </a><div class="pPreformatted"><pre>TP::unregister_factory(s_v_fact_ref.in(), UnivB::_tc_RegistrarFactory-&gt;id());</pre></div><p class="pBody"><a name="wp1023411"> </a>
+In the preceding code example, notice the use of the global variable s_v_fact_ref. This variable was set in the <code class="cCode">Server::initialize()</code> operation that registered the <code class="cCode">RegistrarFactory</code> object, which is used again here.
+</p>
+<p class="pBody"><a name="wp1023412"> </a>
+Notice also the parameter UnivB::_tc_RegistrarFactory-&gt;id(). This is also the same as the interface name used to register the factory. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023414"> </a>
+Step 4: Define the In-memory Behavior of Objects
+</h2><p class="pBody"><a name="wp1023418"> </a>
+As stated in the section &#8220;Managing Object State&#8221; on page&#160;1-11, you determine what events cause an object to be deactivated by assigning object activation policies, transaction policies, and, optionally, using the application-controlled deactivation feature.
+</p>
+<p class="pBody"><a name="wp1023419"> </a>
+You specify object activation and transaction policies in the ICF file, and you implement application-controlled deactivation via the <code class="cCode">TP::deactivateEnable()</code> operation. This section explains how you implement both mechanisms, using the Basic University sample application as an example.
+</p>
+<p class="pBody"><a name="wp1023420"> </a>
+The sections that follow describe the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023421"> </a>How to specify object activation and transaction policies in the ICF file</li>
+<li><a name="wp1023422"> </a>How to implement application-controlled deactivation</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1023424"> </a>
+Specifying Object Activation and Transaction Policies in the ICF File
+</h3>
+<p class="pBody"><a name="wp1023427"> </a>
+The Oracle Tuxedo software supports the following activation policies shown in <a href="maksrv.html#wp1033027">Table&#160;2-4</a>, described in <a href="concepts.html#wp1022582">Object Activation Policies</a>:
+</p>
+<p class="pGraphic"><a name="wp1023451"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1033027table1023432"><caption><a name="wp1033027"> </a>
+Table 2-4  Activation Policies
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1023434"> </a>
+Activation Policy
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023436"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023438"> </a>
+<code class="cCode">method</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023440"> </a>
+Causes the object to be active only for the duration of the invocation on one of the object&#8217;s operations.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023442"> </a>
+<code class="cCode">transaction</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023444"> </a>
+Causes the object to be activated when an operation is invoked on it. If the object is activated within the scope of a transaction, the object remains active until the transaction is either committed or rolled back. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023446"> </a>
+<code class="cCode">process</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023448"> </a>
+Causes the object to be activated when an operation is invoked on it, and to be deactivated only when one of the following occurs:
+</div>
+<div class="pSmartList1TableBullet"><ul class="SmartList1TableBullet">
+<li><a name="wp1023449"> </a>The process in which the server application exists is shut down.</li>
+<li><a name="wp1023450"> </a>The object has invoked the <code class="cCode">TP::deactivateEnable()</code> operation on itself.</li>
+</ul></div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1023454"> </a>
+The Oracle Tuxedo software also supports the following transaction policies, described in Chapter&#160;6, &#8220;Integrating Transactions into a CORBA Server Application&#8221;:
+</p>
+<p class="pGraphic"><a name="wp1023481"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1023461table1023459">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1023461"> </a>
+Transaction Policy
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023463"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023465"> </a>
+<code class="cCode">always</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023467"> </a>
+When an operation on this object is invoked, this policy causes the TP Framework to begin a transaction for this object, if there is not already an active transaction. If the TP Framework starts the transaction, the TP Framework commits the transaction if the operation completes successfully, or rolls back the transaction if the operation raises an exception.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023469"> </a>
+<code class="cCode">optional</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023471"> </a>
+When an operation on this object is invoked, this policy causes the TP Framework to include this object in a transaction if a transaction is active. If no transaction is active, the invocation on this object proceeds according to the activation policy defined for this object.
+</div>
+<div class="pCellBody"><a name="wp1023472"> </a>
+This is the default transaction policy.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023474"> </a>
+<code class="cCode">never</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023476"> </a>
+Causes the TP Framework to generate an error condition if this object is invoked during a transaction.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023478"> </a>
+<code class="cCode">ignore</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023480"> </a>
+If a transaction is currently active when an operation on this object is invoked, the transaction is suspended until the operation invocation is complete. This transaction policy prevents any transaction from being propagated to the object to which this transaction policy has been assigned.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1023482"> </a>
+To assign these policies to the objects in your application:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023483"> </a>Generate the ICF file by entering the <code class="cCode">genicf</code> command, specifying your application&#8217;s OMG IDL file as input, as in the following example:</li>
+<a name="wp1023484"> </a><div class="pPreformattedRelative"><pre># genicf university.idl</pre></div><p class="pBodyRelative"><a name="wp1023485"> </a>
+The preceding command generates the file <code class="cCode">university.icf</code>.
+</p>
+<li><a name="wp1023486"> </a>Edit the ICF file and specify the activation policies for each of your application&#8217;s interfaces. The following example shows the ICF file generated for the Basic University sample application. Notice that the default object activation policy is <code class="cCode">method</code>, and that the default transaction activation policy is <code class="cCode">optional</code>.</li>
+<a name="wp1023487"> </a><div class="pPreformatted"><pre>module POA_UniversityB<br />    {<br />    implementation CourseSynopsisEnumerator_i<br />        {<br />        activation_policy ( method );<br />        transaction_policy ( optional );<br />        implements ( UniversityB::CourseSynopsisEnumerator );<br />        };<br />    };<br />module POA_UniversityB<br />    {<br />    implementation Registrar_i<br />        {<br />        activation_policy ( method );<br />        transaction_policy ( optional );<br />        implements ( UniversityB::Registrar );<br />        };<br />    };<br />module POA_UniversityB<br />    {<br />    implementation RegistrarFactory_i<br />        {<br />        activation_policy ( method );<br />        transaction_policy ( optional );<br />        implements ( UniversityB::RegistrarFactory );<br />        };<br />    };</pre></div><li><a name="wp1023488"> </a>If you want to limit the number of interfaces for which you want skeleton and implementation files generated, you can remove from the ICF file the implementation blocks that implement those interfaces.  Using the preceding ICF code as an example, to prevent skeleton and implementation files from being generated for the <code class="cCode">RegistrarFactory</code> interface, remove the following lines:</li>
+<a name="wp1023489"> </a><div class="pPreformattedRelative"><pre>implementation RegistrarFactory_i<br />        {<br />        activation_policy ( method );<br />        transaction_policy ( optional );<br />        implements ( UniversityB::RegistrarFactory );<br />        };</pre></div><li><a name="wp1023490"> </a>Pass the ICF file to the IDL compiler to generate the skeleton and implementation files that correspond to the specified policies.  For more information, see the section &#8220;Generating the Skeleton and Implementation Files&#8221; on page&#160;2-5.</li>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023495"> </a>
+Step 5: Compile and Link the Server Application
+</h2><p class="pBody"><a name="wp1023496"> </a>
+After you have finished writing the code for the Server object and the object implementations, you must compile and link the server application.
+</p>
+<a name="wp1023499"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>You must use the <code class="cCode">buildobjserver</code> command to compile and link CORBA server applications.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1033083"> </a>
+The <code class="cCode">buildobjserver</code> command has the following format:
+</p>
+<a name="wp1023501"> </a><div class="pPreformatted"><pre>buildobjserver [-o <em class="cEmphasis">servername</em>] [options]</pre></div><p class="pBody"><a name="wp1023502"> </a>
+In the <code class="cCode">buildobjserver</code> command syntax:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023503"> </a>-o <em class="cEmphasis">servername</em> represents the name of the server application to be generated by this command.</li>
+<li><a name="wp1023504"> </a><code class="cCode">options</code> represents the command-line options to the <code class="cCode">buildobjserver</code> command.</li>
+</ul></div>
+<p class="pBody"><a name="wp1023505"> </a>
+For complete information about compiling and linking the University sample applications, see the <a href="../usamples/index.html">Guide to the CORBA University Sample Applications. For complete details about the <code class="cCode">buildobjserver</code> command, see the <a href="../rfcm/index.html">Oracle Tuxedo Command Reference.</a>
+</p>
+<p class="pBody"><a name="wp1028220"> </a>
+There are special considerations for designing and building multithreaded CORBA server applications. See &#8220;Using the buildobjserver Command&#8221; on page 4-13.
+</p>
+<a name="wp1026145"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If you are running the Oracle Tuxedo software on IBM AIX 4.3.3 systems, you need to recompile your CORBA applications using the <code class="cCode">-brtl</code> compiler option.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023514"> </a>
+Step 6: Deploy the Server Application
+</h2><p class="pBody"><a name="wp1023517"> </a>
+You or the system administrator deploy the CORBA server application by using the procedure summarized in this section. For complete details on building and deploying the University sample applications, see the <a href="../usamples/index.html">Guide to the CORBA University Sample Applications</a>.
+</p>
+<p class="pBody"><a name="wp1023522"> </a>
+To deploy the server application:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023523"> </a>Place the server application executable file in an appropriate directory on a machine that is part of the intended Oracle Tuxedo domain.</li>
+<li><a name="wp1023527"> </a>Create the application&#8217;s configuration file, also known as the <code class="cCode">UBBCONFIG</code> file, in a common text editor.</li>
+<li><a name="wp1023528"> </a>Set the following environment variables on the machine from which you are booting the CORBA server application:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023532"> </a><code class="cCode">TUXCONFIG</code>, which needs to match exactly the <code class="cCode">TUXCONFIG</code> entry in the <code class="cCode">UBBCONFIG</code> file. This variable represents the location or path of the application&#8217;s <code class="cCode">UBBCONFIG</code> file.</li>
+<li><a name="wp1023533"> </a><code class="cCode">APPDIR</code>, which represents the directory in which the application&#8217;s executable file exists.</li>
+</ul></div>
+<li><a name="wp1023534"> </a>Set the <code class="cCode">TUXDIR</code> environment variable on all machines that are running in the Oracle Tuxedo domain or that are connected to the Oracle Tuxedo domain. This environment variable points to the location where the Oracle Tuxedo software is installed.</li>
+<li><a name="wp1023544"> </a>Enter the following command to create the <code class="cCode">TUXCONFIG</code> file: </li>
+<a name="wp1023545"> </a><div class="pPreformattedRelative"><pre>tmloadcf -y <code class="cCodeEmphasis">application-</code><code class="cCode">ubbconfig</code><code class="cCodeEmphasis">-file</code></pre></div><p class="pBodyRelative"><a name="wp1023546"> </a>
+The command-line argument <code class="cCodeEmphasis">application-</code><code class="cCode">ubbconfig</code><code class="cCodeEmphasis">-file</code> represents the name of your application&#8217;s <code class="cCode">UBBCONFIG</code> file. Note that you may need to remove any old <code class="cCode">TUXCONFIG</code> files to execute this command.
+</p>
+<li><a name="wp1023549"> </a>Enter the following command to start the CORBA server application:</li>
+<a name="wp1023551"> </a><div class="pPreformattedRelative"><pre>tmboot -y</pre></div><p class="pBodyRelative"><a name="wp1023552"> </a>
+You can reboot a server application without reloading the <code class="cCode">UBBCONFIG</code> file.
+</p>
+</ol></div>
+<p class="pBody"><a name="wp1023553"> </a>
+For complete details about configuring the University sample applications, see the <a href="../usamples/index.html">Guide to the CORBA University Sample Applications</a>. For complete details on creating the <code class="cCode">UBBCONFIG</code> file for CORBA applications, see <a href="../ads/index.html">Setting Up an Oracle Tuxedo Application</a>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023565"> </a>
+Development and Debugging Tips
+</h2><p class="pBody"><a name="wp1023566"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023567"> </a>Use of CORBA exceptions and the user log</li>
+<li><a name="wp1023568"> </a>Detecting error conditions in the callback methods</li>
+<li><a name="wp1023569"> </a>Common pitfalls of OMG IDL interface versioning and modification</li>
+<li><a name="wp1023570"> </a>Caveat for state handling in the <code class="cCode">Tobj_ServantBase::deactivate_object()</code> operation</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1023572"> </a>
+Use of CORBA Exceptions and the User Log
+</h3>
+<p class="pBody"><a name="wp1023573"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023574"> </a>The client application view of exceptions</li>
+<li><a name="wp1023575"> </a>The server application view of exceptions</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1023576"> </a>
+Client Application View of Exceptions
+</h4>
+<p class="pBody"><a name="wp1023577"> </a>
+When a client application invokes an operation on a CORBA object, an exception may be returned as a result of the invocation. The only valid exceptions that can be returned to a client application are the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023578"> </a>Standard CORBA-defined exceptions that are known to every CORBA-compliant ORB</li>
+<li><a name="wp1023579"> </a>Exceptions that are defined in OMG IDL and known to the client application via either its stub or the Interface Repository</li>
+</ul></div>
+<p class="pBody"><a name="wp1023582"> </a>
+The Oracle Tuxedo system works to ensure that these CORBA-defined restrictions are not violated, which is described in the section &#8220;Server Application View of Exceptions&#8221; on page&#160;2-20.
+</p>
+<p class="pBody"><a name="wp1023587"> </a>
+Because the set of exceptions exposed to the client application is limited, client applications may occasionally catch exceptions for which the cause is ambiguous. Whenever possible, the Oracle Tuxedo system supplements such exceptions with descriptive messages in the user log, which serves as an aid in detecting and debugging error conditions. These cases are described in the following section.
+</p>
+<h4 class="pHeading3"><a name="wp1023592"> </a>
+Server Application View of Exceptions
+</h4>
+<p class="pBody"><a name="wp1023593"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023596"> </a>Exceptions raised by the Oracle Tuxedo system that can be caught by application code</li>
+<li><a name="wp1023598"> </a>The Oracle Tuxedo system&#8217;s handling of exceptions raised by application code during the invocation of operations on CORBA objects</li>
+</ul></div>
+<h5 class="pHeading4"><a name="wp1023605"> </a>
+Exceptions Raised by the Oracle Tuxedo System That Can Be Caught by Application Code
+</h5>
+<p class="pBody"><a name="wp1023612"> </a>
+The Oracle Tuxedo system may return the following types of exceptions to an application when operations on the TP object are invoked:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023614"> </a>CORBA-defined system exceptions</li>
+<li><a name="wp1023615"> </a>CORBA <code class="cCode">UserExceptions</code> defined in the file <code class="cCode">TobjS_c.h</code>. The OMG IDL for the exceptions defined in this file is the following:</li>
+<a name="wp1023616"> </a><div class="pPreformattedRelative"><pre>interface TobjS { <br />          exception AlreadyRegistered { };<br />          exception ActivateObjectFailed { string reason; };<br />          exception ApplicationProblem { };<br />          exception CannotProceed { };<br />          exception CreateServantFailed { string reason; };<br />          exception DeactivateObjectFailed { string reason; };<br />          exception IllegalInterface { };<br />          exception IllegalOperation { };<br />          exception InitializeFailed { string reason; };<br />          exception InvalidDomain { };<br />          exception InvalidInterface { };<br />          exception InvalidName { };<br />          exception InvalidObject { };<br />          exception InvalidObjectId { };<br />          exception InvalidServant { };<br />          exception NilObject { string reason; };<br />          exception NoSuchElement { };<br />          exception NotFound { };<br />          exception OrbProblem { };<br />          exception OutOfMemory { };<br />          exception OverFlow { };<br />          exception RegistrarNotAvailable { };<br />          exception ReleaseFailed { string reason; };<br />          exception TpfProblem { };<br />          exception UnknownInterface { };<br />}</pre></div></ul></div>
+<h5 class="pHeading4"><a name="wp1023621"> </a>
+The Oracle Tuxedo System&#8217;s Handling of Exceptions Raised by Application Code During the Invocation of Operations on CORBA Objects
+</h5>
+<p class="pBody"><a name="wp1023622"> </a>
+A server application can raise exceptions in the following places in the course of servicing a client invocation:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023623"> </a>In the <code class="cCode">Server::create_servant</code>, <code class="cCode">Tobj_ServantBase::activate_object()</code>, and <code class="cCode">Tobj_ServantBase::deactivate_object()</code> callback methods.</li>
+<li><a name="wp1023624"> </a>In the implementation code for the invoked operation.</li>
+</ul></div>
+<p class="pBody"><a name="wp1023625"> </a>
+It is possible for the server application to raise any of the following types of exceptions:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023626"> </a>A CORBA-defined system exception.</li>
+<li><a name="wp1023627"> </a>A CORBA user-defined exception defined in OMG IDL</li>
+<li><a name="wp1023628"> </a>A CORBA user-defined exception defined in the file <code class="cCode">TobjS_c.h</code>. The following exceptions are intended to be used in server applications to help the Oracle Tuxedo system send messages to the user log, which can help with troubleshooting:</li>
+<a name="wp1023632"> </a><div class="pPreformattedRelative"><pre>interface TobjS { <br />          exception ActivateObjectFailed { string reason; };<br />          exception CreateServantFailed { string reason; };<br />          exception DeactivateObjectFailed { string reason; };<br />          exception InitializeFailed { string reason; };<br />          exception ReleaseFailed { string reason; };<br />}</pre></div><li><a name="wp1023633"> </a>Any other C++ exception type</li>
+</ul></div>
+<p class="pBody"><a name="wp1023634"> </a>
+All exceptions raised by server application code that are not caught by the server application are caught by the Oracle Tuxedo system. When these exceptions are caught, one of the following occurs:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023638"> </a>The exception is returned to the client application without alteration.</li>
+<li><a name="wp1023639"> </a>The exception is converted to a standard CORBA exception, which is then returned to the client application.</li>
+<li><a name="wp1023640"> </a>The exception is converted to a standard CORBA exception, and the following actions occur:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023641"> </a>The exception is returned to the client application</li>
+<li><a name="wp1023642"> </a>One or more messages containing descriptive information about the error are sent to the user log. The descriptive information may originate from either the server application code or from the Oracle Tuxedo system. </li>
+</ul></div>
+</ul></div>
+<p class="pBody"><a name="wp1023646"> </a>
+The following sections show how the Oracle Tuxedo system handles exceptions raised by the server application during the course of a client invocation on a CORBA object.
+</p>
+<p class="pBody"><a name="wp1023647"> </a>
+<b class="cBold">Exceptions Raised in the </b><code class="cCodeBold">Server::create_servant()</code><b class="cBold"> Operation</b>
+</p>
+<p class="pBody"><a name="wp1023648"> </a>
+If any exception is raised in the <code class="cCode">Server::create_servant()</code> operation, then:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023649"> </a>The <code class="cCode">CORBA::OBJECT_NOT_EXIST</code> exception is returned to the client application.</li>
+<li><a name="wp1023650"> </a>If the exception raised is <code class="cCode">TobjS::CreateServantFailed</code>, then a message is sent to the user log. If a reason string is supplied in the constructor for the exception, then the reason string is also written as part of the message.</li>
+<li><a name="wp1023651"> </a>Neither the <code class="cCode">Tobj_ServantBase::activate_object()</code> or<code class="cCode"> Tobj_ServantBase::deactivate_object()</code> operations are invoked. The operation requested by the client is not invoked.</li>
+</ul></div>
+<p class="pBody"><a name="wp1023652"> </a>
+<b class="cBold">Exceptions Raised in the </b><code class="cCodeBold">Tobj_ServantBase::activate_object()</code><b class="cBold"> Operation</b>
+</p>
+<p class="pBody"><a name="wp1023653"> </a>
+If any exception is raised in the <code class="cCode">Tobj_ServantBase::activate_object()</code> operation, then:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023654"> </a>The <code class="cCode">CORBA::OBJECT_NOT_EXIST</code> exception is returned to the client application.</li>
+<li><a name="wp1023655"> </a>If the exception raised is <code class="cCode">TobjS::ActivateObjectFailed</code>, a message is sent to the user log. If a reason string is supplied in the constructor for the exception, the reason string is also written as part of the message.</li>
+<li><a name="wp1023656"> </a>Neither the operation requested by the client nor the <code class="cCode">Tobj_ServantBase::deactivate_object()</code> operation is invoked.</li>
+</ul></div>
+<p class="pBody"><a name="wp1023657"> </a>
+<b class="cBold">Exceptions Raised in Operation Implementations</b>
+</p>
+<p class="pBody"><a name="wp1023660"> </a>
+The Oracle Tuxedo system requires operation implementations to throw either CORBA system exceptions, or user-defined exceptions defined in OMG IDL that are known to the client application. If these types of exceptions are thrown by operation implementations, then the Oracle Tuxedo system returns them to the client application, unless one of the following conditions exists:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023667"> </a>The object has the <code class="cCode">always</code> transaction policy, and the Oracle Tuxedo system automatically started a transaction when the object was invoked. In this case, the transaction is automatically rolled back by the Oracle Tuxedo system. Because the client application is unaware of the transaction, the Oracle Tuxedo system then raises the <code class="cCode">CORBA::OBJ_ADAPTER</code> CORBA system exception, and not the <code class="cCode">CORBA:: TRANSACTION_ROLLEDBACK</code> exception, which would have been the case had the client initiated the transaction.</li>
+<li><a name="wp1023675"> </a>The exception is defined in the file <code class="cCode">TobjS_c.h</code>. In this case, the exception is converted to the <code class="cCode">CORBA::BAD_OPERATION</code> exception and is returned to the client application. In addition, the following message is sent to the user log:</li>
+<a name="wp1023676"> </a><div class="pPreformattedRelative"><pre>&quot;WARN: Application didn&#39;t catch TobjS exception. TP Framework throwing CORBA::BAD_OPERATION.&quot; </pre></div><p class="pBodyRelative"><a name="wp1023677"> </a>
+If the exception is <code class="cCode">TobjS::IllegalOperation</code>, the following supplementary message is written to warn the developer of a possible coding error in the application:
+</p>
+<a name="wp1023678"> </a><div class="pPreformattedRelative"><pre>&quot;WARN: Application called TP::deactivateEnable() illegally and didn&#39;t catch TobjS exception.&quot; </pre></div><p class="pBodyRelative"><a name="wp1023679"> </a>
+This can occur if the <code class="cCode">TP::deactivateEnable()</code> operation is invoked inside an object that has the <code class="cCode">transaction</code> activation policy. (Application-controlled deactivation is not supported for transaction-bound objects.)
+</p>
+<li><a name="wp1025502"> </a>The Oracle Tuxedo system raised an internal system exception following the client invocation. In this case, the <code class="cCode">CORBA::INTERNAL</code> exception is returned to the client. This usually indicates serious system problems with the process in which the object is active.</li>
+</ul></div>
+<p class="pBody"><a name="wp1025992"> </a>
+As defined by the CORBA standard, a reply sent back to the client can either contain result values from the operation implementation, or an exception thrown in the operation implementation, but not both. In the first case&#8212;that is, if the reply status value is <code class="cCode">NO_EXCEPTION&#8212;</code>the reply contains the operation&#39;s return value and any <code class="cCode">inout</code> or <code class="cCode">out</code> argument values. Otherwise&#8212;that is, if the reply status value is <code class="cCode">USER_EXCEPTION</code> or <code class="cCode">SYSTEM_EXCEPTION</code>&#8212;all the reply contains is the encoding of the exception.
+</p>
+<p class="pBody"><a name="wp1025503"> </a>
+<b class="cBold">Exceptions Raised in the </b><code class="cCodeBold">Tobj_ServantBase::deactivate_object()</code><b class="cBold"> Operation</b>
+</p>
+<p class="pBody"><a name="wp1025504"> </a>
+If any exception is raised in the <code class="cCode">Tobj_ServantBase::deactivate_object()</code> operation, the following occurs:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023686"> </a>The exception is not returned to the client application. </li>
+<li><a name="wp1023687"> </a>If the exception raised is <code class="cCode">TobjS::DectivateObjectFailed</code>, a message is sent to the user log. If a reason string is supplied in the constructor for the exception, the reason string is also written as part of the message.</li>
+<li><a name="wp1023688"> </a>A message is sent to the user log for exceptions other than the <code class="cCode">TobjS::DeactivateObjectFailed</code> exception, indicating the type of exception caught by the Oracle Tuxedo system.</li>
+</ul></div>
+<p class="pBody"><a name="wp1026360"> </a>
+<b class="cBold">CORBA Marshal Exception Raised When Passing Object Instances</b>
+</p>
+<p class="pBody"><a name="wp1026361"> </a>
+The ORB cannot marshal an object instance as an object reference.  For example, passing a factory reference in the following code fragment generates a CORBA marshal exception in the Oracle Tuxedo system:
+</p>
+<a name="wp1026362"> </a><div class="pPreformatted"><pre>connection::setFactory(this);</pre></div><p class="pBody"><a name="wp1026363"> </a>
+To pass an object instance, you should create a proxy object reference and pass the proxy instead, as in the following example:
+</p>
+<a name="wp1026364"> </a><div class="pPreformatted"><pre>CORBA::Object myRef = TP::get_object_reference();<br />ResultSetFactory factoryRef = ResultSetFactoryHelper::_narrow(myRef);<br />connection::setFactoryRef(factoryRef);</pre></div><h3 class="pHeading2"><a name="wp1023693"> </a>
+Detecting Error Conditions in the Callback Methods
+</h3>
+<p class="pBody"><a name="wp1023696"> </a>
+The Oracle Tuxedo system provides a set of predefined exceptions that allow you to specify message strings that the TP Framework writes to the user log if application code gets an error in any of the following callback methods:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023698"> </a><code class="cCode">Tobj_ServantBase::activate_object()</code></li>
+<li><a name="wp1023699"> </a><code class="cCode">Tobj_ServantBase::deactivate_object()</code></li>
+<li><a name="wp1023700"> </a><code class="cCode">Server::create_servant()</code></li>
+<li><a name="wp1023701"> </a><code class="cCode">Server::initialize()</code></li>
+<li><a name="wp1023702"> </a><code class="cCode">Server::release()</code></li>
+</ul></div>
+<p class="pBody"><a name="wp1023703"> </a>
+You can use these exceptions as a useful debugging aid that allows you to send unambiguous information about why an exception is being raised. Note that the TP Framework writes these messages to the user log only. They are not returned to the client application. 
+</p>
+<p class="pBody"><a name="wp1023704"> </a>
+You specify these messages with the following exceptions shown in <a href="maksrv.html#wp1033038">Table&#160;2-5</a>, which have an optional reason string:
+</p>
+<p class="pGraphic"><a name="wp1023730"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1033038table1023705"><caption><a name="wp1033038"> </a>
+Table 2-5  Exceptions
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1023707"> </a>
+Exception
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023709"> </a>
+Callback Methods That Can Raise This Exception
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023711"> </a>
+<code class="cCode">ActivateObjectFailed</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023713"> </a>
+<code class="cCode">Tobj_ServantBase::activate_object()</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023715"> </a>
+<code class="cCode">DeactivateObjectFailed</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023717"> </a>
+<code class="cCode">Tobj_ServantBase::deactivate_object()</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023719"> </a>
+<code class="cCode">CreateServantFailed</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023721"> </a>
+<code class="cCode">Server::create_servant()</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023723"> </a>
+<code class="cCode">InitializeFailed</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023725"> </a>
+<code class="cCode">Server::initialize()</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023727"> </a>
+<code class="cCode">ReleaseFailed</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023729"> </a>
+<code class="cCode">Server::release()</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1023731"> </a>
+To send a message string to the user log, specify the string in the exception, as in the following example:
+</p>
+<a name="wp1023732"> </a><div class="pPreformatted"><pre>throw CreateServantFailed(&quot;Unknown interface&quot;);</pre></div><p class="pBody"><a name="wp1023733"> </a>
+Note that when you throw these exceptions, the reason string parameter is required. If you do not want to specify a string with one of these exceptions, you must use the double quote characters, as in the following example:
+</p>
+<a name="wp1023734"> </a><div class="pPreformatted"><pre>throw ActivateObjectFailed(&quot;&quot;);</pre></div><h3 class="pHeading2"><a name="wp1023736"> </a>
+Common Pitfalls of OMG IDL Interface Versioning and Modification
+</h3>
+<p class="pBody"><a name="wp1023737"> </a>
+The Server object&#39;s implementation of the <code class="cCode">Server::create_servant()</code> operation instantiates an object based on its interface ID. It is crucial that this interface ID is the same as the one supplied in the factory when the factory invokes the <code class="cCode">TP::create_object_reference()</code> operation. If the interface IDs do not match, the <code class="cCode">Server::create_servant()</code> operation usually raises an exception or returns a NULL servant. The Oracle Tuxedo system then returns a <code class="cCode">CORBA::OBJECT_NOT_EXIST</code> exception to the client application. The Oracle Tuxedo system does not perform any validation of interface IDs in the <code class="cCode">TP::create_object_reference()</code> operation.
+</p>
+<p class="pBody"><a name="wp1023744"> </a>
+It is possible for this condition to arise if, during the course of development, different versions of the interface are being developed or many modifications are being made to IDL file. Even if you typically specify string constants for interface IDs in OMG IDL and use these in the factory and the <code class="cCode">Server::create_servant()</code> operation, it is possible for a mismatch to occur if the object implementation and factory are in different executables. This potential problem may be difficult to diagnose.
+</p>
+<p class="pBody"><a name="wp1023745"> </a>
+You may want to consider the following defensive programming strategies during development to avoid this potential problem. This code should be included only in debugging versions of your application, because it introduces performance inefficiencies that may be unacceptable in the production versions of your software.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023746"> </a>Immediately before factory invokes the <code class="cCode">TP::create_object_reference()</code> operation, include code that checks the Interface Repository to see if the required interface exists. Make sure that all the application OMG IDL is up-to-date and loaded into the Interface Repository. Should this check fail to find the interface ID, you can assume that there is a mismatch.</li>
+<li><a name="wp1023747"> </a>Following the invocation of the <code class="cCode">TP::create_object_reference()</code> operation in your factories, include code that &#8220;pings&#8221; the object. That is, the code invokes any operation on the object (typically an operation that does not do anything). If this invocation raises the <code class="cCode">CORBA::OBJECT_NOT_EXIST</code> exception, an interface ID mismatch exists. Note that &#8220;pinging&#8221; an object causes the object to be activated, with the overhead associated with the activation.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1023750"> </a>
+Caveat for State Handling in Tobj_ServantBase::deactivate_object()
+</h3>
+<p class="pBody"><a name="wp1023751"> </a>
+The <code class="cCode">Tobj_ServantBase::deactivate_object()</code> operation is invoked when the activation boundary for an object is reached. You may, optionally, write durable state to disk in the implementation of this operation. It is important to understand that exceptions raised in this operation are not returned to the client application. The client application will be unaware of any error conditions raised in this operation unless the object is participating in a transaction. Therefore, in cases where it is important that the client application know whether the writing of state via this operation is successful, we recommend that transactions be used.
+</p>
+<p class="pBody"><a name="wp1023752"> </a>
+If you decide to use the <code class="cCode">Tobj_ServantBase::deactivate_object()</code> operation for writing state, and the client application needs to know the outcome of the write operations, we recommend that you do the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023753"> </a>Ensure that each operation that affects object state is invoked within a transaction, and that deactivation occurs within the transaction boundaries. This can be done by using either the <code class="cCode">method</code> or <code class="cCode">transaction</code> activation policies, and is possible with the <code class="cCode">process</code> activation policy if the <code class="cCode">TP::deactivateEnable()</code> operation is invoked within the transaction boundary.</li>
+<li><a name="wp1023754"> </a>If an error occurs during the writing of object state, invoke the <code class="cCode">COSTransactions::Current::rollback_only()</code> operation to ensure that the transaction is rolled back. This ensures that the client application receives one of the following exceptions:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023755"> </a>If the client application initiated the transaction, the client application receives the <code class="cCode">CORBA::TRANSACTION_ROLLEDBACK</code> exception.</li>
+<li><a name="wp1023758"> </a>If the Oracle Tuxedo system initiated the transaction, the client application receives the <code class="cCode">CORBA::OBJ_ADAPTER</code> exception.</li>
+</ul></div>
+</ul></div>
+<p class="pBody"><a name="wp1023760"> </a>
+If transactions are not used, we recommend that you write object state within the scope of individual operations on the object, rather than via the <code class="cCode">Tobj_ServantBase::deactivate_object()</code> operation. This way, if an error occurs, the operation can raise an exception that is returned to the client application.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023763"> </a>
+Servant Pooling
+</h2><p class="pBody"><a name="wp1023767"> </a>
+As mentioned in the section  &#8220;Servant Pooling and Stateless Objects&#8221; on page&#160;1-21, servant pooling provides a means to reduce the cost of object instantiation for method-bound or transaction-bound objects.
+</p>
+<h3 class="pHeading2"><a name="wp1023770"> </a>
+How Servant Pooling Works
+</h3>
+<p class="pBody"><a name="wp1023771"> </a>
+Normally, during object deactivation (that is, when the TP Framework invokes the <code class="cCode">Tobj_ServantBase::deactivate_object()</code> operation), the TP Framework deletes the object&#8217;s servant; however, when servant pooling is used, the TP Framework does <em class="cEmphasis">not</em> delete the servant at object deactivation.  Instead, the server application maintains a pointer to the servant in a pool. When a subsequent client request arrives that can be satisfied by a servant in that pool, the server application reuses the servant and assigns a new object ID. When a servant is reused from a pool, the TP Framework does not create a new servant.
+</p>
+<h3 class="pHeading2"><a name="wp1023773"> </a>
+How You Implement Servant Pooling
+</h3>
+<p class="pBody"><a name="wp1023774"> </a>
+You implement servant pooling by doing the following:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023775"> </a>In the <code class="cCode">Server::initialize()</code> operation on the Server object, write the code that sets up the servant pool.  The pool consists of a set of pointers to one or more servants, and the code for the pool specifies how many servants for a given class are to be maintained in the pool.</li>
+<li><a name="wp1023776"> </a>In the pooled servant&#8217;s <code class="cCode">Tobj_ServantBase::deactive_object()</code> operation, you implement the <code class="cCode">TP::application_responsibility()</code> operation.  In the implementation of the <code class="cCode">TP::application_responsibility()</code> operation, you provide code that places a pointer to the servant into the servant pool at the time that the TP Framework invokes the <code class="cCode">Tobj_ServantBase::deactivate_object()</code> operation.</li>
+<li><a name="wp1023777"> </a> In the Server object&#8217;s implementation of the <code class="cCode">Server::create_servant()</code> operation, write code that does the following when a client request arrives:</li>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp1023778"> </a>Checks the pool to see if there is a servant that can satisfy the request.</li>
+<li><a name="wp1023779"> </a>If a servant does not exist, create a servant and invoke the <code class="cCode">Tobj_ServantBase::activate_object()</code> operation on it.</li>
+<li><a name="wp1029882"> </a>If a servant exists, invoke the <code class="cCode">Tobj_ServantBase::activate_object()</code> operation on it, assigning the object ID contained in the client request.</li>
+</ol></div>
+</ol></div>
+<a name="wp1029889"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Support for the <code class="cCode">TP::application_responsibility()</code> operation has changed in this release. For complete information, see the <a href="../CORBA_ref/index.html">CORBA Programming Reference</a>.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023791"> </a>
+Delegation-based Interface Implementation
+</h2><p class="pBody"><a name="wp1023792"> </a>
+There are two primary ways in which an object can be implemented in an Oracle Tuxedo CORBA application: by inheritance, or by delegation.  When an object inherits from the POA skeleton class, and is thus a CORBA object, that object is said to be implemented by <em class="cEmphasis">inheritance</em>.
+</p>
+<p class="pBody"><a name="wp1023793"> </a>
+However, there may be instances in which you want to use a C++ object in a CORBA  application in which inheriting from the POA skeleton class is difficult or impractical.  For example, you might have a C++ object that would require a major rewrite to inherit from the POA skeleton class. You can bring this non-CORBA object into a CORBA application by creating a <em class="cEmphasis">tie class </em>for the object. The tie class inherits from the POA skeleton class, and the tie class contains one or more operations that delegate to the legacy class for the implementation of those operations.  The legacy class is thereby implemented in the CORBA application by <em class="cEmphasis">delegation</em>.
+</p>
+<h3 class="pHeading2"><a name="wp1023797"> </a>
+About Tie Classes in the Oracle Tuxedo System
+</h3>
+<p class="pBody"><a name="wp1023798"> </a>
+To create a delegation-based interface implementation, use the <code class="cCode">-T</code> command-line option of the IDL compiler to generate tie class templates for each interface defined in the OMG IDL file. 
+</p>
+<p class="pBody"><a name="wp1023801"> </a>
+Using tie classes in a CORBA application also affects how you implement the <code class="cCode">Server::create_servant()</code> operation in the Server object. The following sections explain the use of tie classes in the Oracle Tuxedo product in more detail, and also explains how to implement the <code class="cCode">Server::create_servant()</code> operation to instantiate those classes.
+</p>
+<p class="pBody"><a name="wp1023803"> </a>
+In Oracle Tuxedo CORBA, the tie class is the servant, and, therefore, serves basically as a wrapper object for the legacy class.
+</p>
+<p class="pBody"><a name="wp1023804"> </a>
+<a href="maksrv.html#wp1033061">Table&#160;2-1</a> shows the inheritance characteristics of the interface <code class="cCode">Account</code>, which serves as a wrapper for a legacy object.  The legacy object contains the implementation of the operation <code class="cCode">op1</code>.  The tie class delegates <code class="cCode">op1</code> to the legacy class.
+</p>
+<div class="pFigureTitle"><a name="wp1033061"> </a>
+Figure&#160;2-1  <span style="font-weight: normal">Inheritance Characteristics of the Interface </span><code class="cCode">Account</code>
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1025850"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/tie.gif" height="508" width="489" alt="<span style="font-weight: normal">Inheritance Characteristics of the Interface </span><code class="cCode">Account</code>" id="wp1025920"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1023809"> </a>
+Tie classes are transparent to the client application.  To the client application, the tie class appears to be a complete implementation of the object that the client application invokes. The tie class delegates all operations to the legacy class, which you provide. In addition, the tie class contains the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023810"> </a>Constructor and destructor code, which handles startup and shutdown procedures for the tie class and the legacy class</li>
+<li><a name="wp1023811"> </a>Housekeeping code, which implements operations such as accessors</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1023812"> </a>
+When to Use Tie Classes
+</h3>
+<p class="pBody"><a name="wp1023813"> </a>
+Tie classes are not unique to Oracle Tuxedo CORBA, and they are not the only way to implement delegation in a CORBA application.  However, the Oracle Tuxedo CORBA convenience features for tie classes can greatly reduce the amount of coding you need to do for the basic constructor, destructor, and housekeeping operations for those tie classes.
+</p>
+<p class="pBody"><a name="wp1023814"> </a>
+Using tie classes might be recommended in one of the following situations:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023817"> </a>You want to implement an object in a CORBA application in which inheriting from the POA skeleton class is difficult or impractical.</li>
+<li><a name="wp1023819"> </a>All the invocations on a legacy class instance can be accomplished from a single servant.</li>
+<li><a name="wp1023822"> </a>You are using a legacy class in your CORBA application, and you want to tie the lifetime of an instance of that legacy class to a servant class.</li>
+<li><a name="wp1023824"> </a>Delegation is the only purpose of a particular servant; therefore, nearly all the code in that servant is dedicated to legacy object startup, shutdown, access, and delegation.</li>
+</ul></div>
+<p class="pBody"><a name="wp1023825"> </a>
+Tie classes are <em class="cEmphasis">not</em> recommended when:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023826"> </a>The operations on an object instance delegate to more than one legacy object instance.</li>
+<li><a name="wp1023827"> </a>Delegation is only a part of the purpose of an object.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1023829"> </a>
+How to Create Tie Classes in a CORBA Application
+</h3>
+<p class="pBody"><a name="wp1023832"> </a>
+To create tie classes in an application in an Oracle Tuxedo domain:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023834"> </a>Create the interface definition for the tie class in an OMG IDL file, as you would for any object in your application.</li>
+<li><a name="wp1023835"> </a>Compile the OMG IDL file using the <code class="cCode">-T</code> option.</li>
+<p class="pBodyRelative"><a name="wp1023836"> </a>
+The IDL compiler generates a C++ template class, which takes the name of the skeleton, with the string <code class="cCode">_tie</code> appended to it.  The IDL compiler adds this template class to the skeleton header file.
+</p>
+<p class="pBodyRelative"><a name="wp1023837"> </a>
+Note that the IDL compiler does <em class="cEmphasis">not</em> generate the implementation file for the tie class; you need to create this file by hand, as described in the next step.
+</p>
+<li><a name="wp1023838"> </a>Create an implementation file for the tie class.  The implementation file contains the code that delegates its operations to the legacy class.</li>
+<li><a name="wp1023839"> </a>In the Server object&#8217;s <code class="cCode">Server::create_servant()</code> operation, write the code that instantiates the legacy object.  </li>
+<p class="pBodyRelative"><a name="wp1023840"> </a>
+In the following example, the servant for tie class <code class="cCode">POA_Account_tie</code> is created, and the legacy class <code class="cCode">LegacyAccount</code> is instantiated.
+</p>
+<a name="wp1023841"> </a><div class="pPreformatted"><pre>Account * Account_ptr = new LegacyAccount();<br />AccountFactoryServant = new POA_Account_tie&lt;LegacyAccount&gt; (Account_ptr)</pre></div></ol></div>
+<a name="wp1023842"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>When compiling tie classes with the Compaq C++ Tru64 compiler for UNIX, you must include the <code class="cCode">-noimplicit_include</code> option in the definition of the <code class="cCode">CFLAGS</code> or <code class="cCode">CPPFLAGS </code>environment variables used by the <code class="cCode">buildobjserver</code> command. This option prevents the C++ compiler from automatically including the server skeleton definition file (<code class="cCode">_s.cpp</code>) everywhere the server skeleton header file (<code class="cCode">_s.h</code>) is included, which is necessary to avoid multiply-defined symbol errors. See Compaq publications for additional information about using class templates, such as the tie classes, with Tru64 C++.</td>
+</tr>
+</table>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="maksrv.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="concepts.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="creasimp.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/Jolt_wls/fm/Implementing.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:15:51" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Implementing Jolt for WebLogic </title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Using Oracle Jolt with Oracle WebLogic Server
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="Configuring.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="JoltAPI.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/Jolt_wls.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1027515"> </a>
+Implementing Jolt for WebLogic 
+</h1>
+<p class="pBody"><a name="wp1019785"> </a>
+Setting up Jolt to connect to Tuxedo from your WebLogic application or servlet requires the following steps:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1019786"> </a><a href="Implementing.html#wp1019809">Importing Packages</a> </li>
+<li><a name="wp1019787"> </a><a href="Implementing.html#wp1024989">Configuring a Session Pool</a> </li>
+<li><a name="wp1019788"> </a><a href="Implementing.html#wp1019869">Using a Servlet Session Pool</a> </li>
+<li><a name="wp1019789"> </a><a href="Implementing.html#wp1019892">Accessing a Tuxedo Service Through Jolt</a> </li>
+<li><a name="wp1019793"> </a><a href="Implementing.html#wp1019895">Converting Java Data Types to Tuxedo Data Types</a></li>
+<li><a name="wp1019800"> </a> <a href="Implementing.html#wp1019933">Receiving Results from a Service</a></li>
+<li><a name="wp1023531"> </a><a href="Implementing.html#wp1019958">Using a Transaction</a></li>
+</ul></div>
+<p class="pBody"><a name="wp1024281"> </a>
+See page B-1 for a simple example that establishes a connection and accesses a Tuxedo service from an HTTP servlet.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1019809"> </a>
+Importing Packages 
+</h2><p class="pBody"><a name="wp1019810"> </a>
+The Jolt Java class packages are automatically installed when you install Jolt for WebLogic Server. To use Oracle Jolt for Oracle  WebLogic Server, import the following class packages that were installed with Jolt into your servlet:
+</p>
+<a name="wp1019811"> </a><div class="pPreformatted"><pre>bea.jolt.pool.*</pre></div><a name="wp1019812"> </a><div class="pPreformatted"><pre>bea.jolt.pool.servlet.*</pre></div><p class="pBody"><a name="wp1019815"> </a>
+There are other classes you must import into any servlet; for more information on writing Java servlets, read the <em class="cEmphasis">Programming WebLogic HTTP Servlets </em>guide.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024989"> </a>
+Configuring a Session Pool
+</h2><p class="pBody"><a name="wp1024990"> </a>
+You can access session pools through the <code class="cCode">SessionPoolManager</code> class. WebLogic Server uses a variation of the session pool called a servlet session pool. The servlet session pool provides extra functionality that is convenient for use inside an HTTP servlet. 
+</p>
+<p class="pBody"><a name="wp1025200"> </a>
+When you configure a servlet session pool through the WebLogic Administration Console, the following information is added to the <code class="cCode">config.xml</code> configuration file: 
+</p>
+<p class="pBody"><a name="wp1019828"> </a>
+&lt;StartupClass<br />  ClassName=&quot;bea.jolt.pool.servlet.weblogic.PoolManagerStartUp&quot;<br />  FailureIsFatal=&quot;false&quot;<br />  Name=&quot;MyStartup Class&quot;<br />  Targets=&quot;myserver&quot;<br />/&gt;<br /><code class="cCode">&lt;JoltConnectionPool<br />   ApplicationPassword=&quot;tuxedo&quot;<br />   MaximumPoolSize=&quot;5&quot;<br />   MinimumPoolSize=&quot;3&quot;<br />   Name=&quot;MyJolt Connection Pool&quot;<br />   PrimaryAddresses=&quot;//TUXSERVER:6309&quot;<br />   RecvTimeout=&quot;300&quot;<br />   SecurityContextEnabled=&quot;true&quot;<br />   Targets=&quot;myserver&quot;<br />   UserName=&quot;joltuser&quot;<br />   UserPassword=&quot;jolttest&quot;<br />   UserRole=&quot;clt&quot;<br />/&gt;</code>
+</p>
+<p class="pBody"><a name="wp1025047"> </a>
+When WebLogic is started (or restarted), it invokes the <code class="cCode">PoolManagerStartUp</code> class and its associated <code class="cCode">startupArgs</code>. On the first invocation, the <code class="cCode">PoolManagerStartUp</code> class creates a <code class="cCode">ServletSessionPoolManager</code> object, which contains every <code class="cCode">ServletSessionPool</code> configured in the <code class="cCode">config.xml</code> configuration file. 
+</p>
+<p class="pBody"><a name="wp1025282"> </a>
+Subsequent calls add another <code class="cCode">ServletSessionPool</code> to the same <code class="cCode">ServletSessionPoolManager</code>. You must add an entry for each session pool, using a unique virtual name binding for each, as shown in the preceding example. The WebLogic Server creates a new <code class="cCode">ServletSessionPool</code> as defined in the <code class="cCode">config.xml</code> file. 
+</p>
+<p class="pBody"><a name="wp1022938"> </a>
+For additional information about property settings and a list of definitions, see <a href="Configuring.html#wp940">Jolt Startup Class and Connection Pool</a>.
+</p>
+<h4 class="pHeading3"><a name="wp1022755"> </a>
+Accessing a Servlet Session Pool
+</h4>
+<p class="pBody"><a name="wp1025312"> </a>
+Once a WebLogic Server is configured to set up a Jolt session pool on startup, you can access and use the Jolt session pool from your Java application or servlet. As described earlier, in the WebLogic Server all <code class="cCode">ServletSessionPool</code> objects are managed by the same <code class="cCode">ServletSessionPoolManager</code>. 
+</p>
+<a name="wp1025316"> </a><div class="pPreformatted"><pre>  ServletSessionPoolManager poolMgr = (ServletSessionPoolManager) </pre></div><a name="wp1019861"> </a><div class="pPreformatted"><pre>    SessionPoolManager.poolmanager;</pre></div><p class="pBody"><a name="wp1019862"> </a>
+The WebLogic Server uses a <code class="cCode">ServletSessionPoolManager</code> class that is derived from <code class="cCode">SessionPoolManager</code>. The <code class="cCode">ServletSessionPoolManager</code> manages <code class="cCode">ServletSessionPool</code> objects, which offer additional HTTP servlet methods. 
+</p>
+<p class="pBody"><a name="wp1019863"> </a>
+<code class="cCode">SessionPoolManager</code> provides several methods for managing the administration of a session pool. In the following example, the <code class="cCode">SessionPoolManager</code> is used to retrieve the <code class="cCode">SessionPool</code> that has been named <code class="cCodeEmphasis">joltpoolname</code>: 
+</p>
+<a name="wp1019864"> </a><div class="pPreformatted"><pre>  SessionPool sPool = poolMgr.getSessionPool(&quot;joltpoolname&quot;);</pre></div><p class="pBody"><a name="wp1019865"> </a>
+However, because the WebLogic Server uses the subclass <code class="cCode">ServletSessionPoolManager,</code> the above example actually returns a <code class="cCode">ServletSessionPool</code> object in the guise of a <code class="cCode">SessionPool</code>. 
+</p>
+<p class="pBody"><a name="wp1025426"> </a>
+You must cast the <code class="cCode">SessionPool</code> to a <code class="cCode">ServletSessionPool</code>, as in the following code example: 
+</p>
+<a name="wp1019866"> </a><div class="pPreformatted"><pre>  ServletSessionPool ssPool =</pre></div><a name="wp1019867"> </a><div class="pPreformatted"><pre>    (ServletSessionPool) poolMgr.getSessionPool(&quot;joltpoolname&quot;);</pre></div><p class="pBody"><a name="wp1019868"> </a>
+Because WebLogic Server creates and configures the <code class="cCode">ServletSessionPoolManager</code>, it is likely that this is the only method you will use. Other <code class="cCode">SessionPoolManager</code> methods allow you to create, suspend, stop, or shut down individual or all the session pools it manages. We recommend that you leave these administrative operations to the WebLogic Server by configuring and managing your session pools using the WebLogic <code class="cCode">config.xml</code> configuration file.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1019869"> </a>
+Using a Servlet Session Pool
+</h2><p class="pBody"><a name="wp1019870"> </a>
+The reference to the named <code class="cCode">ServletSessionPool</code> from the pool manager represents a pool of sessions (or connections) to the Jolt Server in Tuxedo. The size of this pool and the Tuxedo system to which it connects are abstracted from the application code and are defined in the WebLogic <code class="cCode">config.xml</code> configuration file. When you initiate a request, the <code class="cCode">SessionPool</code> uses the least-busy connection available.
+</p>
+<h3 class="pHeading2"><a name="wp1019872"> </a>
+Calling a Tuxedo Service 
+</h3>
+<p class="pBody"><a name="wp1019873"> </a>
+A Jolt request usually consists of a single call to a Tuxedo service using the <code class="cCode">call()</code> method of the <code class="cCode">SessionPool</code>. You supply the name of the Tuxedo service and a set of parameters to the <code class="cCode">call()</code> method, and it returns a set of results from the Tuxedo service. It is possible to make multiple calls within a single transaction, which allows a servlet to comply with transactional demands of a Tuxedo application or preserve integrity between databases. This transaction is described in more detail in &#8220;Using a Transaction&#8221; on page 3-9.
+</p>
+<h3 class="pHeading2"><a name="wp1019875"> </a>
+Sending a ServletDataSet 
+</h3>
+<p class="pBody"><a name="wp1019876"> </a>
+The <code class="cCode">ServletSessionPool</code> provides overloaded <code class="cCode">call()</code> methods for use inside an HTTP servlet. These methods accept their input parameters in terms of an <code class="cCode">HttpServletRequest</code> object, and therefore can conveniently be passed the same <code class="cCode">HttpServletRequest</code> object that was passed into your HTTP servlet&#39;s <code class="cCode">doPost()</code> or <code class="cCode">doGet()</code> methods. However, in this instance, you must ensure that the names of the HTTP posted <code class="cCodeEmphasis">name=value</code> pairs correspond to those expected by the Tuxedo service. The ordering is not important, because the data is ultimately converted into a Java Hashtable. Other non-related data in the <code class="cCode">HttpServletRequest</code> will not disrupt the Tuxedo service. 
+</p>
+<p class="pBody"><a name="wp1019877"> </a>
+A Tuxedo service is invoked from within an HTTP servlet with the following method: 
+</p>
+<a name="wp1019878"> </a><div class="pPreformatted"><pre>    ssPool.call(&quot;<span style="font-style: italic">serviceName</span>&quot;, <span style="font-style: italic">request</span>);</pre></div><p class="pBody"><a name="wp1019879"> </a>
+where <code class="cCode">ssPool</code> is a reference to a <code class="cCode">ServletSessionPool</code>, <span style="font-style: italic">&quot;</span><code style="font-style: italic" class="cCodeEmphasis">serviceName</code><span style="font-style: italic">&quot;</span> is the name of the Tuxedo service you wish to call, and the <code class="cCodeEmphasis">request</code> argument is the <code class="cCode">HttpServletRequest</code> object associated with the servlet.
+</p>
+<p class="pBody"><a name="wp1019880"> </a>
+The <code class="cCode">ServletSessionPool.call()</code> method internally converts the <code class="cCode">HttpServletRequest</code> into a <code class="cCode">ServletDataSet</code>, which can be submitted to a regular <code class="cCode">SessionPool</code>. 
+</p>
+<h3 class="pHeading2"><a name="wp1019881"> </a>
+Adding Parameters to the Dataset 
+</h3>
+<p class="pBody"><a name="wp1019882"> </a>
+You may wish to add extra data to the parameter set before calling the Tuxedo service. For example, you may need to add a parameter representing the date and time of the request. You would not expect to receive this parameter from the <code class="cCode">FORM</code> data in the <code class="cCode">HttpServletRequest</code>. Instead, add it in the servlet, then submit the augmented data set to the Tuxedo service. The following example illustrates this procedure: 
+</p>
+<a name="wp1019883"> </a><div class="pPreformatted"><pre>  // Create a new dataset</pre></div><a name="wp1023091"> </a><div class="pPreformatted"><pre>  ServletDataSet dataset = new ServletDataSet();</pre></div><a name="wp1023090"> </a><div class="pPreformatted"><pre>  // Import the HttpServletRequest into the dataset.</pre></div><a name="wp1019886"> </a><div class="pPreformatted"><pre>  dataset.importRequest(request);</pre></div><a name="wp1019887"> </a><div class="pPreformatted"><pre>  // Insert an extra parameter into the dataset.</pre></div><a name="wp1019888"> </a><div class="pPreformatted"><pre>  dataset.setValue(&quot;REQUEST_TIME&quot;, (new Date()).toString());</pre></div><a name="wp1019889"> </a><div class="pPreformatted"><pre>  // Send the dataset to the named service.</pre></div><a name="wp1019890"> </a><div class="pPreformatted"><pre>  ssPool.call(&quot;service_name&quot;, dataset, null);</pre></div><p class="pBody"><a name="wp1019891"> </a>
+This code example demonstrates the manual conversion of the <code class="cCode">HttpServletRequest</code> object into a <code class="cCode">ServletDataSet</code> object. In this new format you can add extra parameters using the <code class="cCode">setValue()</code> method. The new value is associated with a key, represented by a string. Next, the <code class="cCode">call()</code> method that is inherited from the <code class="cCode">SessionPool</code> is invoked. This method accepts the <code class="cCode">ServletDataSet</code> class, but requires an extra argument for use with transactions. Supply <code class="cCode">null</code> for this last parameter, indicating that you are not using a transaction to group multiple session calls. See&#160;<a href="Implementing.html#wp1019958">Using a Transaction</a> for more details.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1019892"> </a>
+Accessing a Tuxedo Service Through Jolt
+</h2><p class="pBody"><a name="wp1019893"> </a>
+To access an existing Tuxedo service through Jolt, you must define and export the service in the Jolt Repository. For details, refer to the <em class="cEmphasis">Using Oracle</em> <em class="cEmphasis">Jolt </em>sections &#8220;Using the Jolt Repository Editor&#8221; and &#8220;Bulk Loading Oracle Jolt Services.&#8221; The Jolt service definition defines the parameters that are expected by the Tuxedo application service.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1019895"> </a>
+Converting Java Data Types to Tuxedo Data Types 
+</h2><p class="pBody"><a name="wp1019896"> </a>
+The following table is a mapping between Java types and Tuxedo parameter types required by a Tuxedo service. Use the appropriate Java types for the value of the <code class="cCode">DataSet</code> or <code class="cCode">ServletDataSet</code>. If you specify any parameter as a Java <code class="cCode">String</code>, it is translated automatically to the appropriate type according to the service definition in the Jolt Repository. 
+</p>
+<p class="pBody"><a name="wp1025432"> </a>
+This feature is also used to convert all data inside an <code class="cCode">HttpServletRequest</code> object, because all parameters associated with the request are represented in string format. Otherwise, use the type specified in the table below. Providing the correct data type may improve efficiency because no lookup is required to convert from a string. 
+</p>
+<p class="pGraphic"><a name="wp1027930"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1019901table1019897">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1019901"> </a>
+<span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Oracle Tuxedo Type</span>
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1019903"> </a>
+Java Type
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1019905"> </a>
+char
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1019907"> </a>
+Byte
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1019909"> </a>
+short
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1019911"> </a>
+Short 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1019913"> </a>
+long
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1019915"> </a>
+Integer
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1019917"> </a>
+float
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1019919"> </a>
+Float
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1019921"> </a>
+double
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1019923"> </a>
+Double
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1019925"> </a>
+char* 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1019927"> </a>
+String 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1019929"> </a>
+CARRAY 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1019931"> </a>
+ byte[&#160;]
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025671"> </a>
+XML 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025673"> </a>
+ byte[&#160;]
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1019932"> </a>
+A Tuxedo <code class="cCode">CARRAY</code> is specified in a Java string by describing each byte value as a two-digit hexadecimal number. You specify multiple bytes by concatenating these hexadecimal digit-pairs together. For example, the string &quot;<code class="cCode">FF0A20</code>&quot; would represent the Tuxedo type <code class="cCode">CARRAY {&#160;255,&#160;10,&#160;32&#160;}</code>. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1019933"> </a>
+Receiving Results from a Service 
+</h2><p class="pBody"><a name="wp1019934"> </a>
+The <code class="cCode">ServletSessionPool.call()</code> method returns a <code class="cCode">ServletResult</code> object that contains the results from the Tuxedo service. If the service call fails, an exception is thrown. You should always attempt to catch exceptions and handle them appropriately. Refer to &#8220;Appendix A, Oracle Jolt Exceptions&#8221; in <em class="cEmphasis">Using Oracle Jolt</em> for details about the possible exceptions that can occur. 
+</p>
+<p class="pBody"><a name="wp1019935"> </a>
+The following example retrieves a <code class="cCode">ServletResult</code> object using the <code class="cCode">ServletSessionPool.call()</code> method in an HTTP servlet: 
+</p>
+<a name="wp1019936"> </a><div class="pPreformatted"><pre>  ServletResult sResult = ssPool.call(&quot;<span style="font-style: italic">service_name</span>&quot;, <code class="cCodeEmphasis">request</code>);</pre></div><p class="pBody"><a name="wp1019937"> </a>
+where <code class="cCode">ssPool</code> is a <code class="cCode">ServletSessionPool</code>, and <code class="cCodeEmphasis">request</code> is an <code class="cCode">HttpServletRequest</code>. 
+</p>
+<p class="pBody"><a name="wp1019938"> </a>
+The <code class="cCode">ServletSessionPool.call()</code> method returns a <code class="cCode">Result</code> object that you must cast as a <code class="cCode">ServletResult</code> object. The <code class="cCode">ServletResult</code> object provides extra methods for retrieving data as Java Strings. 
+</p>
+<p class="pBody"><a name="wp1023256"> </a>
+Provided the call was successful, the individual parameters can be retrieved from the <code class="cCode">Result</code> or <code class="cCode">ServletResult</code> object using various forms of the <code class="cCode">getValue()</code> method.
+</p>
+<h3 class="pHeading2"><a name="wp1019940"> </a>
+Using the Result.getValue() Method
+</h3>
+<p class="pBody"><a name="wp1019942"> </a>
+The data is retrieved from a <code class="cCode">ServletResult</code> by providing a key that corresponds to the parameter names of the Tuxedo service, as defined in the Jolt Repository. You supply the key to the appropriate <code class="cCode">getValue()</code> method, which returns the corresponding value object. 
+</p>
+<p class="pBody"><a name="wp1019943"> </a>
+The <code class="cCode">Result.getValue()</code> method also expects a default value object; this is returned if the key lookup fails. It is your responsibility to cast the returned object to the appropriate type, as defined by the Tuxedo service. For example, this line of code: 
+</p>
+<a name="wp1019944"> </a><div class="pPreformatted"><pre>  Integer answer = (Integer) resultSet.getValue(&quot;Age&quot;, null);</pre></div><p class="pBody"><a name="wp1025449"> </a>
+sets the integer <code class="cCode">answer</code> to the returned value in the <code class="cCode">ServletResult</code> identified by the key &quot;Age&quot;, or returns <code class="cCode">null</code> if this key does not exist in the <code class="cCode">ServletResult</code>. Refer to the table in <a href="Implementing.html#wp1019895">Converting Java Data Types to Tuxedo Data Types</a> for the Java equivalents of the Tuxedo types.
+</p>
+<p class="pBody"><a name="wp1019946"> </a>
+It is possible to have an array of values associated with a key. In this case, the simple <code class="cCode">getValue()</code> method returns the first element of an array in this instance. Use this method signature in that case: 
+</p>
+<a name="wp1019947"> </a><div class="pPreformatted"><pre>  public Object getValue(String name, int index, Object defVal)</pre></div><p class="pBody"><a name="wp1019948"> </a>
+to reference a particular indexed element in an array value. 
+</p>
+<h3 class="pHeading2"><a name="wp1019949"> </a>
+Using the ServletResult.getStringValue() Method
+</h3>
+<p class="pBody"><a name="wp1019950"> </a>
+<code class="cCode">ServletResult</code> extends <code class="cCode">Result</code>, and provides the additional methods: 
+</p>
+<a name="wp1019951"> </a><div class="pPreformatted"><pre>  public String getStringValue(String name,</pre></div><a name="wp1019952"> </a><div class="pPreformatted"><pre>                               int index,</pre></div><a name="wp1019953"> </a><div class="pPreformatted"><pre>                               String defVal)</pre></div><a name="wp1019954"> </a><div class="pPreformatted"><pre>                             </pre></div><a name="wp1019955"> </a><div class="pPreformatted"><pre>  public String getStringValue(String name,</pre></div><a name="wp1019956"> </a><div class="pPreformatted"><pre>                               String defVal)</pre></div><p class="pBody"><a name="wp1019957"> </a>
+These methods behave like the <code class="cCode">getValue()</code> methods of the <code class="cCode">Result</code> class, except that they always return a Java string equivalent of the value object expected. The <code class="cCode">CARRAY</code> is converted into a string of two digit hexadecimal byte values as described in <a href="Implementing.html#wp1019895">Converting Java Data Types to Tuxedo Data Types</a>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1019958"> </a>
+Using a Transaction 
+</h2><p class="pBody"><a name="wp1019959"> </a>
+You can use a transaction object to group multiple service calls into an atomic action, maintaining data integrity within your application logic. You obtain a transaction from a session pool with the method: 
+</p>
+<a name="wp1019960"> </a><div class="pPreformatted"><pre>  Transaction trans = ssPool.startTransaction(timeout);</pre></div><p class="pBody"><a name="wp1019961"> </a>
+where the transaction object <code class="cCodeEmphasis">trans</code> holds the reference to the transaction, <code class="cCodeEmphasis">ssPool</code> is the SessionPool or ServletSessionPool object, and the <code class="cCode">timeout</code> argument for the transaction is specified in seconds.
+</p>
+<p class="pBody"><a name="wp1019962"> </a>
+Once a transaction obtains a session, that session cannot be used by other transactions until the transaction is committed, aborted, or times out. The session may, however, still be used by single requests that are not part of a transaction. If a transaction fails to obtain a session from the pool, this method throws a <code class="cCode">bea.jolt.pool.TransactionException</code>. If the session pool is suspended, the method throws a <code class="cCode">bea.jolt.pool.SessionPoolException.</code> 
+</p>
+<p class="pBody"><a name="wp1019963"> </a>
+Each time your application uses the <code class="cCode">call()</code> method, you should supply the transaction object as the last parameter. For example: 
+</p>
+<a name="wp1019964"> </a><div class="pPreformatted"><pre>  ssPool.call(&quot;svcName&quot;, request, trans);</pre></div><p class="pBody"><a name="wp1019965"> </a>
+You can make multiple calls in the same transaction. The calls will not complete until you either commit or roll back the transaction using the methods of the transaction object. The <code class="cCode">trans.commit()</code> method completes the transaction. This method returns 0 if the commit was successful, or throws a <code class="cCode">TransactionException</code> if the transaction failed to commit. 
+</p>
+<p class="pBody"><a name="wp1019966"> </a>
+If you need to abort the transaction, use the <code class="cCode">Transaction.rollback()</code> method. This method attempts to abort the transaction. It returns 0 if successful; otherwise it throws a <code class="cCode">TransactionException</code>. 
+</p>
+<h3 class="pHeading2"><a name="wp1019968"> </a>
+Handling Exceptions
+</h3>
+<p class="pBody"><a name="wp1019969"> </a>
+Errors or failures that may occur when Jolt initiates a Tuxedo service call are reported to your application through Java exceptions. Always enclose the <code class="cCode">call()</code> method within a <code class="cCode">try / catch</code> block and attempt to deal with any exceptions appropriately. The <code class="cCode">call()</code> method can throw any of the following exceptions for the following reasons: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1019970"> </a><code class="cCode">bea.jolt.pool.ApplicationException </code></li>
+<p class="pBodyRelative"><a name="wp1019971"> </a>
+Thrown when an error occurs in the logic of the Tuxedo service. For example, a client illegally attempts to use a withdrawal service to withdraw more money from an account than the current balance. The <code class="cCode">ApplicationException</code> is thrown when the Tuxedo service returns a <code class="cCode">TPESVCFAIL</code>. Application-specific information about the error can be included in the <code class="cCode">Result</code> object that was returned from the service invocation. You can access the <code class="cCode">Result</code> object through the <code class="cCode">ApplicationException.getResult()</code> method. 
+</p>
+<p class="pBodyRelative"><a name="wp1019972"> </a>
+Be sure to use the full package name of the <code class="cCode">bea.jolt.pool.ApplicationException,</code> because Jolt defines another exception whose full package name is <code class="cCode">bea.jolt.ApplicationException. </code>
+</p>
+<li><a name="wp1019973"> </a><code class="cCode">bea.jolt.JoltException </code></li>
+<p class="pBodyRelative"><a name="wp1019974"> </a>
+A <code class="cCode">JoltException</code> is the super class of all the following exceptions. These exceptions all signify that a system error has occurred that is not part of the application logic. <code class="cCode">JoltException</code> is documented in Appendix A, &#8220;Oracle Jolt Exceptions,&#8221; in the <em class="cEmphasis">Using Oracle Jolt</em>.
+</p>
+<li><a name="wp1019975"> </a><code class="cCode">bea.jolt.pool.SessionPoolException </code></li>
+<p class="pBodyRelative"><a name="wp1019976"> </a>
+Thrown when an error occurs in the Jolt SessionPool. For example, this may occur if all sessions are busy, or if the session pool is suspended. 
+</p>
+<li><a name="wp1019977"> </a><code class="cCode">bea.jolt.ServiceException </code></li>
+<p class="pBodyRelative"><a name="wp1019978"> </a>
+Thrown when an error occurs related to invoking the Tuxedo service that contains the application. For example, a service timeout, or a non-existent service is called. 
+</p>
+<li><a name="wp1019979"> </a><code class="cCode">bea.jolt.TransactionException </code></li>
+<p class="pBodyRelative"><a name="wp1019980"> </a>
+Thrown when a transaction cannot be either started, committed, or aborted. 
+</p>
+</ul></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="Implementing.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="Configuring.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="JoltAPI.html"><img id="LongDescNotReq9" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

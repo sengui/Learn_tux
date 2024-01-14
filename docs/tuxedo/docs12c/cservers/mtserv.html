@@ -1,0 +1,1577 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41824" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/cservers/fm/mtserv.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/26/12 11:03:53" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Creating Multithreaded CORBA Server Applications</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Creating CORBA Server Applications
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="creasimp.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="security.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/cservers.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1030221"> </a>
+Creating Multithreaded CORBA Server Applications
+</h1>
+<p class="pBody"><a name="wp1023902"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023906"> </a><a href="mtserv.html#wp1023920">Overview</a></li>
+<li><a name="wp1023910"> </a><a href="mtserv.html#wp1024265">Developing and Building Multithreaded CORBA Server Applications</a></li>
+<li><a name="wp1023914"> </a><a href="mtserv.html#wp1028043">Building and Running the Multithreaded Simpapp Sample Application</a></li>
+<li><a name="wp1023918"> </a><a href="mtserv.html#wp1024966">Multithreaded CORBA Server Application Administration</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023920"> </a>
+Overview
+</h2><p class="pBody"><a name="wp1023921"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023925"> </a><a href="mtserv.html#wp1023935">Introduction</a></li>
+<li><a name="wp1023929"> </a><a href="mtserv.html#wp1024127">Mechanisms for Supporting Multithreaded CORBA Servers</a></li>
+<li><a name="wp1023933"> </a><a href="mtserv.html#wp1024258">Running Single-threaded Server Applications in a Multithreaded System</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1023935"> </a>
+Introduction
+</h3>
+<p class="pBody"><a name="wp1023936"> </a>
+Designing an application to use multiple, independent threads provides concurrency within an application and can improve overall throughput. Using multiple threads enables applications to be structured efficiently with threads servicing several independent tasks in parallel. Multithreading is particularly useful when:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023937"> </a>There is a set of lengthy operations that do not necessarily depend on other processing.</li>
+<li><a name="wp1023938"> </a>The amount of data to be shared is small and identifiable.</li>
+<li><a name="wp1023939"> </a>You can break the task into various activities that can be executed in parallel.</li>
+<li><a name="wp1023940"> </a>There are occasions where objects must be reentrant.</li>
+</ul></div>
+<p class="pBody"><a name="wp1023941"> </a>
+Historically, industry-wide, multithreaded applications have been complicated to design and implement. The support provided by Oracle Tuxedo simplifies this complexity by managing threads within a CORBA server environment.
+</p>
+<p class="pBody"><a name="wp1023948"> </a>
+The Oracle Tuxedo software supports server applications that have the following multithreading characteristics (see <a href="mtserv.html#wp1023958">Figure&#160;4-1</a>):
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023952"> </a>Instances of server objects can handle multiple client requests simultaneously.</li>
+<li><a name="wp1023954"> </a>A server object can make recursive invocations on itself.</li>
+<li><a name="wp1023955"> </a>Server objects can create and monitor their own threads to implement parallelism within a servant method.</li>
+<div class="pFigureTitle"><a name="wp1023958"> </a>
+Figure&#160;4-1  Multithreaded CORBA Server Application
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1023962"> </a>
+<br />
+<img src="wwimages/Thrd_blk.gif" alt="Multithreaded CORBA Server Application" id="wp1026006"/><br />
+
+</p>
+</ul></div>
+<p class="pBody"><a name="wp1023966"> </a>
+Generally, the Oracle Tuxedo software creates and manages threads on behalf of a server application. Building multithreaded server applications affects how you use the TP Framework, implement servants, and design objects that create their own threads.
+</p>
+<p class="pBody"><a name="wp1023973"> </a>
+The Oracle Tuxedo software allows you to implement either the thread-per-request model or a thread-per-object model. Each model is explained in <a href="mtserv.html#wp1024005"><span class="cHyperlink">
+Threading Models on page&#160;4-5</span></a>.
+</p>
+<h4 class="pHeading3"><a name="wp1023979"> </a>
+Requirements, Goals, and Concepts
+</h4>
+<p class="pBody"><a name="wp1023980"> </a>
+Some computer operations take a substantial amount of time to complete. A multithreaded design can significantly reduce the wait time between the request and completion of operations. This is true in situations when operations perform a large number of I/O operations such as when accessing a database, invoking operations on remote objects, or are CPU-bound on a multiprocessor machine. Implementing multithreading in a server process can increase the number of requests a server processes in a fixed amount of time.
+</p>
+<p class="pBody"><a name="wp1023981"> </a>
+The primary requirement for multithreaded server applications is the simultaneous handling of multiple client requests. The motivations for developing this type of server are to:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023982"> </a><b class="cBold">Simplify program design</b></li>
+<p class="pBodyRelative"><a name="wp1023983"> </a>
+This is achieved by allowing multiple server tasks to proceed independently using conventional programming abstractions.
+</p>
+<li><a name="wp1023984"> </a><b class="cBold">Improve throughput</b></li>
+<p class="pBodyRelative"><a name="wp1023985"> </a>
+This is achieved by taking advantage of the parallel processing capabilities of multiprocessor hardware platforms and overlapping computation with communication.
+</p>
+<li><a name="wp1023986"> </a><b class="cBold">Improve perceived response time</b></li>
+<p class="pBodyRelative"><a name="wp1023987"> </a>
+By associating separate threads with different server tasks, clients do not block each other for an extended period of time.
+</p>
+<li><a name="wp1023988"> </a><b class="cBold">Simplify coding of remote procedure calls and conversations</b></li>
+<p class="pBodyRelative"><a name="wp1023989"> </a>
+Some applications are easier to code when you use separate threads to interact with different remote procedure calls (RPCs) and conversations.
+</p>
+<li><a name="wp1023990"> </a><b class="cBold">Provide simultaneous access to multiple applications</b></li>
+<p class="pBodyRelative"><a name="wp1023991"> </a>
+When wrapping legacy applications or databases in a CORBA server, implementations can interact with more than one legacy application at a time.
+</p>
+<li><a name="wp1023992"> </a><b class="cBold">Reduce the number of servers required</b></li>
+<p class="pBodyRelative"><a name="wp1023993"> </a>
+Because one server can dispatch multiple service threads, the number of servers your application requires can be reduced.
+</p>
+</ul></div>
+<p class="pBody"><a name="wp1023994"> </a>
+However, a multithreaded design is not without cost. In general, multithreaded server applications require more complicated synchronization strategies than single-threaded servers. An application developer must write thread-safe code. Additionally, the overhead of creating a thread to handle a request might be greater than the potential benefit of parallelism. The actual performance of a particular concurrency model depends on the following factors:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023995"> </a><b class="cBold">Characteristics of requests from the client</b></li>
+<p class="pBodyRelative"><a name="wp1023996"> </a>
+Are the requests of long or short duration?
+</p>
+<li><a name="wp1023997"> </a><b class="cBold">How threads are implemented</b></li>
+<p class="pBodyRelative"><a name="wp1023998"> </a>
+Are the threads managed in the operating system kernel, in a library in user space, or some combination of both?
+</p>
+<li><a name="wp1023999"> </a><b class="cBold">Operating system and network overhead</b></li>
+<p class="pBodyRelative"><a name="wp1024000"> </a>
+How much additional overhead is introduced by repeatedly setting up and tearing down connections?
+</p>
+<li><a name="wp1024001"> </a><b class="cBold">Higher-level system configuration factors</b></li>
+<p class="pBodyRelative"><a name="wp1024002"> </a>
+Do replication, dynamic load balancing, or other factors affect performance?
+</p>
+</ul></div>
+<p class="pBody"><a name="wp1024003"> </a>
+While threading libraries provide the mechanisms for creating concurrency models, developers are ultimately responsible for knowing how to use the mechanisms successfully. By studying design patterns, application developers can master the subtle differences and make better design choices for different situations.
+</p>
+<h4 class="pHeading3"><a name="wp1024005"> </a>
+Threading Models
+</h4>
+<p class="pBody"><a name="wp1024006"> </a>
+There are a number of different models you can use for designing concurrency in servers. The following sections describe the thread-per-request model, the thread-per-object model, the thread pool, and how the Oracle Tuxedo software implements each model. A specific server is designed for either the thread-per-request model or the thread-per-object model.
+</p>
+<h5 class="pHeading4"><a name="wp1024013"> </a>
+Thread-Per-Request Model
+</h5>
+<p class="pBody"><a name="wp1024014"> </a>
+In this model, each request from a client is processed in a different thread of control. This model is useful when a server typically receives requests of long duration from multiple clients. It is less useful for requests of short duration due to the overhead of creating a new thread for each request. Each time a new request arrives, Oracle Tuxedo associates that request with a thread and executes it. Because a multithreaded application server process can host more than one thread at a time, it can simultaneously execute more than one client request at a time. Oracle Tuxedo controls the association of a request to a thread, therefore, applications do not need to explicitly create threads unless the applications require a greater degree of control than that provided by Oracle Tuxedo.
+</p>
+<p class="pBody"><a name="wp1024025"> </a>
+The thread-per-request model requires that you design your application servers to be thread-safe, which means that you must implement concurrency mechanisms to control access to data that might be shared among multiple server objects. The need to use concurrency control mechanisms increases the complexity of the applications development process. Additionally, if many clients make requests simultaneously, this design can consume a large number of operating system resources.
+</p>
+<h5 class="pHeading4"><a name="wp1024028"> </a>
+Thread-Per-Object Model
+</h5>
+<p class="pBody"><a name="wp1024029"> </a>
+The thread-per-object model associates each active object in the server process with a single thread at any one time. Each request for an object establishes an association between a dispatch thread and the object. Serial requests for the same object can be serviced by different threads. A specific thread can be shared by multiple objects.
+</p>
+<h5 class="pHeading4"><a name="wp1024030"> </a>
+The Thread Pool
+</h5>
+<p class="pBody"><a name="wp1024031"> </a>
+Thread pools are a means to reduce the cost of managing threads. At startup and as needed, threads are created, assigned, and released to a pool of available threads where the thread waits until it is needed again to process future requests.  Thread pools can be used to support any of the threading models previously described. For example, a thread may be allocated for a request in a thread-per-request model, used for the method execution, and released back to the pool. 
+</p>
+<p class="pBody"><a name="wp1024034"> </a>
+Allocating and deallocating threads can be time-consuming and expensive, especially for short-lived requests and objects. Thread pools provide a means of reducing the cost of managing threads. During startup, or as needed, threads are created, assigned, and released by the Oracle Tuxedo software to a pool of available threads. A thread exists in the pool and waits until it is needed to process future requests.
+</p>
+<p class="pBody"><a name="wp1024043"> </a>
+The initial and ultimate size of the Oracle Tuxedo thread pool for an application server process is controlled through settings in the server configuration file. At startup, the minimum pool size is pre-allocated. As requests arrive to be serviced, the Oracle Tuxedo software assigns a thread from the pool to handle the request. If the pool does not contain an available thread to process the request and the pool has not been filled, the Oracle Tuxedo software creates a new thread to handle the request. If a request arrives when there are no threads available in the pool, and no new threads can be created, the request will be queued until a thread is available.
+</p>
+<p class="pBody"><a name="wp1024053"> </a>
+Thread pools are appropriate for situations in which you want to limit the amount of system resources that can be consumed for server threading. When a thread pool is used, client requests are executed concurrently until the number of simultaneous requests exceeds the number of threads in the pool. 
+</p>
+<p class="pBody"><a name="wp1024057"> </a>
+The Oracle Tuxedo thread pool has the following characteristics and behavior:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024062"> </a>You can set the maximum size of the pool as an Oracle Tuxedo administration function. You can adjust the size of this pool without making changes to the application itself.</li>
+<li><a name="wp1024067"> </a>The Oracle Tuxedo software allocates threads from the pool as necessary. The threads are used during the processing of a request, and are then released back to the pool.</li>
+<li><a name="wp1024069"> </a>Threads can be serially reused for servicing multiple requests and multiple objects.</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1024073"> </a>
+Reentrant Servants
+</h4>
+<p class="pBody"><a name="wp1024077"> </a>
+The Oracle Tuxedo software provides the capability for an object to invoke operations on itself recursively. Using this capability requires a great deal of care in how you implement an object, because the application code must employ the operating system concurrency mechanisms needed to control access to shared state data. In some cases, such as with objects that implement the Process or Distribution Adapter design patterns, there is little or no shared state for an object, and it is relatively easy to support reentrancy. 
+</p>
+<p class="pBody"><a name="wp1024082"> </a>
+Oracle Tuxedo software also allows you to enable or prohibit reentrant method invocations on an active object. Reentrancy is disabled by default. If a request for an active object is received while the object is currently executing another request in a different thread, the following rules apply:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024085"> </a>If the <code class="cCode">_is_reentrant</code> method returns <code class="cCode">TRUE</code>, a new thread is allocated from the pool and the request is dispatched to the appropriate method using the same servant instance. It is the responsibility of the servant implementation code to ensure the integrity of the state of the object when multiple threads interact with it.</li>
+<li><a name="wp1024086"> </a>If the _<code class="cCode">is_reentrant </code>method returns <code class="cCode">FALSE</code>, a new instance of the servant is created and the method is dispatched to the new instance. This instance is not automatically deleted. Future reentrant requests may be dispatched to either instance.</li>
+</ul></div>
+<a name="wp1024087"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The reentrant servant mechanism is available only when a server is started with the <code class="cCode">PER_REQUEST</code> concurrency strategy specified.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1024091"> </a>
+For information about using this method, see the <em class="cEmphasis">CORBA Programming Reference</em>.
+</p>
+<h4 class="pHeading3"><a name="wp1024092"> </a>
+The Current Object
+</h4>
+<p class="pBody"><a name="wp1024093"> </a>
+One of the most important attributes of a multithreaded CORBA server application environment is ensuring that the Current object is used and managed correctly. This ensures behavior such as the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024095"> </a>Individual threads function within the correct transaction and security contexts.</li>
+<li><a name="wp1024096"> </a>The Current object behaves correctly when accessed from different threads.</li>
+</ul></div>
+<p class="pBody"><a name="wp1024102"> </a>
+The Oracle Tuxedo product conforms to the multithreading model defined by the ORB Portability Specification, published by the OMG, which has been incorporated into the OMG CORBA specification. In the Oracle Tuxedo product, operations on interfaces derived from <code style="font-weight: normal" class="cCode">CORBA::Current</code><span style="font-weight: bold"> </span>have access to the state associated with the thread in which operations are invoked, not to the state associated with the thread from which the Current object was obtained. The reason for this behavior is twofold:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024110"> </a>Prevents one thread from manipulating the state of another thread</li>
+<li><a name="wp1024112"> </a>Avoids the need to obtain and narrow a new Current object in the thread context for each method</li>
+</ul></div>
+<p class="pBody"><a name="wp1024113"> </a>
+When used in a multithreaded environments, the behaviors of the following objects are consistent with the ORB Portability Specification:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024115"> </a><code class="cCode">CosTransactions::Current</code></li>
+<li><a name="wp1024117"> </a><code class="cCode">SecurityLevel1::Current</code></li>
+<li><a name="wp1024119"> </a><code class="cCode">SecurityLevel2::Current</code></li>
+<li><a name="wp1024121"> </a><code class="cCode">PortableServer::Current</code></li>
+</ul></div>
+<p class="pBody"><a name="wp1024123"> </a>
+For example, when an application passes a transaction from one thread to another, the application should not use the <code style="font-weight: normal" class="cCode">CosTransactions::Current</code><span style="font-weight: bold"> </span>object. Instead, the application passes the <code style="font-weight: normal" class="cCode">CosTransactions::Control</code><span style="font-weight: bold"> </span>object to the other thread. To pass the <code style="font-weight: normal" class="cCode">CosTransctions::Current</code><span style="font-weight: bold"> </span>object would only allow the receiving thread to gain access to the transaction state associated with that thread.
+</p>
+<h3 class="pHeading2"><a name="wp1024127"> </a>
+Mechanisms for Supporting Multithreaded CORBA Servers
+</h3>
+<p class="pBody"><a name="wp1024128"> </a>
+This section provides an overview of the following tools, APIs, and administrative capabilities in Oracle Tuxedo CORBA that support multithreaded server applications:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024136"> </a><a href="mtserv.html#wp1024150">Context Services</a></li>
+<li><a name="wp1024140"> </a><a href="mtserv.html#wp1024192">Classes and Methods in the TP Framework</a></li>
+<li><a name="wp1024144"> </a><a href="mtserv.html#wp1024225">Capabilities in the Build Commands</a></li>
+<li><a name="wp1024148"> </a><a href="mtserv.html#wp1024240">Tools for Administration</a></li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1024150"> </a>
+Context Services
+</h4>
+<p class="pBody"><a name="wp1024151"> </a>
+You can choose to create and manage your own threads in your object implementations. Other threads are managed automatically by the Oracle Tuxedo CORBA software. The Oracle Tuxedo CORBA software maintains context information internally for each thread that it creates and maintains. This required context information is used during the processing of CORBA requests. Since Oracle Tuxedo CORBA has no knowledge of when an application creates and deletes its own threads, the context services mechanism allows programmers to initialize their own threads correctly, prior to calling Oracle Tuxedo services, and to release any context resources that are no longer needed when a thread is deleted.
+</p>
+<p class="pBody"><a name="wp1024166"> </a>
+The following set of ORB methods satisfies the thread management requirements. Together these are called <span style="font-weight: bold">context services</span>:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024168"> </a><code class="cCode">ORB::get_ctx()</code></li>
+<p class="pBodyRelative"><a name="wp1024169"> </a>
+When an object creates a thread, the object invokes this operation on the ORB to obtain system context information that the object can pass onto the thread. This operation must be called from a thread that already has a context. For example, the thread in which a method was dispatched will already have a context. For information about using this operation, see <code class="cCode">ORB::get_ctx()</code> in the <a href="../CORBA_ref/index.html"><span style="font-style: italic">CORBA Programming Reference</span><span style="font-style: italic"></a>.</span>
+</p>
+<li><a name="wp1024174"> </a><code class="cCode">ORB::set_ctx()</code></li>
+<p class="pBodyRelative"><a name="wp1024175"> </a>
+When an object spawns a thread, the spawned thread typically retrieves the context information from the thread that invoked the <code class="cCode">get_ctx</code> method. The spawned thread then uses the retrieved context information when invoking <code class="cCode">ORB::set_ctx</code> to set the system context in which the spawned thread should execute. For information about using this operation, see <code class="cCode">ORB::set_ctx()</code> in the <a href="../CORBA_ref/index.html"><span style="font-style: italic">CORBA Programming Reference</span><span style="font-style: italic"></a>.</span>
+</p>
+<li><a name="wp1024180"> </a><code class="cCode">ORB::clear_ctx()</code></li>
+<p class="pBodyRelative"><a name="wp1024181"> </a>
+When a spawned thread has completed its work, the thread invokes this method to dissociate itself from the system context. For information about using this operation, see <code class="cCode">ORB::clear_ctx()</code> in the <a href="../CORBA_ref/index.html">CORBA Programming Reference</a>.
+</p>
+<li><a name="wp1024186"> </a><code class="cCode">ORB::inform_thread_exit()</code></li>
+<p class="pBodyRelative"><a name="wp1024187"> </a>
+When a thread has completed its work, the thread invokes this method to inform the Oracle Tuxedo system that resources associated with an application-managed thread can be released. For information about using this operation, see <code class="cCode">ORB::inform_thread_exit()</code> in the <a href="../CORBA_ref/index.html">CORBA Programming Reference</a>.
+</p>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1024192"> </a>
+Classes and Methods in the TP Framework
+</h4>
+<p class="pBody"><a name="wp1024196"> </a>
+These classes and methods in the Oracle Tuxedo TP Framework support multithreaded server applications:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024198"> </a><code class="cCode">ServerBase</code> class</li>
+<p class="pBodyRelative"><a name="wp1024199"> </a>
+To override the default implementations of the <code class="cCode">ServerBase</code> class, an application developer can create a class that derives from <code class="cCode">ServerBase</code>. In addition to <code class="cCode">ServerBase</code> methods already supported, these methods are provided to support the implementation of multithreaded server applications:
+</p>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1024201"> </a><code class="cCode">create_servant_with_id()</code></li>
+<li><a name="wp1024203"> </a><code class="cCode">thread_initialize()</code></li>
+<li><a name="wp1024205"> </a><code class="cCode">thread_release()</code></li>
+<p class="pBodyRelative"><a name="wp1024206"> </a>
+These methods allow you to obtain a high-degree of granularity of control over the multithreading characteristics of your application. For information on how to use these methods see <code class="cCode">ServerBase Class</code> in the <a href="../CORBA_ref/index.html">CORBA Programming Reference</a>.
+</p>
+</ul></div>
+<li><a name="wp1024211"> </a><code class="cCode">Tobj_ServantBase</code> class</li>
+<p class="pBodyRelative"><a name="wp1024212"> </a>
+This class provides these methods to support multithreaded server applications:
+</p>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1024214"> </a><code class="cCode">Tobj_ServantBase::_is_reentrant()</code></li>
+<li><a name="wp1024216"> </a><code class="cCode">Tobj_ServantBase::_add_ref()</code></li>
+<li><a name="wp1024218"> </a><code class="cCode">Tobj_ServantBase::_remove_ref()</code></li>
+<p class="pBodyRelative"><a name="wp1027385"> </a>
+For information about using these methods, see <code class="cCode">Tobj_ServantBase Class</code> in the <a href="../CORBA_ref/index.html">CORBA Programming Reference</a>.
+</p>
+</ul></div>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1024225"> </a>
+Capabilities in the Build Commands
+</h4>
+<p class="pBody"><a name="wp1024229"> </a>
+The <code class="cCode">buildobjserver</code> and <code class="cCode">buildobjclient</code> commands include the following thread-management capabilities.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024230"> </a>The <code class="cCode">buildobjserver</code> command includes platform-specific thread library support so that server applications are compatible with the multithreading support in the Oracle Tuxedo software.</li>
+<p class="pBodyRelative"><a name="wp1024234"> </a>
+The <code class="cCode">buildobjserver</code> command includes command-line options for building multithreaded or single-threaded server applications.
+</p>
+<li><a name="wp1024235"> </a>The <code class="cCode">buildobjclient</code> command includes platform-specific thread library support so that client applications can be compatible with the multithreading support provided in the Oracle Tuxedo software.</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1024240"> </a>
+Tools for Administration
+</h4>
+<p class="pBody"><a name="wp1024245"> </a>
+The Oracle Tuxedo system employs configuration files to assemble and run applications. Typically, the application developer creates these files, and Oracle Tuxedo system administrators modify the contents of the file as necessary to satisfy application and system requirements.
+</p>
+<p class="pBody"><a name="wp1024250"> </a>
+The control parameters associated with the support of threads specify the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024251"> </a>Whether a server should be single-threaded or multithreaded</li>
+<li><a name="wp1024252"> </a>The size of the thread pool available for dispatching methods on objects</li>
+</ul></div>
+<p class="pBody"><a name="wp1024255"> </a>
+For more information about threads parameters in the <code class="cCode">UBBCONFIG</code> file, see <a href="mtserv.html#wp1025062"><span class="cHyperlink">
+Sample UBBCONFIG File on page&#160;4-36</span></a>.
+</p>
+<h3 class="pHeading2"><a name="wp1024258"> </a>
+Running Single-threaded Server Applications in a Multithreaded System
+</h3>
+<p class="pBody"><a name="wp1024262"> </a>
+The default behavior of the threading support provided in Oracle Tuxedo CORBA is to emulate a single-threaded server support environment. To run a single-threaded CORBA application in a multithreaded environment, you do not need to change the server application code or the configuration files. However, before you run an existing single-threaded application, you must rebuild it using the <code class="cCode">buildobjserver</code> and <code class="cCode">buildobjclient</code> commands. If you do not specifically enable multithreading for a server application, the application runs as a single-threaded server.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024265"> </a>
+Developing and Building Multithreaded CORBA Server Applications
+</h2><p class="pBody"><a name="wp1024266"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024270"> </a><a href="mtserv.html#wp1024288">Using the buildobjserver Command</a></li>
+<li><a name="wp1024274"> </a><a href="mtserv.html#wp1024349">Using the buildobjclient Command</a></li>
+<li><a name="wp1024278"> </a><a href="mtserv.html#wp1024358">Creating Non-reentrant Servants</a></li>
+<li><a name="wp1024282"> </a><a href="mtserv.html#wp1024392">Creating Reentrant Servants</a></li>
+<li><a name="wp1024286"> </a><a href="mtserv.html#wp1028043">Building and Running the Multithreaded Simpapp Sample Application</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1024288"> </a>
+Using the buildobjserver Command
+</h3>
+<p class="pBody"><a name="wp1024290"> </a>
+The <code class="cCode">buildobjserver</code> command supports multithreaded CORBA server applications through the following capabilities:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024294"> </a><a href="mtserv.html#wp1024304">Platform-specific Thread Libraries</a></li>
+<li><a name="wp1024298"> </a><a href="mtserv.html#wp1024312">Specifying Multithreaded Support</a></li>
+<li><a name="wp1024302"> </a><a href="mtserv.html#wp1024332">Specifying an Alternate Server Class</a></li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1024304"> </a>
+Platform-specific Thread Libraries
+</h4>
+<p class="pBody"><a name="wp1024306"> </a>
+Server applications generated by the <code class="cCode">buildobjserver</code> command are compiled using the correct platform-specific compiler settings, and are linked using the correct platform-specific thread support libraries. This ensures compatibility with the shared libraries provided by the Oracle Tuxedo software.
+</p>
+<h4 class="pHeading3"><a name="wp1024312"> </a>
+Specifying Multithreaded Support
+</h4>
+<p class="pBody"><a name="wp1024313"> </a>
+When you create a CORBA server application to support multithreading, you must specify the <code class="cCode">-t</code> option on the <code class="cCode">buildobjserver</code> command when you build the application. At run time, the Oracle Tuxedo system verifies compatibility between the executable program and the threading model selected in the CORBA server application configuration file <code class="cCode">UBBCONFIG</code>. For information on how to set the threading model in the <code class="cCode">UBBCONFIG</code> file, see <a href="mtserv.html#wp1025062"><span class="cHyperlink">
+Sample UBBCONFIG File on page&#160;4-36</span></a>.
+</p>
+<a name="wp1024320"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>When you specify <code class="cCode">-t</code> in your build of a CORBA server application, you should set the <code class="cCode">MAXDISPATCHTHREADS</code> parameter in the <code class="cCode">UBBCONFIG</code> file to a value greater than 1; otherwise, the CORBA server application will run as a single-threaded server.</td>
+</tr>
+</table>
+
+<a name="wp1024324"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Multithreaded joint client/server implementations are not supported.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1028017"> </a>
+If you attempt to start a single-threaded executable with an incompatible threading model specification in the configuration file, these events occur:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024328"> </a>The Oracle Tuxedo software records a warning in the log file.</li>
+<li><a name="wp1024329"> </a>The server executable program is started as a single-threaded server.</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1024332"> </a>
+Specifying an Alternate Server Class
+</h4>
+<p class="pBody"><a name="wp1024335"> </a>
+If you implement your own <code class="cCode">Server</code> class, inheriting from the <code class="cCode">ServerBase</code> class, you must specify your alternate <code class="cCode">Server</code> class in the <code class="cCode">buildobjserver</code> command using the <code class="cCode">-b</code> option. The <code class="cCode">buildobjserver</code> command provides the following syntax to support the <code class="cCode">-b</code> option:
+</p>
+<a name="wp1024337"> </a><div class="pPreformatted"><pre>buildobjserver [-v] [-o <code class="cCodeEmphasis">outfile</code>] [-f {<code class="cCodeEmphasis">firstfiles</code>|@<code class="cCodeEmphasis">def-file</code>}] <br />[-l {<code class="cCodeEmphasis">lastfiles</code>|@<code class="cCodeEmphasis">def-file</code>}] [-r <code class="cCodeEmphasis">rmname</code>] [-b <code class="cCodeEmphasis">bootserverclass</code>] [-t] </pre></div><p class="pBody"><a name="wp1024339"> </a>
+In the preceding syntax, the value for <code class="cCodeEmphasis">bootserverclass</code> specifies the C++ class to be used when the CORBA server application is booted. If you do not specify the <code class="cCode">-b</code> option, the Oracle Tuxedo system creates an instance of the class named <code class="cCode">Server</code>.
+</p>
+<p class="pBody"><a name="wp1024343"> </a>
+When you specify the <code class="cCode">-b</code> option, the Tuxedo system creates a main function for the alternate server class, and your project must supply a header file with the name you specified for <code class="cCodeEmphasis">bootserverclass</code> on the <code class="cCode">-b</code> option. The header file contains the definition of the alternate C++ class. This alternate <code class="cCode">Server</code> class must inherit from the <code class="cCode">ServerBase</code> class.
+</p>
+<p class="pBody"><a name="wp1024344"> </a>
+For example, if the command line specifies <code class="cCode">-b AslanServer</code>, the application project must supply an <code class="cCode">AslanServer.h file</code>. The <code class="cCode">AslanServer.h</code> file is an example of a <code class="cCodeEmphasis">bootserverclass</code><code class="cCode">.h</code> file. A <code class="cCode">bootserverclass</code> file provides logic similar to this code sample:
+</p>
+<div class="pCodeTitle"><a name="wp1024345"> </a>
+Listing&#160;4-1	   Example of a bootserverclass.h File
+</div> <a name="wp1024346"> </a><div class="pPreformatted"><pre>// File name: AslanServer.h<br />#include &lt;Server.h&gt; <br />class AslanServer : public ServerBase {<br />    <code class="cCode">public:<br />     CORBA::Boolean initialize(int argc, char** argv);<br />     void release();<br />     Tobj_Servant create_servant(const char* interfaceName);<br />      Tobj_Servant create_servant_with_id(const char* interfaceName,<br />                                          const char* stroid);<br />     CORBA::Boolean thread_initialize(int argc, char** argv);<br />     void thread_release();<br />}; </code></pre></div><h3 class="pHeading2"><a name="wp1024349"> </a>
+Using the buildobjclient Command
+</h3>
+<p class="pBody"><a name="wp1024351"> </a>
+When you use the  <code class="cCode">buildobjclient</code> command to create a client application executable program, the application is compiled using the correct platform-specific compiler settings and linked using the correct thread support libraries for your operating system. This ensures that clients are compatible with the shared libraries provided by the Oracle Tuxedo software.
+</p>
+<h3 class="pHeading2"><a name="wp1024358"> </a>
+Creating Non-reentrant Servants
+</h3>
+<p class="pBody"><a name="wp1024359"> </a>
+Before you can run any CORBA server application in the Oracle Tuxedo CORBA environment, you must build it using the <code class="cCode">buildobjserver</code> command.
+</p>
+<p class="pBody"><a name="wp1024364"> </a>
+Use the <code class="cCode">buildobjserver</code> <code class="cCode">-t</code> option to inform the Oracle Tuxedo system that the CORBA server application is thread safe. The <code class="cCode">-t</code> option indicates that the application does not employ shared context data or other programming constructs that are not thread safe. If you run single-threaded applications that are not thread safe in a multithreaded environment, you risk data corruption.
+</p>
+<p class="pBody"><a name="wp1024366"> </a>
+If you update configuration files for an application to enable multithreading support, but the application code has not been updated to indicate that the servant implementation can support reentrancy, note the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024370"> </a>Methods are executed in arbitrary threads assigned by the Oracle Tuxedo system.</li>
+<li><a name="wp1024371"> </a>Servant implementation code does not necessarily protect an object from concurrent access to its state. However, active servants are limited to a single thread of execution at a time.</li>
+<li><a name="wp1024374"> </a>You cannot assume that a method is executed in a specific thread. Do not use storage that depends on or is tied to a specific thread.</li>
+<li><a name="wp1024377"> </a>Do not assume that the servant&#8217;s <code class="cCode">activate_object</code> or <code class="cCode">deactivate_object</code> methods are executed in the same thread as the request in which they were originally invoked.</li>
+<li><a name="wp1024378"> </a>Additional application-managed threads can be created within a servant method. Your object implementations must ensure that threads are created, handled, and destroyed properly.</li>
+<li><a name="wp1024379"> </a>An application-managed thread can include invocations on other objects.</li>
+<li><a name="wp1024381"> </a>Do not use signals for synchronization; the mixing of signals and threads is not supported.</li>
+</ul></div>
+<a name="wp1024382"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The <code class="cCode">SIGKILL</code> signal to terminate a process is supported. The use of <code class="cCode">SIGIO </code>is not supported in Oracle Tuxedo CORBA for single or multithreaded applications.</td>
+</tr>
+</table>
+
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024390"> </a>Request-level interceptors are invoked by Oracle Tuxedo CORBA through the same thread used by the method.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1024392"> </a>
+Creating Reentrant Servants
+</h3>
+<p class="pBody"><a name="wp1024395"> </a>
+To create a multithreaded reentrant servant:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024396"> </a>Build the CORBA server application using the <code class="cCode">buildobjserver</code> command with the <code class="cCode">-t</code> option, and modify the <code class="cCode">UBBCONFIG</code> server configuration file for the application.</li>
+<li><a name="wp1024397"> </a>Update the CORBA server application code to enable reentrancy using the <code class="cCode">TobjServantBase::_is_reentrant</code> method.</li>
+<li><a name="wp1024399"> </a>Start the server using the thread-per-request threading model, by specifying <code class="cCode">CONCURR_STRATEGY = PER_REQUEST</code> in the <code class="cCode">UBBCONFIG</code> file.</li>
+</ul></div>
+<p class="pBody"><a name="wp1024401"> </a>
+If you do create a multithreaded, reentrant servant, the implementation code for that object must protect the state of the object, in order to ensure its integrity while multiple threads interact with it.
+</p>
+<h3 class="pHeading2"><a name="wp1028021"> </a>
+Considerations for Client Applications
+</h3>
+<p class="pBody"><a name="wp1028039"> </a>
+There are considerations for CORBA client applications running in the Oracle Tuxedo environment:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1028040"> </a>Multithreaded CORBA clients using IIOP are supported.</li>
+<li><a name="wp1028048"> </a>Multithreaded native CORBA clients are not supported.</li>
+<li><a name="wp1028055"> </a>A multithreaded CORBA client is limited to a single bootstrap object.</li>
+<li><a name="wp1028062"> </a>A multithreaded CORBA client is limited to a single logon.</li>
+<li><a name="wp1028063"> </a>CORBA clients using stub-based invocation are supported.</li>
+<li><a name="wp1028064"> </a>CORBA clients using the Dynamic Invocation Interface (DII) are not supported.</li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1028043"> </a>
+Building and Running the Multithreaded Simpapp Sample Application
+</h2><p class="pBody"><a name="wp1024405"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024409"> </a><a href="mtserv.html#wp1024423">About the Simpapp Multithreaded Sample</a></li>
+<li><a name="wp1024413"> </a><a href="mtserv.html#wp1024432">How the Sample Application Works</a></li>
+<li><a name="wp1024417"> </a><a href="mtserv.html#wp1024506">How to Build and Run the Sample Application</a></li>
+<li><a name="wp1024421"> </a><a href="mtserv.html#wp1024951">Shutting Down the Sample Application</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1024423"> </a>
+About the Simpapp Multithreaded Sample
+</h3>
+<p class="pBody"><a name="wp1024427"> </a>
+The Oracle Tuxedo software provides a multithreaded CORBA sample application, consisting of a client program and a CORBA server program. The server receives an alphabetic string from the client and returns the string in uppercase and lowercase letters. The multithreading capability of simpapp_mt provides parallel processing. Through this parallelism, a single server process can handle concurrent requests from multiple clients for multiple objects or for a single object.
+</p>
+<a name="wp1024430"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The client application in the simpapp_mt sample is not a multithreaded client application.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1024432"> </a>
+How the Sample Application Works
+</h3>
+<p class="pBody"><a name="wp1024433"> </a>
+The purpose of a multithreaded server is to handle multiple requests from one or more  clients in a parallel manner. The simpapp_mt sample application is a CORBA application that demonstrates multithreading functionality, by using the <code class="cCode">buildobjserver -t </code>command-line option and using the <code class="cCode">UBBCONFIG</code> file to specify concurrency strategy. 
+</p>
+<p class="pBody"><a name="wp1024435"> </a>
+The simpapp_mt sample first creates a server process named <code class="cCode">SimplePerObject</code> and secondly a server process named <code class="cCode">SimplePerRequest</code>. The client communicates first with the <code class="cCode">SimplePerRequest</code> server and then with the <code class="cCode">SimplePerObject</code> server.
+</p>
+<p class="pBody"><a name="wp1024437"> </a>
+The thread-per-request server implementation for <code class="cCode">SimplePerRequest</code> demonstrates the use of a user-defined server class that implements thread initialization methods. The <code class="cCode">SimplePerRequest</code> server process handles each request from a client in a separate thread of control. Each time a new request arrives, a thread is allocated from the thread pool to handle the request. Once the request has been processed and the reply sent, the thread is released back to the pool. This model is useful for servers that handle long-duration requests from multiple clients. 
+</p>
+<p class="pBody"><a name="wp1024439"> </a>
+The simpapp_mt sample application provides an implementation of a CORBA object that has the following methods:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024441"> </a>The <code class="cCode">to_upper</code> method accepts a string from the client application and converts it to uppercase letters.</li>
+<li><a name="wp1024443"> </a>The <code class="cCode">to_lower</code> method accepts a string from the client application and converts it to lowercase letters.</li>
+<li><a name="wp1024445"> </a>The <code class="cCode">forward_upper</code> method creates an application-managed thread to another instance of the server and forwards the request received from the client to the new server instance to convert the string to uppercase letters.</li>
+<li><a name="wp1024447"> </a>The <code class="cCode">forward_lower</code> method creates another instance of the <code class="cCode">Simple</code> object and forwards the request received from the client to the new instance to convert the string to lowercase letters.</li>
+</ul></div>
+<p class="pBody"><a name="wp1024451"> </a>
+<a href="mtserv.html#wp1024454">Figure&#160;4-2</a> shows the operation of the simpapp_mt sample application, employing both the thread-per-object and thread-per-request threading models.
+</p>
+<div class="pFigureTitle"><a name="wp1024454"> </a>
+Figure&#160;4-2  simpapp_mt Sample Application
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1024458"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/MTClServ.gif" alt="simpapp_mt Sample Application" id="wp1026546"/></div><p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1024461"> </a>
+OMG IDL Code for the Simpapp Multithreaded Sample Application 
+</h4>
+<p class="pBody"><a name="wp1024462"> </a>
+The simpapp multithreaded sample application described in this chapter implements the CORBA interfaces listed in the following table.
+</p>
+<p class="pGraphic"><a name="wp1030621"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024465table1024463">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1024465"> </a>
+<span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Interface</span>
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024467"> </a>
+Description
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024469"> </a>
+Action
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024471"> </a>
+<code class="cCode">SimplePerRequestFactory</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024473"> </a>
+Creates object references to the <code class="cCode">Simple</code> object 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024475"> </a>
+<code class="cCode">find_simple()</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024477"> </a>
+<code class="cCode">SimplePerObjectFactory</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024479"> </a>
+Creates object references to the <code class="cCode">Simple</code> object 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024481"> </a>
+<code class="cCode">find_simple()</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024483"> </a>
+<code class="cCode">Simple</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024485"> </a>
+Converts the case of a string
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024487"> </a>
+<code class="cCode">to_upper()</code>
+</div>
+<div class="pCellBody"><a name="wp1024488"> </a>
+<code class="cCode">to_lower()</code>
+</div>
+<div class="pCellBody"><a name="wp1024489"> </a>
+<code class="cCode">forward_upper()</code>
+</div>
+<div class="pCellBody"><a name="wp1024490"> </a>
+<code class="cCode">forward_lower()</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1024495"> </a>
+<a href="mtserv.html#wp1024497">Listing&#160;4-2</a> shows the content of the <code class="cCode">simple.idl</code> file, describing the CORBA interface in the simpapp_mt sample application.
+</p>
+<div class="pCodeTitle"><a name="wp1024497"> </a>
+Listing&#160;4-2	   OMG IDL Code for the simpapp_mt Sample Application
+</div> <a name="wp1024498"> </a><div class="pPreformatted"><pre>#pragma prefix <code class="cCode">&quot;beasys.com&quot;</code></pre></div><a name="wp1024499"> </a><div class="pPreformatted"><pre>interface Simple<br />{<br />     //Convert a string to lower case (return a new string)<br />     string to_lower(in string val);</pre></div><a name="wp1024500"> </a><div class="pPreformatted"><pre>     //Convert a string to upper case (in place)<br />     string to_upper(in string val);</pre></div><a name="wp1024501"> </a><div class="pPreformatted"><pre>     //Use other server to convert string to lower case<br />     string forward_lower(in string val);</pre></div><a name="wp1024502"> </a><div class="pPreformatted"><pre>     //Use other server to convert string to upper case<br />     string forward_upper(in string val);<br />};</pre></div><a name="wp1024503"> </a><div class="pPreformatted"><pre>interface SimplePerRequestFactory<br />{<br />     Simple find_simple();<br />};<br />interface SimplePerObjectFactory<br />{<br />     Simple find_simple();<br />};</pre></div><h3 class="pHeading2"><a name="wp1024506"> </a>
+How to Build and Run the Sample Application
+</h3>
+<p class="pBody"><a name="wp1024507"> </a>
+This section leads you, step-by-step, through the process of building and running the simpapp_mt sample application. The <a href="mtserv.html#wp1024509">Figure&#160;4-3</a> summarizes the process and following sections explain how to perform the tasks.
+</p>
+<div class="pFigureTitle"><a name="wp1024509"> </a>
+Figure&#160;4-3  Process for Building and Running simpapp_mt
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1024514"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/simpapp-mt.gif" alt="Process for Building and Running simpapp_mt" id="wp1027231"/></div><p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1024518"> </a>
+Setting the TUXDIR Environment Variable
+</h4>
+<p class="pBody"><a name="wp1024519"> </a>
+Before building and running the simpapp_mt sample application, ensure that the <code class="cCode">TUXDIR</code> environment variable is set on your system. Typically, the environment variable is set during the installation process. You should confirm that the environment variable defines the correct directory location.
+</p>
+<p class="pBody"><a name="wp1024524"> </a>
+The <code class="cCode">TUXDIR</code> environment variable must be set to the directory path where you installed the Oracle Tuxedo software. For example:
+</p>
+<p class="pBody"><a name="wp1024528"> </a>
+<b class="cBold">Windows</b>
+</p>
+<p class="pBody"><a name="wp1024531"> </a>
+<code class="cCode">TUXDIR=D:\TUXDIR</code>
+</p>
+<p class="pBody"><a name="wp1024532"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<p class="pBody"><a name="wp1024535"> </a>
+<code class="cCode">TUXDIR=/usr/local/TUXDIR</code>
+</p>
+<h4 class="pHeading3"><a name="wp1024537"> </a>
+Verifying the TUXDIR Environment Variable
+</h4>
+<p class="pBody"><a name="wp1024538"> </a>
+Before you run the application, perform the following procedure to ensure that the environment variable contains the correct information.
+</p>
+<p class="pBody"><a name="wp1024541"> </a>
+<b class="cBold">Windows</b>
+</p>
+<p class="pBody"><a name="wp1024542"> </a>
+Execute the <code class="cCode">echo</code> command to show the setting of <code class="cCode">TUXDIR</code>:
+</p>
+<p class="pBody"><a name="wp1024544"> </a>
+<code class="cCode">prompt&gt; echo %TUXDIR%</code>
+</p>
+<p class="pBody"><a name="wp1024545"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1024547"> </a>Execute the <code class="cCode">ksh</code> command at the prompt to launch the Korn shell.</li>
+<li><a name="wp1024548"> </a>Execute the <code class="cCode">printenv</code> command to show the setting of <code class="cCode">TUXDIR</code>:</li>
+<a name="wp1024550"> </a><div class="pPreformattedRelative"><pre>ksh prompt&gt; printenv TUXDIR</pre></div></ol></div>
+<h4 class="pHeading3"><a name="wp1024551"> </a>
+Changing the Setting of the Environment Variable
+</h4>
+<p class="pBody"><a name="wp1024552"> </a>
+To change the value of the environment variable:
+</p>
+<p class="pBody"><a name="wp1024554"> </a>
+<b class="cBold">Windows</b>
+</p>
+<p class="pBody"><a name="wp1024555"> </a>
+Execute the <code class="cCode">set</code> command to set a new value for <code class="cCode">TUXDIR</code>:
+</p>
+<p class="pBody"><a name="wp1024557"> </a>
+<code class="cCode">prompt&gt; set TUXDIR=</code><code class="cCodeEmphasis">directorypath</code>
+</p>
+<p class="pBody"><a name="wp1024558"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1024559"> </a>At the system prompt, execute the <code class="cCode">ksh</code> command to launch the Korn shell.</li>
+<li><a name="wp1024560"> </a>At the <code class="cCode">ksh</code> prompt, enter the <code class="cCode">export</code> command to set the value for the <code class="cCode">TUXDIR</code> environment variable:</li>
+<a name="wp1024561"> </a><div class="pPreformatted"><pre>   ksh prompt&gt; export TUXDIR=<code class="cCodeEmphasis">directorypath</code></pre></div></ol></div>
+<h4 class="pHeading3"><a name="wp1024563"> </a>
+Creating a Working Directory for the Sample Application
+</h4>
+<a name="wp1024564"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The technique of using a work directory is recommended so that you can see what additional files are created when you run the simpapp multithreaded sample. After you execute the <code class="cCode">runme</code> command, compare the set of files in the installation directory to the set of files in your work directory.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1024565"> </a>
+The files required for the simpapp multithreaded sample application are in the following directories: 
+</p>
+<p class="pBody"><a name="wp1024566"> </a>
+<b class="cBold">Windows</b>
+</p>
+<a name="wp1024567"> </a><div class="pPreformattedRelative"><pre><code class="cCode">%TUXDIR%\samples\corba\simpapp_mt</code></pre></div><p class="pBody"><a name="wp1024568"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<a name="wp1024569"> </a><div class="pPreformattedRelative"><pre><code class="cCode">$TUXDIR/samples/corba/simpapp_mt</code></pre></div><p class="pBody"><a name="wp1024571"> </a>
+Create a working directory containing all of the simpapp multithreaded files.
+</p>
+<p class="pBody"><a name="wp1024572"> </a>
+<b class="cBold">Windows</b>
+</p>
+<p class="pBody"><a name="wp1024573"> </a>
+You can use Windows Explorer to create a copy of the simpapp_mt directory, or you can use the command prompt as follows:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1024574"> </a>Create a target working directory for a copy of the simpapp_mt files.</li>
+<a name="wp1024575"> </a><div class="pPreformattedRelative"><pre><code class="cCode">&gt;</code> <code class="cCode">mkdir</code> <code class="cCodeEmphasis">work_directory</code></pre></div><li><a name="wp1024576"> </a>Copy the <code class="cCode">simpapp_mt</code> files to the working directory.</li>
+<a name="wp1024577"> </a><div class="pPreformattedRelative"><pre><code class="cCode">&gt;</code> <code class="cCode">copy %TUXDIR%\samples\corba\simpapp_mt\*</code> <code class="cCodeEmphasis">work_directory</code></pre></div><li><a name="wp1024578"> </a>Change to the working directory.</li>
+<a name="wp1024579"> </a><div class="pPreformattedRelative"><pre><code class="cCode">cd </code><code class="cCodeEmphasis">work_directory</code></pre></div><li><a name="wp1024580"> </a>List all the files in the working directory.</li>
+<a name="wp1024581"> </a><div class="pPreformattedRelative"><pre><code class="cCode">prompt&gt; dir</code></pre></div><a name="wp1024582"> </a><div class="pPreformattedRelative"><pre>makefile.mk             simple_per_object_i.h<br />makefile.nt		             											simple_per_object_server.cpp<br />Readme.txt			              simple_per_request_i.cpp<br />runme.cmd               simple_per_request_i.h<br />runme.ksh			               simple_per_request_server.cpp<br />simple.idl              simple_per_request_server.h<br />simple_client.cpp	       thread_macros.cpp<br />simple_per_object_i.cpp	 thread_macros.h         </pre></div></ol></div>
+<p class="pBody"><a name="wp1024583"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<p class="pBody"><a name="wp1024584"> </a>
+You can use your user interface tool to create a copy of the simpapp_mt directory, or you can use the command prompt as follows:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1024585"> </a>Create a target working directory for a copy of the <code class="cCode">simpapp_mt</code> files.</li>
+<a name="wp1024586"> </a><div class="pPreformattedRelative"><pre><code class="cCode">&gt;</code> <code class="cCode">mkdir</code> <code class="cCodeEmphasis">work_directory</code></pre></div><li><a name="wp1024587"> </a>Copy all <code class="cCode">simpapp_mt</code> files to the working directory.</li>
+<a name="wp1024588"> </a><div class="pPreformattedRelative"><pre><code class="cCode">&gt;</code> <code class="cCode">cp $TUXDIR/samples/corba/simpapp_mt/*</code> <code class="cCodeEmphasis">work_directory</code></pre></div><li><a name="wp1024589"> </a>Change to the working directory.</li>
+<a name="wp1024590"> </a><div class="pPreformattedRelative"><pre><code class="cCode">cd </code><code class="cCodeEmphasis">work_directory</code></pre></div><li><a name="wp1024591"> </a>List all the files in the working directory.</li>
+<a name="wp1024592"> </a><div class="pPreformattedRelative"><pre><code class="cCode">$ ls</code></pre></div><a name="wp1024593"> </a><div class="pPreformattedRelative"><pre>makefile.mk             simple_per_object_i.h<br />makefile.nt		             											simple_per_object_server.cpp<br />Readme.txt			              simple_per_request_i.cpp<br />runme.cmd               simple_per_request_i.h<br />runme.ksh			               simple_per_request_server.cpp<br />simple.idl              simple_per_request_server.h<br />simple_client.cpp	       thread_macros.cpp<br />simple_per_object_i.cpp thread_macros.h </pre></div></ol></div>
+<p class="pBody"><a name="wp1024598"> </a>
+<a href="mtserv.html#wp1024605">Table&#160;4-1</a> lists and describes the simpapp_mt files used to build and run the application.
+</p>
+<p class="pGraphic"><a name="wp1030627"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024605table1024599"><caption><a name="wp1024605"> </a>
+Table 4-1  simpapp_mt Files&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1024609"> </a>
+File
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024611"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024614"> </a>
+<code class="cCode">makefile.mk</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024616"> </a>
+(UNIX) Makefile for the simpapp_mt sample application. Use this file to build the application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024619"> </a>
+<code class="cCode">makefile.nt</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024621"> </a>
+(Windows) Makefile for the simpapp_mt sample application. Use this file to build the application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024624"> </a>
+<code class="cCode">Readme.txt</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024626"> </a>
+<code class="cCode">Readme</code> file that provides information about building and running the simpapp_mt sample application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024629"> </a>
+<code class="cCode">runme.cmd</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024631"> </a>
+(Windows) Command file for building and running the simpapp_mt sample application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024634"> </a>
+<code class="cCode">runme.ksh</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024636"> </a>
+(UNIX) Korn shell script for building and running the simpapp_mt sample application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024639"> </a>
+<code class="cCode">simple.idl</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024641"> </a>
+Object Management Group (OMG) Interface Definition Language (IDL) code that declares the <code class="cCode">SimplePerRequestFactory</code>, <code class="cCode">SimplePerObjectFactory</code>, and <code class="cCode">Simple</code> interfaces.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024644"> </a>
+<code class="cCode">simple_client.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024646"> </a>
+CORBA client program source code for the simpapp_mt sample application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024649"> </a>
+<code class="cCode">simple_per_object_i.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024651"> </a>
+Source code that includes implementations for <code class="cCode">Simple</code> and <code class="cCode">SimplePerObjectFactory</code> servants that are to be included in a server. The CORBA server is started using a thread-per-object concurrency strategy. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024655"> </a>
+simple_per_object_i.h
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024657"> </a>
+Source code file for declaring <code class="cCode">Simple</code> and <code class="cCode">SimplePerObjectFactory</code> servants to be included in a server.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024660"> </a>
+<code class="cCode">simple_per_object_server.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024662"> </a>
+CORBA server program source code for the simpapp_mt sample application, thread-per-object concurrency strategy. Set <code class="cCode">CONCURR_STRATEGY = PER_OBJECT </code>in the <code class="cCode">UBBCONFIG</code> file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024665"> </a>
+<code class="cCode">simple_per_request_i.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024667"> </a>
+Source code that includes implementations for <code class="cCode">Simple</code> and <code class="cCode">SimplePerRequestFactory</code> servants that are to be included in a reentrant server. The reentrant CORBA server is started using a thread-per-request concurrency strategy. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024671"> </a>
+simple_per_request_i.h
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024673"> </a>
+Source code file for declaring <code class="cCode">Simple</code> and <code class="cCode">SimplePerRequestFactory</code> servants to be included in a reentrant server.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024676"> </a>
+<code class="cCode">simple_per_request_server.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024678"> </a>
+CORBA server program source code for the simpapp_mt sample application, thread-per-request concurrency strategy. Set <code class="cCode">CONCURR_STRATEGY = PER_REQUEST </code>in the <code class="cCode">UBBCONFIG</code> file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024681"> </a>
+<code class="cCode">simple_per_request_server.h</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024683"> </a>
+An example of a <code class="cCode">bootserverclass.h</code> file, containing the declarations required for the user-defined Server class in the simpapp_mt sample application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024686"> </a>
+<code class="cCode">thread_macros.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024688"> </a>
+Platform-independent thread convenience macros that support the simpapp_mt sample application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024691"> </a>
+<code class="cCode">thread_macros.h</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024693"> </a>
+Source code file for declaring all the classes and variables for thread convenience macros.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1024697"> </a>
+Checking Permissions on All the Files
+</h4>
+<p class="pBody"><a name="wp1024699"> </a>
+To build and run the simpapp_mt sample application, you must have user and read permissions on all the files you copied into your working directory. Check the permissions, and change the permissions if required.
+</p>
+<a name="wp1024701"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Ensure that the <code class="cCode">make</code> utility is in your path.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1024702"> </a>
+<b class="cBold">Windows</b>
+</p>
+<a name="wp1024703"> </a><div class="pPreformatted"><pre>&gt; attrib -R /S *.*</pre></div><p class="pBody"><a name="wp1024704"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<a name="wp1024705"> </a><div class="pPreformatted"><pre>&gt; /bin/ksh</pre></div><a name="wp1024706"> </a><div class="pPreformatted"><pre>&gt; chmod u+r <em class="cEmphasis">work_directory/</em>*.*</pre></div><h4 class="pHeading3"><a name="wp1024708"> </a>
+Executing the runme Command
+</h4>
+<p class="pBody"><a name="wp1024709"> </a>
+This section describes the steps required to execute the application end-to-end. Enter the <code class="cCode">runme</code> command as follows:
+</p>
+<p class="pBody"><a name="wp1024710"> </a>
+<b class="cBold">Windows</b>
+</p>
+<a name="wp1024711"> </a><div class="pPreformatted"><pre>&gt; cd <em class="cEmphasis">work_directory</em></pre></div><a name="wp1024712"> </a><div class="pPreformatted"><pre>&gt; ./runme</pre></div><p class="pBody"><a name="wp1024713"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<a name="wp1024714"> </a><div class="pPreformatted"><pre>&gt; /bin/ksh</pre></div><a name="wp1024715"> </a><div class="pPreformatted"><pre>&gt; cd <em class="cEmphasis">work_directory</em></pre></div><a name="wp1024716"> </a><div class="pPreformatted"><pre>&gt; ./runme.ksh</pre></div><p class="pBody"><a name="wp1024717"> </a>
+The <code class="cCode">runme</code> command automates the following steps: 
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1024718"> </a>Checks the <code class="cCode">TUXDIR</code> environment variable.</li>
+<li><a name="wp1024719"> </a>Sets the environment variables that are used by this application.</li>
+<li><a name="wp1024720"> </a>Ensures that the proper <code class="cCode">bin</code> directories are in the <code class="cCode">PATH</code>.</li>
+<li><a name="wp1024721"> </a>If this is not the first time this script has been run, removes unneeded files from the directory.</li>
+<li><a name="wp1024722"> </a>Creates a directory to capture the results from running this script.</li>
+<li><a name="wp1024723"> </a>Creates a <code class="cCode">setenv.ksh</code> file (UNIX) or <code class="cCode">setenv.bat</code> file (Windows) so that you can build and run this sample step-by-step.</li>
+<li><a name="wp1024724"> </a>Creates the <code class="cCode">ubb</code> configuration file for this sample.</li>
+<li><a name="wp1024725"> </a>Creates a file containing the user input for the client.</li>
+<li><a name="wp1024726"> </a>Creates a file with the expected output from the client.</li>
+<li><a name="wp1024727"> </a>Builds the sample.</li>
+<li><a name="wp1024728"> </a>Loads the configuration file.</li>
+<li><a name="wp1024729"> </a>Starts the thread-per-object server.</li>
+<li><a name="wp1024730"> </a>Starts the thread-per-request server.</li>
+<li><a name="wp1024731"> </a>Runs the client and captures the output.</li>
+<li><a name="wp1024732"> </a>Compares the output with the expected output.</li>
+<li><a name="wp1024733"> </a>Shuts down the server application.</li>
+<li><a name="wp1024734"> </a>Captures logs that are generated when you run the sample.</li>
+<li><a name="wp1024735"> </a>Saves the results.</li>
+<li><a name="wp1024736"> </a>Informs the user whether the sample ran successfully.</li>
+</ol></div>
+<p class="pBody"><a name="wp1024737"> </a>
+The simpapp_mt sample application prints the following messages while executing the <code class="cCode">runme</code> command:
+</p>
+<a name="wp1024738"> </a><div class="pPreformatted"><pre>Testing simpapp_mt<br />    cleaned up <br />    prepared<br />    built<br />    loaded ubb<br />    booted<br />    ran<br />    shutdown<br />    saved results<br />  PASSED</pre></div><p class="pBody"><a name="wp1024739"> </a>
+The entire run-time output for the simpapp_mt sample application is stored in the results directory in your working directory. To see the output created at run time, examine the following files:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1024741"> </a><code class="cCode">log</code>&#8212;compile, server boot, or server shutdown errors</li>
+<li><a name="wp1024742"> </a><code class="cCode">output</code>&#8212;client application output and exceptions</li>
+<li><a name="wp1024743"> </a><code class="cCode">ULOG.</code><code class="cCodeEmphasis">date</code>&#8212;server application errors and exceptions</li>
+</ul></div>
+</ul></div>
+<p class="pBody"><a name="wp1024750"> </a>
+<a href="mtserv.html#wp1024758">Table&#160;4-2</a> and <a href="mtserv.html#wp1024818">Table&#160;4-3</a> identify and describe the files created by executing the <code class="cCode">runme</code> command.
+</p>
+<p class="pGraphic"><a name="wp1030633"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024758table1024751"><caption><a name="wp1024758"> </a>
+Table 4-2  Files Created in the Working Directory&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1024762"> </a>
+File
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024764"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024767"> </a>
+<code class="cCode">simple_c.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024769"> </a>
+Created by the <code class="cCode">idl</code> command for the <code class="cCode">simple.idl </code>file. This module contains the client stub function for the <code class="cCode">Simple</code> and <code class="cCode">SimplePerRequestFactory</code> interface. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024772"> </a>
+<code class="cCode">simple_c.h</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024774"> </a>
+Created by the <code class="cCode">idl</code> command for the <code class="cCode">simple.idl</code> file. This module contains definitions and prototypes for the <code class="cCode">Simple</code> and <code class="cCode">SimplePerRequestFactory</code> interfaces.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024777"> </a>
+<code class="cCode">simple_s.cpp</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024779"> </a>
+Created by the <code class="cCode">idl</code> command for the <code class="cCode">simple.idl</code> file. This module contains the skeleton functions for the <code class="cCode">Simple_i</code> and <code class="cCode">SimplePerRequestFactory_i</code> implementations. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024783"> </a>
+<code class="cCode">simple_s.h</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024785"> </a>
+Created by the <code class="cCode">idl</code> command for the <code class="cCode">simple.idl</code> file. This module contains definitions and prototypes for the skeleton classes for the <code class="cCode">Simple_i</code> and <code class="cCode">SimplePerRequestFactory_i</code> interfaces. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024789"> </a>
+<code class="cCode">simple_client</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024791"> </a>
+Created by the <code class="cCode">buildobjclient</code> command for the <code class="cCode">simple_c.cpp</code> and <code class="cCode">simple_client.cpp</code> files.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024794"> </a>
+<code class="cCode">simple_per_object_server</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024796"> </a>
+Created by the <code class="cCode">buildobjserver</code> command for the <code class="cCode">simple_c.cpp</code>, <code class="cCode">simple_s.cpp</code>, <code class="cCode">simple_per_object_i.cpp</code>, <code class="cCode">simple_per_object_server.cpp</code>, and <code class="cCode">thread_macros.cpp</code> files.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024799"> </a>
+<code class="cCode">simple_per_request_server</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024801"> </a>
+Created by the <code class="cCode">buildobjserver</code> command for the <code class="cCode">simple_c.cpp</code>, <code class="cCode">simple_s.cpp</code>, <code class="cCode">simple_per_request_i.cpp</code>, <code class="cCode">simple_per_request_server.cpp</code>, and <code class="cCode">thread_macros.cpp</code> files.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024804"> </a>
+<code class="cCode">results</code> directory
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024806"> </a>
+Created by the <code class="cCode">runme</code> command to capture the results from running this script.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024809"> </a>
+<code class="cCode">adm</code> directory
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024811"> </a>
+Created by the <code class="cCode">runme</code> command to contain the security encryption key database file.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pGraphic"><a name="wp1024885"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024818table1024812"><caption><a name="wp1024818"> </a>
+Table 4-3  Files Created in the Results Directory &#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1024822"> </a>
+Files
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024824"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024827"> </a>
+<code class="cCode">input</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024829"> </a>
+Created by the <code class="cCode">runme</code> command to store the input that the <code class="cCode">runme</code> command provides to the C++ client application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024832"> </a>
+<code class="cCode">output</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024834"> </a>
+Created by the <code class="cCode">runme</code> command to contain the output when the <code class="cCode">runme</code> command executes the C++ client application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024837"> </a>
+<code class="cCode">expected_output</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024839"> </a>
+Created by the <code class="cCode">runme</code> command to contain the expected output when the <code class="cCode">runme</code> command is executed. The output file is compared to determine whether the test passed or failed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024842"> </a>
+<code class="cCode">log</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024844"> </a>
+Created by the <code class="cCode">runme</code> command to contain the output generated by the <code class="cCode">runme</code> command. If the command fails, check this file and the <code class="cCode">ULOG</code> file for errors.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024847"> </a>
+<code class="cCode">setenv.cmd</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024849"> </a>
+(Windows) Command file to set up environment variables required to build and run the simpapp_mt sample application step-by-step. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024852"> </a>
+<code class="cCode">setenv.ksh</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024854"> </a>
+(UNIX) Command file to set up environment variables required to build and run the simpapp_mt sample application step-by-step. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024857"> </a>
+<code class="cCode">stderr</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024859"> </a>
+Contains messages generated by <code class="cCode">tmboot.</code> If the <code class="cCode">-noredirect</code> server option is specified in the <code class="cCode">UBBCONFIG</code> file, the <code class="cCode">fprintf</code> method sends the output to this file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024862"> </a>
+<code class="cCode">stdout</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024864"> </a>
+Contains messages generated by <code class="cCode">tmboot.</code> If the <code class="cCode">-noredirect</code> server option is specified in the <code class="cCode">UBBCONFIG</code> file, the <code class="cCode">fprintf</code> method sends the output to this file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024867"> </a>
+<code class="cCode">tmsysevt.dat</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024869"> </a>
+Generated by the <code class="cCode">tmboot</code> command in the <code class="cCode">runme</code> command. It contains filtering and notification rules used by the <code class="cCode">TMSYSEVT</code> process.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024872"> </a>
+<code class="cCode">tuxconfig</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024874"> </a>
+A binary version of the configuration file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024877"> </a>
+<code class="cCode">ubb</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024879"> </a>
+<code class="cCode">UBBCONFIG</code> file for the simpapp_mt sample application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024882"> </a>
+<code class="cCode">ULOG.</code><code class="cCodeEmphasis">date</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024884"> </a>
+<code class="cCode">ULOG</code> file for storing run-time errors.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1024886"> </a>
+Running the Sample Application Step-by-Step
+</h4>
+<p class="pBody"><a name="wp1024887"> </a>
+This section explains how to run the simpapp_mt sample application in step-by-step mode. You must execute the <code class="cCode">runme</code> command before running simpapp_mt in step-by-step mode.
+</p>
+<p class="pBody"><a name="wp1024888"> </a>
+Follow the numbered steps to run the simpapp_mt application:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1024889"> </a>Set the environment variables.</li>
+<p class="pBodyRelative"><a name="wp1024890"> </a>
+<b class="cBold">Windows</b>
+</p>
+<a name="wp1024891"> </a><div class="pPreformattedRelative"><pre>&gt; ..\results\setenv</pre></div><p class="pBodyRelative"><a name="wp1024892"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<a name="wp1024893"> </a><div class="pPreformattedRelative"><pre>&gt; ../results/setenv.ksh</pre></div><li><a name="wp1024894"> </a>Execute <code class="cCode">tmboot -y</code> to launch the application. Information similar to the following is displayed:</li>
+<a name="wp1024895"> </a><div class="pPreformatted"><pre>&gt;tmboot -y<br />Booting all admin and server processes in /<code class="cCodeEmphasis">work_directory</code>/results/tuxconfig</pre></div><a name="wp1024896"> </a><div class="pPreformatted"><pre>Booting admin processes ...</pre></div><a name="wp1024897"> </a><div class="pPreformatted"><pre>exec BBL -A : process id=212 ... Started.</pre></div><a name="wp1024898"> </a><div class="pPreformatted"><pre>Booting server processes ...</pre></div><a name="wp1024899"> </a><div class="pPreformatted"><pre>exec TMSYSEVT -A : process id=289 ... Started.<br />exec TMFFNAME -A -- -N -M : process id=297 ... Started.<br />exec TMFFNAME -A -- -N : process id=233 ... Started.<br />exec TMFFNAME -A -- -F : process id=265 ... Started.<br />exec simple_per_object_server -A : process id=116 ... Started.<br />exec simple_per_request_server -A : process id=127 ... Started.<br />exec ISL -A -- -n //MrBeaver:2468 : process id=270 ... Started.<br />7 processes started.<br />&gt;</pre></div></ol></div>
+<p class="pBody"><a name="wp1024939"> </a>
+<a href="mtserv.html#wp1024909">Table&#160;4-4</a> describes the server processes started by <code class="cCode">tmboot</code>.
+</p>
+<p class="pGraphic"><a name="wp1030640"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024909table1024903"><caption><a name="wp1024909"> </a>
+Table 4-4  Server Processes Started by tmboot&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1024913"> </a>
+Process
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024915"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024917"> </a>
+<code class="cCode">TMSYSEVT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024919"> </a>
+System EventBroker.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024921"> </a>
+<code class="cCode">TMFFNAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024923"> </a>
+<code class="cCode">TMFFNAME</code> server processes:
+</div>
+<div class="pSmartList1TableBullet"><ul class="SmartList1TableBullet">
+<li><a name="wp1024924"> </a><code class="cCode">Master NameManager</code>&#8212;<code class="cCode">TMFFNAME</code> server process started when you specify both the <code class="cCode">-N</code> option and the <code class="cCode">-M</code> option.</li>
+<li><a name="wp1024925"> </a><code class="cCode">SLAVE</code> <code class="cCode">NameManager</code>&#8212;<code class="cCode">TMFFNAME</code> server process started when you specify only the <code class="cCode">-N</code> option.</li>
+<li><a name="wp1024926"> </a><code class="cCode">FactoryFinder</code> object&#8212;a <code class="cCode">TMFFNAME</code> server process started with the <code class="cCode">-F</code> option contains this object.</li>
+</ul></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024928"> </a>
+<code class="cCode">simple_per_object_server</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024930"> </a>
+Started as a thread-per-object server.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024932"> </a>
+<code class="cCode">simple_per_request_server</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024934"> </a>
+Started as a reentrant thread-per-request server.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024936"> </a>
+<code class="cCode">ISL</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024938"> </a>
+IIOP listener process.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1024940"> </a> Execute the client application.</li>
+<p class="pBodyRelative"><a name="wp1024941"> </a>
+<b class="cBold">Windows</b>
+</p>
+<a name="wp1024942"> </a><div class="pPreformattedRelative"><pre>&gt; .\simple_client</pre></div><p class="pBodyRelative"><a name="wp1024943"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<a name="wp1024944"> </a><div class="pPreformattedRelative"><pre>&gt; ./simple_client</pre></div></ol></div>
+<p class="pBody"><a name="wp1024945"> </a>
+When you execute the client application, messages similar to the following in <a href="mtserv.html#wp1024946">Listing&#160;4-3</a> are displayed: 
+</p>
+<div class="pCodeTitle"><a name="wp1024946"> </a>
+Listing&#160;4-3	   Messages Displayed When simpapp_mt Client Is Executed
+</div> <a name="wp1024947"> </a><div class="pPreformattedRelative"><pre>Number of simultaneous requests to post (1-50)?<br />String to convert using thread-per-request server?<br />Sending 4 deferred forward_lower requests<br />forward_lower request #0 returned:aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz<br />forward_lower request #1 returned:aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz<br />forward_lower request #2 returned:aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz<br />forward_lower request #3 returned:aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz<br />Sending 4 deferred forward_upper requests<br />forward_upper request #0 returned: AABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWWXXYYZZ<br />forward_upper request #1 returned: AABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWWXXYYZZ<br />forward_upper request #2 returned: AABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWWXXYYZZ<br />forward_upper request #3 returned: AABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWWXXYYZZ<br />String to convert using thread-per-object server?<br />Sending 4 deferred forward_lower requests<br />forward_lower request #0 returned:aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz<br />forward_lower request #1 returned:aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz<br />forward_lower request #2 returned:aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz<br />forward_lower request #3 returned:aabbccddeeffgghhiijjkkllmmnnooppqqrrssttuuvvwwxxyyzz<br />Sending 4 deferred forward_upper requests<br />forward_upper request #0 returned: AABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWWXXYYZZ<br />forward_upper request #1 returned: AABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWWXXYYZZ<br />forward_upper request #2 returned: AABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWWXXYYZZ</pre></div><a name="wp1024948"> </a><div class="pPreformattedRelative"><pre>forward_upper request #3 returned: AABBCCDDEEFFGGHHIIJJKKLLMMNNOOPPQQRRSSTTUUVVWWXXYYZZ</pre></div><h3 class="pHeading2"><a name="wp1024951"> </a>
+Shutting Down the Sample Application
+</h3>
+<p class="pBody"><a name="wp1024952"> </a>
+Before running another sample application, you should shut down the simpapp_mt sample application and eliminate all unwanted files from the working directory.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1024954"> </a>To end the application, run the <code class="cCode">tmshutdown -y</code> command. Information similar to the following is displayed:</li>
+<a name="wp1024955"> </a><div class="pPreformatted"><pre>&gt;tmshutdown -y<br />Shutting down all admin and server processes in /<code class="cCodeEmphasis">work_directory</code><code class="cCode">/</code>results/tuxconfig</pre></div><a name="wp1024956"> </a><div class="pPreformatted"><pre>Shutting down server processes ...</pre></div><a name="wp1024957"> </a><div class="pPreformatted"><pre>Server Id = 5 Group Id = SYS_GRP Machine = SITE1:     shutdown succeeded.<br />Server Id = 2 Group Id = APP_GRP2 Machine = SITE1:    shutdown succeeded.<br />Server Id = 4 Group Id = SYS_GRP Machine = SITE1:     shutdown succeeded.<br />Server Id = 3 Group Id = SYS_GRP Machine = SITE1:     shutdown succeeded.<br />Server Id = 2 Group Id = SYS_GRP Machine = SITE1:     shutdown succeeded.<br />Server Id = 1 Group Id = SYS_GRP Machine = SITE1:       shutdown succeeded.</pre></div><a name="wp1024958"> </a><div class="pPreformatted"><pre>Shutting down admin processes ...</pre></div><a name="wp1024959"> </a><div class="pPreformatted"><pre>Server Id = 0 Group Id = SITE1 Machine = SITE1: shutdown succeeded.<br />7 processes stopped.</pre></div><li><a name="wp1024960"> </a>Restore the working directory to its original state.</li>
+<p class="pBodyRelative"><a name="wp1024961"> </a>
+<b class="cBold">Windows</b>
+</p>
+<a name="wp1024962"> </a><div class="pPreformattedRelative"><pre>&gt; ..\results\setenv<br />&gt; make -f clean</pre></div><p class="pBodyRelative"><a name="wp1024963"> </a>
+<b class="cBold">UNIX</b>
+</p>
+<a name="wp1024964"> </a><div class="pPreformattedRelative"><pre>&gt; ../results/setenv.ksh<br />&gt; make -f makefile.mk clean</pre></div></ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024966"> </a>
+Multithreaded CORBA Server Application Administration
+</h2><p class="pBody"><a name="wp1024967"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024971"> </a><a href="mtserv.html#wp1024985">Specifying Thread Pool Size</a></li>
+<li><a name="wp1024975"> </a><a href="mtserv.html#wp1025034">Specifying a Threading Model</a></li>
+<li><a name="wp1024979"> </a><a href="mtserv.html#wp1025051">Specifying the Number of Active Objects</a></li>
+<li><a name="wp1024983"> </a><a href="mtserv.html#wp1025062">Sample UBBCONFIG File</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1024985"> </a>
+Specifying Thread Pool Size
+</h3>
+<p class="pBody"><a name="wp1024990"> </a>
+The  <code class="cCode">MAXDISPATCHTHREADS</code> and<code class="cCode"> MINDISPATCHTHREADS</code> parameters for specifying the maximum and minimum sizes of the thread pool are in the <code class="cCode">SERVERS</code> section of the <code class="cCode">UBBCONFIG</code> file. For examples of how to specify these parameters, see <a href="mtserv.html#wp1025073">Listing&#160;4-4</a>. A  multithreaded CORBA application uses these values to create and manage the thread pool.
+</p>
+<h4 class="pHeading3"><a name="wp1024994"> </a>
+MAXDISPATCHTHREADS 
+</h4>
+<p class="pBody"><a name="wp1024995"> </a>
+The <code class="cCode">MAXDISPATCHTHREADS</code> parameter determines the maximum number of concurrently dispatched threads that each server process can spawn. When specifying this parameter, consider the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024998"> </a>The value for  <code class="cCode">MAXDISPATCHTHREADS</code> determines the maximum size the thread pool can grow to be, as it increases in size to accommodate incoming requests.</li>
+<li><a name="wp1024999"> </a>The default value for <code class="cCode">MAXDISPATCHTHREADS</code> is 1. If you specify a value greater than 1, the system creates and uses a special dispatcher thread. This dispatcher thread is not included in the number of threads determining the maximum size of the thread pool.</li>
+<a name="wp1025000"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If you specify a value greater than 1 for <code class="cCode">MAXDISPATCHTHREADS</code> and do not supply a value for the <code class="cCode">CONCURR_STRATEGY</code> threading model parameter, the threading model for the application defaults to thread-per-object. For a discussion of the <code class="cCode">CONCURR_STRATEGY</code> threading model parameter, see <a href="mtserv.html#wp1025034">Specifying a Threading Model</a>.</td>
+</tr>
+</table>
+
+<li><a name="wp1025004"> </a>Specifying a value of 1 for the <code class="cCode">MAXDISPATCHTHREADS</code> parameter indicates that the CORBA server application should be configured as a single-threaded server.</li>
+<a name="wp1025005"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>When you build a multithreaded CORBA server application specifying  <code class="cCode">buildobjserver</code> <code class="cCode">-t</code>, that server is capable of running in multithreaded mode. To run as a multithreaded CORBA server application, the <code class="cCode">MAXDISPATCHTHREADS</code> parameter in the <code class="cCode">UBBCONFIG</code> file must be set to a value greater than 1; if it is not, the server application will run in single-threaded mode.</td>
+</tr>
+</table>
+
+<li><a name="wp1025007"> </a>The value you specify for the <code class="cCode">MAXDISPATCHTHREADS</code> parameter must not be less than the value you specify for the <code class="cCode">MINDISPATCHTHREADS</code> parameter. </li>
+<li><a name="wp1025008"> </a>The operating system resources limit the maximum number of threads that can be created in a process. <code class="cCode">MAXDISPATCHTHREADS</code> should be less than that limit, minus the number of application managed threads that your application requires.</li>
+</ul></div>
+<p class="pBody"><a name="wp1025010"> </a>
+The value of the  <code class="cCode">MAXDISPATCHTHREADS</code> parameter affects other parameters. For example, the <code class="cCode">MAXACCESSORS</code> parameter controls the number of simultaneous accesses to the Oracle Tuxedo system, and each thread counts as one accessor. For a multithreaded server application, you must account for the number of system-managed threads that each server is configured to run. A<em class="cEmphasis"> </em>system-managed<em style="font-style: italic" class="cEmphasis"> </em><span style="font-style: normal">thread</span><em class="cEmphasis"> </em>is a thread that is started and managed by the Oracle Tuxedo software, as opposed to threads started and managed by an application. Internally, Oracle Tuxedo manages a pool of available system-managed threads. When a client request is received, an available system-managed thread from the thread pool is scheduled to execute the request. When the request is completed, the system-managed thread is returned to the pool of available threads.
+</p>
+<p class="pBody"><a name="wp1025022"> </a>
+For example, if that you have 4 multithreaded servers in your system and each server is configured to run 50 system-managed threads, the accessor requirement for these servers is the sum total of the accessors, calculated as follows:
+</p>
+<p class="pBodyRelative"><a name="wp1025024"> </a>
+<code class="cCode">50 + 50 + 50 + 50 = 200 accessors</code>
+</p>
+<h4 class="pHeading3"><a name="wp1025025"> </a>
+MINDISPATCHTHREADS
+</h4>
+<p class="pBodyRelative"><a name="wp1025028"> </a>
+Use the <code class="cCode">MINDISPATCHTHREADS</code> parameter to specify the number of server dispatch threads that are started when the server is initially booted. When you specify this parameter, consider the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1025029"> </a>The value for <code class="cCode">MINDISPATCHTHREADS</code> determines the initial allocation of threads in the thread pool.</li>
+<li><a name="wp1025030"> </a>The separate dispatcher thread that is created when <code class="cCode">MAXDISPATCHTHREADS</code> is greater than 1 is not counted as part of the <code class="cCode">MINDISPATCHTHREADS</code> limit.</li>
+<li><a name="wp1025031"> </a>The value you specify for <code class="cCode">MINDISPATCHTHREADS</code> must not be greater than the value you specify for <code class="cCode">MAXDISPATCHTHREADS</code>.</li>
+<li><a name="wp1025032"> </a>The default value for <code class="cCode">MINDISPATCHTHREADS</code> is 0. </li>
+</ul></div>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1025034"> </a>
+Specifying a Threading Model
+</h3>
+<p class="pBody"><a name="wp1025035"> </a>
+To specify a threading model, you set the <code class="cCode">CONCURR_STRATEGY</code> parameter which is defined in the <code class="cCode">SERVERS</code> section of the <code class="cCode">UBBCONFIG</code> file.
+</p>
+<p class="pBody"><a name="wp1025037"> </a>
+Use the <code class="cCode">CONCURR_STRATEGY</code> parameter to specify the threading model a multithreaded CORBA server application is to use. The <code class="cCode">CONCURR_STRATEGY</code> parameter accepts either of these values:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1025039"> </a><code class="cCode">CONCURR_STRATEGY = PER_REQUEST</code></li>
+<li><a name="wp1025040"> </a><code class="cCode">CONCURR_STRATEGY = PER_OBJECT</code></li>
+</ul></div>
+<p class="pBody"><a name="wp1025041"> </a>
+When you specify <code class="cCode">CONCURR_STRATEGY = PER_REQUEST </code>to employ the  thread-per-request model, each invocation on the CORBA server application is assigned to an arbitrary thread from the threads pool. 
+</p>
+<p class="pBody"><a name="wp1025043"> </a>
+When you specify <code class="cCode">CONCURR_STRATEGY = PER_OBJECT</code> to employ the thread-per-object model, each active object is associated with a single thread at any one time. Each request for an object establishes an association between a dispatch thread and the object.
+</p>
+<p class="pBody"><a name="wp1025044"> </a>
+If the value for <code class="cCode">MAXDISPATCHTHREADS</code> is greater than one and you do not specify a value for <code class="cCode">CONCURR_STRATEGY</code>, the threading model is set to <code class="cCode">PER_OBJECT</code>.
+</p>
+<p class="pBody"><a name="wp1025047"> </a>
+For more information on the characteristics of threading models, see <a href="mtserv.html#wp1024005"><span class="cHyperlink">
+Threading Models on page&#160;4-5</span></a>.
+</p>
+<h3 class="pHeading2"><a name="wp1025051"> </a>
+Specifying the Number of Active Objects
+</h3>
+<p class="pBody"><a name="wp1025052"> </a>
+Use the <code class="cCode">MAXOBJECTS</code> parameter to specify the maximum number of objects per machine to be accommodated in the Active Object Map tables in the bulletin board. You can set this value in either the <code class="cCode">RESOURCES</code> section or the <code class="cCode">MACHINES</code> section of the configuration file. The <code class="cCode">MAXOBJECTS</code> <code class="cCode">number</code> in the <code class="cCode">RESOURCES</code> section is a system-wide setting. Use the <code class="cCode">MAXOBJECTS</code> <code class="cCode">number</code> in the <code class="cCode">MACHINES</code> section to override the system-wide setting on a per-machine basis.
+</p>
+<p class="pBody"><a name="wp1025053"> </a>
+For a system-wide setting, specify:
+</p>
+<p class="pBody"><a name="wp1025054"> </a>
+<code class="cCode">*RESOURCES<br />         MAXOBJECTS </code><code class="cCodeEmphasis">number</code>
+</p>
+<p class="pBody"><a name="wp1025055"> </a>
+To override a system-wide setting for a specific machine, specify:
+</p>
+<p class="pBody"><a name="wp1025056"> </a>
+<code class="cCode">*MACHINES<br />         MAXOBJECTS = </code><code class="cCodeEmphasis">number</code>
+</p>
+<p class="pBody"><a name="wp1025057"> </a>
+The value for <code class="cCodeEmphasis">number</code> is limited only by the resources of your operating system.
+</p>
+<h3 class="pHeading2"><a name="wp1025062"> </a>
+Sample UBBCONFIG File
+</h3>
+<p class="pBody"><a name="wp1025070"> </a>
+<a href="mtserv.html#wp1025073">Listing&#160;4-4</a> shows a the <code class="cCode">UBBCONFIG</code> file for the Oracle Tuxedo Threads sample application. The threads-related parameters are presented in <b class="cBold">boldface</b> text.
+</p>
+<a name="wp1025071"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The value for the <code class="cCode">MAXOBJECTS</code> parameter affects the operation of a multithreaded server. However, this parameter is not specific to multithreaded servers, since it also affects the operation of single-threaded servers. Increasing the value for <code class="cCode">MAXOBJECTS</code> results in the consumption of additional system resources for any server.</td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1025073"> </a>
+Listing&#160;4-4	   Threads Sample Application UBBCONFIG File
+</div> <a name="wp1025074"> </a><div class="pPreformatted"><pre><code class="cCode">*RESOURCES<br />     IPCKEY     55432<br />     DOMAINID   simpapp<br />    </code><code class="cCodeBold"> MAXOBJECTS 100<br /></code><code class="cCode">     MASTER     SITE1<br />     MODEL      SHM<br />     LDBAL      N<br /><br />*MACHINES<br />     &quot;sunstar&quot;<br />     LMID         = SITE1<br />     APPDIR       = &quot;/rusers1/lyon/samples/corba/simpapp_mt&quot;<br />     TUXCONFIG    = &quot;/rusers1/lyon/samples/corba/simpapp_mt/results/tuxconfig&quot;<br />     TUXDIR       = &quot;/usr/local/TUXDIR&quot;<br />     MAXWSCLIENTS = 10<br />     MAXACCESSERS = 200</code></pre></div><a name="wp1025076"> </a><div class="pPreformatted"><pre><code class="cCode">*GROUPS<br />     SYS_GRP<br />        LMID    = SITE1<br />        GRPNO   = 1<br />     APP_GRP1<br />        LMID    = SITE1<br />        GRPNO   = 2<br />     APP_GRP2<br />        LMID    = SITE1<br />        GRPNO   = 3</code></pre></div><a name="wp1025077"> </a><div class="pPreformatted"><pre><code class="cCode">*SERVERS<br />     DEFAULT:<br />        RESTART = Y<br />        MAXGEN  = 5<br />     TMSYSEVT<br />        SRVGRP  = SYS_GRP<br />        SRVID   = 1<br />     TMFFNAME<br />        SRVGRP  = SYS_GRP<br />        SRVID   = 2<br />        CLOPT   = &quot;-A -- -N -M&quot;<br />     TMFFNAME<br />        SRVGRP  = SYS_GRP<br />        SRVID   = 3<br />        CLOPT   = &quot;-A -- -N&quot;<br />     TMFFNAME<br />        SRVGRP  = SYS_GRP<br />        SRVID   = 4<br />        CLOPT   = &quot;-A -- -F&quot;<br />     simple_per_object_server<br />        SRVGRP  = APP_GRP1<br />        SRVID   = 1<br />        </code><code class="cCodeBold">MINDISPATCHTHREADS = 10<br />        MAXDISPATCHTHREADS = 100<br />        CONCURR_STRATEGY = PER_OBJECT<br /></code><code class="cCode">        RESTART = N<br />     simple_per_request_server<br />        SRVGRP  = APP_GRP2<br />        SRVID   = 2<br />        </code><code class="cCodeBold">MINDISPATCHTHREADS = 10<br />        MAXDISPATCHTHREADS = 100<br />        CONCURR_STRATEGY = PER_REQUEST<br /></code><code class="cCode">        RESTART = N<br />     ISL<br />        SRVGRP  = SYS_GRP<br />        SRVID   = 5<br />     CLOPT   = &quot;-A -- -n //sunbstar:2468 -d /dev/tcp&quot;</code></pre></div><a name="wp1025078"> </a><div class="pPreformatted"><pre><code class="cCode">*SERVICES</code></pre></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="mtserv.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="creasimp.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="security.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

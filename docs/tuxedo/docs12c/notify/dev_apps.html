@@ -1,0 +1,597 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/notify/fm/dev_apps.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:19:11" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Using the Oracle Simple Events API</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Using the CORBA Notification Service
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="evnt_api.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="cos_apps.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/notify.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1109599"> </a>
+Using the Oracle Simple Events API
+</h1>
+<p class="pBody"><a name="wp1091633"> </a>
+This chapter describes the development steps required to create Notification Service applications using the Oracle Simple Events API and the C++ languages.
+</p>
+<p class="pBody"><a name="wp1106306"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1041834"> </a><a href="dev_apps.html#wp1020920">Development Process</a></li>
+<li><a name="wp1041891"> </a><a href="dev_apps.html#wp1101829">Step 1: Writing an Application to Post Events</a></li>
+<li><a name="wp1078836"> </a><a href="dev_apps.html#wp1104879">Step 2: Writing an Application to Subscribe to Events</a></li>
+<li><a name="wp1041929"> </a><a href="dev_apps.html#wp1080650">Step 3: Compiling and Running Notification Service Applications</a></li>
+</ul></div>
+<a name="wp1110930"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The Oracle Tuxedo CORBA Java client and Oracle Tuxedo CORBA Java client ORB were deprecated in Tuxedo 8.1 and are no longer supported. All Oracle Tuxedo CORBA Java client and Oracle Tuxedo CORBA Java client ORB text references, associated code samples, should only be used to help implement/run third party Java ORB libraries, and for programmer reference only.</td>
+</tr>
+</table>
+
+<a name="wp1110931"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>Technical support for third party CORBA Java ORBs should be provided by their respective vendors. Oracle Tuxedo does not provide any technical support or documentation for third party CORBA Java ORBs.</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1020920"> </a>
+Development Process
+</h2><p class="pBody"><a name="wp1027608"> </a>
+<a href="dev_apps.html#wp1105989">Table&#160;3-1</a> outlines the development process for creating Notification Service applications.
+</p>
+<p class="pGraphic"><a name="wp1105809"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1105989table1105818"><caption><a name="wp1105989"> </a>
+Table 3-1  Development Process&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1106027"> </a>
+Step
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1106029"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1106031"> </a>
+1
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1106033"> </a>
+Designing events
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1106035"> </a>
+2
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1106037"> </a>
+Writing an application that posts events 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1106039"> </a>
+3
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1106041"> </a>
+Writing an application that subscribes to events
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1106057"> </a>
+4
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1106059"> </a>
+Compiling a Notification Service application
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1101816"> </a>
+These steps are explained in detail in subsequent topics.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1101817"> </a>
+Designing Events
+</h2><p class="pBody"><a name="wp1101818"> </a>
+The design of events is basic to any notification service. The design impacts not only the volume of information that is delivered to matching subscriptions, but the efficiency and performance of the Notification Service as well. Therefore, careful planning should be done to ensure that your Notification Service will be able to handle your needs now and allow for future growth. For a discussion of event design, see <a href="evnt_api.html#wp1089806">&quot;Designing Events&quot; on page&#160;-6</a>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1101829"> </a>
+Step 1: Writing an Application to Post Events
+</h2><p class="pBody"><a name="wp1091754"> </a>
+The following types of CORBA applications can post events:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1107733"> </a>C++ clients, joint client/servers and servers.</li>
+<li><a name="wp1091759"> </a>Foreign ORB clients. </li>
+</ul></div>
+<p class="pBody"><a name="wp1091688"> </a>
+To post events, an application must, at a minimum, implement the following functions:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1056628"> </a>Get the event channel factory object reference and use it to get the event channel.</li>
+<li><a name="wp1056626"> </a>Create and post events.</li>
+</ul></div>
+<p class="pBody"><a name="wp1105356"> </a>
+The following sections describe each of these functions.
+</p>
+<h3 class="pHeading2"><a name="wp1105358"> </a>
+Getting the Event Channel
+</h3>
+<p class="pBody"><a name="wp1105359"> </a>
+Before the client application can post an event, it must first get the event channel. 
+</p>
+<p class="pBody"><a name="wp1111100"> </a>
+This development step is illustrated in <a href="dev_apps.html#wp1057832">Listing&#160;3-1</a>. <a href="dev_apps.html#wp1057832">Listing&#160;3-1</a> is based on the Notification Service sample applications that use the Oracle Simple Events API. 
+</p>
+<p class="pBody"><a name="wp1111101"> </a>
+To get the event channel factory object reference, the <code class="cCode">resolve_initial_references</code> method is invoked on the Bootstrap object using the <code class="cCode">&quot;Tobj_SimpleEventsService&quot;</code> environmental object. The object reference is used to get the channel factory, which is in turn is used to get the event channel. <a href="dev_apps.html#wp1057832">Listing&#160;3-1</a> show code examples in C++.
+</p>
+<div class="pCodeTitle"><a name="wp1057832"> </a>
+Listing&#160;3-1	   Getting the Event Channel (C++) 
+</div> <a name="wp1057031"> </a><div class="pPreformatted"><pre><code class="cCode">// Get the Simple Events channel factory object reference.<br />CORBA::Object_var channel_factory_oref =<br /></code>&#160;&#160;<code class="cCode">bootstrap.resolve_initial_references(<br /></code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<code class="cCode">&quot;Tobj_SimpleEventsService&quot;);<br />Tobj_SimpleEvents::ChannelFactory_var channel_factory =<br /></code>&#160;&#160;<code class="cCode">Tobj_SimpleEvents::ChannelFactory::_narrow(<br /></code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<code class="cCode">channel_factory_oref.in());<br />// Use the channel factory to get the default channel.<br />Tobj_SimpleEvents::Channel_var channel =<br /></code>&#160;&#160;<code class="cCode">channel_factory-&gt;find_channel(<br /></code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<code class="cCode">Tobj_SimpleEvents::DEFAULT_CHANNEL);</code></pre></div><h3 class="pHeading2"><a name="wp1100338"> </a>
+Creating and Posting Events
+</h3>
+<p class="pBody"><a name="wp1100339"> </a>
+Before an event can be posted, it must be created. The following listings are based on the Notification Service sample applications. 
+</p>
+<p class="pBody"><a name="wp1058204"> </a>
+<a href="dev_apps.html#wp1058199">Listing&#160;3-2</a> show how this is implemented in C++. To report news to the events channel, this application executes the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1058218"> </a>Creates an event and sets the domain name and type name. In the code samples, the domain name is set to &#8220;News&#8221; and the event type is set to &#8220;Sports&#8221;.</li>
+<li><a name="wp1058222"> </a>Adds a field to the event&#8217;s filterable data to contain the story, sets the name of the added field to &#8220;Story&#8221;, and the value of the field to a string containing the story.</li>
+<li><a name="wp1058231"> </a>Uses the <code class="cCode">push_structured_event</code> operation to post the event to the Notification Service.</li>
+<div class="pCodeTitle"><a name="wp1058199"> </a>
+Listing&#160;3-2	   Creating and Posting the Event (C++)
+</div> <a name="wp1057239"> </a><div class="pPreformatted"><pre>// Create an event.<br />CosNotification::StructuredEvent notification;<br />// Set the domain to &quot;News&quot;.<br />notification.header.fixed_header.event_type.domain_name =<br />&#160;&#160;&#160;&#160;CORBA::string_dup(&quot;News&quot;);<br />// Set the type to the news category.<br />notification.header.fixed_header.event_type.type_name =<br />&#160;&#160;&#160;&#160;CORBA::string_dup(&#8220;Sports&#8221;);<br />// Add one field, which will contain the story, to the<br />// event&#39;s filterable data. Set the field&#39;s name to<br />// &quot;Story&quot; and value to a string containing the story.<br />notification.filterable_data.length(1);<br />notification.filterable_data[0].name =<br />&#160;&#160;&#160;&#160;CORBA::string_dup(&quot;Story&quot;);<br />notification.filterable_data[0].value &lt;&lt;= &#8220;John Smith wins again&#8221;;<br />// Post the event.<br />// Subscribers who subscribed to events whose domain is<br />// &quot;News&quot; and whose type matches the news category will<br />// receive this event<br />channel-&gt;push_structured_event(notification);</pre></div></ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1104879"> </a>
+Step 2: Writing an Application to Subscribe to Events
+</h2><p class="pBody"><a name="wp1091700"> </a>
+The following types of CORBA applications can subscribe to events:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1091723"> </a>C++ joint client/servers and servers.</li>
+<li><a name="wp1103515"> </a>Foreign ORB clients. </li>
+</ul></div>
+<p class="pBody"><a name="wp1055532"> </a>
+To subscribe to events, an application must, at a minimum, implement the following functions:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1055637"> </a>Implement a CosNotifyComm OMG IDL interface that supports the <code class="cCode">push_structured_event</code> operation.</li>
+<li><a name="wp1100379"> </a>Get the event channel factory object reference and use it to get the event channel.</li>
+<li><a name="wp1098736"> </a>Define and create a subscription that includes the callback object reference.</li>
+<li><a name="wp1100368"> </a>Create a callback object that implements the CosNotifyComm::StructuredPushConsumer interface.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1102473"> </a>
+Implementing the CosNotifyComm::StructuredPushConsumer Interface
+</h3>
+<p class="pBody"><a name="wp1102474"> </a>
+In order for the callback object to receive events, it must implement the CosNotifyComm::StructuredPushConsumer interface that supports the <code class="cCode">push_structured_event</code> operation. When an event occurs that has a matching subscription, the Notification Service invokes this operation on the callback object to push the event to the subscriber application.
+</p>
+<p class="pBody"><a name="wp1102475"> </a>
+The CosNotifyComm::StructuredPushConsumer interface also defines the operations <code class="cCode">offer_change</code> and <code class="cCode">disconnect_structured_push_consumer</code>. The Notification Service never invokes these operations, so you should implement stubbed out versions that throw <code class="cCode">CORBA::NO_IMPLEMENT</code>.
+</p>
+<p class="pBody"><a name="wp1102482"> </a>
+<a href="dev_apps.html#wp1102484">Listing&#160;3-3</a> and <a href="dev_apps.html#wp1102496">Listing&#160;3-4</a> show how this interface is implemented in C++.
+</p>
+<div class="pCodeTitle"><a name="wp1102484"> </a>
+Listing&#160;3-3	   Sample CosNotifyComm::StructuredPushConsumer Interface Implementation (NewsConsumer_i.h)
+</div> <a name="wp1102485"> </a><div class="pPreformatted"><pre>#ifndef _news_consumer_i_h<br />#define _news_consumer_i_h<br />#include &quot;CosNotifyComm_s.h&quot;<br />// For the servant class to receive news events,<br />// it must implement the CosNotifyComm::StructuredPushConsumer <br />// idl interface.<br />class NewsConsumer_i : public POA_CosNotifyComm::StructuredPushConsumer<br />{<br />&#160;&#160;public:<br />&#160;&#160;&#160;&#160;// This method will be called when a news event occurs.<br />&#160;&#160;&#160;&#160;virtual void push_structured_event(<br />&#160;&#160;&#160;&#160;&#160;&#160;const CosNotification::StructuredEvent&amp; notification<br />&#160;&#160;&#160;&#160;); <br />&#160;&#160;&#160;&#160;// OMG&#39;s CosNotifyComm::StructuredPushConsumer idl<br />&#160;&#160;&#160;&#160;// interface defines the methods &quot;offer_change&quot; and<br />&#160;&#160;&#160;&#160;// &quot;disconnect_structured_push_consumer&quot;. Since the <br />&#160;&#160;&#160;&#160;// Notification Service never invokes these methods, just<br />&#160;&#160;&#160;&#160;// have them throw a CORBA::NO_IMPLEMENT exception<br />&#160;&#160;&#160;&#160;virtual void offer_change(<br />&#160;&#160;&#160;&#160;&#160;&#160;const CosNotification::EventTypeSeq&amp; added,<br />&#160;&#160;&#160;&#160;&#160;&#160;const CosNotification::EventTypeSeq&amp; removed )<br />&#160;&#160;&#160;&#160;{<br />&#160;&#160;&#160;&#160;&#160;&#160;throw CORBA::NO_IMPLEMENT();<br />&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;virtual void disconnect_structured_push_consumer()<br />&#160;&#160;&#160;&#160;{<br />&#160;&#160;&#160;&#160;&#160;&#160;throw CORBA::NO_IMPLEMENT();<br />&#160;&#160;&#160;&#160;}<br />};<br />#endif</pre></div><div class="pCodeTitle"><a name="wp1102496"> </a>
+Listing&#160;3-4	   Sample CosNotifyComm::StructuredPushConsumer Interface Implementation (NewsConsumer_i.cpp)
+</div> <a name="wp1102498"> </a><div class="pPreformatted"><pre>#include &quot;NewsConsumer_i.h&quot;<br />#include &lt;iostream.h&gt;<br />//-----------------------------------------------------------<br />// Subscriber.cpp creates a simple events subscription to &quot;News&quot; <br />// events and has the events delivered to a NewsConsumer_i <br />// object. When a news event occurs (this happens when a user <br />// runs the Reporter application and reports a news story), this <br />// method will be invoked:<br />void NewsConsumer_i::push_structured_event(<br />&#160;&#160;const CosNotification::StructuredEvent&amp; notification )<br />&#160;&#160;{<br />// Extract the story from the first field in the event&#39;s <br />// filterable data.<br />char* story;<br />notification.filterable_data[0].value &gt;&gt;= story;<br />// For coding simplicity, assume &quot;story&quot; is not &quot;null&quot;.<br />// Print out the event.<br />cout<br />&#160;&#160;&#160;&#160;&lt;&lt; &quot;-----------------------------------------------------&quot;<br />&#160;&#160;&#160;&#160;&lt;&lt; endl<br />&#160;&#160;&#160;&#160;&lt;&lt; &quot;Category : &quot;<br />&#160;&#160;&#160;&#160;&lt;&lt; notification.header.fixed_header.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;event_type.type_name.in()<br />&#160;&#160;&#160;&#160;&lt;&lt; endl<br />&#160;&#160;&#160;&#160;&lt;&lt; &quot;Story    : &quot;<br />&#160;&#160;&#160;&#160;&lt;&lt; story<br />&#160;&#160;&#160;&#160;&lt;&lt; endl;<br />...<br />}</pre></div><h3 class="pHeading2"><a name="wp1059127"> </a>
+Getting the Event Channel
+</h3>
+<p class="pBody"><a name="wp1059128"> </a>
+This step is the same for event posters and event subscribers. For a discussion of this step, see <a href="dev_apps.html#wp1102473">&quot;Implementing the CosNotifyComm::StructuredPushConsumer Interface&quot; on page&#160;-5</a>.
+</p>
+<h3 class="pHeading2"><a name="wp1059178"> </a>
+Creating a Callback Object
+</h3>
+<p class="pBody"><a name="wp1100534"> </a>
+To receive events, the application must also be a server; that is, the application must implement a callback object that can be invoked (called back) when an event occurs that matches the subscriber&#8217;s subscription. 
+</p>
+<p class="pBody"><a name="wp1100536"> </a>
+Creating a callback object includes the following steps:
+</p>
+<a name="wp1111090"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The following steps apply to an Oracle Tuxedo CORBA joint client/server. Oracle Tuxedo CORBA servers can also subscribe to events.</td>
+</tr>
+</table>
+
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1111091"> </a>Create a callback object. Callback objects can be implemented using either the BEAWrapper Callback API or the CORBA Portable Object Adaptor (POA).</li>
+<li><a name="wp1096733"> </a>Create the servant.</li>
+<li><a name="wp1111073"> </a>Create an object reference to the callback servant.</li>
+</ol></div>
+<p class="pBody"><a name="wp1111115"> </a>
+For a complete description of the BEAWrapper Callbacks object and its methods, see the Joint Client/Servers chapter in the <a href="../CORBA_ref/index.html">CORBA Programming Reference</a>.<a href="../CORBA_ref/index.html"></a>
+</p>
+<p class="pComment"><a name="wp1111132"> </a>
+pay attention to&#8221;BEAWrapper&#8221;
+</p>
+<a name="wp1111124"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Using the BEAWrapper Callback object to create a callback object is discussed below. For a discussion of how to implement a callback object using the POA, see <a href="../srv2srv/index.html">Using CORBA Server-to-Server Communication</a>.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1111053"> </a>
+<a href="dev_apps.html#wp1060270">Listing&#160;3-5</a> show show to use the BEAWrapper Callbacks object to create a callback object in C++. In the code examples, the <code class="cCode">NewsConsumber_i servant </code>is created and the <code class="cCode">start_transient</code> method is used to create a transient object reference.
+</p>
+<div class="pCodeTitle"><a name="wp1060270"> </a>
+Listing&#160;3-5	   Sample Code for Creating a Callback Object With Transient Object Reference (Introductory Application Subscriber.cpp)
+</div> <a name="wp1096702"> </a><div class="pPreformatted"><pre>// Create a callback wrapper object since this client needs to<br />// support callbacks.<br />BEAWrapper::Callbacks wrapper(orb.in());<br />NewsConsumer_i* news_consumer_impl = new NewsConsumer_i;<br />CORBA::Object_var news_consumer_oref =<br />&#160;&#160;&#160;&#160;&#160;&#160;wrapper.start_transient(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;news_consumer_impl,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CosNotifyComm::_tc_StructuredPushConsumer-&gt;id()<br />&#160;&#160;&#160;&#160;&#160;&#160;);<br />CosNotifyComm::StructuredPushConsumer_var<br />&#160;&#160;&#160;&#160;news_consumer =<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CosNotifyComm::StructuredPushConsumer::_narrow(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;news_consumer_oref.in()<br />&#160;&#160;&#160;&#160;&#160;&#160;);</pre></div><h3 class="pHeading2"><a name="wp1096916"> </a>
+Creating a Subscription
+</h3>
+<p class="pBody"><a name="wp1068859"> </a>
+In order for the subscriber to receive events, it must subscribe to the Notification Service. You can create either a transient subscription or a persistent subscription.
+</p>
+<p class="pBody"><a name="wp1090083"> </a>
+<a href="dev_apps.html#wp1067336">Listing&#160;3-6</a> from the Introductory sample application, show how to create a transient subscription in C++. 
+</p>
+<p class="pBody"><a name="wp1090070"> </a>
+The following steps must be performed:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1067360"> </a>Set the subscription&#8217;s quality of service (QoS) to either transient or persistent.</li>
+<li><a name="wp1067361"> </a>Determine the <code class="cCode">subscription_name</code> (optional), <code class="cCode">domain_name</code>, <code class="cCode">type_name</code>, and <code class="cCode">data_filter</code> (optional).</li>
+<li><a name="wp1067362"> </a>Create the subscription. The subscription sets the <code class="cCode">domain_name</code>, <code class="cCode">type_name</code>, and <code class="cCode">data_filter</code> (optional), the Quality of Service (QoS), and supplies the object reference to the subscriber&#8217;s callback object to the Notification Service.</li>
+<div class="pCodeTitle"><a name="wp1067336"> </a>
+Listing&#160;3-6	   Creating a Transient Subscription (C++)
+</div> <a name="wp1067333"> </a><div class="pPreformatted"><pre>// Set the quality of service to TRANSIENT.<br />CosNotification::QoSProperties qos;<br />qos.length(1);<br />qos[0].name =<br />&#160;&#160;&#160;CORBA::string_dup(Tobj_SimpleEvents::SUBSCRIPTION_TYPE);<br />qos[0].value &lt;&lt;=<br />&#160;&#160;&#160;Tobj_SimpleEvents::TRANSIENT_SUBSCRIPTION;<br />// Set the type to the news category.<br />const char* type = &#8220;Sports&#8221;;<br />// Create the subscription. Set the domain to &quot;News&quot; and<br />// the data filter to age greater than 30.<br />Tobj_SimpleEvents::SubscriptionID subscription_id =<br />&#160;&#160;channel-&gt;subscribe(<br />&#160;&#160;&#160;&#160;subscription_name,<br />&#160;&#160;&#160;&#160;&quot;News&quot;,  // domain<br />&#160;&#160;&#160;&#8220;Sports&#8221;, // type<br />&#160;&#160;&#160;&#160;&quot;Age &gt; 30&quot;,  // Data filter.<br />&#160;&#160;&#160;&#160;qos,<br />&#160;&#160;&#160;&#160;news_consumer.in()<br />&#160;&#160;);</pre></div></ol></div>
+<a name="wp1090598"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>When you use data filtering, you must also perform some configuration tasks. For a discussion of data filtering configuration requirements, see <a href="admin.html#wp1036127">&quot;Configuring Data Filters&quot; on page&#160;-2</a>.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1102333"> </a>
+<a href="dev_apps.html#wp1090603">Listing&#160;3-7</a>, which show code in the Advanced sample application in C++, illustrates the coding steps required to create a persistent subscription to the Notification Service. The steps required to create a persistent subscription are the same as those required to create a transient subscription, as described previously.
+</p>
+<a name="wp1100110"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>While the code examples shown here assume that the <code class="cCode">news_consumer</code> callback object has a persistent object reference, you can also create persistent subscriptions with transient callback object references. For a discussion of transient versus persistent callback object references, see <a href="evnt_api.html#wp1136315">Table&#160;2-3</a>.</td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1090603"> </a>
+Listing&#160;3-7	   Creating a Persistent Subscription (Advanced Subscriber.cpp)
+</div> <a name="wp1095148"> </a><div class="pPreformatted"><pre>CosNotification::QoSProperties qos;<br />qos.length(1);<br />qos[0].name =<br />&#160;&#160;CORBA::string_dup(Tobj_SimpleEvents::SUBSCRIPTION_TYPE);<br />qos[0].value &lt;&lt;= Tobj_SimpleEvents::PERSISTENT_SUBSCRIPTION;<br />CosNotifyComm::StructuredPushConsumer_var<br />&#160;&#160;news_consumer =<br />&#160;&#160;&#160;&#160;CosNotifyComm::StructuredPushConsumer::_narrow(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;news_consumer_oref.in()<br />&#160;&#160;&#160;&#160;&#160;&#160;);<br />Tobj_SimpleEvents::SubscriptionID sub_id =<br /> channel-&gt;subscribe(<br />&#160;&#160;&#160;&#160;subscription_info.subscription_name(),<br />&#160;&#160;&#160;&#160;&quot;News&quot;, // domain<br />&#160;&#160;&#160;&#160;&#8220;Sports&#8221;, // type<br />&#160;&#160;&#160;&#160;&#8220;&#8221;,     // No data filter.<br />&#160;&#160;&#160;&#160;qos,<br />&#160;&#160;&#160;&#160;news_consumer.in()<br />&#160;&#160;)<br />); </pre></div><h4 class="pHeading3"><a name="wp1107330"> </a>
+Threading Considerations for C++ Joint Client/Server Applications
+</h4>
+<p class="pBody"><a name="wp1107331"> </a>
+A joint client/server application may first function as a client application and then switch to functioning as a server application. To do this, the joint client/server application turns complete control of the thread to the Object Request Broker (ORB) by making the following invocation:
+</p>
+<p class="pBody"><a name="wp1103621"> </a>
+<code class="cCode">orb -&gt; run();</code>
+</p>
+<p class="pBody"><a name="wp1103622"> </a>
+If a method in the server portion of a joint client/server application invokes <code class="cCode">ORB::shutdown()</code>, all server activity stops and control is returned to the statement after <code class="cCode">ORB::run()</code> is invoked in the server portion of the joint client/server application. Only under this condition does control return to the client functionality of the joint client/server application.
+</p>
+<p class="pBody"><a name="wp1103623"> </a>
+Since a client application has only a single thread, the client functionality of the joint client/server application must share the central processing unit (CPU) with the server functionality of the joint client/server application. This sharing is accomplished by occasionally checking with the ORB to see if the joint client/server application has server application work to perform. Use the following code to perform the check with the ORB:
+</p>
+<p class="pBody"><a name="wp1103624"> </a>
+<code class="cCode">if ( orb-&gt;work_pending() ) orb-&gt;perform_work();</code>
+</p>
+<p class="pBody"><a name="wp1103625"> </a>
+After the ORB completes the server application work, the ORB returns to the joint client/server application, which then performs client application functions. The joint client/server application must remember to occasionally check with the ORB; otherwise, the joint client/server application will never process any invocations.
+</p>
+<p class="pBody"><a name="wp1103626"> </a>
+You should be aware that the ORB cannot service callbacks while the joint client/server application is blocking on a request. If a joint client/server application invokes an object in another Oracle Tuxedo CORBA server application, the ORB blocks while it waits for the response. While the ORB is blocking, it cannot service any callbacks, so the callbacks are queued until the request is completed.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1080650"> </a>
+Step 3: Compiling and Running Notification Service Applications
+</h2><p class="pBody"><a name="wp1097321"> </a>
+The final step in the development of a Notification Service application is to compile, build, and run the application. To do this, you need to perform the following steps.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1097322"> </a>Generate the required client stub and skeleton files to define interfaces between the Notification Service and event poster and subscriber applications. Event poster applications can be clients, joint client/servers, or servers. Event subscriber applications can be joint client/servers or servers.</li>
+<li><a name="wp1070086"> </a>Compile the application code and link against the skeleton and client stub files.</li>
+<li><a name="wp1101678"> </a>Build the application.</li>
+<li><a name="wp1101681"> </a>Run the application. </li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1070093"> </a>
+Generating the Client Stub and Skeleton Files
+</h3>
+<p class="pBody"><a name="wp1070096"> </a>
+To generate the client stub and skeleton files, you must execute the <code class="cCode">idl</code> command for each of the Notification IDL files that your application uses. <a href="dev_apps.html#wp1104199">Table&#160;3-2</a> shows the<code class="cCode"> idl</code> commands used for each type of subscriber.
+</p>
+<p class="pGraphic"><a name="wp1104196"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1104199table1104197"><caption><a name="wp1104199"> </a>
+Table 3-2  idl Command Requirements
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1104205"> </a>
+Language
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1104207"> </a>
+Oracle Tuxedo CORBA Joint Client/Server
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1104209"> </a>
+Oracle Tuxedo CORBA Server
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1104211"> </a>
+C++
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1104213"> </a>
+<code class="cCode">idl -P</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1104215"> </a>
+<code class="cCode">idl</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1104195"> </a>
+The following is an example of an <code class="cCode">idl</code> command:
+</p>
+<a name="wp1097850"> </a><div class="pPreformattedRelative"><pre>&gt;idl -IC:\tuxdir\include C:\tuxdir\include\CosEventComm.idl</pre></div><p class="pBody"><a name="wp1097802"> </a>
+<a href="dev_apps.html#wp1099264">Table&#160;3-3</a> lists the IDL files required by each type of Notification Service application that uses the Oracle Simple Events Interface.
+</p>
+<p class="pGraphic"><a name="wp1111021"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1099264table1097364"><caption><a name="wp1099264"> </a>
+Table 3-3  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">IDL Files Required by Notification Service Applications</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1099268"> </a>
+Application Type
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1099270"> </a>
+Required OMG IDL Files
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1099272"> </a>
+Event poster (can be a client, a joint client/server, or a server). (Stubs are required for all files.)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1099275"> </a>
+CosEventComm.idl CosNotification.idl CosNotifyComm.idl Tobj_Events.idl Tobj_SimpleEvents.idl
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1099277"> </a>
+Subscriber (can be a server or a joint client/server). (Stubs are required for all files. Skeleton is required for the <code class="cCode">CosNotifyComm.idl</code> file.)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1099280"> </a>
+CosEventComm.idl CosNotification.idl CosNotifyComm.idl Tobj_Events.idl Tobj_SimpleEvents.idl
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1070097"> </a>
+Building and Running Applications
+</h3>
+<p class="pBody"><a name="wp1033280"> </a>
+The build procedure differs depending on the type of Notification Service application you are building. <a href="dev_apps.html#wp1099294">Table&#160;3-4</a> provides an overview of the commands and types of files used to build each type of the Notification Service application.
+</p>
+<p class="pGraphic"><a name="wp1099291"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1099294table1099292"><caption><a name="wp1099294"> </a>
+Table 3-4  Application Build Requirements&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1099300"> </a>
+Application Type
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1099302"> </a>
+Client
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1099344"> </a>
+Joint Client/Server
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1099304"> </a>
+Server
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1099518"> </a>
+C++ Events Poster
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1099520"> </a>
+Use the <code class="cCode">buildobjclient</code> command to compile the application files and the IDL stubs.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1099522"> </a>
+Use the <code class="cCode">buildobjclient</code> command with the <code class="cCode">-P</code> option to compile the application files and the IDL stubs.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1099524"> </a>
+Use the <code class="cCode">buildobjserver</code> command to compile the application files and the IDL client stubs.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1099526"> </a>
+C++ Events Subscriber
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1099528"> </a>
+Not applicable.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1099530"> </a>
+Use the <code class="cCode">buildobjclient</code> command with the <code class="cCode">-P</code> option to compile the application files, the IDL stubs, the IDL skeletons, and link with the BEAWrapper library.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1099532"> </a>
+Use the <code class="cCode">buildobjserver</code> command to compile the application files, the IDL stubs, and the IDL skeletons.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1101555"> </a>
+<a href="dev_apps.html#wp1101557">Listing&#160;3-8</a> shows the commands used for a C++ poster application (<code class="cCode">Reporter.cpp</code>) on a Microsoft Windows system. To form a C++ executable, the <code class="cCode">idl</code> command is run on the required IDL file and the <code class="cCode">buildobjclient</code> command compiles the C++ client application file and the IDL stubs. 
+</p>
+<div class="pCodeTitle"><a name="wp1101557"> </a>
+Listing&#160;3-8	   C++ Reporter Application Build and Run Commands (Microsoft Windows)
+</div> <a name="wp1111624"> </a><div class="pPreformatted"><pre># Run the idl command.<br />idl -IC:\tuxdir\include C:\tuxdir\include\CosEventComm.idl \<br />C:\tuxdir\include\CosNotification.idl \<br />C:\tuxdir\include\CosNotifyComm.idl \<br />C:\tuxdir\include\Tobj_Events.idl \<br />C:\tuxdir\include\Tobj_SimpleEvents.idl <br /># Run the buildobjclient command.<br />buildobjclient -v -o subscriber.exe -f &quot; \ <br />&#160;&#160;&#160;&#160;-DWIN32                              \<br />&#160;&#160;&#160;&#160;Reporter.cpp                         \<br />&#160;&#160;&#160;&#160;CosEventComm_c.cpp                   \<br />&#160;&#160;&#160;&#160;CosNotification_c.cpp                \<br />&#160;&#160;&#160;&#160;CosNotifyComm_c.cpp                  \<br />&#160;&#160;&#160;&#160;Tobj_Events_c.cpp                    \<br />&#160;&#160;&#160;&#160;Tobj_SimpleEvents_c.cpp               \<br />&#160;&#160;&#160;&#160;&quot; <br /># Run the application.<br />is_reporter</pre></div><p class="pBody"><a name="wp1099448"> </a>
+<a href="dev_apps.html#wp1081432">Listing&#160;3-9</a> and <a href="dev_apps.html#wp1104421">Listing&#160;3-10</a> show the commands used for a C++ subscriber application (<code class="cCode">Subscriber.cpp</code>) on Microsoft Windows and UNIX respectively. To form a C++ executable, the <code class="cCode">buildobjclient</code> command, with the <code class="cCode">-P</code> option, compiles the joint client/server application files (<code class="cCode">Subscriber.cpp</code> and <code class="cCode">NewsConsumer_i.cpp</code>), the IDL stubs, and the IDL skeleton (<code class="cCode">CosNotifyComm_s.cpp</code>). 
+</p>
+<div class="pCodeTitle"><a name="wp1081432"> </a>
+Listing&#160;3-9	   C++ Subscriber Application Build and Run Commands (Microsoft Windows)
+</div> <a name="wp1111659"> </a><div class="pPreformatted"><pre># Run the idl command.<br />idl -P -IC:\tuxdir\include C:\tuxdir\include\CosEventComm.idl \<br />C:\tuxdir\include\CosNotification.idl \<br />C:\tuxdir\include\CosNotifyComm.idl \<br />C:\tuxdir\include\Tobj_Events.idl \<br />C:\tuxdir\include\Tobj_SimpleEvents.idl<br /># Run the buildobjclient command.<br />buildobjclient -v -P -o subscriber.exe -f &quot;  \<br />&#160;&#160;-DWIN32                                    \<br />&#160;&#160;Subscriber.cpp                             \<br />&#160;&#160;NewsConsumer_i.cpp                         \<br />&#160;&#160;CosEventComm_c.cpp                         \<br />&#160;&#160;CosNotification_c.cpp                      \<br />&#160;&#160;CosNotifyComm_c.cpp                        \<br />&#160;&#160;CosNotifyComm_s.cpp                        \<br />&#160;&#160;Tobj_Events_c.cpp                          \<br />&#160;&#160;Tobj_SimpleEvents_c.cpp                      \  c:\tuxdir\lib\libbeawrapper.lib              \<br />&quot;<br /># Run the application.<br />is_subscriber</pre></div><div class="pCodeTitle"><a name="wp1104421"> </a>
+Listing&#160;3-10	   C++ Subscriber Application Build and Run Commands (UNIX)
+</div> <a name="wp1104434"> </a><div class="pPreformatted"><pre># Run the idl command.<br />idl -P -I/usr/local/tuxdir/include /usr/local/tuxdir/include/CosEventComm.idl \<br />/usr/local/tuxdir/include/CosNotification.idl \<br />/usr/local/tuxdir/include/CosNotifyComm.idl \<br />/usr/local/tuxdir/include/Tobj_Events.idl \<br />/usr/local/tuxdir/include/Tobj_SimpleEvents.idl<br /># Run the buildobjclient command.<br />buildobjclient -v -P -o subscriber -f &quot;     \<br />&#160;&#160;Subscriber.cpp                            \<br />&#160;&#160;NewsConsumer_i.cpp                        \<br />&#160;&#160;CosEventComm_c.cpp                        \<br />&#160;&#160;CosNotification_c.cpp                     \<br />&#160;&#160;CosNotifyComm_c.cpp                       \<br />&#160;&#160;CosNotifyComm_s.cpp                       \<br />&#160;&#160;Tobj_Events_c.cpp                         \<br />&#160;&#160;Tobj_SimpleEvents_c.cpp                   \<br />&#160;&#160;-lbeawrapper                              \<br />&quot;<br /># Run the application.<br />is_subscriber</pre></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="dev_apps.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="evnt_api.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="cos_apps.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

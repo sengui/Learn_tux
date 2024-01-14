@@ -1,0 +1,639 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/pcb/fm/pbclt.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:23:24" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Writing Clients</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Programming an Oracle Tuxedo Application Using COBOL
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pbbuf.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pbserv.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/pcb.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1062826"> </a>
+Writing Clients
+</h1>
+<p class="pBody"><a name="wp1054091"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1030358"> </a><a href="pbclt.html#wp1030381">Joining an Application</a></li>
+<li><a name="wp1060292"> </a><a href="pbclt.html#wp1060577">Using Features of the TPINFDEF-REC Record</a></li>
+<li><a name="wp1030370"> </a><a href="pbclt.html#wp1030537">Leaving the Application</a></li>
+<li><a name="wp1030374"> </a><a href="pbclt.html#wp1030541">Building Clients</a></li>
+<li><a name="wp1030378"> </a><a href="pbclt.html#wp1063482">Client Process Examples</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1030381"> </a>
+Joining an Application
+</h2><p class="pBody"><a name="wp1030382"> </a>
+Before an ATMI client can perform any service request, it must join the Oracle Tuxedo ATMI application, either explicitly or implicitly. Once the client has joined the application, it can initiate requests and receive replies. 
+</p>
+<p class="pBody"><a name="wp1030383"> </a>
+A client joins an application explicitly by calling TPINITIALIZE(<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>3cbl)</span> with the following signature:
+</p>
+<a name="wp1060337"> </a><div class="pPreformatted"><pre>01 <em class="cEmphasis">TPINFDEF-REC</em>.<br />   COPY TPINFDEF.<br />01 <em class="cEmphasis">USER-DATA-REC</em>      PIC X(any-length).<br />01 <em class="cEmphasis">TPSTATUS-REC</em>.<br />   COPY TPSTATUS.<br />CALL &quot;TPINITIALIZE&quot; USING <em class="cEmphasis">TPINFDEF-REC USER-DATA-REC TPSTATUS-REC</em>.</pre></div><p class="pBody"><a name="wp1060428"> </a>
+A client joins an application implicitly by issuing a service request (or any ATMI call) without first calling <code class="cCode">TPINITIALIZE</code>. In this case, <code class="cCode">TPINITIALIZE</code> is called by the Oracle Tuxedo system on behalf of the client with the <code class="cCode">SPACES</code> parameter.The <code class="cCode">TPINFDEF-REC</code> record is a special Oracle Tuxedo system typed record used by a client program to pass client identification and authentication information to the system when the client attempts to join the application. It is defined in a COBOL <code class="cCode">COPY</code> file, as follows:
+</p>
+<a name="wp1060429"> </a><div class="pPreformatted"><pre>05 USRNAME           PIC X(30).<br />05 CLTNAME           PIC X(30).<br />05 PASSWD            PIC X(30).<br />05 GRPNAME           PIC X(30).<br />05 NOTIFICATION-FLAG PIC S9(9) COMP-5.<br />  88 TPU-SIG           VALUE 1.<br />  88 TPU-DIP           VALUE 2.<br />  88 TPU-IGN           VALUE 3.<br />05 ACCESS-FLAG       PIC S9(9) COMP-5.<br />  88 TPSA-FASTPATH     VALUE 1.<br />  88 TPSA-PROTECTED    VALUE 2.<br />05 DATALEN           PIC S9(9) COMP-5.</pre></div><p class="pBody"><a name="wp1060430"> </a>
+<a href="pbclt.html#wp114933">Table&#160;4-1</a> lists the fields that are defined in a COBOL <code class="cCode">COPY</code> file.
+</p>
+<p class="pGraphic"><a name="wp1060470"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp114933table1060431"><caption><a name="wp114933"> </a>
+Table 4-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">COBOL COPY File Fields</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1060433"> </a>
+Field
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1060435"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1060437"> </a>
+<code class="cCode">USRNAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1060439"> </a>
+Name representing the caller. You may want to specify the value returned by the UNIX command <code class="cCode">getuid</code>(2) within this field. The value of <code class="cCode">USRNAME</code> may contain up to <code class="cCode">MAXTIDENT</code> characters (which is defined as 30).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1060441"> </a>
+<code class="cCode">CLTNAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1060443"> </a>
+Name of a client for which the semantics are application-defined. The value of <code class="cCode">CLTNAME</code> may contain up to <code class="cCode">MAXTIDENT</code> characters (which is defined as 30).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1060445"> </a>
+<code class="cCode">PASSWD</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1060447"> </a>
+Application password in unencrypted format that is used by <code class="cCode">TPINITIALIZE</code> for validation against the application password stored in the <code class="cCode">TUXCONFIG</code> file. <code class="cCode">PASSWD</code> is a string of up to <code class="cCode">MAXTIDENT</code> characters. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1060449"> </a>
+<code class="cCode">GRPNAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1060451"> </a>
+Resource manager group name with which you want to associate the client. The client can access an XA-compliant resource manager as part of a global transaction. The <code class="cCode">GRPNAME</code> can be a value up to <code class="cCode">MAXTIDENT</code> characters (which is defined as 30). Currently, however, the <code class="cCode">GRPNAME</code> must be passed as <code class="cCode">SPACES</code> specifying that the client is not associated with a resource manager group and is in the default client group. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1060453"> </a>
+<code class="cCode">NOTIFICATION-FLAG</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1060455"> </a>
+Notification mechanism and system access mode to be used. Refer to <a href="pbclt.html#wp1030705">Unsolicited Notification Handling</a> for a list of valid values.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1060460"> </a>
+<code class="cCode">ACCESS-FLAG</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1060464"> </a>
+System access mode used. Refer to <a href="pbclt.html#wp1030745">System Access Mode</a> for a list of values.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1060467"> </a>
+<code class="cCode">DATALEN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1060469"> </a>
+Length of the application-specific data that will be sent to the authentication service. For native clients, it is not encoded by the system, but passed to the authentication service as provided by the client. For workstation clients, client authentication is handled by the system, and passed over the network in encrypted form.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1060471"> </a>
+The <code class="cCode">USRNAME</code> and <code class="cCode">CLTNAME</code> fields are associated with the client process when <code class="cCode">TPINITIALIZE</code> is called. Both fields are used for both broadcast notification and the retrieval of administrative statistics.
+</p>
+<h3 class="pHeading2"><a name="wp1030489"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1060552"> </a>TPINI<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>TIALIZE(3cbl)</span> in the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1060577"> </a>
+Using Features of the TPINFDEF-REC Record
+</h2><p class="pBody"><a name="wp1030664"> </a>
+The ATMI client must explicitly invoke <code class="cCode">TPINITIALIZE</code> in order to take advantage of the following features of the <code class="cCode">TPINFDEF-REC</code> record:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1030668"> </a><a href="pbclt.html#wp1030686">Client Naming</a></li>
+<li><a name="wp1030672"> </a><a href="pbclt.html#wp1030705">Unsolicited Notification Handling</a></li>
+<li><a name="wp1030676"> </a><a href="pbclt.html#wp1030745">System Access Mode</a></li>
+<li><a name="wp1030680"> </a><a href="pbclt.html#wp1030768">Resource Manager Association</a></li>
+<li><a name="wp1030684"> </a><a href="pbclt.html#wp1030775">Client Authentication</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1030686"> </a>
+Client Naming
+</h3>
+<p class="pBody"><a name="wp1030687"> </a>
+When an ATMI client joins an application, the Oracle Tuxedo system assigns a unique client identifier to it. The identifier is passed to each service called by the client. It can also be used for unsolicited notification.
+</p>
+<p class="pBody"><a name="wp1030688"> </a>
+You can also assign unique client and usernames of up to 30 characters each, by passing them to <code class="cCode">TPINITIALIZE</code> via the <code class="cCode">TPINFDEF-REC</code> record. The Oracle Tuxedo system establishes a unique identifier for each process by combining the client and usernames associated with it, with the logical machine identifier (LMID) of the machine on which the process is running. You may choose a method for acquiring the values for these fields.
+</p>
+<a name="wp1030689"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If a process is executing outside the administrative domain of the application (that is, if it is running on a workstation connected to the administrative domain), the LMID of the machine used by the Workstation client to access the application is assigned.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1030690"> </a>
+Once a unique identifier for a client process is created:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1030691"> </a>Client authentication can be implemented.</li>
+<li><a name="wp1030692"> </a>Unsolicited messages can be sent to a specific client or to groups of clients via <code class="cCode">TPNOTIFY</code> and <code class="cCode">TPBROADCAST</code>.</li>
+<li><a name="wp1030693"> </a>Detailed statistical information can be gathered via <a href="../rfcm/rfcmd.html">tmadmin(1)</a>.</li>
+</ul></div>
+<p class="pBody"><a name="wp1030694"> </a>
+Refer to &#8220;Writing Event-based Clients and Servers&#8221; for information on sending and receiving unsolicited messages, and the <a href="../install/index.html"><em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em> for more information on <a href="../rfcm/rfcmd.html">tmadmin(1)</a>.
+</p>
+<p class="pBody"><a name="wp1030698"> </a>
+<a href="pbclt.html#wp1030699">Figure&#160;4-1</a> shows how names might be associated with clients accessing an application. In the example, the application uses the <code class="cCode">cltname</code> field to indicate a job function.
+</p>
+<div class="pFigureTitle"><a name="wp1030699"> </a>
+Figure&#160;4-1  Client Naming
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1030703"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/clientnaming2.gif" alt="Client Naming" id="wp1030701"/></div><p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1030705"> </a>
+Unsolicited Notification Handling
+</h3>
+<p class="pBody"><a name="wp1030706"> </a>
+Unsolicited notification refers to any communication with an ATMI client that is not an expected response to a service request (or an error code). For example, an administrator may broadcast a message to indicate that the system will go down in five minutes.
+</p>
+<p class="pBody"><a name="wp1030707"> </a>
+A client can be notified of an unsolicited message in a number of ways. For example, some operating systems might send a signal to the client and interrupt its current processing. By default, the Oracle Tuxedo system checks for unsolicited messages each time an ATMI call is invoked. This approach, referred to as <span style="font-style: italic">dip-in, </span>is advantageous because it: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1030708"> </a>Is supported on all platforms </li>
+<li><a name="wp1030709"> </a>Does not interrupt the current processing</li>
+</ul></div>
+<p class="pBody"><a name="wp1038436"> </a>
+As some time may elapse between &#8220;dip-ins,&#8221; the application can call the <code class="cCode">TPCHKUNSOL</code> call to check for any waiting unsolicited messages. Refer to <span class="cHyperlink">
+<a href="../pgc/pgevb.html">&#8220;Writing Event-based Clients and Servers&#8221; </a></span>in <em class="cEmphasis">Programming An Oracle Tuxedo ATMI Application Using C</em> for more information on the <code class="cCode">TPCHKUNSOL</code> call.
+</p>
+<p class="pBody"><a name="wp1038440"> </a>
+When a client joins an application using <code class="cCode">TPINITIALIZE</code>, it can control how to handle unsolicited notification messages by defining flags. For client notification, the possible values for <code class="cCode">NOTIFICATION-FLAG</code> are defined in <a href="pbclt.html#wp114970">Table&#160;4-2</a>.
+</p>
+<p class="pGraphic"><a name="wp1030712"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp114970table1030713"><caption><a name="wp114970"> </a>
+Table 4-2  Client Notification Flags in a TPINFDEF-REC Record
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1030715"> </a>
+Flag
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1030717"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030719"> </a>
+<code class="cCode">TPU_SIG</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030721"> </a>
+Select unsolicited notification by signals. This flag should be used only with single-threaded, single-context applications. The advantage of using this mode is immediate notification. The disadvantages include:
+</div>
+<div class="pSmartList1TableBullet"><ul class="SmartList1TableBullet">
+<li><a name="wp1030722"> </a>The calling process must have the same <code class="cCodeEmphasis">UID</code> as the sending process when you are running a native client. (Workstation clients do not have this limitation.)</li>
+<li><a name="wp1030723"> </a><code class="cCode">TPU_SIG</code> is not available on all platforms (specifically, it is not available on MS-DOS workstations).</li>
+</ul></div>
+<div class="pCellBody"><a name="wp1030724"> </a>
+If you specify this flag but do not meet the system or environmental requirements, the flag is set to <code class="cCode">TPU_DIP</code> and the event is logged.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030726"> </a>
+<code class="cCode">TPU_DIP</code> (default)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030728"> </a>
+Select unsolicited notification by dip-in. In this case, the client can specify the name of the message handling routine using the <code class="cCode">TPSETUNSOL</code> call, and check for waiting unsolicited messages using the <code class="cCode">TPCHKUNSOL</code> call.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030730"> </a>
+<code class="cCode">TPU_THREAD</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030732"> </a>
+Select <code class="cCode">THREAD</code> notification in a separate thread. This flag is allowed only on platforms that support multithreading. If <code class="cCode">TPU_THREAD</code> is specified on a platform that does not support multithreading, it is considered an invalid argument. As a result, an error is returned and <code class="cCode">TP-STATUS</code> is set to <code class="cCode">TPEINVAL</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030734"> </a>
+<code class="cCode">TPU_IGN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030736"> </a>
+Ignore unsolicited notification.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1030737"> </a>
+Refer to <a href="../rf3cbl/rf3cbl.html">TPINITIALIZE(3cbl)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em> for more information on the <code class="cCode">TPINFDEF-REC</code> flags.
+</p>
+<h3 class="pHeading2"><a name="wp1030745"> </a>
+System Access Mode
+</h3>
+<p class="pBody"><a name="wp1030746"> </a>
+An application can access the Oracle Tuxedo system through either of two modes: protected or fastpath. The ATMI client can request a mode when it joins an application using <code class="cCode">TPINITIALIZE</code>. To specify a mode, a client passes one of the following values in the <code class="cCode">ACCESS-FLAG</code> field of the <code class="cCode">TPINFDEF-REC</code> record to <code class="cCode">TPINITIALIZE</code>.
+</p>
+<p class="pGraphic"><a name="wp1030747"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp114998table1030748"><caption><a name="wp114998"> </a>
+Table 4-3  System Access Flags in a TPINFDEF-REC Record
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1030750"> </a>
+Mode
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1030752"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030754"> </a>
+<code class="cCode">TPSA-PROTECTED</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030756"> </a>
+Allows ATMI calls within an application to access the Oracle Tuxedo system internal tables via shared memory, but protects shared memory against access by application code outside of the Oracle Tuxedo system libraries. Overrides the value in <code class="cCode">UBBCONFIG</code>, except when <code class="cCode">NO_OVERRIDE</code> is specified. Refer to <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em> for more information on <code class="cCode">UBBCONFIG</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030761"> </a>
+<code class="cCode">TPSA-FASTPATH</code>  (default)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030763"> </a>
+Allows ATMI calls within application code access to Oracle Tuxedo system internals via shared memory. Does not protect shared memory against access by application code outside of the Oracle Tuxedo system libraries. Overrides the value of <code class="cCode">UBBCONFIG</code> except when <code class="cCode">NO_OVERRIDE</code> is specified. Refer to <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em> for more information on <code class="cCode">UBBCONFIG</code>.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1030768"> </a>
+Resource Manager Association
+</h3>
+<p class="pBody"><a name="wp1030769"> </a>
+An application administrator can configure groups for servers associated with a resource manager, including servers that provide administrative processes for coordinating transactions. Refer to <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em> for information on defining groups.
+</p>
+<p class="pBody"><a name="wp1030773"> </a>
+When joining the application, a client can join a particular group by specifying the name of that group in the <code class="cCodeEmphasis">grpname</code> field of <code class="cCode">TPINFDEF-REC</code>.
+</p>
+<h3 class="pHeading2"><a name="wp1030775"> </a>
+Client Authentication
+</h3>
+<p class="pBody"><a name="wp1030776"> </a>
+The Oracle Tuxedo system provides security at incremental levels, including operating system security, application password, user authentication, optional access control lists, mandatory access control lists, and link-level encryption. Refer to <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em> for information on setting security levels.
+</p>
+<p class="pBody"><a name="wp1030780"> </a>
+The application password security level requires every client to provide an application password when it joins the application. The administrator can set or change the application password and must provide it to valid users.
+</p>
+<p class="pBody"><a name="wp1030781"> </a>
+If this level of security is used, Oracle Tuxedo system-supplied client programs, such as <code class="cCode">ud()</code>, prompt for the application password. (Refer to <em class="cEmphasis">Administering an Oracle Tuxedo Application at Run Time</em> for more information on <a href="../rfcm/rfcmd.html">ud, wud</a><a href="../rfcm/rfcmd.html">(1)</a>.) In turn, application-specific client programs must include code for obtaining the password from a user. The unencrypted password is placed in the <code class="cCode">TPINFDEF-REC</code> record and evaluated when the client calls <code class="cCode">TPINITIALIZE</code> to join the application.
+</p>
+<a name="wp1030785"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The password should not be displayed on the screen.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1030786"> </a>
+You can use TPCHK<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>AUTH(3cbl)</span> to determine:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1030787"> </a>Whether the application requires any authentication </li>
+<li><a name="wp1030788"> </a>If the application requires authentication, which of the following types of authentication is needed:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1030789"> </a>System authentication based on an application password</li>
+<li><a name="wp1030790"> </a>Application authentication based on an application password and user-specific information</li>
+</ul></div>
+</ul></div>
+<p class="pBody"><a name="wp1030791"> </a>
+Typically, a client should call <code class="cCode">TPCHKAUTH</code> before <code class="cCode">TPINITIALIZE</code> to identify any additional security information that must be provided during initialization.
+</p>
+<p class="pBody"><a name="wp1030795"> </a>
+Refer to <em class="cEmphasis">Using Security in CORBA Applications</em> for more information on security programming techniques.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1030537"> </a>
+Leaving the Application
+</h2><p class="pBody"><a name="wp1030538"> </a>
+Once all service requests have been issued and replies received, the ATMI client can leave the application using TPT<span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html"></a>ERM(3cbl)</span>. The <code class="cCode">TPTERM</code> call signature is as follows:
+</p>
+<a name="wp1061148"> </a><div class="pPreformatted"><pre>01 <em class="cEmphasis">TPSTATUS-REC</em>.<br />   COPY TPSTATUS.<br />CALL &quot;TPTERM&quot; USING <em class="cEmphasis">TPSTATUS-REC</em>.</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1030541"> </a>
+Building Clients
+</h2><p class="pBody"><a name="wp1030542"> </a>
+To build an executable ATMI client, compile your application with the Oracle Tuxedo system libraries and all other referenced files using the <span style="font-weight: normal"><a href="../rfcm/rfcmd.html">buildclient(1)</a></span><span style="font-weight: bold"> </span>command. Include the <code class="cCode">-C</code> option to indicate that you are compiling a COBOL program. Use the following syntax for the <code class="cCode">buildclient</code> command:
+</p>
+<a name="wp1063336"> </a><div class="pPreformatted"><pre>buildclient -C <code class="cCodeEmphasis">filename.</code><code class="cCode">cbl</code> -o <code class="cCodeEmphasis">filename</code> -f <code class="cCodeEmphasis">filenames</code> -l <code class="cCodeEmphasis">filenames</code></pre></div><p class="pBody"><a name="wp1063337"> </a>
+<a href="pbclt.html#wp1063340">Table&#160;4-4</a> describes the options to the <code class="cCode">buildclient</code> command.
+</p>
+<p class="pGraphic"><a name="wp1063370"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1063340table1063338"><caption><a name="wp1063340"> </a>
+Table 4-4  buildclient Options
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1063344"> </a>
+This Option or Argument . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1063346"> </a>
+Allows You to Specify . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1063348"> </a>
+<code class="cCodeEmphasis">filename.</code><code class="cCode">cbl</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1063350"> </a>
+The COBOL application to be compiled.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1063352"> </a>
+<code class="cCode">-o </code><code class="cCodeEmphasis">filename</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1063354"> </a>
+The executable output file. The default name for the output file is <code class="cCode">a.out</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1063356"> </a>
+<code class="cCode">-f </code><code class="cCodeEmphasis">filenames</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1063358"> </a>
+A list of files that are to be link edited before the Oracle Tuxedo system libraries are link edited. You can specify <code class="cCode">-f</code> more than once on the command line, and you can include multiple filenames for each occurrence of <code class="cCode">-f</code>. If you specify a COBOL program file (<code class="cCodeEmphasis">file</code><code class="cCode">.cbl</code>), it is compiled before it is linked. You can specify other object files (<code class="cCodeEmphasis">file</code><code class="cCode">.o</code>) separately, or in groups in an archive file (<code class="cCodeEmphasis">file</code><code class="cCode">.a</code>).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1063360"> </a>
+<code class="cCode">-l </code><code class="cCodeEmphasis">filenames</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1063362"> </a>
+A list of files that are to be link edited after the Oracle Tuxedo system libraries are link edited. You can specify <code class="cCode">-l</code> more than once on the command line, and you can include multiple filenames for each occurrence of <code class="cCode">-l</code>. If you specify a COBOL program file (<code class="cCodeEmphasis">file</code><code class="cCode">.cbl</code>), it is compiled before it is linked. You can specify other object files (<code class="cCodeEmphasis">file</code><code class="cCode">.o</code>) separately, or in groups in an archive file (<code class="cCodeEmphasis">file</code><code class="cCode">.a</code>).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1063364"> </a>
+<code class="cCode">-r</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1063366"> </a>
+The resource manager has access to libraries that should be link edited with the executable server. The application administrator is responsible for predefining all valid resource manager information in the <code class="cCode">$TUXDIR/updataobj/RM</code> file using the <code class="cCode">buildtms(1)</code> command. Only one resource manager can be specified. Refer to <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em> for more information. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<a name="wp1030574"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Notes:</strong></td>
+<td>The Oracle Tuxedo libraries are linked in automatically; you do not need to specify any Oracle Tuxedo libraries on the command line.</td></tr>
+</table>
+
+<a name="wp1063565"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>Link editing must be done by running the <code class="cCode">buildclient</code> command. </td>
+</tr>
+</table>
+<p class="pBody"><a name="wp1030575"> </a>
+The order in which you specify the library files to be link edited is significant: it depends on the order in which functions are called in the code, and which libraries contain references to those functions.
+</p>
+<p class="pBody"><a name="wp1063186"> </a>
+By default, the <code class="cCode">buildclient</code> command invokes the UNIX <code class="cCode">cc</code> command. You can set the <code class="cCode">ALTCC</code> and <code class="cCode">ALTCFLAGS</code> environment variables to specify an alternative compile command, and to set flags for the compile and link-edit phases, respectively. By default, <code class="cCode">ALTCC</code> is set to <code class="cCode">cobcc, </code>which uses the MicroFocus Net Express compiler. To use Fujitsu&#8217;s NetCOBOL <code class="cCode">ALTCC</code> must be set, even on a Windows system. You must set <code class="cCode">ALTCC=cobcc85</code> for NetCOBOL. For more information, refer to <span class="cHyperlink">
+<a href="../pgc/pgenv.html">&#8220;Setting Environment Variables&#8221;</a></span> in <em class="cEmphasis">Programming An Oracle Tuxedo ATMI Application Using C</em>.
+</p>
+<a name="wp1063187"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>On a Windows system, the <code class="cCode">ALTCC</code> and <code class="cCode">ALTCFLAGS</code> environment variables are not applicable; setting them will produce unexpected results. You must compile your application by first using a COBOL compiler, and then passing the resulting object file to the <code class="cCode">buildclient</code> command. For example:</td>
+</tr>
+</table>
+
+<a name="wp1030578"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td><code class="cCode">buildclient -C -o audit -f audit.o</code></td>
+</tr>
+</table>
+<a name="wp1030579"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>The following example command line compiles a COBOL program called <code class="cCode">audit.cbl</code> and generates an executable file named <code class="cCode">audit</code>.</td>
+</tr>
+</table>
+<a name="wp1040510"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td><code class="cCode">buildclient -C &#8211; o audit &#8211; f audit.cbl</code></td>
+</tr>
+</table>
+<h3 class="pHeading2"><a name="wp1063203"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1063205"> </a><span class="cHyperlink">
+<a href="../pgc/pgserv.html">&#8220;Building Servers </a></span>in <em class="cEmphasis">Programming An Oracle Tuxedo ATMI Application Using C</em></li>
+<li><a name="wp1063212"> </a>build<a href="../rfcm/rfcmd.html"></a>client(1) in the <em class="cEmphasis">Oracle Tuxedo Command Reference</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1063482"> </a>
+Client Process Examples
+</h2><p class="pBody"><a name="wp1063486"> </a>
+The following pseudo-code in <a href="pbclt.html#wp1061274">Listing&#160;4-1</a>shows how a typical ATMI client process works from the time at which it joins an application to the time at which it leaves the application.
+</p>
+<div class="pCodeTitle"><a name="wp1061274"> </a>
+Listing&#160;4-1	   Typical Client Process Paradigm
+</div> <a name="wp1063397"> </a><div class="pPreformatted"><pre>. . .<br /><em style="font-style: italic" class="cEmphasis">Check level of security<br /></em><span style="font-style: oblique">&#160;&#160;&#160;&#160;</span><span style="font-style: italic">CALL TPSETUNSOL to name your handler routine for TPU-DIP<br /></span><span style="font-style: oblique">&#160;&#160;&#160;&#160;</span><span style="font-style: italic">get USRNAME, CLTNAME<br /></span><span style="font-style: oblique">&#160;&#160;&#160;&#160;</span><span style="font-style: italic">prompt for application PASSWD<br /></span><span style="font-style: oblique">&#160;&#160;&#160;&#160;</span>SET TPU-DIP TO TRUE.<br /><span style="font-style: oblique">&#160;&#160;&#160;&#160;</span>CALL &quot;TPINITIALIZE&quot; USING TPINFDEF-REC<br /><span style="font-style: oblique">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>USER-DATA-REC<br /><span style="font-style: oblique">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>TPSTATUS-REC.<br /><span style="font-style: oblique">&#160;&#160;&#160;&#160;</span>IF NOT TPOK<br /><span style="font-style: oblique">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span style="font-style: italic">error processing<br /></span>. . .<br /><em class="cEmphasis">make service call<br />receive the reply<br />check for unsolicited messages<br /></em>. . .<br />CALL &quot;TPTERM&quot; USING TPSTATUS-REC.<br />IF NOT TPOK<br /><span style="font-style: oblique">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span><span style="font-style: italic">error processing<br /></span>. . .<br />EXIT PROGRAM.</pre></div><p class="pBody"><a name="wp1061277"> </a>
+In this example, <code class="cCode">TPINITIALIZE</code> takes three arguments:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1061278"> </a><code class="cCode">TPINFDEF-REC</code>, a structure defined in the COBOL <code class="cCode">COPY</code> file</li>
+<li><a name="wp1061279"> </a>User data (<code class="cCode">USER-DATA-REC</code>)</li>
+<li><a name="wp1061280"> </a><code class="cCode">TPSTATUS-REC</code>, a status structure defined in the COBOL <code class="cCode">COPY</code> file</li>
+</ul></div>
+<p class="pBody"><a name="wp1061281"> </a>
+Both <code class="cCode">TPINITIALIZE</code> and <code class="cCode">TPTERM</code> return  [<code class="cCode">TPOK</code>] in <code class="cCode">TP-STATUS IN TPSTATUS-REC</code>  upon success. If either command encounters an error, the command fails and sets <code class="cCode">TP-STATUS</code> to a value that indicates the nature of the error. <code class="cCode">TPSTATUS-REC</code> is defined in a COBOL <code class="cCode">COPY</code> file. Refer to <span class="cHyperlink">
+<a href="../pgc/pgerr.html">&#8220;Managing Errors&#8221; </a></span>in <em class="cEmphasis">Programming An Oracle Tuxedo ATMI Application Using C</em> for possible <code class="cCode">TP-STATUS</code> values. Refer to <span class="cHyperlink">
+<a href="../rf3cbl/rf3cbl.html">&#8220;Introduction to the COBOL Application-Transaction Monitor Interface&#8221;</a></span> in the <em class="cEmphasis">Oracle Tuxedo ATMI COBOL Function Reference</em> for a complete list of error codes that can be returned for each of the ATMI calls. 
+</p>
+<p class="pBody"><a name="wp1030610"> </a>
+The following example illustrates how to use the <code class="cCode">TPINITIALIZE</code> and <code class="cCode">TPTERM</code> routines. This example is borrowed from, <code class="cCode">bankapp</code>, the sample banking application that is provided with the Oracle Tuxedo system.
+</p>
+<div class="pCodeTitle"><a name="wp1061382"> </a>
+Listing&#160;4-2	   Joining and Leaving an Application
+</div> <a name="wp1061383"> </a><div class="pPreformatted"><pre>IDENTIFICATION DIVISION.<br />PROGRAM-ID. FIG1-3.<br />AUTHOR. TUXEDO DEVELOPMENT.<br />ENVIRONMENT DIVISION.<br />CONFIGURATION SECTION.<br />*<br />WORKING-STORAGE SECTION.<br />*****************************************************<br />* Tuxedo definitions<br />*****************************************************<br />01 TPSTATUS-REC.<br />COPY TPSTATUS.<br />*<br />01 TPINFDEF-REC.<br />COPY TPINFDEF.<br />*****************************************************<br />* Log messages definitions<br />*****************************************************<br />01 LOGMSG.<br />&#160;&#160;&#160;&#160;&#160;&#160;05 FILLER         PIC X(10) VALUE &quot;FIG12-3 =&gt;&quot;.<br />&#160;&#160;&#160;&#160;&#160;&#160;05 LOGMSG-TEXT    PIC X(50).<br />01 LOGMSG-LEN          PIC S9(9) COMP-5.<br />*<br />01 USER-DATA-REC  PIC X(75).<br />******************************************************<br />PROCEDURE DIVISION.<br />START-HERE.<br />MOVE LENGTH OF LOGMSG TO LOGMSG-LEN.<br />*****************************************************<br />* Now register the client with the system.<br />*****************************************************<br />MOVE SPACES TO USRNAME.<br />MOVE SPACES TO CLTNAME.<br />MOVE SPACES TO PASSWD.<br />MOVE SPACES TO GRPNAME.<br />MOVE ZERO TO DATALEN.<br />SET TPU-DIP TO TRUE.<br />*<br />CALL &quot;TPINITIALIZE&quot; USING TPINFDEF-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;USER-DATA-REC<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.<br />IF NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MOVE &quot;TPINITIALIZE FAILED&quot; TO LOGMSG-TEXT<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM DO-USERLOG<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PERFORM EXIT-PROGRAM.<br />*****************************************************<br />* Application specific code<br />*****************************************************<br />. . .<br />*****************************************************<br />*Leave Application<br />*****************************************************<br />CALL &quot;TPTERM&quot; USING TPSTATUS-REC.<br />IF  NOT TPOK<br />&#160;&#160;&#160;&#160;&#160;MOVE &quot;TPTERM FAILED&quot; TO LOGMSG-TEXT<br />&#160;&#160;&#160;&#160;&#160;PERFORM DO-USERLOG.<br />EXIT-PROGRAM.<br />STOP RUN.<br />*****************************************************<br />* Log messages to the userlog<br />*****************************************************<br />DO-USERLOG.<br />CALL &quot;USERLOG&quot; USING LOGMSG<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;LOGMSG-LEN<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPSTATUS-REC.</pre></div><p class="pBody"><a name="wp1030624"> </a>
+The previous example shows the client process attempting to join the application with a call to <code class="cCode">TPINITIALIZE</code>. If an error is encountered, a message is written to the central event log via a call to <code class="cCode">USERLOG</code>.
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="pbclt.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pbbuf.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pbserv.html"><img id="LongDescNotReq9" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

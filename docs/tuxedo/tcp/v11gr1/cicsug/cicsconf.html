@@ -1,0 +1,3577 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="40264" />
+<meta name="LOC_US_SRCFILE" content="//depot/ecs/tcp/v11gr1/cicsug/fm/cicsconf.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="08/24/10 07:21:38" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Configuring and Administering Oracle TMA TCP for CICS </title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">CICS User Guide
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="cicssec.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="cicsprog.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/cicsug.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1034378"> </a>
+Configuring and Administering Oracle TMA TCP for CICS 
+</h1>
+<p class="pBody"><a name="wp1031965"> </a>
+It is the responsibility of the Oracle Tuxedo administrator to set up the configuration file, but close coordination with the Oracle Tuxedo application developer and the CICS programmer is necessary. 
+</p>
+<p class="pBody"><a name="wp1024260"> </a>
+The following subsections describe the Oracle Tuxedo Mainframe Adapter for TCP (CICS) (hereafter referenced as TMA TCP for CICS) Maintenance System. The Oracle TMA TCP for CICS Maintenance System is an online CICS application for use in configuring, maintaining, and administering the TMA TCP for CICS gateway. The following topics explain the Maintenance System:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024274"> </a><a href="cicsconf.html#wp1024314"><span class="cHyperlink">
+Menu Navigation</span></a> </li>
+<li><a name="wp1024278"> </a><a href="cicsconf.html#wp1024355"><span class="cHyperlink">
+The Main Menu</span></a> </li>
+<li><a name="wp1024282"> </a><a href="cicsconf.html#wp1024491"><span class="cHyperlink">
+The Connection Screens</span></a> </li>
+<li><a name="wp1024286"> </a><a href="cicsconf.html#wp1024638"><span class="cHyperlink">
+The Requester Screens</span></a> </li>
+<li><a name="wp1024290"> </a><a href="cicsconf.html#wp1025248"><span class="cHyperlink">
+The Outbound Service Information Screens</span></a> </li>
+<li><a name="wp1024294"> </a><a href="cicsconf.html#wp1025433"><span class="cHyperlink">
+The User Connection ACCOUNT Screens</span></a> </li>
+<li><a name="wp1032097"> </a><a href="cicsconf.html#wp1025600"><span class="cHyperlink">
+The Inbound Service Information Screens</span></a> </li>
+<li><a name="wp1032101"> </a><a href="cicsconf.html#wp1025809"><span class="cHyperlink">
+The Handler Configuration Screens</span></a> </li>
+<li><a name="wp1032105"> </a><a href="cicsconf.html#wp1025927"><span class="cHyperlink">
+Dynamically Configuring TMA TCP for CICS</span></a> </li>
+<li><a name="wp1024310"> </a><a href="cicsconf.html#wp1025974"><span class="cHyperlink">
+Administering the Gateways</span></a> </li>
+</ul></div>
+<p class="pBody"><a name="wp1024311"> </a>
+To start the administration system, enter the transaction code as defined to CICS in the installation procedure. If the name was not changed during installation, the name of the transaction is <code class="cCode">BEAM</code>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024314"> </a>
+Menu Navigation
+</h2><p class="pBody"><a name="wp1024315"> </a>
+You can access any of the following six groups of menus for maintaining connections, requesters, outbound services, the user connection account, inbound services, and Handler configuration. The following table describes how you can use each group of menus.
+</p>
+<p class="pGraphic"><a name="wp1024351"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp976303table1024316"><caption><a name="wp976303"> </a>
+Table 4-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Menu Groups</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1024318"> </a>
+Menu Type
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024320"> </a>
+Use
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024323"> </a>
+Connection
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024325"> </a>
+To monitor and control configured and active connections
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024328"> </a>
+Requester
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024330"> </a>
+To configure and maintain remote endpoints
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024333"> </a>
+Outbound Service Information
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024335"> </a>
+To configure each remote service and specify which Requester to use for each service
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024338"> </a>
+User Connection Account
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024340"> </a>
+To create and maintain user accounts
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024343"> </a>
+Inbound Service Information
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024345"> </a>
+To configure services residing locally that are accessed remotely
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024348"> </a>
+Handler Configuration
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024350"> </a>
+To configure and maintain the local endpoint
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1024352"> </a>
+Each of these topics is discussed in more detail in the following sections.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024355"> </a>
+The Main Menu
+</h2><p class="pBody"><a name="wp1024356"> </a>
+The Main menu (<code class="cCode">BEAM</code>) gives you access to all the maintenance screens.
+</p>
+<p class="pGraphic"><a name="wp1024360"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024359table1024357">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1024359"> </a><div class="pPreformatted"><pre> BEAPMNU                    BEA TMA 10.0 TCP FOR CICS                    BEAM M1<br />  <br />                                SELECTION SCREEN<br />  <br />  <br />              TABLE                                      OPERATION<br />        ----------------                                -----------<br />  <br />        C - CONNECTION                                  1 - INSERT<br />        R - REQUESTER                                   2 - UPDATE<br />        S - OUTBOUND SERVICE INFORMATION                3 - INQUIRE<br />        U - USER CONNECTION ACCOUNT                     4 - DELETE<br />        I - INBOUND SERVICE INFORMATION                 5 - BROWSE<br />        H - HANDLER CONFIGURATION                                 <br />  <br />  <br />  <br />                            SELECTION:  __             (e.g. R3)<br />  <br />  <br />  <br />    ENTER: PROCESS, PF3: EXIT</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1024361"> </a>
+Usage
+</h3>
+<p class="pBody"><a name="wp1024363"> </a>
+Use the Main menu to access the screens that make up the maintenance system. To move from the Main menu to a sub-menu, enter the appropriate two-character code. The first character in the code denotes the area in which you want to operate; the second character denotes the operation you want to perform on that area. 
+</p>
+<p class="pBody"><a name="wp1024364"> </a>
+The following table lists the codes for the areas of operation.
+</p>
+<p class="pGraphic"><a name="wp1036056"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1027219table1027217"><caption><a name="wp1027219"> </a>
+Table 4-2  Main Menu (BEAM) Sub-menu Codes
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1027223"> </a>
+Code
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1027225"> </a>
+Area of Operation
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027227"> </a>
+<code class="cCode">C</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027229"> </a>
+Connections
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027231"> </a>
+<code class="cCode">R</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027233"> </a>
+Requesters
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027235"> </a>
+<code class="cCode">S</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027237"> </a>
+Outbound Service Information
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027239"> </a>
+<code class="cCode">U</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027241"> </a>
+User Connection Account
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027243"> </a>
+<code class="cCode">I</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027245"> </a>
+Inbound Service Information
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027247"> </a>
+<code class="cCode">H</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027249"> </a>
+Handler Configuration
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1024371"> </a>
+The following table lists the codes for the allowable operations.
+</p>
+<p class="pGraphic"><a name="wp1036080"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1027381table1027379"><caption><a name="wp1027381"> </a>
+Table 4-3  Main Menu (BEAM) Operation Codes
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1027385"> </a>
+Code
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1027387"> </a>
+Allowable Operation
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027389"> </a>
+<code class="cCode">1</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027391"> </a>
+Insert
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027393"> </a>
+<code class="cCode">2</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027395"> </a>
+Update
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027397"> </a>
+<code class="cCode">3</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027399"> </a>
+Inquire
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027401"> </a>
+<code class="cCode">4</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027403"> </a>
+Delete
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027405"> </a>
+<code class="cCode">5</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027407"> </a>
+Browse
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1024377"> </a>
+Because some operations are not available in all three areas, the following table lists the valid combinations.
+</p>
+<p class="pBody"><a name="wp1024484"> </a>
+You can use the maintenance system screens to view and alter a connection, but not to insert (<code class="cCode">create</code>) or delete a connection. Connections are created and deleted by TMA TCP for CICS in its normal operation.
+</p>
+<p class="pBody"><a name="wp1024488"> </a>
+The maintenance system checks the two-character selection code that you enter and displays the appropriate screen if the code is valid. If the code you enter is not valid, you receive an error message.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024491"> </a>
+The Connection Screens
+</h2><p class="pBody"><a name="wp1024492"> </a>
+The three screens available for maintaining connection instances are labeled Update, Inquiry, and Browse. The respective screens allow you to make an inquiry concerning a specific connection, to browse a list of all connections, or to disable/enable a connection.
+</p>
+<p class="pBody"><a name="wp1024493"> </a>
+A connection instance is an established TCP/IP connection between a remote endpoint and a Requester or a Handler. For the purposes of TMA TCP for CICS, a remote endpoint is an TMA TCP gateway gateway executing within a remote Oracle Tuxedo domain.
+</p>
+<h3 class="pHeading2"><a name="wp1024503"> </a>
+PF Keys
+</h3>
+<p class="pBody"><a name="wp1024504"> </a>
+The following function keys are available on various connection screens.
+</p>
+<p class="pGraphic"><a name="wp1036104"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1026741table1026739"><caption><a name="wp1026741"> </a>
+Table 4-4  Function Keys
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1026745"> </a>
+Function Key
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1026747"> </a>
+Definitions
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026749"> </a>
+<code class="cCode">ENTER</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026886"> </a>
+Process the selection code entered
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026753"> </a>
+<code class="cCode">PF3</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026908"> </a>
+Transfer to Main Menu
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026757"> </a>
+<code class="cCode">PF5</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026963"> </a>
+Transfer to Connections Browse screen
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026761"> </a>
+<code class="cCode">PF7</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026996"> </a>
+Display the previous page of records
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026765"> </a>
+<code class="cCode">PF8</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1027018"> </a>
+Display the next page of records
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<a name="wp1024510"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>	If you enter data and press <code class="cCode">PF3</code> or <code class="cCode">PF5</code> before pressing <code class="cCode">ENTER</code>, the current operation process is aborted and the new screen is displayed.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1024511"> </a>
+Update Connection Screen (C2)
+</h3>
+<p class="pBody"><a name="wp1024513"> </a>
+Use the <code class="cCode">UPDATE CONNECTION</code> screen to update a record from the Connection file. When the screen initially displays, the <code class="cCode">LOGICAL MACHINE NAME</code> and <code class="cCode">TYPE</code> fields are unprotected. Enter a valid <code class="cCode">LOGICAL MACHINE NAME</code> (gateway ID) and <code class="cCode">TYPE</code> and press <code class="cCode">ENTER</code>. The screen re-displays showing the data from the record you specified and the <code class="cCode">STATUS</code> field is unprotected. The message <code class="cCode">RECORD READY FOR UPDATE</code> displays. You can now make changes to the record.
+</p>
+<p class="pGraphic"><a name="wp1024518"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024516table1024514">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1024516"> </a><div class="pPreformatted"><pre>BEAPCON                     BEA TMA 10.0 TCP FOR CICS                   BEAM C2<br />  <br />                                UPDATE  CONNECTION<br />  <br />  <br />                      LOGICAL MACHINE NAME:     ________________<br />  <br />                      TYPE:                     _<br />  <br />                      STATUS:<br />  <br />                      MAX MSG SIZE:<br />  <br />                      REQUESTER TASK NUMBER:<br />                      NUMBER REQUESTS:<br />                      NUMBER SUCCESS REQS:<br />                      NUMBER RECONNECTS:<br />                      NUMBER OPEN SOCKETS:<br />                      NUMBER SESSIONS ACTIVE:<br />  <br />  <br />    ENTER: PROCESS, PF3: MENU, PF5: BROWSE</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1024519"> </a>
+Fields
+</h4>
+<p class="pGraphic"><a name="wp1024568"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1036925table1024520">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1036925"> </a>
+Field Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1036927"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024526"> </a>
+<code class="cCode">LOGICAL MACHINE NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024528"> </a>
+This field name is the gateway ID. Give it a unique name up to 16 characters.Example: (bankmach1) 
+</div>
+<div class="pCellBody"><a name="wp1024529"> </a>
+For Requesters, this field name is the <code class="cCode">LMID</code> associated with the service that the Requester is requesting. 
+</div>
+<div class="pCellBody"><a name="wp1024530"> </a>
+For a Handler, this field name is <code class="cCode">BEAH</code> followed by the task number. The task number of the Handler is given in the <code class="cCode">BEALOG</code>. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024532"> </a>
+<code class="cCode">TYPE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024534"> </a>
+The type of connection. Specify <code class="cCode">I</code> for incoming connections or O for outgoing connections.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024536"> </a>
+<code class="cCode">STATUS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024538"> </a>
+The status of the connection. Specify <code class="cCode">E</code> to enable the connection. Specify <code class="cCode">D</code> for normal shutdown which allows initiated tasks to complete prior to disconnecting. Specify <code class="cCode">A</code> for immediate shutdown which aborts all initiated tasks and disconnects.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024540"> </a>
+<code class="cCode">MAX MSG SIZE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024542"> </a>
+The largest message allowed to be sent across this connection. The maximum is 32000. Example: <code class="cCode">(31000)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024544"> </a>
+<code class="cCode">REQUESTER TASK NUMBER</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024546"> </a>
+The task number of the Requester that is currently associated with the <code class="cCode">LOGICAL MACHINE NAME</code>. If there is not an active Requester, the task number is for the Requester most recently associated with that <code class="cCode">LMID</code>.
+</div>
+<div class="pCellBody"><a name="wp1024547"> </a>
+For a Handler, this field is blank; the task number is part of the <code class="cCode">LMID</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024549"> </a>
+<code class="cCode">NUMBER REQUESTS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024551"> </a>
+The number of service requests made during this connection.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024553"> </a>
+<code class="cCode">NUMBER SUCCESS REQS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024555"> </a>
+The number of successful communications.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024557"> </a>
+<code class="cCode">NUMBER RECONNECTS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024559"> </a>
+The number of successful connections. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024561"> </a>
+<code class="cCode">NUMBER OPEN SOCKETS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024563"> </a>
+The number of sockets that are currently opened by the Requester.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024565"> </a>
+<code class="cCode">NUMBER SESSIONS ACTIVE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024567"> </a>
+The number of active sessions on this connection.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1024569"> </a>
+Inquire Connection Screen (C3)
+</h3>
+<p class="pBody"><a name="wp1024571"> </a>
+Use this screen to inquire about a record from the Connection file. When the screen is initially displayed, the <code class="cCode">LOGICAL MACHINE NAME</code> and <code class="cCode">TYPE</code> fields are unprotected. Enter a valid <code class="cCode">LOGICAL MACHINE NAME</code> (gateway ID) and <code class="cCode">TYPE</code> and press <code class="cCode">ENTER</code>. The screen is re-displayed with the data from the record you specified and the <code class="cCode">LOGICAL MACHINE NAME</code> and <code class="cCode">TYPE</code> fields are unprotected.
+</p>
+<p class="pGraphic"><a name="wp1024576"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024574table1024572">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1024574"> </a><div class="pPreformatted"><pre> BEAPCON                     BEA TMA 10.0 TCP FOR CICS                   BEAM C3<br />  <br />                                INQUIRE CONNECTION<br />  <br />  <br />                      LOGICAL MACHINE NAME:     ________________<br />  <br />                      TYPE:                     _<br />  <br />                      STATUS:<br />  <br />                      MAX MSG SIZE:<br />  <br />                      REQUESTER TASK NUMBER:<br />                      NUMBER REQUESTS:<br />                      NUMBER SUCCESS REQS:<br />                      NUMBER RECONNECTS:<br />                      NUMBER OPEN SOCKETS:<br />                      NUMBER SESSIONS ACTIVE:<br />  <br />  <br />    ENTER: PROCESS, PF3: MENU, PF5: BROWSE</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1024577"> </a>
+ Fields
+</h4>
+<p class="pGraphic"><a name="wp1024626"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1036975table1024578">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1036975"> </a>
+Field Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1036977"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024584"> </a>
+<code class="cCode">LOGICAL MACHINE NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024586"> </a>
+This name is the gateway ID. Specify a unique name up to 16 characters. Example: (bankmach1)
+</div>
+<div class="pCellBody"><a name="wp1024587"> </a>
+For Requesters, this name is the <code class="cCode">LMID</code> associated with the service that the Requester is requesting. 
+</div>
+<div class="pCellBody"><a name="wp1024588"> </a>
+For a Handler, this name is <code class="cCode">BEAH</code> followed by the task number. The task number of the Handler is given in the <code class="cCode">BEALOG</code>. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024590"> </a>
+<code class="cCode">TYPE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024592"> </a>
+The type of connection. <code class="cCode">I</code> represents incoming connections or O represents outgoing connections.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024594"> </a>
+<code class="cCode">STATUS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024596"> </a>
+The status of the connection. <code class="cCode">E</code> means the connection is enabled. <code class="cCode">D</code> means the connection is designated for a normal shutdown, which allows initiated tasks to complete prior to disconnecting. A means the connection shuts down immediately, aborts all initiated tasks, and disconnects.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024598"> </a>
+<code class="cCode">MAX MSG SIZE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024600"> </a>
+The largest message allowed to be sent across this connection. The maximum is 32000. Example: (31000)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024602"> </a>
+<code class="cCode">REQUESTER TASK NUMBER</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024604"> </a>
+The task number of the Requester that is currently associated with the <code class="cCode">LOGICAL MACHINE NAME</code>. If there is not an active Requester, the task number is for the Requester most recently associated with that <code class="cCode">LMID</code>.
+</div>
+<div class="pCellBody"><a name="wp1024605"> </a>
+For a Handler, this field is blank; the task number is part of the <code class="cCode">LMID</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024607"> </a>
+<code class="cCode">NUMBER REQUESTS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024609"> </a>
+The number of service requests made during this connection.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024611"> </a>
+<code class="cCode">NUMBER SUCCESS REQS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024613"> </a>
+The number of successful communications.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024615"> </a>
+<code class="cCode">NUMBER RECONNECTS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024617"> </a>
+The number of successful connections.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024619"> </a>
+<code class="cCode">NUMBER OPEN SOCKETS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024621"> </a>
+The number of sockets that are currently opened by the Requester.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024623"> </a>
+<code class="cCode">NUMBER SESSIONS ACTIVE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024625"> </a>
+The number of active sessions on this connection.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1024627"> </a>
+Browse Connection Screen (C5)
+</h3>
+<p class="pBody"><a name="wp1024629"> </a>
+Use this screen to browse records in the Connection file and to select individual records for further processing. If you access this screen from the Main menu, the first record on file is displayed at the top of the screen. If you access this screen from the Connection Update screen or the Inquire screen, the list starts with the key received from that screen.
+</p>
+<p class="pBody"><a name="wp1024630"> </a>
+To select a record for processing enter a valid selection code in the <code class="cCode">SEL CDE</code> field. For example, to make an inquiry about a record, enter &#8220;<code class="cCode">3</code>&#8221;. If you enter more than one selection code, the first one is used and all others are ignored. After the selection code is validated and processed, the screen for that process is displayed, and the record key appears in the <code class="cCode">LOGICAL MACHINE NAME</code> field.
+</p>
+<p class="pGraphic"><a name="wp1024635"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024633table1024631">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1024633"> </a><div class="pPreformatted"><pre> BEAPCON                    BEA TMA 10.0 TCP FOR CICS                    BEAM C5<br />  <br />                                BROWSE  CONNECTION<br />  <br />  <br /> SEL  LOGICAL MACHINE  STA MAXMSG NUMBER NUMBER NUMBER SOCK SESS ACT<br /> CDE       NAME        TUS  SIZE   REQS  SUCREQ RECONS ETS  IONS IVE TYPE<br /> ---  ---------------- --- ------ ------ ------ ------ ---- ---- --- ----<br />  <br />  _   ________________  _  _____  _____  _____  _____   __   __   _   _<br />  _   ________________  _  _____  _____  _____  _____   __   __   _   _<br />  _   ________________  _  _____  _____  _____  _____   __   __   _   _<br />  _   ________________  _  _____  _____  _____  _____   __   __   _   _<br />  _   ________________  _  _____  _____  _____  _____   __   __   _   _<br />  _   ________________  _  _____  _____  _____  _____   __   __   _   _<br />  _   ________________  _  _____  _____  _____  _____   __   __   _   _<br />  _   ________________  _  _____  _____  _____  _____   __   __   _   _<br />  _   ________________  _  _____  _____  _____  _____   __   __   _   _<br />  _   ________________  _  _____  _____  _____  _____   __   __   _   _<br />  <br />  * SELCDE = (2: UPD, 3: INQ)<br />    ENTER: PROCESS, PF3: MENU, PF7: PREV, PF8: NEXT<br /> BEG/END OF FILE</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024638"> </a>
+The Requester Screens
+</h2><p class="pBody"><a name="wp1024639"> </a>
+A Requester is responsible for collecting request information to be sent to the remote Oracle Tuxedo domain. The Requester establishes network connectivity, transmits data to Oracle Tuxedo, and receives data from Oracle Tuxedo. Each Requester is responsible for one and only one remote endpoint (or one TCP/IP address/port combination). You can configure multiple Requesters to point to the same endpoint, but each Requester can have only one endpoint.
+</p>
+<p class="pBody"><a name="wp1024650"> </a>
+On the following maintenance screens, each instance of the Requester is given a logical machine ID (<code class="cCode">LMID</code>). You can give a Requester any unique <code class="cCode">LMID</code> that is meaningful to you. Every service name is associated with one <code class="cCode">LMID</code>. This method allows the Requester to know which remote machine is responsible for a particular service.
+</p>
+<h3 class="pHeading2"><a name="wp1024651"> </a>
+PF Keys
+</h3>
+<p class="pBody"><a name="wp1031341"> </a>
+The following table lists function keys available on various requester screens.
+</p>
+<p class="pGraphic"><a name="wp1036128"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1031318table1031312">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1031318"> </a>
+Function Key
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1031320"> </a>
+Function
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031322"> </a>
+<code class="cCode">ENTER</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031324"> </a>
+Process the selection code entered
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031326"> </a>
+<code class="cCode">PF3</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031328"> </a>
+Transfer to Main menu
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031330"> </a>
+<code class="cCode">PF5</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031332"> </a>
+Transfer to Requester Browse screen
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031334"> </a>
+<code class="cCode">PF7</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031336"> </a>
+Display the previous page of records
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031338"> </a>
+<code class="cCode">PF8</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031340"> </a>
+Display the next page of records
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<a name="wp1024658"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If you enter data and press <code class="cCode">PF3</code> or <code class="cCode">PF5</code> before pressing <code class="cCode">ENTER</code>, the operation process is aborted and the appropriate screen is displayed.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1024659"> </a>
+Insert Requester Screen (R1)
+</h3>
+<p class="pBody"><a name="wp1024661"> </a>
+Use this screen to configure a new Requester by inserting a new record into the Requester file. 
+</p>
+<p class="pBody"><a name="wp1024662"> </a>
+When the screen is first displayed, all the fields are unprotected. Type the required data, then press <code class="cCode">ENTER</code>. After the data is validated and processed, the screen is re-displayed and all the fields are unprotected.
+</p>
+<p class="pGraphic"><a name="wp1024667"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024665table1024663">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1024665"> </a><div class="pPreformatted"><pre> BEAPREQ                    BEA TMA 10.0 TCP FOR CICS                    BEAM R1<br />  <br />                                INSERT  REQUESTER<br />  <br />     LMID:           ________________       MULTIPLEX_CNT:  __<br />     DNS: ________________________________________________________________<br />     HOST ADDRESS:    _______________<br />     PORT NUMBER:     _____<br />                                            MIN TIME (MILLISEC):     _____<br />     SECURITY(Y/N):   _                     MAX TIME (MILLISEC):     _____<br />     ACCOUNT ID:      ________              DELTA TIME (MILLISEC):   _____<br />     PASSWORD:                              IDLE TIME (SECONDS):     _____<br />                                            REQ IDLE TIME (SECONDS): _____<br />     MAX QUEUE SIZE:  _____                 LATENCY TIME (SECONDS):     __<br />     MAX MSG SIZE:    _____                 MAX CONNS:      __<br />     RETRY LIMIT:     _____ <br />  <br />     LMID TYPE:       _                     QUEUE NAME 1:   ________<br />     START TRAN-ID:   ____                  QUEUE NAME 2:   ________<br />&#160;&#160;&#160;&#160;&#160;CICS DATA:       ___                   AUTO ENABLE LMID(E/D): _<br /><br />    ENTER: PROCESS, PF3: MENU, PF5: BROWSE</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1024668"> </a>
+Fields
+</h4>
+<p class="pGraphic"><a name="wp1024801"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1037042table1024669">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1037042"> </a>
+Field Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1037044"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024675"> </a>
+<code class="cCode">LMID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024677"> </a>
+This name is the logical machine name or gateway ID. Give it a unique name up to 16 characters. Example: (bankmach1)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024679"> </a>
+<code class="cCode">DNS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024681"> </a>
+The host name that the domain name service recognizes.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024683"> </a>
+<code class="cCode">HOST ADDRESS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024685"> </a>
+The TCP/IP dot address. Example: <code class="cCode">(199.99.99.99)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024687"> </a>
+<code class="cCode">PORT NUMBER</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024689"> </a>
+The TCP port. Check with the TCP/IP administrator for available ports. Example: <code class="cCode">(1234)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024691"> </a>
+<code class="cCode">SECURITY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024693"> </a>
+The status of connection-level security. <code class="cCode">Y</code> specifies that security is on and <code class="cCode">N</code> denotes that security is off.
+</div>
+<p class="pTableNote"><a name="wp1024694"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For additional security information, refer to the <a href="cicssec.html"><span class="cHyperlink">
+Configuring the TMA TCP Security</span></a> section. </td></tr>
+</table>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024699"> </a>
+<code class="cCode">ACCOUNT ID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024701"> </a>
+An eight-character ID. This ID must be the same ID that is used on the Oracle Tuxedo-side configuration. Coordinate with the Oracle Tuxedo Administrator. Required if there is an entry in the <code class="cCode">PASSWORD</code> field. Example: <code class="cCode">(CICS001A)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024709"> </a>
+<code class="cCode">PASSWORD</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024711"> </a>
+An eight-character password. This password must be the same as on the Oracle Tuxedo-side configuration. Coordinate with the Oracle Tuxedo Administrator. Required if there is an entry in the <code class="cCode">ACCOUNT ID</code> field. Example:<code class="cCode"> (LETMEIN2)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024719"> </a>
+<code class="cCode">MAX QUEUE SIZE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024721"> </a>
+Specifies the size of the local queue where requests are stored for servicing. A typical setting is 200. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024723"> </a>
+<code class="cCode">MAX MSG SIZE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024725"> </a>
+The largest message allowed to be sent across this connection. The maximum is 32000. Example: <code class="cCode">(4096)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024727"> </a>
+<code class="cCode">RETRY LIMIT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024729"> </a>
+If the connection fails, this number determines how many attempts the system makes to reestablish the connection before marking the connection disabled. Example: <code class="cCode">(5)</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024731"> </a>
+<code class="cCode">LMID TYPE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024733"> </a>
+The type of gateway the remote system is running (C for CICS, I for IMS, T for Tuxedo)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024735"> </a>
+<code class="cCode">START TRANID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024737"> </a>
+The ID of the transaction to be started if the remote system type is CICS.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024739"> </a>
+<code class="cCode">CICS DATA</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024741"> </a>
+A string to be passed to the IBM TCP/IP Listener for use with the TMA TCP for CICS gateway. The default is &quot;&#160;&quot;.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024746"> </a>
+<code class="cCode">MULTIPLEX CNT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024748"> </a>
+The number of concurrent requests for each connection.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024750"> </a>
+<code class="cCode">MIN TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024752"> </a>
+The minimum length of time (in milliseconds) for a socket read to wait for data to be processed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024758"> </a>
+<code class="cCode">MAX TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024760"> </a>
+The maximum length of time (in milliseconds) for a socket read to wait for data to be processed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024766"> </a>
+<code class="cCode">DELTA TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024768"> </a>
+The time increase (in milliseconds) from <code class="cCode">MIN TIME</code> to <code class="cCode">MAX TIME</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024774"> </a>
+<code class="cCode">IDLE TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024776"> </a>
+The amount of time in seconds that a connection is idle before it is closed. <code class="cCode">IDLE TIME</code> should be a smaller amount of time than<code class="cCode"> REQ IDLE TIME</code>. A typical setting is 30 seconds.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024778"> </a>
+<code class="cCode">REQ IDLE TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024780"> </a>
+The amount of time in seconds that a Requester is idle before it terminates. A typical setting is 120 seconds.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024782"> </a>
+<code class="cCode">LATENCY TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024784"> </a>
+Network time and system processing time added to give a true system wait time (in seconds).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024786"> </a>
+<code class="cCode">MAX CONNS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024788"> </a>
+The maximum number of connections the Requester opens. The maximum value is <code class="cCode">50</code> for IBM TCP/IP. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024794"> </a>
+<code class="cCode">QUEUE NAME 1</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024796"> </a>
+The unique name of a TS Q that is used for communications between the Pre-requester and the Requester.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024798"> </a>
+<code class="cCode">QUEUE NAME 2</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024800"> </a>
+The unique name of a TS Q that is used for communications between the Pre-requester and the Requester.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037782"> </a>
+<code class="cCode">AUTO ENABLE LMID(E|D)</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037784"> </a>
+This field is used for auto enabling of LMID. Enter E to automatically enable a disabled Requester LMID for TMA TCP for CICS gateway. Enter D to disable the automatic enabling of a disabled Requester LMID for TMA TCP for CICS gateway.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1024802"> </a>
+Update Requester Screen (R2)
+</h3>
+<p class="pBody"><a name="wp1024804"> </a>
+Use this screen to update a record from the Requester file. The fields are the same as the ones on the Requester Insert screen, but on this screen you can change the values.
+</p>
+<p class="pBody"><a name="wp1024805"> </a>
+When the screen is first displayed, the <code class="cCode">LMID</code> field is unprotected. Enter a logical machine name and press <code class="cCode">ENTER</code>. The screen is re-displayed showing the data from the requested record. The <code class="cCode">HOST ADDRESS</code>, <code class="cCode">PORT NUMBER</code>, <code class="cCode">ACCOUNT ID</code>, <code class="cCode">PASSWORD</code>, <code class="cCode">MAX MSG SIZE</code>, and <code class="cCode">CONNECT RETRY LIMIT</code> fields are unprotected. The following message is displayed: <code class="cCode">RECORD READY FOR UPDATE</code>.
+</p>
+<p class="pBody"><a name="wp1024806"> </a>
+After the changes you entered are validated and processed, the screen is re-displayed and the <code class="cCode">LMID</code> field is unprotected.
+</p>
+<p class="pGraphic"><a name="wp1024811"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024809table1024807">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1024809"> </a><div class="pPreformatted"><pre> BEAPREQ                    BEA TMA 10.0 TCP FOR CICS                    BEAM R2<br />  <br />                                UPDATE  REQUESTER<br />  <br />     LMID:           ________________       MULTIPLEX_CNT:  __<br />     DNS: ________________________________________________________________<br />     HOST ADDRESS:    _______________<br />     PORT NUMBER:     _____<br />                                            MIN TIME (MILLISEC):     _____<br />     SECURITY(Y/N):   _                     MAX TIME (MILLISEC):     _____<br />     ACCOUNT ID:      ________              DELTA TIME (MILLISEC):   _____<br />     PASSWORD:                              IDLE TIME (SECONDS):     _____<br />                                            REQ IDLE TIME (SECONDS): _____<br />     MAX QUEUE SIZE:  _____                 LATENCY TIME (SECONDS):     __<br />     MAX MSG SIZE:    _____                 MAX CONNS:      __<br />     RETRY LIMIT:     _____ <br />  <br />     LMID TYPE:       _                     QUEUE NAME 1:   ________<br />     START TRAN-ID:   ____                  QUEUE NAME 2:   ________<br />&#160;&#160;&#160;&#160;&#160;CICS DATA:       ___                   AUTO ENABLE LMID(E/D): _<br />  <br />    ENTER: PROCESS, PF3: MENU, PF5: BROWSE</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1024812"> </a>
+Fields
+</h4>
+<p class="pGraphic"><a name="wp1024945"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1037050table1024813">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1037050"> </a>
+Field Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1037052"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024819"> </a>
+<code class="cCode">LMID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024821"> </a>
+This name is the logical machine name or gateway ID. Give it a unique name up to 16 characters. Example: <code class="cCode">(bankmach1)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024823"> </a>
+<code class="cCode">DNS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024825"> </a>
+The host name that the Domain Name Service recognizes.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024827"> </a>
+<code class="cCode">HOST ADDRESS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024829"> </a>
+The TCP/IP dot address. Example: <code class="cCode">(199.99.99.99)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024831"> </a>
+<code class="cCode">PORT NUMBER</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024833"> </a>
+The TCP port. Check with the TCP/IP administrator for available ports. Example: <code class="cCode">(1234)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024835"> </a>
+<code class="cCode">SECURITY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024837"> </a>
+The status of security. <code class="cCode">Y</code> specifies that security is on and <code class="cCode">N</code> denotes that security is off.
+</div>
+<p class="pTableNote"><a name="wp1024838"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For additional security information, refer to <a href="cicssec.html"><span class="cHyperlink">
+Configuring the TMA TCP Security</span></a>.</td></tr>
+</table>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024843"> </a>
+<code class="cCode">ACCOUNT ID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024845"> </a>
+An eight-character ID for connection security. This ID must be the same ID that is used on the Oracle Tuxedo-side configuration. Coordinate with the Oracle Tuxedo Administrator. Required if there is an entry in the <code class="cCode">PASSWORD</code> field. Example: <code class="cCode">(CICS001A)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024853"> </a>
+<code class="cCode">PASSWORD</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024855"> </a>
+An eight-character password for connection security. This password must be the same as on the Oracle Tuxedo-side configuration. Coordinate with the Oracle Tuxedo Administrator. Required if there is an entry in the <code class="cCode">ACCOUNT ID</code> field. Example: <code class="cCode">(LETMEIN1)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024863"> </a>
+<code class="cCode">MAX QUEUE SIZE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024865"> </a>
+Specifies the size of the local queue where requests are stored for servicing. A typical setting is 200. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024867"> </a>
+<code class="cCode">MAX MSG SIZE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024869"> </a>
+The largest message allowed to be sent across this connection. The maximum is 32000. Example: <code class="cCode">(4096)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024871"> </a>
+<code class="cCode">RETRY LIMIT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024873"> </a>
+If the connection fails, this number determines how many attempts the system makes to reestablish the connection before marking the connection disabled. Example: <code class="cCode">(5)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024875"> </a>
+<code class="cCode">LMID TYPE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024877"> </a>
+The type of gateway the remote system is running (C for CICS, I for IMS, T for Tuxedo)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024879"> </a>
+<code class="cCode">START TRANID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024881"> </a>
+The ID of the transaction to be started if the remote system type is CICS.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024883"> </a>
+<code class="cCode">CICS DATA</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024885"> </a>
+A string to be passed to the IBM TCP/IP Listener for use with the TMA TCP for CICS gateway. The default is &quot;&#160;&quot;.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024890"> </a>
+<code class="cCode">MULTIPLEX CNT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024892"> </a>
+The number of concurrent requests for each connection.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024894"> </a>
+<code class="cCode">MIN TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024896"> </a>
+The minimum length of time (in milliseconds) for a socket read to wait for data to be processed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024902"> </a>
+<code class="cCode">MAX TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024904"> </a>
+The maximum length of time (in milliseconds) for a socket read to wait for data to be processed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024910"> </a>
+<code class="cCode">DELTA TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024912"> </a>
+The time increase (in milliseconds) from <code class="cCode">MIN TIME</code> to <code class="cCode">MAX TIME</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024918"> </a>
+<code class="cCode">IDLE TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024920"> </a>
+The amount of time in seconds that a connection is idle before it is closed. <code class="cCode">IDLE TIME</code> should be a smaller amount of time than <code class="cCode">REQ IDLE TIME</code>. A typical setting is 30 seconds.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024922"> </a>
+<code class="cCode">REQ IDLE TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024924"> </a>
+The amount of time in seconds that a Requester is idle before it terminates. A typical setting is 120 seconds.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024926"> </a>
+<code class="cCode">LATENCY TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024928"> </a>
+Network time and system processing time added to give a true system wait time (in seconds).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024930"> </a>
+<code class="cCode">MAX CONNS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024932"> </a>
+The maximum number of connections the Requester opens. The maximum value is <code class="cCode">50</code> for IBM TCP/IP.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024938"> </a>
+QUEUE NAME 1
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024940"> </a>
+The unique name of a TS Q that is used for communications between the Pre-requester and the Requester.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024942"> </a>
+QUEUE NAME 2
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024944"> </a>
+The unique name of a TS Q that is used for communications between the Pre-requester and the Requester.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037815"> </a>
+<code class="cCode">AUTO ENABLE LMID(E|D)</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037817"> </a>
+Enter E to automatically enable a disabled Requester LMID for TMA TCP for CICS gateway. Enter D to disable the automatic enabling of a disabled Requester LMID for TMA TCP for CICS gateway.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1024946"> </a>
+Inquire Requester Screen (R3)
+</h3>
+<p class="pBody"><a name="wp1024948"> </a>
+Use this screen to make an inquiry about a record from the Requester file. The screen is initially displayed with the <code class="cCode">LOGICAL MACHINE NAME</code> field unprotected. Enter the logical machine name and press <code class="cCode">ENTER</code>. The screen is re-displayed with the data from the requested record and the <code class="cCode">LOGICAL MACHINE NAME</code> field is unprotected.
+</p>
+<p class="pGraphic"><a name="wp1024953"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024951table1024949">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1024951"> </a><div class="pPreformatted"><pre> BEAPREQ                    BEA TMA 10.0 TCP FOR CICS                    BEAM R3<br />  <br />                                INQUIRE REQUESTER<br />  <br />     LMID:           ________________       MULTIPLEX_CNT:  __<br />     DNS: ________________________________________________________________<br />     HOST ADDRESS:    _______________<br />     PORT NUMBER:     _____<br />                                            MIN TIME (MILLISEC):     _____<br />     SECURITY(Y/N):   _                     MAX TIME (MILLISEC):     _____<br />     ACCOUNT ID:      ________              DELTA TIME (MILLISEC):   _____<br />     PASSWORD:                              IDLE TIME (SECONDS):     _____<br />                                            REQ IDLE TIME (SECONDS): _____<br />     MAX QUEUE SIZE:  _____                 LATENCY TIME (SECONDS):     __<br />     MAX MSG SIZE:    _____                 MAX CONNS:      __<br />     RETRY LIMIT:     _____ <br />  <br />     LMID TYPE:       _                     QUEUE NAME 1:   ________<br />     START TRAN-ID:   ____                  QUEUE NAME 2:   ________<br />&#160;&#160;&#160;&#160;&#160;CICS DATA:       ___                   AUTO ENABLE LMID(E/D): _<br />  <br />    ENTER: PROCESS, PF3: MENU, PF5: BROWSE</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1024954"> </a>
+Fields
+</h4>
+<p class="pGraphic"><a name="wp1025087"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1037148table1024955">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1037148"> </a>
+Field Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1037150"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024961"> </a>
+<code class="cCode">LMID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024963"> </a>
+This name is the logical machine name or gateway ID. This name is a unique name up to 16 characters. Example: <code class="cCode">(bankmach1)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024965"> </a>
+<code class="cCode">DNS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024967"> </a>
+The host name that the domain Name Service recognizes.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024969"> </a>
+<code class="cCode">HOST ADDRESS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024971"> </a>
+The TCP/IP dot address. Example: <code class="cCode">(199.99.99.99)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024973"> </a>
+<code class="cCode">PORT NUMBER</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024975"> </a>
+The TCP/IP port. Check with the TCP/IP administrator for available ports. Example: <code class="cCode">(1234)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024977"> </a>
+<code class="cCode">SECURITY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024979"> </a>
+The status of security. <code class="cCode">Y</code> specifies that security is on and <code class="cCode">N</code> denotes that security is off.
+</div>
+<p class="pTableNote"><a name="wp1024980"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For additional security information, refer to the <a href="cicssec.html"><span class="cHyperlink">
+Configuring the TMA TCP Security</span></a> section.</td></tr>
+</table>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024985"> </a>
+<code class="cCode">ACCOUNT ID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024987"> </a>
+An eight-character ID. This ID must be the same ID that is used on the Oracle Tuxedo-side configuration. Coordinate with the Oracle Tuxedo Administrator. Required if there is an entry in the <code class="cCode">PASSWORD</code> field. Example: <code class="cCode">(CICS001A)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024995"> </a>
+<code class="cCode">PASSWORD</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024997"> </a>
+An eight-character password. This password must be the same as the password used on the Oracle Tuxedo-side configuration. Coordinate with the Oracle Tuxedo Administrator. 
+</div>
+<div class="pCellBody"><a name="wp1028838"> </a>
+Required if there is an entry in the <code class="cCode">ACCOUNT ID</code> field. Example: <code class="cCode">(LETMEIN1)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025005"> </a>
+<code class="cCode">MAX QUEUE SIZE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025007"> </a>
+Specifies the size of the local queue where requests are stored for servicing. A typical setting is 200. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025009"> </a>
+<code class="cCode">MAX MSG SIZE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025011"> </a>
+The largest message allowed to be sent across this connection. The maximum is 32000. Example: <code class="cCode">(4096)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025013"> </a>
+<code class="cCode">RETRY LIMIT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025015"> </a>
+If the connection fails, this number determines how many attempts the system makes to reestablish the connection before marking the connection disabled. Example: <code class="cCode">(5)</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025017"> </a>
+<code class="cCode">LMID TYPE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025019"> </a>
+The type of gateway the remote system is running (C for CICS, I for IMS, T for Tuxedo)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025021"> </a>
+<code class="cCode">START TRANID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025023"> </a>
+The ID of the transaction to be started if the remote system type is CICS.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025025"> </a>
+<code class="cCode">CICS DATA</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025027"> </a>
+A string to be passed to the IBM TCP/IP Listener for use with the TMA TCP for CICS gateway. The default is &quot;&#160;&quot;.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025032"> </a>
+<code class="cCode">MULTIPLEX CNT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025034"> </a>
+The number of concurrent requests for each connection.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025036"> </a>
+<code class="cCode">MIN TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025038"> </a>
+The minimum length of time (in milliseconds) for a socket read to wait for data to be processed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025044"> </a>
+<code class="cCode">MAX TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025046"> </a>
+The maximum length of time (in milliseconds) for a socket read to wait for data to be processed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025052"> </a>
+<code class="cCode">DELTA TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025054"> </a>
+The time increase (in milliseconds) from <code class="cCode">MIN TIME</code> to <code class="cCode">MAX TIME</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025060"> </a>
+<code class="cCode">IDLE TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025062"> </a>
+The amount of time in seconds that a connection is idle before it is closed. <code class="cCode">IDLE TIME</code> should be a smaller amount of time than <code class="cCode">REQ IDLE TIME</code>. A typical setting is 30 seconds.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025064"> </a>
+<code class="cCode">REQ IDLE TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025066"> </a>
+The amount of time in seconds that a Requester is idle before it terminates. A typical setting is 120 seconds.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025068"> </a>
+<code class="cCode">LATENCY TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025070"> </a>
+Network time and system processing time added to give a true system wait time (in seconds).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025072"> </a>
+<code class="cCode">MAX CONNS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025074"> </a>
+The maximum number of connections the Requester opens. The maximum value is <code class="cCode">50</code> for IBM TCP/IP.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025080"> </a>
+<code class="cCode">QUEUE NAME 1</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025082"> </a>
+The unique name of a TS Q that is used for communications between the Pre-requester and the Requester.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025084"> </a>
+<code class="cCode">QUEUE NAME 2</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025086"> </a>
+The unique name of a TS Q that is used for communications between the Pre-requester and the Requester.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037833"> </a>
+<code class="cCode">AUTO ENABLE LMID(E|D)</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037835"> </a>
+Enter E to automatically enable a disabled Requester LMID for TMA TCP for CICS gateway. Enter D to disable the automatic enabling of a disabled Requester LMID for TMA TCP for CICS gateway.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1025088"> </a>
+Delete Requester Screen (R4)
+</h3>
+<p class="pBody"><a name="wp1025090"> </a>
+Use this screen to delete a record from the Requester file.
+</p>
+<a name="wp1025091"> </a>
+<table class="Note">
+<tr>
+<td valign="top"><strong>WARNING:</strong></td>
+<td>Deleting a Requester record can have serious ramifications. Think carefully before performing this operation. If there are any Service records that point to this <code class="cCode">GWID</code>, any client calls to those services are rejected because Oracle TMA does not know to which remote machine the request should go.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1025095"> </a>
+The screen is initially displayed with the <code class="cCode">LOGICAL MACHINE NAME</code> field unprotected. Enter the logical machine name and press <code class="cCode">ENTER</code>. The screen is then re-displayed with the data from the requested record and the <code class="cCode">LOGICAL MACHINE NAME</code> field is protected. The following message is displayed: <code class="cCode">TO CONFIRM DELETE, PRESS ENTER AGAIN</code>.
+</p>
+<p class="pGraphic"><a name="wp1025100"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025098table1025096">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1025098"> </a><div class="pPreformatted"><pre> BEAPREQ                    BEA TMA 10.0 TCP FOR CICS                   BEAM R4<br />  <br />                                DELETE  REQUESTER<br />  <br />     LMID:           ________________       MULTIPLEX_CNT:  __<br />     DNS: ________________________________________________________________<br />     HOST ADDRESS:    _______________<br />     PORT NUMBER:     _____<br />                                            MIN TIME (MILLISEC):     _____<br />     SECURITY(Y/N):   _                     MAX TIME (MILLISEC):     _____<br />     ACCOUNT ID:      ________              DELTA TIME (MILLISEC):   _____<br />     PASSWORD:                              IDLE TIME (SECONDS):     _____<br />                                            REQ IDLE TIME (SECONDS): _____<br />     MAX QUEUE SIZE:  _____                 LATENCY TIME (SECONDS):     __<br />     MAX MSG SIZE:    _____                 MAX CONNS:      __<br />     RETRY LIMIT:     _____ <br />  <br />     LMID TYPE:       _                     QUEUE NAME 1:   ________<br />     START TRAN-ID:   ____                  QUEUE NAME 2:   ________<br />&#160;&#160;&#160;&#160;&#160;CICS DATA:       ___                   AUTO ENABLE LMID(E/D): _<br />  <br />    ENTER: PROCESS, PF3: MENU, PF5: BROWSE</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1025101"> </a>
+Fields
+</h4>
+<p class="pGraphic"><a name="wp1025234"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1037164table1025102">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1037164"> </a>
+Field Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1037166"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025108"> </a>
+<code class="cCode">LMID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025110"> </a>
+This name is the logical machine name or gateway ID. This name is a unique name up to 16 characters. Example: <code class="cCode">(bankmach1)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025112"> </a>
+<code class="cCode">DNS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025114"> </a>
+The host name that the domain Name Service recognizes.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025116"> </a>
+<code class="cCode">HOST ADDRESS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025118"> </a>
+The TCP/IP dot address. Example: <code class="cCode">(199.99.99.99)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025120"> </a>
+<code class="cCode">PORT NUMBER</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025122"> </a>
+The TCP/IP port. Check with the TCP/IP administrator for available ports. Example: <code class="cCode">(1234)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025124"> </a>
+<code class="cCode">SECURITY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025126"> </a>
+The status of security. <code class="cCode">Y</code> specifies that security is on and <code class="cCode">N</code> denotes that security is off.
+</div>
+<p class="pTableNote"><a name="wp1025127"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For additional security information, refer to the <a href="cicssec.html"><span class="cHyperlink">
+Configuring the TMA TCP Security</span></a><span class="cHyperlink">
+ </span>section. </td></tr>
+</table>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025132"> </a>
+<code class="cCode">ACCOUNT ID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025134"> </a>
+An eight-character ID. This name must be the same ID that is used on the Oracle Tuxedo-side configuration. Coordinate with the Oracle Tuxedo Administrator. Required if there is an entry in the <code class="cCode">PASSWORD</code> field. Example: <code class="cCode">(CICS001A)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025142"> </a>
+<code class="cCode">PASSWORD</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025144"> </a>
+An eight-character password. This password must be the same as on the Oracle Tuxedo-side configuration. Coordinate with the Oracle Tuxedo Administrator. Required if there is an entry in the <code class="cCode">ACCOUNT ID</code> field. Example: <code class="cCode">(LETMEIN1)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025152"> </a>
+<code class="cCode">MAX QUEUE SIZE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025154"> </a>
+Specifies the size of the local queue where requests are stored for servicing. A typical setting is 200. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025156"> </a>
+<code class="cCode">MAX MSG SIZE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025158"> </a>
+The largest message allowed to be sent across this connection. The maximum is 32000. Example:<code class="cCode"> (4096)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025160"> </a>
+<code class="cCode">RETRY LIMIT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025162"> </a>
+If the connection fails, this number determines how many attempts the system makes to reestablish the connection before marking the connection disabled. Example: <code class="cCode">(5)</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025164"> </a>
+<code class="cCode">LMID TYPE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025166"> </a>
+The type of gateway the remote system is running (C for CICS, I for IMS, T for Tuxedo)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025168"> </a>
+<code class="cCode">START TRANID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025170"> </a>
+The ID of the transaction to be started if the remote system type is CICS.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025172"> </a>
+<code class="cCode">CICS DATA</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025174"> </a>
+A string to be passed to the IBM TCP/IP Listener for use with the TMA TCP for CICS gateway. The default is &quot;&#160;&quot;.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025179"> </a>
+<code class="cCode">MULTIPLEX CNT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025181"> </a>
+The number of concurrent requests for each connection.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025183"> </a>
+<code class="cCode">MIN TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025185"> </a>
+The minimum length of time (in milliseconds) for a socket read to wait for data to be processed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025191"> </a>
+<code class="cCode">MAX TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025193"> </a>
+The maximum length of time (in milliseconds) for a socket read to wait for data to be processed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025199"> </a>
+<code class="cCode">DELTA TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025201"> </a>
+The time increase (in milliseconds) from<code class="cCode"> MIN TIME</code> to <code class="cCode">MAX TIME</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025207"> </a>
+<code class="cCode">IDLE TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025209"> </a>
+The amount of time in seconds that a connection is idle before it is closed. <code class="cCode">IDLE TIME</code> should be a smaller amount of time than <code class="cCode">REQ IDLE TIME</code>. A typical setting is 30 seconds.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025211"> </a>
+<code class="cCode">REQ IDLE TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025213"> </a>
+The amount of time in seconds that a Requester is idle before it terminates. A typical setting is 120 seconds.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025215"> </a>
+<code class="cCode">LATENCY TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025217"> </a>
+Network time and system processing time added to give a true system wait time (in seconds).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025219"> </a>
+<code class="cCode">MAX CONNS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025221"> </a>
+The maximum number of connections the Requester opens. The maximum value is <code class="cCode">50</code> for IBM TCP/IP.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025227"> </a>
+<code class="cCode">QUEUE NAME 1</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025229"> </a>
+The unique name of a TS Q that is used for communications between the Pre-requester and the Requester.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025231"> </a>
+<code class="cCode">QUEUE NAME 2</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025233"> </a>
+The unique name of a TS Q that is used for communications between the Pre-requester and the Requester.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037848"> </a>
+<code class="cCode">AUTO ENABLE LMID(E|D)</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037850"> </a>
+Enter E to automatically enable a disabled Requester LMID for TMA TCP for CICS gateway. Enter D to disable the automatic enabling of a disabled Requester LMID for TMA TCP for CICS gateway.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1025235"> </a>
+Browse Requester Screen (R5)
+</h3>
+<p class="pBody"><a name="wp1025237"> </a>
+Use this screen to browse a list of the records in the Requester file. Additionally, you can select a record for further processing by entering a valid selection code in the first column of that record&#8217;s row.
+</p>
+<p class="pBody"><a name="wp1025238"> </a>
+If you access this screen from the Main menu, the first record on file is displayed at the top of the screen. If you access this screen from the Insert, Update, Inquire, or Delete screens, the key received from that screen determines which records are displayed.
+</p>
+<p class="pBody"><a name="wp1025239"> </a>
+To choose a record, enter a valid selection code in the S<code class="cCode">EL CDE</code> field next to that record. For example, to make an inquiry about a record, enter &#8220;<code class="cCode">3</code>&#8221;. If you enter more than one selection code, the first one is used and the others are ignored.
+</p>
+<p class="pBody"><a name="wp1025240"> </a>
+After the entry in the <code class="cCode">SEL CDE</code> field is validated and processed, the screen for that process is displayed and the record key appears in the <code class="cCode">LOGICAL MACHINE NAME</code> field.
+</p>
+<p class="pGraphic"><a name="wp1025245"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025243table1025241">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1025243"> </a><div class="pPreformatted"><pre>  BEAPREQ                    BEA TMA 10.0 TCP FOR CICS                    BEAM R5<br />  <br />                                BROWSE  REQUESTER<br />  <br />  <br /> SEL  LOGICAL MACHINE       HOST       PORT  MAXM  CONN  LMID START<br /> CDE       NAME            ADDRESS     NUM   SIZE  R-LIM TYPE TRNID<br /> ---  ---------------- --------------- ----- ----- ----- ---- -----<br />  <br />  _   ________________ _______________ _____ _____ _____  _   ____<br />  _   ________________ _______________ _____ _____ _____  _   ____<br />  _   ________________ _______________ _____ _____ _____  _   ____<br />  _   ________________ _______________ _____ _____ _____  _   ____<br />  _   ________________ _______________ _____ _____ _____  _   ____<br />  _   ________________ _______________ _____ _____ _____  _   ____<br />  _   ________________ _______________ _____ _____ _____  _   ____<br />  _   ________________ _______________ _____ _____ _____  _   ____<br />  _   ________________ _______________ _____ _____ _____  _   ____<br />  _   ________________ _______________ _____ _____ _____  _   ____<br />  <br />  * SELCDE = (1: INS, 2: UPD, 3: INQ, 4: DEL)<br />    ENTER: PROCESS, PF3: MENU, PF7: PREV, PF8: NEXT<br /> RECORD NOT FOUND</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1025248"> </a>
+The Outbound Service Information Screens
+</h2><p class="pBody"><a name="wp1025249"> </a>
+A service is a name associated with some component of work. That component of work might be a banking transaction, an airline flight reservation, or an order for a dozen widgets. In Oracle Tuxedo, a client program that needs work done makes a<em class="cEmphasis"> &#8220;</em>service request.&#8221; A process called a server performs the work described in the service request on behalf of the client, then returns the results of its efforts back to the client. In MVS this process would be referred to as a call to a &#8220;black box.&#8221; 
+</p>
+<p class="pBody"><a name="wp1025256"> </a>
+In a CICS application that uses TMA TCP for CICS, a service name is passed in the data area in an <code class="cCode">EXEC CICS LINK</code> command and the results are returned in that same area. The service screens use the terms &#8220;service name&#8221; and &#8220;remote service name.&#8221; The service name (such as, <code class="cCode">CIC01XXYYZZ</code>) is what the service is known as to your CICS environment and the remote service name (such as, <code class="cCode">WITHDRAWL</code>) is what the service is known as to Oracle Tuxedo. For simplicity, you can make both names the same, but if naming conventions differ, you can use different names.
+</p>
+<h3 class="pHeading2"><a name="wp1025260"> </a>
+PF Keys
+</h3>
+<p class="pBody"><a name="wp1025261"> </a>
+The following table lists function keys available on various outbound service screens.
+</p>
+<p class="pGraphic"><a name="wp1036410"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1037498table1029168"><caption><a name="wp1037498"> </a>
+Table 4-5  Function Keys
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1037502"> </a>
+Function Key
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1037504"> </a>
+Function
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037506"> </a>
+<code class="cCode">ENTER</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037508"> </a>
+Process the selection code entered
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037510"> </a>
+<code class="cCode">PF3</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037512"> </a>
+Transfer to Main menu
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037514"> </a>
+<code class="cCode">PF5</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037516"> </a>
+Transfer to Browse screen
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037518"> </a>
+<code class="cCode">PF7</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037520"> </a>
+Display the previous page of records
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037522"> </a>
+<code class="cCode">PF8</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037524"> </a>
+Display the next page of records
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<a name="wp1025266"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If you enter data and press <code class="cCode">PF3</code> or <code class="cCode">PF5</code> before pressing <code class="cCode">ENTER</code>, the operation process is aborted and the appropriate screen is displayed.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1025268"> </a>
+Insert Outbound Service Information Screen (S1)
+</h3>
+<p class="pBody"><a name="wp1025270"> </a>
+Use this screen to insert a record into the service name file. The screen is first displayed with all fields unprotected. Enter the required data in the appropriate fields and press <code class="cCode">ENTER</code>. After the data is validated and processed, the screen is re-displayed and all the fields are unprotected.
+</p>
+<p class="pGraphic"><a name="wp1025275"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025273table1025271">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1025273"> </a><div class="pPreformatted"><pre> BEAPSVC                    BEA TMA 10.0 TCP FOR CICS                    BEAM S1<br />  <br />                    INSERT  OUTBOUND SERVICE INFORMATION<br />  <br />  <br />  <br />                      SERVICE NAME:          ________________<br />  <br />                      LOGICAL MACHINE NAME:  ________________<br />  <br />                      REMOTE SERVICE NAME:   ________________<br />  <br />                      SERVICE TIMEOUT(SEC):  _____<br />  <br />                      SECURITY(Y/N):         _<br />  <br />  <br />  <br />  <br />  <br />  <br />    ENTER: PROCESS, PF3: MENU, PF5: BROWSE</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1025276"> </a>
+Fields
+</h4>
+<p class="pGraphic"><a name="wp1025305"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025279table1025277">
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1025279"> </a>
+Field Name
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1025281"> </a>
+Description
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025283"> </a>
+<code class="cCode">SERVICE NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025285"> </a>
+The service name as it is known to the CICS programmer.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025287"> </a>
+<code class="cCode">LOGICAL MACHINE NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025289"> </a>
+This name is a symbolic name as it was defined on the Requester Insert screen. It denotes the remote machine on which this service should be processed. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025291"> </a>
+<code class="cCode">REMOTE SERVICE NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025296"> </a>
+The name as it is known in the remote Oracle Tuxedo domain.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025298"> </a>
+<code class="cCode">SERVICE TIMEOUT </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025300"> </a>
+The number of seconds to wait for timing out this service request.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025302"> </a>
+<code class="cCode">SECURITY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025304"> </a>
+The status of request-level security. <code class="cCode">Y</code> specifies that security is on and <code class="cCode">N</code> denotes that security is off.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1025306"> </a>
+Update Outbound Service Information Screen (S2)
+</h3>
+<p class="pBody"><a name="wp1025308"> </a>
+Use this screen to update a record from the service name file. When the screen is first displayed, the <code class="cCode">SERVICE NAME</code> field is unprotected. Enter the service name and press <code class="cCode">ENTER</code>. The screen is then re-displayed with the data from the requested record and the <code class="cCode">LOGICAL MACHINE NAME</code>, <code class="cCode">REMOTE SERVICE NAME</code>, <code class="cCode">SERVICE TIMEOUT(SEC)</code>, and <code class="cCode">SECURITY</code> fields are unprotected. The following message is displayed: <code class="cCode">RECORD READY FOR UPDATE</code>.
+</p>
+<p class="pBody"><a name="wp1025309"> </a>
+After the changes are validated and processed, the screen is re-displayed and the <code class="cCode">SERVICE NAME</code> field is unprotected.
+</p>
+<p class="pGraphic"><a name="wp1025314"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025312table1025310">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1025312"> </a><div class="pPreformatted"><pre> BEAPSVC                    BEA TMA 10.0 TCP FOR CICS                    BEAM S2<br />  <br />                    UPDATE  OUTBOUND SERVICE INFORMATION<br />  <br />  <br />  <br />                      SERVICE NAME:          ________________<br />  <br />                      LOGICAL MACHINE NAME:  ________________<br />  <br />                      REMOTE SERVICE NAME:   ________________<br />  <br />                      SERVICE TIMEOUT(SEC):  _____<br />  <br />                      SECURITY(Y/N):         _<br />  <br />  <br />  <br />  <br />  <br />  <br />    ENTER: PROCESS, PF3: MENU, PF5: BROWSE</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1025315"> </a>
+Fields
+</h4>
+<p class="pGraphic"><a name="wp1025344"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1037188table1025316">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1037188"> </a>
+Field Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1037190"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025322"> </a>
+<code class="cCode">SERVICE NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025324"> </a>
+The service name as it is known to the CICS programmer.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025326"> </a>
+<code class="cCode">LOGICAL MACHINE NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025328"> </a>
+This name is a symbolic name as it was defined on the Update Outbound Service Information screen. It denotes the remote machine on which this service should be processed. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025330"> </a>
+<code class="cCode">REMOTE SERVICE NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025335"> </a>
+The name as it is known in the remote Oracle Tuxedo domain.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025337"> </a>
+<code class="cCode">SERVICE TIMEOUT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025339"> </a>
+The number of seconds to wait for timing out this service request.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025341"> </a>
+<code class="cCode">SECURITY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025343"> </a>
+The status of security. <code class="cCode">Y</code> specifies that security is on and <code class="cCode">N</code> denotes that security is off.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1025345"> </a>
+Inquire Outbound Service Information Screen (S3)
+</h3>
+<p class="pBody"><a name="wp1025347"> </a>
+Use this screen to make an inquiry about a record from the <code class="cCode">SERVICE NAME</code> file. The screen is initially displayed with the <code class="cCode">SERVICE NAME</code> field unprotected. Enter the service name and press <code class="cCode">ENTER</code>. The screen is re-displayed with the data from the requested record and the <code class="cCode">SERVICE NAME</code> field is unprotected.
+</p>
+<p class="pGraphic"><a name="wp1025352"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025350table1025348">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1025350"> </a><div class="pPreformatted"><pre> BEAPSVC                    BEA TMA 10.0 TCP FOR CICS                    BEAM S3<br />  <br />                    INQUIRE OUTBOUND SERVICE INFORMATION<br />  <br />  <br />  <br />                      SERVICE NAME:          ________________<br />  <br />                      LOGICAL MACHINE NAME:  ________________<br />  <br />                      REMOTE SERVICE NAME:   ________________<br />  <br />                      SERVICE TIMEOUT(SEC):  _____<br />  <br />                      SECURITY(Y/N):         _<br />  <br />  <br />  <br />  <br />  <br />  <br />    ENTER: PROCESS, PF3: MENU, PF5: BROWSE</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1025353"> </a>
+Fields
+</h4>
+<p class="pGraphic"><a name="wp1025382"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025356table1025354">
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1025356"> </a>
+Field Name
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1025358"> </a>
+Description
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025360"> </a>
+<code class="cCode">SERVICE NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025362"> </a>
+The service name as it is known to the CICS programmer.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025364"> </a>
+<code class="cCode">LOGICAL MACHINE NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025366"> </a>
+This name is a symbolic name as it was defined on the Inquire Outbound Service Information screen. It denotes the remote machine on which this service should be processed. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025368"> </a>
+<code class="cCode">REMOTE SERVICE NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025373"> </a>
+The name as it is known in the remote Oracle Tuxedo domain.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025375"> </a>
+<code class="cCode">SERVICE TIMEOUT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025377"> </a>
+The number of seconds to wait for timing out this service request.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025379"> </a>
+<code class="cCode">SECURITY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025381"> </a>
+The status of security. <code class="cCode">Y</code> specifies that security is on and <code class="cCode">N</code> denotes that security is off.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1025383"> </a>
+Delete Outbound Service Information Screen (S4)
+</h3>
+<p class="pBody"><a name="wp1025385"> </a>
+Use this screen to delete records from the service name file. The screen is initially displayed with the <code class="cCode">SERVICE NAME</code> field unprotected. Type the service name and press <code class="cCode">ENTER</code>. The screen is re-displayed with the data from the record requested and all the fields protected.
+</p>
+<p class="pBody"><a name="wp1025386"> </a>
+The following message is displayed: <code class="cCode">TO CONFIRM DELETE, PRESS ENTER: AGAIN</code>. After you press enter to confirm the deletion, the screen is re-displayed and the <code class="cCode">SERVICE NAME</code> field is unprotected.
+</p>
+<p class="pGraphic"><a name="wp1025391"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025389table1025387">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1025389"> </a><div class="pPreformatted"><pre> BEAPSVC                    BEA TMA 10.0 TCP FOR CICS                    BEAM S4<br />  <br />                    DELETE  OUTBOUND SERVICE INFORMATION<br />  <br />  <br />  <br />                      SERVICE NAME:          ________________<br />  <br />                      LOGICAL MACHINE NAME:  ________________<br />  <br />                      REMOTE SERVICE NAME:   ________________<br />  <br />                      SERVICE TIMEOUT(SEC):  _____<br />  <br />                      SECURITY(Y/N):         _<br />  <br />  <br />  <br />  <br />  <br />  <br />    ENTER: PROCESS, PF3: MENU, PF5: BROWSE</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1025392"> </a>
+Fields
+</h4>
+<p class="pGraphic"><a name="wp1025421"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025395table1025393">
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1025395"> </a>
+Field Name
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1025397"> </a>
+Description
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025399"> </a>
+<code class="cCode">SERVICE NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025401"> </a>
+The service name as it is known to the CICS programmer.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025403"> </a>
+<code class="cCode">LOGICAL MACHINE NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025405"> </a>
+This name is a symbolic name as it was defined on the Delete Outbound Service Information screen. It denotes the remote machine on which this service should be processed. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025407"> </a>
+<code class="cCode">REMOTE SERVICE NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025412"> </a>
+The name as it is known in the remote Oracle Tuxedo domain.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025414"> </a>
+<code class="cCode">SERVICE TIMEOUT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025416"> </a>
+The number of seconds to wait for timing out this service request.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025418"> </a>
+<code class="cCode">SECURITY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025420"> </a>
+The status of security. <code class="cCode">Y</code> specifies that security is on and <code class="cCode">N</code> denotes that security is off.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1025422"> </a>
+Browse Outbound Service Information Screen (S5)
+</h3>
+<p class="pBody"><a name="wp1025424"> </a>
+Use this screen to browse the records in the service name file. If you access this screen from the Main menu the first record on file is displayed at the top of the screen. If you access this screen from the Insert, Update, Inquire, or Delete screens, the list starts with the record key received from that screen.
+</p>
+<p class="pBody"><a name="wp1025425"> </a>
+To select a record for processing, enter a valid selection code. For example, to make an inquiry about a record, enter &#8220;<code class="cCode">3</code>&#8221;. If you enter more than one selection code, the first one is used, and the others are ignored. After the selection code is validated and processed, the screen for that process is displayed and the record key appears in the <code class="cCode">SERVICE NAME</code> field.
+</p>
+<p class="pGraphic"><a name="wp1025430"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025428table1025426">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1025428"> </a><div class="pPreformatted"><pre> BEAPSVC                    BEA TMA 10.0 TCP FOR CICS                    BEAM S5<br />  <br />                              BROWSE  SERVICE NAME<br />  <br />  <br /> SEL     SERVICE        LOGICAL MACHINE    REMOTE SERVICE   SERVICE<br /> CDE       NAME              NAME              NAME         TIMEOUT    SEC<br /> ---  ----------------  ----------------  ----------------  -------    ---<br />  <br />  _   ________________  ________________  ________________    _____      _<br />  _   ________________  ________________  ________________    _____      _<br />  _   ________________  ________________  ________________    _____      _<br />  _   ________________  ________________  ________________    _____      _<br />  _   ________________  ________________  ________________    _____      _<br />  _   ________________  ________________  ________________    _____      _<br />  _   ________________  ________________  ________________    _____      _<br />  _   ________________  ________________  ________________    _____      _<br />  _   ________________  ________________  ________________    _____      _<br />  _   ________________  ________________  ________________    _____      _<br />  <br />  * SELCDE = (1 -INS, 2 -UPD, 3 -INQ, 4 -DEL)<br />    ENTER: PROCESS, PF3: MENU, PF7: PREV, PF8: NEXT<br /> RECORD NOT FOUND</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1025433"> </a>
+The User Connection ACCOUNT Screens
+</h2><p class="pBody"><a name="wp1025436"> </a>
+A Handler is responsible for receiving service requests from the remote Oracle Tuxedo domain. The User Connection <code class="cCode">ACCOUNT</code> screens allow for dynamic manipulation of accounts allowed to connect with a Handler when a Handler is configured with security enabled.
+</p>
+<h3 class="pHeading2"><a name="wp1025438"> </a>
+PF Keys
+</h3>
+<p class="pBody"><a name="wp1029949"> </a>
+The following table lists function keys available on various user account screens.
+</p>
+<p class="pGraphic"><a name="wp1036502"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1029922table1029920"><caption><a name="wp1029922"> </a>
+Table 4-6  Function Keys
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1029926"> </a>
+Function Key
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1029928"> </a>
+Function
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029930"> </a>
+<code class="cCode">ENTER</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029932"> </a>
+Process the selection code entered
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029934"> </a>
+<code class="cCode">PF3</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029936"> </a>
+Transfer to Main menu
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029938"> </a>
+<code class="cCode">PF5</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029940"> </a>
+Transfer to Browse screen
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029942"> </a>
+<code class="cCode">PF7</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029944"> </a>
+Display the previous page of records
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029946"> </a>
+<code class="cCode">PF8</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029948"> </a>
+Display the next page of records
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<a name="wp1025445"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If you enter data and press <code class="cCode">PF3</code> or <code class="cCode">PF5</code> before pressing <code class="cCode">ENTER</code>, the operation process is aborted and the appropriate screen is displayed.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1025446"> </a>
+Insert User Connection ACCOUNT Screen (U1)
+</h3>
+<p class="pBody"><a name="wp1025448"> </a>
+Use this screen to add a new Connection <code class="cCode">ACCOUNT</code> by inserting a new record into the user file. 
+</p>
+<p class="pBody"><a name="wp1025449"> </a>
+When the screen is first displayed, all the fields are unprotected. Type the required data as described in the table below, then press <code class="cCode">ENTER</code>. After the data is validated and processed, the screen is re-displayed and all the fields are unprotected.
+</p>
+<p class="pGraphic"><a name="wp1025454"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025452table1025450">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1025452"> </a><div class="pPreformatted"><pre> BEAPUSR                     BEA TMA 10.0 TCP FOR CICS                  BEAM U1<br />  <br />                        INSERT USER CONNECTION ACCOUNT<br />  <br />  <br />  <br />  <br />                           ACCOUNT:          ________<br />  <br />  <br />                           PASSWORD:         ________<br />  <br />  <br />  <br />  <br />  <br />  <br />  <br />    ENTER: PROCESS, PF3: MENU, PF5: BROWSE</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1025455"> </a>
+Fields
+</h4>
+<p class="pGraphic"><a name="wp1025481"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025458table1025456">
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1025458"> </a>
+Field Name
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1025460"> </a>
+Description
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025462"> </a>
+<code class="cCode">ACCOUNT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025464"> </a>
+An eight-character ID. This name must be the same ID that is used on the Oracle Tuxedo-side configuration. Coordinate with the Oracle Tuxedo Administrator. Required if there is an entry in the <code class="cCode">PASSWORD</code> field. Example:<code class="cCode"> (CICS001A)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025472"> </a>
+<code class="cCode">PASSWORD</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025476"> </a>
+An eight-character password. This password must be the same as on the Oracle Tuxedo-side configuration. Coordinate with the Oracle Tuxedo Administrator. Required if there is an entry in the <code class="cCode">ACCOUNT ID</code> field. Example: <code class="cCode">(LETMEIN1)</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1025482"> </a>
+Update User Connection ACCOUNT Screen (U2)
+</h3>
+<p class="pBody"><a name="wp1025484"> </a>
+Use this screen to update a record on the account file. When the screen is first displayed, the <code class="cCode">ACCOUNT</code> field is unprotected. Enter the account ID, and press <code class="cCode">ENTER</code>. The screen is then re-displayed with the data from the requested record and the <code class="cCode">PASSWORD</code> field is unprotected. The following message is displayed: <code class="cCode">RECORD READY FOR UPDATE</code>.
+</p>
+<p class="pBody"><a name="wp1025485"> </a>
+After the changes are validated and processed, the screen is re-displayed and the <code class="cCode">ACCOUNT</code> field is unprotected.
+</p>
+<p class="pGraphic"><a name="wp1025490"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025488table1025486">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1025488"> </a><div class="pPreformatted"><pre> BEAPUSR                     BEA TMA 10.0 TCP FOR CICS                  BEAM U2<br />  <br />                        UPDATE USER CONNECTION ACCOUNT<br />  <br />  <br />  <br />  <br />                           ACCOUNT:          ________<br />  <br />  <br />                           PASSWORD:         ________<br />  <br />  <br />  <br />  <br />  <br />  <br />  <br />    ENTER: PROCESS, PF3: MENU, PF5: BROWSE</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1025491"> </a>
+Fields
+</h4>
+<p class="pGraphic"><a name="wp1025517"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025494table1025492">
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1025494"> </a>
+Field Name
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1025496"> </a>
+Description
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025498"> </a>
+<code class="cCode">ACCOUNT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025500"> </a>
+An eight-character ID. This name must be the same ID that is used on the Oracle Tuxedo-side configuration. Coordinate with the Oracle Tuxedo Administrator. Required if there is an entry in the <code class="cCode">PASSWORD</code> field. Example:<code class="cCode"> (CICS001A)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025508"> </a>
+<code class="cCode">PASSWORD</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025512"> </a>
+An eight-character password. This password must be the same as on the Oracle Tuxedo-side configuration. Coordinate with the Oracle Tuxedo Administrator. Required if there is an entry in the <code class="cCode">ACCOUNT ID</code> field. Example: <code class="cCode">(LETMEIN1)</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1025518"> </a>
+Inquire User Connection ACCOUNT Screen (U3)
+</h3>
+<p class="pBody"><a name="wp1025520"> </a>
+Use this screen to make an inquiry about a record from the account file. The screen is initially displayed with the <code class="cCode">ACCOUNT</code> field unprotected. Enter the <code class="cCode">ACCOUNT</code> and press <code class="cCode">ENTER</code>. The screen is re-displayed with the data from the requested record and the <code class="cCode">ACCOUNT</code> field is unprotected.
+</p>
+<p class="pGraphic"><a name="wp1025525"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025523table1025521">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1025523"> </a><div class="pPreformatted"><pre> BEAPUSR                     BEA TMA 10.0 TCP FOR CICS                  BEAM U3<br />  <br />                        INQUIRE USER CONNECTION ACCOUNT<br />  <br />  <br />  <br />  <br />                           ACCOUNT:          ________<br />  <br />  <br />                           PASSWORD:         ________<br />  <br />  <br />  <br />  <br />  <br />  <br />  <br />    ENTER: PROCESS, PF3: MENU, PF5: BROWSE</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1025526"> </a>
+Fields
+</h4>
+<p class="pGraphic"><a name="wp1025552"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025529table1025527">
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1025529"> </a>
+Field Name
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1025531"> </a>
+Description
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025533"> </a>
+<code class="cCode">ACCOUNT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025535"> </a>
+An eight-character ID. This name must be the same ID that is used on the Oracle Tuxedo-side configuration. Coordinate with the Oracle Tuxedo Administrator. Required if there is an entry in the <code class="cCode">PASSWORD</code> field. Example: <code class="cCode">(CICS001A)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025543"> </a>
+<code class="cCode">PASSWORD</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025547"> </a>
+An eight-character password. This password must be the same as on the Oracle Tuxedo-side configuration. Coordinate with the Oracle Tuxedo Administrator. Required if there is an entry in the <code class="cCode">ACCOUNT ID</code> field. Example: <code class="cCode">(LETMEIN1)</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1025553"> </a>
+Delete User Connection ACCOUNT Screen (U4)
+</h3>
+<p class="pBody"><a name="wp1025555"> </a>
+Use this screen to delete a record from the account file. The screen is initially displayed with the <code class="cCode">ACCOUNT</code> field unprotected. Type the service name and press <code class="cCode">ENTER</code>. The screen is re-displayed with the data from the record requested and all the fields protected.
+</p>
+<p class="pBody"><a name="wp1025556"> </a>
+The following message is displayed: <code class="cCode">TO CONFIRM DELETE, PRESS ENTER: AGAIN</code>. After you press enter to confirm the deletion, the screen is re-displayed and the <code class="cCode">ACCOUNT</code> field is unprotected.
+</p>
+<p class="pGraphic"><a name="wp1025561"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025559table1025557">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1025559"> </a><div class="pPreformatted"><pre> BEAPUSR                     BEA TMA 10.0 TCP FOR CICS                  BEAM U4<br />  <br />                        DELETE USER CONNECTION ACCOUNT<br />  <br />  <br />  <br />  <br />                           ACCOUNT:          ________<br />  <br />  <br />                           PASSWORD:         ________<br />  <br />  <br />  <br />  <br />  <br />  <br />  <br />    ENTER: PROCESS, PF3: MENU, PF5: BROWSE</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1025562"> </a>
+Fields
+</h4>
+<p class="pGraphic"><a name="wp1025588"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025565table1025563">
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1025565"> </a>
+Field Name
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1025567"> </a>
+Description
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025569"> </a>
+<code class="cCode">ACCOUNT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025571"> </a>
+An eight-character ID. This name must be the same ID that is used on the Oracle Tuxedo-side configuration. Coordinate with the Oracle Tuxedo Administrator. Required if there is an entry in the <code class="cCode">PASSWORD</code> field. Example: <code class="cCode">(CICS001A)</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025579"> </a>
+<code class="cCode">PASSWORD</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025583"> </a>
+An eight-character password. This password must be the same as on the Oracle Tuxedo-side configuration. Coordinate with the Oracle Tuxedo Administrator. Required if there is an entry in the <code class="cCode">ACCOUNT ID</code> field. Example: <code class="cCode">(LETMEIN1)</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1025589"> </a>
+The Browse User Connection ACCOUNT Screen (U5)
+</h3>
+<p class="pBody"><a name="wp1025591"> </a>
+Use this screen to browse the records in the account file. If you access this screen from the Main menu the first record on file is displayed at the top of the screen. If you access this screen from the Insert, Update, Inquire, or Delete screens, the list starts with the record key received from that screen.
+</p>
+<p class="pBody"><a name="wp1025592"> </a>
+To select a record for processing, enter a valid selection code. For example, to make an inquiry about a record, enter &#8220;<code class="cCode">3</code>&#8221;. If you enter more than one selection code, the first one is used, and the others are ignored.
+</p>
+<p class="pGraphic"><a name="wp1025597"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025595table1025593">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1025595"> </a><div class="pPreformatted"><pre>BEAPUSR                     BEA TMA 10.0 TCP FOR CICS                   BEAM U5<br />  <br />                        BROWSE USER CONNECTION ACCOUNTS <br />  <br />  <br /> SEL      <br /> CDE       ACCOUNT <br />-----     ----------   <br />  <br />  _        ________   <br />  _        ________   <br />  _        ________   <br />  _        ________    <br />  _        ________   <br />  _        ________   <br />  _        ________   <br />  _        ________   <br />  _        ________   <br />  _        ________   <br />  <br />  <br />  * SELCDE = (1: INS, 2: UPD, 3: INQ, 4: DEL)<br />    ENTER: PROCESS, PF3: MENU, PF7: PREV, PF8: NEXT<br /> BEG/END OF FILE</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1025600"> </a>
+The Inbound Service Information Screens
+</h2><p class="pBody"><a name="wp1025601"> </a>
+A service is a name associated with some component of work. That component of work can be a banking transaction, an airline flight reservation, or an order for a dozen widgets. In Oracle Tuxedo, a client program that needs work done makes a<em class="cEmphasis"> </em>service request. A server performs the work described in the service request on behalf of the client, then returns the results of its efforts back to the client. In MVS this would be referred to as a call to a &#8220;black box.&#8221; 
+</p>
+<p class="pBody"><a name="wp1025605"> </a>
+The service screens use the terms <code class="cCode">LOCAL SERVICE NAME</code> and <code class="cCode">REMOTE SERVICE NAME</code>. The <code class="cCode">LOCAL SERVICE NAME </code>(such as, <code class="cCode">CIC01XXYYZZ</code>) is what the service is known as to your CICS environment and the <code class="cCode">REMOTE SERVICE NAME</code> (such as, <code class="cCode">WITHDRAWL</code>) is what the service is known as to Oracle Tuxedo. For simplicity, you can make both names the same; however, different names can be used. Changes to the inbound service file are only picked up when the Handler is restarted.
+</p>
+<h3 class="pHeading2"><a name="wp1025609"> </a>
+PF Keys
+</h3>
+<p class="pBody"><a name="wp1030115"> </a>
+The following table lists function keys available on various inbound service screens.
+</p>
+<p class="pGraphic"><a name="wp1036694"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1030088table1030086"><caption><a name="wp1030088"> </a>
+Table 4-7  Function Keys
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1030092"> </a>
+Function Key
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1030094"> </a>
+Function
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030096"> </a>
+<code class="cCode">ENTER</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030098"> </a>
+Process the data entered
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030100"> </a>
+<code class="cCode">PF3</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030102"> </a>
+Transfer to Main menu
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030104"> </a>
+<code class="cCode">PF5</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030106"> </a>
+Transfer to Browse screen
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030108"> </a>
+<code class="cCode">PF7</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030110"> </a>
+Display the previous page of records
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030112"> </a>
+<code class="cCode">PF8</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030114"> </a>
+Display the next page of records
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<a name="wp1025616"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If you enter data and press <code class="cCode">PF3</code> or <code class="cCode">PF5</code> before pressing <code class="cCode">ENTER</code>, the operation process is aborted and the appropriate screen is displayed.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1025617"> </a>
+Insert Inbound Service Information Screen (I1)
+</h3>
+<p class="pBody"><a name="wp1025619"> </a>
+Use this screen to insert a record into the service name file. The screen is first displayed with all fields unprotected. Enter the required data in the following fields and press <code class="cCode">ENTER</code>. After the data is validated and processed, the screen is re-displayed and all the fields are unprotected.
+</p>
+<p class="pGraphic"><a name="wp1025624"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025622table1025620">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1025622"> </a><div class="pPreformatted"><pre> BEAPISN                    BEA TMA 10.0 TCP FOR CICS                    BEAM I1<br />  <br />                       INSERT  INBOUND SERVICE INFORMATION<br />  <br />  <br />  <br />                      REMOTE SERVICE NAME:   ________________<br />  <br />                      LOCAL SERVICE NAME:    ________________<br />  <br />                      TRANSACTION NAME:      ____<br />  <br />                      MAX MESSAGE SIZE:      _____<br />  <br />                      SECURITY (Y/N):        _<br />  <br />  <br />  <br />  <br />  <br />  <br />    ENTER: PROCESS, PF3: MENU, PF5: BROWSE</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1025625"> </a>
+Fields
+</h4>
+<p class="pGraphic"><a name="wp1025661"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1037196table1025626">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1037196"> </a>
+Field Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1037198"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025632"> </a>
+<code class="cCode">REMOTE SERVICE NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025637"> </a>
+The service name as it is known in the remote Oracle Tuxedo domain.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025639"> </a>
+<code class="cCode">LOCAL SERVICE NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025641"> </a>
+The service name as it is known to the CICS programmer.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025643"> </a>
+<code class="cCode">TRANSACTION NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025645"> </a>
+The name of the CICS transaction that is started to process this service request. This transaction is usually the transaction for the Application Handler program which is <code class="cCode">BEAA</code> by default.
+</div>
+<div class="pCellBody"><a name="wp1033493"> </a>
+For information about programming services without a reply, refer to the <a href="cicsprog.html"><span class="cHyperlink">
+Programming Oracle Tuxedo Mainframe Adapter for TCP (CICS)</span></a><span class="cHyperlink">
+ </span>section. 
+</div>
+<p class="pTableNote"><a name="wp1030172"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Services sending requests using a <code class="cCode">tpacall</code> with the <code class="cCode">TPNOREPLY</code> flag set must have a unique <code class="cCode">TRANSACTION NAME</code> associated with it. Do not use the <code class="cCode">TRANSACTION NAME</code> for the Application Handler program or an error message results.</td></tr>
+</table>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025651"> </a>
+<code class="cCode">MAX MESSAGE SIZE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025653"> </a>
+The largest message allowed to be sent across this connection. The maximum is 32000. This size is the size of the actual data; TMA TCP manages additional message size through its internal headers.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025658"> </a>
+<code class="cCode">SECURITY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025660"> </a>
+The status of security. <code class="cCode">Y</code> enables security for the specified service and <code class="cCode">N</code> disables security for the specified service.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1025662"> </a>
+Update Inbound Service Information Screen (I2)
+</h3>
+<p class="pBody"><a name="wp1025664"> </a>
+Use this screen to update a record in the inbound service name file. The screen is first displayed with the <code class="cCode">REMOTE SERVICE NAME</code> field unprotected. Enter the remote service name and press <code class="cCode">ENTER</code>. The screen is re-displayed with the data from the requested record and the <code class="cCode">LOCAL SERVICE NAME</code>, <code class="cCode">TRANSACTION NAME</code>, <code class="cCode">MAX MESSAGE SIZE</code>, and <code class="cCode">SECURITY</code> fields unprotected. The following message displays: <code class="cCode">RECORD READY FOR UPDATE</code>. 
+</p>
+<p class="pBody"><a name="wp1025665"> </a>
+After the changes are validated and processed, the screen is re-displayed and the <code class="cCode">REMOTE SERVICE NAME</code> field is unprotected.
+</p>
+<p class="pGraphic"><a name="wp1025670"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025668table1025666">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1025668"> </a><div class="pPreformatted"><pre> BEAPISN                    BEA TMA 10.0 TCP FOR CICS                    BEAM I2<br />  <br />                       UPDATE  INBOUND SERVICE INFORMATION<br />  <br />  <br />  <br />                      REMOTE SERVICE NAME:   ________________<br />  <br />                      LOCAL SERVICE NAME:    ________________<br />  <br />                      TRANSACTION NAME:      ____<br />  <br />                      MAX MESSAGE SIZE:      _____<br />  <br />                      SECURITY (Y/N):        _<br />  <br />  <br />  <br />  <br />  <br />  <br />    ENTER: PROCESS, PF3: MENU, PF5: BROWSE</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1025671"> </a>
+Fields
+</h4>
+<p class="pGraphic"><a name="wp1025707"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1037204table1025672">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1037204"> </a>
+Field Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1037206"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025678"> </a>
+<code class="cCode">REMOTE SERVICE NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025683"> </a>
+The service name as it is known in the remote Oracle Tuxedo domain.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025685"> </a>
+<code class="cCode">LOCAL SERVICE NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025687"> </a>
+The service name as it is known to the CICS programmer.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025689"> </a>
+<code class="cCode">TRANSACTION NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033712"> </a>
+The name of the CICS transaction that is started to process this service request. This transaction is usually the transaction for the Application Handler program which is <code class="cCode">BEAA</code> by default.
+</div>
+<div class="pCellBody"><a name="wp1033713"> </a>
+For information about programming services without a reply, refer to the <a href="cicsprog.html"><span class="cHyperlink">
+Programming Oracle Tuxedo Mainframe Adapter for TCP (CICS)</span></a><span class="cHyperlink">
+ </span>section. 
+</div>
+<p class="pTableNote"><a name="wp1033717"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Services sending requests using a <code class="cCode">tpacall</code> with the <code class="cCode">TPNOREPLY</code> flag set must have a unique <code class="cCode">TRANSACTION NAME</code> associated with it. Do not use the <code class="cCode">TRANSACTION NAME</code> for the Application Handler program or an error message results.</td></tr>
+</table>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025697"> </a>
+<code class="cCode">MAX MESSAGE SIZE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025699"> </a>
+The largest message allowed to be sent across this connection. The maximum is 32000. This is the size of the actual data; TMA TCP manages additional message size through its internal headers.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025704"> </a>
+<code class="cCode">SECURITY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025706"> </a>
+The status of security. <code class="cCode">Y</code> enables security for the specified service and <code class="cCode">N</code> disables security for the specified service.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1025708"> </a>
+Inquire Inbound Service Information Screen (I3)
+</h3>
+<p class="pBody"><a name="wp1025710"> </a>
+Use this screen to inquire about a record in the inbound service name file. The screen is first displayed with the <code class="cCode">REMOTE SERVICE NAME</code> field unprotected. Enter the remote service name and press <code class="cCode">ENTER</code>. The screen is re-displayed with the data from the requested record and the <code class="cCode">REMOTE SERVICE NAME</code> field unprotected.
+</p>
+<p class="pGraphic"><a name="wp1025715"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025713table1025711">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1025713"> </a><div class="pPreformatted"><pre> BEAPISN                    BEA TMA 10.0 TCP FOR CICS                    BEAM I3<br />  <br />                       INQUIRE INBOUND SERVICE INFORMATION<br />  <br />  <br />  <br />                      REMOTE SERVICE NAME:   ________________<br />  <br />                      LOCAL SERVICE NAME:    ________________<br />  <br />                      TRANSACTION NAME:      ____<br />  <br />                      MAX MESSAGE SIZE:      _____<br />  <br />                      SECURITY (Y/N):        _<br />  <br />  <br />  <br />  <br />  <br />  <br />    ENTER: PROCESS, PF3: MENU, PF5: BROWSE</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1025716"> </a>
+Fields
+</h4>
+<p class="pGraphic"><a name="wp1025752"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1037212table1025717">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1037212"> </a>
+Field Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1037214"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025723"> </a>
+<code class="cCode">REMOTE SERVICE NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025728"> </a>
+The service name as it is known in the remote Oracle Tuxedo domain.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025730"> </a>
+<code class="cCode">LOCAL SERVICE NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025732"> </a>
+The service name as it is known to the CICS programmer.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025734"> </a>
+<code class="cCode">TRANSACTION NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033739"> </a>
+The name of the CICS transaction that is started to process this service request. This transaction is usually the transaction for the Application Handler program which is <code class="cCode">BEAA</code> by default.
+</div>
+<div class="pCellBody"><a name="wp1033740"> </a>
+For information about programming services without a reply, refer to the <a href="cicsprog.html"><span class="cHyperlink">
+Programming Oracle Tuxedo Mainframe Adapter for TCP (CICS)</span></a><span class="cHyperlink">
+ </span>section. 
+</div>
+<p class="pTableNote"><a name="wp1033744"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Services sending requests using a <code class="cCode">tpacall</code> with the <code class="cCode">TPNOREPLY</code> flag set must have a unique <code class="cCode">TRANSACTION NAME</code> associated with it. Do not use the <code class="cCode">TRANSACTION NAME</code> for the Application Handler program or an error message results.</td></tr>
+</table>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025742"> </a>
+<code class="cCode">MAX MESSAGE SIZE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025744"> </a>
+The largest message allowed to be sent across this connection. The maximum is 32000. This is the size of the actual data; TMA TCP manages additional message size through its internal headers.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025749"> </a>
+<code class="cCode">SECURITY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025751"> </a>
+The status of security. <code class="cCode">Y</code> specifies that security is on and <code class="cCode">N</code> denotes that security is off.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1025753"> </a>
+Delete Inbound Service Information Screen (I4)
+</h3>
+<p class="pBody"><a name="wp1025755"> </a>
+Use this screen to delete a record in the inbound service name file. The screen is first displayed with the <code class="cCode">REMOTE SERVICE NAME</code> field unprotected. Enter the remote service name and press <code class="cCode">ENTER</code>. The screen is re-displayed with the data from the record requested and all fields protected. The following message displays: <code class="cCode">TO CONFIRM DELETE, PRESS ENTER AGAIN</code>. After you press <code class="cCode">ENTER</code> to confirm the deletion, the screen is re-displayed and the <code class="cCode">REMOTE SERVICE NAME</code> field is unprotected.
+</p>
+<p class="pGraphic"><a name="wp1025760"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025758table1025756">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1025758"> </a><div class="pPreformatted"><pre> BEAPISN                    BEA TMA 10.0 TCP FOR CICS                    BEAM I4<br />  <br />                       DELETE  INBOUND SERVICE INFORMATION<br />  <br />  <br />  <br />                      REMOTE SERVICE NAME:   ________________<br />  <br />                      LOCAL SERVICE NAME:    ________________<br />  <br />                      TRANSACTION NAME:      ____<br />  <br />                      MAX MESSAGE SIZE:      _____<br />  <br />                      SECURITY (Y/N):        _<br />  <br />  <br />  <br />  <br />  <br />  <br />    ENTER: PROCESS, PF3: MENU, PF5: BROWSE</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1025761"> </a>
+Fields
+</h4>
+<p class="pGraphic"><a name="wp1025797"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1037220table1025762">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1037220"> </a>
+Field Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1037222"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025768"> </a>
+<code class="cCode">REMOTE SERVICE NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025773"> </a>
+The service name as it is known in the remote Oracle Tuxedo domain.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025775"> </a>
+<code class="cCode">LOCAL SERVICE NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025777"> </a>
+The service name as it is known to the CICS programmer.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025779"> </a>
+<code class="cCode">TRANSACTION NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025781"> </a>
+The name of the CICS transaction that is started to process this service request. This service request is usually the transaction for the Application Handler program. For information about programming services without a reply, refer to the <a href="cicsprog.html"><span class="cHyperlink">
+Programming Oracle Tuxedo Mainframe Adapter for TCP (CICS)</span></a> section.
+</div>
+<a name="wp1025785"> </a>
+<table class="Note">
+<tr>
+<td valign="top"><strong>WARNING:</strong></td>
+<td>Services sending requests using a tpacall with the <code class="cCode">TPNOREPLY</code> flag set must have a unique <code class="cCode">TRANSACTION NAME</code> associated with it. Do not use the <code class="cCode">TRANSACTION NAME</code> for the Application Handler program or an error message results.</td>
+</tr>
+</table>
+
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025787"> </a>
+<code class="cCode">MAX MESSAGE SIZE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025789"> </a>
+The largest message allowed to be sent across this connection. The maximum is 32000. This is the size of the actual data; TMA TCP manages additional message size through its internal headers.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025794"> </a>
+<code class="cCode">SECURITY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025796"> </a>
+The status of security. <code class="cCode">Y</code> specifies that security is on and <code class="cCode">N</code> denotes that security is off.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1025798"> </a>
+The Browse Inbound Service Screen (I5)
+</h3>
+<p class="pBody"><a name="wp1025800"> </a>
+Use this screen to browse the records in the inbound service name file. If you access this screen from the Main menu, the first record on file is displayed at the top of the screen. If you access this screen from the Insert, Update, Inquire, or Delete screens, the list starts with the record key received from that screen.
+</p>
+<p class="pBody"><a name="wp1025801"> </a>
+To select a record for processing, enter a valid selection code. For example, to make an inquiry about a record, enter &#8220;<code class="cCode">3</code>&#8221;. If you enter more than one selection code, the first one is used, and the others are ignored. After the selection code is validated and processed, the screen for that process is displayed and the record key appears in the <code class="cCode">REMOTE SERVICE NAME</code> field.
+</p>
+<p class="pGraphic"><a name="wp1025806"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025804table1025802">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1025804"> </a><div class="pPreformatted"><pre> BEAPISN                    BEA TMA 10.0 TCP FOR CICS                    BEAM I5<br />  <br />                             BROWSE INBOUND SERVICE<br />  <br />  <br /> SEL   REMOTE SERVICE    LOCAL SERVICE    TRAN  MAXM<br /> CDE       NAME               NAME        NAME  SIZE   SEC<br /> ---  ----------------  ----------------  ----  -----  ---<br />  <br />  _   ________________  ________________  ____  _____   _<br />  _   ________________  ________________  ____  _____   _<br />  _   ________________  ________________  ____  _____   _<br />  _   ________________  ________________  ____  _____   _<br />  _   ________________  ________________  ____  _____   _<br />  _   ________________  ________________  ____  _____   _<br />  _   ________________  ________________  ____  _____   _<br />  _   ________________  ________________  ____  _____   _<br />  _   ________________  ________________  ____  _____   _<br />  _   ________________  ________________  ____  _____   _<br />  <br />  * SELCDE = (1 -INS, 2 -UPD, 3 -INQ, 4 -DEL)<br />    ENTER: PROCESS, PF3: MENU, PF7: PREV, PF8: NEXT<br /> RECORD NOT FOUND</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1025809"> </a>
+The Handler Configuration Screens
+</h2><p class="pBody"><a name="wp1025812"> </a>
+A Handler is responsible for receiving service requests from the remote Oracle Tuxedo domain. The Handler Configuration screens allow for dynamic manipulation of the configuration used by all Handler programs in the system.
+</p>
+<a name="wp1025815"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>To apply changes that have been made to the Handler Configuration file, you must restart the Handler. </td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1025816"> </a>
+PF Keys
+</h3>
+<p class="pBody"><a name="wp1025817"> </a>
+The following table lists the function keys available on various user account screens.
+</p>
+<p class="pGraphic"><a name="wp1036814"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1030430table1030428"><caption><a name="wp1030430"> </a>
+Table 4-8  Function Keys
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1030434"> </a>
+Function Key
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1030436"> </a>
+Function
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030438"> </a>
+<code class="cCode">ENTER</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030494"> </a>
+Process the data entered
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030442"> </a>
+<code class="cCode">PF3</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030508"> </a>
+Transfer to Main menu
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<a name="wp1025820"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>	If you enter data and press <code class="cCode">PF3</code> before pressing <code class="cCode">ENTER</code>, the operation process is aborted and the appropriate screen is displayed.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1025821"> </a>
+Update Handler Configuration Screen (H2)
+</h3>
+<p class="pBody"><a name="wp1025823"> </a>
+Use this screen to update the configuration record on the user file. If a record does not exist, one is inserted into the user file. When the screen first displays, all fields are unprotected. After the changes are validated and processed, the screen is re-displayed.
+</p>
+<p class="pGraphic"><a name="wp1025828"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025826table1025824">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1025826"> </a><div class="pPreformatted"><pre> BEAPUSR                     BEA TMA 10.0 TCP FOR CICS                   BEAM H2<br />  <br />                          UPDATE HANDLER CONFIGURATION<br />  <br />  <br />  <br />                    SECURITY:                            Y<br />  <br />                    MULTIPLEX COUNT:                    99<br />  <br />                    MIN TIME (MILLISECS):               20<br />  <br />                    MAX TIME (MILLISECS):               30<br />  <br />                    DELTA TIME (MILLISECS):              5<br />  <br />                    IDLE TIME (SECONDS):                 0<br />  <br />  <br />  <br />  <br />    ENTER: PROCESS, PF3: MENU<br /> UPDATE COMPLETED</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1025829"> </a>
+Fields
+</h4>
+<p class="pGraphic"><a name="wp1025871"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025832table1025830">
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1025832"> </a>
+Field Name
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1025834"> </a>
+Description
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025836"> </a>
+<code class="cCode">SECURITY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025838"> </a>
+The status of gateway security. <code class="cCode">Y</code> denotes that security is activated and <code class="cCode">N</code> denotes that security is not activated. If this field is set to <code class="cCode">N</code>, the <code class="cCode">ACCOUNT</code> and <code class="cCode">PASSWORD</code> fields are not verified prior to establishing a connection.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025840"> </a>
+<code class="cCode">MULTIPLEX CNT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025842"> </a>
+The number of concurrent incoming service requests for each Handler.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025844"> </a>
+<code class="cCode">MIN TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025846"> </a>
+The minimum length of time (in milliseconds) for a socket read to wait for data to be processed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025852"> </a>
+<code class="cCode">MAX TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025854"> </a>
+The maximum length of time (in milliseconds) for a socket read to wait for data to be processed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025860"> </a>
+<code class="cCode">DELTA TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025862"> </a>
+The time increase (in milliseconds) from <code class="cCode">MIN TIME</code> to <code class="cCode">MAX TIME</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025868"> </a>
+<code class="cCode">IDLE TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025870"> </a>
+The amount of time in seconds a Handler is idle before it terminates.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1025872"> </a>
+Inquire Handler Configuration Screen (H3)
+</h3>
+<p class="pBody"><a name="wp1025874"> </a>
+Use this screen to make an inquiry about the configuration record from the user file. The screen is displayed with the data from the requested record and all fields are protected.
+</p>
+<p class="pGraphic"><a name="wp1025879"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1025877table1025875">
+  <tr align="left" valign="top">    <td class="table" scope="row"><a name="wp1025877"> </a><div class="pPreformatted"><pre>BEAPUSR                     BEA TMA 10.0 TCP FOR CICS                   BEAM H3<br />  <br />                          INQUIRE HANDLER CONFIGURATION<br />  <br />  <br />  <br />                    SECURITY:                            Y<br />  <br />                    MULTIPLEX COUNT:                    99<br />  <br />                    MIN TIME (MILLISECS):               20<br />  <br />                    MAX TIME (MILLISECS):               30<br />  <br />                    DELTA TIME (MILLISECS):              5<br />  <br />                    IDLE TIME (SECONDS):                 0<br />  <br />  <br />  <br />  <br />    ENTER: PROCESS, PF3: MENU</pre></div></td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1025880"> </a>
+Fields
+</h4>
+<p class="pGraphic"><a name="wp1025922"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1037228table1025881">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1037228"> </a>
+Field Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1037230"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025887"> </a>
+<code class="cCode">SECURITY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025889"> </a>
+The status of gateway security. <code class="cCode">Y</code> denotes that security is activated and <code class="cCode">N</code> denotes that security is not activated. If this field is set to <code class="cCode">N</code>, the <code class="cCode">ACCOUNT</code> and <code class="cCode">PASSWORD</code> fields are not verified prior to establishing a connection.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025891"> </a>
+<code class="cCode">MULTIPLEX CNT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025893"> </a>
+The number of concurrent incoming service requests for each Handler.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025895"> </a>
+<code class="cCode">MIN TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025897"> </a>
+The minimum length of time (in milliseconds) for a socket read to wait for data to be processed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025903"> </a>
+<code class="cCode">MAX TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025905"> </a>
+The maximum length of time (in milliseconds) for a socket read to wait for data to be processed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025911"> </a>
+<code class="cCode">DELTA TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025913"> </a>
+The time increase (in milliseconds) from MIN TIME to MAX TIME.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025919"> </a>
+<code class="cCode">IDLE TIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1025921"> </a>
+The amount of time in seconds a program is idle before it terminates.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1025927"> </a>
+Dynamically Configuring TMA TCP for CICS
+</h2><p class="pBody"><a name="wp1025928"> </a>
+Dynamic configuration means that new configuration information affects currently running Handlers or Requesters without shutting them down. The new configuration information also affects Handlers and Requesters that are started after the information is entered. You can make the following changes to the TMA TCP for CICS gateway configuration dynamically:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1033232"> </a><a href="cicsconf.html#wp1025950"><span class="cHyperlink">
+Modifying Outbound Services</span></a> </li>
+<li><a name="wp1033245"> </a><a href="cicsconf.html#wp1025956">Modifying User Connection Accounts</a></li>
+<li><a name="wp1033249"> </a><a href="cicsconf.html#wp1025963">Modifying Connections</a></li>
+<li><a name="wp1033253"> </a><a href="cicsconf.html#wp1025970">Deleting Requester LMIDs</a></li>
+</ul></div>
+<p class="pBody"><a name="wp1025935"> </a>
+All other configuration tasks are not dynamic, including Inbound Service Information and Handler Configuration. To process configuration information in these cases, the corresponding Requesters and Handlers must be shut down.
+</p>
+<h3 class="pHeading2"><a name="wp1025950"> </a>
+Modifying Outbound Services
+</h3>
+<p class="pBody"><a name="wp1025951"> </a>
+You can dynamically configure outbound services by inserting a new record into the service name file, modifying an existing record in the service name file, or deleting a record in the service name file. Use the appropriate maintenance screens to accomplish the necessary task, S1 to insert, S2 to update, or S4 to delete. For field definitions, refer to the <a href="cicsconf.html#wp1025248"><span class="cHyperlink">
+The Outbound Service Information Screens</span></a> section.
+</p>
+<h3 class="pHeading2"><a name="wp1025956"> </a>
+Modifying User Connection Accounts
+</h3>
+<p class="pBody"><a name="wp1025957"> </a>
+You can dynamically configure User Connection Accounts and enable accounts to connect to Handlers by inserting a new account into the user account file, modifying an existing user account, or deleting a user account. Use the appropriate maintenance screens to accomplish the necessary task, U1 to insert, U2 to update, or U4 to delete. For field definitions, refer to the <a href="cicsconf.html#wp1025433"><span class="cHyperlink">
+The User Connection ACCOUNT Screens</span></a> section.
+</p>
+<a name="wp1025961"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Changes to the User Connection Accounts do not affect Handlers that are currently connected, but only Handlers that connect after the change is made.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1025963"> </a>
+Modifying Connections
+</h3>
+<p class="pBody"><a name="wp1025964"> </a>
+You can dynamically configure the status of a connection. Using the Update Connection screen (C2), you can enable, disable, or abort the connection for a given <code class="cCode">LMID</code>. Dynamically configuring the status of a connection has an immediate effect on the corresponding Requesters. For field definitions, refer to the <a href="cicsconf.html#wp1024491"><span class="cHyperlink">
+The Connection Screens</span></a> section.
+</p>
+<a name="wp1025968"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Because the data in the Update Connection screen is transient, setting the <code class="cCode">LMID</code> status to disable does not persist after the CICS region is shut down and then restarted. The Requester file, however, is persistent.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1025970"> </a>
+Deleting Requester LMIDs
+</h3>
+<p class="pBody"><a name="wp1025971"> </a>
+Each instance of the Requester is given a logical machine name (<code class="cCode">LMID</code>). You can give a Requester any unique <code class="cCode">LMID</code> that is meaningful to you. Every service name is associated with one or more <code class="cCode">LMID</code>s. This method allows the Requester to identify which remote machine is responsible for a particular service. You can dynamically delete an <code class="cCode">LMID</code> using the Update Requester screen (R2). This dynamic change only affect Pre-requesters immediately. 
+</p>
+<a name="wp1025972"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Requesters that are currently running do not read the information in the requester file and are not affected by this dynamic change.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1025974"> </a>
+Administering the Gateways
+</h2><p class="pBody"><a name="wp1025979"> </a>
+Oracle Tuxedo has a set of <code class="cCode">tmadmin</code> and <code class="cCode">dmadmin</code> commands for the administration of the TMA TCP gateways. For detailed information about these commands, refer to the Oracle Tuxedo documentation.
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="cicsconf.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="cicssec.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="cicsprog.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

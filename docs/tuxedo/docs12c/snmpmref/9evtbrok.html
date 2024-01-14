@@ -1,0 +1,1829 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/snmpmref/fm/9evtbrok.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:44:43" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>EventBroker MIB</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">SNMP Agent MIB Reference
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="8appqmib.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="10tuxtrp.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/snmpmref.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp279722"> </a>
+EventBroker MIB
+</h1>
+<p class="pBody"><a name="wp277238"> </a>
+There are two types of Oracle Tuxedo events: application events and system events. Application events are usually controlled or trapped by the application code. System events are generated by the Tuxedo run-time system when important changes in that system are detected. Application programs (clients or services) can subscribe to these system events.
+</p>
+<p class="pBody"><a name="wp276161"> </a>
+The EventBroker MIB defines the characteristics of an event subscription. You can use the EventBroker MIB to obtain the characteristics of current event subscriptions, define new subscriptions, or invalidate subscriptions. To enable both system event and application event notification, you need to define the system event broker and the application event broker in the Core MIB.
+</p>
+<p class="pBody"><a name="wp276162"> </a>
+Event subscriptions can be temporary or persistent. Persistent subscriptions survive across application activations and can be removed through the EventBroker MIB. The Tuxedo EventBroker MIB contains five groups of event subscriptions through which the EventBroker can be managed.
+</p>
+<p class="pBody"><a name="wp276163"> </a>
+The EventBroker MIB consists of the following subscription groups.
+</p>
+<p class="pGraphic"><a name="wp276204"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp276166table276164">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp276166"> </a>
+<span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Group Name</span>
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp276168"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276173"> </a>
+<a href="9evtbrok.html#wp276225"><code class="cCode">tuxEventClientTbl</code></a> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276175"> </a>
+Subscriptions that trigger unsolicited notification
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276180"> </a>
+<a href="9evtbrok.html#wp276305"><code class="cCode">tuxEventCmdTbl</code></a>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276182"> </a>
+Subscriptions that trigger system commands
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276187"> </a>
+<a href="9evtbrok.html#wp276387"><code class="cCode">tuxEventQueTbl</code></a> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276189"> </a>
+Subscriptions for queue-based notification
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276194"> </a>
+<a href="9evtbrok.html#wp276638"><code class="cCode">tuxEventSvcTbl</code></a> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276196"> </a>
+Subscriptions for server-based notification
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276201"> </a>
+<a href="9evtbrok.html#wp276746"><code class="cCode">tuxEventUlogTbl</code></a>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276203"> </a>
+Subscriptions for writing userlog messages
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp276206"> </a>
+Each object in these groups represents a single subscription request. Client Notifications (<a href="9evtbrok.html#wp276225"><code class="cCode">tuxEventClientTbl</code></a> group) indicate which events trigger an unsolicited message to a client. Service Notifications (<a href="9evtbrok.html#wp276638"><code class="cCode">tuxEventSvcTbl</code></a> group) indicate which events trigger a request to an application service. Application Queue Notifications (<a href="9evtbrok.html#wp276387"><code class="cCode">tuxEventQueTbl</code></a> group) indicate which events send a message to an application queue. System Command Notifications (<a href="9evtbrok.html#wp276305"><code class="cCode">tuxEventCmdTbl</code></a> group) indicate which events trigger an operating system command. Log File Notifications (<a href="9evtbrok.html#wp276746"><code class="cCode">tuxEventUlogTbl</code></a> group) indicate which events generate a record in the central event log (ulog). The EventBroker automatically removes temporary subscriptions when it detects that the corresponding target is no longer active.
+</p>
+<p class="pBody"><a name="wp276222"> </a>
+Event subscriptions and the ability to change the Tuxedo MIB enables system administrators and application designers to write event-adaptive applications. When a failure is detected through a system event notification, a management framework program can perform the corrective measures. For example, a management framework task can be triggered to activate servers on a backup machine when it receives an event notification about a failure on a primary machine.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp276225"> </a>
+tuxEventClientTbl
+</h2><p class="pBody"><a name="wp276226"> </a>
+This group contains objects that represent subscriptions registered with the EventBroker for client-based notification.
+</p>
+<p class="pBody"><a name="wp276227"> </a>
+When an event is detected, it is compared to each <code class="cCode">tuxEventClientTbl</code> instance. If the event name matches the value in the event expression and the optional filter rule is true, then the event buffer is sent to the specified client&#8217;s unsolicited message handling routine. To create a new row in this table, it is necessary to issue a <code class="cCode">SET</code> request that at least specifies the values for <code class="cCode">tuxEventClientExpr</code> and <code class="cCode">tuxEventClientId</code>.
+</p>
+<p class="pGraphic"><a name="wp283660"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp276230table276228">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp276230"> </a>
+Object Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp276232"> </a>
+Object ID
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276234"> </a>
+<code class="cCode">tuxEventClientIndx</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276236"> </a>
+.1.3.6.1.4.1.140.300.2.1.1.1.1
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276238"> </a>
+<code class="cCode">tuxEventClientExpr</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276240"> </a>
+.1.3.6.1.4.1.140.300.2.1.1.1.2
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276242"> </a>
+<code class="cCode">tuxEventClientFilter</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276244"> </a>
+.1.3.6.1.4.1.140.300.2.1.1.1.3
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276246"> </a>
+<code class="cCode">tuxEventClientState</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276248"> </a>
+.1.3.6.1.4.1.140.300.2.1.1.1.4
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276250"> </a>
+<code class="cCode">tuxEventClientId</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276252"> </a>
+.1.3.6.1.4.1.140.300.2.1.1.1.5
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276255"> </a>
+tuxEventClientIndx
+</h3>
+<h4 class="pHeading3"><a name="wp276256"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276257"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp276258"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276259"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp276260"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276261"> </a>
+A running number as the unique identifier for a row in the table. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276263"> </a>
+tuxEventClientExpr
+</h3>
+<h4 class="pHeading3"><a name="wp276264"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276265"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..255</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp276266"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276267"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp276268"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp277399"> </a>
+Event pattern expression. This expression, which is a regular expression, controls which event names match this subscription. For the format of regular expressions, see reference page <a href="../rf3c/rf3c.html">tpsubscribe(3c)</a> in <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em>.
+</p>
+<a name="wp277400"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276272"> </a>
+tuxEventClientFilter
+</h3>
+<h4 class="pHeading3"><a name="wp276273"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276274"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..255</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp276275"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276276"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp276277"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276278"> </a>
+Event filter expression. This expression, if present, is evaluated with respect to the posted buffer&#8217;s contents. It must evaluate to TRUE or this subscription is not matched. If the value of this is &#8220;-&#8221;, it means that the filter expression is in binary format. 
+</p>
+<a name="wp276279"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276281"> </a>
+tuxEventClientState
+</h3>
+<h4 class="pHeading3"><a name="wp276282"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276283"> </a>
+<code class="cCode">INTEGER { active(1), invalid(2) }</code>
+</p>
+<h4 class="pHeading3"><a name="wp276284"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276285"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276286"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276287"> </a>
+The values for <code class="cCode">GET</code> and <code class="cCode">SET</code> operations are as follows:
+</p>
+<h4 class="pDefTerm"><a name="wp276288"> </a>
+<code class="cCode">GET: active(1)</code>
+</h4><div class="pDefPara"><a name="wp276289"> </a>
+A <code class="cCode">GET</code> operation retrieves configuration information for the matching <code class="cCode">tuxEventClientTbl</code> row(s).
+</div>
+<h4 class="pDefTerm"><a name="wp276290"> </a>
+<code class="cCode">SET: invalid(2)</code>
+</h4><div class="pDefPara"><a name="wp276291"> </a>
+A <code class="cCode">SET</code> operation updates configuration information for the row in <code class="cCode">tuxEventClientTbl</code>. The following state indicates the meaning of a <code class="cCode">tuxEventClientState</code> set in a <code class="cCode">SET</code> request. States not listed cannot be set.
+</div>
+<h4 class="pDefTerm"><a name="wp276292"> </a>
+<code class="cCode">invalid(2)</code>
+</h4><div class="pDefPara"><a name="wp276293"> </a>
+Delete row. Successful return leaves the row in the <code class="cCode">invalid(2)</code> state.
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276295"> </a>
+tuxEventClientId
+</h3>
+<h4 class="pHeading3"><a name="wp276296"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276297"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..78</code>))
+</p>
+<h4 class="pHeading3"><a name="wp276298"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276299"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp276300"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276301"> </a>
+Send an unsolicited notification message to this client when a matching event is detected. 
+</p>
+<a name="wp276302"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp276305"> </a>
+tuxEventCmdTbl
+</h2><p class="pBody"><a name="wp276306"> </a>
+This group contains objects that represent subscriptions registered with the EventBroker that trigger execution of system commands.
+</p>
+<p class="pBody"><a name="wp276308"> </a>
+When an event is detected, it is compared to each row in this table. If the event name matches the value in the event expression and the optional filter rule is true, then the event buffer is formatted and passed to the system&#8217;s command interpreter.
+</p>
+<p class="pBody"><a name="wp276309"> </a>
+Create a new Row: To create a new instance of <code class="cCode">tuxEventCmdTbl</code> the user must specify at least <code class="cCode">tuxEventCmdExpr</code> and <code class="cCode">tuxEventCmd</code>. All objects except <code class="cCode">tuxEventCmdState</code> can be updated only during creation of a new instance.
+</p>
+<p class="pGraphic"><a name="wp276335"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp276312table276310">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp276312"> </a>
+Object Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp276314"> </a>
+Object ID
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276316"> </a>
+<code class="cCode">tuxEventCmdIndx</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276318"> </a>
+.1.3.6.1.4.1.140.300.2.2.1.1.1
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276320"> </a>
+<code class="cCode">tuxEventCmdExpr</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276322"> </a>
+.1.3.6.1.4.1.140.300.2.2.1.1.2
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276324"> </a>
+<code class="cCode">tuxEventCmdFilter</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276326"> </a>
+.1.3.6.1.4.1.140.300.2.2.1.1.3
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276328"> </a>
+<code class="cCode">tuxEventCmdState</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276330"> </a>
+.1.3.6.1.4.1.140.300.2.2.1.1.4
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276332"> </a>
+<code class="cCode">tuxEventCmd</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276334"> </a>
+.1.3.6.1.4.1.140.300.2.2.1.1.5
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276337"> </a>
+tuxEventCmdIndx
+</h3>
+<h4 class="pHeading3"><a name="wp276338"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276339"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp276340"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276341"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp276342"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276343"> </a>
+A running number as the unique identifier for a row in the table. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276345"> </a>
+tuxEventCmdExpr
+</h3>
+<h4 class="pHeading3"><a name="wp276346"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276347"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..255</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp276348"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276349"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276350"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276351"> </a>
+Event pattern expression. This expression, which is a regular expression, controls which event names match this subscription. For the format of regular expressions, see reference page <a href="../rf3c/rf3c.html">tpsubscribe(3c)</a> in <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em>.
+</p>
+<a name="wp276352"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276354"> </a>
+tuxEventCmdFilter
+</h3>
+<h4 class="pHeading3"><a name="wp276355"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276356"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..255</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp276357"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276358"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276359"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276360"> </a>
+Event filter expression. This expression, if present, is evaluated with respect to the posted buffer&#8217;s contents. It must evaluate to TRUE or this subscription is not matched. If the value of the filter is &#8220;-&#8221;, it means that the filter is in a binary format. 
+</p>
+<a name="wp276361"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276363"> </a>
+tuxEventCmdState
+</h3>
+<h4 class="pHeading3"><a name="wp276364"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276365"> </a>
+<code class="cCode">INTEGER { active(1), invalid(2) }</code>
+</p>
+<h4 class="pHeading3"><a name="wp276366"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276367"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276368"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276369"> </a>
+The values for <code class="cCode">GET</code> and <code class="cCode">SET</code> operations are as follows:
+</p>
+<h4 class="pDefTerm"><a name="wp276370"> </a>
+<code class="cCode">GET: active(1)</code>
+</h4><div class="pDefPara"><a name="wp276371"> </a>
+A <code class="cCode">GET</code> operation retrieves configuration information for the <code class="cCode">tuxEventCmdTbl</code> instance(s).
+</div>
+<h4 class="pDefTerm"><a name="wp276372"> </a>
+<code class="cCode">SET: invalid(2)</code>
+</h4><div class="pDefPara"><a name="wp276373"> </a>
+A <code class="cCode">SET</code> operation updates configuration information for the <code class="cCode">tuxEventCmdTbl</code> instance. The following state indicates the meaning of a <code class="cCode">tuxEventCmdState</code> set in a <code class="cCode">SET</code> request. States not listed cannot be set.
+</div>
+<h4 class="pDefTerm"><a name="wp276374"> </a>
+<code class="cCode">invalid(2)</code>
+</h4><div class="pDefPara"><a name="wp276375"> </a>
+Delete <code class="cCode">tuxEventCmdTbl</code> instance. Successful return leaves the object in the <code class="cCode">invalid(2)</code> state. 
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276377"> </a>
+tuxEventCmd
+</h3>
+<h4 class="pHeading3"><a name="wp276378"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276379"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..255</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp276380"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276381"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276382"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276383"> </a>
+Execute this system command when an event matching this object is detected. For UNIX system platforms, the command is executed in the background using <code class="cCode">system</code>(3). 
+</p>
+<a name="wp276384"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp276387"> </a>
+tuxEventQueTbl
+</h2><p class="pBody"><a name="wp276388"> </a>
+This group contains objects that represent subscriptions registered with the EventBroker for queue-based notification.
+</p>
+<p class="pBody"><a name="wp276390"> </a>
+When an event is detected, it is compared to each <code class="cCode">tuxEventQueTbl</code> instance. If the event name matches the value in the event expression and the optional filter rule is true, then the event buffer is stored in the specified reliable queue. To create a new row in this table, it is necessary to issue a <code class="cCode">SET</code> request that at least specifies <code class="cCode">tuxEventQueExpr</code>, <code class="cCode">tuxEventQspace</code>, and <code class="cCode">tuxEventQname</code>.
+</p>
+<p class="pGraphic"><a name="wp276468"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp276393table276391">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp276393"> </a>
+Object Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp276395"> </a>
+Object ID
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276397"> </a>
+<code class="cCode">tuxEventQueIndx</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276399"> </a>
+.1.3.6.1.4.1.140.300.2.3.1.1.1
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276401"> </a>
+<code class="cCode">tuxEventQueExpr</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276403"> </a>
+.1.3.6.1.4.1.140.300.2.3.1.1.2
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276405"> </a>
+<code class="cCode">tuxEventQueFilter</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276407"> </a>
+.1.3.6.1.4.1.140.300.2.3.1.1.3
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276409"> </a>
+<code class="cCode">tuxEventQueState</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276411"> </a>
+.1.3.6.1.4.1.140.300.2.3.1.1.4
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276413"> </a>
+<code class="cCode">tuxEventQspace</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276415"> </a>
+.1.3.6.1.4.1.140.300.2.3.1.1.5
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276417"> </a>
+<code class="cCode">tuxEventQname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276419"> </a>
+.1.3.6.1.4.1.140.300.2.3.1.1.6
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276421"> </a>
+<code class="cCode">tuxEventQctlQtop</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276423"> </a>
+.1.3.6.1.4.1.140.300.2.3.1.1.7
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276425"> </a>
+<code class="cCode">tuxEventQctlBeforeMsgid</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276427"> </a>
+.1.3.6.1.4.1.140.300.2.3.1.1.8
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276429"> </a>
+<code class="cCode">tuxEventQctlQtimeAbs</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276431"> </a>
+.1.3.6.1.4.1.140.300.2.3.1.1.9
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276433"> </a>
+<code class="cCode">tuxEventQctlQtimeRel</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276435"> </a>
+.1.3.6.1.4.1.140.300.2.3.1.1.10
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276437"> </a>
+<code class="cCode">tuxEventQctlDeqTime</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276439"> </a>
+.1.3.6.1.4.1.140.300.2.3.1.1.11
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276441"> </a>
+<code class="cCode">tuxEventQctlPrior</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276443"> </a>
+.1.3.6.1.4.1.140.300.2.3.1.1.12
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276445"> </a>
+<code class="cCode">tuxEventQctlMsgId</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276447"> </a>
+.1.3.6.1.4.1.140.300.2.3.1.1.13
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276449"> </a>
+<code class="cCode">tuxEventQctlCorrId</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276451"> </a>
+.1.3.6.1.4.1.140.300.2.3.1.1.14
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276453"> </a>
+<code class="cCode">tuxEventQctlReplyQ</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276455"> </a>
+.1.3.6.1.4.1.140.300.2.3.1.1.15
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276457"> </a>
+<code class="cCode">tuxEventQctlFailQ</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276459"> </a>
+.1.3.6.1.4.1.140.300.2.3.1.1.16
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276461"> </a>
+<code class="cCode">tuxEventPersist</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276463"> </a>
+.1.3.6.1.4.1.140.300.2.3.1.1.17
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276465"> </a>
+<code class="cCode">tuxEventTran</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276467"> </a>
+.1.3.6.1.4.1.140.300.2.3.1.1.18
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276471"> </a>
+tuxEventQueIndx
+</h3>
+<h4 class="pHeading3"><a name="wp276472"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276473"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp276474"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276475"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp276476"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276477"> </a>
+Running number which is the unique identifier for an event in this table.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276479"> </a>
+tuxEventQueExpr
+</h3>
+<h4 class="pHeading3"><a name="wp276480"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276481"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..255</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp276482"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276483"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276484"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276485"> </a>
+Event pattern expression. This expression, which is a regular expression, controls which event names match this subscription. For the format of regular expressions, see reference page <a href="../rf3c/rf3c.html">tpsubscribe(3c)</a> in <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em>.
+</p>
+<a name="wp276486"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276488"> </a>
+tuxEventQueFilter
+</h3>
+<h4 class="pHeading3"><a name="wp276489"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276490"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..255</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp276491"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276492"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276493"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276494"> </a>
+Event filter expression. This expression, if present, is evaluated with respect to the posted buffer&#8217;s contents. It must evaluate to TRUE or this subscription is not matched. If the value of this object is &#8220;-&#8221;, it means the filter is in binary format. 
+</p>
+<a name="wp276495"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276497"> </a>
+tuxEventQueState
+</h3>
+<h4 class="pHeading3"><a name="wp276498"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276499"> </a>
+<code class="cCode">INTEGER { active(1), invalid(2) }</code>
+</p>
+<h4 class="pHeading3"><a name="wp276500"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276501"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276502"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276503"> </a>
+The values for <code class="cCode">GET</code> and <code class="cCode">SET</code> operations are as follows:
+</p>
+<h4 class="pDefTerm"><a name="wp276504"> </a>
+<code class="cCode">GET: active(1)</code>
+</h4><div class="pDefPara"><a name="wp276505"> </a>
+A <code class="cCode">GET</code> operation retrieves configuration information for the matching <code class="cCode">tuxEventQueTbl</code> row(s).
+</div>
+<h4 class="pDefTerm"><a name="wp276506"> </a>
+<code class="cCode">SET:</code> <code class="cCode">invalid(2)</code>
+</h4><div class="pDefPara"><a name="wp276507"> </a>
+A <code class="cCode">SET</code> operation updates configuration information for the <code class="cCode">tuxEventQueTbl</code> instance. The following state indicates the meaning of a <code class="cCode">tuxEventQueState</code> set in a <code class="cCode">SET</code> request. States not listed cannot be set.
+</div>
+<h4 class="pDefTerm"><a name="wp276508"> </a>
+<code class="cCode">invalid(2)</code>
+</h4><div class="pDefPara"><a name="wp276509"> </a>
+Delete <code class="cCode">tuxEventQueTbl</code> row. Successful return leaves the object in the <code class="cCode">invalid(2)</code> state. 
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276511"> </a>
+tuxEventQspace
+</h3>
+<h4 class="pHeading3"><a name="wp276512"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276513"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..127</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp276514"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276515"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276516"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276517"> </a>
+Enqueue a notification message to a reliable queue in this queue space when a matching event is detected. 
+</p>
+<a name="wp276518"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276520"> </a>
+tuxEventQname
+</h3>
+<h4 class="pHeading3"><a name="wp276521"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276522"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..127</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp276523"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276524"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276525"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276526"> </a>
+Enqueue a notification message to this reliable queue when a matching event is detected. 
+</p>
+<a name="wp276527"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276529"> </a>
+tuxEventQctlQtop
+</h3>
+<h4 class="pHeading3"><a name="wp276530"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276531"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp276532"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276533"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276534"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276535"> </a>
+This value, if present, is passed in to <code class="cCode">tpenqueue</code>(3)&#8217;s TPQCTL control structure to request notification via the /Q subsystem with the message to be placed at the top of the queue. 
+</p>
+<a name="wp276536"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276538"> </a>
+tuxEventQctlBeforeMsgid
+</h3>
+<h4 class="pHeading3"><a name="wp276539"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276540"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp276541"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276542"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276543"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276544"> </a>
+This value, if present, is passed in to <code class="cCode">tpenqueue</code>(3)&#8217;s TPQCTL control structure to request notification via the /Q subsystem with the message to be placed on the queue ahead of the specified message. 
+</p>
+<a name="wp276545"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276547"> </a>
+tuxEventQctlQtimeAbs
+</h3>
+<h4 class="pHeading3"><a name="wp276548"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276549"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp276550"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276551"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276552"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276553"> </a>
+This value, if present, is passed in to <code class="cCode">tpenqueue</code>(3)&#8217;s TPQCTL control structure to request notification via the /Q subsystem with the message to be processed at the specified time. 
+</p>
+<a name="wp276554"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276556"> </a>
+tuxEventQctlQtimeRel
+</h3>
+<h4 class="pHeading3"><a name="wp276557"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276558"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp276559"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276560"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276561"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276562"> </a>
+This value, if present, is passed in to <code class="cCode">tpenqueue</code>(3)&#8217;s TPQCTL control structure to request notification via the /Q subsystem with the message to be processed relative to the dequeue time. 
+</p>
+<a name="wp276563"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276565"> </a>
+tuxEventQctlDeqTime
+</h3>
+<h4 class="pHeading3"><a name="wp276566"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276567"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp276568"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276569"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276570"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276571"> </a>
+This value, if present, is passed in to <code class="cCode">tpenqueue</code>(3)&#8217;s TPQCTL control structure. 
+</p>
+<a name="wp276572"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276574"> </a>
+tuxEventQctlPrior
+</h3>
+<h4 class="pHeading3"><a name="wp276575"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276576"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp276577"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276578"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276579"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276580"> </a>
+This value, if present, is passed in to <code class="cCode">tpenqueue</code>(3)&#8217;s TPQCTL control structure. 
+</p>
+<a name="wp276581"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276583"> </a>
+tuxEventQctlMsgId
+</h3>
+<h4 class="pHeading3"><a name="wp276584"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276585"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..31</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp276586"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276587"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276588"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276589"> </a>
+This value, if present, is passed in to <code class="cCode">tpenqueue</code>(3)&#8217;s TPQCTL control structure. 
+</p>
+<a name="wp276590"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276592"> </a>
+tuxEventQctlCorrId
+</h3>
+<h4 class="pHeading3"><a name="wp276593"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276594"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..31</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp276595"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276596"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276597"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276598"> </a>
+This value, if present, is passed in to <code class="cCode">tpenqueue</code>(3)&#8217;s TPQCTL control structure. 
+</p>
+<a name="wp276599"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276601"> </a>
+tuxEventQctlReplyQ
+</h3>
+<h4 class="pHeading3"><a name="wp276602"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276603"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..127</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp276604"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276605"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276606"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276607"> </a>
+This value, if present, is passed in to <code class="cCode">tpenqueue</code>(3)&#8217;s TPQCTL control structure. 
+</p>
+<a name="wp276608"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276610"> </a>
+tuxEventQctlFailQ
+</h3>
+<h4 class="pHeading3"><a name="wp276611"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276612"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..127</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp276613"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276614"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276615"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276616"> </a>
+This value, if present, is passed in to <code class="cCode">tpenqueue</code>(3)&#8217;s TPQCTL control structure. 
+</p>
+<a name="wp276617"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276619"> </a>
+tuxEventPersist
+</h3>
+<h4 class="pHeading3"><a name="wp276620"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276621"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp276622"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276623"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276624"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276625"> </a>
+If non-zero, do not cancel this subscription if the designated queue is no longer available. 
+</p>
+<a name="wp276626"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276628"> </a>
+tuxEventTran
+</h3>
+<h4 class="pHeading3"><a name="wp276629"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276630"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp276631"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276632"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276633"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276634"> </a>
+If non-zero and the client&#8217;s <code class="cCode">tppost</code>(3) call is transactional, include the <code class="cCode">tpenqueue</code>(3) call in the client&#8217;s transaction. 
+</p>
+<a name="wp276635"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp276638"> </a>
+tuxEventSvcTbl
+</h2><p class="pBody"><a name="wp276639"> </a>
+This group contains objects that represent subscriptions registered with the EventBroker for service-based notification.
+</p>
+<p class="pBody"><a name="wp276641"> </a>
+When an event is detected, it is compared to each <code class="cCode">tuxEventSvcTbl</code> instance. If the event name matches the value in the event expression and the optional filter rule is true, then the event buffer is sent to the specified Tuxedo service routine.
+</p>
+<p class="pBody"><a name="wp276642"> </a>
+To create a new row in this table, a <code class="cCode">SET</code> request must be issued that specifies values for at least <code class="cCode">tuxEventSvcExpr</code> and <code class="cCode">tuxEventSvcName</code>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276678"> </a>
+tuxEventSvcIndx
+</h3>
+<h4 class="pHeading3"><a name="wp276679"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276680"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp276681"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276682"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp276683"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276684"> </a>
+A running number which is a unique key for a row in this table.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276686"> </a>
+tuxEventSvcExpr
+</h3>
+<h4 class="pHeading3"><a name="wp276687"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276688"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..255</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp276689"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276690"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp276691"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp277468"> </a>
+Event pattern expression. This expression, which is a regular expression, controls which event names match this subscription. For the format of regular expressions, see reference page <a href="../rf3c/rf3c.html">tpsubscribe(3c)</a> in <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em>.
+</p>
+<a name="wp277473"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276695"> </a>
+tuxEventSvcFilter
+</h3>
+<h4 class="pHeading3"><a name="wp276696"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276697"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..255</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp276698"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276699"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp276700"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276701"> </a>
+Event filter expression. This expression, if present, is evaluated with respect to the posted buffer&#8217;s contents. It must evaluate to TRUE or this subscription is not matched. If this is &#8220;-&#8221;, it means the filter is in binary format. 
+</p>
+<a name="wp276702"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276704"> </a>
+tuxEventSvcState
+</h3>
+<h4 class="pHeading3"><a name="wp276705"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276706"> </a>
+<code class="cCode">INTEGER { active(1), invalid(2) }</code>
+</p>
+<h4 class="pHeading3"><a name="wp276707"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276708"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276709"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276710"> </a>
+The values for <code class="cCode">GET</code> and <code class="cCode">SET</code> operations are as follows:
+</p>
+<h4 class="pDefTerm"><a name="wp276711"> </a>
+<code class="cCode">GET: active(1)</code>
+</h4><div class="pDefPara"><a name="wp276712"> </a>
+A <code class="cCode">GET</code> operation retrieves configuration information for the matching <code class="cCode">tuxEventSvcTbl</code> instance(s).
+</div>
+<h4 class="pDefTerm"><a name="wp276713"> </a>
+<code class="cCode">SET:</code> <code class="cCode">invalid(2)</code>
+</h4><div class="pDefPara"><a name="wp276714"> </a>
+A <code class="cCode">SET</code> operation updates configuration information for the <code class="cCode">tuxEventSvcTbl</code> instance. The following state indicates the meaning of a <code class="cCode">tuxEventSvcState</code> set in a <code class="cCode">SET</code> request. States not listed cannot be set. 
+</div>
+<h4 class="pDefTerm"><a name="wp276715"> </a>
+<code class="cCode">invalid(2)</code>
+</h4><div class="pDefPara"><a name="wp276716"> </a>
+Delete <code class="cCode">tuxEventSvcTbl</code> row. Successful return leaves the object in the <code class="cCode">invalid(2)</code> state.
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276718"> </a>
+tuxEventSvcName
+</h3>
+<h4 class="pHeading3"><a name="wp276719"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276720"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..127</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp276721"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276722"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp276723"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276724"> </a>
+Call this Tuxedo service when a matching event is detected.
+</p>
+<a name="wp276725"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276727"> </a>
+tuxEventSvcPersist
+</h3>
+<h4 class="pHeading3"><a name="wp276728"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276729"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp276730"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276731"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276732"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276733"> </a>
+If non-zero, do not cancel this subscription if the <code class="cCode">tuxEventSvcName</code> service is no longer available. 
+</p>
+<a name="wp276734"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276736"> </a>
+tuxEventSvcTran
+</h3>
+<h4 class="pHeading3"><a name="wp276737"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276738"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp276739"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276740"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276741"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276742"> </a>
+If non-zero and the client&#8217;s <code class="cCode">tppost</code>(3) call is transactional, include the <code class="cCode">tuxEventSvcName</code> service call in the client&#8217;s transaction. 
+</p>
+<a name="wp276743"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp276746"> </a>
+tuxEventUlogTbl
+</h2><p class="pBody"><a name="wp276748"> </a>
+This group contains objects that represent subscriptions registered with the EventBroker for writing system <code class="cCode">userlog</code>(3) messages.
+</p>
+<p class="pBody"><a name="wp276750"> </a>
+When an event is detected, it is compared to each <code class="cCode">tuxEventUlogTbl</code> instance. If the event name matches the value in the event expression and the optional filter rule is true, then the event buffer is formatted and passed to the Tuxedo <code class="cCode">userlog</code>(3) function.
+</p>
+<p class="pBody"><a name="wp276751"> </a>
+Create a new Row: To create a new instance of <code class="cCode">tuxEventUlogTbl</code> the user must at least specify values for <code class="cCode">tuxEventUlogExpr</code> and <code class="cCode">tuxEventUserlog</code>. All objects except <code class="cCode">tuxEventUlogState</code> can be updated only during creation of a new instance.
+</p>
+<p class="pGraphic"><a name="wp276777"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp276754table276752">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp276754"> </a>
+Object Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp276756"> </a>
+Object ID
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276758"> </a>
+<code class="cCode">tuxEventUlogIndx</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276760"> </a>
+.1.3.6.1.4.1.140.300.2.5.1.1.1
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276762"> </a>
+<code class="cCode">tuxEventUlogExpr</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276764"> </a>
+.1.3.6.1.4.1.140.300.2.5.1.1.2
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276766"> </a>
+<code class="cCode">tuxEventUlogFilter</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276768"> </a>
+.1.3.6.1.4.1.140.300.2.5.1.1.3
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276770"> </a>
+<code class="cCode">tuxEventUlogState</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276772"> </a>
+.1.3.6.1.4.1.140.300.2.5.1.1.4
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp276774"> </a>
+<code class="cCode">tuxEventUserlog</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp276776"> </a>
+.1.3.6.1.4.1.140.300.2.5.1.1.5
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276779"> </a>
+tuxEventUlogIndx
+</h3>
+<h4 class="pHeading3"><a name="wp276780"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276781"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp276782"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276783"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp276784"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276785"> </a>
+A running number which is a unique key in this table.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276787"> </a>
+tuxEventUlogExpr
+</h3>
+<h4 class="pHeading3"><a name="wp276788"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276789"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..255</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp276790"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276791"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276792"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276793"> </a>
+Event pattern expression. This expression, which is a regular expression, controls which event names match this subscription. For the format of regular expressions, see reference page <a href="../rf3c/rf3c.html">tpsubscribe(3c)</a> in <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em>.
+</p>
+<a name="wp276794"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276796"> </a>
+tuxEventUlogFilter
+</h3>
+<h4 class="pHeading3"><a name="wp276797"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276798"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..255</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp276799"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276800"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276801"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276802"> </a>
+Event filter expression. This expression, if present, is evaluated with respect to the posted buffer&#8217;s contents. It must evaluate to TRUE or this subscription is not matched. If this is &#8220;-&#8221;, it means the filter is in binary form. 
+</p>
+<a name="wp276803"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276805"> </a>
+tuxEventUlogState
+</h3>
+<h4 class="pHeading3"><a name="wp276806"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276807"> </a>
+<code class="cCode">INTEGER { active(1), invalid(2) }</code>
+</p>
+<h4 class="pHeading3"><a name="wp276808"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276809"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276810"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276811"> </a>
+The values for <code class="cCode">GET</code> and <code class="cCode">SET</code> operations are as follows:
+</p>
+<h4 class="pDefTerm"><a name="wp276812"> </a>
+<code class="cCode">GET: active(1)</code>
+</h4><div class="pDefPara"><a name="wp276813"> </a>
+A <code class="cCode">GET</code> operation retrieves configuration information for the matching <code class="cCode">tuxEventUlogTbl</code> instance(s).
+</div>
+<h4 class="pDefTerm"><a name="wp276814"> </a>
+<code class="cCode">SET: invalid(2)</code>
+</h4><div class="pDefPara"><a name="wp276815"> </a>
+A <code class="cCode">SET</code> operation updates configuration information for the <code class="cCode">tuxEventUlogTbl</code> instance. The following state indicates the meaning of a <code class="cCode">tuxEventUlogState</code> set in a <code class="cCode">SET</code> request. States not listed cannot be set.
+</div>
+<h4 class="pDefTerm"><a name="wp276816"> </a>
+<code class="cCode">invalid(2)</code>
+</h4><div class="pDefPara"><a name="wp276817"> </a>
+Delete <code class="cCode">tuxEventUlogTbl</code> row. Successful return leaves the object in the <code class="cCode">invalid(2)</code> state. 
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp276819"> </a>
+tuxEventUserlog
+</h3>
+<h4 class="pHeading3"><a name="wp276820"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp276821"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..255</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp276822"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp276823"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp276824"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp276825"> </a>
+Write a <code class="cCode">userlog</code>(3) message when a matching event is detected. 
+</p>
+<a name="wp276826"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="9evtbrok.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="8appqmib.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="10tuxtrp.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

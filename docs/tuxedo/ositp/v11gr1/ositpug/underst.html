@@ -1,0 +1,1898 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="40264" />
+<meta name="LOC_US_SRCFILE" content="//depot/ecs/ositp/v11gr1/ositpug/fm/underst.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="08/26/10 09:48:38" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Understanding the DMCONFIG File</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">User Guide
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="manage.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="config.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/ositpug.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1051678"> </a>
+Understanding the DMCONFIG File
+</h1>
+<p class="pBody"><a name="wp1023739"> </a>
+Before you configure Oracle Tuxedo Mainframe Adapter for OSI TP and set up the gateway configuration, it is helpful to understand the <code class="cCode">DMCONFIG</code> file.
+</p>
+<p class="pBody"><a name="wp1023740"> </a>
+This section covers the following topics:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023744"> </a><a href="underst.html#wp1023765"><span class="cHyperlink">
+Overview of the DMCONFIG File</span></a> </li>
+<li><a name="wp1023748"> </a><a href="underst.html#wp1023825"><span class="cHyperlink">
+DMCONFIG File Format</span></a> </li>
+<li><a name="wp1023752"> </a><a href="underst.html#wp1023852"><span class="cHyperlink">
+DMCONFIG File Sections</span></a></li>
+<li><a name="wp1046375"> </a><a href="underst.html#wp1046370"><span class="cHyperlink">
+Methods for Modifying Configurations</span></a> </li>
+</ul></div>
+<p class="pBody"><a name="wp1023760"> </a>
+For detailed instructions on how to configure TMA OSI TP by modifying the <code class="cCode">DMCONFIG</code> file, refer to <a href="config.html"><span class="cHyperlink">
+Configuring Oracle Tuxedo Mainframe Adapter for OSI TP.</span></a> 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023765"> </a>
+Overview of the DMCONFIG File
+</h2><p class="pBody"><a name="wp1023766"> </a>
+The configuration specified in the <code class="cCode">DMCONFIG</code> file controls much of the operation of the&#160;TMA OSI TP gateway. A sample of this file is provided in the installation directory of your TMA OSI TP product software.
+</p>
+<p class="pBody"><a name="wp1023774"> </a>
+<code class="cCode">DMCONFIG</code> is the ASCII version of a Tuxedo System/Domain domain configuration file. The <code class="cCode">DMCONFIG</code> file is parsed and loaded into a binary version by the dmloadcf utility. The binary configuration file, called the <code class="cCode">BDMCONFIG</code>, contains information used by domain gateways to initialize the context required for communications with other domains. In its monitoring activity, <code class="cCode">dmadmin</code> uses the binary file (or a copy of it). There is one <code class="cCode">BDMCONFIG</code> file for each Tuxedo System/Domain application that uses the /Domain feature. Refer to Processing a Configuration File with the dmloadcf Utility for more information about the binary configuration files.
+</p>
+<p class="pBody"><a name="wp1023775"> </a>
+A <code class="cCode">DMCONFIG</code> file, and its binary <code class="cCode">BDMCONFIG</code> counterpart, are analogous to the <code class="cCode">UBBCONFIG</code> and <code class="cCode">TUXCONFIG</code> files of a non-/Domain System/T application. The <code class="cCode">DMCONFIG</code> file extends the definition of a non-/Domain System/T application so that the application becomes a domain. 
+</p>
+<h3 class="pHeading2"><a name="wp1023776"> </a>
+OSI TP Application Addresses Used in the DMCONFIG File
+</h3>
+<p class="pBody"><a name="wp1023777"> </a>
+OSI TP application address information is used for several parameters in the <code class="cCode">DMCONFIG</code> file. The address of a Tuxedo application using OSI TP consists of a collection of the names of each of the components described in <a href="underst.html#wp127351"><span class="cHyperlink">
+Table&#160;3-1</span></a>. These names must coordinate with the remote domain OSI TP implementation.
+</p>
+<p class="pBody"><a name="wp1049292"> </a>
+Starting with eLink OSI TP 4.0, the OSI TP implementation is optimized to eliminate several layers of the protocol stack. As a result, the P_SEL, S_SEL, and T_SEL are not used for routing connections. Connections are routed solely based on the NWADDR parameter. Therefore, TMA OSI TP requires the NWADDR parameter be unique.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1049296"> </a>Multiplexed Protocol</li>
+<p class="pBodyRelative"><a name="wp1049314"> </a>
+The multiplexed protocol uses a TCP/IP connection. Therefore, if the multiplexed protocol is in use, P_SEL, S_SEL, and T_SEL parameters do not apply and are ignored if configured.
+</p>
+<li><a name="wp1049297"> </a>Non-multiplexed Protocol</li>
+<p class="pBodyRelative"><a name="wp1049343"> </a>
+The non-multiplexed protocol sends messages using OSI over TCP/IP (as implemented in RFC1006). When using the non-multiplexed protocol, you may need to specify the P_SEL, S_SEL, and/or T_SEL parameters, depending on the addressing requirements of the remote system. If the P_SEL, S_SEL, and/or T_SEL are configured, TMA OSI TP encodes the selectors for outgoing connections and TMA OSI TP validates incoming connections to verify the selectors are correct. However, TMA OSI TP does not require the use of P_SEL, S_SEL, and T_SEL.
+</p>
+<p class="pGraphic"><a name="wp1052264"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp127351table1023778"><caption><a name="wp127351"> </a>
+Table 3-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">OSI TP Application Components</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1023780"> </a>
+Component
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023782"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023784"> </a>
+Application Entity Title (<code class="cCode">AET</code>)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023786"> </a>
+A dotted integer based on the ISO Object Identifier Based NameForm that uniquely identifies the OSI TP node. See the following description of the <code class="cCode">AET</code>, <a href="underst.html#wp1047653">Creating an Application Entity Title.</a> 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023794"> </a>
+* Presentation Selector (<code class="cCode">P_SEL</code>)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023796"> </a>
+A logical name for the address of the software that provides the presentation layer services for OSI protocols.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023798"> </a>
+* Session Selector (<code class="cCode">S_SEL</code>)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023800"> </a>
+A logical name for the address of the software that provides the session layer services for OSI protocols.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023802"> </a>
+* Transport Selector (<code class="cCode">T_SEL</code>)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023804"> </a>
+A logical name for the address of the software that provides the transport layer services for OSI protocols.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023806"> </a>
+Network Address (<code class="cCode">NWADDR</code>)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023808"> </a>
+A globally unique computer system address used to identify the OSI TP node.
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</ul></div>
+<p class="pTableFootnote"><a name="wp1023811"> </a>
+* Application components only valid for non-multiplexing communications. 
+</p>
+
+<h3 class="pHeading2"><a name="wp1047653"> </a>
+Creating an Application Entity Title
+</h3>
+<p class="pBody"><a name="wp1023812"> </a>
+The Application Entity Title equals the <code class="cCode">APT</code> (application process title) plus the <code class="cCode">AEQ</code> (application entity qualifier). Each OSI TP node in your network must have a unique <code class="cCode">AET</code>. If your site is participating in a global OSI network, you need to contact the OSI registration authority for a valid OSI Object-ID, otherwise, create your own unique <code class="cCode">AET</code> as described below.
+</p>
+<p class="pBody"><a name="wp1023813"> </a>
+If your site is in a closed network, create an Object ID with at least three &#8220;arcs&#8221;. Each arc is a dotted integer and represents an identifier for the Object ID. A valid OSI TP Object ID has either 0 or 1 for the first arc, and 0,1,2,or 3 for the second arc.
+</p>
+<p class="pBody"><a name="wp1049399"> </a>
+One suggested convention is to set APT to 1.3, followed by the IP address specified in the corresponding NWADDR parameter and set the AEQ to the port number specified in the NWADDR parameter. For example:
+</p>
+<a name="wp1049426"> </a><div class="pPreformatted"><pre>domain1<br />  AET=&quot;{1.3.123.55.222.51},{12344}&quot;<br />  NWADDR=&quot;123.55.222.51:12344&quot;</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023825"> </a>
+DMCONFIG File Format
+</h2><p class="pBody"><a name="wp1023827"> </a>
+The format of a domain configuration file is as follows: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023828"> </a>The file is made up of eight possible specification sections. Lines beginning with an asterisk (*) indicate the beginning of a specification section. Each such line contains the name of the section immediately following the *. Refer to <a href="underst.html#wp1023852"><span class="cHyperlink">
+DMCONFIG File Sections</span></a> for more information about the sections. </li>
+<li><a name="wp1023832"> </a>Parameters are generally specified by: <span style="font-style: italic">KEYWORD</span> = <span style="font-style: italic">value</span>. This sets <span style="font-style: italic">KEYWORD</span> to <span style="font-style: italic">value</span>. Valid keywords are described in the following sections. <span style="font-style: italic">KEYWORD</span>s are reserved; they cannot be used as <span style="font-style: italic">value</span>s unless they are enclosed in quotes. </li>
+</ul></div>
+<a name="wp1042053"> </a>
+<table class="Note">
+<tr>
+<td valign="top"><strong>Caution:</strong></td>
+<td>Enter all parameters on separate lines. The <code class="cCode">NWADDR</code> parameter is the only exception; multiple network address values may be listed in a single line. </td>
+</tr>
+</table>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023833"> </a>Lines beginning with the reserved word, DEFAULT:, contain parameter specifications that apply to all the lines that follow in the section in which they appear. Default specifications can be used in any of the sections. Defaults can appear more than once in the same section. The format for these lines is: </li>
+<p class="pBodyRelative"><a name="wp1023834"> </a>
+DEFAULT:  { <span style="font-style: italic">KEYWORD1</span> = <span style="font-style: italic">value1</span> { <span style="font-style: italic">KEYWORD2</span> = <span style="font-style: italic">value2</span> {...}}}
+</p>
+<p class="pBodyRelative"><a name="wp1023835"> </a>
+The values set on this line remain in effect until reset by another DEFAULT: line, or until the end of the section is reached. These values can also be overridden by specifying another value for the parameter on a non-DEFAULT: line. The override parameter setting is valid for that line only; lines that follow revert to the default setting. If DEFAULT: appears on a line without any keywords or values, all previously set defaults are cleared and their values revert to the system defaults. 
+</p>
+<li><a name="wp1023836"> </a>If a value is <span style="font-style: italic">numeric</span>, standard C notation is used to denote the base (that is, 0x prefix for base 16 (hexadecimal), 0 prefix for base 8 (octal), and no prefix for base 10 (decimal)). The range of values acceptable for a numeric parameter are given in the description of that parameter. </li>
+<li><a name="wp1023837"> </a>If a value is an <span style="font-style: italic">identifier</span>, standard C rules are used. An <span style="font-style: italic">identifier</span> must start with an alphabetic character or underscore and contain only alphanumeric characters or underscores. The maximum allowable length of an identifier is 30 (not including the terminating null). An identifier cannot be the same as any <span style="font-style: italic">KEYWORD</span>. </li>
+<li><a name="wp1023838"> </a>A value that is neither an integer number nor an identifier must be enclosed in double quotes. Certain special characters can be included in a string by preceding them with a backslash. </li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023839"> </a>&#8220;\\&#8221; translates to a single backslash</li>
+<li><a name="wp1023840"> </a>&#8220;\&#8221;\&#8221;&#8221; translates to a double quote</li>
+<li><a name="wp1023841"> </a>&#8220;\n&#8221; translates to a new line</li>
+<li><a name="wp1023842"> </a>&#8220;\t&#8221; translates to a tab</li>
+<li><a name="wp1023843"> </a>&#8220;\f&#8221; translates to a form feed</li>
+<li><a name="wp1023844"> </a>&#8220;\x&#8221; (where x is any character other than one of the previously mentioned special characters) translates to x </li>
+</ul></div>
+<li><a name="wp1023845"> </a>Input fields are separated by at least one space (or tab) character</li>
+<li><a name="wp1023846"> </a>&#8220;#&#8221; introduces a comment. A new line ends a comment</li>
+<li><a name="wp1023847"> </a>Blank lines and comments are ignored</li>
+<li><a name="wp1023848"> </a>Comments can be freely attached to the end of any line</li>
+<li><a name="wp1023849"> </a>Lines are continued by placing at least one tab after the new line. Comments cannot be continued</li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023852"> </a>
+DMCONFIG File Sections
+</h2><p class="pBody"><a name="wp1023853"> </a>
+The <code class="cCode">DMCONFIG</code> file consists of the following sections and parameters that define new gateway configurations.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023857"> </a><a href="underst.html#wp1047670"><span class="cHyperlink">
+DM_LOCAL_DOMAINS Section</span></a> </li>
+<a name="wp1037339"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The <code class="cCode">DM_LOCAL_DOMAINS</code> section must precede the <code class="cCode">DM_REMOTE_DOMAINS</code> section. </td>
+</tr>
+</table>
+
+<li><a name="wp1023861"> </a><a href="underst.html#wp1024020"><span class="cHyperlink">
+DM_REMOTE_DOMAINS Section</span></a> </li>
+<li><a name="wp1023866"> </a><a href="underst.html#wp1045998"><span class="cHyperlink">
+DM_OSITPX Section</span></a> </li>
+<li><a name="wp1023870"> </a><a href="underst.html#wp1033150"><span class="cHyperlink">
+DM_ACCESS_CONTROL Section</span></a> </li>
+<li><a name="wp1023874"> </a><a href="underst.html#wp1024116"><span class="cHyperlink">
+DM_LOCAL_SERVICES Section</span></a> </li>
+<li><a name="wp1023878"> </a><a href="underst.html#wp1024162"><span class="cHyperlink">
+DM_REMOTE_SERVICES Section</span></a> </li>
+<li><a name="wp1023882"> </a><a href="underst.html#wp1024219"><span class="cHyperlink">
+DM_ROUTING Section</span></a> </li>
+</ul></div>
+<p class="pBody"><a name="wp1023884"> </a>
+Following is a sample configuration file and detailed descriptions of the <code class="cCode">DMCONFIG</code> file sections and the parameters applicable to each section.
+</p>
+<h3 class="pHeading2"><a name="wp1034478"> </a>
+Sample Configuration File
+</h3>
+<p class="pBody"><a name="wp1047654"> </a>
+The following sample DMCONFIG file represents non-multiplexing communication.
+</p>
+<div class="pCodeTitle"><a name="wp1034480"> </a>
+Listing&#160;3-1	   Sample DMCONFIG File (Non-multiplexing)
+</div> <a name="wp1042926"> </a><div class="pPreformatted"><pre>*DM_LOCAL_DOMAINS<br /><br />dalnt8 <br />GWGRP       = OSIGRP<br />TYPE        = OSITPX<br />DOMAINID    = &quot;dalnt8&quot;<br />BLOCKTIME   = 30<br />DMTLOGDEV   = &quot;D:\tuxedo\log\DMLOG&quot;<br />SECURITY    = DM_PW  # turns link layer security on <br />DMTLOGNAME	  = DMLOG<br /><br /><br />*DM_REMOTE_DOMAINS<br /><br />dal2200 TYPE=OSITPX DOMAINID=&quot;dal2200&quot;<br />openti  TYPE=OSITPX DOMAINID=&quot;openti&quot;<br />icl2    TYPE=OSITPX DOMAINID=&quot;icl2&quot;<br />aseries1 TYPE=OSITPX DOMAINID=&quot;aseries1&quot;<br /><br />*DM_OSITPX<br /><br />dalnt8<br />   AET=&quot;{1.3.132.61.146},{3}&quot;<br />   TAILOR_PATH=&quot;d:\tuxedo\configs\tailor.txt&quot;<br />   NWADDR=&quot;//dalnt8:102&quot;<br />   DNS_RESOLUTION=STARTUP # this is the default<br />                <br />dal2200<br />   AET=&quot;{1.3.132.61.46},{3}&quot;<br />   XATMI_ENCODING=&quot;OLTP_TM2200&quot;<br />        NWADDR=&quot;132.61.46.3;132.61.147.1&quot; #redundant IP addresses              <br />   T_SEL=&quot;OSITP&quot; <br /><br />openti<br />   AET=&quot;{1.3.122.62.103},{209}&quot;<br />   NWADDR=&quot;122.62.103.209:2001&quot; <br />   OPTIONS=SECURITY_SUPPORTED<br /><br />icl2           <br />   AET=&quot;{1.3.142.60.203},{4}&quot;<br />   NWADDR=&quot;142.60.203.4&quot; <br />   T_SEL=&quot;ICLTP&quot; <br />   S_SEL=&quot;SSEL&quot;<br />   P_SEL=&quot;PSEL&quot;<br /><br />aseries1<br />   AET=&quot;{1.3.123.55.222},{51}&quot;<br />   NWADDR=&quot;123.55.222.51&quot; <br />   XATMI_ENCODING=&quot;PRELIMINARY&quot;<br />   T_SEL=&quot;0x5453&quot;<br />   S_SEL=&quot;0x3F5C3F&quot;<br />   <br />*DM_ACCESS_CONTROL<br />mylist  ACLIST = dalnt8, dal2200<br /><br />*DM_LOCAL_SERVICES<br />TOUPPERF<br />  INRECTYPE=&quot;VIEW:view10&quot;<br />  OUTBUFTYPE=&quot;FML:&quot;<br />  COUPLING=LOOSE   #this is the default<br /><br />TOUPPERF32<br />  INRECTYPE=&quot;VIEW:view10a&quot;<br />  OUTBUFTYPE=&quot;FML32:&quot;<br />  COUPLING=TIGHT<br /><br /><br />TOUPPERV<br />  INBUFTYPE=&quot;X_C_TYPE:v10&quot;<br />  INRECTYPE=&quot;VIEW:upper&quot;<br />  COUPLING=LOOSE<br /><br />TOUPPERC OUTRECTYPE=&quot;X_OCTET&quot; OUTBUFTYPE=&quot;CARRAY&quot;<br />        INRECTYPE=&quot;X_OCTET&quot;<br />        COUPLING=TIGHT<br /><br />TOUPPERS  OUTRECTYPE=&quot;X_OCTET&quot; OUTBUFTYPE=&quot;STRING&quot;<br />        INRECTYPE=&quot;X_OCTET&quot; <br /><br />TOUPPERX  OUTRECTYPE=&quot;STRING&quot; OUTBUFTYPE=&quot;STRING&quot;<br />         INRECTYPE=&quot;X_OCTET&quot; <br /><br />*DM_REMOTE_SERVICES<br />DEFAULT: TRANTIME=300<br /><br />ECHOXOCT RNAME=&quot;ECHOSRVR&quot; OUTBUFTYPE=&quot;X_COMMON:ECHOVIEW&quot; RDOM=aseries1 LDOM=dalnt8<br />ECHOXCOM RNAME=&quot;ECHOSRVR&quot; RDOM=openti LDOM=dalnt8 AUTOPREPARE=Y<br /><br />ECHOXCTYPE RNAME=&quot;ECHOSRVR&quot;<br />         INBUFTYPE=&quot;X_C_TYPE:ECHOVIEW&quot; <br />         INRECTYPE=&quot;X_COMMON:ECHOVIEW&quot;<br />         OUTBUFTYPE=&quot;X_C_TYPE:ECHOVIEW&quot; <br />         OUTRECTYPE=&quot;X_COMMON:ECHOVIEW&quot;  			<br />         RDOM=aseries1<br />         LDOM=dalnt8<br />         CONV=Y<br />ECHOVIEW RNAME=&quot;ECHOSRVR&quot;<br />         INBUFTYPE=&quot;VIEW:ECHOVIEW&quot; <br />         INRECTYPE=&quot;X_COMMON:ECHOVIEW&quot;<br />         OUTBUFTYPE=&quot;VIEW:ECHOVIEW&quot; <br />         OUTRECTYPE=&quot;X_COMMON:ECHOVIEW&quot;<br />         RDOM=openti<br />         LDOM=dalnt8<br />	  TPSUT_TYPE = &quot;PRINTABLESTRING&quot;<br />         REM_TPSUT=&quot;tpmvs&quot;<br /><br />*DM_ROUTING<br />ACCOUNT FIELD = branchid BUFTYPE = &quot;View:account&quot;<br />        RANGE = &quot;MIN - 1000:aseries1, 1001-3000:openti&quot;</pre></div><p class="pBody"><a name="wp1047681"> </a>
+The following sample DMCONFIG file represents multiplexing communication.
+</p>
+<div class="pCodeTitle"><a name="wp1047682"> </a>
+Listing&#160;3-2	   Sample DMCONFIG File (Multiplexing)
+</div> <a name="wp1047683"> </a><div class="pPreformatted"><pre>*DM_LOCAL_DOMAINS<br /><br />dalnt8 <br />GWGRP       = OSIGRP<br />TYPE        = OSITPX<br />DOMAINID    = &quot;dalnt8&quot;<br />BLOCKTIME   = 30<br />DMTLOGDEV   = &quot;D:\tuxedo\log\DMLOG&quot;<br />SECURITY    = DM_PW  # turns link layer security on <br />DMTLOGNAME	  = DMLOG<br /><br /><br />*DM_REMOTE_DOMAINS<br /><br />openti  TYPE=OSITPX DOMAINID=&quot;openti&quot;<br />aseries1 TYPE=OSITPX DOMAINID=&quot;aseries1&quot;<br /><br />*DM_OSITPX<br /><br />dalnt8<br />   EXTENSIONS=&quot;MULTIPLEX_POLICY=DEMAND&quot;<br />   AET=&quot;{1.3.132.61.146},{3}&quot;<br />   TAILOR_PATH=&quot;d:\tuxedo\configs\tailor.txt&quot;<br />   NWADDR=&quot;//dalnt8:2020&quot;<br />   DNS_RESOLUTION=STARTUP # this is the default<br />                <br />openti<br />   EXTENSIONS=&quot;MULTIPLEX=Y&quot;<br />   AET=&quot;{1.3.122.62.103},{209}&quot;<br />   NWADDR=&quot;122.62.103.209:2001&quot; <br />   OPTIONS=SECURITY_SUPPORTED<br /><br />aseries1<br />   EXTENSIONS=&quot;MULTIPLEX=Y&quot;<br />   AET=&quot;{1.3.123.55.222},{51}&quot;<br />   NWADDR=&quot;123.55.222.51:12344&quot; <br />   XATMI_ENCODING=&quot;NATIVE_A_SERIES&quot;<br />   <br />*DM_ACCESS_CONTROL<br />mylist  ACLIST = dalnt8, openti<br /><br />*DM_LOCAL_SERVICES<br />TOUPPERF<br />  INRECTYPE=&quot;VIEW:view10&quot;<br />  OUTBUFTYPE=&quot;FML:&quot;<br />  COUPLING=LOOSE   #this is the default<br /><br />TOUPPERF32<br />  INRECTYPE=&quot;VIEW:view10a&quot;<br />  OUTBUFTYPE=&quot;FML32:&quot;<br />  COUPLING=TIGHT<br /><br /><br />TOUPPERV<br />  INBUFTYPE=&quot;X_C_TYPE:v10&quot;<br />  INRECTYPE=&quot;VIEW:upper&quot;<br />  COUPLING=LOOSE<br /><br />TOUPPERC OUTRECTYPE=&quot;X_OCTET&quot; OUTBUFTYPE=&quot;CARRAY&quot;<br />        INRECTYPE=&quot;X_OCTET&quot;<br />        COUPLING=TIGHT<br /><br />TOUPPERS  OUTRECTYPE=&quot;X_OCTET&quot; OUTBUFTYPE=&quot;STRING&quot;<br />        INRECTYPE=&quot;X_OCTET&quot; <br /><br />TOUPPERX  OUTRECTYPE=&quot;STRING&quot; OUTBUFTYPE=&quot;STRING&quot;<br />         INRECTYPE=&quot;X_OCTET&quot; <br /><br />*DM_REMOTE_SERVICES<br />DEFAULT: TRANTIME=300<br /><br />ECHOXOCT RNAME=&quot;ECHOSRVR&quot; OUTBUFTYPE=&quot;X_COMMON:ECHOVIEW&quot; RDOM=dal2200 LDOM=dalnt8<br />ECHOXCOM RNAME=&quot;ECHOSRVR&quot; RDOM=openti LDOM=dalnt8 AUTOPREPARE=Y<br /><br />ECHOXCTYPE RNAME=&quot;ECHOSRVR&quot;<br />         INBUFTYPE=&quot;X_C_TYPE:ECHOVIEW&quot; <br />         INRECTYPE=&quot;X_COMMON:ECHOVIEW&quot;<br />         OUTBUFTYPE=&quot;X_C_TYPE:ECHOVIEW&quot; <br />         OUTRECTYPE=&quot;X_COMMON:ECHOVIEW&quot;  			<br />         RDOM=aseries1<br />         LDOM=dalnt8<br />         CONV=Y<br />ECHOVIEW RNAME=&quot;ECHOSRVR&quot;<br />         INBUFTYPE=&quot;VIEW:ECHOVIEW&quot; <br />         INRECTYPE=&quot;X_COMMON:ECHOVIEW&quot;<br />         OUTBUFTYPE=&quot;VIEW:ECHOVIEW&quot; <br />         OUTRECTYPE=&quot;X_COMMON:ECHOVIEW&quot;<br />         RDOM=icl2<br />         LDOM=dalnt8<br />	  TPSUT_TYPE = &quot;PRINTABLESTRING&quot;<br />         REM_TPSUT=&quot;tpmvs&quot;<br /><br />*DM_ROUTING<br />ACCOUNT FIELD = branchid BUFTYPE = &quot;View:account&quot;<br />        RANGE = &quot;MIN - 1000:aseries1, 1001-3000:openti, *:dal2200&quot;</pre></div><h3 class="pHeading2"><a name="wp1047670"> </a>
+DM_LOCAL_DOMAINS Section
+</h3>
+<p class="pBody"><a name="wp1023891"> </a>
+This section identifies local domains and their associated gateway groups. The section must have an entry for each gateway group (Local Domain). Each entry specifies the parameters required for the domain gateway processes running in that group. 
+</p>
+<h4 class="pHeading3"><a name="wp1023893"> </a>
+Format
+</h4>
+<p class="pBody"><a name="wp1023895"> </a>
+<code class="cCode">DM_LOCAL_DOMAINS</code> entries have the following format. 
+</p>
+<p class="pBodyRelative"><a name="wp1023896"> </a>
+<span style="font-style: italic">LDOM</span>   required parameters [<em class="cEmphasis">optional parameters</em>] 
+</p>
+<p class="pBodyRelative"><a name="wp1023897"> </a>
+where
+</p>
+<p class="pBodyRelative"><a name="wp1023899"> </a>
+<span style="font-style: italic">LDOM</span> is an <span style="font-style: italic">identifier</span> value used to name each local domain. 
+</p>
+<p class="pBodyRelative"><a name="wp1023900"> </a>
+<span style="font-style: italic">LDOM</span> must be unique within a particular configuration. As described in the <code class="cCode">DM_LOCAL_SERVICES</code> section, <span style="font-style: italic">LDOM</span> is the identifier that connects local services with a particular gateway group.
+</p>
+<h4 class="pHeading3"><a name="wp1023901"> </a>
+Valid Parameters
+</h4>
+<p class="pBody"><a name="wp1023902"> </a>
+Following is a list of valid parameters for the <code class="cCode">DM_LOCAL_DOMAINS</code> section:
+</p>
+<p class="pGraphic"><a name="wp1023964"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp127463table1023903"><caption><a name="wp127463"> </a>
+Table 3-2  Parameters for DM_LOCAL_DOMAINS
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1026334"> </a>
+Parameter 
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1026336"> </a>
+Required/Optional
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1026338"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026340"> </a>
+<code class="cCode">AUDITLOG</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026342"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026344"> </a>
+Name of the audit log
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026346"> </a>
+<code class="cCode">BLOCKTIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026348"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026350"> </a>
+Maximum wait time allowed for a blocking call
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026352"> </a>
+<code class="cCode">DMTLOGDEV</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026354"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026356"> </a>
+Tuxedo file system that contains the domain transaction log 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026358"> </a>
+<code class="cCode">DMTLOGNAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026360"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026362"> </a>
+Name of the domain transaction log 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026364"> </a>
+<code class="cCode">DMTLOGSIZE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026366"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026368"> </a>
+Size of the domain transaction log
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026370"> </a>
+<code class="cCode">DOMAINID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026372"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026374"> </a>
+Local domain
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026376"> </a>
+<code class="cCode">GWGRP</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026378"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026380"> </a>
+Name of gateway server group 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026394"> </a>
+<code class="cCode">MAXRDTRAN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026396"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026398"> </a>
+Maximum number of remote domains that can be involved in a transaction
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037565"> </a>
+<code class="cCode">MAXTRAN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037567"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037569"> </a>
+Maximum number of simultaneous global transactions allowed on local domain
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026412"> </a>
+<code class="cCode">SECURITY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026414"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026416"> </a>
+Link-level of security for local domain
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026418"> </a>
+<code class="cCode">TYPE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026420"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026422"> </a>
+Classification of local domain
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1023968"> </a>
+Parameter Definitions
+</h4>
+<p class="pBody"><a name="wp1027029"> </a>
+Following is more detailed information about each of the <code class="cCode">DM_LOCAL_DOMAINS</code> section parameters:
+</p>
+<h4 class="pDefTerm"><a name="wp1027703"> </a>
+AUDITLOG = &#8220;<em class="cEmphasis">string&#8221;</em> 
+</h4><div class="pDefPara"><a name="wp1038856"> </a>
+Specifies the name of the audit log file for this local domain. The audit log feature is activated from the <code class="cCode">dmadmin</code> command and records all the operations within this local domain. If the audit log feature is active and this parameter is not specified, the file, <code class="cCode">DMmmddyy.LOG</code> (where mm=month, dd=day, and yy=year), is created in the directory specified by the <code class="cCode">$APPDIR</code> environment variable or the <code class="cCode">APPDIR</code> keyword of the <code class="cCode">*MACHINES</code> section of the <code class="cCode">TUXCONFIG</code> file. 
+</div>
+<h4 class="pDefTerm"><a name="wp1038871"> </a>
+BLOCKTIME = <span style="font-style: italic">numeric</span> 
+</h4><div class="pDefPara"><a name="wp1038873"> </a>
+Specifies the maximum wait time allowed for a blocking call. The value sets a multiplier of the <code class="cCode">SCANUNIT</code> parameters specified in the <code class="cCode">TUXCONFIG</code> file. The value <code class="cCode">SCANUNIT * BLOCKTIME</code> must be greater than or equal to <code class="cCode">SCANUNIT</code> and less than 32,768 seconds. <code class="cCode">BLOCKTIME</code> may need to be increased due to remote network latency or if security is turned on. If this parameter is not specified, the default value is set to the value of the <code class="cCode">BLOCKTIME</code> parameter specified in the <code class="cCode">TUXCONFIG</code> file. A timeout always implies a failure of the affected request. Notice that the timeout specified for transactions in the <code class="cCode">TUXCONFIG</code> is always used when the request is issued within a transaction. 
+</div>
+<h4 class="pDefTerm"><a name="wp1027149"> </a>
+DMTLOGDEV= <span style="font-style: italic">&#8220;string&#8221; </span>
+</h4><div class="pDefPara"><a name="wp1023972"> </a>
+Specifies the Tuxedo file system that contains the Domain transaction log (<code class="cCode">DMTLOG</code>) for this machine. The <code class="cCode">DMTLOG</code> is stored as a Tuxedo System VTOC table on the device. If this parameter is not specified, the domain gateway group is not allowed to process requests in transaction mode. Local domains running on the same machine can share the same <code class="cCode">DMTLOGDEV</code> file system, but each local domain must have its own log (a table in the <code class="cCode">DMTLOGDEV</code>) named as specified by the <code class="cCode">DMTLOGNAME</code> keyword. 
+</div>
+<h4 class="pDefTerm"><a name="wp1027824"> </a>
+DMTLOGNAME = <span style="font-style: italic">&#8220;string&#8221; </span>  
+</h4><div class="pDefPara"><a name="wp1027826"> </a>
+Specifies the name of the domain transaction log for this domain. This name must be unique when the same <code class="cCode">DMTLOGDEV</code> is used for several local domains. If not specified, the default is the string &#8220;<code class="cCode">DMTLOG</code>&#8221;. The name must be 30 characters or less. 
+</div>
+<h4 class="pDefTerm"><a name="wp1027827"> </a>
+DMTLOGSIZE = <span style="font-style: italic">numeric</span> 
+</h4><div class="pDefPara"><a name="wp1027829"> </a>
+specifies the numeric size, in pages, of the domain transaction log for this machine. It must be greater than 0 and less than the amount of available space on the Tuxedo file system. If not specified, the default is 100 pages. 
+</div>
+<h4 class="pDefTerm"><a name="wp1023974"> </a>
+DOMAINID = <span style="font-style: italic">&#8220;string&#8221; </span>
+</h4><div class="pDefPara"><a name="wp1023975"> </a>
+identifies the local domain. <code class="cCode">DOMAINID</code> must be unique across both local and remote domains. The value of <span style="font-style: italic">string</span> can be a sequence of characters (for example, <code class="cCode">&#8220;BA.CENTRAL01&#8221;</code>), or a sequence of hexadecimal digits preceded by &#8220;0x&#8221; (for example, <code class="cCode">&#8220;0x0002FF98C0000B9D6&#8221;</code>). <code class="cCode">DOMAINID</code> must be 32 octets or fewer in length. If the value is a string, it must be 31 characters or fewer. 
+</div>
+<h4 class="pDefTerm"><a name="wp1027572"> </a>
+GWGRP = <span style="font-style: italic">identifier</span>
+</h4><div class="pDefPara"><a name="wp1027574"> </a>
+specifies the name of the gateway server group (the name provided in the <code class="cCode">TUXCONFIG</code> file) representing this local domain. There is a one-to-one relationship between a <code class="cCode">DOMAINID</code> and the name of the gateway server group, that is, each <code class="cCode">GWGRP</code> must have its own, unique <code class="cCode">DOMAINID</code>.
+</div>
+<h4 class="pDefTerm"><a name="wp1024007"> </a>
+MAXRDTRAN = <span style="font-style: italic">numeric</span> 
+</h4><div class="pDefPara"><a name="wp1024008"> </a>
+specifies the maximum number of remote domains that can be involved in a transaction. It must be greater than 0 and less than 32,768. If not specified, the default is 16. 
+</div>
+<h4 class="pDefTerm"><a name="wp1037606"> </a>
+MAXTRAN = <span style="font-style: italic">numeric</span> 
+</h4><div class="pDefPara"><a name="wp1037607"> </a>
+specifies the maximum number of simultaneous global transactions allowed on this local domain. It must be greater than or equal to 0 and less than or equal to the <code class="cCode">MAXGTT</code> parameter specified in the <code class="cCode">TUXCONFIG</code> file. <code class="cCode">MAXGTT</code> is the maximum number of transactions for all the domains on a given machine. If not specified, the default is the value of <code class="cCode">MAXGTT</code>. 
+</div>
+<h4 class="pDefTerm"><a name="wp1024017"> </a>
+SECURITY = {NONE | DM_PW}
+</h4><div class="pDefPara"><a name="wp1024018"> </a>
+specifies whether link-level security for the local domain is turned on. When this parameter is set to <code class="cCode">DM_PW</code>, incoming connections from remote domains are authenticated using the passwords defined in the <code class="cCode">*DM_PASSWORDS</code> section of the <code class="cCode">BDMCONFIG</code> file. In order to pass userids to the remote domain for user authentication, <code class="cCode">SECURITY=DM_PW</code> must be set. The default is <code class="cCode">NONE</code> and indicates that no security is used.
+<a name="wp1038006"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This parameter must appear <b class="cBold">AFTER</b> the <code class="cCode">TYPE=OSITPX</code> parameter.</td>
+</tr>
+</table>
+
+</div>
+<h4 class="pDefTerm"><a name="wp1027877"> </a>
+TYPE = <span style="font-style: italic">identifier</span> 
+</h4><div class="pDefPara"><a name="wp1027880"> </a>
+groups local domains into classes. <code class="cCode">TYPE</code> can be set to one of the following values: <code class="cCode">TDOMAIN</code> or <code class="cCode">OSITPX</code>. The <code class="cCode">TDOMAIN</code> value indicates that this local domain can only communicate with another Tuxedo System/Domain. The <code class="cCode">OSITPX</code> value indicates that this local domain communicates with another TP Domain via the OSI TP protocol. Domain types must be defined in the <code class="cCode">$TUXDIR/udataobj/DMTYPE </code>file. The TMA OSI TP install automatically updates the <code class="cCode">DMTYPE</code> file with the required type needed.
+</div>
+<h4 class="pHeading3"><a name="wp1046136"> </a>
+See Also
+</h4>
+<p class="pBody"><a name="wp1046143"> </a>
+Refer to <a href="appa.html#wp1006670"><span class="cHyperlink">
+Table&#160;A-1</span></a><span class="cHyperlink">
+ </span><a href="appa.html#wp1006670"><span class="cHyperlink">
+DM_LOCAL_DOMAINS SECTION</span></a> for more information about setting these parameters through the <code class="cCode">dmadmin</code> utility.
+</p>
+<h3 class="pHeading2"><a name="wp1024020"> </a>
+DM_REMOTE_DOMAINS Section
+</h3>
+<p class="pBody"><a name="wp1024024"> </a>
+This section identifies the known set of remote domains and their characteristics. 
+</p>
+<h4 class="pHeading3"><a name="wp1024026"> </a>
+Format
+</h4>
+<p class="pBody"><a name="wp1024028"> </a>
+<code class="cCode">DM_REMOTE_DOMAINS</code> entries have the following format:
+</p>
+<p class="pBodyRelative"><a name="wp1024029"> </a>
+<span style="font-style: italic">RDOM</span>   required parameters [<em class="cEmphasis">optional parameters</em>] 
+</p>
+<p class="pBodyRelative"><a name="wp1024030"> </a>
+where
+</p>
+<p class="pBodyRelative"><a name="wp1024031"> </a>
+ <span style="font-style: italic">RDOM</span> is an <span style="font-style: italic">identifier</span> value used to identify each remote domain known to this configuration. 
+</p>
+<p class="pBodyRelative"><a name="wp1024032"> </a>
+<span style="font-style: italic">RDOM</span> must be unique within the configuration.
+</p>
+<h4 class="pHeading3"><a name="wp1027928"> </a>
+Valid Parameters
+</h4>
+<p class="pBody"><a name="wp1027929"> </a>
+Following is a list of valid parameters for the<code class="cCode"> DM_REMOTE_DOMAINS </code>section:
+</p>
+<p class="pGraphic"><a name="wp1035388"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp127505table1035369"><caption><a name="wp127505"> </a>
+Table 3-3  Parameters for DM_REMOTE_DOMAINS
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1035371"> </a>
+Parameter 
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1035373"> </a>
+Required/Optional
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1035375"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035377"> </a>
+<code class="cCode">DOMAINID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035379"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035381"> </a>
+ID of remote domain.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035383"> </a>
+<code class="cCode">TYPE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035385"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035387"> </a>
+Class of remote domain
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1045451"> </a>
+CODEPAGE
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1045453"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1045455"> </a>
+Codepage translation table for NATIVE_A_SERIES encoding.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1035390"> </a>
+Parameter Definitions
+</h4>
+<p class="pBody"><a name="wp1035391"> </a>
+Following is more detailed information about each of the <code class="cCode">DM_REMOTE_DOMAINS</code> section parameters:
+</p>
+<h4 class="pDefTerm"><a name="wp1024036"> </a>
+DOMAINID = <span style="font-style: italic">&#8220;</span><code style="font-style: italic" class="cCodeEmphasis">string</code><span style="font-style: italic">&#8221; </span>
+</h4><div class="pDefPara"><a name="wp1024038"> </a>
+identifies a remote domain. <code class="cCode">DOMAINID</code> must be 32 octets or fewer in length. If the value is a string, it must be 31 characters or fewer. <code class="cCode">DOMAINID</code> must be unique across remote domains. The value of <span style="font-style: italic">string</span> can be a sequence of characters or a sequence of hexadecimal digits preceded by &#8220;0x&#8221;. 
+</div>
+<h4 class="pDefTerm"><a name="wp1024039"> </a>
+TYPE = <code class="cCodeEmphasis">identifier</code> 
+</h4><div class="pDefPara"><a name="wp1024042"> </a>
+groups remote domains into classes. <code class="cCode">TYPE</code> can be set to one of the following values: <code class="cCode">TDOMAIN </code>or <code class="cCode">OSITPX</code>. The <code class="cCode">TDOMAIN</code> value indicates that this remote domain can only communicate with another Tuxedo System/Domain Domain. The <code class="cCode">OSITPX</code> value indicates that this remote domain communicates with another TP domain via the OSI TP protocol. 
+</div>
+<h4 class="pDefTerm"><a name="wp1045462"> </a>
+CODEPAGE = <code class="cCodeEmphasis">CPNAME</code>
+</h4><div class="pDefPara"><a name="wp1045466"> </a>
+specifies the codepage translation table for <code class="cCode">NATIVE_A_SERIES</code> encoding. The cpname keyword is case sensitive. This parameter is only valid when <code class="cCode">XATMI_ENCODING=NATIVE_A_SERIES</code>. Refer to Implementing NATIVE-A Encoding for more information.
+</div>
+<h4 class="pHeading3"><a name="wp1045989"> </a>
+See Also
+</h4>
+<p class="pBody"><a name="wp1045996"> </a>
+Refer to <a href="appa.html#wp1006802"><span class="cHyperlink">
+Table&#160;A-2</span></a><span class="cHyperlink">
+ </span><a href="appa.html#wp1006802"><span class="cHyperlink">
+DM_REMOTE_DOMAINS SECTION</span></a> for more information about setting these parameters through the <code class="cCode">dmadmin</code> utility.
+</p>
+<h3 class="pHeading2"><a name="wp1045998"> </a>
+DM_OSITPX Section
+</h3>
+<p class="pBody"><a name="wp1024051"> </a>
+This section defines the addressing information required by domains of type <code class="cCode">OSITPX</code>. This section should have at least one entry per gateway group (local domain), and at least one entry per remote domain of type <code class="cCode">OSITPX</code>. The bridged configuration can have multiple gateways in a local domain.
+</p>
+<h4 class="pHeading3"><a name="wp1024053"> </a>
+Format
+</h4>
+<p class="pBody"><a name="wp1024055"> </a>
+<code class="cCode">DM_OSITPX</code> entries have the following format. 
+</p>
+<p class="pBodyRelative"><a name="wp1024056"> </a>
+<span style="font-style: italic">DOM</span>   required parameters [<em class="cEmphasis">optional parameters</em>] 
+</p>
+<p class="pBodyRelative"><a name="wp1024057"> </a>
+where
+</p>
+<p class="pBodyRelative"><a name="wp1024058"> </a>
+<span style="font-style: italic">DOM</span> is an <span style="font-style: italic">identifier</span> value used to identify a local domain (<code class="cCode">LDOM</code>) or a remote domain (<code class="cCode">RDOM</code>) in the <code class="cCode">DM_LOCAL_DOMAINS</code> section or in the <code class="cCode">DM_REMOTE_DOMAINS</code> section. 
+</p>
+<p class="pBodyRelative"><a name="wp1028440"> </a>
+The <span style="font-style: italic">DOM</span> identifier must match a previously defined <code class="cCode">LDOM</code> in the <code class="cCode">DM_LOCAL_DOMAINS</code> sections or <code class="cCode">RDOM</code> in the <code class="cCode">DM_REMOTE_DOMAINS</code> section. 
+</p>
+<h4 class="pHeading3"><a name="wp1028580"> </a>
+Valid Parameters
+</h4>
+<p class="pBody"><a name="wp1028581"> </a>
+Following is a list of valid parameters for the <code class="cCode">DM_OSITPX</code> section:
+</p>
+<p class="pGraphic"><a name="wp1028601"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp127611table1028582"><caption><a name="wp127611"> </a>
+Table 3-4  Parameters for DM_OSITPX
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1028584"> </a>
+Parameter 
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1028586"> </a>
+Required/<br />Optional
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1028588"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029546"> </a>
+<code class="cCode">AET</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029548"> </a>
+Required for <code class="cCode">LDOMs</code> and <code class="cCode">RDOMs</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029550"> </a>
+Application entity title
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029552"> </a>
+DNS_RESOLUTION
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029554"> </a>
+Optional for <code class="cCode">LDOMs</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029556"> </a>
+Indicator for when DNS name is resolved
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1047013"> </a>
+EXTENSIONS
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1047015"> </a>
+Optional for <code class="cCode">LDOMs and RDOMs</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1047017"> </a>
+Series of parameters to control operation of the <code class="cCode">LDOM</code> and <code class="cCode">RDOM</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029558"> </a>
+NWADDR
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032769"> </a>
+Required for <code class="cCode">LDOMs</code> and <code class="cCode">RDOMs</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029562"> </a>
+List of IP addresses with their optional port numbers or a DNS name and its optional port number
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1041510"> </a>
+OPTIONS
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1041512"> </a>
+Optional for <code class="cCode">RDOMs</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1041514"> </a>
+Optional flags to turn on OSI TP features such as security
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029564"> </a>
+P_SEL
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029566"> </a>
+Optional for <code class="cCode">LDOMs</code> and <code class="cCode">RDOMs</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029568"> </a>
+Logical name of address for software that provides presentation layer services
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029576"> </a>
+S_SEL
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029578"> </a>
+Optional for <code class="cCode">LDOMs</code> and <code class="cCode">RDOMs</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029580"> </a>
+Logical name of address for software that provides session layer services
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029588"> </a>
+T_SEL
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1032779"> </a>
+Optional for <code class="cCode">LDOMs</code> and <code class="cCode">RDOMs</code>
+</div>
+<div class="pCellBody"><a name="wp1048484"> </a>
+This parameter is ignored for multiplexed <code class="cCode">LDOMs</code>.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029592"> </a>
+Logical name of address for software that provides transport layer services
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029594"> </a>
+<code class="cCode">TAILOR_PATH</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029596"> </a>
+Optional for <code class="cCode">LDOMs</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029598"> </a>
+Path to optional OSI TP tailor file
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029600"> </a>
+XATMI_ENCODING
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029602"> </a>
+Optional for <code class="cCode">RDOMs</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1029604"> </a>
+Version of XATMI protocol
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1028603"> </a>
+Parameter Definitions
+</h4>
+<p class="pBody"><a name="wp1028604"> </a>
+Following is more detailed information about each of the <code class="cCode">DM_OSITPX</code> section parameters:
+</p>
+<h4 class="pDefTerm"><a name="wp1024063"> </a>
+AET = &#8220;<span style="font-style: italic">string&#8221;</span> 
+</h4><div class="pDefPara"><a name="wp1024064"> </a>
+indicates the application entity title that this <code class="cCode">LDOM</code> or <code class="cCode">RDOM</code> uses. This address must be unique among all hosts communicating in the OSI TP network. This number matches the local AE Title on the remote (OLTP) node. Refer to OSI TP Domains Components for more information about AETs.
+</div>
+<div class="pDefParaCont"><a name="wp1024068"> </a>
+The format accepted for the value of <span style="font-style: italic">string</span> is 
+</div>
+<div class="pDefPara"><a name="wp1024069"> </a>
+&#8220;{<span style="font-style: italic">object identifier</span>}, {<span style="font-style: italic">integer</span>}&#8221; 
+<a name="wp1024070"> </a>
+The first element represents the APT defined as an object identifier (i.e., a sequence of integer values separated by periods) and the second element represents an AEQ defined as an integer constant, for example,<br /><code class="cCode">AET = &#8220;{1.3.15.0.3},{1}&#8221;</code>. 
+</div>
+<div class="pDefParaCont"><a name="wp1049583"> </a>
+For more information about creating an application entity Title, refer to <a href="underst.html#wp1047653"><span class="cHyperlink">
+Creating an Application Entity Title.</span></a>
+</div>
+<a name="wp1037205"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The braces are part of the syntax and <b class="cBold">must</b> be included within the quotes.</td>
+</tr>
+</table>
+
+<h4 class="pDefTerm"><a name="wp1029862"> </a>
+DNS_RESOLUTION = {STARTUP | RUNTIME}
+</h4><div class="pDefPara"><a name="wp1044049"> </a>
+indicates whether the DNS name should be resolved when the gateway is started or at runtime. The DNS name is for the network address defined by <code class="cCode">NWADDR</code>. The runtime option allows support of DHCP networks. When using <code class="cCode">DNS_RESOLUTION</code> as a runtime option, failed services may occur due to delays in resolving the DNS names. DNS_RESOLTUTION, when configured for an LDOM, indicates the policy for the entire gateway process.
+</div>
+<div class="pDefParaCont"><a name="wp1048627"> </a>
+The default is <code class="cCode">STARTUP</code>.
+</div>
+<div class="pDefTerm2"><h4 class="pDefTerm2"><a name="wp1048679"> </a>
+STARTUP
+</h4></div>
+<div class="pDefPara2"><a name="wp1048688"> </a>
+indicates the DNS name is resolved when the gateway is booted and never resolved again.
+</div><div class="pDefTerm2"><h4 class="pDefTerm2"><a name="wp1048689"> </a>
+RUNTIME
+</h4></div>
+<div class="pDefPara2"><a name="wp1048690"> </a>
+indicates the DNS name is resolved again when needed. If three minutes of inactivity has elapsed, the DNS server is pinged for resolution (in case the address changes).
+</div><h4 class="pDefTerm"><a name="wp1046942"> </a>
+EXTENSIONS =<em class="cEmphasis"> &quot;string&quot;</em>
+</h4><div class="pDefPara"><a name="wp1048730"> </a>
+controls operations. Valid parameters are separated by a semi-colon &quot;;&quot; and include the following:
+</div>
+<div class="pDefParaCont"><a name="wp1048775"> </a>
+For RDOMs, valid parameters are:
+</div>
+<div class="pDefTerm2"><h4 class="pDefTerm2"><a name="wp1048779"> </a>
+&quot;MULTIPLEX={Y|N}&quot;
+</h4></div>
+<div class="pDefPara2"><a name="wp1048780"> </a>
+The default is N.
+</div><div class="pDefPara2"><a name="wp1048781"> </a>
+Y indicates that this RDOM uses the multiplexed protocol.
+</div><div class="pDefPara2"><a name="wp1048787"> </a>
+N indicates that this RDOM uses the non-multiplexed protocol.
+</div><div class="pDefTerm2"><h4 class="pDefTerm2"><a name="wp1052026"> </a>
+&quot;MULTIPLEXCOMPRESS={Y|N}&quot;
+</h4></div>
+<div class="pDefPara2"><a name="wp1052027"> </a>
+The default is N.
+</div><div class="pDefPara2"><a name="wp1052028"> </a>
+Y indicates that this RDOM enables data compression.
+</div><div class="pDefPara2"><a name="wp1052029"> </a>
+N indicates that this RDOM does not enable data compression.
+</div><div class="pDefTerm2"><h4 class="pDefTerm2"><a name="wp1048776"> </a>
+&quot;ONLINE={N|Y}&quot; 
+</h4></div>
+<div class="pDefPara2"><a name="wp1048823"> </a>
+The default is Y.
+</div><div class="pDefPara2"><a name="wp1048824"> </a>
+Y indicates that the RDOM is considered online initially. If MULTIPLEX=N and MULTIPLEX_POLICY=NONE for the corresponding LDOM, then a socket connection is established from the LDOM to the RDOM at startup to verify that the RDOM is available. If MUTLIPLEX=Y and MULTIPLEX_POLICY=STARTUP for the corresponding LDOM, then a socket connection is established from the LDOM to the RDOM at startup.  If MUTLIPLEX=Y and MULTIPLEX_POLICY=DEMAND for the corresponding LDOM, then a socket connection is established from the LDOM to the RDOM the first time it is needed.
+</div><div class="pDefPara2"><a name="wp1048904"> </a>
+N indicates that the RDOM is considered to be offline initially. No socket connection is established from the LDOM to the RDOM at startup, even if MULTIPLEX_POLICY=STARTUP for the corresponding LDOM. No incoming socket requests are allowed from an offline RDOM.
+</div><div class="pDefTerm2"><h4 class="pDefTerm2"><a name="wp1048734"> </a>
+&quot;RDOMASSOCRETRY=<em class="cEmphasis">n</em>&quot;
+</h4></div>
+<div class="pDefPara2"><a name="wp1048939"> </a>
+The default is given by the TAILOR parameter <code class="cCode">RdomAssocRetry</code> (refer to <a href="config.html#wp1014345"><span class="cHyperlink">
+Tuning OSI TP-Specific Tables with the TAILOR File.</span></a>)<em class="cEmphasis"> n</em> is a numeric value which represents the time in seconds between association retries for unavailable RDOMs. This value only applies if MULTIPLEX=N. If MULTIPLEX=Y, this value is ignored; the multiplex protocol has its own algorithm for determining how often to retry connection attempts.
+</div><div class="pDefParaCont"><a name="wp1048707"> </a>
+For LDOMs, valid parameters are:
+</div>
+<div class="pDefTerm2"><h4 class="pDefTerm2"><a name="wp1048735"> </a>
+MULTIPLEX_POLICY={STARTUP|DEMAND|NONE}
+</h4></div>
+<div class="pDefPara2"><a name="wp1048742"> </a>
+The default is NONE.
+</div><div class="pDefPara2"><a name="wp1048743"> </a>
+<code class="cCode">NONE</code> indicates that this LDOM uses the non-multiplexed protocol.
+</div><div class="pDefPara2"><a name="wp1048752"> </a>
+<code class="cCode">STARTUP</code> indicates that this LDOM uses the multiplexed protocol and a single socket connection is established between the LDOM and each RDOM that has MULTIPLEX=Y and ONLINE=Y at startup.
+</div><div class="pDefPara2"><a name="wp1048774"> </a>
+<code class="cCode">DEMAND</code> indicates the LDOM uses the multiplexed protocol and a single socket connection is established between the LDOM and an RDOM that has MULTIPLEX=Y the first time it is needed.
+</div><h4 class="pDefTerm"><a name="wp1044051"> </a>
+NWADDR = &#8220;<span style="font-style: italic">string&#8221;</span>
+</h4><div class="pDefParaCont"><a name="wp1044052"> </a>
+indicates the network address that this <code class="cCode">LDOM</code> or <code class="cCode">RDOM</code> uses and, optionally, the port number. The network address may be either an IP address, if using TCP|IP networks, or a DNS name. The default port number is port 102. For local domains, the <code class="cCode">NWADDR</code> specifies which IP address TMA OSI TP will listen on. For remote domains, the <code class="cCode">NWADDR</code> specifies which network messages will be sent on. You may list multiple network addresses by listing each individual address separated by semicolons if the machine is equipped with multiple network cards. Make sure to enter all the IP addresses on one line and separate them with a semi-colon (;). You may want to configure redundant network paths: up to 8 may be specified.
+<a name="wp1049734"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>You must explicitly specify a port number greater than or equal to 1024 if <em class="cEmphasis">all</em> the following are true:</td>
+</tr>
+</table>
+
+</div>
+<div class="pDefPara2"><a name="wp1049741"> </a>
+- the platform is Unix
+</div><div class="pDefPara2"><a name="wp1049742"> </a>
+- the userid running Tuxedo is <em class="cEmphasis">not</em> root
+</div><div class="pDefPara2"><a name="wp1049743"> </a>
+- this is an LDOM
+</div><div class="pDefPara2"><a name="wp1049759"> </a>
+- MULTIPLEX_POLICY is DEMAND or STARTUP (multiplexing is in use)
+</div><div class="pDefParaCont"><a name="wp1041081"> </a>
+Examples:
+<a name="wp1033895"> </a>
+<code class="cCode">&#8220;#.#.#.#:port-number&#8221;</code>	IP Address<br /><code class="cCode">&#8220;//host-name:port-number&#8221;</code>	DNS Name<br /><code class="cCode">&quot;//host-name:port-number; //host-name:port-number&quot;</code>  Redundant 	DNS Names
+</div>
+<h4 class="pDefTerm"><a name="wp1041685"> </a>
+OPTIONS = SECURITY_SUPPORTED
+</h4><div class="pDefPara"><a name="wp1041686"> </a>
+indicates optional parameters for RDOMs. The<code class="cCode"> SECURITY_SUPPORTED</code> value indicates that this remote domain supports the OSITP security extension. This value provides backward compatibility and is valid only when describing an RDOM.
+</div>
+<h4 class="pDefTerm"><a name="wp1024077"> </a>
+P_SEL = &#8220;<em class="cEmphasis">string&#8221;</em> or <code class="cCode">&#8220;hex digits&quot;</code>
+</h4><div class="pDefParaCont"><a name="wp1024078"> </a>
+specifies the logical name for the address of the software that provides the presentation layer services for OSI protocols. The value can be one to 4 ASCII non-control characters (those represented by the hexadecimal numbers 20 to 7E), one to 4 hexadecimal octets, or <code class="cCode">NONE</code> (null). A value of <code class="cCode">NONE</code> is the default. Examples:  <code class="cCode">&#8220;PSEL&#8221;, &#8220;0x3F5C&#39;</code>
+<a name="wp1048958"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This value is ignored for multiplexed connections. For additional information about when to use this parameter for defining application addresses, refer to <a href="underst.html#wp1023776"><span class="cHyperlink">
+OSI TP Application Addresses Used in the DMCONFIG File.</span></a></td>
+</tr>
+</table>
+
+</div>
+<h4 class="pDefTerm"><a name="wp1024079"> </a>
+S_SEL = &#8220;<em class="cEmphasis">string&#8221;</em> or <code class="cCode">&#8220;hex digits&quot;</code>
+</h4><div class="pDefParaCont"><a name="wp1024080"> </a>
+specifies the logical name for the address of the software that provides the session layer services for OSI protocols. The value can be one to 16 ASCII non-control characters (those represented by the hexadecimal numbers 20 to 7E), one to 16 hexadecimal octets, or <code class="cCode">NONE</code> (null). A value of <code class="cCode">NONE</code> is the default. Examples:  <code class="cCode">&#8220;SSEL&#8221;, &#8220;0x3F5C3F&#39;</code>
+<a name="wp1048969"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This value is ignored for multiplexed connections. For additional information about when to use this parameter for defining application addresses, refer to <a href="underst.html#wp1023776"><span class="cHyperlink">
+OSI TP Application Addresses Used in the DMCONFIG File.</span></a></td>
+</tr>
+</table>
+
+</div>
+<h4 class="pDefTerm"><a name="wp1029985"> </a>
+T_SEL = &#8220;<em class="cEmphasis">string&#8221;</em> or <code class="cCode">&#8220;hex digits&quot;</code>
+</h4><div class="pDefParaCont"><a name="wp1029986"> </a>
+represents the logical name for the address of the software that provides the transport layer services for OSI protocols. The value can be one to 32 ASCII non-control characters (those represented by the hexadecimal numbers 20 to 7E), one to 32 hexadecimal octets, or <code class="cCode">NONE</code> (null). Examples:  <code class="cCode">&#8220;OSITP&#8221;, &#8220;0x5453&quot;</code>
+<a name="wp1049047"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This value is ignored for multiplexed connections. For additional information about when to use this parameter for defining application addresses, refer to <a href="underst.html#wp1023776"><span class="cHyperlink">
+OSI TP Application Addresses Used in the DMCONFIG File.</span></a></td>
+</tr>
+</table>
+
+</div>
+<h4 class="pDefTerm"><a name="wp1030215"> </a>
+TAILOR_PATH = &#8220;<em class="cEmphasis">string&#8221;</em>
+</h4><div class="pDefPara"><a name="wp1037218"> </a>
+indicates the full path to the optional OSI TP tailor file used for tuning OSI TP-specific tables. Double quotes are required. If not specified, preset defaults are used. This parameter is valid only when describing an LDOM. Refer to Tuning OSI TP-Specific Tables with the TAILOR File for more information.
+</div>
+<h4 class="pDefTerm"><a name="wp1024089"> </a>
+XATMI_ENCODING = {CAE | PRELIMINARY | OLTP_TM2200 | NATIVE_A_SERIES}
+</h4><div class="pDefParaCont"><a name="wp1024090"> </a>
+specifies the version of the XATMI protocol used to communicate with a remote application. This parameter is only valid for an RDOM. Valid values are:
+</div>
+<div class="pDefPara"><a name="wp1033147"> </a>
+<code class="cCode">CAE</code> (default)<br /><code class="cCode">PRELIMINARY</code> (used specifically with Unisys MCP OLTP systems)<br /><code class="cCode">OLTP_TM2200 </code>(used specifically with Unisys TM 2200 systems)<br /><code class="cCode">NATIVE_A_SERIES </code>(used specifically with Unisys MCP OLTP systems that support this encoding type)
+</div>
+<h4 class="pHeading3"><a name="wp1046022"> </a>
+See Also
+</h4>
+<p class="pBody"><a name="wp1046029"> </a>
+Refer to <a href="appa.html#wp1006891"><span class="cHyperlink">
+Table&#160;A-3</span></a><span class="cHyperlink">
+ </span><a href="appa.html#wp1006891"><span class="cHyperlink">
+DM_OSITPX SECTION</span></a> for more information about setting these parameters through the <code class="cCode">dmadmin</code> utility.
+</p>
+<h3 class="pHeading2"><a name="wp1033150"> </a>
+DM_ACCESS_CONTROL Section
+</h3>
+<p class="pBody"><a name="wp1024099"> </a>
+This section specifies the access control lists used by local domain. 
+</p>
+<h4 class="pHeading3"><a name="wp1024101"> </a>
+Format
+</h4>
+<p class="pBody"><a name="wp1024103"> </a>
+<code class="cCode">DM_ACCESS_CONTROL</code> entries have the following format. 
+</p>
+<p class="pBodyRelative"><a name="wp1024104"> </a>
+<span style="font-style: italic">ACL_NAME</span>   required parameters
+</p>
+<p class="pBodyRelative"><a name="wp1024105"> </a>
+where
+</p>
+<p class="pBodyRelative"><a name="wp1024106"> </a>
+ <span style="font-style: italic">ACL_NAME</span> is a (<span style="font-style: italic">identifier</span>) name used to identify a particular access control list; it must be 15 characters or less in length.
+</p>
+<h4 class="pHeading3"><a name="wp1030255"> </a>
+Valid Parameters
+</h4>
+<p class="pBody"><a name="wp1030256"> </a>
+Following is a list of valid parameters for the <code class="cCode">DM_ACCESS_CONTROL</code> section:
+</p>
+<p class="pGraphic"><a name="wp1030276"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp127635table1030257"><caption><a name="wp127635"> </a>
+Table 3-5  Parameter for DM_ACCESS_CONTROL
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1030259"> </a>
+Parameter 
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1030261"> </a>
+Required/Optional
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1030263"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030265"> </a>
+<code class="cCode">ACLIST</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030267"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030269"> </a>
+List of remote domain names
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1030278"> </a>
+Parameter Definitions
+</h4>
+<p class="pBody"><a name="wp1030279"> </a>
+Following is more detailed information about the <code class="cCode">DM_ACCESS_CONTROL</code> section parameter:
+</p>
+<h4 class="pDefTerm"><a name="wp1024110"> </a>
+ACLIST = <span style="font-style: italic">identifier</span> [,<span style="font-style: italic">identifier</span>]
+</h4><div class="pDefPara"><a name="wp1024112"> </a>
+indicates one or more remote domain names (RDOM) separated by commas. The wildcard character (*) can be used to specify that all the remote domains defined in the <code class="cCode">DM_REMOTE_DOMAINS</code> section can access a local domain. 
+</div>
+<h4 class="pHeading3"><a name="wp1046060"> </a>
+See Also
+</h4>
+<p class="pBody"><a name="wp1046067"> </a>
+Refer to <a href="appa.html#wp1007280"><span class="cHyperlink">
+Table&#160;A-7</span></a><span class="cHyperlink">
+ </span><a href="appa.html#wp1007280"><span class="cHyperlink">
+DM_ACCESS_CONTROL SECTION</span></a> for more information about setting these parameters through the <code class="cCode">dmadmin</code> utility.
+</p>
+<h3 class="pHeading2"><a name="wp1024116"> </a>
+DM_LOCAL_SERVICES Section
+</h3>
+<p class="pBody"><a name="wp1024119"> </a>
+This section provides information on the services exported by each local domain. This section is optional and if it is not specified then all local domains defined in the <code class="cCode">DM_LOCAL_DOMAINS</code> section accept requests to all of the services advertised by the Tuxedo System/Domain application. If this section is defined then it should be used to restrict the set of local services that can be requested from a remote domain.
+</p>
+<h4 class="pHeading3"><a name="wp1024121"> </a>
+Format
+</h4>
+<p class="pBody"><a name="wp1024124"> </a>
+<code class="cCode">DM_LOCAL_SERVICES</code> entries have the following format.
+</p>
+<p class="pBodyRelative"><a name="wp1024125"> </a>
+<span style="font-style: italic">service</span>    [<em class="cEmphasis">optional parameters</em>]
+</p>
+<p class="pBodyRelative"><a name="wp1024126"> </a>
+where
+</p>
+<p class="pBodyRelative"><a name="wp1024127"> </a>
+<span style="font-style: italic">service</span> is the (identifier) local name of the exported service, and it must be 15 characters or fewer in length. 
+</p>
+<p class="pBodyRelative"><a name="wp1024128"> </a>
+This name corresponds to a name advertised by one or more servers running with the local Tuxedo System/Domain application. Notice that exported services inherit the default or special properties specified for the service in an entry in the <code class="cCode">SERVICES</code> section of the <code class="cCode">TUXCONFIG</code> file. Some of these parameters are: <code class="cCode">LOAD, PRIO, AUTOTRAN, ROUTING, BUFTYPE, </code>and<code class="cCode"> TRANTIME</code>. 
+</p>
+<h4 class="pHeading3"><a name="wp1030415"> </a>
+Valid Parameters
+</h4>
+<p class="pBody"><a name="wp1030416"> </a>
+Following is a list of valid parameters for the <code class="cCode">DM_LOCAL_SEVICES</code> section:
+</p>
+<p class="pGraphic"><a name="wp1030430"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp127722table1030417"><caption><a name="wp127722"> </a>
+Table 3-6  Parameters for DM_LOCAL_SERVICES
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1030419"> </a>
+Parameter 
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1030421"> </a>
+Required/Optional
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1030423"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030813"> </a>
+ACL
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030815"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030817"> </a>
+Name of access control list
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030807"> </a>
+COUPLING
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030809"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030811"> </a>
+Indicator for type of coupling
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030819"> </a>
+INBUFTYPE
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030821"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030823"> </a>
+Type and subtype of buffer returned by local service
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030825"> </a>
+INRECTYPE
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030827"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030829"> </a>
+Type and format of the reply buffer expected by remote client 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030831"> </a>
+LDOM
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030833"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030835"> </a>
+Name of local domain exporting a service
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030843"> </a>
+OUTBUFTYPE
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030845"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030847"> </a>
+Type and format of request buffer expected by local service 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1045667"> </a>
+<code class="cCode">OUTRECTYPE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1045669"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1045671"> </a>
+Type and format of request buffer expected by local service
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030849"> </a>
+RNAME
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030851"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030853"> </a>
+Name of service exported to remote domains
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1030373"> </a>
+Parameter Definitions
+</h4>
+<p class="pBody"><a name="wp1030374"> </a>
+Following is more detailed information about the <code class="cCode">DM_LOCAL_SEVICES</code> section parameters:
+</p>
+<h4 class="pDefTerm"><a name="wp1024135"> </a>
+ACL = <span style="font-style: italic">identifier</span> 
+</h4><div class="pDefPara"><a name="wp1024136"> </a>
+specifies the name of the access control list (ACL) to be used by the local domain to restrict requests made to this service by remote domains. The name of the ACL is defined in the <code class="cCode">DM_ACCESS_CONTROL</code> section. If this parameter is not specified then access control is not performed for requests to this service. 
+</div>
+<h4 class="pDefTerm"><a name="wp1024139"> </a>
+COUPLING = {TIGHT | LOOSE}
+</h4><div class="pDefPara"><a name="wp1024140"> </a>
+specifies service (transaction) coupling to be tight or loose when requests for this local service come from the same remote domain. The default is <code class="cCode">LOOSE</code>. This means data base updates made by the first request to this local service cannot be seen by the second request to the local service even though they are involved in the same global transaction. By making this value <code class="cCode">TIGHT</code>, multiple calls to the same service from the same domain are tightly-coupled. Data base updates made by the first request can be seen by the second request. This option is only available when duplicate service requests come from the same RDOM. When the service requests are from different RDOMs, the requests are always loosely-coupled. 
+</div>
+<h4 class="pDefTerm"><a name="wp1031285"> </a>
+INBUFTYPE = type[:subtype]
+</h4><div class="pDefPara"><a name="wp1031286"> </a>
+specifies the type and subtype of the buffer. <code class="cCode">INBUFTYPE</code> is used to enforce stronger type checking. In the <code class="cCode">DM_LOCAL_SERVICES</code> section, the <code class="cCode">TYPE</code> parameters are defined in reference to where the remote request originates. Refer to Managing Parameters for Buffer and Record Conversion  for more information about these parameters.
+</div>
+<h4 class="pDefTerm"><a name="wp1031290"> </a>
+INRECTYPE = type[:subtype]
+</h4><div class="pDefPara"><a name="wp1031291"> </a>
+specifies the type, and in some cases, the format of the reply buffer that a particular client requires. This parameter can be omitted if the local service sends a buffer that is identical in type and structure to the buffer the remote client expects. If you do not specify <code class="cCode">INRECTYPE</code>, the type of buffer is unchanged. In the <code class="cCode">DM_LOCAL_SERVICES</code> section, the <code class="cCode">TYPE</code> parameters are defined in reference to where the remote request originates. Refer to Managing Parameters for Buffer and Record Conversion for more information about these parameters.
+</div>
+<h4 class="pDefTerm"><a name="wp1031365"> </a>
+LDOM = identifier 
+</h4><div class="pDefPara"><a name="wp1031366"> </a>
+specifies the name of the local domain exporting this service. If this keyword is not specified then all the local domains defined in the <code class="cCode">DM_LOCAL_DOMAINS</code> section accept requests to this local service. 
+</div>
+<h4 class="pDefTerm"><a name="wp1031295"> </a>
+OUTBUFTYPE = type[:subtype]
+</h4><div class="pDefPara"><a name="wp1031296"> </a>
+specifies the type, and in some cases, the format of the request buffer that a particular local service expects. This parameter can be omitted if the remote client sends a buffer that is identical in type and structure to the buffer the local service expects. If you do no specify <code class="cCode">OUTRECTYPE</code>, the type of the buffer is unchanged. In the <code class="cCode">DM_LOCAL_SERVICES</code> section, the <code class="cCode">TYPE</code> parameters are defined in reference to where the remote request originates. Refer to Managing Parameters for Buffer and Record Conversion for more information about these parameters.
+</div>
+<h4 class="pDefTerm"><a name="wp1031300"> </a>
+OUTRECTYPE = type[:subtype]
+</h4><div class="pDefPara"><a name="wp1031301"> </a>
+specifies the type and subtype of the buffer sent by the remote client. This parameter is used to enforce stronger type checking. In the <code class="cCode">DM_LOCAL_SERVICES</code> section, the <code class="cCode">TYPE</code> parameters are defined in reference to where the remote request originates. Refer to Managing Parameters for Buffer and Record Conversion for more information about these parameters.
+</div>
+<h4 class="pDefTerm"><a name="wp1024143"> </a>
+RNAME = &#8220;string&#8221; 
+</h4><div class="pDefPara"><a name="wp1024144"> </a>
+specifies the name of the service exported to remote domains. This name is used by the remote domains for request to this service. If this parameter is not specified, the local service name is used for the request.
+</div>
+<h4 class="pHeading3"><a name="wp1046078"> </a>
+See Also
+</h4>
+<p class="pBody"><a name="wp1046085"> </a>
+Refer to <a href="appa.html#wp1061413"><span class="cHyperlink">
+Table&#160;A-4</span></a><span class="cHyperlink">
+ </span><a href="appa.html#wp1061413"><span class="cHyperlink">
+DM_LOCAL_SERVICES SECTION</span></a> for more information about setting these parameters through the <code class="cCode">dmadmin</code> utility.
+</p>
+<h3 class="pHeading2"><a name="wp1024162"> </a>
+DM_REMOTE_SERVICES Section
+</h3>
+<p class="pBody"><a name="wp1024165"> </a>
+This section provides information on services <em class="cEmphasis">imported</em> and available on remote domains. 
+</p>
+<h4 class="pHeading3"><a name="wp1024167"> </a>
+Format
+</h4>
+<p class="pBody"><a name="wp1024169"> </a>
+<code class="cCode">DM_REMOTE_SERVICES</code> entries have the following format.
+</p>
+<p class="pBodyRelative"><a name="wp1024170"> </a>
+<span style="font-style: italic"> service</span>    [<em class="cEmphasis">optional parameters</em>]
+</p>
+<p class="pBodyRelative"><a name="wp1024171"> </a>
+where
+</p>
+<p class="pBodyRelative"><a name="wp1024172"> </a>
+<span style="font-style: italic">service</span> is the (<span style="font-style: italic">identifier</span>) name used by the local Tuxedo System/Domain application for a particular remote service. 
+</p>
+<p class="pBodyRelative"><a name="wp1024173"> </a>
+Remote services are associated with a particular remote domain. 
+</p>
+<h4 class="pHeading3"><a name="wp1031374"> </a>
+Valid Parameters
+</h4>
+<p class="pBody"><a name="wp1031375"> </a>
+Following is a list of valid parameters for the <code class="cCode">DM_REMOTE_SERVICES</code> section:
+</p>
+<p class="pGraphic"><a name="wp1031389"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp127856table1031376"><caption><a name="wp127856"> </a>
+Table 3-7  Parameters for DM_REMOTE_SERVICES
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1031378"> </a>
+Parameter 
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1031380"> </a>
+Required/Optional
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1031382"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031847"> </a>
+AUTOPREPARE
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031849"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031851"> </a>
+Indicator to automatically prepare calls from tpcall.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031841"> </a>
+CONV
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031843"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031845"> </a>
+Indicator that remote service is conversational.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031877"> </a>
+INBUFTYPE
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031879"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031881"> </a>
+Type and subtype of buffer sent to the remote service.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031871"> </a>
+INRECTYPE
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031873"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031875"> </a>
+Type and format of the request buffer expected by remote service.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031865"> </a>
+LDOM
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031867"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031869"> </a>
+Name of local domain exporting a service.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031853"> </a>
+OUTBUFTYPE
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031855"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031857"> </a>
+Type and format of reply buffer expected by local client.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1045677"> </a>
+<code class="cCode">OUTRECTYPE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1045679"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1045681"> </a>
+Type and format of reply buffer returned by remote client.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031883"> </a>
+RDOM
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031885"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031889"> </a>
+Name of remote domain responsible for execution of service.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1041504"> </a>
+REM_TPSUT
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1041506"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1041508"> </a>
+TP service user title.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031891"> </a>
+RNAME
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031893"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031895"> </a>
+Name of service exported to remote domains.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031903"> </a>
+ROUTING
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031905"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031907"> </a>
+Routing criteria used for data-dependent routing.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1042282"> </a>
+<code class="cCode">TPSUT_TYPE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1042284"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1042286"> </a>
+Type for which the remote TP service user title is to be encoded.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031897"> </a>
+<code class="cCode">TRANTIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031899"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031901"> </a>
+Default time-out value in seconds for transaction automatically started for associated service.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1031391"> </a>
+Parameter Definitions
+</h4>
+<p class="pBody"><a name="wp1031392"> </a>
+Following is more detailed information about the <code class="cCode">DM_REMOTE_SERVICES</code> section parameters:
+</p>
+<h4 class="pDefTerm"><a name="wp1024180"> </a>
+AUTOPREPARE = {N | Y}
+</h4><div class="pDefPara"><a name="wp1024181"> </a>
+allows a single <code class="cCode">tpcall()</code> involved in a global transaction to this remote service to automatically prepare the call. This optimization reduces the two-phase commit process to a single step. The remote OSITP domain must support this feature. The default is <code class="cCode">N</code>.
+</div>
+<h4 class="pDefTerm"><a name="wp1024182"> </a>
+CONV = {Y | N} 
+</h4><div class="pDefPara"><a name="wp1024183"> </a>
+specifies whether or not the remote service is a conversational service. Use <code class="cCode">Y</code> to specify the remote service is a conversational service. Use <code class="cCode">N</code> to specify the remote service is not a conversational service. The default value is <code class="cCode">N</code>. 
+</div>
+<h4 class="pDefTerm"><a name="wp1031739"> </a>
+INBUFTYPE = type[:subtype]
+</h4><div class="pDefPara"><a name="wp1031740"> </a>
+specifies the type and subtype of the buffer allocated by the client. This parameter is used to enforce stronger <code class="cCode">type</code> checking. In the <code class="cCode">DM_REMOTE_SERVICES</code> section, the TYPE parameters are defined in reference to where the local request originates. Refer to Managing Parameters for Buffer and Record Conversion for more information about these parameters.
+</div>
+<h4 class="pDefTerm"><a name="wp1031745"> </a>
+INRECTYPE = type[:subtype]
+</h4><div class="pDefPara"><a name="wp1031746"> </a>
+specifies the type, and in some cases, the format of the request buffer that a particular remote service requires. This parameter can be omitted if the local client sends a buffer that is identical in type and structure to the buffer the remote service expects. If you do not specify <code class="cCode">INRECTYPE</code>, the type of buffer is unchanged. In the <code class="cCode">DM_REMOTE_SERVICES</code> section, the <code class="cCode">TYPE</code> parameters are defined in reference to where the local request originates. Refer to Managing Parameters for Buffer and Record Conversion for more information about these parameters.
+</div>
+<h4 class="pDefTerm"><a name="wp1024184"> </a>
+LDOM = <span style="font-style: italic">identifier</span> 
+</h4><div class="pDefPara"><a name="wp1024188"> </a>
+specifies the name of a local domain in charge of routing requests to this remote service. The gateway group associated with the local domain advertises <span style="font-style: italic">service</span> in the Tuxedo System/Domain Bulletin Board. If this parameter is not specified, then all the local domains are able to accept requests to this remote service. The service request is then redirected to a remote domain of the same type (see the following definition for <code class="cCode">RDOM</code> keyword). 
+</div>
+<h4 class="pDefTerm"><a name="wp1031799"> </a>
+OUTBUFTYPE = type[:subtype]
+</h4><div class="pDefPara"><a name="wp1031800"> </a>
+specifies the type, and in some cases, the format of the reply buffer that a particular local client expects. This parameter can be omitted if the remote service returns a buffer that is identical in type and structure to the buffer the local client expects. If you do no specify <code class="cCode">OUTRECTYPE</code>, the type of the buffer is unchanged. In the <code class="cCode">DM_REMOTE_SERVICES</code> section, the <code class="cCode">TYPE</code> parameters are defined in reference to where the local request originates. Refer to Managing Parameters for Buffer and Record Conversion for more information about these parameters.
+</div>
+<h4 class="pDefTerm"><a name="wp1031804"> </a>
+OUTRECTYPE = type[:subtype]
+</h4><div class="pDefPara"><a name="wp1031805"> </a>
+specifies the type and subtype of the buffer sent by the remote service. This parameter is used to enforce stronger type checking. In the <code class="cCode">DM_REMOTE_SERVICES</code> section, the <code class="cCode">TYPE</code> parameters are defined in reference to where the local request originates. Refer to Managing Parameters for Buffer and Record Conversion for more information about these parameters.
+</div>
+<h4 class="pDefTerm"><a name="wp1024190"> </a>
+RDOM = <span style="font-style: italic">identifier</span> 
+</h4><div class="pDefPara"><a name="wp1024193"> </a>
+specifies the name of the remote domain responsible for the actual execution of this service. If this parameter is not specified and a routing criteria (see the following definition for <code class="cCode">ROUTING</code> keyword) is not specified, then the local domain assumes that any remote domain of the same type accepts this service and it selects a known domain (a domain to which a connection already exists) or remote domain from the <code class="cCode">DM_REMOTE_DOMAINS</code> section. 
+</div>
+<h4 class="pDefTerm"><a name="wp1041720"> </a>
+REM_TPSUT =<em class="cEmphasis"> &quot;string&quot;</em>
+</h4><div class="pDefPara"><a name="wp1041721"> </a>
+identifies the TP service user title for the remote system. Some users of OSI TP implementations require this field. It is not required for OS 2200 OLTP-TM2200, OpenTI, A Series Open/OLTP, or Oracle TMA OSI TP. If the TPSUT_TYPE value is <code class="cCode">PRINTABLESTRING</code>, the maximum length is 60 characters, which must comply with Abstract Syntax Notation (ASN.1) type of <code class="cCode">PRINTABLESTRING</code>. If the <code class="cCode">TPSUT_TYPE</code> value is an <code class="cCode">INTEGER</code>, the maximum length must fit into a <code class="cCode">LONG</code>. The <code class="cCode">TPSUT_TYPE</code> must be defined prior to defining the remote <code class="cCode">TPSUT</code>.
+</div>
+<h4 class="pDefTerm"><a name="wp1024194"> </a>
+RNAME = <span style="font-style: italic">identifier</span>
+</h4><div class="pDefPara"><a name="wp1024195"> </a>
+specifies the remote service name expected by the remote domain. If this parameter is not specified, the value is the same as the name specified in the <em class="cEmphasis">service</em>.
+</div>
+<h4 class="pDefTerm"><a name="wp1024196"> </a>
+ROUTING = <span style="font-style: italic">identifier</span>
+</h4><div class="pDefPara"><a name="wp1024198"> </a>
+allows a local domain to perform data-dependent routing when more than one remote domain offers the same service. The <span style="font-style: italic">identifier</span> specifies the name of the routing criteria used for this data-dependent routing. If not specified, data-dependent routing is not done for this service. <span style="font-style: italic">identifier</span> must be 15 characters or less in length. If multiple entries exist for the same service name but with different <code class="cCode">RDOM</code> parameters, the <code class="cCode">ROUTING</code> parameter should be the same for all of these entries. 
+</div>
+<h4 class="pDefTerm"><a name="wp1042328"> </a>
+TPSUT_TYPE  =<em class="cEmphasis"> </em>{INTEGER | PRINTABLESTRING}
+</h4><div class="pDefPara"><a name="wp1042329"> </a>
+specifies the type of encoding to be performed on the <code class="cCode">REM_TPSUT</code> parameter. The default type is<em class="cEmphasis"> </em><code class="cCode">PRINTABLESTRING</code>. If <code class="cCode">TPSUT_TYPE</code> is not specified, the default is used. The <code class="cCode">INTEGER</code> and <code class="cCode">PRINTABLESTRING</code> are ASN.1 types.
+</div>
+<h4 class="pDefTerm"><a name="wp1024200"> </a>
+TRANTIME = <span style="font-style: italic">integer</span> 
+</h4><div class="pDefPara"><a name="wp1024201"> </a>
+specifies the default time-out value in seconds for a transaction automatically started for the associated service. The value must be greater than or equal to 0 and less than 2147483648. The default is 30 seconds. A value of 0 implies the maximum time-out value for the machine. 
+</div>
+<h4 class="pHeading3"><a name="wp1046097"> </a>
+See Also
+</h4>
+<p class="pBody"><a name="wp1046104"> </a>
+Refer to <a href="appa.html#wp1007120"><span class="cHyperlink">
+Table&#160;A-5</span></a><span class="cHyperlink">
+ </span><a href="appa.html#wp1007120"><span class="cHyperlink">
+DM_REMOTE_SERVICES SECTION</span></a> for more information about setting these parameters through the <code class="cCode">dmadmin</code> utility.
+</p>
+<h3 class="pHeading2"><a name="wp1024219"> </a>
+DM_ROUTING Section
+</h3>
+<p class="pBody"><a name="wp1024220"> </a>
+This section provides information for data-dependent routing of service requests using <code class="cCode">FML, VIEW, X_C_TYPE,</code> and <code class="cCode">X_COMMON</code> typed buffers. 
+</p>
+<h4 class="pHeading3"><a name="wp1024225"> </a>
+Format
+</h4>
+<p class="pBody"><a name="wp1024227"> </a>
+DM_ROUTING entries have the following format. 
+</p>
+<p class="pBodyRelative"><a name="wp1024228"> </a>
+<span style="font-style: italic">CRITERION_NAME</span>    required parameters 
+</p>
+<p class="pBodyRelative"><a name="wp1024229"> </a>
+where
+</p>
+<p class="pBodyRelative"><a name="wp1024230"> </a>
+<span style="font-style: italic">CRITERION_NAME</span> is the (<span style="font-style: italic">identifier</span>) name of the routing entry that was specified on the services entry. <span style="font-style: italic">CRITERION_NAME</span> must be 15 characters or less in length.
+</p>
+<h4 class="pHeading3"><a name="wp1031909"> </a>
+Valid Parameters
+</h4>
+<p class="pBody"><a name="wp1031910"> </a>
+Following is a list of valid parameters for the <code class="cCode">DM_ROUTING</code> section:
+</p>
+<p class="pGraphic"><a name="wp1031924"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp127898table1031911"><caption><a name="wp127898"> </a>
+Table 3-8  Parameters for DM_ROUTING
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1031913"> </a>
+Parameter 
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1031915"> </a>
+Required/Optional
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1031917"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031919"> </a>
+<code class="cCode">BUFTYPE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031921"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031923"> </a>
+Types and subtypes of data buffers for which this routing entry is valid
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031986"> </a>
+<code class="cCode">FIELD</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031988"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031990"> </a>
+Name of routing field
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031980"> </a>
+<code class="cCode">RANGES</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031982"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1031984"> </a>
+Ranges and associated remote domain names (RDOM) for routing field
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1031926"> </a>
+Parameter Definitions
+</h4>
+<p class="pBody"><a name="wp1031963"> </a>
+Following is more detailed information about the <code class="cCode">DM_ROUTING</code> section parameters:
+</p>
+<h4 class="pDefTerm"><a name="wp1024235"> </a>
+BUFTYPE = &quot;<span style="font-style: italic">type1</span>[<span style="font-style: italic">:subtype1{,subtype2 . . . </span>]][;<span style="font-style: italic">type2{:subtype3</span>[, . . . ]]] . ..&quot;
+</h4><div class="pDefPara"><a name="wp1024236"> </a>
+specifies types and subtypes of data buffers for which this routing entry is valid. The types are restricted to be either <code class="cCode">FML, VIEW, X_C_TYPE,</code> or <code class="cCode">X_COMMON</code>. No subtype can be specified for type <code class="cCode">FML</code> and subtypes are required for the other types (&#8220;*&#8221; is not allowed). Duplicate type/subtype pairs cannot be specified for the same routing criterion name; more than one routing entry can have the same criterion name as long as the type/subtype pairs are unique. This parameter is required. If multiple buffer types are specified for a single routing entry, the data types of the routing field for each buffer type must be the same. 
+</div>
+<div class="pDefParaCont"><a name="wp1024237"> </a>
+For <code class="cCode">FML</code> buffers, if the field value is not set or does not match any specific range and a wildcard range has not been specified, an error is returned to the application process that requested the execution of the remote service. 
+</div>
+<h4 class="pDefTerm"><a name="wp1024238"> </a>
+FIELD = <span style="font-style: italic">identifier</span> 
+</h4><div class="pDefPara"><a name="wp1024239"> </a>
+specifies the name of the routing field. It must be 30 characters or less. This field is assumed to be a field name that is identified in an FML field table (for <code class="cCode">FML</code> buffers) or an FML view table (for <code class="cCode">VIEW, X_C_TYPE,</code> or <code class="cCode">X_COMMON</code> buffers). The <code class="cCode">FLDTBLDIR</code> and <code class="cCode">FIELDTBLS</code> environment variables are used to locate FML field tables, and the <code class="cCode">VIEWDIR</code> and <code class="cCode">VIEWFILES</code> environment variables are used to locate FML view tables. 
+</div>
+<h4 class="pDefTerm"><a name="wp1024240"> </a>
+RANGES = &#8220;<span style="font-style: italic">string&#8221;</span> 
+</h4><div class="pDefPara"><a name="wp1024241"> </a>
+specifies the ranges and associated remote domain names (RDOM) for the routing field. <span style="font-style: italic">string</span> must be enclosed in double quotes. The format of <span style="font-style: italic">string</span> is a comma-separated ordered list of range/RDOM pairs. 
+</div>
+<div class="pDefParaCont"><a name="wp1024245"> </a>
+A range is either a single value (signed numeric value or character string in single quotes), or a range of the form &#8220;lower - upper&#8221; (where lower and upper are both signed numeric values or character strings in single quotes). Note that &#8220;lower&#8221; must be less than or equal to &#8220;upper.&#8221; To embed a single quote in a character string value (as in O&#8217;Brien, for example), it must be preceded by two backslashes (&#8217;O\\&#8217;Brien&#8217;). 
+<a name="wp1024246"> </a>
+The value <code class="cCode">MIN</code> can be used to indicate the minimum value for the data type of the associated <code class="cCode">FIELD</code>; for strings and arrays, it is the null string. For character fields, it is 0; for numeric values, it is the minimum numeric value that can be stored in the field. 
+<a name="wp1024247"> </a>
+The value <code class="cCode">MAX</code> can be used to indicate the maximum value for the data type of the associated <code class="cCode">FIELD</code>; for strings and arrays, it is effectively an unlimited string of octal-255 characters; for a character field, it is a single octal-255 character; for numeric values, it is the maximum numeric value that can be stored in the field.
+<a name="wp1024248"> </a>
+Thus, <code class="cCode">&#8220;MIN - -5&#8221;</code> is all numbers less than or equal to &#8211; 5 and <code class="cCode">&#8220;6 - MAX&#8221;</code> is all numbers greater than or equal to 6. The meta-character &#8220;*&#8221; (wildcard) in the position of a range indicates any values not covered by the other ranges previously seen in the entry; only one wildcard range is allowed per entry and it should be last (ranges following it are ignored). 
+<a name="wp1024249"> </a>
+The routing field can be of any data type supported in FML. A numeric routing field must have numeric range values and a string routing field must have string range values. 
+<a name="wp1024250"> </a>
+String range values for string, array, and character field types must be placed inside a pair of single quotes and cannot be preceded by a sign. Short and long integer values are a string of digits, optionally preceded by a plus or minus sign. Floating point numbers are of the form accepted by the C compiler or <code class="cCode">atof():</code> an optional sign, then a string of digits optionally containing a decimal point, then an optional <code class="cCode">e</code> or <code class="cCode">E,</code> followed by an optional sign or space, followed by an integer.
+<a name="wp1024251"> </a>
+When a field value matches a range, the associated RDOM value specifies the remote domain to which the request should be routed. An RDOM value of &#8220;*&#8221; indicates that the request can go to any remote domain known by the gateway group. Within a range/RDOM pair, the range is separated from the RDOM by a &#8220;:&#8221;. 
+</div>
+<h4 class="pHeading3"><a name="wp1046122"> </a>
+See Also
+</h4>
+<p class="pBody"><a name="wp1046129"> </a>
+Refer to <a href="appa.html#wp1007228"><span class="cHyperlink">
+Table&#160;A-6</span></a><span class="cHyperlink">
+ </span><a href="appa.html#wp1007228"><span class="cHyperlink">
+DM_ROUTING SECTION</span></a> for more information about setting these parameters through the <code class="cCode">dmadmin</code> utility.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1046370"> </a>
+Methods for Modifying Configurations
+</h2><p class="pBody"><a name="wp1046394"> </a>
+The Oracle Tuxedo system provides three methods for modifying your TMA OSI TP configuration:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1046408"> </a>Oracle Administration Console</li>
+<p class="pBodyRelative"><a name="wp1046454"> </a>
+A Web-based graphical user interface (GUI) you can use to dynamically configure your application. You can display and change configuration information, determine the state of each component in the system, and obtain statistical information about items such as executed requests and queued requests. 
+</p>
+<li><a name="wp1046411"> </a>Command-line utilities</li>
+<p class="pBodyRelative"><a name="wp1046455"> </a>
+Most of the functionality needed for dynamic modification is provided by two commands: dmadmin  and dmconfig. dmadmin is a shell-level command with over 70 subcommands for performing various administrative tasks, including dynamic system modification. tmconfig is a shell-level command that you can use to add and modify configuration entries while your system is running. 
+</p>
+<p class="pBodyRelative"><a name="wp1046485"> </a>
+Refer to the <a href="appa.html"><span class="cHyperlink">
+Utilities Reference</span></a> section of this document for more information.
+</p>
+<li><a name="wp1046415"> </a>MIB API</li>
+<p class="pBodyRelative"><a name="wp1046456"> </a>
+A Management Information Base API that enables you to write your own programs to monitor your system and make dynamic changes to your system. 
+</p>
+</ul></div>
+<p class="pBody"><a name="wp1046475"> </a>
+Refer to the &quot;Dynamically Modifying an Application&quot; section of your Oracle Tuxedo 9.1 or 10.0 documentation for ATMI Administration for more detailed information about modifying your configuration.
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="underst.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="manage.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="config.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

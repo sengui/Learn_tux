@@ -1,0 +1,1271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="" />
+<meta name="LOC_US_CHANGE" content="" />
+<meta name="LOC_US_SRCFILE" content="" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="08/09/13 08:55:49" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Oracle TSAM Plus Deployment Guide</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Deployment Guide
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="index.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next_grey1.gif" border="0" alt="Next" />&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/deployment.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1058855"> </a>
+Oracle TSAM Plus Deployment Guide
+</h1>
+<p class="pBody"><a name="wp1058469"> </a>
+This chapter contains the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1058473"> </a><a href="deploy.html#wp1058479">Deploying Oracle TSAM Plus Agent</a></li>
+<li><a name="wp1058477"> </a><a href="deploy.html#wp1058493">Deploying Oracle TSAM Plus Manager</a></li>
+<li><a name="wp1066298"> </a><a href="deploy.html#wp1068251">Oracle TSAM Plus Migration</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1058479"> </a>
+Deploying Oracle TSAM Plus Agent
+</h2><p class="pBody"><a name="wp1058480"> </a>
+The Local Monitor Server (LMS) is an Oracle Tuxedo system server provided by the Oracle TSAM Plus Agent.
+</p>
+<p class="pBody"><a name="wp1058481"> </a>
+To properly deploy the Oracle TSAM Plus Agent, you must add the LMS to each Oracle Tuxedo machine section of the UBBCONFIG file. <a href="deploy.html#wp1058486">Listing&#160;1</a> shows an example of how to add the LMS to the UBBCONFIG file.
+</p>
+<div class="pCodeTitle"><a name="wp1058486"> </a>
+Listing&#160;1	   LMS Added to UBBCONFIG File 
+</div> <a name="wp1073676"> </a><div class="pPreformatted"><pre>...<br />*MACHINES<br />MACHINEA<br />...<br />*GROUPS<br />...<br />LMSGRP LMID=MACHINEA<br />...<br />*SERVERS<br />LMS SRVGRP=LMSGRP SRVID=1 CLOPT=&#8221;-A -- -l tsamweb.abc.com:8080/tsam&#8221;<br />...</pre></div><p class="pBody"><a name="wp1058489"> </a>
+The &#8220;<code class="cCode">-l</code>&#8221; option specifies the Oracle TSAM Plus Data Server address which is configured in the Oracle TSAM Plus Manager. For more information, see the<span class="cHyperlink">
+<a href="../ref/tsamref.html"> Oracle TSAM Plus Reference Guide</a></span>. The Oracle TSAM Plus Data Server uses the same port number as the Oracle TSAM Plus Manager Console.
+</p>
+<a name="wp1058491"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>LMS can also be added to a running Oracle Tuxedo application using TMIB.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1058493"> </a>
+Deploying Oracle TSAM Plus Manager
+</h2><p class="pBody"><a name="wp1067862"> </a>
+This section contains the following topics:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1058497"> </a><a href="deploy.html#wp1058515">Overview</a></li>
+<li><a name="wp1058501"> </a><a href="deploy.html#wp1071961">Oracle TSAM Plus Manager LDAP Deployment</a></li>
+<li><a name="wp1068221"> </a><a href="deploy.html#wp1068119">Oracle TSAM Plus Manager Database Server Deployment</a></li>
+<li><a name="wp1061700"> </a><a href="deploy.html#wp1068968">Oracle TSAM Plus Application Server Deployment</a></li>
+<li><a name="wp1065747"> </a><a href="deploy.html#wp1068711">Changing Configuration Parameters</a></li>
+<li><a name="wp1066221"> </a><a href="deploy.html#wp1069165">Starting Up and Shutting Down Oracle TSAM Plus Manager</a></li>
+<li><a name="wp1071242"> </a><a href="deploy.html#wp1069141">Data Management Enhancement Tool</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1058515"> </a>
+Overview
+</h3>
+<p class="pBody"><a name="wp1065031"> </a>
+The Oracle TSAM Plus Manager functions as a Web application in a Servlet/JSP container. It uses the DBMS (Database Management System) to store persistent Oracle Tuxedo performance and monitoring data. Before using Oracle TSAM Plus Manager, it must be deployed to a database server and a Web application container.
+</p>
+<p class="pBody"><a name="wp1067869"> </a>
+If you input the LDAP configuration file during installation, the LDAP deployment is done automatically; otherwise, you must do the LDAP deployment using the &quot;LDAP Deployment Utility&quot; if you want to enable the LDAP authentication.
+</p>
+<p class="pBody"><a name="wp1065033"> </a>
+If you select &quot;Bundled Derby database&quot;, &quot;An existing Derby database&quot; or &quot;An existing Oracle database&quot; during installation, Oracle TSAM Plus Manager is deployed on the specified database server automatically; otherwise, you must deploy Oracle TSAM Plus Manager to a database server using the &quot;Database Deployment Utility&quot;.
+</p>
+<p class="pBody"><a name="wp1065034"> </a>
+If you select &quot;Bundled Tomcat server&quot;, &quot;An existing Tomcat server&quot; or &quot;An existing WebLogic server&quot; during installation, Oracle TSAM Plus Manager is deployed on the specified application server automatically; otherwise you must deploy Oracle TSAM Plus Manager to an application server using the &quot;Application Server Deployment Utility&quot; or manually.
+</p>
+<h3 class="pHeading2"><a name="wp1071961"> </a>
+Oracle TSAM Plus Manager LDAP Deployment
+</h3>
+<p class="pBody"><a name="wp1071962"> </a>
+The LDAP deployment updates the LDAP configuration information in the tsam.ear file (located at <code class="cCode">&lt; TSAM_DIR &gt;/deploy</code>).
+</p>
+<h4 class="pHeading3"><a name="wp1067904"> </a>
+LDAP Deployment Utilities
+</h4>
+<p class="pBody"><a name="wp1067905"> </a>
+Oracle TSAM Plus provides the following LDAP Deployment utilities:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1067906"> </a>UNIX LDAP Deployment: LDAPDeployer.sh</li>
+<li><a name="wp1067907"> </a>Windows LDAP Deployment: LDAPDeployer.cmd</li>
+</ul></div>
+<p class="pBody"><a name="wp1067908"> </a>
+ <a href="deploy.html#wp1067912">Listing&#160;2</a> and <a href="deploy.html#wp1067972">Listing&#160;3</a> show UNIX and Windows LDAP Deployment utility examples accordingly. 
+</p>
+<a name="wp1067909"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The LDAP information in the <code class="cCode">tsam.ear</code> file is overwritten after you run the LDAP Deployment utility. You must redeploy the <code class="cCode">tsam.ear</code> file on the application server.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1067911"> </a>
+For more LDAP configuration file information, see the <span class="cHyperlink">
+<a href="../install/index.html">Oracle TSAM Plus Installation Guide</a></span>.
+</p>
+<div class="pCodeTitle"><a name="wp1067912"> </a>
+Listing&#160;2	   UNIX LDAP Deployment Utility Example
+</div> <a name="wp1067913"> </a><div class="pPreformatted"><pre>cd &lt; TSAM_DIR &gt;/deploy<br />./LDAPDeployer.sh tpgauth</pre></div><div class="pCodeTitle"><a name="wp1067972"> </a>
+Listing&#160;3	   Windows LDAP Deployment Utility Example
+</div> <a name="wp1067973"> </a><div class="pPreformatted"><pre>cd &lt; TSAM_DIR &gt;\deploy<br />LDAPDeployer.cmd c:\tpgauth</pre></div><h3 class="pHeading2"><a name="wp1068119"> </a>
+Oracle TSAM Plus Manager Database Server Deployment
+</h3>
+<p class="pBody"><a name="wp1068120"> </a>
+If you choose to deploy Oracle TSAM Plus 12cR1 to an existing database server after installation, you must add an Oracle TSAM Plus database after installation using the database deployment utilities.
+</p>
+<h4 class="pHeading3"><a name="wp1068124"> </a>
+Database Deployment Utilities
+</h4>
+<p class="pBody"><a name="wp1068125"> </a>
+Oracle TSAM Plus provides the following database deployment utilities:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1068126"> </a><span style="font-weight: bold">UNIX Database Deployment:</span> <code class="cCode">DatabaseDeployer.sh</code></li>
+<li><a name="wp1068127"> </a><span style="font-weight: bold">Windows Database Deployment:</span> <code class="cCode">DatabaseDeployer.cmd</code></li>
+</ul></div>
+<p class="pBody"><a name="wp1072020"> </a>
+The database deployment utilities do the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1072021"> </a>Creates the Oracle TSAM Plus database</li>
+<li><a name="wp1072022"> </a>Creates a super user group &quot;administrator&quot; with the group ID specified by the parameter <br /><code class="cCode">- admingid</code></li>
+<li><a name="wp1068281"> </a>Creates a viewer user group &quot;viewer&quot; with the group ID specified by the parameter <br /><code class="cCode">- viewergid</code></li>
+<li><a name="wp1068130"> </a>Creates a super user with the name &quot;admin&quot; and the password specified by the parameter <code class="cCode">-adminpassword</code></li>
+<li><a name="wp1068131"> </a>Updates the database connection URL in the tsam.ear file (located at <code class="cCode">&lt; TSAM_DIR &gt;/deploy</code>)</li>
+<li><a name="wp1071565"> </a>Resets the default admin user password to the password specified by the parameter <code class="cCode">-adminpassword</code> when setting the parameter <code class="cCode">&#8220;-resetpassword yes&#8221;</code>.</li>
+<li><a name="wp1071570"> </a>Specifies a Weblogic data source JNDI name with the <code class="cCode">&quot;-wlsdsJNDIname&quot;</code> parameter. The database properties parameters are ignored if &quot;<code class="cCode">-wlsdsJNDIname</code>&quot; is specified.</li>
+<a name="wp1071763"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Before the database deployment utility can do this, a Weblogic data source should be created in the WebLogic domain to which TSAM Plus manager will be deployed, with a JNDI name set and Global Transaction support disabled. Note the following when creating: </td>
+</tr>
+</table>
+
+<div class="pSmartList1NoteBullet"><ul>
+<li><a name="wp1071764"> </a>The database properties should be the same with the existing TSAM Plus database. </li>
+<li><a name="wp1071765"> </a>The Oracle database driver is recommended to be <code class="cCode">&#8220;*Oracle&#39;s  Driver (Thin) for Instance connections</code>, <code class="cCode">Versions:9.0.1 and later&#8221;</code>, <code class="cCode">&#8220;*Oracle&#39;s  Driver (Thin) for RAC Service-Instance connections; Versions:10 and later&quot;</code>, or <code class="cCode">&#8220;*Oracle&#39;s  Driver (Thin) for Service connections; Versions:9.0.1 and later&quot;</code> </li>
+<li><a name="wp1071766"> </a>The Derby database driver is recommended to be <code class="cCode">&#8220;Derby&#39;s  Driver (Type 4) Versions:Any&#8221;</code>.</li>
+</ul></div>
+</ul></div>
+<p class="pBody"><a name="wp1068138"> </a>
+<a href="deploy.html#wp1068146">Listing&#160;4</a> and <a href="deploy.html#wp1068158">Listing&#160;5</a> show UNIX and Windows database deployment utility examples accordingly. 
+</p>
+<a name="wp1068139"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The database utility has the following restrictions:</td>
+</tr>
+</table>
+
+<div class="pSmartList1NoteBullet"><ul>
+<li><a name="wp1068140"> </a>If the specified database uses OS authentication, the user name and password should be null. </li>
+<li><a name="wp1068141"> </a>If you select the parameter &quot;<code class="cCode">-overwrite yes</code>&quot;, the existing TSAM Plus database is always overwritten and the database connection URL in the tsam.ear file is updated; If you select the parameter &quot;<code class="cCode">-overwrite no</code>&quot;, the database connection URL is updated, but the existing TSAM Plus database is not overwritten</li>
+<li><a name="wp1068142"> </a>The database connection URL in the <code class="cCode">tsam.ear</code> file is overwritten after you run the database deployment utility. You must redeploy the <code class="cCode">tsam.ear</code> file on the application.</li>
+</ul></div>
+<p class="pBody"><a name="wp1068144"> </a>
+For more information, see the <span class="cHyperlink">
+<a href="../install/index.html">Oracle TSAM Plus Installation Guide</a></span>.
+</p>
+<div class="pCodeTitle"><a name="wp1068146"> </a>
+Listing&#160;4	   UNIX Database Deployment Utility Example
+</div> <div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1068147"> </a>Deploy TSAM Plus to a Derby database</li>
+<a name="wp1068148"> </a><div class="pPreformatted"><pre>cd &lt; TSAM_DIR &gt;/deploy</pre></div><a name="wp1068149"> </a><div class="pPreformatted"><pre>./ DatabaseDeployer.sh -type derby -hostname localhost -port 1527 -dbname TSAM -overwrite no -admingid 0 -viewergid 1 -adminpassword admin1</pre></div><li><a name="wp1068150"> </a>Deploy TSAM Plus to a Derby database with the user &quot;<code class="cCode">app</code>&quot; and the password &quot;<code class="cCode">app</code>&quot;</li>
+<a name="wp1068151"> </a><div class="pPreformatted"><pre>cd &lt; TSAM_DIR &gt;/deploy</pre></div><a name="wp1068152"> </a><div class="pPreformatted"><pre>./ DatabaseDeployer.sh -type derby -hostname localhost -port 1527 -dbname TSAM -user app -password app -overwrite no -admingid 0 -viewergid 1 -adminpassword admin1</pre></div><li><a name="wp1068153"> </a>Deploy TSAM Plus to an Oracle database with the user &quot;<code class="cCode">tsam</code>&quot; and the password &quot;tsam&quot;</li>
+<a name="wp1068154"> </a><div class="pPreformatted"><pre>cd &lt; TSAM_DIR &gt;/deploy</pre></div><a name="wp1071459"> </a><div class="pPreformatted"><pre>./ DatabaseDeployer.sh -type oracle -hostname localhost -port 1521 -dbname TSAM -user tsam -password tsam -overwrite no -admingid 0 -viewergid 1 -adminpassword admin1</pre></div><li><a name="wp1071460"> </a>Reset the default admin user password to &quot;admin1&quot;</li>
+<a name="wp1071521"> </a><div class="pPreformatted"><pre>cd &lt; TSAM_DIR &gt;/deploy</pre></div><a name="wp1071522"> </a><div class="pPreformatted"><pre>./DatabaseDeployer.sh -type oracle -hostname localhost -port 1521 -dbname TSAM -user tsam -password tsam -adminpassword admin1 -resetpassword yes</pre></div><li><a name="wp1071470"> </a>Specify a Weblogic data source JNDI name &quot;ds_tsam&quot;</li>
+<a name="wp1072966"> </a><div class="pPreformatted"><pre>cd &lt; TSAM_DIR &gt;/deploy</pre></div><a name="wp1072967"> </a><div class="pPreformatted"><pre>./DatabaseDeployer.sh -wlsdsJNDIname ds_tsam</pre></div><div class="pCodeTitle"><a name="wp1068158"> </a>
+Listing&#160;5	   Windows Database Deployment Utility Example
+</div> <li><a name="wp1068159"> </a>Deploy TSAM Plus to a Derby database</li>
+<a name="wp1068160"> </a><div class="pPreformatted"><pre>cd &lt; TSAM_DIR &gt;\deploy</pre></div><a name="wp1068161"> </a><div class="pPreformatted"><pre>DatabaseDeployer.cmd -type derby -hostname localhost -port 1527 -dbname TSAM -overwrite no -admingid 0 -viewergid 1 -adminpassword admin1</pre></div><li><a name="wp1068162"> </a>Deploy TSAM Plus to a Derby database with the user &quot;app&quot; and the password &quot;app&quot;</li>
+</ol></div>
+<p class="pBody"><a name="wp1068163"> </a>
+<span style="font-style: normal">cd &lt; TSAM_DIR &gt;\deploy</span>
+</p>
+<a name="wp1068164"> </a><div class="pPreformatted"><pre>DatabaseDeployer.cmd -type derby -hostname localhost -port 1527 -dbname TSAM -user app -password app -overwrite no -admingid 0 -viewergid 1 -adminpassword admin1</pre></div><div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1068165"> </a>Deploy TSAM Plus to an Oracle database with the user &quot;<code class="cCode">tsam</code>&quot; and the password &quot;tsam&quot;</li>
+</ol></div>
+<p class="pBody"><a name="wp1068166"> </a>
+<span style="font-style: normal">cd &lt; TSAM_DIR &gt;\deploy</span>
+</p>
+<a name="wp1068167"> </a><div class="pPreformatted"><pre>DatabaseDeployer.cmd -type oracle -hostname localhost -port 1521 -dbname TSAM -user tsam -password tsam -overwrite no -admingid 0 -viewergid 1 -adminpassword admin1</pre></div><div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1072992"> </a>Reset the default admin user password to &quot;admin1&quot;</li>
+<a name="wp1072993"> </a><div class="pPreformatted"><pre>cd &lt; TSAM_DIR &gt;\deploy</pre></div><a name="wp1072994"> </a><div class="pPreformatted"><pre>DatabaseDeployer.cmd -type oracle -hostname localhost -port 1521 -dbname TSAM -user tsam -password tsam -adminpassword admin1 -resetpassword yes</pre></div><li><a name="wp1072995"> </a>Specify a Weblogic data source JNDI name &quot;ds_tsam&quot;</li>
+<a name="wp1072996"> </a><div class="pPreformatted"><pre>cd &lt; TSAM_DIR &gt;\deploy</pre></div><a name="wp1072997"> </a><div class="pPreformatted"><pre>DatabaseDeployer.cmd -wlsdsJNDIname ds_tsam</pre></div></ol></div>
+<h3 class="pHeading2"><a name="wp1068968"> </a>
+Oracle TSAM Plus Application Server Deployment
+</h3>
+<p class="pBody"><a name="wp1068969"> </a>
+If you choose to deploy Oracle TSAM Plus 12cR1 to an existing application server after installation, you must deploy it to an existing application server (WebLogic or Tomcat) after installation using the application server utilities, or manually.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1065412"> </a><a href="deploy.html#wp1065364">Application Server Deployment Utilities</a></li>
+<li><a name="wp1065422"> </a><a href="deploy.html#wp1058708">Manual Application Server Deployment</a></li>
+</ul></div>
+<a name="wp1065452"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The WebLogic server has the following restrictions:</td>
+</tr>
+</table>
+
+<div class="pSmartList1NoteBullet"><ul>
+<li><a name="wp1065469"> </a>The WebLogic Server is expected to be located on the local installation machine. Remote existing WebLogic Servers are not supported.</li>
+<li><a name="wp1073643"> </a>The operator must has the execution permission to the Weblogic Server installation directory.</li>
+<li><a name="wp1065453"> </a>Oracle TSAM Plus Manager requires the WebLogic server with the Oracle TopLink and Application Development Framework (ADF) components installed. It is recommended that you use the JDeveloper with the embedded WebLogic Server package. </li>
+<a name="wp1066226"> </a><table class="ListNote">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>For more information, see<span class="cHyperlink">
+<a href="http://www.oracle.com/tools/toplink_adf.html"> http://www.oracle.com/tools/toplink_adf.html</a></span>.</td>
+</tr>
+</table>
+<li><a name="wp1065454"> </a>Oracle TSAM Plus Manager requires the WebLogic Domain created with the component &quot;Oracle JRF&quot;.</li>
+<li><a name="wp1065455"> </a>The Oracle TSAM Plus database must be started when deploying to the WebLogic Server</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1065364"> </a>
+Application Server Deployment Utilities
+</h4>
+<p class="pBody"><a name="wp1065394"> </a>
+Oracle TSAM Plus provides the following application server deployment utilities:
+</p>
+<p class="pBody"><a name="wp1065365"> </a>
+<span style="font-weight: bold">UNIX Application Server Deployment:</span> <code class="cCode">AppServerDeployer.sh</code>
+</p>
+<p class="pBody"><a name="wp1062068"> </a>
+<span style="font-weight: bold">Windows Application Server Deployment:</span> <code class="cCode">AppServerDeployer.cmd</code>
+</p>
+<p class="pBody"><a name="wp1062018"> </a>
+UNIX and Windows application deployment utility examples are shown in <a href="deploy.html#wp1062049">Listing&#160;6</a> and <a href="deploy.html#wp1062044">Listing&#160;7</a> accordingly.
+</p>
+<div class="pCodeTitle"><a name="wp1062049"> </a>
+Listing&#160;6	   UNIX Application Server Deployment Utility Example
+</div> <div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1062050"> </a>Deploy TSAM Plus to a WebLogic server</li>
+<a name="wp1062540"> </a><div class="pPreformatted"><pre>cd &lt; TSAM_DIR &gt;/deploy</pre></div><a name="wp1062051"> </a><div class="pPreformatted"><pre>./AppServerDeployer.sh -type weblogic -adminurl localhost:7001 -directory /home/oracle/wlserver_10.3 -user weblogic -password weblogic1</pre></div><li><a name="wp1062559"> </a>Deploy TSAM Plus to a Tomcat server</li>
+<a name="wp1062571"> </a><div class="pPreformatted"><pre>cd &lt; TSAM_DIR &gt;/deploy</pre></div><a name="wp1062572"> </a><div class="pPreformatted"><pre>./AppServerDeployer.sh -type tomcat -directory /home/oracle/apache-tomcat-6.0.24</pre></div><div class="pCodeTitle"><a name="wp1062044"> </a>
+Listing&#160;7	   Windows Application Server Deployment Utility Example
+</div> <li><a name="wp1062583"> </a>Deploy TSAM Plus to a WebLogic server</li>
+<a name="wp1062581"> </a><div class="pPreformatted"><pre>cd &lt; TSAM_DIR &gt;\deploy</pre></div><a name="wp1061974"> </a><div class="pPreformatted"><pre>AppServerDeployer.cmd -type weblogic -adminurl localhost:7001 -directory C:\oracle\wlserver_10.3 -user weblogic -password weblogic1</pre></div><li><a name="wp1062594"> </a>Deploy TSAM Plus to a Tomcat server</li>
+<a name="wp1062595"> </a><div class="pPreformatted"><pre>cd &lt; TSAM_DIR &gt;/deploy</pre></div><a name="wp1062592"> </a><div class="pPreformatted"><pre>AppServerDeployer.cmd -type tomcat -directory C:\oracle\apache-tomcat-6.0.24</pre></div></ol></div>
+<h4 class="pHeading3"><a name="wp1058708"> </a>
+Manual Application Server Deployment
+</h4>
+<p class="pBody"><a name="wp1061646"> </a>
+Oracle TSAM Plus Manager provides deployment scripts for the following application servers:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1061650"> </a><a href="deploy.html#wp1065488">Oracle TSAM Plus Manual Apache Tomcat Server Deployment</a></li>
+<li><a name="wp1061654"> </a><a href="deploy.html#wp1065697">Oracle TSAM Plus Manual Oracle WebLogic Server Deployment</a></li>
+</ul></div>
+<h5 class="pHeading4"><a name="wp1065488"> </a>
+Oracle TSAM Plus Manual Apache Tomcat Server Deployment
+</h5>
+<p class="pBody"><a name="wp1061644"> </a>
+Execute the commands shown in <a href="deploy.html#wp1065494">Listing&#160;8</a> and <a href="deploy.html#wp1065610">Listing&#160;9</a> for Unix and Windows accordingly to deploy Oracle TSAM Plus on an Apache Tomcat Server.
+</p>
+<a name="wp1065579"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Replace <code class="cCode">&lt; TSAM_DIR &gt;</code> and <code class="cCode">&lt; TOMCAT_DIR &gt;</code> with the actual <code class="cCode">TSAM</code> and <code class="cCode">TOMCAT</code> paths on your disk.</td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1065494"> </a>
+Listing&#160;8	   Oracle TSAM Plus Manual Apache Tomcat Server Deployment (Unix)
+</div> <a name="wp1065500"> </a><div class="pPreformatted"><pre>TSAMDIR=&lt; TSAM_DIR &gt;; export TSAMDIR<br />TOMCATDIR=&lt; TOMCAT_DIR &gt;; export TOMCATDIR<br />JAVA_HOME=$TSAMDIR/jdk; export JAVA_HOME<br />PATH=$TSAMDIR/jdk/bin:$PATH; export PATH<br />cd $TSAMDIR/deploy<br />mkdir tsam<br />cd tsam<br />jar xf ../tsam.ear<br />mkdir tsam<br />cd tsam<br />jar xf ../tsam.war<br />cp ../../adflib/* WEB-INF/lib/<br />jar cf ../tsam.war *<br />cd ..<br />rm -rf $TOMCATDIR/webapps/tsam<br />rm -rf $TOMCATDIR/webapps/tsamhelp<br />cp tsam.war $TOMCATDIR/webapps/<br />cp tsamhelp.war $TOMCATDIR/webapps/<br />cd ..<br />cp adflib/* $TOMCATDIR/lib/<br />rm -rf tsam</pre></div><div class="pCodeTitle"><a name="wp1065610"> </a>
+Listing&#160;9	   Oracle TSAM Plus Manual Apache Tomcat Server Deployment (Windows)
+</div> <a name="wp1065638"> </a><div class="pPreformatted"><pre>set TSAMDIR=&lt; TSAM_DIR &gt;<br />set TOMCATDIR=&lt; TOMCAT_DIR &gt;<br />set JAVA_HOME=%TSAMDIR%\jdk<br />set PATH=%JAVA_HOME%\bin;%PATH%<br />cd /d %TSAMDIR%\deploy<br />mkdir tsam<br />cd tsam<br />jar xf ..\tsam.ear<br />mkdir tsam<br />cd tsam<br />jar xf ..\tsam.war<br />copy ..\..\adflib\* WEB-INF\lib\<br />jar cf ..\tsam.war *<br />cd ..<br />rd %TOMCATDIR%\webapps\tsam /s/q <br />rd %TOMCATDIR%\webapps\tsamhelp /s/q <br />copy tsam.war %TOMCATDIR%\webapps\<br />copy tsamhelp.war %TOMCATDIR%\webapps\<br />cd ..<br />copy adflib\* %TOMCATDIR%\lib\<br />rd tsam /s/q</pre></div><h5 class="pHeading4"><a name="wp1065697"> </a>
+Oracle TSAM Plus Manual Oracle WebLogic Server Deployment
+</h5>
+<p class="pBody"><a name="wp1065698"> </a>
+After installing Oracle WebLogic Server, do the following steps to deploy Oracle TSAM Plus:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1065699"> </a>Start your WebLogic Domain and launch Oracle WebLogic Server Administration Console using the following URL: <code class="cCode">http://localhost:7001/console</code>.</li>
+<li><a name="wp1065700"> </a>In the Change Center of the Administration Console, click <span style="font-weight: bold">Lock &amp; Edit</span>.</li>
+<li><a name="wp1065701"> </a>In the left panel of the Administration Console, select Deployments.</li>
+<li><a name="wp1065702"> </a>In the right panel, click <span style="font-weight: bold">Install</span>.</li>
+<li><a name="wp1065703"> </a>In the Install Application Assistant, locate the <code class="cCode">tsam.ear</code> file in the <code class="cCode">$TSAMDIR/deploy </code>directory<code class="cCode">.</code></li>
+<li><a name="wp1065704"> </a>Click <span style="font-weight: bold">Next</span>.</li>
+<li><a name="wp1065705"> </a>Choose the installation targeting style as an application.</li>
+<li><a name="wp1065706"> </a>Click <span style="font-weight: bold">Next</span>.</li>
+<li><a name="wp1065707"> </a>Select the servers where you want to deploy the <code class="cCode">tsam.ear</code> file.</li>
+<li><a name="wp1065708"> </a>Click <span style="font-weight: bold">Next</span>.</li>
+<li><a name="wp1065709"> </a>Optionally update additional deployment settings. These settings include:</li>
+<div class="pSmartList1NoteBullet"><ul>
+<li><a name="wp1065710"> </a>The deployed name of the application or module.</li>
+<li><a name="wp1065711"> </a>The security model that is applied to the application or module.</li>
+<li><a name="wp1065712"> </a>How the source files are made available to all targeted Managed Servers.</li>
+<p class="pBodyRelative"><a name="wp1065713"> </a>
+Typically, the default values are adequate.
+</p>
+</ul></div>
+<li><a name="wp1065714"> </a>Click <span style="font-weight: bold">Next</span>.</li>
+<li><a name="wp1065715"> </a>Review the configuration settings you have specified, and click <span style="font-weight: bold">Finish</span> to complete the installation.</li>
+<p class="pBodyRelative"><a name="wp1068900"> </a>
+At the Settings for TSAM Plus page, you can modify specific settings for TSAM Plus at Configuration - &gt; General. For example, Session Timeout (in seconds).
+</p>
+<li><a name="wp1068901"> </a>If you chose to immediately go to the deployment configuration screen, click the tabs to set additional TSAM Plus configuration settings. If you chose to change this information later, you are returned to the Deployments table, which now includes the TSAM Plus installation.</li>
+<li><a name="wp1065718"> </a>To activate these changes, in the Change Center of the Administration Console, click <span style="font-weight: bold">Activate Changes</span>.</li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1068711"> </a>
+Changing Configuration Parameters
+</h3>
+<p class="pBody"><a name="wp1068712"> </a>
+As needed, you can change the parameters for the following servers:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1068716"> </a><a href="deploy.html#wp1065485">Apache Tomcat Server Configuration</a></li>
+<li><a name="wp1068721"> </a><a href="deploy.html#wp1065789">WebLogic Server Configuration</a></li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1065485"> </a>
+Apache Tomcat Server Configuration
+</h4>
+<p class="pBody"><a name="wp1059365"> </a>
+You can directly run Oracle TSAM Plus Manager without changing any Apache Tomcat configuration parameters.
+</p>
+<p class="pBody"><a name="wp1068673"> </a>
+If required, you can change the default for the following parameters:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1068677"> </a><a href="deploy.html#wp1068661">Setting the Minimum JAVA Option Memory Size</a></li>
+<li><a name="wp1068681"> </a><a href="deploy.html#wp1068508">Configuring Apache Tomcat Listening Port</a></li>
+<li><a name="wp1059374"> </a><a href="deploy.html#wp1068835">Configuring Session Timeout</a></li>
+<li><a name="wp1059378"> </a><a href="deploy.html#wp1068744">Configuring HTTP KeepAlive</a></li>
+<li><a name="wp1059382"> </a><a href="deploy.html#wp1058766">Configuring POST Maximum Byte Size</a></li>
+<li><a name="wp1059386"> </a><a href="deploy.html#wp1058966">Configuring Maximum Thread Simultaneous Processing</a></li>
+<li><a name="wp1059390"> </a><a href="deploy.html#wp1058775">Configuring Maximum Incoming Connection Requests</a></li>
+</ul></div>
+<p class="pBody"><a name="wp1065767"> </a>
+Configuration parameters for Apache Tomcat Server are located in the following files: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1065768"> </a><code class="cCode">&lt; TSAM_DIR &gt;/apache-tomcat-6.0.24/conf/server.xml</code></li>
+<li><a name="wp1068505"> </a><code class="cCode">&lt; TSAM_DIR &gt;/apache-tomcat-6.0.24/conf/web.xml</code></li>
+</ul></div>
+<h5 class="pHeading4"><a name="wp1068661"> </a>
+Setting the Minimum JAVA Option Memory Size
+</h5>
+<p class="pBody"><a name="wp1068662"> </a>
+When installing Oracle TSAM Plus with a Tomcat server, the default JVM memory size is not sufficient for Oracle TSAM Plus to run. You can extend the memory by specifying the <code class="cCode">JAVA_OPTS</code> environment variable value to:
+</p>
+<a name="wp1073475"> </a><div class="pPreformatted"><pre><code class="cCode">-Xms2048m -Xmx2048m</code></pre></div><p class="pBody"><a name="wp1073420"> </a>
+We strongly suggest you allocate at least 2048MB memory for heap memory size of tomcat server. 
+</p>
+<h5 class="pHeading4"><a name="wp1068508"> </a>
+Configuring Apache Tomcat Listening Port
+</h5>
+<p class="pBody"><a name="wp1058746"> </a>
+The default Apache Tomcat port number is <code class="cCode">8080</code>. You can change the default based on your environment. The port is defined in <code class="cCode">&lt;TSAM_DIR&gt;/apache-tomcat-6.0.24/conf/server.xml </code>file. For example, you could change to port <code class="cCode">9090</code> by doing the following:
+</p>
+<a name="wp1058747"> </a><div class="pPreformatted"><pre>&lt;!-- Define a non-SSL HTTP/1.1 Connector on port 8080 --&gt;</pre></div><a name="wp1058748"> </a><div class="pPreformatted"><pre>    &lt;Connector <span style="font-weight: bold">port=&#8221;9090&#8221; </span>acceptCount=&quot;100&quot; connectionTimeout=&quot;20000&quot; disableUploadTimeout=&quot;true&quot; enableLookups=&quot;false&quot; maxHttpHeaderSize=&quot;8192&quot; maxSpareThreads=&quot;75&quot; maxThreads=&quot;150&quot; minSpareThreads=&quot;25&quot; redirectPort=&quot;8443&quot;/&gt;</pre></div><p class="pBody"><a name="wp1058749"> </a>
+The Oracle TSAM Plus Manager console and data server URLs depend on the Apache Tomcat port setting. The following example assumes the default port &#8220;<code class="cCode">8080</code>&#8221; used:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1058750"> </a>Oracle TSAM Plus Manager console URL: <code class="cCode">http://host:8080/tsam</code>.</li>
+</ul></div>
+<p class="pBody"><a name="wp1058754"> </a>
+The &#8220;<code class="cCode">host</code>&#8221; is the full domain name or IP address where the Oracle TSAM Plus Manager is installed. The Oracle TSAM Plus Agent LMS must be set correctly using the Oracle TSAM Plus Manager data server URL.
+</p>
+<h5 class="pHeading4"><a name="wp1068835"> </a>
+Configuring Session Timeout
+</h5>
+<p class="pBody"><a name="wp1073158"> </a>
+The defalut Tomcat session timeout is 30 minutes. You can modify the default value in <code class="cCode">&lt;TSAM_DIR&gt;/apache-tomcat-6.0.24/conf/web.xml</code>.<code class="cCode"> </code>Following is an example that sets the default timeout to 40 minutes:
+</p>
+<a name="wp1073160"> </a><div class="pPreformatted"><pre>  &lt;!-- ==================== Default Session Configuration ================= --&gt;</pre></div><a name="wp1073161"> </a><div class="pPreformatted"><pre>  &lt;!-- You can set the default session timeout (in minutes) for all newly   --&gt;</pre></div><a name="wp1073162"> </a><div class="pPreformatted"><pre>  &lt;!-- created sessions by modifying the value below.                       --&gt;</pre></div><a name="wp1073164"> </a><div class="pPreformatted"><pre>    &lt;session-config&gt;</pre></div><a name="wp1073165"> </a><div class="pPreformatted"><pre>        &lt;session-timeout&gt;40&lt;/session-timeout&gt;</pre></div><a name="wp1073166"> </a><div class="pPreformatted"><pre>    &lt;/session-config&gt;</pre></div><p class="pBody"><a name="wp1073168"> </a>
+To modify the TSAM Plus Web application session timeout only, you need to modify <code class="cCode">&lt;TSAM_DIR&gt;/apache-tomcat-6.0.24/webapps/tsam/WEB-INF/web.xml</code>. Following is an example:
+</p>
+<a name="wp1073170"> </a><div class="pPreformatted"><pre>&lt;session-config&gt;</pre></div><a name="wp1073171"> </a><div class="pPreformatted"><pre>        &lt;session-timeout&gt;60&lt;/session-timeout&gt;</pre></div><a name="wp1068754"> </a><div class="pPreformatted"><pre>&lt;/session-config&gt;&quot;</pre></div><h5 class="pHeading4"><a name="wp1068744"> </a>
+Configuring HTTP KeepAlive
+</h5>
+<p class="pBody"><a name="wp1058763"> </a>
+This is the maximum number of HTTP requests that can be pipelined until the connection is closed by the server. Apache Tomcat provides an attribute <code class="cCode">maxKeepAliveRequests </code>in the <code class="cCode">&lt;TSAM_DIR&gt;/apache-tomcat-6.0.24/conf/server.xml</code> file for custom control<code class="cCode">. </code>Setting this attribute to <code class="cCode">1</code> disables HTTP/1.0 keep-alive, as well as HTTP/1.1 keep-alive and pipelining. Setting this to <code class="cCode">-1</code> allows an unlimited pipeline amount or keep-alive HTTP requests. If not specified, this attribute is set to <code class="cCode">100</code>.
+</p>
+<p class="pBody"><a name="wp1058937"> </a>
+For example:
+</p>
+<a name="wp1058764"> </a><div class="pPreformatted"><pre>&lt;Connector port=&quot;8080&quot; ...  maxKeepAliveRequests=&quot;-1&quot;/&gt;</pre></div><h5 class="pHeading4"><a name="wp1058766"> </a>
+Configuring POST Maximum Byte Size
+</h5>
+<p class="pBody"><a name="wp1063954"> </a>
+You must configure the maximum size in bytes of the <code class="cCode">POST</code>,<code class="cCode"> maxPostSize</code>, that is handled by the container <code class="cCode">FORM URL</code> parameter parsing. The limit can be disabled by setting this attribute to a value less than or equal to 0. If not specified, this attribute is set to 2097152 bytes (2 megabytes). <code class="cCode">maxPostSize</code> is modified in the &lt;TSAM_DIR&gt;/<code class="cCode">apache-tomcat-6.0.24/conf/server.xml </code>file.
+</p>
+<p class="pBody"><a name="wp1058938"> </a>
+For example:
+</p>
+<a name="wp1058768"> </a><div class="pPreformatted"><pre>&lt;!-- Define a non-SSL HTTP/1.1 Connector on port 8080 --&gt;</pre></div><a name="wp1058769"> </a><div class="pPreformatted"><pre>    &lt;Connector <span style="font-weight: bold">maxPostSize</span>=&quot;0&quot; acceptCount=&quot;100&quot; connectionTimeout=&quot;20000&quot; disableUploadTimeout=&quot;true&quot; enableLookups=&quot;false&quot; maxHttpHeaderSize=&quot;8192&quot; maxSpareThreads=&quot;75&quot; maxThreads=&quot;150&quot; minSpareThreads=&quot;25&quot; port=&quot;8080&quot; redirectPort=&quot;8443&quot;/&gt;</pre></div><p class="pBody"><a name="wp1058972"> </a>
+If Oracle TSAM Plus has huge amount of monitoring data in the database, and <code class="cCode">maxPostSize</code> is not adequate, an exception message, &#8220;<code class="cCode">javax.servlet.ServletException: Post too large</code>&#8221;, is given when any operations fail. 
+</p>
+<a name="wp1060743"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>It is recommended that <code class="cCode">maxPostSize </code>is set to <code class="cCode">0</code>.</td>
+</tr>
+</table>
+
+<h5 class="pHeading4"><a name="wp1058966"> </a>
+Configuring Maximum Thread Simultaneous Processing
+</h5>
+<p class="pBody"><a name="wp1058773"> </a>
+This is the maximum number of request processing threads created by Apache Tomcat, <code class="cCode">maxThreads</code>, which determines the maximum number of simultaneous requests that can be handled by Apache Tomcat. If not specified, this attribute is set to 200. <code class="cCode">maxThreads</code> is modified in the Apache Tomcat <code class="cCode">server.xml</code> file. Oracle TSAM Plus keeps a thread-level JDBC connection if the thread has database access. When you configure this attribute, you need to consider the DBMS capability.
+</p>
+<h5 class="pHeading4"><a name="wp1058775"> </a>
+Configuring Maximum Incoming Connection Requests
+</h5>
+<p class="pBody"><a name="wp1058776"> </a>
+This is the maximum queue length, <code class="cCode">acceptCount</code>, for incoming connection requests when all possible request processing threads in Apache Tomcat are in use. Any requests received when the queue is full are refused. The default value is 100. Setting <code class="cCode">acceptCount</code> to a larger number allows the Apache Tomcat queue to accept more HTTP requests if Apache Tomcat is busy. The <code class="cCode">acceptCount</code> parameter is modified in the Apache Tomcat <code class="cCode">server.xml</code> file.
+</p>
+<p class="pBody"><a name="wp1058778"> </a>
+The following is a <code class="cCode">maxPostSize</code>, <code class="cCode">maxThreads</code>, <code class="cCode">acceptCount</code> example:
+</p>
+<a name="wp1058779"> </a><div class="pPreformatted"><pre>&lt;!-- Define a non-SSL HTTP/1.1 Connector on port 8080 --&gt;</pre></div><a name="wp1058780"> </a><div class="pPreformatted"><pre>&lt;Connector <span style="font-weight: bold">maxPostSize</span>=&quot;0&quot; <span style="font-weight: bold">acceptCount</span>=&quot;1000&quot; connectionTimeout=&quot;20000&quot; disableUploadTimeout=&quot;true&quot; enableLookups=&quot;false&quot; maxHttpHeaderSize=&quot;8192&quot; maxSpareThreads=&quot;75&quot; <span style="font-weight: bold">maxThreads</span>=&quot;130&quot; minSpareThreads=&quot;25&quot; port=&quot;8080&quot; redirectPort=&quot;8443&quot;/&gt;</pre></div><p class="pBody"><a name="wp1058782"> </a>
+For more information, see the<span class="cHyperlink">
+<a href="http://tomcat.apache.org"> Apache Tomcat Web site</a></span>.
+</p>
+<h4 class="pHeading3"><a name="wp1065789"> </a>
+WebLogic Server Configuration
+</h4>
+<p class="pBody"><a name="wp1060634"> </a>
+You can directly run the Oracle TSAM Plus Manager without changing any Oracle WebLogic configuration parameters.
+</p>
+<p class="pBody"><a name="wp1059644"> </a>
+If required, you can change the default for the following parameters:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1059648"> </a><a href="deploy.html#wp1073558"><span class="cHyperlink">
+Setting the Minimum JAVA Option Memory Size</span></a></li>
+<li><a name="wp1073581"> </a><a href="deploy.html#wp1073556"><span class="cHyperlink">
+Configuring Oracle WebLogic Listening Port</span></a></li>
+<li><a name="wp1059652"> </a><a href="deploy.html#wp1068798">Configuring Session Timeout</a></li>
+<li><a name="wp1059656"> </a><a href="deploy.html#wp1059685">Configuring HTTP KeepAlive</a></li>
+<li><a name="wp1059660"> </a><a href="deploy.html#wp1059690">Configuring POST Maximum Byte Size</a></li>
+<li><a name="wp1059664"> </a><a href="deploy.html#wp1060060">Configuring Maximum Thread Simultaneous Processing</a></li>
+<li><a name="wp1059668"> </a><a href="deploy.html#wp1059700">Configuring Maximum Incoming Connection Requests</a></li>
+</ul></div>
+<h5 class="pHeading4"><a name="wp1073558"> </a>
+Setting the Minimum JAVA Option Memory Size
+</h5>
+<p class="pBody"><a name="wp1073562"> </a>
+When installing Oracle TSAM Plus with a Weblogic server, specify at least 2048MB heap memory for the Weblogic server:
+</p>
+<a name="wp1073622"> </a><div class="pPreformatted"><pre>-Xms2048m -Xmx2048m</pre></div><p class="pBody"><a name="wp1073620"> </a>
+For information about how to change the heap size, refer to Oracle Weblogic documents.
+</p>
+<h5 class="pHeading4"><a name="wp1073556"> </a>
+Configuring Oracle WebLogic Listening Port
+</h5>
+<p class="pBody"><a name="wp1059671"> </a>
+The default Oracle WebLogic Server Listening port number is 7001. To change the default Listening Port, do the following steps: 
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1064198"> </a>Launch Oracle WebLogic Server Administration Console using the following URL: <code class="cCode">http://localhost:port/console</code>. Where: &quot;<code class="cCode">localhost</code>&quot; is the host name of the machine running WebLogic Server, &quot;<code class="cCode">port</code>&quot; is the port number where WebLogic Server listens for requests.</li>
+<li><a name="wp1064199"> </a>In the Change Center of the Administration Console, click <span style="font-weight: bold">Lock &amp; Edit</span>.</li>
+<li><a name="wp1064200"> </a>In the left panel of the Administration Console, under <span style="font-weight: bold">Environment</span>, click the <span style="font-weight: bold">Servers</span>.</li>
+<li><a name="wp1059904"> </a>Click the Server, e.g., <code class="cCode">exampleServer</code>, where Oracle TSAM Plus is deployed.</li>
+<li><a name="wp1059905"> </a>Change default Listen Port at tab of Configuration -&gt; General.</li>
+<li><a name="wp1059875"> </a>To activate these changes, in the Change Center of the Administration Console, click <span style="font-weight: bold">Activate Changes</span>.</li>
+</ol></div>
+<h5 class="pHeading4"><a name="wp1068798"> </a>
+Configuring Session Timeout
+</h5>
+<p class="pBody"><a name="wp1073291"> </a>
+To set Session Timeout, do the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1073292"> </a>Launch Oracle WebLogic Server Administration Console using the following URL: <code class="cCode">http://localhost:7001/console</code>.</li>
+<li><a name="wp1073293"> </a>In the Change Center of the Administration Console, click <b class="cBold">Lock &amp; Edit</b>.</li>
+<li><a name="wp1073294"> </a>In the left panel of the Administration Console, click <b class="cBold">Deployments</b>.</li>
+<li><a name="wp1073295"> </a>Under Summary of Deployments on the right page, click TSAM web application link.</li>
+<li><a name="wp1073349"> </a>Go to Configuration -&gt; Application and then configure the Session Timeout (in seconds).</li>
+<li><a name="wp1073350"> </a>To activate these changes, in the Change Center of the Administration Console, click Activate Changes.</li>
+</ol></div>
+<h5 class="pHeading4"><a name="wp1059685"> </a>
+Configuring HTTP KeepAlive
+</h5>
+<p class="pBody"><a name="wp1059992"> </a>
+To enable and disable HTTP KeepAlive, do the following steps: 
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1060014"> </a>Launch Oracle WebLogic Server Administration Console using the following URL: <code class="cCode">http://localhost:port/console</code>. Where: &quot;<code class="cCode">localhost</code>&quot; is the host name of the machine running WebLogic Server, &quot;<code class="cCode">port</code>&quot; is the port number where WebLogic Server listens for requests (7001 by default).</li>
+<li><a name="wp1059995"> </a>In the Change Center of the Administration Console, click <span style="font-weight: bold">Lock &amp; Edit</span>.</li>
+<li><a name="wp1059996"> </a>In the left panel of the Administration Console, under <span style="font-weight: bold">Environment</span>, click the <span style="font-weight: bold">Servers</span>.</li>
+<li><a name="wp1059997"> </a>Click the Server, e.g., <code class="cCode">exampleServer</code>, which your TSAM Plus deployed.</li>
+<li><a name="wp1059998"> </a>Enable or disable HTTP KeepAlive by selecting Protocols -&gt; HTTP.</li>
+<li><a name="wp1059999"> </a>To activate these changes, in the Change Center of the Administration Console, click <span style="font-weight: bold">Activate Changes</span>.</li>
+</ol></div>
+<h5 class="pHeading4"><a name="wp1059690"> </a>
+Configuring POST Maximum Byte Size
+</h5>
+<p class="pBody"><a name="wp1059929"> </a>
+To set the maximum size in bytes of the POST unlimited, do the following steps: 
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1064091"> </a>Launch Oracle WebLogic Server Administration Console using the following URL: <code class="cCode">http://localhost:7001/console</code>.</li>
+<li><a name="wp1064092"> </a>In the Change Center of the Administration Console, click <span style="font-weight: bold">Lock &amp; Edi</span>t.</li>
+<li><a name="wp1059932"> </a>In the left panel of the Administration Console, under <span style="font-weight: bold">Environment</span>, click the <span style="font-weight: bold">Servers</span>.</li>
+<li><a name="wp1059933"> </a>Click the Server, e.g., <code class="cCode">exampleServer</code>, which your TSAM Plus deployed.</li>
+<li><a name="wp1059934"> </a>Change Max Post Size at tab of Protocols -&gt; HTTP.<br />Note: Set Max Post Size less than 0, which indicates an unlimited size.</li>
+<li><a name="wp1059935"> </a>To activate these changes, in the Change Center of the Administration Console, click <span style="font-weight: bold">Activate Changes</span>.</li>
+</ol></div>
+<h5 class="pHeading4"><a name="wp1060060"> </a>
+Configuring Maximum Thread Simultaneous Processing
+</h5>
+<p class="pBody"><a name="wp1060622"> </a>
+Maximum Thread Simultaneous Processing is mapped into Maximum Threads Constraint at WebLogic Server. To configure Maximum Threads Constraint, do the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1073860"> </a>Launch Oracle WebLogic Server Administration Console using the following URL: <code class="cCode">http://&lt;hostname&gt;:&lt;port&gt;/console</code>, where <code class="cCode">&lt;hostname&gt;</code> is the host name of the machine running WebLogic Server, and <code class="cCode">&lt;port&gt;</code> is the port number that WebLogic Server listens for requests (7001 by default).</li>
+<li><a name="wp1073861"> </a>In the Change Center of the Administration Console, click <b class="cBold">Lock</b> &amp; <b class="cBold">Edit</b>, if you have not already done so.</li>
+<li><a name="wp1073862"> </a>In the left pane of the Administration Console, click <b class="cBold">Work Managers</b> under Environment.</li>
+<li><a name="wp1073863"> </a>Click the Work Manager whose &quot;Targets&quot; includes the WebLogic Server where TSAM Plus Manager web application is deployed. If no such work manager exists (usually called &#8220;<code class="cCode">WebLogic.wsee.mdb.DispatchPolicy</code>&#8221;), create a new Work Manager and assign it to the right server.</li>
+<li><a name="wp1073864"> </a>Change <b class="cBold">Maximum Threads Constraint</b> at tab of Configuration, if no constraint is configured, click <b class="cBold">New</b> to create one.</li>
+<li><a name="wp1060615"> </a>To activate these changes, in the Change Center of the Administration Console, click <b class="cBold">Activate Changes</b>.</li>
+</ol></div>
+<h5 class="pHeading4"><a name="wp1059700"> </a>
+Configuring Maximum Incoming Connection Requests
+</h5>
+<p class="pBody"><a name="wp1060081"> </a>
+Maximum Incoming Connection Requests is mapped into Capacity Constraint at WebLogic Server. To configure Capacity Constraint, do the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1073848"> </a>Launch Oracle WebLogic Server Administration Console using the following URL: <code class="cCode">http://&lt;hostname&gt;:&lt;port&gt;/console</code>, where <code class="cCode">&lt;hostname&gt;</code> is the host name of the machine running WebLogic Server, and <code class="cCode">&lt;port&gt;</code> is the port number that WebLogic Server listens for requests (7001 by default).</li>
+<li><a name="wp1073849"> </a>In the Change Center of the Administration Console, click <b class="cBold">Lock</b> &amp; <b class="cBold">Edit</b>, if you have not already done so.</li>
+<li><a name="wp1073850"> </a>In the left pane of the Administration Console, click <b class="cBold">Work Managers</b> under Environment.</li>
+<li><a name="wp1073851"> </a>Click the Work Manager whose &quot;Targets&quot; includes the WebLogic Server where TSAM Plus Manager web application is deployed. If no such work manager exists (usually called &#8220;<code class="cCode">WebLogic.wsee.mdb.DispatchPolicy</code>&#8221;), create a new Work Manager and assign it to the right server.</li>
+<li><a name="wp1073852"> </a>Change <b class="cBold">Capacity Constraint</b> at tab of Configuration, if no constraint is configured, click <b class="cBold">New</b> to create one.</li>
+<li><a name="wp1060094"> </a>To activate these changes, in the Change Center of the Administration Console, click <b class="cBold">Activate Changes</b>.</li>
+</ol></div>
+<a name="wp1060817"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If you do not see &#8220;<span style="font-weight: bold">Lock &amp; Edit</span>&#8221; in the Change Center of the Administration Console, WebLogic Server Configuration editing is enabled. </td>
+</tr>
+</table>
+
+<a name="wp1062788"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>Click <span style="font-weight: bold">Preferences</span>. Uncheck the <span style="font-weight: bold">Automatically Acquire Lock</span> and <span style="font-weight: bold">Activate Changes</span> checkbox, then click <span style="font-weight: bold">Save</span>. </td>
+</tr>
+</table>
+<p class="pBody"><a name="wp1069163"> </a>
+For more information, see the<span class="cHyperlink">
+<a href="http://download.oracle.com/docs/cd/E12840_01/wls/docs103/sitemap.html"> </a><a href="http://download.oracle.com/docs/cd/E12840_01/wls/docs103/sitemap.html">Oracle WebLogic Web site</a></span>.
+</p>
+<h3 class="pHeading2"><a name="wp1069165"> </a>
+Starting Up and Shutting Down Oracle TSAM Plus Manager
+</h3>
+<p class="pBody"><a name="wp1069166"> </a>
+If you chose the bundled Apache Tomcat Server and the bundled Derby database during installation, startup/shutdown script files for both are installed in the Oracle TSAM Plus <code class="cCode">bin</code> folder.
+</p>
+<p class="pBody"><a name="wp1068392"> </a>
+If you only choose the bundled Apache Tomcat Server, the installed startup/shutdown script only deals with Apache Tomcat Server. If you only choose the bundled Derby database, startup derby/shutdown derby script files are installed in the Oracle TSAM Plus <code class="cCode">bin</code> folder.
+</p>
+<h4 class="pHeading3"><a name="wp1068393"> </a>
+Bundled Apache Tomcat Server Start Up/Shut Down
+</h4>
+<p class="pBody"><a name="wp1066065"> </a>
+If you run Oracle TSAM Plus Manager with the bundled Apache Tomcat Server (with or without the Bundled Derby database), use the following steps to start and shut down Oracle TSAM Plus Manager:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1066066"> </a>Start Oracle TSAM Plus Manager</li>
+<p class="pBodyRelative"><a name="wp1066067"> </a>
+UNIX: 
+</p>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp1066068"> </a><code class="cCode">cd &lt;TSAM_DIR&gt;/bin</code></li>
+<li><a name="wp1066069"> </a><code class="cCode">./startup.sh</code></li>
+<p class="pBodyRelative"><a name="wp1066070"> </a>
+<span style="font-weight: bold">Windows</span>:
+</p>
+<li><a name="wp1066071"> </a><code class="cCode">cd &lt;TSAM_DIR&gt;/bin</code></li>
+<li><a name="wp1066072"> </a><code class="cCode">startup.cmd</code></li>
+</ol></div>
+<li><a name="wp1066073"> </a>Shut down Oracle TSAM Plus Manager</li>
+<p class="pBodyRelative"><a name="wp1066074"> </a>
+UNIX:
+</p>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp1066075"> </a><code class="cCode">cd &lt;TSAM_DIR&gt;/bin</code></li>
+<li><a name="wp1066076"> </a><code class="cCode">./shutdown.sh</code></li>
+<p class="pBodyRelative"><a name="wp1066077"> </a>
+Windows:
+</p>
+<li><a name="wp1066078"> </a><code class="cCode">cd &lt;TSAM_DIR&gt;/bin</code></li>
+<li><a name="wp1066079"> </a><code class="cCode">shutdown.cmd</code></li>
+</ol></div>
+</ol></div>
+<h4 class="pHeading3"><a name="wp1065947"> </a>
+Bundled Derby Database Start Up/Shut Down
+</h4>
+<p class="pBody"><a name="wp1066089"> </a>
+If you run Oracle TSAM Plus Manager with the bundled Derby database (without the bundled Apache Tomcat Server), use the following steps to start and shut down Derby:
+</p>
+<a name="wp1066213"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If you do not choose the bundled Apache Tomcat Server, you must set up your JAVA environment (JDK 1.6 or above) and boot up your existing application server manually.</td>
+</tr>
+</table>
+
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1065924"> </a>Start the bundled Derby database</li>
+<p class="pBodyRelative"><a name="wp1065925"> </a>
+UNIX: 
+</p>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp1065926"> </a><code class="cCode">cd &lt;TSAM_DIR&gt;/bin</code></li>
+<li><a name="wp1065927"> </a><code class="cCode">./startupderby.sh</code></li>
+<p class="pBodyRelative"><a name="wp1065930"> </a>
+<span style="font-weight: bold">Windows</span>:
+</p>
+<li><a name="wp1065931"> </a><code class="cCode">cd &lt;TSAM_DIR&gt;/bin</code></li>
+<li><a name="wp1065932"> </a><code class="cCode">startupderby.cmd</code></li>
+</ol></div>
+<li><a name="wp1065933"> </a>Shut down the bundled Derby database</li>
+<p class="pBodyRelative"><a name="wp1065934"> </a>
+UNIX:
+</p>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp1065935"> </a><code class="cCode">cd &lt;TSAM_DIR&gt;/bin</code></li>
+<li><a name="wp1065936"> </a><code class="cCode">./shutdownderby.sh</code></li>
+<p class="pBodyRelative"><a name="wp1065937"> </a>
+Windows:
+</p>
+<li><a name="wp1066277"> </a><code class="cCode">cd &lt;TSAM_DIR&gt;/bin</code></li>
+<li><a name="wp1066278"> </a><code class="cCode">shutdownderby.cmd</code></li>
+</ol></div>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1069141"> </a>
+Data Management Enhancement Tool
+</h3>
+<p class="pBody"><a name="wp1073750"> </a>
+Data Management Enhancement (DME) tool creates TSAM Plus monitoring tables with Oracle time partition, which provides you an automatic way to control the TSAM Plus monitoring table size and avoid filling up the table with enormous amount of data. 
+</p>
+<p class="pBody"><a name="wp1073760"> </a>
+DME tool is provided independently with TSAM Plus installer. After installing TSAM Plus manager, you can choose to run DME tool, as needed.
+</p>
+<p class="pBody"><a name="wp1071148"> </a>
+The following TSAM Plus tables are partitioned when enabling DME:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1071149"> </a><code class="cCode">ALERT</code></li>
+<li><a name="wp1071150"> </a><code class="cCode">CALLPATH</code></li>
+<li><a name="wp1071151"> </a><code class="cCode">MON_APPSERVER</code></li>
+<li><a name="wp1071152"> </a><code class="cCode">MON_ARTTCP</code></li>
+<li><a name="wp1071153"> </a><code class="cCode">MON_CPSEGMENT</code></li>
+<li><a name="wp1071154"> </a><code class="cCode">MON_GWWS</code></li>
+<li><a name="wp1071155"> </a><code class="cCode">MON_JESJOB</code></li>
+<li><a name="wp1071278"> </a><code class="cCode">MON_SERVICE</code></li>
+<li><a name="wp1071279"> </a><code class="cCode">MON_XA</code></li>
+<li><a name="wp1071280"> </a><code class="cCode">MON_BRGLINK</code></li>
+<li><a name="wp1071159"> </a><code class="cCode">MON_GWTLINK</code></li>
+<li><a name="wp1071160"> </a><code class="cCode">MON_BRIDGE</code></li>
+<li><a name="wp1071161"> </a><code class="cCode">MON_GWTDOMAIN</code></li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1069195"> </a>
+Supported Database
+</h4>
+<p class="pBody"><a name="wp1069201"> </a>
+DME tool is supported on Oracle Database 11.2.0.1.0, 11.1.0.6.0, and 10.2.0.1.0.
+</p>
+<h4 class="pHeading3"><a name="wp1069178"> </a>
+Prerequisites
+</h4>
+<p class="pBody"><a name="wp1069211"> </a>
+Before using DME tool, make sure the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1069390"> </a>Oracle database software is installed.</li>
+<li><a name="wp1069212"> </a><code class="cCode">$ORACLE_HOME</code> is set to the directory of Oracle database software home.</li>
+<a name="wp1069213"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If you have installed Oracle database client, make sure <code class="cCode">SQLPLUS/Perl/JDK/JRE</code> are also installed.</td>
+</tr>
+</table>
+
+<li><a name="wp1069214"> </a>SQLPLUS is under <code class="cCode">$ORACLE_HOME</code></li>
+<li><a name="wp1069215"> </a>Perl is under <code class="cCode">$ORACLE_HOME</code></li>
+<li><a name="wp1069216"> </a>JDK/JRE is under <code class="cCode">$ORACLE_HOME</code>.</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1069192"> </a>
+Running DME Script
+</h4>
+<p class="pBody"><a name="wp1070507"> </a>
+Under the directory <code class="cCode">$TSAM_MANAGER_INSTALLED_DIR/deploy/dme/bin</code>, run the <code class="cCode">AutoPurgeManager</code> script. The script format is as follows:
+</p>
+<a name="wp1069412"> </a><div class="pPreformatted"><pre>AutoPurgeManager &lt;<code class="cCode">repHost</code>&gt; &lt;<code class="cCode">repPort</code>&gt; &lt;<code class="cCode">repSID</code>&gt; [options]</pre></div><p class="pBody"><a name="wp1069254"> </a>
+where:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1069256"> </a><code class="cCode">&lt;repHost&gt;</code> - Host name to be used for the repository</li>
+<li><a name="wp1069257"> </a><code class="cCode">&lt;repPort&gt;</code> - Port number to be used for the repository</li>
+<li><a name="wp1069258"> </a><code class="cCode">&lt;repSID&gt;</code> - SID to be used for the repository</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1069259"> </a>
+Options
+</h4>
+<h4 class="pDefTerm"><a name="wp1069260"> </a>
+<code class="cCode">-action &lt;actioncode&gt;</code>
+</h4><div class="pDefPara"><a name="wp1069261"> </a>
+Mandatory option, where <code class="cCode">&lt;actioncode&gt;</code> can be one of the following:
+</div>
+<div class="pSmartList1Bullet"><ul>
+<div class="pSmartList2Bullet"><ul>
+<div class="pSmartList3Bullet"><ul class="SmartList3Bullet">
+<li><a name="wp1069262"> </a><code class="cCode">create</code> - creates TSAM Plus repository with Oracle time partition.</li>
+<li><a name="wp1069263"> </a><code class="cCode">enableAutoPurge</code> - enables Auto Purge under existing TSAM Plus repository</li>
+<li><a name="wp1069264"> </a><code class="cCode">disableAutoPurge</code> - disables Auto Purge under existing TSAM Plus repository</li>
+<li><a name="wp1069267"> </a><code class="cCode">drop</code> - drops existing TSAM Plus repository</li>
+</ul></div>
+</ul></div>
+</ul></div>
+<h4 class="pDefTerm"><a name="wp1070634"> </a>
+<code class="cCode">-dbPassword &lt;dbPassword&gt;</code>
+</h4><div class="pDefPara"><a name="wp1070635"> </a>
+Mandatory option. Password of the database user, <code class="cCode">SYS</code>.
+</div>
+<h4 class="pDefTerm"><a name="wp1070636"> </a>
+<code class="cCode">-reposName &lt;reposName&gt;</code>
+</h4><div class="pDefPara"><a name="wp1069474"> </a>
+Repository schema user name. Mandatory with <code class="cCode">create</code>, <code class="cCode">enableAutoPurge</code>, and <code class="cCode">disableAutoPurge</code> actions. 
+</div>
+<h4 class="pDefTerm"><a name="wp1069270"> </a>
+<code class="cCode">-reposPassword &lt;reposPassword&gt;</code>
+</h4><div class="pDefPara"><a name="wp1071297"> </a>
+Repository schema password. It overwrites the existing password set for TSAM Plus repository. Mandatory with <code class="cCode">create</code> and <code class="cCode">enableAutoPurge</code> actions.
+</div>
+<h4 class="pDefTerm"><a name="wp1071299"> </a>
+<code class="cCode">-adminGroupId &lt;adminGroupId&gt;</code>
+</h4><div class="pDefPara"><a name="wp1071320"> </a>
+Optional. TSAM Plus user group ID for &quot;administrator&quot;. Defaults to 0 if it is not set when executing <code class="cCode">create</code>. If it is set with <code class="cCode">enableAutoPurge/disableAutoPurge</code>, the existing group ID will be overwritten.
+<a name="wp1071321"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If you use LDAP authentication the group ID should be same as the GID in LDAP.</td>
+</tr>
+</table>
+
+</div>
+<h4 class="pDefTerm"><a name="wp1069743"> </a>
+<code class="cCode">-viewerGroupId &lt;viewerGroupId&gt;</code>
+</h4><div class="pDefPara"><a name="wp1069504"> </a>
+Optional. TSAM Plus user group ID for &quot;viewer&quot;. Defaults to 1 if it is not set when executing <code class="cCode">create</code>. If it is set with <code class="cCode">enableAutoPurge/disableAutoPurge</code>, the existing group ID will be overwritten
+<a name="wp1070763"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If you use LDAP authentication the group ID should be same as the GID in LDAP.</td>
+</tr>
+</table>
+
+</div>
+<h4 class="pDefTerm"><a name="wp1070828"> </a>
+<code class="cCode">-adminPassword &lt;adminPassword&gt;</code>
+</h4><div class="pDefPara"><a name="wp1070829"> </a>
+TSAM Plus administrator password. Mandatory with <code class="cCode">create</code> action. 
+<a name="wp1069283"> </a>
+If it is set with <code class="cCode">enableAutoPurge/disableAutoPurge</code>, the existing password will be overwritten.
+</div>
+<h4 class="pDefTerm"><a name="wp1069284"> </a>
+<code class="cCode">-partitionsRetained &lt;partitionsRetained&gt;</code>
+</h4><div class="pDefPara"><a name="wp1069520"> </a>
+Optional. TSAM Plus monitoring table partitions to be retained. Defaults to 32 days if it is not set when executing <code class="cCode">create</code>.
+<a name="wp1069286"> </a>
+If it is set with <code class="cCode">enableAutoPurge</code>, the existing retaining period will be overwritten.
+</div>
+<h4 class="pDefTerm"><a name="wp1069287"> </a>
+<code class="cCode">-defaultTablespaceName &lt;default tablespace name&gt;</code>
+</h4><div class="pDefPara"><a name="wp1070043"> </a>
+Optional. Default tablespace name. Defaults to <code class="cCode">TSAM_TABLESPACE</code>. It is used with <code class="cCode">create</code> action only.
+</div>
+<h4 class="pDefTerm"><a name="wp1070045"> </a>
+<code class="cCode">-defaultDatafileName &lt;default tablespace filename&gt;</code>
+</h4><div class="pDefPara"><a name="wp1069543"> </a>
+Optional. Full path name of the default tablespace file. Defaults to <code class="cCode">$ORACLE_HOME/dbs/tsam.dbf</code>. It is used with <code class="cCode">create</code> action only.
+</div>
+<h4 class="pDefTerm"><a name="wp1069291"> </a>
+<code class="cCode">-defaultDatafileSize &lt;default tablespace data file size&gt;</code>
+</h4><div class="pDefPara"><a name="wp1070132"> </a>
+Optional. Default tablespace data file size. Defaults to 200MB. It is used with <code class="cCode">create</code> action only.
+</div>
+<h4 class="pDefTerm"><a name="wp1070134"> </a>
+<code class="cCode">-defaultDatafileExtdSize &lt;default tablespace data file extension size&gt;</code>
+</h4><div class="pDefPara"><a name="wp1069541"> </a>
+Optional. Default tablespace data file extension size. Defaults to 50MB. It is used with <code class="cCode">create</code> action only.
+</div>
+<h4 class="pHeading3"><a name="wp1069247"> </a>
+Examples(1)
+</h4>
+<a name="wp1070420"> </a><div class="pPreformatted"><pre>./AutoPurgeManager  bejxxxx.cn.oracle.com 1521 tsam -action enableAutoPurge -dbPassword tsam -reposName tsam -reposPassword tsam -adminGroupId 5 -viewerGroupId 6 -adminPassword admin11  -partitionsRetained 1 -verbose -defaultTablespaceName TUX_TABLESPACE -defaultDatafileName /testarea/em/app/oradata/tsam/tuxedo.dbf</pre></div><h4 class="pHeading3"><a name="wp1070435"> </a>
+Examples(2)
+</h4>
+<a name="wp1070436"> </a><div class="pPreformatted"><pre>./AutoPurgeManager xxx.xxx.com 1521 orcl -action create -dbPassword 123 -reposName tsam -reposPassword tsam <code class="cCode">-adminPassword</code> admin11</pre></div><h4 class="pHeading3"><a name="wp1070473"> </a>
+Limitation
+</h4>
+<p class="pBody"><a name="wp1070474"> </a>
+<code class="cCode">TSAM_DAILY_MAINTENANCE</code>, the Oracle Database Scheduler created by DME, cannot be stopped when DME is enabled.
+</p>
+<h4 class="pHeading3"><a name="wp1070476"> </a>
+Known Issue
+</h4>
+<p class="pBody"><a name="wp1070477"> </a>
+If the TSAM Plus schema created by DME shares the same Oracle database instance with Oracle Enterprise Manager (12.1.0.1.0 with Bundle Patch 1), when you drop TSAM Plus schema using DME drop action, DME will hang up at &quot;Quiescing DB ... &quot;. To work around such issue, you can press <b class="cBold">Ctrl</b> + <b class="cBold">C</b> to break the hang-up and proceed to run the rest tasks.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1068251"> </a>
+Oracle TSAM Plus Migration
+</h2><p class="pBody"><a name="wp1067864"> </a>
+This section contains the following topics:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1067737"> </a><a href="deploy.html#wp1067739">Oracle TSAM 1.1/10gR3 Alert Migration</a></li>
+<li><a name="wp1067745"> </a><a href="deploy.html#wp1067208">AlertMigration.sh Parameters</a></li>
+<li><a name="wp1067754"> </a><a href="deploy.html#wp1067363">Oracle TSAM 1.1/10gR3 Policy Migration</a></li>
+<li><a name="wp1067762"> </a><a href="deploy.html#wp1073103">Oracle TSAM 11gR1 (11.1.1) Database Migration</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1067739"> </a>
+Oracle TSAM 1.1/10gR3 Alert Migration
+</h3>
+<p class="pBody"><a name="wp1066323"> </a>
+Oracle TSAM Plus Manager 12cR1 can import Oracle TSAM 1.1/10gR3 alert definition items or event trigger rule files and convert them to Oracle TSAM Plus 12c format. To make these conversions, you must do the following steps:
+</p>
+<h4 class="pHeading3"><a name="wp1066329"> </a>
+Oracle TSAM 1.1/10gR3 Alert Definition Items Migration
+</h4>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1066339"> </a>Make sure your Oracle TSAM 1.1/10gR3 and Oracle TSAM Plus 12cR1 database servers are running. </li>
+<li><a name="wp1066368"> </a><code class="cCode">cd &lt;TSAM12c_DIR &gt;/deploy</code></li>
+<li><a name="wp1066369"> </a>Run the commands shown in <a href="deploy.html#wp1066370">Listing&#160;10</a>. </li>
+<div class="pCodeTitle"><a name="wp1066370"> </a>
+Listing&#160;10	   AlertMigration.sh (UNIX only)/cmd (Windows only)
+</div> <a name="wp1067541"> </a><div class="pPreformatted"><pre>-srcdbtype SRCDBTYPE -srcdbhostname SRCDBHOSTNAME -srcdbport SRCDBPORT -srcdbdbname SRCDBNAME -srcdbuser SRCDBUSER -srcdbpassword SRCDBPASSWORD -dstdbtype DSTDBTYPE -dstdbhostname DSTDBHOSTNAME -dstdbport DSTDBPORT -dstdbdbname DSTDBNAME -dstdbuser DSTDBUSER -dstdbpassword DSTDBPASSWORD.</pre></div></ol></div>
+<h4 class="pHeading3"><a name="wp1066384"> </a>
+Oracle TSAM 1.1/10gR3 Rules File Migration
+</h4>
+<p class="pBody"><a name="wp1066407"> </a>
+1. Make sure your Oracle TSAM Plus 12c database servers are running. 
+</p>
+<p class="pBody"><a name="wp1066408"> </a>
+2.<code class="cCode"> cd &lt;TSAM12c_DIR &gt;/deploy </code>
+</p>
+<p class="pBody"><a name="wp1066409"> </a>
+3. Run the commands shown in <a href="deploy.html#wp1066405">Listing&#160;11</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1066405"> </a>
+Listing&#160;11	   AlertMigration.sh (UNIX only)/cmd (Windows only)
+</div> <a name="wp1066424"> </a><div class="pPreformatted"><pre>-srcfile SRCFILE -dstdbtype DSTDBTYPE -dstdbhostname DSTDBHOSTNAME -dstdbport DSTDBPORT -dstdbdbname DSTDBNAME -dstdbuser DSTDBUSER -dstdbpassword DSTDBPASSWORD.</pre></div><h3 class="pHeading2"><a name="wp1067208"> </a>
+AlertMigration.sh Parameters 
+</h3>
+<p class="pBody"><a name="wp1067212"> </a>
+<a href="deploy.html#wp1067216">Table&#160;1</a> lists <code class="cCode">AlertMigration.sh/cmd</code> parameters.
+</p>
+<p class="pGraphic"><a name="wp1067335"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1067216table1067213"><caption><a name="wp1067216"> </a>
+Table&#160;1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">AlertMigration.sh/cmd Parameters</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1067585"> </a>
+<br />Parameter 
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1067586"> </a>
+<br />Description 
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1067228"> </a>
+Default Value 
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1067587"> </a>
+<br />Optional Value 
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067232"> </a>
+<code class="cCode">srcfile </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067234"> </a>
+Oracle TSAM 1.1/10gR3 rules file path 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067236"> </a>
+<code class="cCode"> </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067238"> </a>
+<code class="cCode"> </code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067240"> </a>
+<code class="cCode">srcdbtype </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067242"> </a>
+Oracle TSAM 1.1/10gR3 database type 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067244"> </a>
+<code class="cCode"> </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067246"> </a>
+<code class="cCode">oracle, derby </code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067248"> </a>
+<code class="cCode">srcdbhostname </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067250"> </a>
+Oracle TSAM 1.1/10gR3 database host name 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067252"> </a>
+<code class="cCode"> </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067254"> </a>
+<code class="cCode"> </code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067256"> </a>
+<code class="cCode">srcdbport </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067258"> </a>
+Oracle TSAM 1.1/10gR3 database port 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067260"> </a>
+<code class="cCode"> </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067262"> </a>
+<code class="cCode"> </code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067264"> </a>
+<code class="cCode">srcdbdbname </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067266"> </a>
+Oracle TSAM 1.1/10gR3 database name 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067268"> </a>
+<code class="cCode"> </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067270"> </a>
+<code class="cCode"> </code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067272"> </a>
+<code class="cCode">srcdbuser </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067274"> </a>
+Oracle TSAM1.1/10gR3 database user 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067276"> </a>
+<code class="cCode">null </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067278"> </a>
+<code class="cCode"> </code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067280"> </a>
+<code class="cCode">srcdbpassword </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067282"> </a>
+Oracle TSAM 1.1/10gR3 database password 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067284"> </a>
+<code class="cCode">null </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067286"> </a>
+<code class="cCode"> </code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067288"> </a>
+<code class="cCode">dstdbtype </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067290"> </a>
+Oracle TSAM Plus 12c database type 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067292"> </a>
+<code class="cCode"> </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067294"> </a>
+<code class="cCode">oracle, derby </code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067296"> </a>
+<code class="cCode">dstdbhostname </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067298"> </a>
+Oracle TSAM Plus 12c database host name 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067300"> </a>
+<code class="cCode"> </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067302"> </a>
+<code class="cCode"> </code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067304"> </a>
+<code class="cCode">dstdbport </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067306"> </a>
+Oracle TSAM Plus 12c database port 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067308"> </a>
+<code class="cCode"> </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067310"> </a>
+<code class="cCode"> </code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067312"> </a>
+<code class="cCode">dstdbdbname </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067314"> </a>
+Oracle TSAM Plus 12c database name 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067316"> </a>
+<code class="cCode"> </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067318"> </a>
+<code class="cCode"> </code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067320"> </a>
+<code class="cCode">dstdbuser </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067322"> </a>
+Oracle TSAM Plus 12c database user 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067324"> </a>
+<code class="cCode">null </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067326"> </a>
+<code class="cCode"> </code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067328"> </a>
+<code class="cCode">dstdbpassword </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067330"> </a>
+Oracle TSAM Plus 12c database password 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067332"> </a>
+<code class="cCode">null </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1067334"> </a>
+<code class="cCode"> </code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<a name="wp1067342"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If the specified database uses OS authentication, the user name (parameter <code class="cCode">srcdbuser </code>or <code class="cCode">dstdbuser</code>) and password (parameter <code class="cCode">srcdbpassword</code> or <code class="cCode">dstdbpassword</code>) should be null.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1067363"> </a>
+Oracle TSAM 1.1/10gR3 Policy Migration
+</h3>
+<p class="pBody"><a name="wp1073097"> </a>
+TSAM 1.1/10gR3 policy files can be imported in the Oracle TSAM Plus 12cR1 (12.1.1.1) policy management page. For more information, see <span class="cHyperlink">
+<a href="../userguide/tsamconhelp.html">Tuxedo Monitoring Policy in the Oracle TSAM Plus Users Guide.</a></span>
+</p>
+<h3 class="pHeading2"><a name="wp1073103"> </a>
+Oracle TSAM 11gR1 (11.1.1) Database Migration
+</h3>
+<p class="pBody"><a name="wp1073107"> </a>
+The Oracle database created by TSAM 11gR1 (11.1.1) can be reused by TSAM Plus 12cR1 (12.1.1.1) after the database is upgraded. The Oracle TSAM Plus 12cR1 (12.1.1.1) database is different from the Oracle TSAM 11gR1 (11.1.1) database. You must run a database migration script before reusing it.
+</p>
+<p class="pBody"><a name="wp1069030"> </a>
+You must do the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1071383"> </a>Make sure your Oracle TSAM 11gR1 (11.1.1) database server is running. </li>
+<li><a name="wp1071384"> </a>Run the script under <code class="cCode">&lt;TSAM12c_DIR&gt;/deploy/TSAMUpgradeOracle.sql</code> </li>
+<p class="pBodyRelative"><a name="wp1071385"> </a>
+Take using Oracle SQLPlus as an example, the steps of running the script are as follows:
+</p>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp1069065"> </a>Enter the directory <code class="cCode">&lt;TSAM12c_DIR&gt;/deploy</code>.</li>
+<li><a name="wp1069066"> </a>Run SQLPlus and connect to TSAM Plus 12.1.1.1 database. </li>
+<li><a name="wp1069115"> </a>Execute the following command:</li>
+<a name="wp1069067"> </a><div class="pPreformattedRelative"><pre>SQL &gt; @TSAMUpgradeOracle.sql</pre></div></ol></div>
+</ol></div>
+<a name="wp1067506"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>TSAM 11g Derby database upgrading is not supported.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1069087"> </a>
+See Also
+</h2><div class="pSmartList1Bullet"><ul>
+<li><a name="wp1066326"> </a><span class="cHyperlink">
+<a href="../install/index.html">Oracle TSAM Plus Installation Guide</a></span></li>
+<li><a name="wp1064231"> </a><span class="cHyperlink">
+<a href="../userguide/tsamconhelp.html">Oracle TSAM Plus Console Users Guide</a></span></li>
+</ul></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="deploy.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="index.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq9" src="/global_resources/images/nexttop_disabled.gif" border="0" alt="Next" />
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

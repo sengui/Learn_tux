@@ -1,0 +1,883 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="3" />
+<meta name="LOC_US_CHANGE" content="41845" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/mq/fm/config.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/26/12 11:27:27" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Configuring the Oracle Tuxedo MQ Adapter</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">MQ Adapter
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="build.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="run.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/mq.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1074157"> </a>
+Configuring the Oracle Tuxedo MQ Adapter
+</h1>
+<p class="pBody"><a name="wp1077472"> </a>
+This chapter contains the following topics:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1075180"> </a><a href="config.html#wp1077762">Configuring the Oracle Tuxedo Servers</a></li>
+<li><a name="wp1077759"> </a><a href="config.html#wp1075660">Creating the Server Configuration Files</a></li>
+<li><a name="wp1078335"> </a><a href="config.html#wp1077308">Configuring the WebSphere MQ Queue Manager</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1077762"> </a>
+Configuring the Oracle Tuxedo Servers
+</h2><p class="pBody"><a name="wp1078225"> </a>
+The Oracle Tuxedo MQ Adapter consists of three Oracle Tuxedo servers: an Oracle Tuxedo to WebSphere MQ server (TM_MQO), a WebSphere MQ to Oracle Tuxedo server (TM_MQI), and a server for handling <code class="cCode">tpenqueue()</code> and <code class="cCode">tpdequeue() </code>requests (TMQUEUE_MQM). You must identify each of the servers that you intend to use in the Oracle Tuxedo UBBCONFIG file. In addition, the MQ Adapter requires that certain parameters be set for each server. You define these parameters in a server configuration file.  A sample configuration file for each server is shown in this document. You can use these sample configuration files as a base and insert the specific information required for your environment.
+</p>
+<p class="pBody"><a name="wp1075320"> </a>
+The following sections describe how to identify each of the servers in the Oracle Tuxedo UBBCONFIG file, and how to set up the configuration file required by the MQ Adapter for each of these servers.
+</p>
+<h3 class="pHeading2"><a name="wp1075316"> </a>
+Configuring the Oracle Tuxedo to WebSphere MQ Server (TM_MQO)
+</h3>
+<p class="pBody"><a name="wp1075333"> </a>
+TM_MQO routes all requests for WebSphere MQ services from Oracle Tuxedo clients. It interacts with WebSphere MQ via the Message Queue Interface (MQI) by enqueuing and dequeuing service requests and responses. The MQI is a common application programming interface that all WebSphere MQ applications implement. 
+</p>
+<p class="pBody"><a name="wp1075334"> </a>
+You define the TM_MQO server in the SERVERS section of the Oracle Tuxedo UBBCONFIG file as follows in <a href="config.html#wp1075343">Listing&#160;3-1</a>: 
+</p>
+<div class="pCodeTitle"><a name="wp1075343"> </a>
+Listing&#160;3-1	   Syntax for TM_MQO Server Definition in UBBCONFIG 
+</div> <a name="wp1075355"> </a><div class="pPreformatted"><pre>*SERVERS<br />TM_MQO SRVGRP=&quot;<span style="font-style: italic">identifier</span>&quot; SRVID=&quot;number&quot;<br />CLOPT=&quot;-- -C configuration_file_name&quot;<br /></pre></div><p class="pBody"><a name="wp1075347"> </a>
+For <code class="cCode">SRVGRP</code>, <code class="cCode">SRVID</code>, and <code class="cCode">CLOPT</code> parameter syntax and definitions information, see<span class="cHyperlink">
+<a href="../rf5/rf5.html"> File Formats, Data Descriptions, MIBs, and System Processes Reference</a></span>.
+</p>
+<p class="pBody"><a name="wp1075348"> </a>
+<code class="cCode">CLOPT= &quot;-- -C Tuxedo to WebSphere MQ configfile&quot;</code> specifies the server&#39;s configuration file. 
+</p>
+<p class="pBody"><a name="wp1075331"> </a>
+A configuration file provides a list of services and their associated parameters to the server at startup.  See <a href="config.html#wp1075660">Creating the Server Configuration Files</a> for an explanation of the parameters you need to define.
+</p>
+<h4 class="pHeading3"><a name="wp1075381"> </a>
+Defining FML32 Fields for the Oracle Tuxedo to WebSphere MQ Server
+</h4>
+<p class="pBody"><a name="wp1075389"> </a>
+Oracle Tuxedo has defined FML32 fields for TM_MQO in the <code class="cCode">$TUXDIR/udataobj/Usysfl32</code> field definition table and in the <code class="cCode">$TUXDIR/include/Usysfl32.h</code> header file. The Oracle Tuxedo MQ Adapter uses FML32 functions to manipulate fielded buffers related to errors. For more information about FML32 programming, see the <span style="font-style: italic"><a href="../fml/index.html">Programming an Oracle Tuxedo ATMI Application Using FML</a></span>.
+</p>
+<p class="pBody"><a name="wp1075394"> </a>
+The syntax for the field definition table for TM_MQO is as follows in <a href="config.html#wp1075402">Listing&#160;3-2</a>: 
+</p>
+<div class="pCodeTitle"><a name="wp1075402"> </a>
+Listing&#160;3-2	   Syntax for field definition table for TM_MQO
+</div> <a name="wp1075403"> </a><div class="pPreformatted"><pre># name                  number    type    flags   comments<br />TPMQ_ADAPTER_ERR        `n&#39;     string      -        -<br />TPMQ_ADAPTER_ERR_CODE   `n&#39;     string      -        -<br />TPMQ_APP_ERR            `n&#39;     string      -        -</pre></div><p class="pBody"><a name="wp1075465"> </a>
+These FML32 fields are used as follows: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1075466"> </a><code class="cCode">TPMQ_ADAPTER_ERR: </code>stores the details of the errors specific to the Oracle Tuxedo MQ Adapter. </li>
+<li><a name="wp1075468"> </a><code class="cCode">TPMQ_ADAPTER_ERR_CODE: </code>stores the category code for the adapter-specific errors. </li>
+<li><a name="wp1075470"> </a><code class="cCode">TPMQ_APP_ERR: </code>stores the details of the errors specific to WebSphere MQ. </li>
+</ul></div>
+<p class="pBody"><a name="wp1075449"> </a>
+These fields are defined in <code class="cCode">$TUXDIR/udataobj/Usysfl32</code> and in <code class="cCode">$TUXDIR/include/Usysfl32.h</code>.  (If an interoperating client running Oracle Tuxedo 9.1 or earlier wants to use these fields, the client will need to define these fields using the same field numbers as in later versions of Oracle Tuxedo.).
+</p>
+<p class="pBody"><a name="wp1075525"> </a>
+The environment variables FLDTBLDIR32 and FIELDTBLS32 should be set so that the system will look in <code class="cCode">$TUXDIR/udataobj/Usysfl32</code> for FML32 field definitions.
+</p>
+<h3 class="pHeading2"><a name="wp1075530"> </a>
+Configuring the WebSphere MQ to Oracle Tuxedo Server (TM_MQI)
+</h3>
+<p class="pBody"><a name="wp1075540"> </a>
+TM_MQI forwards messages requested from WebSphere MQ applications to Oracle Tuxedo services. The application queues a request to a designated queue that is monitored by TM_MQI. The requested service is specified in the message descriptor. Like TM_MQO, TM_MQI must perform data and semantic transformations on the data stored on a queue before delivering it to a service. It must do the same to replies. 
+</p>
+<p class="pBody"><a name="wp1075541"> </a>
+You define the TM_MQI server in the SERVERS section of the Oracle Tuxedo UBBCONFIG file as follows in <a href="config.html#wp1075543">Listing&#160;3-3</a>: 
+</p>
+<div class="pCodeTitle"><a name="wp1075543"> </a>
+Listing&#160;3-3	   Syntax for TM_MQI Definition in UBBCONFIG
+</div> <p class="pBody"><a name="wp1075544"> </a>
+<code style="font-style: normal" class="cCode">*SERVERS<br />TM_MQI SRVGRP=&quot;</code><span style="font-style: italic">identifier</span><code class="cCode">&quot; SRVID=&quot;number&quot; REPLYQ=N<br />CLOPT=&quot;--  -C configuration_file_name&quot;</code>
+</p>
+<p class="pBody"><a name="wp1075548"> </a>
+For information about the SRVGRP, SRVID, REPLYQ, and CLOPT parameter syntax and definitions, refer to the Oracle Oracle Tuxedo Reference Manual. 
+</p>
+<p class="pBody"><a name="wp1075549"> </a>
+<code class="cCode">CLOPT= &quot;-- -C WebSphere MQ to Tuxedo configfile&quot;</code> specifies the server&#39;s configuration file. 
+</p>
+<p class="pBody"><a name="wp1075551"> </a>
+A configuration file provides a list of queues and services and their associated parameters to the server at startup. See <a href="config.html#wp1075660">Creating the Server Configuration Files</a> for an explanation of the parameters you need to define.
+</p>
+<h3 class="pHeading2"><a name="wp1075538"> </a>
+Configuring the TMQUEUE_MQM Server
+</h3>
+<p class="pBody"><a name="wp1075607"> </a>
+TMQUEUE_MQM processes the <code class="cCode">tpenqueue()</code> and <code class="cCode">tpdequeue()</code> requests from Oracle Tuxedo applications that need to send or retrieve data to or from an WebSphere MQ queue. 
+</p>
+<p class="pBody"><a name="wp1075608"> </a>
+You define the TMQUEUE_MQM server in the SERVERS section of the Oracle Tuxedo UBBCONFIG file as follows in <a href="config.html#wp1075610">Listing&#160;3-4</a>: 
+</p>
+<div class="pCodeTitle"><a name="wp1075610"> </a>
+Listing&#160;3-4	   Syntax for TMQUEUE_MQM Definition in UBBCONFIG 
+</div> <a name="wp1075611"> </a><div class="pPreformatted"><pre>*SERVERS</pre></div><a name="wp1075612"> </a><div class="pPreformatted"><pre>TMQUEUE_MQM SRVGRP=&quot;<span style="font-style: italic">identifier</span>&quot; SRVID=&quot;number&quot; REPLYQ=N CLOPT=&quot;--  -C configuration_file_name&quot;</pre></div><p class="pBody"><a name="wp1075614"> </a>
+For information about the SRVGRP, SRVID, REPLYQ, and CLOPT parameter syntax and definitions, refer to the Oracle Tuxedo Reference Manual. 
+</p>
+<p class="pBody"><a name="wp1075615"> </a>
+<code class="cCode">CLOPT= &quot;-- -C enqueue/dequeue configfile&quot;</code> specifies the server&#39;s configuration file. 
+</p>
+<p class="pBody"><a name="wp1075617"> </a>
+A configuration file provides a list of queues and their associated parameters to the server at startup. See <a href="config.html#wp1075660">Creating the Server Configuration Files</a> for an explanation of the parameters you need to define.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1075660"> </a>
+Creating the Server Configuration Files
+</h2><p class="pBody"><a name="wp1075661"> </a>
+You must create a configuration file for each of the three MQ Adapter servers. The documentation shows sample files you can use as a base for creating your own configuration files. You can substitute the parameter settings in the sample files with the settings required for your own environment.
+</p>
+<h3 class="pHeading2"><a name="wp1075662"> </a>
+Creating the Oracle Tuxedo to WebSphere MQ Server Configuration File
+</h3>
+<p class="pBody"><a name="wp1075663"> </a>
+The TM_MQO.CFG file controls the operation of the Oracle Tuxedo to WebSphere MQ server (TM_MQO). Following are the sections of the TM_MQO configuration file and the parameters you can define for each section. A sample configuration file follows the descriptions. 
+</p>
+<a name="wp1075664"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>TM_MQO.CFG is a generic filename. You can name this file anything you choose, but the filename must match the -C configuration_file_name parameter you specify in the Oracle Tuxedo UBBCONFIG file. (See <a href="config.html#wp1075316">Configuring the Oracle Tuxedo to WebSphere MQ Server (TM_MQO)</a> for instructions on configuring the TM_MQO server in the UBBCONFIG file.)</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1075681"> </a>
+The TM_MQO configuration file is divided into the following required sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1075682"> </a>Queue_Manager</li>
+<p class="pBodyRelative"><a name="wp1075705"> </a>
+Defines the queue manager name and logical ID.
+</p>
+<a name="wp1075706"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The configuration file can only have one QUEUE_MANAGER section.</td>
+</tr>
+</table>
+
+<li><a name="wp1075707"> </a>SERVICES</li>
+<p class="pBodyRelative"><a name="wp1075686"> </a>
+Defines various parameters for services and messages.
+</p>
+</ul></div>
+<p class="pBody"><a name="wp1075687"> </a>
+The TM_MQO configuration file has one optional section:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1075688"> </a>SERVER</li>
+<p class="pBodyRelative"><a name="wp1075689"> </a>
+Defines minimum and maximum settings for services and messages.
+</p>
+<a name="wp1075690"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The configuration file can only have one SERVER section.</td>
+</tr>
+</table>
+
+</ul></div>
+<p class="pBody"><a name="wp1075676"> </a>
+These sections and the parameters within each section can be in any order in the configuration file, as long as the required sections and parameters are defined.
+</p>
+<h4 class="pHeading3"><a name="wp1075731"> </a>
+Defining the TM_MQO QUEUE_MANAGER Section (Required)
+</h4>
+<p class="pBody"><a name="wp1078389"> </a>
+The syntax for the QUEUE_MANAGER section of the TM_MQO configuration file is as follows in <a href="config.html#wp1078390">Listing&#160;3-5</a>:
+</p>
+<div class="pCodeTitle"><a name="wp1078390"> </a>
+Listing&#160;3-5	   Syntax for QUEUE_MANAGER section
+</div> <a name="wp1075758"> </a><div class="pPreformatted"><pre>*QUEUE_MANAGER</pre></div><a name="wp1075736"> </a><div class="pPreformatted"><pre>NAME=<span style="font-style: italic">string</span></pre></div><a name="wp1075796"> </a><div class="pPreformatted"><pre>LQMID=<span style="font-style: italic">string</span></pre></div><a name="wp1075798"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The configuration file can only have one QUEUE_MANAGER section. </td>
+</tr>
+</table>
+
+<h5 class="pHeading4"><a name="wp1077396"> </a>
+Required Parameter
+</h5>
+<p class="pBody"><a name="wp1075804"> </a>
+The following parameter must be included in the QUEUE_MANAGER section of the TM_MQO configuration file.
+</p>
+<h4 class="pDefTerm"><a name="wp1075806"> </a>
+<code class="cCode">NAME= string</code> 
+</h4><div class="pDefPara"><a name="wp1075807"> </a>
+Specifies the name of the WebSphere MQ Queue Manager. Can contain up to 48 characters, all uppercase. Refer to WebSphere MQ documentation for the specific format of Queue Manager names.
+</div>
+<h5 class="pHeading4"><a name="wp1075808"> </a>
+Optional Parameter
+</h5>
+<p class="pBody"><a name="wp1075809"> </a>
+The following parameter is optional: 
+</p>
+<h4 class="pDefTerm"><a name="wp1078272"> </a>
+<code class="cCode">LQMID= string</code> 
+</h4><div class="pDefPara"><a name="wp1075810"> </a>
+Specifies the logical Queue Manager ID. Can contain up to 8 alphanumeric characters, upper and lowercase.  If this parameter is specified, it will be included in certain userlog messages.
+</div>
+<h4 class="pHeading3"><a name="wp1075820"> </a>
+Defining the TM_MQO SERVICE Section (Required)
+</h4>
+<p class="pBody"><a name="wp1075821"> </a>
+The syntax for the SERVICE section of the TM_MQO configuration file is as follows in <a href="config.html#wp1075830">Listing&#160;3-6</a>: 
+</p>
+<div class="pCodeTitle"><a name="wp1075830"> </a>
+Listing&#160;3-6	   Syntax for SERVICE section 
+</div> <a name="wp1075831"> </a><div class="pPreformatted"><pre><code style="font-style: normal" class="cCode">*SERVICE<br />NAME=</code><span style="font-style: italic">string<br /></span><code class="cCode">MQNAME=string<br />FORMAT=string<br />TRAN={Y/N}<br />MAXMSGLEN=integer<br />REPLYTOQ=string<br />TIMEOUT=integer<br />EXPIRE=integer<br />PRIORITY=integer<br />INFIELD=string<br />OUTFIELD=string<br />OUTFIELDVNAME=string</code></pre></div><h5 class="pHeading4"><a name="wp1075883"> </a>
+Required Parameters
+</h5>
+<p class="pBody"><a name="wp1075884"> </a>
+The following parameters must be included in the SERVICE section of the TM_MQO configuration file.
+</p>
+<h4 class="pDefTerm"><a name="wp1075885"> </a>
+<code class="cCode">NAME = string </code>
+</h4><div class="pDefPara"><a name="wp1078281"> </a>
+Specifies the Oracle Tuxedo Service Name.  The maximum length of this parameter is the same as the maximum length of an Oracle Tuxedo service name, which is currently 127 characters of mixed case.  Note that the NAME string should be unique among all of the *SERVICE sections in a particular TM_MQO configuration file.
+</div>
+<h4 class="pDefTerm"><a name="wp1078282"> </a>
+<code class="cCode">MQNAME = string</code> 
+</h4><div class="pDefPara"><a name="wp1078283"> </a>
+Specifies the name of the WebSphere MQ Queue. Can contain up to a maximum of 48 characters, all uppercase. Refer to WebSphere MQ documentation for the specific format of Queue names. 
+</div>
+<h4 class="pDefTerm"><a name="wp1075890"> </a>
+<code class="cCode">MAXMSGLEN = integer</code> 
+</h4><div class="pDefPara"><a name="wp1075891"> </a>
+Specifies the maximum message length expected for buffers received by this service.  This is a required parameter unless DEFMAXMSGLEN is specified in the SERVER section. (See Defining the SERVER Section (Optional) for more information). 
+</div>
+<h4 class="pDefTerm"><a name="wp1075892"> </a>
+<code class="cCode">TIMEOUT = integer </code>
+</h4><div class="pDefPara"><a name="wp1077381"> </a>
+Specifies the amount of time, in seconds, that is allowed for processing of the indicated MQ service.  (This is the maximum amount of time that MQGET will wait for a message on the reply queue after the MQ service is invoked with MQPUT1.)  The value must be greater than or equal to 0. A value of 0 indicates that the service will not be timed out. This is a required parameter unless DEFTIMEOUT is specified in the SERVER section. (See Defining the SERVER Section (Optional) for more information).
+</div>
+<h5 class="pHeading4"><a name="wp1077389"> </a>
+Optional Parameters
+</h5>
+<p class="pBody"><a name="wp1077387"> </a>
+The following parameters are optional. 
+</p>
+<h4 class="pDefTerm"><a name="wp1077383"> </a>
+<code class="cCode">EXPIRE = integer</code> 
+</h4><div class="pDefPara"><a name="wp1077384"> </a>
+Specifies the amount of time, in tenths of a second, the expiry time for the MQ service request message sent with MQPUT1. The value must be greater than or equal to 0. A value of 0 indicates that the message will not be expired.  The default value is 0.
+</div>
+<h4 class="pDefTerm"><a name="wp1075906"> </a>
+<code class="cCode">PRIORITY = integer</code>
+</h4><div class="pDefPara"><a name="wp1075907"> </a>
+Specifies the WebSphere MQ priority at which requests to this service will be sent.  WebSphere MQ has traditionally allowed values of 0 through 9 for priorities.  If not specified, the default queue priority represented in MQ by the value MQPRI_PRIORITY_AS_Q_DEF will be used.
+</div>
+<h4 class="pDefTerm"><a name="wp1075909"> </a>
+<code class="cCode">FORMAT = string </code>
+</h4><div class="pDefPara"><a name="wp1075910"> </a>
+Maps to the WebSphere MQ Message Descriptor Format. Can contain up to 8 characters. Refer to WebSphere MQ documentation for specific format of the Message Descriptor Format field.
+</div>
+<h4 class="pDefTerm"><a name="wp1075911"> </a>
+<code class="cCode">TRAN = {Y|N} </code>
+</h4><div class="pDefPara"><a name="wp1075912"> </a>
+Specifies whether the Service is transactional. Y indicates transactional; N indicates non-transactional.   The default value is N.  (A service defined as transactional must be called within an Oracle Tuxedo transaction.  A service defined as non-transactional must be called outside of an Oracle Tuxedo transaction.  Messages sent to transactional services are sent with persistence MQPER_PERSISTENT and messages sent to non-transactional services are sent with the default queue persistence MQPER_PERSISTENCE_AS_Q_DEF.)
+</div>
+<h4 class="pDefTerm"><a name="wp1075913"> </a>
+<code class="cCode">REPLYTOQ = string </code>
+</h4><div class="pDefPara"><a name="wp1075914"> </a>
+Specifies the name of the WebSphere MQ Reply To Queue. Can contain up to 48 characters, all uppercase. Refer to WebSphere MQ documentation for the specific format of Queue names.
+</div>
+<h4 class="pDefTerm"><a name="wp1075982"> </a>
+<code class="cCode">INFIELD = string</code> 
+</h4><div class="pDefPara"><a name="wp1075983"> </a>
+Specifies the FML32 field name of the input data in an FML32 buffer. If you specify this parameter, requests for this service may pass FML32 buffers for input, and the data in INFIELD will be passed as the actual service data.  (A request to a service which specifies INFIELD may still pass a non-FML32 data type as input, which will be treated exactly as if INFIELD had not been specified, but a request to a service which specifies INFIELD may not pass NULL data.)
+</div>
+<div class="pDefParaCont"><a name="wp1075984"> </a>
+If INFIELD is a FLD_VIEW32 field, TM_MQO will pass only the actual VIEW32 data to MQ and will not pass the FVIEWFLD structure that was returned by FML32.  The MQ program must know which view it is expecting to receive.  The application should not use fields of type FLD_PTR, FLD_FML32, FLD_MBSTRING, or FLD_FML for the TM_MQO INFIELD or OUTFIELD. These field types will not result in meaningful data being passed to or from the MQ application.
+<a name="wp1075985"> </a>
+If INFIELD is not specified, then TM_MQO will accept only buffers not of type FML32 as input, and will pass this data directly to WebSphere MQ.
+</div>
+<h4 class="pDefTerm"><a name="wp1075986"> </a>
+<code class="cCode">OUTFIELD = string</code> 
+</h4><div class="pDefPara"><a name="wp1075987"> </a>
+Specifies the FML32 field name of the output data to be used when building an FML32 response buffer. If you specify this parameter, you must also specify the INFIELD parameter. The omission of this parameter causes the response data field name to match the name specified by the INFIELD parameter.
+</div>
+<div class="pDefParaCont"><a name="wp1075988"> </a>
+When OUTFIELD is a FLD_VIEW32 field, the data returned by MQ should be VIEW32 data, and not a FVIEWFLD structure.  In order to pass VIEW32 data back to an Oracle Tuxedo application, TM_MQO must internally fill in a FVIEWFLD structure to add the VIEW32 data to the FML32 reply buffer, and therefore TM_MQO must know the name of the view to be returned.  The TM_MQO server will obtain this information in the following manner:
+</div>
+<div class="pSmartList1Bullet"><ul>
+<div class="pSmartList2Bullet"><ul>
+<div class="pSmartList3Bullet"><ul class="SmartList3Bullet">
+<li><a name="wp1075989"> </a>If the OUTFIELDVNAME parameter is set, the value of this parameter will be used as the view32 name.</li>
+<li><a name="wp1075990"> </a>Otherwise, if the INFIELD was a FLD_VIEW32 field, the same viewname used in the INFIELD will be used for the OUTFIELD.</li>
+<li><a name="wp1075991"> </a>Otherwise, TM_MQO will log an error message and call <code class="cCode">tpreturn()</code> with TPFAIL.</li>
+</ul></div>
+</ul></div>
+</ul></div>
+<div class="pDefParaCont"><a name="wp1075992"> </a>
+The application should not use fields of type FLD_PTR, FLD_FML32, FLD_MBSTRING, or FLD_FML for the TM_MQO INFIELD or OUTFIELD. These field types will not result in meaningful data being passed to or from the MQ application.
+</div>
+<h4 class="pDefTerm"><a name="wp1075993"> </a>
+<code class="cCode">OUTFIELDVNAME = view32name</code>
+</h4><div class="pDefPara"><a name="wp1075994"> </a>
+Specifies the name of the VIEW32 subtype used for output to the FML32 OUTFIELD (or the FML32 INFIELD if OUTFIELD is not configured.)  OUTFIELDVNAME is allowed only if OUTFIELD and/or INFIELD are also specified.
+</div>
+<h4 class="pHeading3"><a name="wp1076051"> </a>
+Defining the TM_MQO SERVER Section (Optional)
+</h4>
+<p class="pBody"><a name="wp1076052"> </a>
+The syntax for the SERVER section of the TM_MQO configuration file is as follows in <a href="config.html#wp1076054">Listing&#160;3-7</a>: 
+</p>
+<div class="pCodeTitle"><a name="wp1076054"> </a>
+Listing&#160;3-7	   Syntax for SERVER section 
+</div> <a name="wp1076055"> </a><div class="pPreformatted"><pre>*SERVER<br />DEFTIMEOUT=integer<br />DEFMAXMSGLEN=integer<br />MINMSGLEVEL=integer<br />MAXMSGLEVEL=integer</pre></div><h5 class="pHeading4"><a name="wp1076096"> </a>
+Required Parameters
+</h5>
+<p class="pBody"><a name="wp1076097"> </a>
+There are no required parameters in the *SERVER section. 
+</p>
+<h5 class="pHeading4"><a name="wp1077340"> </a>
+Optional Parameters
+</h5>
+<h4 class="pDefTerm"><a name="wp1076098"> </a>
+<code class="cCode">MINMSGLEVEL = integer</code> 
+</h4><div class="pDefPara"><a name="wp1076099"> </a>
+Specifies minimum debug level desired for userlog messages.
+</div>
+<h4 class="pDefTerm"><a name="wp1076100"> </a>
+<code class="cCode">MAXMSGLEVEL = integer</code> 
+</h4><div class="pDefPara"><a name="wp1076101"> </a>
+Specifies maximum debug level desired for userlog messages.  (Parameters MINMSGLEVEL and MAXMSGLEVEL are intended only for application debugging, and setting MAXMSGLEVEL to a large value can result in excessive output to the ULOG.)
+</div>
+<h4 class="pDefTerm"><a name="wp1078162"> </a>
+<code class="cCode">DEFMAXMSGLEN = integer</code> 
+</h4><div class="pDefPara"><a name="wp1078158"> </a>
+Specifies the default maximum message length expected for buffers received by Oracle Tuxedo to WebSphere MQ services. The DEFMAXMSGLEN parameter is overridden by the Service MAXMSGLEN parameter. 
+</div>
+<h4 class="pDefTerm"><a name="wp1076104"> </a>
+<code class="cCode">DEFTIMEOUT = integer</code> 
+</h4><div class="pDefPara"><a name="wp1076105"> </a>
+Specifies the default amount of time, in seconds, that is allowed for processing of WebSphere MQ services. The value must be greater than or equal to 0. A value of 0 indicates that the service will not be timed out. The DEFTIMEOUT is overridden by the Service TIMEOUT parameter. 
+</div>
+<h4 class="pDefTerm"><a name="wp1078559"> </a>
+<code class="cCode">	MAXRETRIES = integer</code>
+</h4><div class="pDefPara"><a name="wp1078560"> </a>
+Specifies the maximum attempts of connection retry. The minimum and default value is 0, and the maximum value is 2147483647. If <code class="cCode">MAXRETRIES</code> is set to 0, connection retry is turned off.
+</div>
+<h4 class="pHeading3"><a name="wp1076137"> </a>
+Sample TM_MQO.CFG
+</h4>
+<p class="pBody"><a name="wp1078405"> </a>
+<a href="config.html#wp1076139">Listing&#160;3-8</a> is the sample configuration file for TM_MQO Server.
+</p>
+<div class="pCodeTitle"><a name="wp1076139"> </a>
+Listing&#160;3-8	   Sample Configuration File for TM_MQO Server
+</div> <a name="wp1076273"> </a><div class="pPreformatted"><pre>*SERVER<br />	DEFTIMEOUT=60<br />	DEFMAXMSGLEN=4096<br />	MINMSGLEVEL=10<br />	MAXMSGLEVEL=30<br /><br />*QUEUE_MANAGER<br />	LQMID=QM1<br />	NAME=BEA.TEST.MANAGER<br /><br />*SERVICE<br />	NAME=MQTest1<br />	TIMEOUT=20<br />	MQNAME=TEST.SAMPLE.ECHO<br />	REPLYTOQ=TEST.REPLY.QUEUE<br /><br />*SERVICE<br />	NAME=MQTest2<br />	TIMEOUT=15<br />	REPLYTOQ=TEST.REPLY.QUEUE<br />	MQNAME=TEST.SAMPLE.TOUPPER<br /><br />*SERVICE<br />	NAME=MQTest3<br />	MQNAME=TEST.NOREPLY.QUEUE<br />	TRAN=Y<br />	MAXMSGLEN=1024</pre></div><h3 class="pHeading2"><a name="wp1076327"> </a>
+Creating the WebSphere MQ to Oracle Tuxedo Server Configuration File
+</h3>
+<p class="pBody"><a name="wp1076328"> </a>
+The TM_MQI.CFG file controls the operation of the WebSphere MQ to Oracle Tuxedo server (TM_MQI). Following are the sections of the TM_MQI configuration file and the parameters you can define for each section. A sample configuration file follows the descriptions. 
+</p>
+<p class="pBody"><a name="wp1076329"> </a>
+Note: TM_MQI.CFG is a generic filename. You can name this file anything you choose, but the filename must match the -C configuration_file_name parameter you specify in the Oracle Tuxedo UBBCONFIG file. (See <a href="config.html#wp1075530">Configuring the WebSphere MQ to Oracle Tuxedo Server (TM_MQI)</a> for instructions on configuring the TM_MQI server in the UBBCONFIG file.) 
+</p>
+<p class="pBody"><a name="wp1076364"> </a>
+The TM_MQI configuration file is divided into the following required sections: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1076365"> </a>Queue_Manager </li>
+<p class="pBodyRelative"><a name="wp1076366"> </a>
+Defines the queue manager name and logical ID. 
+</p>
+<a name="wp1076367"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The configuration file can only have one QUEUE_MANAGER section. </td>
+</tr>
+</table>
+
+<li><a name="wp1076368"> </a>QUEUE </li>
+<p class="pBodyRelative"><a name="wp1076369"> </a>
+Defines various parameters for the incoming message queue. 
+</p>
+<li><a name="wp1076370"> </a>SERVICE </li>
+<p class="pBodyRelative"><a name="wp1076371"> </a>
+Defines various parameters for the Oracle Tuxedo service. 
+</p>
+</ul></div>
+<p class="pBody"><a name="wp1076372"> </a>
+The TM_MQI configuration file has one optional section: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1076373"> </a>SERVER </li>
+<p class="pBodyRelative"><a name="wp1076374"> </a>
+Defines the minimum and maximum settings for services and messages. 
+</p>
+<a name="wp1076375"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The configuration file can only have one SERVER section. </td>
+</tr>
+</table>
+
+</ul></div>
+<p class="pBody"><a name="wp1076376"> </a>
+These sections and the parameters within each section can be in any order in the configuration file, as long as the required sections and parameters are defined. 
+</p>
+<h4 class="pHeading3"><a name="wp1076422"> </a>
+Defining the TM_MQI QUEUE_MANAGER Section (Required)
+</h4>
+<p class="pBody"><a name="wp1076423"> </a>
+The syntax for the QUEUE_MANAGER section of the TM_MQI configuration file is as follows in <a href="config.html#wp1076425">Listing&#160;3-9</a>:
+</p>
+<div class="pCodeTitle"><a name="wp1076425"> </a>
+Listing&#160;3-9	   Syntax for QUEUE_MANAGER section
+</div> <a name="wp1076426"> </a><div class="pPreformatted"><pre>*QUEUE_MANAGER<br />NAME=string<br />LQMID=string</pre></div><a name="wp1076430"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The configuration file can only have one QUEUE_MANAGER section. </td>
+</tr>
+</table>
+
+<h5 class="pHeading4"><a name="wp1077418"> </a>
+Required Parameter
+</h5>
+<p class="pBody"><a name="wp1076431"> </a>
+The following parameter must be included in the QUEUE_MANAGER section of the TM_MQO configuration file.
+</p>
+<h4 class="pDefTerm"><a name="wp1078079"> </a>
+<code class="cCode">NAME = string </code>
+</h4><div class="pDefPara"><a name="wp1076432"> </a>
+Specifies the name of the WebSphere MQ Queue Manager assigned to the queue to be processed by the server. Can contain up to 48 characters, all uppercase. Refer to WebSphere MQ documentation for the specific format of Queue Manager names. 
+</div>
+<h5 class="pHeading4"><a name="wp1076434"> </a>
+Optional Parameter
+</h5>
+<p class="pBody"><a name="wp1076435"> </a>
+The following parameter is optional in the QUEUE_MANAGER section: 
+</p>
+<h4 class="pDefTerm"><a name="wp1076436"> </a>
+<code class="cCode">LQMID = string</code> 
+</h4><div class="pDefPara"><a name="wp1076437"> </a>
+Specifies the logical Queue Manager ID. Can contain up to 8 alphanumeric characters, upper and lowercase. If this parameter is specified, it will be included in certain userlog messages. 
+</div>
+<h4 class="pHeading3"><a name="wp1076493"> </a>
+Defining the TM_MQI QUEUE Section (Required)
+</h4>
+<p class="pBody"><a name="wp1076494"> </a>
+The syntax for the QUEUE section of the TM_MQI configuration file is as follows in <a href="config.html#wp1076496">Listing&#160;3-10</a>: 
+</p>
+<div class="pCodeTitle"><a name="wp1076496"> </a>
+Listing&#160;3-10	   Syntax for QUEUE section
+</div> <a name="wp1076497"> </a><div class="pPreformatted"><pre>*QUEUE</pre></div><a name="wp1076498"> </a><div class="pPreformatted"><pre>MQNAME=string</pre></div><a name="wp1076499"> </a><div class="pPreformatted"><pre>MAXMSGLEN=integer</pre></div><a name="wp1076500"> </a><div class="pPreformatted"><pre>SERVICE=string</pre></div><h5 class="pHeading4"><a name="wp1076502"> </a>
+Required Parameters
+</h5>
+<p class="pBody"><a name="wp1076503"> </a>
+The following parameter must be included in the QUEUE section of the TM_MQI configuration file: 
+</p>
+<h4 class="pDefTerm"><a name="wp1076505"> </a>
+<code class="cCode">MQNAME = string </code>
+</h4><div class="pDefPara"><a name="wp1076506"> </a>
+Specifies the name of a WebSphere MQ queue to be processed by the server. Can contain up to 48 characters, all uppercase. Refer to WebSphere MQ documentation for specific format of queue names.   Note that the MQNAME string should be unique among all of the *QUEUE sections in a particular TM_MQI configuration file.
+</div>
+<h5 class="pHeading4"><a name="wp1077456"> </a>
+Optional Parameters
+</h5>
+<p class="pBody"><a name="wp1077454"> </a>
+The following parameters are optional:
+</p>
+<h4 class="pDefTerm"><a name="wp1076510"> </a>
+<code class="cCode">MAXMSGLEN = integer</code> 
+</h4><div class="pDefPara"><a name="wp1076511"> </a>
+Specifies the maximum message length expected for MQ queue buffers received by this server.  Any message longer than this length read from the WebSphere MQ queue will be sent to the dead letter queue.  If this parameter is not set, the value of the SERVER section DEFMAXMSGLEN parameter will be used.  If the SERVER section DEFMAXMSGLEN parameter is also not set, the <code class="cCode">MaxMsgLength</code> value defined for the WebSphere MQ queue will be used.
+</div>
+<h4 class="pDefTerm"><a name="wp1076512"> </a>
+<code class="cCode">SERVICE = string</code>
+</h4><div class="pDefPara"><a name="wp1076513"> </a>
+Specifies the name of the Oracle Tuxedo service that will process requests received on this queue.  If not specified, the value of the Format field in the MQMD structure received from WebSphere MQ will be used as the Oracle Tuxedo service name.  In either case, the service name must be defined in the TM_MQI SERVICE section in order for the Oracle Tuxedo service to be invoked.
+</div>
+<p class="pBody"><a name="wp1076514"> </a>
+There are no other parameters in the QUEUE section. 
+</p>
+<h4 class="pHeading3"><a name="wp1076591"> </a>
+Defining the TM_MQI SERVICE Section (Required)
+</h4>
+<p class="pBody"><a name="wp1076592"> </a>
+The syntax for the SERVICE section of the TM_MQI configuration file is as follows in <a href="config.html#wp1076594">Listing&#160;3-11</a>: 
+</p>
+<div class="pCodeTitle"><a name="wp1076594"> </a>
+Listing&#160;3-11	   Syntax for SERVICE section
+</div> <a name="wp1076595"> </a><div class="pPreformatted"><pre>*SERVICE</pre></div><a name="wp1076596"> </a><div class="pPreformatted"><pre>NAME=string</pre></div><a name="wp1076597"> </a><div class="pPreformatted"><pre>FORMAT=string</pre></div><a name="wp1076598"> </a><div class="pPreformatted"><pre>TRAN={Y|N}</pre></div><h5 class="pHeading4"><a name="wp1078304"> </a>
+Required Parameters
+</h5>
+<p class="pBody"><a name="wp1078305"> </a>
+The following parameters must be included in the SERVICE section of the TM_MQI configuration file. 
+</p>
+<h4 class="pDefTerm"><a name="wp1076602"> </a>
+<code class="cCode">NAME = string</code> 
+</h4><div class="pDefPara"><a name="wp1076603"> </a>
+Specifies the Oracle Tuxedo Service Name.  The maximum length of this parameter is the same as the maximum length of an Oracle Tuxedo service name, which is currently 127 characters of mixed case. 
+</div>
+<h4 class="pDefTerm"><a name="wp1076604"> </a>
+<code class="cCode">FORMAT = string</code> 
+</h4><div class="pDefPara"><a name="wp1076605"> </a>
+Maps the WebSphere MQ Message Descriptor Format field to the service being called. Can contain up to 8 characters. Refer to WebSphere MQ documentation for specific format of the Message Descriptor Format field.  Note that the FORMAT string should be unique among all of the *SERVICE sections in a particular TM_MQI configuration file. If the same FORMAT is used for two or more Oracle Tuxedo services, it is undefined which service the MQ adapter will map that particular FORMAT to. 
+</div>
+<h5 class="pHeading4"><a name="wp1076608"> </a>
+Optional Parameter
+</h5>
+<p class="pBody"><a name="wp1076609"> </a>
+The following parameter is optional. 
+</p>
+<h4 class="pDefTerm"><a name="wp1076610"> </a>
+<code class="cCode">TRAN = {Y|N} </code>
+</h4><div class="pDefPara"><a name="wp1076611"> </a>
+Specifies whether the Service is transactional. Y indicates transactional; N indicates non-transactional. Default value is N. 
+<a name="wp1076612"> </a>
+(TM_MQI starts an Oracle Tuxedo transaction before reading each message from a WebSphere MQ queue.  If TRAN=Y, the call to the Oracle Tuxedo service is made within this transaction.  If TRAN=N, then the call to the Oracle Tuxedo service is made with the TPNOTRAN flag.)
+</div>
+<h4 class="pHeading3"><a name="wp1076675"> </a>
+Defining the TM_MQI SERVER Section (Optional)
+</h4>
+<p class="pBody"><a name="wp1076676"> </a>
+The syntax for the SERVER section of the TM_MQI configuration file is as follows in <a href="config.html#wp1076678">Listing&#160;3-12</a>: 
+</p>
+<div class="pCodeTitle"><a name="wp1076678"> </a>
+Listing&#160;3-12	   Syntax for SERVER section
+</div> <a name="wp1076729"> </a><div class="pPreformatted"><pre>*SERVER<br />MINMSGLEVEL=integer<br />MAXMSGLEVEL=integer<br />DEFMAXMSGLEN=integer<br />TPESVCFAILDATA={Y|N}</pre></div><a name="wp1076685"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The configuration file can only have one SERVER section.</td>
+</tr>
+</table>
+
+<h5 class="pHeading4"><a name="wp1076686"> </a>
+ Required Parameters
+</h5>
+<p class="pBody"><a name="wp1076687"> </a>
+There are no required parameters in the SERVER section. 
+</p>
+<h5 class="pHeading4"><a name="wp1076688"> </a>
+Optional Parameters
+</h5>
+<h4 class="pDefTerm"><a name="wp1076689"> </a>
+<code class="cCode">MINMSGLEVEL = integer</code> 
+</h4><div class="pDefPara"><a name="wp1076690"> </a>
+Specifies minimum debug level desired for userlog messages. 
+</div>
+<h4 class="pDefTerm"><a name="wp1076691"> </a>
+<code class="cCode">MAXMSGLEVEL = integer</code> 
+</h4><div class="pDefPara"><a name="wp1076692"> </a>
+Specifies maximum debug level desired for userlog messages.  (Parameters MINMSGLEVEL and MAXMSGLEVEL are intended only for application debugging, and setting MAXMSGLEVEL to a large value can result in excessive output to the ULOG.)
+</div>
+<h4 class="pDefTerm"><a name="wp1076693"> </a>
+<code class="cCode">DEFMAXMSGLEN = integer</code> 
+</h4><div class="pDefPara"><a name="wp1076694"> </a>
+Specifies the default value for the MAXMSGLEN parameter in the *QUEUE section. 
+</div>
+<h4 class="pDefTerm"><a name="wp1076695"> </a>
+<code class="cCode">TPESVCFAILDATA = {Y|N}</code>
+</h4><div class="pDefPara"><a name="wp1076696"> </a>
+Specifies the manner of handling TPESVCFAIL errors from Oracle Tuxedo with associated non-zero length data.  The default value is N. 
+</div>
+<div class="pDefParaCont"><a name="wp1076697"> </a>
+If TPESVCFAILDATA=N, then any error occurring on <code class="cCode">tpcall()</code> will cause TM_MQI to send the original data sent to <code class="cCode">tpcall</code> to the MQ dead letter queue, if any.
+<a name="wp1076698"> </a>
+If TPESVCFAILDATA=Y, then TM_MQI will return data to the caller&#39;s reply queue and will not send the original message to the MQ dead letter queue if <code class="cCode">tpcall()</code> fails with TPESVCFAIL and a non-zero length reply.  TM_MQI will set Feedback in MQMD to MQFB_APPL_FIRST+TPESVCFAIL in this case.  If an Oracle Tuxedo service call fails with zero-length data or with any value of <code class="cCode">tperrno</code> other than TPESVCFAIL, the original message will be sent to the Dead Letter Queue.
+</div>
+<h4 class="pDefTerm"><a name="wp1078605"> </a>
+<code class="cCode">RETRYINTERVAL = integer</code>
+</h4><div class="pDefPara"><a name="wp1078606"> </a>
+Specifies reconnection interval (in seconds). The minimum value is 1 and maximum value is 2147483647. 
+</div>
+<a name="wp1078607"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This parameter is only available for multi-threaded TM_MQI.</td>
+</tr>
+</table>
+
+<h4 class="pDefTerm"><a name="wp1078608"> </a>
+<code class="cCode">MAXRETRIES = integer</code>
+</h4><div class="pDefPara"><a name="wp1078609"> </a>
+Specifies the maximum attempts of connection retry. The minimum and default value is 0, and the maximum value is 2147483647. If MAXRETRIES is set to 0, connection retry is turned off.
+</div>
+<a name="wp1078610"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This parameter is only available for multi-threaded TM_MQI.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp1076775"> </a>
+Sample TM_MQI.CFG
+</h4>
+<p class="pBody"><a name="wp1076776"> </a>
+<a href="config.html#wp1076777">Listing&#160;3-13</a> shows a TM_MQI Server configuration file example
+</p>
+<div class="pCodeTitle"><a name="wp1076777"> </a>
+Listing&#160;3-13	   TM_MQI Server Configuration File Example 
+</div> <a name="wp1076895"> </a><div class="pPreformatted"><pre>*SERVER<br />	MINMSGLEVEL=1<br />	MAXMSGLEVEL=100<br /><br />*QUEUE_MANAGER<br />	LQMID=QM1<br />	NAME=BEA.TEST.MANAGER<br /><br />*SERVICE<br />	NAME=SvcToupper<br />	FORMAT=UPPER<br /><br />*SERVICE<br />	NAME=SvcEcho<br />	FORMAT=ECHO<br />	TRAN=Y<br /><br />*QUEUE<br />	MQNAME=TEST.SAMPLE.QUEUE1<br />	MAXMSGLEN=200<br />*QUEUE<br />	MQNAME=TEST.SAMPLE.QUEUE2</pre></div><h3 class="pHeading2"><a name="wp1076901"> </a>
+Creating the enqueue/dequeue Server Configuration File
+</h3>
+<p class="pBody"><a name="wp1076902"> </a>
+The TMQUEUE_MQM.CFG file controls the operation of the server that handles <code class="cCode">tpenqueue</code> and <code class="cCode">tpdequeue</code> requests (TMQUEUE_MQM). Following are the sections of the TMQUEUE_MQM configuration file and the parameters you can define for each section. A sample configuration file follows the descriptions. 
+</p>
+<a name="wp1076903"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>TMQUEUE_MQM.CFG is a generic filename. You can name this file anything you choose, but the filename must match the -C <code class="cCode">configuration_file_name</code> parameter you specify in the Oracle Tuxedo UBBCONFIG file. (See <a href="config.html#wp1075538">Configuring the TMQUEUE_MQM Server</a> for instructions on configuring the TMQUEUE_MQM server in the UBBCONFIG file.) </td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1076904"> </a>
+The TMQUEUE_MQM configuration file is divided into the following required sections: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1076905"> </a>Queue_Manager </li>
+<p class="pBodyRelative"><a name="wp1076906"> </a>
+Defines the queue manager name and logical ID. 
+</p>
+<a name="wp1076907"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The configuration file can only have one QUEUE_MANAGER section. </td>
+</tr>
+</table>
+
+<li><a name="wp1076908"> </a>QUEUE </li>
+<p class="pBodyRelative"><a name="wp1076909"> </a>
+Defines various parameters for the message queue. 
+</p>
+</ul></div>
+<p class="pBody"><a name="wp1076910"> </a>
+The TMQUEUE_MQM configuration file has one optional section: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1076911"> </a>SERVER </li>
+<p class="pBodyRelative"><a name="wp1076912"> </a>
+Defines the minimum and maximum debug level and the default maximum message length. 
+</p>
+<a name="wp1076913"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The configuration file can only have one SERVER section. </td>
+</tr>
+</table>
+
+</ul></div>
+<p class="pBody"><a name="wp1076914"> </a>
+These sections and the parameters within each section can be in any order in the configuration file, as long as the required sections and parameters are defined. 
+</p>
+<h4 class="pHeading3"><a name="wp1076949"> </a>
+Defining the TMQUEUE_MQM QUEUE_MANAGER Section (Required)
+</h4>
+<p class="pBody"><a name="wp1076950"> </a>
+The syntax for the QUEUE_MANAGER section of the TMQUEUE_MQM configuration file is as follows in <a href="config.html#wp1076953">Listing&#160;3-14</a>: 
+</p>
+<div class="pCodeTitle"><a name="wp1076953"> </a>
+Listing&#160;3-14	   Syntax for QUEUE_MANAGER section
+</div> <a name="wp1076979"> </a><div class="pPreformatted"><pre>*QUEUE_MANAGER<br />NAME=string<br />LQMID=string</pre></div><a name="wp1076957"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The configuration file can only have one QUEUE_MANAGER section. </td>
+</tr>
+</table>
+
+<h5 class="pHeading4"><a name="wp1077350"> </a>
+Required Parameter
+</h5>
+<p class="pBody"><a name="wp1076958"> </a>
+The following parameter must be included in the QUEUE_MANAGER section of the TMQUEUE_MQM configuration file: 
+</p>
+<h4 class="pDefTerm"><a name="wp1076960"> </a>
+<code class="cCode">NAME = string</code> 
+</h4><div class="pDefPara"><a name="wp1076961"> </a>
+Specifies the name of the WebSphere MQ Queue Manager assigned to the queue to be processed by the server. Can contain up to 48 characters, all uppercase. Refer to WebSphere MQ documentation for the specific format of Queue Manager names.
+</div>
+<h5 class="pHeading4"><a name="wp1076963"> </a>
+Optional Parameter
+</h5>
+<h4 class="pDefTerm"><a name="wp1076965"> </a>
+<code class="cCode">LQMID = string </code>
+</h4><div class="pDefPara"><a name="wp1076966"> </a>
+Specifies the logical Queue Manager ID. Can contain up to 8 alphanumeric characters, upper and lowercase. If this parameter is specified, it will be included in certain userlog messages.
+</div>
+<h4 class="pHeading3"><a name="wp1077034"> </a>
+Defining the TMQUEUE_MQM QUEUE Section (Required)
+</h4>
+<p class="pBody"><a name="wp1077035"> </a>
+<a href="config.html#wp1077074">Listing&#160;3-15</a> shows the syntax for the QUEUE section of the TMQUEUE_MQM configuration file.
+</p>
+<div class="pCodeTitle"><a name="wp1077074"> </a>
+Listing&#160;3-15	   Syntax for QUEUE section
+</div> <a name="wp1077075"> </a><div class="pPreformatted"><pre>*QUEUE<br />MQNAME=string<br />TUXNAME=string<br />MAXMSGLEN=integer</pre></div><h5 class="pHeading4"><a name="wp1077043"> </a>
+Required Parameters
+</h5>
+<p class="pBody"><a name="wp1077044"> </a>
+The following parameters must be included in the QUEUE section of the TMQUEUE_MQM configuration file. 
+</p>
+<h4 class="pDefTerm"><a name="wp1077045"> </a>
+<code class="cCode">MQNAME = string</code> 
+</h4><div class="pDefPara"><a name="wp1077046"> </a>
+Specifies the name of a WebSphere MQ queue to be processed by the server. Can contain up to 48 characters, all uppercase. Refer to WebSphere MQ documentation for specific format of queue names. 
+</div>
+<h4 class="pDefTerm"><a name="wp1077047"> </a>
+<code class="cCode">TUXNAME = string </code>
+</h4><div class="pDefPara"><a name="wp1077048"> </a>
+Specifies the name of the queue used for ATMI enqueue/dequeue calls.  The maximum length of this parameter is the same as the maximum length of an Oracle Tuxedo queue name, which is currently 127 characters of mixed case.  Note that the TUXNAME string should be unique among all of the *QUEUE sections in a particular TMQUEUE_MQM configuration file. 
+</div>
+<h4 class="pDefTerm"><a name="wp1077051"> </a>
+<code class="cCode">MAXMSGLEN = integer </code>
+</h4><div class="pDefPara"><a name="wp1077052"> </a>
+Specifies the maximum message length expected for buffers received from this queue.  This parameter overrides the SERVER DEFMAXMSGLEN parameter.  If DEFMAXMSGLEN is not specified, then MAXMSGLEN is required.
+</div>
+<h4 class="pHeading3"><a name="wp1077113"> </a>
+Defining the TMQUEUE_MQM SERVER Section (Optional)
+</h4>
+<p class="pBody"><a name="wp1077114"> </a>
+<a href="config.html#wp1077116">Listing&#160;3-16</a> shows the syntax for the SERVER section of the TMQUEUE_MQM configuration file.
+</p>
+<div class="pCodeTitle"><a name="wp1077116"> </a>
+Listing&#160;3-16	   Syntax for SERVER section
+</div> <a name="wp1077117"> </a><div class="pPreformatted"><pre>*SERVER<br />MINMSGLEVEL=integer<br />MAXMSGLEVEL=integer<br />DEFMAXMSGLEN=integer</pre></div><a name="wp1077122"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The configuration file can only have one SERVER section. </td>
+</tr>
+</table>
+
+<h5 class="pHeading4"><a name="wp1077445"> </a>
+Required Parameters
+</h5>
+<p class="pBody"><a name="wp1077123"> </a>
+There are no required parameters in the SERVER section.
+</p>
+<h5 class="pHeading4"><a name="wp1077124"> </a>
+Optional Parameters
+</h5>
+<h4 class="pDefTerm"><a name="wp1077125"> </a>
+<code class="cCode">MINMSGLEVEL = integer</code>
+</h4><div class="pDefPara"><a name="wp1077126"> </a>
+Specifies minimum debug level desired for userlog messages. 
+</div>
+<h4 class="pDefTerm"><a name="wp1077127"> </a>
+<code class="cCode">MAXMSGLEVEL = integer</code> 
+</h4><div class="pDefPara"><a name="wp1077128"> </a>
+Specifies maximum debug level desired for userlog messages.  (Parameters MINMSGLEVEL and MAXMSGLEVEL are intended only for application debugging, and setting MAXMSGLEVEL to a large value can result in excessive output to the ULOG.)
+</div>
+<h4 class="pDefTerm"><a name="wp1077129"> </a>
+<code class="cCode">DEFMAXMSGLEN = integer</code> 
+</h4><div class="pDefPara"><a name="wp1077130"> </a>
+Specifies the default maximum message length expected for buffers received from WebSphere MQ queues. The DEFMAXMSGLEN parameter is overridden by the QUEUE section MAXMSGLEN parameter.
+</div>
+<h4 class="pHeading3"><a name="wp1077131"> </a>
+Sample TMQUEUE_MQM.CFG
+</h4>
+<p class="pBody"><a name="wp1077911"> </a>
+<a href="config.html#wp1077133">Listing&#160;3-17</a> shows TMQUEUE_MQM Server configuration file example.
+</p>
+<div class="pCodeTitle"><a name="wp1077133"> </a>
+Listing&#160;3-17	   TMQUEUE_MQM Server Configuration File Example
+</div> <a name="wp1077293"> </a><div class="pPreformatted"><pre>*SERVER<br />	DEFMAXMSGLEN=4096<br /><br />*QUEUE_MANAGER<br />	LQMID=QM1<br />	NAME=BEA.TEST.MANAGER</pre></div><a name="wp1077296"> </a><div class="pPreformatted"><pre><br />*QUEUE<br />	TUXNAME=MQTest1<br />	MQNAME=TEST.NOREPLY.QUEUE<br /><br />*QUEUE<br />	TUXNAME=MQEcho<br />	MQNAME=TEST.SAMPLE.ECHO<br />	MAXMSGLEN=2048<br /><br />*QUEUE<br />	TUXNAME=MQReply<br />	MQNAME=TEST.REPLY.QUEUE</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1077308"> </a>
+Configuring the WebSphere MQ Queue Manager
+</h2><p class="pBody"><a name="wp1077313"> </a>
+You must configure the WebSphere MQ queue manager in order to run the MQ Adapter for Oracle Tuxedo. Refer to your WebSphere MQ documentation for specific instructions on configuring queue managers.
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="config.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="build.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="run.html"><img id="LongDescNotReq9" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

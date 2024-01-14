@@ -1,0 +1,1164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="40264" />
+<meta name="LOC_US_SRCFILE" content="//depot/ecs/eam/v11gr1/user/fm/data.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="08/24/10 04:22:04" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Setting Up Data Translations</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">User Guide
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq2" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="scrty.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="appc.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/user.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1041753"> </a>
+Setting Up Data Translations
+</h1>
+<p class="pBody"><a name="wp1035433"> </a>
+Due to differences in platforms, operating systems, and programming languages, the data format used by applications in the ATMI domain differs significantly from that expected by applications in the remote domain. In the ATMI domain, applications are typically written in the C language, using C structures and ATMI typed buffers, such as VIEW and FML. In the remote domain, the C and COBOL programming languages are commonly used, with C structures or COBOL copybook definitions. The translation between these data types for both inbound and outbound messages occurs in the Oracle Tuxedo Mainframe Adapter for SNA Gateway. The Gateway has a number of configuration options for dealing with data conversion between domain types.
+</p>
+<p class="pBody"><a name="wp1035434"> </a>
+This section discusses the following data translation topics:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1035438"> </a><a href="data.html#wp1035449"><span class="cHyperlink">
+Data Conversion</span></a> </li>
+<li><a name="wp1035442"> </a><a href="data.html#wp1035558"><span class="cHyperlink">
+Translation Rules for VIEW Data Types</span></a> </li>
+</ul></div>
+<a name="wp1035447"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>All references to ATMI files, functions, and documentation apply to Tuxedo files, functions, and documentation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1035449"> </a>
+Data Conversion
+</h2><p class="pBody"><a name="wp1035451"> </a>
+Like other domain gateways, the Oracle Tuxedo Mainframe Adapter for SNA Gateway uses ATMI <span style="font-style: normal">typed buffers</span> to transmit and receive data. Since the remote host application does not understand the typed buffer, the ATMI application must communicate with the host application by using an aggregate data type known as a <em class="cEmphasis">record</em>. A <span style="font-style: italic">record</span> is a flat data area defined by a template that describes the data type and length of each field in the record. 
+</p>
+<p class="pBody"><a name="wp1035452"> </a>
+The application developer should determine the format and content of the record structure used on the remote host, as well as the ATMI typed buffer to be used, before configuring the Gateway.
+</p>
+<p class="pBody"><a name="wp1035453"> </a>
+In most cases the conversion between ATMI typed buffers and record formats is handled by the Oracle Tuxedo Mainframe Adapter for SNA Gateway. The service definitions in the <code class="cCode">DM_LOCAL_SERVICES</code> and the <code class="cCode">DM_REMOTE_SERVICES</code> section of the <code class="cCode">DMCONFIG</code> file provide parameters to describe the typed buffer/record combination required for successful communications between the applications. 
+</p>
+<a name="wp1035454"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The current size of remote host messages is limited to approximately 32K bytes. Any conversions resulting in records larger than 32756 bytes are not supported.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1035455"> </a>
+Conversion of ATMI Typed Buffers to Records
+</h3>
+<p class="pBody"><a name="wp1035456"> </a>
+When an ATMI application sends a typed buffer to a remote host application, the buffer must be converted to a record by the Oracle Tuxedo Mainframe Adapter for SNA Gateway before it is passed to the remote host application. The Gateway uses the service definition to determine what, if any, conversion must be applied to the buffer. The service definition uses the <code class="cCode">INBUFTYPE</code> in both the <code class="cCode">DM_LOCAL_SERVICES</code> and <code class="cCode">DM_REMOTE_SERVICES</code> section of the <code class="cCode">DMCONFIG</code> file to describe the desired conversion.
+</p>
+<p class="pBody"><a name="wp1035457"> </a>
+<code class="cCode">INBUFTYPE</code> is specified in the following way:
+</p>
+<a name="wp1035458"> </a><div class="pPreformatted"><pre>INBUFTYPE = type:subtype</pre></div><p class="pBody"><a name="wp1035459"> </a>
+In this parameter definition, <code class="cCode">type</code> must be one of the designated ATMI typed buffers described in the following subsections. 
+</p>
+<p class="pBody"><a name="wp1035460"> </a>
+The <code class="cCode">subtype</code> value names a view and is required for certain ATMI typed buffers.
+</p>
+<p class="pBody"><a name="wp1035461"> </a>
+Only one <code class="cCode">type:subtype</code> may be entered for the <code class="cCode">INBUFTYPE</code> parameter.
+</p>
+<p class="pBody"><a name="wp1035462"> </a>
+The following sections describe the conversions performed for each ATMI typed buffer.
+</p>
+<h4 class="pHeading3"><a name="wp1035463"> </a>
+Data Conversion for STRING Typed Buffer
+</h4>
+<p class="pBody"><a name="wp1035464"> </a>
+By default, a null-terminated string is converted to <code class="cCode">EBCDIC</code>. The null character is part of the converted record. See the &#8220;<a href="data.html#wp1035697"></a><a href="data.html#wp1035697"><span class="cHyperlink">
+Translation Rules for Strings</span></a>&#8221; section for information about using strings in View and FML data types.
+</p>
+<h4 class="pHeading3"><a name="wp1040363"> </a>
+Data Conversion for XML Typed Buffer
+</h4>
+<p class="pBody"><a name="wp1040364"> </a>
+The XML typed buffer is converted to EBCDIC for the length of the buffer.
+</p>
+<h4 class="pHeading3"><a name="wp1035471"> </a>
+Data Conversion for X_OCTET/CARRAY Typed Buffers
+</h4>
+<p class="pBody"><a name="wp1035472"> </a>
+No data conversion is performed on these typed buffers. The ATMI application or remote host application performs all conversion of data fields in the record, including all numeric and EBCDIC conversions.
+</p>
+<p class="pBody"><a name="wp1035473"> </a>
+These typed buffers are used when a data record cannot be described or converted using one of the other <em class="cEmphasis">strong</em> typed buffers. <em class="cEmphasis">Strong</em> means that Oracle Tuxedo Mainframe Adapter for SNA Gateway can understand all data fields and perform the required data conversions.
+</p>
+<p class="pBody"><a name="wp1035474"> </a>
+These typed buffers are also options when the remote service expects many styles of data aggregation (multiple record types), because the <code class="cCode">INBUFTYPE</code> parameter is limited to one <code class="cCode">type:subtype</code>.
+</p>
+<h4 class="pHeading3"><a name="wp1035475"> </a>
+Data Conversion for VIEW/VIEW32/X_C_TYPE/X_COMMON Typed Buffers
+</h4>
+<p class="pBody"><a name="wp1035476"> </a>
+A subtype is required for these typed buffers. The subtype is the name of the view that describes the remote host record. The ATMI buffer is converted from a C structure to the record, including EBCDIC conversion, using the compiled VIEW file. By default, the record is a COBOL structure, mapped by the remote host application using a COBOL copybook. See &#8220;<a href="data.html#wp1035558"><span class="cHyperlink">
+Translation Rules for VIEW Data Types</span></a>&#8221; for more conversion options.
+</p>
+<h4 class="pHeading3"><a name="wp1035480"> </a>
+Data Conversion for FML/FML32 Typed Buffers
+</h4>
+<p class="pBody"><a name="wp1035482"> </a>
+A subtype is required for these typed buffers. The subtype is the name of the view that describes the remote host record. The data in the typed buffer is<em style="font-style: italic" class="cEmphasis"> </em><span style="font-style: normal">Field Manipulation Language (FML)</span> data. The Oracle Tuxedo Mainframe Adapter for SNA Gateway converts the buffer to a record described by the view, including EBCDIC conversion.
+</p>
+<p class="pBody"><a name="wp1035483"> </a>
+The ATMI buffer is converted from an FML typed buffer to a C structure using the subtype compiled VIEW file. The C structure is then converted to the record using the same subtype compiled VIEW file. By default, the record is a COBOL structure that is mapped by the remote host application using a COBOL copybook.
+</p>
+<h3 class="pHeading2"><a name="wp1035484"> </a>
+Conversion of Records to ATMI Typed Buffers 
+</h3>
+<p class="pBody"><a name="wp1035485"> </a>
+When a remote application sends a record to an ATMI application, the record must be converted to an ATMI typed buffer by the Oracle Tuxedo Mainframe Adapter for SNA Gateway before it is passed to the ATMI application. The Gateway uses the service definition to determine what, if any, conversion must be applied to the host record. The service definition uses the <code class="cCode">OUTBUFTYPE</code> in both the <code class="cCode">DM_LOCAL_SERVICES</code> and <code class="cCode">DM_REMOTE_SERVICES</code> section of the <code class="cCode">DMCONFIG</code> file to describe the desired conversion.
+</p>
+<p class="pBody"><a name="wp1035486"> </a>
+<code class="cCode">OUTBUFTYPE</code> is specified in the following way:
+</p>
+<a name="wp1035487"> </a><div class="pPreformatted"><pre>OUTBUFTYPE=type:subtype</pre></div><p class="pBody"><a name="wp1035488"> </a>
+In this parameter definition, <code class="cCode">type</code> must be one of the designated ATMI typed buffers described in the following subsections. The <code class="cCode">type</code> not only determines the typed buffer, but also describes the host record.   
+</p>
+<p class="pBody"><a name="wp1035489"> </a>
+The <code class="cCode">subtype</code> value names a view and is required for certain ATMI typed buffers.
+</p>
+<p class="pBody"><a name="wp1035490"> </a>
+Only one <code class="cCode">type:subtype</code> may be entered for the <code class="cCode">OUTBUFTYPE</code> parameter.
+</p>
+<p class="pBody"><a name="wp1035491"> </a>
+The following sections describe the conversions performed for each ATMI typed buffer.
+</p>
+<h4 class="pHeading3"><a name="wp1035492"> </a>
+Data Conversion for STRING Typed Buffer
+</h4>
+<p class="pBody"><a name="wp1035493"> </a>
+The null terminated string is converted to ASCII. The converted string is moved to an ATMI STRING typed buffer. See the &#8220;<a href="data.html#wp1035697"></a><a href="data.html#wp1035697"><span class="cHyperlink">
+Translation Rules for Strings</span></a>&#8221; section for information about using strings in View and FML data types.
+</p>
+<h4 class="pHeading3"><a name="wp1040421"> </a>
+Data Conversion for XML Typed Buffer
+</h4>
+<p class="pBody"><a name="wp1040422"> </a>
+The XML typed buffer is converted to ASCII for the length of the buffer. For DPL services, refer to <a href="data.html#wp1035510">Data Conversion For DPL Services.</a>
+</p>
+<h4 class="pHeading3"><a name="wp1035497"> </a>
+Data Conversion for X_OCTET/CARRAY Typed Buffers
+</h4>
+<p class="pBody"><a name="wp1035498"> </a>
+No data conversion is performed on these typed buffers. The remote host application or the ATMI application converts the data fields in the record, including all numeric and ASCII conversions.
+</p>
+<p class="pBody"><a name="wp1035499"> </a>
+These typed buffers are used when the data record cannot be described or converted using one of the other <em class="cEmphasis">strong</em> type buffers. <em class="cEmphasis">Strong</em> means Oracle Tuxedo Mainframe Adapter for SNA can understand all data fields and perform the required data conversion.
+</p>
+<p class="pBody"><a name="wp1035500"> </a>
+These typed buffers are also options when the remote service expects many styles of data aggregation (multiple record types), because the <code class="cCode">OUTBUFTYPE</code> parameter is limited to one <code class="cCode">type:subtype</code>.
+</p>
+<h4 class="pHeading3"><a name="wp1035501"> </a>
+Data Conversion for VIEW/VIEW32/X_C_TYPE/X_COMMON Typed Buffers
+</h4>
+<p class="pBody"><a name="wp1035502"> </a>
+A subtype is required for these typed buffers. The subtype is the name of the view that describes the remote host record. The remote host record is converted to an ATMI typed buffer. The compiled VIEW file is used to perform the data and ASCII conversion on the host record. By default, the host record is a COBOL data aggregate and the converted typed buffer is mapped by the ATMI application using a C structure. See the &#8220;<a href="data.html#wp1035558"><span class="cHyperlink">
+Translation Rules for VIEW Data Types</span></a>&#8221; section for more conversion options.
+</p>
+<h4 class="pHeading3"><a name="wp1035506"> </a>
+Data Conversion for FML/FML32 Typed Buffers
+</h4>
+<p class="pBody"><a name="wp1035508"> </a>
+A subtype is required for these typed buffers. The subtype is the name of the view that describes the remote host record. The host record is converted to an FML buffer that is passed to the ATMI application.
+</p>
+<p class="pBody"><a name="wp1035509"> </a>
+By default, the host record is a COBOL record aggregate data type. The data is converted to a C structure, including ASCII conversion, using the compiled VIEW file. This data is then converted to an FML buffer using the field definitions associated with the VIEW.
+</p>
+<h3 class="pHeading2"><a name="wp1035510"> </a>
+Data Conversion For DPL Services
+</h3>
+<p class="pBody"><a name="wp1035512"> </a>
+The Oracle Tuxedo Mainframe Adapter for SNA system supports remote CICS services as <span style="font-style: normal">Distributed Program Link (DPL)</span> programs. The DPL support is performed as if the ATMI service is a peer CICS/ESA service. 
+</p>
+<p class="pBody"><a name="wp1035513"> </a>
+In a DPL program, the application is protected from all <span style="font-style: normal">Distributed Transaction Processing (DTP)</span>. The DPL application is a request/response service, with all data communication performed by the passing of a <code class="cCode">COMMAREA</code>.
+</p>
+<p class="pBody"><a name="wp1035514"> </a>
+A basic DPL request API looks like this:
+</p>
+<a name="wp1035515"> </a><div class="pPreformatted"><pre>EXEC CICS LINK</pre></div><a name="wp1035516"> </a><div class="pPreformatted"><pre>       PROGRAM()<br />       DATALENGTH()<br />       LENGTH()<br />       COMMAREA()</pre></div><p class="pBody"><a name="wp1035517"> </a>
+In the preceding example, the requester sends the <code class="cCode">COMMAREA</code> of <code class="cCode">DATALENGTH</code> size and the receiving application receives the <code class="cCode">COMMAREA</code> data contents in a buffer the size of <code class="cCode">LENGTH</code>. The <code class="cCode">DATALENGTH</code> size might be smaller than the <code class="cCode">LENGTH</code> size, but the requester expects and receives the response in the original <code class="cCode">COMMAREA</code> buffer the size of <code class="cCode">LENGTH</code>. 
+</p>
+<p class="pBody"><a name="wp1035518"> </a>
+The difference between a DPL program and an ATMI service is that a receiving ATMI service can resize a reply buffer, while the DPL program expects a reply buffer of a designated size. Also, an ATMI requester can receive a resized buffer in a buffer different from the original reply buffer.
+</p>
+<p class="pBody"><a name="wp1035519"> </a>
+The Oracle Tuxedo Mainframe Adapter for SNA software performs the manipulation described in the following subsections to smoothly adjust to the requirements of both types of applications.
+</p>
+<h4 class="pHeading3"><a name="wp1035520"> </a>
+DPL Requests Originating From an ATMI Application
+</h4>
+<p class="pBody"><a name="wp1035521"> </a>
+The Oracle Tuxedo Mainframe Adapter for SNA software must determine what size <code class="cCode">COMMAREA</code> the remote DPL service is expecting because no corresponding <code class="cCode">LENGTH</code> parameter exists on an ATMI request. 
+</p>
+<p class="pBody"><a name="wp1035522"> </a>
+To determine the <code class="cCode">LENGTH</code> value for a DPL request, the software uses the larger potential size of the <code class="cCode">INBUFTYPE</code> or the <code class="cCode">OUTBUFTYPE</code> parameter definitions, as described in <a href="data.html#wp1035531"><span class="cHyperlink">
+Table&#160;5-1</span></a>.
+</p>
+<p class="pBody"><a name="wp1035526"> </a>
+The remote DPL application receives a buffer of <code class="cCode">LENGTH</code> size and returns a buffer of <code class="cCode">LENGTH</code> size.
+</p>
+<p class="pGraphic"><a name="wp1035550"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1035531table1035527"><caption><a name="wp1035531"> </a>
+Table 5-1  DPL Request LENGTH Calculation
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1035535"> </a>
+INBUFTYPE or OUTBUFTYPE 
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1035537"> </a>
+LENGTH CALCULATION
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035539"> </a>
+STRING/X_OCTET/ CARRAY
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035541"> </a>
+For these typed buffers, the <code class="cCode">INBUFTYPE</code> parameter definition is used to determine the <code class="cCode">LENGTH</code> and then add any null character.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035543"> </a>
+VIEW/VIEW32/ X_COMMON/ X_C_TYPE
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035545"> </a>
+<code class="cCode">LENGTH</code> is the maximum size of the <code class="cCode">VIEW</code> file. This calculation takes in the potential size of both the C structure and the target record.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035547"> </a>
+FML/FML32
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035549"> </a>
+The maximum size of the <code class="cCode">VIEW</code> file. This calculation takes in the potential size of both the C structure, and the target record. The length of the FML buffer is not taken into account.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040930"> </a>
+XML
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040938"> </a>
+When returning XML typed data, a DPL program may resize an XML typed reply buffer by appending null characters to the end of the XML string. To prevent errors in length of the reply buffer for XML typed data, any null characters appended to the XML string are removed before the data is returned.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1035551"> </a>
+If no <code class="cCode">LENGTH</code> can be determined, then the largest value allowed by the CICS application is allocated.
+</p>
+<h4 class="pHeading3"><a name="wp1035555"> </a>
+DPL Requests Originating From a CICS DPL
+</h4>
+<p class="pBody"><a name="wp1035556"> </a>
+The Oracle Tuxedo Mainframe Adapter for SNA software receives a <code class="cCode">LENGTH</code> value and <code class="cCode">COMMAREA</code> data of <code class="cCode">DATALENGTH</code> size from the requesting CICS DPL. The software allocates a buffer of <code class="cCode">LENGTH</code> size and moves the <code class="cCode">COMMAREA</code> data into this buffer before performing the conversions.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1035558"> </a>
+Translation Rules for VIEW Data Types
+</h2><p class="pBody"><a name="wp1035559"> </a>
+The following sections on default data translation rules provide suggestions to help you:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1035561"> </a>Develop VIEW definitions for input and output buffers and records</li>
+<li><a name="wp1035562"> </a>Understand how string data and numeric data are treated with the VIEW data type</li>
+</ul></div>
+<p class="pBody"><a name="wp1035566"> </a>
+<a href="data.html#wp1042183"><span class="cHyperlink">
+Table&#160;5-2</span></a> lists VIEW data translation rules. 
+</p>
+<p class="pGraphic"><a name="wp1035601"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1042183table1035569"><caption><a name="wp1042183"> </a>
+Table 5-2  VIEW Data Translation Rules
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1035571"> </a>
+Field Type
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1035573"> </a>
+Translation Rules
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035575"> </a>
+CARRAY
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035577"> </a>
+Passed without translation as sequences of bytes.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035579"> </a>
+STRING and CHAR
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035581"> </a>
+Translated from ASCII to EBCDIC (If needed. Refer to &#8220;<a href="data.html#wp1035697"><span class="cHyperlink">
+Translation Rules for Strings</span></a>.&#8221;)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035586"> </a>
+SHORT
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035588"> </a>
+Translated to S9(4)COMP
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035590"> </a>
+LONG
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035592"> </a>
+Translated to S9(9)COMP
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035594"> </a>
+FLOAT
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035596"> </a>
+Translated to COMP-1
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035598"> </a>
+DOUBLE
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035600"> </a>
+Translated to COMP-2
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<a name="wp1035602"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The ATMI platform provides a field type named <code class="cCode">dec_t</code> that supports decimal values within VIEWs. The Gateway translates these fields into machine independent representations of packed decimals. For example, <code class="cCode">dec_t(m,n)</code> becomes <code class="cCode">S9(2*m-(n+1))V9(n) COMP-3</code>. Therefore, a decimal field with a size of <code class="cCode">8,5</code> corresponds to <code class="cCode">S9(10)V9(5) COMP-3</code>. </td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1035607"> </a>
+<a href="data.html#wp1042206"><span class="cHyperlink">
+Table&#160;5-3</span></a> lists the translation rules between C and IBM/370 data types. 
+</p>
+<p class="pGraphic"><a name="wp1035671"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1042206table1035610"><caption><a name="wp1042206"> </a>
+Table 5-3  Data Translation Rules between C and IBM/370 Data Types
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1035612"> </a>
+Remote Data Type
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1035614"> </a>
+Description
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1035616"> </a>
+View Field Type/Length
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035618"> </a>
+PIC X(n)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035620"> </a>
+Alpha-numeric Characters 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035622"> </a>
+string / n 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035624"> </a>
+PIC X 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035626"> </a>
+Single Alpha-numeric Character 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035628"> </a>
+char 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035630"> </a>
+PIC X(n) 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035632"> </a>
+Raw Bytes 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035634"> </a>
+carray / n 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035636"> </a>
+PIC X 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035638"> </a>
+Single Numeric Byte 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035640"> </a>
+carray / 1 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035642"> </a>
+PIC S9(4) COMP 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035644"> </a>
+32-bit Integer 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035646"> </a>
+short 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035648"> </a>
+PIC S9(9) COMP 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035650"> </a>
+64-bit Integer 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035652"> </a>
+long 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035654"> </a>
+COMP-1 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035656"> </a>
+Single-precision Floating Point 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035658"> </a>
+float 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035660"> </a>
+COMP-2 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035662"> </a>
+Double-precision Floating Point 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035664"> </a>
+double 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035666"> </a>
+PIC S9((m+(n+1))/2)V9(n) COMP-3
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035668"> </a>
+Packed Decimal 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035670"> </a>
+dec_t / m,n 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1035672"> </a>
+String Considerations
+</h3>
+<p class="pBody"><a name="wp1035674"> </a>
+When you create VIEW definitions for input and output records that are used by CICS/ESA applications, do not specify an extra position for the terminating null characters that are used in string fields. For example, when a CICS/ESA application program expects 10 characters in an input record, specify 10 for that field, not 10 plus 1. 
+</p>
+<a name="wp1035678"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Although Oracle Tuxedo Mainframe Adapter for SNA software does not require strings to be null-terminated, it respects null termination. When the Gateway software detects a null (zero) character within a string, it does not process any subsequent characters. To pass full 8-bit data that contains embedded null values, use a CARRAY type field or buffer. </td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1035679"> </a>
+The character set translations performed by Oracle Tuxedo Mainframe Adapter for SNA are fully localizable, in accordance with the X/Open XPG Portability Guides. ASCII and EBCDIC translations are loaded from message files. Refer to the &#8220;<a href="data.html#wp1035697"><span class="cHyperlink">
+Translation Rules for Strings</span></a>&#8221; section for more information.
+</p>
+<p class="pBody"><a name="wp1035683"> </a>
+The Oracle Tuxedo Mainframe Adapter for SNA software contains default behaviors that should meet the requirements of most English-language applications. However, you may find it necessary to customize the translation. Refer to the &#8220;<a href="data.html#wp1035697"><span class="cHyperlink">
+Translation Rules for Strings</span></a>&#8221; section for more information.
+</p>
+<h3 class="pHeading2"><a name="wp1035688"> </a>
+Converting Numeric Data
+</h3>
+<p class="pBody"><a name="wp1035689"> </a>
+You can convert numeric data into different data types easily, if you specify enough range in the intermediate and destination types to handle the maximum value needed. 
+</p>
+<p class="pBody"><a name="wp1035691"> </a>
+For example, you can convert a Field Manipulation Language (FML) field of double into a packed decimal field on the remote target system by specifying an appropriate <code class="cCode">dec_t type</code> VIEW element. 
+</p>
+<p class="pBody"><a name="wp1035693"> </a>
+You can also convert numeric values into strings. For example, while FML buffers do not directly support the <code class="cCode">dec_t type</code>, you can place decimal values in string fields and map these to <code class="cCode">dec_t</code> fields within VIEW definitions. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1035697"> </a>
+Translation Rules for Strings
+</h2><p class="pBody"><a name="wp1035698"> </a>
+When planning the interaction between the ATMI platform and host applications, consideration must be given to the programming languages in which the applications are written. A character string is represented differently in the COBOL language than in the C language and associated ATMI platform VIEW buffer. <a href="data.html#wp1035703"><span class="cHyperlink">
+Listing&#160;5-1</span></a> demonstrates the three ways that the same two strings are coded (<code class="cCode">string1</code> and <code class="cCode">string2</code>).
+</p>
+<div class="pCodeTitle"><a name="wp1035703"> </a>
+Listing&#160;5-1	   Three Representations of Strings
+</div> <a name="wp1035704"> </a><div class="pPreformatted"><pre><code class="cCodeBold">C Structure:</code></pre></div><a name="wp1035705"> </a><div class="pPreformatted"><pre>struct text </pre></div><a name="wp1035706"> </a><div class="pPreformatted"><pre>{<br />	char	rbufsize[5];<br />	char	testnum[2];<br />	char	sendnum;<br />	char	sysid[4];<br />	char	textfld[10];<br />	char	string1[10];<br />	char	string2[16];<br />};</pre></div><a name="wp1035707"> </a><div class="pPreformatted"><pre><code class="cCodeBold">VIEW text</code></pre></div><a name="wp1035708"> </a><div class="pPreformatted"><pre>#type		cname		fbname	count	flag	size	null<br />char		rbufsize		-	5	-	-	-<br />char		testnum		-	2	-	-	-<br />char		sendnum		-	1	-	-	-<br />char		sysid		-	4	-	-	-<br />char		textfld		-	10	-	-	-<br />string		string1		-	1	-	10	-<br />string		string2		-	1	-	16	-<br />END</pre></div><a name="wp1035709"> </a><div class="pPreformatted"><pre><code class="cCodeBold">COBOL Record</code></pre></div><a name="wp1035710"> </a><div class="pPreformatted"><pre>	01  TEXT.<br />	    05  RBUFSIZE		PIC X(5).<br />	    05  TEXTNUM		PIC X(2).<br />	    05  SENDNUM 		PIC X.<br />	    05  SYSID   		PIC X(4).<br />	    05  STRING1 		PIC X(9).<br />	    05  STRING2		PIC X(15).<br /></pre></div><p class="pBody"><a name="wp1035712"> </a>
+The listing shows that, in the C structure and VIEW buffer, the sizes of <code class="cCode">string1</code> and <code class="cCode">string2</code> are represented as 10 and 16 characters, respectively. However, in the COBOL record, the sizes are 9 and 15 characters, respectively. This incompatibility can cause code misalignment between C and COBOL programs if not anticipated in the source code.
+</p>
+<p class="pBody"><a name="wp1035715"> </a>
+To avoid such incompatibilities, the Gateway provides a software option to control the mapping of string data between C and COBOL applications. This option enables you to automatically compensate for the differences in null termination and padding characteristics of the two languages.
+</p>
+<a name="wp1035716"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The option affects string fields in the ATMI platform VIEW buffers only. STRING buffers are not affected by this switch. </td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1035717"> </a>
+Setting the Option to Perform String Transformation
+</h3>
+<p class="pBody"><a name="wp1035718"> </a>
+To set the string transformation option, use the <code class="cCode">CLOPT</code> parameter when you configure the Gateway server (GWSNAX) definition in the <code class="cCode">UBBCONFIG</code> file. If you set the <code class="cCode">-t</code> option of the <code class="cCode">CLOPT</code> parameter to one of the values listed in <a href="data.html#wp1042234"><span class="cHyperlink">
+Table&#160;5-4</span></a>, the Gateway performs the corresponding string transformation. Use the following syntax format:
+</p>
+<p class="pBody"><a name="wp1035722"> </a>
+<code class="cCode">CLOPT=&#8221;-- -t {number}&#8221;</code>
+</p>
+<p class="pBody"><a name="wp1035723"> </a>
+In this parameter, arguments and options are defined in the following way:
+</p>
+<h4 class="pDefTerm"><a name="wp1035724"> </a>
+<code class="cCode">CLOPT</code> 
+</h4><div class="pDefPara"><a name="wp1042046"> </a>
+specifies the ATMI parameter which enables you to provide command-line options in a server definition.
+</div>
+<div class="pDefParaCont"><a name="wp1042047"> </a>
+<code class="cCode">--</code> marks the end of system-recognized arguments and the start of arguments passed to a subroutine within the server. This option is required if you supply application-specific arguments, such as the <code class="cCode">-t</code> option, to the server.
+<a name="wp1035726"> </a>
+<code class="cCode">-t </code>is the Oracle Tuxedo Mainframe Adapter for SNA option to establish C-to-COBOL string transformation.
+<a name="wp1035727"> </a>
+<code class="cCode">{number}</code> indicates the type of string transformation the Gateway performs as shown in <a href="data.html#wp1042234"><span class="cHyperlink">
+Table&#160;5-4</span></a>.
+</div>
+<a name="wp1035731"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If you do not set the <code class="cCode">-t</code> option of the <code class="cCode">CLOPT</code> parameter in your server definition, by default the Gateway performs no string transformation.</td>
+</tr>
+</table>
+
+<p class="pGraphic"><a name="wp1035772"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1042234table1035734"><caption><a name="wp1042234"> </a>
+Table 5-4  C to COBOL String Transformation
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1035736"> </a>
+CLOPT -t Parameter Value
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1035739"> </a>
+ATMI Application Language
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1035741"> </a>
+Host Application Language
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035743"> </a>
+Not Set
+</div>
+</td>
+    <td class="straddledcells" colspan="2" rowspan="1"><div class="pCellBody"><a name="wp1035745"> </a>
+No string transformation established
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035749"> </a>
+1
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035751"> </a>
+C
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035753"> </a>
+COBOL
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035755"> </a>
+2
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035757"> </a>
+COBOL
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035759"> </a>
+C
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035761"> </a>
+3
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035763"> </a>
+C
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035765"> </a>
+C
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035767"> </a>
+4
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035769"> </a>
+COBOL
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035771"> </a>
+COBOL
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pDefTerm"><a name="wp1035773"> </a>
+These options function in the following ways:
+</h4><h4 class="pDefTerm"><a name="wp1035774"> </a>
+Option value 1:
+</h4><div class="pDefPara"><a name="wp1035775"> </a>
+For outbound messages to the host, C string fields are converted to COBOL string fields. All available characters, up to the defined length of the string and beginning with the null character, are converted to spaces and the length of the field is reduced by one.
+<a name="wp1035776"> </a>
+For inbound messages from the host, COBOL string fields are converted to C string fields, trailing blanks are converted to null characters (zero value) and the length of the field is increased by one.
+</div>
+<h4 class="pDefTerm"><a name="wp1035777"> </a>
+Option value 2:
+</h4><div class="pDefPara"><a name="wp1035778"> </a>
+For outbound messages to the host, COBOL string fields are converted to C string fields, trailing blanks are converted to null characters (zero value) and the length of the field is increased by one.
+<a name="wp1035779"> </a>
+For inbound messages from the host, C string fields are converted to COBOL string fields. All available characters, up to the defined length of the string and beginning with the null character, are converted to spaces and the length of the field is reduced by one.
+</div>
+<h4 class="pDefTerm"><a name="wp1035780"> </a>
+Option values 3 and 4:
+</h4><div class="pDefPara"><a name="wp1035781"> </a>
+No string transformations are made between programs written in compatible languages.
+</div>
+<p class="pBody"><a name="wp1035782"> </a>
+<b class="cBold">Example:</b>
+</p>
+<p class="pBody"><a name="wp1035783"> </a>
+The following example of a server definition uses the switch to establish string transformations between an ATMI application written in C and a host application written in COBOL.
+</p>
+<a name="wp1035784"> </a><div class="pPreformatted"><pre>*SERVERS</pre></div><a name="wp1035785"> </a><div class="pPreformatted"><pre>GWSNAX SRVGRP=GROUP1 SRVID=5 CLOPT=&#8221;-A -- -t 1&#8221;</pre></div><h3 class="pHeading2"><a name="wp1035787"> </a>
+Code Page Translation Tables
+</h3>
+<p class="pBody"><a name="wp1035788"> </a>
+The Oracle Tuxedo Mainframe Adapter for SNA software includes translation tables that enable conversions between ASCII character sets and EBCDIC character sets. The code pages provide 12 standardized tables to facilitate operations between ATMI applications using the Latin-1 ASCII code set (CP-00819) and host applications using a national language code set. 
+</p>
+<p class="pBody"><a name="wp1035791"> </a>
+Each translation table consists of two mapping tables, one for outbound conversions (ATMI platform-to-host) and one for inbound conversions (host to ATMI platform). You do not have to specify the direction of a translation. You only need to determine the national language in which the host application is written. <a href="data.html#wp1035796"><span class="cHyperlink">
+Figure&#160;5-1</span></a> illustrates code page translation.
+</p>
+<div class="pFigureTitle"><a name="wp1035796"> </a>
+Figure&#160;5-1  Oracle Tuxedo Mainframe Adapter for SNA Code Page Translation
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1035861"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/user-05-1-1.gif" height="375" width="336" alt="Oracle Tuxedo Mainframe Adapter for SNA Code Page Translation" id="wp1035798"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1035862"> </a>
+The figure demonstrates how an ATMI application using the Latin-1 ASCII code page CP-00819 character set operates with a host application using German EBCDIC code page CP-00273. The Oracle Tuxedo Mainframe Adapter for SNA translation table 00819x00273 provides both the inbound and outbound conversions.
+</p>
+<h4 class="pHeading3"><a name="wp1035864"> </a>
+Specifying a Translation Table
+</h4>
+<p class="pBody"><a name="wp1035865"> </a>
+To designate the translation table for your applications, make an entry in the ATMI platform <code class="cCode">DMCONFIG</code> file definition for each remote domain. Use the <code class="cCode">CODEPAGE</code> parameter with the following format:
+</p>
+<p class="pBody"><a name="wp1035868"> </a>
+For example:
+</p>
+<a name="wp1035869"> </a><div class="pPreformatted"><pre>*DM_REMOTE_DOMAINS</pre></div><a name="wp1035870"> </a><div class="pPreformatted"><pre><code class="cCodeEmphasis">BEAS</code> TYPE=SNAX CODEPAGE=&#8220;<code class="cCodeEmphasis">cpname&#8221;</code></pre></div><p class="pBody"><a name="wp1035871"> </a>
+In this parameter, <code class="cCode">cpname</code> identifies the translation table for the remote domain, from <a href="data.html#wp1042254"><span class="cHyperlink">
+Table&#160;5-5</span></a>. It must be enclosed by double quotes.
+</p>
+<p class="pBody"><a name="wp1035887"> </a>
+<a href="data.html#wp1042254"><span class="cHyperlink">
+Table&#160;5-5</span></a> lists the translation tables provided with Oracle Tuxedo Mainframe Adapter for SNA software.
+</p>
+<p class="pGraphic"><a name="wp1036000"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1042254table1035889"><caption><a name="wp1042254"> </a>
+Table 5-5  Oracle Tuxedo Mainframe Adapter for SNA Code Page Translation Tables
+
+</caption>
+
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1035891"> </a>
+Country
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1035893"> </a>
+File Name
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1035895"> </a>
+ASCII Code Set
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1035897"> </a>
+EBCDIC Code Set
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1038493"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1038495"> </a>
+none
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1038497"> </a>
+No translation
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1038499"> </a>
+No translation
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035902"> </a>
+ATMI platform default <a href="#wp1035901" title="Footnote 1"><sup class="Footnote">1</sup></a> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035904"> </a>
+tuxedo
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035906"> </a>
+ATMI ASCII
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035908"> </a>
+ATMI EBCDIC
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035910"> </a>
+United States
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035912"> </a>
+00819x00037
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035917"> </a>
+CP-00819 <a href="#wp1035916" title="Footnote 2"><sup class="Footnote">2</sup></a>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035919"> </a>
+CP-00037
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035921"> </a>
+Great Britain
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035923"> </a>
+00819x00285
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035925"> </a>
+CP-00819
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035927"> </a>
+CP-00285
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035929"> </a>
+France
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035931"> </a>
+00819x00297
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035933"> </a>
+CP-00819
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035935"> </a>
+CP-00297
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035937"> </a>
+Portugal
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035939"> </a>
+00819x00860
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035941"> </a>
+CP-00819
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035943"> </a>
+CP-00860
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035945"> </a>
+Spain
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035947"> </a>
+00819x00284
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035949"> </a>
+CP-00819
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035951"> </a>
+CP-00284
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035953"> </a>
+Belgium
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035955"> </a>
+00819x00500
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035957"> </a>
+CP-00819
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035959"> </a>
+CP-00500
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035961"> </a>
+Germany
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035963"> </a>
+00819x00273
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035965"> </a>
+CP-00819
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035967"> </a>
+CP-00273
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035969"> </a>
+Finland
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035971"> </a>
+00819x00278
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035973"> </a>
+CP-00819
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035975"> </a>
+CP-00278
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035977"> </a>
+Sweden
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035979"> </a>
+00819x00278
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035981"> </a>
+CP-00819
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035983"> </a>
+CP-00278
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035985"> </a>
+Latin-1
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035987"> </a>
+00819x01047
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035989"> </a>
+CP-00819
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035991"> </a>
+CP-01047
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035993"> </a>
+Latin-2
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035995"> </a>
+00912x00870
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035997"> </a>
+CP-00912
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1035999"> </a>
+CP-00870
+</div>
+</td>
+</tr>
+</table>
+
+<table class="footnote" id="SummaryNotReq1">  <tr>
+    <td><p class="pTableFootnote"><a name="wp1035901"> </a>
+<a href="#wp1035902" title="Footnote 1"><sup class="Footnote">1</sup></a>The default ATMI ASCII and EBCDIC code pages are slightly different from CP-00819 and CP-00037.
+</p>
+
+<p class="pTableFootnote"><a name="wp1035916"> </a>
+<a href="#wp1035917" title="Footnote 2"><sup class="Footnote">2</sup></a>CP-00819 is exactly equivalent to ISO-8859-1 (also called Latin-1 ASCII), and is used as the ASCII code page in all of the countries listed in this table.
+</p>
+
+</td>
+  </tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1036001"> </a>
+How the Translation Tables Work
+</h4>
+<p class="pBody"><a name="wp1036002"> </a>
+The Oracle Tuxedo Mainframe Adapter for SNA translation tables are based on IBM-defined code sets. At start up, the Gateway loads a translation table for each remote domain.
+</p>
+<p class="pBody"><a name="wp1036003"> </a>
+You can modify any of the tables to suit your application translation needs, except the default ATMI tables, which are hard-coded. Refer to Appendix&#160;D, &#8220;<a href="appfcode.html"><span class="cHyperlink">
+Code Page Translation Tables</span></a>&#8221; for detailed table contents. You must restart the Gateway to change any translation table definitions.
+</p>
+<a name="wp1036007"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Replicas of the default ATMI translation tables are included with your product software. These tables are provided for you to modify, if desired. They are not the actual default tables. You cannot modify the default ATMI tables.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1036008"> </a>
+The Oracle Tuxedo Mainframe Adapter for SNA translation tables are located in the following sub-directory:
+</p>
+<a name="wp1036009"> </a><div class="pPreformatted"><pre>$TUXDIR/udataobj/codepage</pre></div><p class="pBody"><a name="wp1036010"> </a>
+If no <code class="cCode">CODEPAGE</code> specification is made for a remote domain, the Oracle Tuxedo Mainframe Adapter for SNA software uses the ATMI default translation tables. If the software cannot find the translation table file, it generates a message <code class="cCode">2241:ERROR Unable to access codepage table</code> with a reason code and the Gateway fails to start. Refer to this message in Appendix B, &#8220;<a href="apderror.html"><span class="cHyperlink">
+Error Messages</span></a>&#8221; for explanations of the reason codes. 
+</p>
+<p class="pBody"><a name="wp1036017"> </a>
+<a href="data.html#wp1036019"><span class="cHyperlink">
+Listing&#160;5-2</span></a> depicts entries defining one local domain (CIXA) and two remote domains (CISA and IMSA). In all cases, the assumption is made that the local domain uses ASCII code page CP-00819. In the example, the two remote domains use the German and French EBCDIC code pages CP-00273 and CP-00297, respectively. 
+</p>
+<div class="pCodeTitle"><a name="wp1036019"> </a>
+Listing&#160;5-2	   Code Page Definition Example
+</div> <a name="wp1036020"> </a><div class="pPreformatted"><pre># DMCONFIG<br />*DM_LOCAL_DOMAINS<br />CIXA TYPE=SNAX<br />*DM_REMOTE_DOMAINS<br />CISA TYPE=SNAX CODEPAGE=&#8221;00819X00273&#8221;<br />IMSA TYPE=SNAX CODEPAGE=&#8221;00819X00297&#8221;</pre></div>
+ 
+<br/>
+    <table id="SummaryNotReq3" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="data.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="scrty.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="appc.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

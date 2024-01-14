@@ -1,0 +1,1333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/security/fm/concepts1.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:41:41" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Fundamentals of CORBA Security</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Using Security in CORBA Applications
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="publickey.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="secur2.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/security.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1101151"> </a>
+Fundamentals of CORBA Security
+</h1>
+<p class="pBody"><a name="wp1076530"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1097939"> </a><a href="concepts1.html#wp1102117">Link-Level Encryption</a></li>
+<li><a name="wp1097944"> </a><a href="concepts1.html#wp1086140">Password Authentication</a></li>
+<li><a name="wp1097952"> </a><a href="concepts1.html#wp1096513">The SSL Protocol</a></li>
+<li><a name="wp1097956"> </a><a href="concepts1.html#wp1066175">Certificate Authentication</a></li>
+<li><a name="wp1097965"> </a><a href="concepts1.html#wp1064205">Using an Authentication Plug-in</a></li>
+<li><a name="wp1097974"> </a><a href="concepts1.html#wp1066914">Authorization</a></li>
+<li><a name="wp1097991"> </a><a href="concepts1.html#wp1068099">Auditing</a></li>
+<li><a name="wp1097999"> </a><a href="concepts1.html#wp1079377">PKI Plug-ins</a></li>
+<li><a name="wp1102112"> </a><a href="concepts1.html#wp1075750">Commonly Asked Questions About the CORBA Security Features</a></li>
+</ul></div>
+<a name="wp1102483"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Notes:</strong></td>
+<td>The Oracle Tuxedo CORBA Java client and Oracle Tuxedo CORBA Java client ORB were deprecated in Tuxedo 8.1 and are no longer supported. All Oracle Tuxedo CORBA Java client and Oracle Tuxedo CORBA Java client ORB text references, associated code samples, should only be used to help implement/run third party Java ORB libraries, and for programmer reference only.</td></tr>
+</table>
+
+<a name="wp1102484"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>Technical support for third party CORBA Java ORBs should be provided by their respective vendors. Oracle Tuxedo does not provide any technical support or documentation for third party CORBA Java ORBs.</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1102117"> </a>
+Link-Level Encryption
+</h2><p class="pBody"><a name="wp1096171"> </a>
+Link-Level Encryption (LLE) establishes data privacy for messages moving over the network links. The objective of LLE is to ensure confidentiality so that a network-based eavesdropper cannot learn the content of Oracle Tuxedo system messages or CORBA application-generated messages. It employs the symmetric key encryption technique (specifically, RC4), which uses the same key for encryption and decryption.
+</p>
+<p class="pBody"><a name="wp1096172"> </a>
+When LLE is being used, the Oracle Tuxedo system encrypts data before sending it over a network link and decrypts it as it comes off the link. The system repeats this encryption/decryption process at every link through which the data passes. For this reason, LLE is referred to as a point-to-point facility.
+</p>
+<p class="pBody"><a name="wp1098512"> </a>
+LLE can be used to encrypt communication between machines and/or domains in a CORBA application..
+</p>
+<a name="wp1096177"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>LLE cannot be used to protect connections between remote CORBA client applications and the IIOP Listener/Handler.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1096178"> </a>
+There are three levels of LLE security: 0-bit (no encryption), 56-bit (Export), and 128-bit (Domestic). The Export LLE version allows 0-bit and 56-bit encryption. The Domestic LLE version allows 0, 56, and 128-bit encryption. 
+</p>
+<h3 class="pHeading2"><a name="wp1096180"> </a>
+How LLE Works
+</h3>
+<p class="pBody"><a name="wp1096181"> </a>
+LLE works in the following way:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1096182"> </a>The system administrator sets parameters for any processes that want to use LLE to control the encryption strength.</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1096183"> </a>The first configuration parameter is the minimum encryption level that a process will accept. It is expressed as a key length: 0, 56, or 128 bits.</li>
+<li><a name="wp1096184"> </a>The second configuration parameter is the maximum encryption level a process can support. It also is expressed as a key length: 0, 56, or 128 bits.</li>
+<p class="pBodyRelative"><a name="wp1096185"> </a>
+For convenience, the two parameters are denoted as (<code class="cCode">min</code>, <code class="cCode">max</code>). For example, the values (56, 128) for a process mean that the process accepts at least 56-bit encryption but can support up to 128-bit encryption.
+</p>
+</ul></div>
+<li><a name="wp1096186"> </a>An initiator process begins the communication session.</li>
+<li><a name="wp1096187"> </a>A target process receives the initial connection and starts to negotiate the encryption level to be used by the two processes to communicate.</li>
+<li><a name="wp1096188"> </a>The two processes agree on the largest common key size supported by both. </li>
+<li><a name="wp1096189"> </a>The configured maximum key size parameter is reduced to agree with the installed software&#39;s capabilities. This step must be done at link negotiation time, because at configuration time it may not be possible to verify a particular machine&#39;s installed encryption package. </li>
+<li><a name="wp1096190"> </a>The processes exchange messages using the negotiated encryption level.</li>
+</ol></div>
+<p class="pBody"><a name="wp1096194"> </a>
+<a href="concepts1.html#wp1096196">Figure&#160;3-1</a> illustrates these steps.
+</p>
+<div class="pFigureTitle"><a name="wp1096196"> </a>
+Figure&#160;3-1  How LLE Works
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1096201"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/lle.gif" alt="How LLE Works" id="wp1096199"/></div><p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1096203"> </a>
+Encryption Key Size Negotiation
+</h3>
+<p class="pBody"><a name="wp1096204"> </a>
+When two processes at the opposite ends of a network link need to communicate, they must first agree on the size of the key to be used for encryption. This agreement is resolved through a two-step process of negotiation.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1096205"> </a>Each process identifies its own <code class="cCodeEmphasis">min-max </code>values.</li>
+<li><a name="wp1096206"> </a>Together, the two processes find the largest key size supported by both.</li>
+</ol></div>
+<h4 class="pHeading3"><a name="wp1096207"> </a>
+Determining min-max Values
+</h4>
+<p class="pBody"><a name="wp1096208"> </a>
+When either of the two processes starts up, the Oracle Tuxedo system (1) checks the bit-encryption capability of the installed LLE version by checking the LLE licensing information in the <code class="cCode">lic.txt</code> file and (2) checks the LLE <code class="cCodeEmphasis">min-max </code>values for the particular link type as specified in the two configuration files. The Oracle Tuxedo system then proceeds as follows:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1096209"> </a>If the configured <code class="cCodeEmphasis">min</code>-<code class="cCodeEmphasis">max</code> values accommodate the installed LLE version, then the local software assigns those values as the <code class="cCodeEmphasis">min</code>-<code class="cCodeEmphasis">max</code> values for the process.</li>
+<li><a name="wp1096210"> </a>If the configured <code class="cCodeEmphasis">min</code>-<code class="cCodeEmphasis">max</code> values do not accommodate the installed LLE version, for example, if the Export LLE version is installed but the configured <code class="cCodeEmphasis">min</code>-<code class="cCodeEmphasis">max</code> values are (0, 128), then the local software issues a run-time error; link-level encryption is not possible at this point.</li>
+<li><a name="wp1096211"> </a>If there are no <code class="cCodeEmphasis">min</code>-<code class="cCodeEmphasis">max</code> values specified in the configurations for a particular link type, then the local software assigns 0 as the minimum value and assigns the highest bit-encryption rate possible for the installed LLE versions as the maximum value, that is, (0, 128) for the Domestic LLE version.</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1096212"> </a>
+Finding a Common Key Size
+</h4>
+<p class="pBody"><a name="wp1096213"> </a>
+After the <code class="cCodeEmphasis">min</code>-<code class="cCodeEmphasis">max</code> values are determined for the two processes, the negotiation of key size begins. The negotiation process need not be encrypted or hidden. Once a key size is agreed upon, it remains in effect for the lifetime of the network connection.
+</p>
+<p class="pBody"><a name="wp1096217"> </a>
+<a href="concepts1.html#wp1096221">Table&#160;3-1</a> shows which key size, if any, is agreed upon by two processes when all possible combinations of <code class="cCodeEmphasis">min</code>-<code class="cCodeEmphasis">max</code> values are negotiated. The header row holds the <code class="cCodeEmphasis">min</code>-<code class="cCodeEmphasis">max</code> values for one process; the far left column holds the <code class="cCodeEmphasis">min</code>-<code class="cCodeEmphasis">max</code> values for the other.
+</p>
+<p class="pGraphic"><a name="wp1096332"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1096221table1096218"><caption><a name="wp1096221"> </a>
+Table 3-1  Interprocess Negotiation Results&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col">&#160;</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1096237"> </a>
+(0, 0)
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1096239"> </a>
+(0, 56)
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1096241"> </a>
+(0, 128)
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1096243"> </a>
+(56, 56)
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1096245"> </a>
+(56, 128)
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1096247"> </a>
+(128, 128)
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1096249"> </a>
+(0, 0)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096251"> </a>
+0
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096253"> </a>
+0
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096255"> </a>
+0
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096257"> </a>
+ERROR
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096259"> </a>
+ERROR
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096261"> </a>
+ERROR
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1096263"> </a>
+(0, 56)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096265"> </a>
+0
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096267"> </a>
+56
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096269"> </a>
+56
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096271"> </a>
+56
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096273"> </a>
+56
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096275"> </a>
+ERROR
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1096277"> </a>
+(0, 128)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096279"> </a>
+0
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096281"> </a>
+56
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096283"> </a>
+128
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096285"> </a>
+56
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096287"> </a>
+128
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096289"> </a>
+128
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1096291"> </a>
+(56, 56)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096293"> </a>
+ERROR
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096295"> </a>
+56
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096297"> </a>
+56
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096299"> </a>
+56
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096301"> </a>
+56
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096303"> </a>
+ERROR
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1096305"> </a>
+(56, 128)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096307"> </a>
+ERROR
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096309"> </a>
+56
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096311"> </a>
+128
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096313"> </a>
+56
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096315"> </a>
+128
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096317"> </a>
+128
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellHeading"><a name="wp1096319"> </a>
+(128, 128)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096321"> </a>
+ERROR
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096323"> </a>
+ERROR
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096325"> </a>
+128
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096327"> </a>
+ERROR
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096329"> </a>
+128
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1096331"> </a>
+128
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1096333"> </a>
+WSL/WSH Connection Timeout During Initialization
+</h3>
+<p class="pBody"><a name="wp1096334"> </a>
+The length of time a Workstation client can take for initialization is limited. By default, this interval is 30 seconds in an application not using LLE, and 60 seconds in an application using LLE. The 60-second interval includes the time needed to negotiate an encrypted link. This time limit can be changed when LLE is configured by changing the value of the <code class="cCode">MAXINITTIME</code> parameter for the Workstation Listener (WSL) server in the <code class="cCode">UBBCONFIG</code> file, or the value of the <code class="cCode">TA_MAXINITTIME</code> attribute in the <code class="cCode">T_WSL</code> class of the <code class="cCode">WS_MIB</code>(5).
+</p>
+<h3 class="pHeading2"><a name="wp1096337"> </a>
+Development Process
+</h3>
+<p class="pBody"><a name="wp1096338"> </a>
+To use LLE in a CORBA application, you need to install a license that enables the use of LLE. For information about installing the license, see <a href="../install/index.html"><a href="../install/index.html">Installing the Oracle Tuxedo System</a>.
+</p>
+<p class="pBody"><a name="wp1096344"> </a>
+The implementation of LLE is an administrative task. The system administrators for each CORBA application set <code class="cCodeEmphasis">min</code>-<code class="cCodeEmphasis">max</code> values in the <code class="cCode">UBBCONFIG</code> file that control encryption strength. When the two CORBA applications establish communication, they negotiate what level of encryption to use to exchange messages. Once an encryption level is negotiated, it remains in effect for the lifetime of the network connection. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1086140"> </a>
+Password Authentication
+</h2><p class="pBody"><a name="wp1086141"> </a>
+The CORBA security environment supports a password mechanism to provide authentication to existing CORBA applications and to new CORBA applications that are not prepared to deploy a full Public Key Infrastructure (PKI). When using password authentication, the applications that initiate invocations on CORBA objects authenticate themselves to the Oracle Tuxedo domain using a defined username and password. 
+</p>
+<p class="pBody"><a name="wp1065761"> </a>
+The following levels of password authentication are provided:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1096427"> </a>None&#8212;indicates that no password or access checking is performed in the CORBA application.</li>
+<li><a name="wp1065762"> </a>Application Password&#8212;indicates that users are required to supply a domain password in order to access the CORBA application.</li>
+<li><a name="wp1065766"> </a>User Authentication&#8212;indicates that users are required to supply an application password as well as the domain password in order to access the CORBA application.</li>
+<li><a name="wp1096432"> </a>ACL&#8212;indicates that authorization is used in the CORBA application and access control checks are performed on interfaces, queue names, and event names. If an associated ALC is not found for a user, it is assumed that access is granted.</li>
+<li><a name="wp1096433"> </a>Mandatory ACL&#8212;indicates that authorization is used in the CORBA application and access control checks are performed on interfaces, queue names, and event names. The value of Mandatory ACL is similar to ACL, but permission is denied if an associated ACL is not found for the user.</li>
+</ul></div>
+<p class="pBody"><a name="wp1096442"> </a>
+When using Password authentication, you have the option of using the <code class="cCode">Tobj::PrincipalAuthenticator::logon()</code> or the <code class="cCode">SecurityLevel2::PrincipalAuthenticator::authenticate()</code> methods in your client application.
+</p>
+<p class="pBody"><a name="wp1065768"> </a>
+If you use password authentication, the SSL protocol can be used to provide confidentiality and integrity to communication between applications. For more information, see <a href="concepts1.html#wp1096513">The SSL Protocol</a>.
+</p>
+<h3 class="pHeading2"><a name="wp1065770"> </a>
+How Password Authentication Works
+</h3>
+<p class="pBody"><a name="wp1065771"> </a>
+Password authentication works in the following way:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1094615"> </a>The initiating application accesses the Oracle Tuxedo domain in one of the following ways:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1095008"> </a>Through the CORBA Interoperable Naming Service (INS) Bootstrapping mechanism. Use this mechanism if you are using a client ORB from another vendor. For more information about using CORBA INS, see the <a href="../CORBA_ref/index.html">CORBA Programming Reference</a> in the Oracle Tuxedo online documentation</li>
+<li><a name="wp1095009"> </a>The Oracle Bootstrapping mechanism. Use this mechanism if you are using Oracle CORBA client applications.</li>
+</ul></div>
+<li><a name="wp1065776"> </a>The initiating application obtains credentials for the user. The initiating application must provide proof material to be used by the Oracle Tuxedo domain to authenticate the user. This proof material consists of the name of the user and a password.</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1065777"> </a>The initiating application creates the security context using a <code class="cCode">PrincipalAuthenticator</code> object. The request for authentication is sent to the IIOP Listener/Handler. The proof material in the authentication request is securely relayed to the authentication server, which verifies the supplied information.</li>
+<li><a name="wp1065778"> </a>If the verification succeeds, the Oracle Tuxedo system constructs a <code class="cCode">Credentials</code> object that is used by all future invocations. The<code class="cCode"> Credentials</code> object for the user is associated with the <code class="cCode">Current</code> object that represents the security context.</li>
+</ul></div>
+<li><a name="wp1065779"> </a>The initiating application invokes a CORBA object in the Oracle Tuxedo domain using an object reference. The request is packaged into an IIOP request and is forwarded to the IIOP Listener/Handler that associates the request with the previously established security context.</li>
+<li><a name="wp1065781"> </a>The IIOP Listener/Handler receives the request from the initiating application.</li>
+<li><a name="wp1065782"> </a>The IIOP Listener/Handler forwards the request, along with the credentials of the initiating application, to the appropriate CORBA object.</li>
+</ol></div>
+<p class="pBody"><a name="wp1065786"> </a>
+<a href="concepts1.html#wp1065788">Figure&#160;3-2</a> illustrates these steps.
+</p>
+<div class="pFigureTitle"><a name="wp1065788"> </a>
+Figure&#160;3-2  How Password Authentication Works
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1065790"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/security.gif" alt="How Password Authentication Works" id="wp1093673"/></div><p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1065791"> </a>
+Development Process for Password Authentication
+</h3>
+<p class="pBody"><a name="wp1065794"> </a>
+Defining password authentication for a CORBA application includes administration and programming steps. <a href="concepts1.html#wp1065811">Table&#160;3-2</a> and <a href="concepts1.html#wp1065843">Table&#160;3-3</a> list the administration and programming steps for password authentication. For a detailed description of the administration steps for password authentication, see <a href="Secur.html"><span class="cHyperlink">
+Configuring Authentication on page&#160;7-1</span></a>. For a complete description of the programming steps, see <a href="writewle.html"><span class="cHyperlink">
+Writing a CORBA Application That Implements Security on page&#160;9-1</span></a>.
+</p>
+<p class="pGraphic"><a name="wp1065839"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1065811table1065808"><caption><a name="wp1065811"> </a>
+Table 3-2  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Administration Steps for Password Authentication&#160;</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1065815"> </a>
+Step
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1065817"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1065819"> </a>
+1
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1065824"> </a>
+Set the <code class="cCode">SECURITY</code> parameter in the <code class="cCode">UBBCONFIG</code> file to <code class="cCode">APP_PW</code>, <code class="cCode">USER_AUTH</code>, <code class="cCode">ACL</code>, or <code class="cCode">MANDATORY_ACL</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1065826"> </a>
+2
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1065829"> </a>
+If you defined the <code class="cCode">SECURITY</code> parameter as <code class="cCode">USER_AUTH, ACL</code>, or <code class="cCode">MANDATORY_ACL</code>, configure the authentication server (<code class="cCode">AUTHSRV</code>) in the <code class="cCode">UBBCONFIG</code> file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1065831"> </a>
+3
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1065834"> </a>
+Use the <code class="cCode">tpusradd</code> and <code class="cCode">tpgrpadd</code> commands to define lists of authorized users and groups including the IIOP Listener/Handler.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1065836"> </a>
+4
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1065838"> </a>
+Use the <code class="cCode">tmloadcf</code> command to load the <code class="cCode">UBBCONFIG</code> file. When the <code class="cCode">UBBCONFIG</code> file is loaded, the system administrator is prompted for a password. The password entered at this time becomes the password for the CORBA application.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pGraphic"><a name="wp1065866"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1065843table1065840"><caption><a name="wp1065843"> </a>
+Table 3-3  Programming Steps for Password Authentication
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1065847"> </a>
+Step
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1065849"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1065851"> </a>
+1
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1065853"> </a>
+Write application code that uses the Bootstrap object to obtain a reference to the SecurityCurrent object or CORBA INS to obtain a reference to a PrincipalAuthenticator object in the Oracle Tuxedo domain.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1065855"> </a>
+2
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1065857"> </a>
+Write application code that obtains the PrincipalAuthenticator object from the SecurityCurrent object.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1065859"> </a>
+3
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1065861"> </a>
+Write application code that uses the <code class="cCode">Tobj::PrincipalAuthenticator::logon()</code> or <code class="cCode">SecurityLevel2::PrincipalAuthenticator::authenticate()</code> operation to establish a security context with the Oracle Tuxedo domain.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1065863"> </a>
+4
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1065865"> </a>
+Write application code that prompts the user for the password defined when the <code class="cCode">UBBCONFIG</code> file is loaded. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1096513"> </a>
+The SSL Protocol
+</h2><p class="pBody"><a name="wp1096516"> </a>
+The Oracle Tuxedo product provides the industry-standard SSL protocol to establish secure communications between client and server applications. When using the SSL protocol, principals use digital certificates to prove their identity to a peer. 
+</p>
+<p class="pBody"><a name="wp1096517"> </a>
+The default behavior of the SSL protocol in the CORBA security environment is to have the IIOP Listener/Handler prove its identity to the principal who initiated the SSL connection using digital certificates. The digital certificates are verified to ensure that each of the digital certificates has not been tampered with or expired. If there is a problem with any of the digital certificates in the chain, the SSL connection is terminated. In addition, the issuer of a digital certificate is compared against a list of trusted certificate authorities to verify the digital certificate received from the IIOP Listener/Handler has been signed by a certificate authority that is trusted by the Oracle Tuxedo domain.
+</p>
+<p class="pBody"><a name="wp1096820"> </a>
+Like LLE, the SSL protocol can be used with password authentication to provide confidentiality and integrity to communication between the client application and the Oracle Tuxedo domain. When using the SSL protocol with password authentication, you are prompted for the password of the IIOP Listener/Handler defined by the <code class="cCode">SEC_PRINCIPAL_NAME </code>parameter when you enter the <code class="cCode">tmloadcf</code> command.
+</p>
+<h3 class="pHeading2"><a name="wp1096533"> </a>
+How the SSL Protocol Works
+</h3>
+<p class="pBody"><a name="wp1096534"> </a>
+The SSL protocol works in the following manner:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1097154"> </a>The IIOP Listener/Handler presents its digital certificate to the initiating application.</li>
+<li><a name="wp1097206"> </a>The initiating application compares the digital certificate of the IIOP Listener/Handler against its list of trusted certificate authorities.</li>
+<li><a name="wp1097215"> </a>If the initiating application validates the digital certificate of the IIOP Listener/Handler, the application and the IIOP Listener/Handler establish an SSL connection. </li>
+<p class="pBodyRelative"><a name="wp1097508"> </a>
+The initiating application can then use either password or certificate authentication to authenticate itself to the Oracle Tuxedo domain.
+</p>
+</ol></div>
+<p class="pBody"><a name="wp1096548"> </a>
+<a href="concepts1.html#wp1096550">Figure&#160;3-3</a> illustrates how the SSL protocol works.
+</p>
+<div class="pFigureTitle"><a name="wp1096550"> </a>
+Figure&#160;3-3  How the SSL Protocol Works in a CORBA Application
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1096554"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/auth2.gif" alt="How the SSL Protocol Works in a CORBA Application" id="wp1097549"/></div><p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1096556"> </a>
+Requirements for Using the SSL Protocol
+</h3>
+<p class="pBody"><a name="wp1098043"> </a>
+To use the SSL protocol in a CORBA application, you need to install a license that enables the use of the SSL protocol and PKI. For information about installing the license for the security features, see <a href="../install/index.html"><a href="../install/index.html">Installing the Oracle Tuxedo System</a>.
+</p>
+<p class="pBody"><a name="wp1098048"> </a>
+The implementation of the SSL protocol is flexible enough to fit into most public key infrastructures. The Oracle Tuxedo product requires that digital certificates are stored in an LDAP-enabled directory. You can choose any LDAP-enabled directory service. You also need to choose the certificate authority from which to obtain digital certificates and private keys used in a CORBA application. You must have an LDAP-enabled directory service and a certificate authority in place before using the SSL protocol in a CORBA application.
+</p>
+<h3 class="pHeading2"><a name="wp1096566"> </a>
+Development Process for the SSL Protocol
+</h3>
+<p class="pBody"><a name="wp1096567"> </a>
+Using the SSL protocol in a CORBA application is primarily an administration process. <a href="concepts1.html#wp1096591">Table&#160;3-4</a> lists the administration steps required to set up the infrastructure required to use the SSL protocol and configure the IIOP Listener/Handler for the SSL protocol. For a detailed description of the administration steps, see <a href="certs.html"><span class="cHyperlink">
+Managing Public Key Security on page&#160;4-1</span></a> and <a href="config.html"><span class="cHyperlink">
+Configuring the SSL Protocol on page&#160;6-1</span></a>. 
+</p>
+<p class="pBody"><a name="wp1096578"> </a>
+Once the administration steps are complete, you can use either password authentication or certificate authentication in your CORBA application. For more information, see <a href="writewle.html"><span class="cHyperlink">
+Writing a CORBA Application That Implements Security on page&#160;9-1</span></a>. 
+</p>
+<a name="wp1096582"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If you are using the Oracle CORBA C++ ORB as a server application, the ORB can also be configured to use the SSL protocol. For more information, see <a href="config.html"><span class="cHyperlink">
+Configuring the SSL Protocol on page&#160;6-1</span></a>.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1096646"> </a>
+If you use the SSL protocol with password authentication, you need to set the <code class="cCode">SECURITY</code> parameter in the <code class="cCode">UBBCONFIG</code> file to desired level of authentication and if appropriate, configure the Authentication Server (<code class="cCode">AUTHSRV</code>). For information about the administration steps for password authentication, see <a href="concepts1.html#wp1086140">Password Authentication</a>.
+</p>
+<p class="pBody"><a name="wp1096651"> </a>
+<a href="concepts1.html#wp1096653">Figure&#160;3-4</a> illustrates the configuration of a CORBA application that uses the SSL protocol.
+</p>
+<div class="pFigureTitle"><a name="wp1096653"> </a>
+Figure&#160;3-4  Configuration for Using the SSL Protocol in a CORBA Application
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1096659"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/clientSS.gif" alt="Configuration for Using the SSL Protocol in a CORBA Application" id="wp1096657"/></div><p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1066175"> </a>
+Certificate Authentication
+</h2><p class="pBody"><a name="wp1066176"> </a>
+Certificate authentication requires that each side of an SSL connection proves its identity to the other side of the connection. In the CORBA security environment, the IIOP Listener/Handler presents its digital certificate to the principal who initiated the SSL connection. The initiator then provides a chain of digital certificates that are used by the IIOP Listener/Handler to verify the identity of the initiator.
+</p>
+<p class="pBody"><a name="wp1066180"> </a>
+Once a chain of digital certificates is successfully verified, the IIOP Listener/Handler retrieves the value of the distinguished name from the subject of the digital certificate. The CORBA security environment uses the e-mail address element of the subject&#8217;s distinguished name as the identity of the principal. The IIOP Listener/Handler uses the identity of the principal to impersonate the principal and establish a security context between the initiating application and the Oracle Tuxedo domain.
+</p>
+<p class="pBody"><a name="wp1066181"> </a>
+Once the principal has been authenticated, the principal that initiated the request and the IIOP Listener/Handler agree on a cipher suite that represents the type and strength of encryption that they both support. They also agree on the encryption key and synchronize to start encrypting all subsequent messages.
+</p>
+<p class="pBody"><a name="wp1066186"> </a>
+<a href="concepts1.html#wp1066188">Figure&#160;3-5</a> provides a conceptual overview of the certificate authentication.
+</p>
+<div class="pFigureTitle"><a name="wp1066188"> </a>
+Figure&#160;3-5  Certificate Authentication
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1066189"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/auth2.gif" alt="Certificate Authentication" id="wp1091282"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1101594"> </a>
+Commonly, X.509 V3 CA certificates are required to contain the Basic Constraints extension, marked as being from a Certificate Authority (CA), and marked as a critical extension (see IETF RFC 2459). Ensuring that V3 CA certificates protects against non-CA certificates from masquerading as intermediate CA certificates. 
+</p>
+<p class="pBody"><a name="wp1101598"> </a>
+For more information, please refer to the following URL:
+</p>
+<p class="pBody"><a name="wp1101600"> </a>
+<span class="cHyperlink">
+<a href="http://www.ietf.org/rfc/rfc2459.txt">http://www.ietf.org/rfc/rfc2459.txt</a></span>
+</p>
+<a name="wp1101602"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This default behavior will not check Basic Constraints on X.509 V1 and V2 certificates, as these versions of X.509 certificates do not support certificate extensions.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1101606"> </a>
+There is a mechanism provided to control the level of enforcement that will be performed in order to avoid problems with some customer&#39;s applications:
+</p>
+<p class="pBody"><a name="wp1101609"> </a>
+The mechanism is used by setting the value of the environment variable TUX_SSL_ENFORCECONSTRAINTS. The levels of enforcement are as follows:
+</p>
+<h4 class="pDefTerm"><a name="wp1101611"> </a>
+0 
+</h4><div class="pDefPara"><a name="wp1101936"> </a>
+This level disables the enforcement entirely. This is not recommended as a solution unless you really have no other choice.
+</div>
+<div class="pDefParaCont"><a name="wp1101614"> </a>
+For example, a customer has purchased certificates from a commercial CA and the chain does not pass the new checks. Most current commercial CA certificates should work under the default level 1 setting.
+<a name="wp1101618"> </a>
+<code class="cCode">TUX_SSL_ENFORCECONSTRAINTS=0</code>
+</div>
+<h4 class="pDefTerm"><a name="wp1101620"> </a>
+1 
+</h4><div class="pDefPara"><a name="wp1101935"> </a>
+This level is the default. No checking is performed on V1 or V2 certificates in the certificate chain. The Basic Constraints for V3 CA certificates are checked and the certificates are verified to be CA certificates.
+</div>
+<div class="pDefParaCont"><a name="wp1101625"> </a>
+<code class="cCode">TUX_SSL_ENFORCECONSTRAINTS=1</code>
+</div>
+<h4 class="pDefTerm"><a name="wp1101627"> </a>
+2 
+</h4><div class="pDefPara"><a name="wp1101895"> </a>
+This level does the same checking as level 1, and additionally enforces two more requirements: 
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1101630"> </a>All CA certificates in the certificate chain must be V3 certificates.</li>
+<li><a name="wp1101631"> </a>The Basic Constraints extensions of the CA certificates must be marked as &quot;critical&quot; in accordance with IETF RFC 2459.</li>
+</ul></div>
+</div>
+<div class="pDefParaCont"><a name="wp1101634"> </a>
+This is not the default setting because a number of current commercially available V3 CA certificates do not mark the Basic Constraints as critical.
+<a name="wp1101586"> </a>
+<code class="cCode">TUX_SSL_ENFORCECONSTRAINTS=2 </code>
+</div>
+<h3 class="pHeading2"><a name="wp1101581"> </a>
+How Certificate Authentication Works
+</h3>
+<p class="pBody"><a name="wp1066192"> </a>
+Certificate authentication works in the following manner:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1095233"> </a>The initiating application accesses the Oracle Tuxedo domain in one of the following ways:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1095234"> </a>Through the CORBA INS Bootstrapping mechanism. Use this mechanism if you are using a client ORB from another vendor. For more information about using CORBA INS, see <em class="cEmphasis">CORBA Programming Reference</em> in the Oracle Tuxedo online documentation.</li>
+<li><a name="wp1095235"> </a>The Oracle Bootstrapping mechanism. Use this mechanism if you are using the Oracle client ORB.</li>
+</ul></div>
+<li><a name="wp1066194"> </a>The initiating application instantiates the Bootstrap object with a URL in the form of <code class="cCode">corbaloc://host:port</code> or <code class="cCode">corbalocs://host:port</code> and controls the requirement for protection by setting attributes on the <code class="cCode">SecurityLevel2::Credentials </code>object returned as a result of the <code class="cCode">SecurityLevel2::PrincipalAuthenticator::authenticate</code> operation.</li>
+</ol></div>
+<a name="wp1066196"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>You can also use the <code class="cCode">SecurityLevel2::Current::authenticate()</code> method to secure the bootstrapping process and specify that certificate authentication is to be used.</td>
+</tr>
+</table>
+
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1066197"> </a>The initiating application obtains the digital certificates and the private key of the principal. Retrieval of this information may require proof material to be supplied to gain access to the principal&#8217;s private key and certificate. The proof material typically is a pass phrase rather than a password. </li>
+<p class="pBodyRelative"><a name="wp1066198"> </a>
+ The security context is established as result of a <code class="cCode">SecurityLevel2::PrincipalAuthenticator::authenticate()</code> method. 
+</p>
+<p class="pBodyRelative"><a name="wp1097579"> </a>
+The IIOP Listener/Handler receives and validates the application&#8217;s digital certificate as part of the authentication process.
+</p>
+<li><a name="wp1066199"> </a>If the verification succeeds, the Oracle Tuxedo system constructs a <code class="cCode">Credentials</code> object. The<code class="cCode"> Credentials</code> object for the principal represents the security context for the current thread of execution.</li>
+<li><a name="wp1066200"> </a>The initiating application invokes a CORBA object in the Oracle Tuxedo domain using an object reference. </li>
+<li><a name="wp1066201"> </a>The request is packaged into an IIOP request and is forwarded to the IIOP Listener/Handler that associates the request with the established security context.</li>
+<li><a name="wp1066202"> </a>The request is digitally signed and encrypted before it is sent to the IIOP Listener/Handler. The Oracle Tuxedo system performs the signing and sealing of requests.</li>
+<li><a name="wp1066203"> </a>The IIOP Listener/Handler receives the request from the initiating application. The request is decrypted.</li>
+<li><a name="wp1066204"> </a>The IIOP Listener/Handler retrieves the e-mail component of the subjectDN of the principal&#8217;s and uses that as the identity of the user.</li>
+<li><a name="wp1066205"> </a>The IIOP Listener/Handler forwards the request, along with the associated tokens of the principal, to the appropriate CORBA object.</li>
+<div class="pFigureTitle"><a name="wp1066206"> </a>
+Figure&#160;3-6  How Certificate Authentication Works
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1092089"> </a>
+<br />
+<img src="wwimages/mutual.gif" alt="How Certificate Authentication Works" id="wp1094059"/><br />
+
+</p>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1092090"> </a>
+Development Process for Certificate Authentication
+</h3>
+<p class="pBody"><a name="wp1093277"> </a>
+To use certificate authentication in a CORBA application, you need to install a license that enables the use of the SSL protocol and PKI. For information about installing the license, see <a href="../install/index.html"><a href="../install/index.html">Installing the Oracle Tuxedo System</a>.
+</p>
+<p class="pBody"><a name="wp1092093"> </a>
+Using certificate authentication in a CORBA application includes administration and programming steps. <a href="concepts1.html#wp1066231">Table&#160;3-5</a> and <a href="concepts1.html#wp1066327">Table&#160;3-6</a> list the administration and programming steps for certificate authentication. For a detailed description of the administration steps, see <a href="certs.html"><span class="cHyperlink">
+Managing Public Key Security on page&#160;4-1</span></a> and <a href="config.html"><span class="cHyperlink">
+Configuring the SSL Protocol on page&#160;6-1</span></a>.
+</p>
+<p class="pGraphic"><a name="wp1066299"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1066231table1066228"><caption><a name="wp1066231"> </a>
+Table 3-5  Administration Steps for Certificate Authentication&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1066235"> </a>
+Step
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1066237"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066239"> </a>
+1
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066241"> </a>
+Set up an LDAP-enabled directory service. You will be prompted for the name of the LDAP server during the installation of the Oracle Tuxedo product.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066243"> </a>
+2
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066245"> </a>
+Install the license for the SSL protocol.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066247"> </a>
+3
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066249"> </a>
+Obtain a digital certificate and private key for the IIOP Listener/Handler from a certificate authority.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066251"> </a>
+4
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066253"> </a>
+Obtain digital certificates and private keys for the CORBA client applications from a certificate authority.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066255"> </a>
+5
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066257"> </a>
+Store the private key files for the CORBA client applications and the IIOP Listener/Handler in the Home directory of the user or in<code class="cCode"> $TUXDIR/udataobj/security/keys</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066259"> </a>
+6
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066261"> </a>
+Publish the digital certificates for the IIOP Listener/Handler, the CORBA applications, and the certificate authority in the LDAP-enabled directory service.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066263"> </a>
+7
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066265"> </a>
+Define the <code class="cCode">SEC_PRINCIPAL_NAME</code>, <code class="cCode">SEC_PRINCIPAL_LOCATION</code>, and <code class="cCode">SEC_PRINCIPAL_PASSVAR</code> for the ISL server process in the<code class="cCode"> UBBCONFIG</code> file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066268"> </a>
+8
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066270"> </a>
+Set the <code class="cCode">SECURITY</code> parameter in the <code class="cCode">UBBCONFIG</code> file to <code class="cCode">USER_AUTH</code>, <code class="cCode">ACL</code>, or <code class="cCode">MANDATORY_ACL</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1097653"> </a>
+9
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1097655"> </a>
+Configure the Authentication Server (<code class="cCode">AUTHSRV</code>) in the <code class="cCode">UBBCONFIG</code> file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1097623"> </a>
+10
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1097625"> </a>
+Use the <code class="cCode">tpusradd</code> and <code class="cCode">tpgrpadd</code> commands to define the authorized Users and Groups of your CORBA application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066272"> </a>
+11
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066274"> </a>
+Define a port for SSL communication on the IIOP Listener/Handler using the <code class="cCode">-S</code> option of the ISL command.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066276"> </a>
+12
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066278"> </a>
+Enable certificate authentication in the IIOP Listener/Handler using the<code class="cCode"> -a</code> option of the ISL command.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066280"> </a>
+13
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066282"> </a>
+Create a Trusted Certificate Authority file (<code class="cCode">trust_ca.cer</code>) that defines the certificate authorities trusted by the IIOP Listener/Handler.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066284"> </a>
+12
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066286"> </a>
+Create a Trusted Certificate Authority file (<code class="cCode">trust_ca.cer</code>) that defines the certificate authorities trusted by the CORBA client application.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066288"> </a>
+13
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066290"> </a>
+Use the <code class="cCode">tmloadcf</code> command to load the <code class="cCode">UBBCONFIG</code> file. You will be prompted for the password of the IIOP Listener/Handler defined in the <code class="cCode">SEC_PRINCIPAL_NAME</code> parameter.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066292"> </a>
+14
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066294"> </a>
+Optionally, create a Peer Rules file (<code class="cCode">peer_val.rul</code>) for both the CORBA client application and the IIOP Listener/Handler.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066296"> </a>
+15
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066298"> </a>
+Optionally, modify the LDAP Search filter file to reflect the directory hierarchy in place in your enterprise.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1066307"> </a>
+<a href="concepts1.html#wp1066310">Figure&#160;3-7</a> illustrates the configuration of a CORBA application that uses certificate authentication.
+</p>
+<div class="pFigureTitle"><a name="wp1066310"> </a>
+Figure&#160;3-7  Configuration for Using Certificate Authentication in a CORBA Application
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1066311"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/clientmu.gif" alt="Configuration for Using Certificate Authentication in a CORBA Application" id="wp1092434"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1066316"> </a>
+<a href="concepts1.html#wp1066327">Table&#160;3-6</a> lists the programming steps for using certificate authentication in a CORBA application. For more information, see <a href="writewle.html"><span class="cHyperlink">
+Writing a CORBA Application That Implements Security on page&#160;9-1</span></a>. 
+</p>
+<p class="pGraphic"><a name="wp1066342"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1066327table1066324"><caption><a name="wp1066327"> </a>
+Table 3-6  Programming Steps for Certificate Authentication&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1066331"> </a>
+Step
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1066333"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066335"> </a>
+1
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1095577"> </a>
+Write application code that uses the <code class="cCode">corbaloc</code> or <code class="cCode">corbalocs</code> URL address formats of the Bootstrap object. Note that the CommonName in the Distinguished Name of the certificate of the IIOP Listener/Handler must match exactly the host name provided in the URL address format. For more information on the URL address formats, see <a href="writewle.html#wp1049897">Using the Bootstrapping Mechanism</a>.
+</div>
+<div class="pCellBody"><a name="wp1095447"> </a>
+You can also use the CORBA INS bootstrap mechanism to object a reference to a PrincipalAuthenticator object in the Oracle Tuxedo domain. For more information about using CORBA INS, see the <a href="../CORBA_ref/index.html">CORBA Programming Reference</a>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066339"> </a>
+2
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1066341"> </a>
+Write application code that uses the <code class="cCode">authenticate()</code> method of the <code class="cCode">SecurityLevel2::PrincipalAuthenticator</code> interface to perform authentication. Specify <code class="cCode">Tobj::CertificateBased</code> for the method argument and the pass phrase for the private key as the<code class="cCode"> auth_data</code> argument for <code class="cCode">Security::Opaque</code>.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1064205"> </a>
+Using an Authentication Plug-in
+</h2><p class="pBody"><a name="wp1064206"> </a>
+The Oracle Tuxedo product allows the integration of authentication plug-ins into a CORBA application. The Oracle Tuxedo product can accommodate authentication plug-ins using various authentication technologies, including <span style="font-style: normal">shared-secret password</span>, <span style="font-style: normal">one-time password</span>, <span style="font-style: normal">challenge-response</span>, and <span style="font-style: normal">Kerberos</span>. The authentication interface is based on the generic security service (GSS) application programming interface (API) where applicable and assumes authentication plug-ins have been written to the GSSAPI.
+</p>
+<p class="pBody"><a name="wp1067312"> </a>
+If you chose to use an authentication plug-in, you must configure the authentication plug-in in the registry of the Oracle Tuxedo system. For more detail about the registry, see <a href="pluginh.html"><span class="cHyperlink">
+Configuring Security Plug-ins on page&#160;8-1</span></a><span style="font-weight: bold">.</span>
+</p>
+<p class="pBody"><a name="wp1081796"> </a>
+For more information about an authentication plug-ins, including installation and configuration procedures, see your Oracle account executive. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1066914"> </a>
+Authorization
+</h2><p class="pBody"><a name="wp1066915"> </a>
+Authorization allows system administrators to control access to CORBA applications. Specifically, an administrator can use authorization to allow or disallow principals to use resources or services provided by a CORBA application.
+</p>
+<p class="pBody"><a name="wp1071873"> </a>
+The CORBA security environment supports the integration of authorization plug-ins. Authorization decisions are based in part on the user identity represented by an authorization token. Authorization tokens are generated during the authentication process so coordination between the authentication plug-in and the authorization plug-in is required.
+</p>
+<p class="pBody"><a name="wp1068024"> </a>
+If you chose to use an authorization plug-in, you must configure the authorization plug-in the registry of the Oracle Tuxedo system. For more detail about the registry, see <a href="pluginh.html"><span class="cHyperlink">
+Configuring Security Plug-ins on page&#160;8-1</span></a><span style="font-weight: bold">.</span>
+</p>
+<p class="pBody"><a name="wp1081821"> </a>
+For more information about authorization plug-ins, including installation and configuration procedures, see your Oracle account executive. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1068099"> </a>
+Auditing
+</h2><p class="pBody"><a name="wp1068100"> </a>
+Auditing provides a means to collect, store, and distribute information about operating requests and their outcomes. Audit-trail records may be used to determine which principals performed, or attempted to perform, actions that violated the configured security policies of a CORBA application. They may also be used to determine which operations were attempted, which ones failed, and which ones successfully completed.
+</p>
+<p class="pBody"><a name="wp1069924"> </a>
+The current implementation of the auditing feature supports the recording of logon failures, impersonation failures, and disallowed operations into the <code class="cCode">ULOG</code> file. In the case of disallowed operations, the value of the parameters to the operation are not provided because there is no way to know the order and data types of the parameter for an arbitrary operation. Audit entries for logon and impersonation include the identity of the principal attempting to be authenticated. For information about setting up the <code class="cCode">ULOG</code> file, see Setting Up an Oracle Tuxedo Application.
+</p>
+<p class="pBody"><a name="wp1069963"> </a>
+You can enhance the auditing capabilities of your CORBA application by using an auditing plug-in. The Oracle Tuxedo system will invoke the auditing plug-in at predefined execution points, usually before an operation is attempted and then when potential security violations are detected or when operations are successfully completed. The actions taken to collect, process, protect, and distribute auditing information depend on the capabilities of the auditing plug-in. Care should be taken with the performance impact of audit information collection, especially successful operation audits, which may occur at a high rate.
+</p>
+<p class="pBody"><a name="wp1070610"> </a>
+Auditing decisions are based partly on user identity, which is stored in an <span style="font-style: normal">auditing token</span>. Because auditing tokens are generated by the authentication plug-in, providers of authentication and auditing plug-ins need to ensure that these plug-ins work together.
+</p>
+<p class="pBody"><a name="wp1069999"> </a>
+The purpose of an auditing request is to record an event. Each auditing plug-in returns one of two responses: <code style="font-style: normal" class="cCode">success</code><span style="font-style: normal"> </span>(the audit succeeded and the event was logged) or <code class="cCode">failure </code>(the audit failed and the event was not logged the event). An auditing plug-in is called once before the operation is performed and once after the operation completes.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1070010"> </a>The preoperation audit allows the auditing of both attempts to call an operation, and also allows storage of input data for the postoperation check.</li>
+<li><a name="wp1070039"> </a>The postoperation audit reports the status of the completion of an operation. For failure status, the postoperation audit is called to report a potential security violation. Usually this type of report is issued when a preoperation or postoperation authorization check fails or when some other potential security attack is detected. </li>
+</ul></div>
+<p class="pBody"><a name="wp1070160"> </a>
+Multiple implementations of the auditing plug-in can be used in a CORBA application. Using multiple authorization plug-ins causes more than one preoperation and postoperation auditing operation to be performed. 
+</p>
+<p class="pBody"><a name="wp1070161"> </a>
+When using multiple auditing plug-ins, all the plug-ins are placed under a single master auditing plug-in. Each subordinate authorization plug-in returns <code class="cCode">SUCCESS</code> or <code class="cCode">FAILURE</code>. If any plug-in fails the operation, the auditing master plug-in determines the outcome to be <code class="cCode">FAILURE</code>. Other error returns are also considered <code class="cCode">FAILURE</code>. Otherwise, <code class="cCode">SUCCESS</code> is the outcome.
+</p>
+<p class="pBody"><a name="wp1068154"> </a>
+In addition, an Oracle Tuxedo system process may call an auditing plug-in when a potential security violation occurs. (Suspicion of a security violation arises when a preoperation or postoperation <span style="font-style: normal">authorization</span> check fails or when an attack on security is detected.) In response, the auditing plug-in performs a postoperation audit and returns whether the audit succeeded.
+</p>
+<p class="pBody"><a name="wp1068156"> </a>
+The auditing process is somewhat different for users of the auditing feature provided by the Oracle Tuxedo product and users of auditing plug-ins. The default auditing feature does not support preoperation audits. If the default auditing feature receives a preoperation audit request, it returns immediately and does nothing.
+</p>
+<p class="pBody"><a name="wp1070876"> </a>
+If you chose to use an auditing plug-in other than the default auditing plug-in, you must configure the auditing plug-in the registry of the Oracle Tuxedo system. For more detail about the registry, see <a href="pluginh.html"><span class="cHyperlink">
+Configuring Security Plug-ins on page&#160;8-1</span></a><span style="font-weight: bold">.</span>
+</p>
+<p class="pBody"><a name="wp1081837"> </a>
+For more information about auditing plug-ins, including installation and configuration procedures, see your Oracle account executive. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1079377"> </a>
+PKI Plug-ins
+</h2><p class="pBody"><a name="wp1080797"> </a>
+The Oracle Tuxedo product provides a PKI environment which includes the SSL protocol and the infrastructure needed to use digital certificates in a CORBA application. However, you can use the PKI interfaces to integrate a PKI plug-in that supplies custom message-based digital signature and message-based encryption to your CORBA applications. <a href="concepts1.html#wp1080884">Table&#160;3-7</a> describes the PKI interfaces.
+</p>
+<p class="pGraphic"><a name="wp1080931"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1080884table1080882"><caption><a name="wp1080884"> </a>
+Table 3-7  PKI Interfaces&#160;
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1080888"> </a>
+PKI Interface
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1080890"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1080892"> </a>
+Public key initialization
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1080894"> </a>
+Allows public key software to open public and private keys. For example, gateway processes may need to have access to a specific private key in order to decrypt messages before routing them.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1080896"> </a>
+Key management
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1080898"> </a>
+Allows public key software to manage and use public and private keys. Note that message digests and session keys are encrypted and decrypted using this interface, but no bulk data encryption is performed using public key cryptography. Bulk data encryption is performed using symmetric key cryptography.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1080900"> </a>
+Certificate lookup
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1080902"> </a>
+Allows public key software to retrieve X.509v3 digital certificates for a given principal. Digital certificates may be stored using any appropriate certificate repository, such as Lightweight Directory Access Protocol (LDAP).
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1080904"> </a>
+Certificate parsing
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1080906"> </a>
+Allows public key software to associate a simple principal name with an X.509v3 digital certificate. The parser analyzes a digital certificate to generate a principal name to be associated with the digital certificate.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1080908"> </a>
+Certificate validation
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1080910"> </a>
+Allows public key software to validate an X.509v3 digital certificate in accordance with specific business logic.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1080912"> </a>
+Proof material mapping
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1080914"> </a>
+Allows public key software to access the proof materials needed to open keys, provide authorization tokens, and provide auditing tokens.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1082023"> </a>
+The PKI interfaces support the following algorithms:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1082024"> </a>Public key algorithms: Rivest, Shamir, and Adelman (RSA) and Digital Signature Algorithm (DSA)</li>
+<li><a name="wp1082026"> </a>Symmetric key algorithms:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1082027"> </a>Data Encryption Standard for Cipher Block Chaining (DES-CBC)</li>
+<li><a name="wp1082028"> </a>Two-key triple-DES</li>
+<li><a name="wp1082029"> </a>Rivest&#8217;s Cipher 4 (RC4)</li>
+</ul></div>
+<li><a name="wp1082030"> </a>Message digest algorithms:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1082031"> </a>Message Digest 5 (MD5)</li>
+<li><a name="wp1082032"> </a>Secure Hash Algorithm 1 (SHA-1)</li>
+</ul></div>
+</ul></div>
+<p class="pBody"><a name="wp1081471"> </a>
+If you chose to use a PKI plug-in, you must configure the PKI plug-in in the registry of the Oracle Tuxedo system. For more detail about the registry, see <a href="pluginh.html"><span class="cHyperlink">
+Configuring Security Plug-ins on page&#160;8-1</span></a>.
+</p>
+<p class="pBody"><a name="wp1082059"> </a>
+For more information about PKI plug-ins, including installation and configuration procedures, see your Oracle account executive. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1075750"> </a>
+Commonly Asked Questions About the CORBA Security Features
+</h2><p class="pBody"><a name="wp1050070"> </a>
+The following sections answer some of the commonly asked questions about the CORBA security features.
+</p>
+<h3 class="pHeading2"><a name="wp1050071"> </a>
+Do I Have to Change the Security in an Existing CORBA Application?
+</h3>
+<p class="pBody"><a name="wp1050072"> </a>
+The answer is no. If you are using security interfaces from previous versions of the WebLogic Enterprise product in your CORBA application there is no requirement for you to change your CORBA application. You can leave your current security scheme in place and your existing CORBA application will work with CORBA applications built with Oracle Tuxedo 8.0 or later.
+</p>
+<p class="pBody"><a name="wp1050073"> </a>
+For example, if your CORBA application consists of a set of server applications which provide general information to all client applications which connect to them, there is really no need to implement a stronger security scheme. If your CORBA application has a set of server applications which provide information to client applications on an internal network which provides enough security to detect sniffers, you do not need to implement the additional security features.
+</p>
+<h3 class="pHeading2"><a name="wp1050075"> </a>
+Can I Use the SSL Protocol in an Existing CORBA Application?
+</h3>
+<p class="pBody"><a name="wp1050076"> </a>
+The answer is yes. You may want to take advantage of the extra security protection provided by the SSL protocol in your existing CORBA application. For example, if you have a CORBA server application which provides stock prices to a specific set of client applications, you can use the SSL protocol to make sure the client applications are connected to the correct CORBA server application and that they are not being routed to a fake CORBA server application with incorrect data. A username and password is sufficient proof material to authenticate the client application. However, by using the SSL protocol, the message request/reply information can be protected as an additional level of security.
+</p>
+<p class="pBody"><a name="wp1050077"> </a>
+The SSL protocol offers CORBA applications the following benefits:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1050078"> </a>Protection of the entire conversation including the initial bootstrapping process. The SSL protocol protects against Man-In-The-Middle attacks, replay attacks, tampering, and sniffing.</li>
+<li><a name="wp1050079"> </a>Even if you only use the default settings, the SSL protocol provides signed and sealed protection since the default encryption settings are a minimum of 56 bits by default.</li>
+<li><a name="wp1050080"> </a>Client verification of the connected IIOP Listener/Handler using the digital certificate of the IIOP Listener/Handler. The client application can then apply additional security rules to restrict access to the client application by the IIOP Listener/Handler. This protection also applies to IIOP Listener/Handlers connecting to remote server applications when using callback objects.</li>
+</ul></div>
+<p class="pBody"><a name="wp1050087"> </a>
+To use the SSL protocol in a CORBA application, set up the infrastructure to use digital certificates, change the command-line options on the ISL server process to use the SSL protocol, and configure a port for secure communications on the IIOP Listener/Handler. If your existing CORBA application uses password authentication, you can use that code with the SSL protocol. If your CORBA C++ client application does not already catch the <code class="cCode">InvalidDomain</code> exception when resolving initial references to the Bootstrap object and performing authentication, write code to handle this exception. For more information, see <a href="concepts1.html#wp1079377"><span class="cHyperlink">
+PKI Plug-ins on page&#160;3-22</span></a>.
+</p>
+<h3 class="pHeading2"><a name="wp1050110"> </a>
+When Should I Use Certificate Authentication?
+</h3>
+<p class="pBody"><a name="wp1050111"> </a>
+You might be ready to migrate your existing CORBA application to use Internet connections between the CORBA application and Web browsers and commercial Web servers. For example, users of your CORBA application might be shopping over the Internet. The users must be confident that:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1050112"> </a>They are in fact communicating with the server at the online store and not an impostor that mimics the store&#8217;s server to get credit card information.</li>
+<li><a name="wp1050113"> </a>The data exchanged between the user of the CORBA application and the online store will be unintelligible to network eavesdroppers.</li>
+<li><a name="wp1050114"> </a>The data exchanged with the online store will arrive unaltered. An instruction to order $500 worth of merchandise must not accidently or maliciously become a $5000 order.</li>
+</ul></div>
+<p class="pBody"><a name="wp1050115"> </a>
+In these situations, the SSL protocol and certificate authentication offer CORBA applications the maximum level of protection. In addition to the benefits achieved through the use of the SSL protocol, certificate authentication offers CORBA applications:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1050116"> </a>IIOP Listener/Handler verification of the client application that initiates a request using the digital certificate of the client application. In addition, the IIOP Listener/Handler can apply additional rules which restrict access to the client application based on the identity established by the digital certificate. A remote ORB acting as a server application can also be configured to allow mutual authentication and verify the identity of a client application based on a digital certificate.</li>
+<li><a name="wp1050117"> </a>Inside the Oracle Tuxedo domain, the client application can still have an Oracle Tuxedo username and password. The IIOP Listener/Handler maps the identity defined in a digital certificate to an Oracle Tuxedo username and password thus allowing existing CORBA applications to have an identity in native CORBA server applications.</li>
+</ul></div>
+<p class="pBody"><a name="wp1052582"> </a>
+ For more information, see <a href="concepts1.html#wp1079377"><span class="cHyperlink">
+PKI Plug-ins on page&#160;3-22</span></a>. 
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="concepts1.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="publickey.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="secur2.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

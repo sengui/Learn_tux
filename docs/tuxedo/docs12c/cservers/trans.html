@@ -1,0 +1,778 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41824" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/cservers/fm/trans.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/26/12 11:03:55" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Integrating Transactions into a CORBA Server Application</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Creating CORBA Server Applications
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="security.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="wrapper.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/cservers.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1028427"> </a>
+Integrating Transactions into a CORBA Server Application
+</h1>
+<p class="pBody"><a name="wp1023108"> </a>
+This chapter describes how to integrate transactions into a CORBA server application, using the Transactions University sample application as an example. The Transactions sample application encapsulates the process of a student registering for a set of courses. The Transactions sample application does not show all the possible ways to integrate transactions into a CORBA server application, but it does show two models of transactional behavior, showing the impact of transactional behavior on the application in general and on the durable state of objects in particular.
+</p>
+<p class="pBody"><a name="wp1023113"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023116"> </a><a href="trans.html#wp1023172">Overview of Transactions in the Oracle Tuxedo System</a></li>
+<li><a name="wp1023120"> </a><a href="trans.html#wp1023198">Designing and Implementing Transactions in a CORBA Server Application</a></li>
+<li><a name="wp1023124"> </a><a href="trans.html#wp1023323">Integrating Transactions in a CORBA Client and Server Application</a>.  This section describes:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023128"> </a><a href="trans.html#wp1023353">Making an Object Automatically Transactional</a></li>
+<li><a name="wp1023132"> </a><a href="trans.html#wp1023388">Enabling an Object to Participate in a Transaction</a></li>
+<li><a name="wp1023136"> </a><a href="trans.html#wp1023412">Preventing an Object from Being Invoked While a Transaction Is Scoped</a></li>
+<li><a name="wp1023140"> </a><a href="trans.html#wp1023431">Excluding an Object from an Ongoing Transaction</a></li>
+<li><a name="wp1023144"> </a><a href="trans.html#wp1023450">Assigning Policies</a></li>
+<li><a name="wp1023148"> </a><a href="trans.html#wp1023458">Opening an XA Resource Manager</a></li>
+<li><a name="wp1023152"> </a><a href="trans.html#wp1023463">Closing an XA Resource Manager</a></li>
+</ul></div>
+<li><a name="wp1023156"> </a><a href="trans.html#wp1023468">Transactions and Object State Management</a></li>
+<li><a name="wp1023160"> </a><a href="trans.html#wp1023524">Notes on Using Transactions in the Oracle Tuxedo System</a></li>
+<li><a name="wp1023164"> </a><a href="trans.html#wp1023571">User-defined Exceptions</a></li>
+</ul></div>
+<p class="pBody"><a name="wp1023166"> </a>
+This chapter also presents a section on user-defined exceptions. The Transactions sample application introduces a user-defined exception, which can be returned to the client application and that potentially causes a client-initiated transaction to be rolled back.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023172"> </a>
+Overview of Transactions in the Oracle Tuxedo System
+</h2><p class="pBody"><a name="wp1023176"> </a>
+The Oracle Tuxedo system provides transactions as a means to guarantee that database transactions are completed accurately and that they take on all the <b class="cBold">ACID</b> <b class="cBold">properties</b> (atomicity, consistency, isolation, and durability) of a high-performance transaction. That is, you have a requirement to perform multiple write operations on durable storage, and you must be guaranteed that the operations succeed; if any one of the operations fails, the entire set of operations is rolled back.
+</p>
+<p class="pBody"><a name="wp1023178"> </a>
+Transactions typically are appropriate in the situations described in the following list. Each situation encapsulates a transactional model supported by the Oracle Tuxedo system.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023182"> </a>The client application needs to make invocations on several different objects, which may involve write operations to one or more databases. If any one invocation is unsuccessful, any state that is written (either in memory or, more typically, to a database) must be rolled back.</li>
+<p class="pBodyRelative"><a name="wp1023183"> </a>
+For example, consider a travel agent application. The client application needs to arrange for a journey to a distant location; for example, from Strasbourg, France, to Alice Springs, Australia. Such a journey would inevitably require multiple individual flight reservations. The client application works by reserving each individual segment of the journey in sequential order; for example, Strasbourg to Paris, Paris to New York, New York to Los Angeles. However, if any individual flight reservation cannot be made, the client application needs a way to cancel all the flight reservations made so far. For example, if the client application cannot book a flight from Los Angeles to Honolulu on a given date, the client application needs to cancel the flight reservations made up to that point.
+</p>
+<li><a name="wp1023184"> </a>The client needs a conversation with an object managed by the server application, and the client needs to make multiple invocations on a specific object instance. The conversation may be characterized by one or more of the following:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023185"> </a>Data is cached in memory or written to a database during or after each successive invocation.</li>
+<li><a name="wp1023186"> </a>Data is written to a database at the end of the conversation.</li>
+<li><a name="wp1023187"> </a>The client needs the object to maintain an in-memory context between each invocation; that is, each successive invocation uses the data that is being maintained in memory across the conversation.</li>
+<li><a name="wp1023188"> </a>At the end of the conversation, the client needs the ability to cancel all database write operations that may have occurred during or at the end of the conversation.</li>
+<p class="pBodyRelative"><a name="wp1023189"> </a>
+For example, consider an Internet-based online shopping application. The user of the client application browses through an online catalog and makes multiple purchase selections. When the user is done choosing all the items he or she wants to buy, the user clicks on a button to make the purchase, where the user may enter credit card information. If the credit card check fails (for example, the user cannot provide valid credit card information), the shopping application needs a way to cancel all the pending purchase selections or roll back any purchase transactions made during the conversation.
+</p>
+</ul></div>
+<li><a name="wp1023190"> </a>Within the scope of a single client invocation on an object, the object performs multiple edits to data in a database. If one of the edits fails, the object needs a mechanism to roll back all the edits. (And in this situation, the individual database edits are not necessarily CORBA invocations.)</li>
+<p class="pBodyRelative"><a name="wp1023191"> </a>
+For example, consider a banking application. The client invokes the transfer operation on a teller object. The transfer operation requires the teller object to make the following invocations on the bank database:
+</p>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023192"> </a>Invoking the debit method on one account</li>
+<li><a name="wp1023193"> </a>Invoking the credit method on another account</li>
+<p class="pBodyRelative"><a name="wp1023194"> </a>
+If the credit invocation on the bank database fails, the banking application needs a way to roll back the previous debit invocation.
+</p>
+</ul></div>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023198"> </a>
+Designing and Implementing Transactions in a CORBA Server Application
+</h2><p class="pBody"><a name="wp1023204"> </a>
+This section explains how to design and implement transactions in a CORBA server application using the Transactions University sample application as an example. This section also describes how the Transactions sample application works, and discusses the design considerations for implementing transactions in it. For additional general information about transactions, see the section <a href="trans.html#wp1023323">&quot;Integrating Transactions in a CORBA Client and Server Application&quot; on page&#160;-9</a>. 
+</p>
+<p class="pBody"><a name="wp1023209"> </a>
+The Transactions sample application uses transactions to encapsulate the task of a student registering for a set of courses. The transactional model used in this application is a combination of the conversational model and the model in which a single invocation makes multiple individual operations on a database, as described in the preceding section.
+</p>
+<p class="pBody"><a name="wp1023210"> </a>
+The Transactions sample application builds on the Security sample application by adding the following capabilities:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023211"> </a>Students can submit a list of courses for which they want to register. (Each course is represented by a number.)</li>
+<li><a name="wp1023212"> </a>For each course in the list, the University server application checks the following:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023213"> </a>Whether the course is in the University database</li>
+<li><a name="wp1023214"> </a>Whether the student is already registered for the course</li>
+<li><a name="wp1023215"> </a>Whether the student exceeds the maximum number of credits he or she can take</li>
+</ul></div>
+<li><a name="wp1023216"> </a>If the course passes the checks in the preceding list, the University server application registers the student for the course.</li>
+<li><a name="wp1023217"> </a>If the server application cannot register the student for a course because the course does not exist in the database or because the student is already registered for the course, the server application returns to the client application a list of courses for which the registration process failed. The client application can then choose whether to commit the transaction to register the student for the courses for which the registration process succeeds, or to roll back the entire transaction.</li>
+<li><a name="wp1023218"> </a>If a course registration fails because the student exceeds the maximum number of credits he or she can take, the server application returns a CORBA exception to the client application that provides a brief message explaining why the registration for the course was not successful. (The server application does not mark the transaction for rollback only.)</li>
+</ul></div>
+<p class="pBody"><a name="wp1023219"> </a>
+The Transactions sample application shows two ways in which a transaction can be rolled back:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023220"> </a>Nonfatal. If the registration for a course fails because the course is not in the database, or because the student is already registered for the course, the server application returns the numbers of those courses to the client application. The decision to roll back the transaction lies with the user of the client application (and the Transaction client application code rolls back the transaction automatically in this case).</li>
+<li><a name="wp1023221"> </a>Fatal. If the registration for a course fails because the student exceeds the maximum number of credits he or she can take, the server application generates a CORBA exception and returns it to the client. The decision to roll back the transaction also lies with the client application.</li>
+<p class="pBodyRelative"><a name="wp1023222"> </a>
+Thus, the Transactions sample application also shows how to implement user-defined CORBA exceptions. For example, if the student tries to register for a course that would exceed the maximum number of courses for which the student can register, the server application returns the <code class="cCode">TooManyCredits</code> exception. When the client application receives this exception, the client application rolls back the transaction automatically.
+</p>
+</ul></div>
+<p class="pBody"><a name="wp1023223"> </a>
+The sections that follow explain:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023226"> </a><a href="trans.html#wp1023242">How the Transactions University Sample Application Works</a></li>
+<li><a name="wp1023230"> </a><a href="trans.html#wp1023260">Transactional Model Used by the Transactions University Sample Application</a></li>
+<li><a name="wp1023234"> </a><a href="trans.html#wp1023271">Object State Considerations for the University Server Application</a></li>
+<li><a name="wp1023238"> </a><a href="trans.html#wp1023314">Configuration Requirements for the Transactions Sample Application</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1023242"> </a>
+How the Transactions University Sample Application Works
+</h3>
+<p class="pBody"><a name="wp1023243"> </a>
+To implement the student registration process, the Transactions sample application does the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023244"> </a>The client application obtains a reference to the TransactionCurrent object from the Bootstrap object.</li>
+<li><a name="wp1023245"> </a>When the student submits the list of courses for which he or she wants to register, the client application:</li>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp1023246"> </a>Begins a transaction by invoking the <code class="cCode">Current::begin()</code> operation on the TransactionCurrent object</li>
+<li><a name="wp1023247"> </a>Invokes the <code class="cCode">register_for_courses()</code> operation on the <code class="cCode">Registrar</code> object, passing a list of courses</li>
+</ol></div>
+<li><a name="wp1023248"> </a>The <code class="cCode">register_for_courses()</code> operation on the <code class="cCode">Registrar</code> object processes the registration request by executing a loop that does the following iteratively for each course in the list:</li>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp1023249"> </a>Checks to see how many credits the student is already registered for</li>
+<li><a name="wp1023250"> </a>Adds the course to the list of courses for which the student is registered</li>
+<p class="pBodyRelative"><a name="wp1023251"> </a>
+The <code class="cCode">Registrar</code> object checks for the following potential problems, which prevent the transaction from being committed:
+</p>
+</ol></div>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023252"> </a>The student is already registered for the course.</li>
+<li><a name="wp1023253"> </a>A course in the list does not exist.</li>
+<li><a name="wp1023254"> </a>The student exceeds the maximum credits allowed.</li>
+</ul></div>
+<li><a name="wp1023255"> </a>As defined in the application&#8217;s OMG IDL, the <code class="cCode">register_for_courses()</code> operation returns a parameter to the client application, <code class="cCode">NotRegisteredList</code>, which contains a list of the courses for which the registration failed. </li>
+<p class="pBodyRelative"><a name="wp1023256"> </a>
+If the <code class="cCode">NotRegisteredList</code> value is empty, the client application commits the transaction.
+</p>
+<p class="pBodyRelative"><a name="wp1023257"> </a>
+If the <code class="cCode">NotRegisteredList</code> value contains any courses, the client application queries the student to indicate whether he or she wants to complete the registration process for the courses for which the registration succeeded. If the user chooses to complete the registration, the client application commits the transaction. If the user chooses to cancel the registration, the client application rolls back the transaction.
+</p>
+<li><a name="wp1023258"> </a>If the registration for a course has failed because the student exceeds the maximum number of credits he or she can take, the <code class="cCode">Registrar</code> object returns a <code class="cCode">TooManyCredits</code> exception to the client application, and the client application rolls back the entire transaction.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1023260"> </a>
+Transactional Model Used by the Transactions University Sample Application
+</h3>
+<p class="pBody"><a name="wp1023261"> </a>
+The basic design rationale for the Transactions sample application is to handle course registrations in groups, as opposed to one at a time. This design helps to minimize the number of remote invocations on the <code class="cCode">Registrar</code> object.
+</p>
+<p class="pBody"><a name="wp1023262"> </a>
+In implementing this design, the Transactions sample application shows one model of the use of transactions, which were described in the section <a href="trans.html#wp1023172"><span class="cHyperlink">
+Overview of Transactions in the Oracle Tuxedo System on page&#160;6-2</span></a>. The model is as follows:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023266"> </a>The client begins a transaction by invoking the <code class="cCode">begin()</code> operation on the TransactionCurrent object, followed by making an invocation to the <code class="cCode">register_for_courses()</code> operation on the <code class="cCode">Registrar</code> object. </li>
+<p class="pBodyRelative"><a name="wp1023267"> </a>
+The <code class="cCode">Registrar</code> object registers the student for the courses for which it can, and then returns a list of courses for which the registration process was unsuccessful. The client application can choose to commit the transaction or roll it back. The transaction encapsulates this conversation between the client and the server application.
+</p>
+<li><a name="wp1023268"> </a>The <code class="cCode">register_for_courses()</code> operation performs multiple checks of the University database. If any one of those checks fail, the transaction can be rolled back.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1023271"> </a>
+Object State Considerations for the University Server Application
+</h3>
+<p class="pBody"><a name="wp1023272"> </a>
+Because the Transactions University sample application is transactional, the University server application generally needs to consider the implications on object state, particularly in the event of a rollback. In cases where there is a rollback, the server application must ensure that all affected objects have their durable state restored to the proper state.
+</p>
+<p class="pBody"><a name="wp1023273"> </a>
+Because the <code class="cCode">Registrar</code> object is being used for database transactions, a good design choice for this object is to make it transactional; that is, assign the <code class="cCode">always</code> transaction policy to this object&#8217;s interface. If a transaction has not already been scoped when this object is invoked, the Oracle Tuxedo system will start a transaction automatically. 
+</p>
+<p class="pBody"><a name="wp1023277"> </a>
+By making the <code class="cCode">Registrar</code> object automatically transactional, all database write operations performed by this object will always be done within the scope of a transaction, regardless of whether the client application starts one. Since the server application uses an XA resource manager, and since the object is guaranteed to be in a transaction when the object writes to a database, the object does not have any rollback or commit responsibilities because the XA resource manager takes responsibility for these database operations on behalf of the object.
+</p>
+<p class="pBody"><a name="wp1023278"> </a>
+The <code class="cCode">RegistrarFactory</code> object, however, can be excluded from transactions because this object does not manage data that is used during the course of a transaction. By excluding this object from transactions, you minimize the processing overhead implied by transactions. 
+</p>
+<h4 class="pHeading3"><a name="wp1023280"> </a>
+Object Policies Defined for the Registrar Object
+</h4>
+<p class="pBody"><a name="wp1023281"> </a>
+To make the <code class="cCode">Registrar</code> object transactional, the ICF file specifies the <code class="cCode">always</code> transaction policy for the <code class="cCode">Registrar</code> interface. Therefore, in the Transaction sample application, the ICF file specifies the following object policies for the <code class="cCode">Registrar</code> interface:
+</p>
+<p class="pGraphic"><a name="wp1023291"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1023284table1023282">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1023284"> </a>
+<span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Activation Policy</span>
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023286"> </a>
+Transaction Policy
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023288"> </a>
+<code class="cCode">process</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023290"> </a>
+<code class="cCode">always</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1023292"> </a>
+Object Policies Defined for the RegistrarFactory Object
+</h4>
+<p class="pBody"><a name="wp1023293"> </a>
+To exclude the <code class="cCode">RegistrarFactory</code> object from transactions, the ICF file specifies the <code class="cCode">ignore</code> transaction policy for the <code class="cCode">Registrar</code> interface. Therefore, in the Transaction sample application, the ICF file specifies the following object policies for the <code class="cCode">RegistrarFactory</code> interface:
+</p>
+<p class="pGraphic"><a name="wp1023303"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1023296table1023294">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1023296"> </a>
+Activation Policy
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023298"> </a>
+Transaction Policy
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023300"> </a>
+<code class="cCode">process</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023302"> </a>
+<code class="cCode">ignore</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1023307"> </a>
+Using an XA Resource Manager in the Transactions Sample Application
+</h4>
+<p class="pBody"><a name="wp1023308"> </a>
+The Transactions sample application uses the Oracle Transaction Manager Server (TMS), which handles object state data automatically. Using any XA resource manager imposes specific requirements on how different objects managed by the server application may read and write data to that database, including the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023309"> </a>Some XA resource managers (for example, Oracle) require that all database operations be scoped within a transaction. This means that the <code class="cCode">CourseSynopsisEnumerator</code> object needs to be scoped within a transaction because this object reads from a database.</li>
+<li><a name="wp1023310"> </a>When a transaction is committed or rolled back, the XA resource manager automatically handles the durable state implied by the commit or rollback. That is, if the transaction is committed, the XA resource manager ensures that all database updates are made permanent. Likewise, if there is a rollback, the XA resource manager automatically restores the database to its state prior to the beginning of the transaction. </li>
+<p class="pBodyRelative"><a name="wp1023311"> </a>
+This characteristic of XA resource managers actually makes the design problems associated with handling object state data in the event of a rollback much simpler. Transactional objects can always delegate the commit and rollback responsibilities to the XA resource manager, which greatly simplifies the task of implementing a server application.
+</p>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1023314"> </a>
+Configuration Requirements for the Transactions Sample Application
+</h3>
+<p class="pBody"><a name="wp1023315"> </a>
+The University sample applications use an Oracle transaction manager server (TMS). To use an Oracle database, you must include specific Oracle-provided files in the server application build process.
+</p>
+<p class="pBody"><a name="wp1025339"> </a>
+For details about building, configuring, and running the Transactions sample application, see the <a href="../usamples/index.html">Guide to the CORBA University Sample Applications</a>. This online document also contains the <code class="cCode">UBBCONFIG</code> files for each sample application and explains the entries in that file.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023323"> </a>
+Integrating Transactions in a CORBA Client and Server Application
+</h2><p class="pBody"><a name="wp1023327"> </a>
+The Oracle Tuxedo system supports transactions in the following ways:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023329"> </a>The client or the server application can begin and end transactions explicitly by using calls on the TransactionCurrent object. For information about the TransactionCurrent object, see <a href="../creclient/index.html">Creating CORBA Client Applications</a> and <a href="../trans/index.html">Using CORBA Transactions</a>.</li>
+<li><a name="wp1023333"> </a>You can assign transactional policies to an object&#8217;s interface so that when the object is invoked, the Oracle Tuxedo system can start a transaction automatically for that object, if a transaction has not already been started, and commit or roll back the transaction when the method invocation is complete. You use transactional policies on objects in conjunction with an XA resource manager and database when you want to delegate all the transaction commit and rollback responsibilities to that resource manager. </li>
+<li><a name="wp1023337"> </a>Objects involved in a transaction can force a transaction to be rolled back. That is, after an object has been invoked within the scope of a transaction, the object can invoke the <code class="cCode">rollback_only()</code> operation on the TransactionCurrent object to mark the transaction for rollback only. This prevents the current transaction from being committed. An object may need to mark a transaction for rollback if an entity, typically a database, is otherwise at risk of being updated with corrupt or inaccurate data.</li>
+<li><a name="wp1023338"> </a>Objects involved in a transaction can be kept in memory from the time they are first invoked until the moment when the transaction is ready to be committed or rolled back. In the case of a transaction that is about to be committed, these objects are polled by the Oracle Tuxedo system immediately before the resource managers prepare to commit the transaction. (In this sense, polling means invoking the object&#8217;s <code class="cCode">Tobj_ServantBase::deactivate_object()</code> operation and passing a reason value.)</li>
+<p class="pBodyRelative"><a name="wp1023342"> </a>
+When an object is polled, the object may veto the current transaction by invoking the <code class="cCode">rollback_only()</code> operation on the TransactionCurrent object. In addition, if the current transaction is to be rolled back, objects have an opportunity to skip any writes to a database. If no object vetos the current transaction, the transaction is committed.
+</p>
+</ul></div>
+<p class="pBody"><a name="wp1023343"> </a>
+The following sections explain how you can use object activation policies and transaction policies to get the transactional behavior you want in your objects. Note that these policies apply to an interface and, therefore, to all operations on all objects implementing that interface.
+</p>
+<a name="wp1023344"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If a server application manages an object that you want to be able to participate in a transaction, the Server object for that application must invoke the <code class="cCode">TP::open_xa_rm()</code> and <code class="cCode">TP::close_xa_rm()</code> operations. For more information about database connections, see <a href="trans.html#wp1023458"><span class="cHyperlink">
+Opening an XA Resource Manager on page&#160;6-13</span></a>.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1023353"> </a>
+Making an Object Automatically Transactional
+</h3>
+<p class="pBody"><a name="wp1023356"> </a>
+The Oracle Tuxedo system provides the <code class="cCode">always</code> transactional policy, which you can define on an object&#8217;s interface to have the Oracle Tuxedo system start a transaction automatically when that object is invoked and a transaction has not already been scoped. When an invocation on that object is completed, the Oracle Tuxedo system commits or rolls back the transaction automatically. Neither the server application, nor the object implementation, needs to invoke the TransactionCurrent object in this situation; the Oracle Tuxedo system automatically invokes the TransactionCurrent object on behalf of the server application.
+</p>
+<p class="pBody"><a name="wp1023367"> </a>
+Assigning the <code class="cCode">always</code> transactional policy to an object&#8217;s interface is appropriate when:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023368"> </a>The object writes to a database and you want all the database commit or rollback responsibilities delegated to an XA resource manager whenever this object is invoked.</li>
+<li><a name="wp1023369"> </a>You want to give the client application the opportunity to include the object in a larger transaction that encompasses invocations on multiple objects, and the invocations must all succeed or be rolled back if any one invocation fails.</li>
+</ul></div>
+<p class="pBody"><a name="wp1023370"> </a>
+If you want an object to be automatically transactional, assign the following policies to that object&#8217;s interface in the Implementation Configuration File (ICF file):
+</p>
+<p class="pGraphic"><a name="wp1023380"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1023373table1023371">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1023373"> </a>
+Activation Policy
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023375"> </a>
+Transaction Policy
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023377"> </a>
+<code class="cCode">process</code>, <code class="cCode">method</code>, or <code class="cCode">transaction</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023379"> </a>
+<code class="cCode">always</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<a name="wp1023381"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Database cursors cannot span transactions. The <code class="cCode">CourseSynopsisEnumerator</code> object in the CORBA University sample applications uses a database cursor to find matching course synopses from the University database. Because database cursors cannot span transactions, the <code class="cCode">activate_object()</code> operation on the <code class="cCode">CourseSynopsisEnumerator</code> object reads all matching course synopses into memory. Note that the cursor is managed by an iterator class and is thus not visible to the <code class="cCode">CourseSynopsisEnumerator</code> object.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1023388"> </a>
+Enabling an Object to Participate in a Transaction
+</h3>
+<p class="pBody"><a name="wp1023389"> </a>
+If you want an object to be able to be invoked within the scope of a transaction, you can assign the<code class="cCode"> optional</code> transaction policies to that object&#8217;s interface. The <code class="cCode">optional</code> transaction policy may be appropriate for an object that does not perform any database write operations, but that you want to have the ability to be invoked during a transaction.
+</p>
+<p class="pBody"><a name="wp1023390"> </a>
+You can use the following policies, when specified in the ICF file for that object&#8217;s interface, to make an object optionally transactional:
+</p>
+<p class="pGraphic"><a name="wp1023400"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1023393table1023391">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1023393"> </a>
+Activation Policy
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023395"> </a>
+Transaction Policy
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023397"> </a>
+<code class="cCode">process</code>, <code class="cCode">method</code>, or <code class="cCode">transaction</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023399"> </a>
+<code class="cCode">optional</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1023401"> </a>
+If the object does perform database write operations, and you want the object to be able to participate in a transaction, assigning the <code class="cCode">always</code> transactional policy is generally a better choice. However, if you prefer, you can use the <code class="cCode">optional</code> policy and encapsulate any write operations within invocations on the TransactionCurrent object. That is, within your operations that write data, scope a transaction around the write statements by invoking the TransactionCurrent object to, respectively, begin and commit or roll back the transaction, if the object is not already scoped within a transaction. This ensures that any database write operations are handled transactionally. This also introduces a performance efficiency: if the object is not invoked within the scope of a transaction, all the database read operations are nontransactional, and therefore more streamlined.
+</p>
+<a name="wp1023404"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Some XA resource managers used in the Oracle Tuxedo system require that any object participating in a transaction scope their database read operations, in addition to write operations, within a transaction. (However, you can still scope your own transactions.) For example, using an Oracle TMS with the Oracle Tuxedo system has this requirement. When choosing the transaction policies to assign to your objects, make sure you are familiar with the requirements of the XA resource manager you are using.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1023412"> </a>
+Preventing an Object from Being Invoked While a Transaction Is Scoped
+</h3>
+<p class="pBody"><a name="wp1023413"> </a>
+In many cases, it may be critical to exclude an object from a transaction. If such an object is invoked during a transaction, the object returns an exception, which may cause the transaction to be rolled back. The Oracle Tuxedo system provides the <code class="cCode">never</code> transaction policy, which you can assign to an object&#8217;s interface to specifically prevent that object from being invoked within the course of a transaction, even if the current transaction is suspended.
+</p>
+<p class="pBody"><a name="wp1023417"> </a>
+This transaction policy is appropriate for objects that write durable state to disk that cannot be rolled back; for example, for an object that writes data to a disk that is not managed by an XA resource manager. Having this capability in your client/server application is crucial if the client application does not or cannot know if some of its invocations are causing a transaction to be scoped. Therefore, if a transaction is scoped, and an object with this policy is invoked, the transaction can be rolled back.
+</p>
+<p class="pBody"><a name="wp1023418"> </a>
+To prevent an object from being invoked while a transaction is scoped, assign the following policies to that object&#8217;s interface in the ICF file:
+</p>
+<p class="pGraphic"><a name="wp1023428"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1023421table1023419">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1023421"> </a>
+Activation Policy
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023423"> </a>
+Transaction Policy
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023425"> </a>
+<code class="cCode">process</code> or <code class="cCode">method</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023427"> </a>
+<code class="cCode">never</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1023431"> </a>
+Excluding an Object from an Ongoing Transaction
+</h3>
+<p class="pBody"><a name="wp1023432"> </a>
+In some cases, it may be appropriate to permit an object to be invoked during the course of a transaction but also keep that object from being a part of the transaction. If such an object is invoked during a transaction, the transaction is automatically suspended. After the invocation on the object is completed, the transaction is automatically resumed. The Oracle Tuxedo system provides the <code class="cCode">ignore</code> transaction policy for this purpose.
+</p>
+<p class="pBody"><a name="wp1023436"> </a>
+The <code class="cCode">ignore</code> transaction policy may be appropriate for an object such as a factory that typically does not write data to disk. By excluding the factory from the transaction, the factory can be available to other client invocations during the course of a transaction. In addition, using this policy can introduce an efficiency into your server application because it minimizes the overhead of invoking objects transactionally.
+</p>
+<p class="pBody"><a name="wp1023437"> </a>
+To prevent any transaction from being propagated to an object, assign the following policies to that object&#8217;s interface in the ICF file:
+</p>
+<p class="pGraphic"><a name="wp1023447"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1023440table1023438">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1023440"> </a>
+Activation Policy
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023442"> </a>
+Transaction Policy
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023444"> </a>
+<code class="cCode">process</code> or <code class="cCode">method</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023446"> </a>
+<code class="cCode">ignore</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1023450"> </a>
+Assigning Policies
+</h3>
+<p class="pBody"><a name="wp1023451"> </a>
+For information about how to create an ICF file and specify policies on objects, see the section <a href="maksrv.html#wp1023414"><span class="cHyperlink">
+Step 4: Define the In-memory Behavior of Objects on page&#160;2-13</span></a>.
+</p>
+<h3 class="pHeading2"><a name="wp1023458"> </a>
+Opening an XA Resource Manager
+</h3>
+<p class="pBody"><a name="wp1023459"> </a>
+If an object&#8217;s interface has the <code class="cCode">always</code> or <code class="cCode">optional</code> transaction policy, you must invoke the <code class="cCode">TP::open_xa_rm()</code> operation in the <code class="cCode">Server::initialize()</code> operation in the Server object. The resource manager is opened using the information provided in the <code class="cCode">OPENINFO</code> parameter, which is in the <code class="cCode">GROUPS</code> section of the <code class="cCode">UBBCONFIG</code> file. Note that the default version of the <code class="cCode">Server::initialize()</code> operation automatically opens the resource manager.
+</p>
+<p class="pBody"><a name="wp1023460"> </a>
+If you have an object that does not write data to disk and that participates in a transaction&#8212;the object typically has the <code class="cCode">optional</code> transaction policy&#8212;you still need to include an invocation to the <code class="cCode">TP::open_xa_rm()</code> operation. In that invocation, specify the NULL resource manager.
+</p>
+<h3 class="pHeading2"><a name="wp1023463"> </a>
+Closing an XA Resource Manager
+</h3>
+<p class="pBody"><a name="wp1023464"> </a>
+If your Server object&#8217;s <code class="cCode">Server::initialize()</code> operation opens an XA resource manager, you must include the following invocation in the <code class="cCode">Server::release()</code> operation:
+</p>
+<a name="wp1023465"> </a><div class="pPreformatted"><pre>TP::close_xa_rm();</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023468"> </a>
+Transactions and Object State Management
+</h2><p class="pBody"><a name="wp1023469"> </a>
+If you need transactions in your CORBA client and server application, you can integrate transactions with object state management in a few different ways. In general, the Oracle Tuxedo system can automatically scope the transaction for the duration of an operation invocation without requiring you to make any changes to your application&#8217;s logic or the way in which the object writes durable state to disk. 
+</p>
+<p class="pBody"><a name="wp1023473"> </a>
+The following sections address some key points regarding transactions an object state management.
+</p>
+<h3 class="pHeading2"><a name="wp1023475"> </a>
+Delegating Object State Management to an XA Resource Manager
+</h3>
+<p class="pBody"><a name="wp1023478"> </a>
+Using an XA resource manager, such as Oracle which is used in the CORBA University sample applications, generally simplifies the design problems associated with handling object state data in the event of a rollback. Transactional objects can always delegate the commit and rollback responsibilities to the XA resource manager, which greatly eases the task of implementing a server application. This means that process- or method-bound objects involved in a transaction can write to a database during transactions, and can depend on the resource manager to undo any data written to the database in the event of a transaction rollback.
+</p>
+<h3 class="pHeading2"><a name="wp1023484"> </a>
+Waiting Until Transaction Work Is Complete Before Writing to the Database
+</h3>
+<p class="pBody"><a name="wp1023485"> </a>
+The<code class="cCode"> transaction</code> activation policy is a good choice for objects that maintain state in memory that you do not want written, or that cannot be written, to disk until the transaction work is complete. When you assign the <code class="cCode">transaction</code> activation policy to an object, the object:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023486"> </a>Is brought into memory when it is first invoked within the scope of a transaction</li>
+<li><a name="wp1023487"> </a>Remains in memory until the transaction is either committed or rolled back</li>
+</ul></div>
+<p class="pBody"><a name="wp1023490"> </a>
+When the transaction work is complete, the Oracle Tuxedo system invokes each transaction-bound object&#8217;s <code class="cCode">Tobj_ServantBase::deactivate_object()</code> operation, passing a <code class="cCode">reason</code> code that can be either <code class="cCode">DR_TRANS_COMMITTING</code> or <code class="cCode">DR_TRANS_ABORT</code>. If the variable is <code class="cCode">DR_TRANS_COMMITTING</code>, the object can invoke its database write operations. If the variable is <code class="cCode">DR_TRANS_ABORT</code>, the object skips its write operations.
+</p>
+<p class="pBody"><a name="wp1023492"> </a>
+Assigning the <code class="cCode">transaction</code> activation policy to an object may be appropriate in the following situations:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023493"> </a>You want the object to write its durable state to disk at the time that the transaction work is complete. </li>
+<p class="pBodyRelative"><a name="wp1023494"> </a>
+This introduces a performance efficiency because it reduces the number of database write operations that may need to be rolled back.
+</p>
+<li><a name="wp1023495"> </a>You want to provide the object with the ability to veto a transaction that is about to be committed.</li>
+<p class="pBodyRelative"><a name="wp1023498"> </a>
+If the Oracle Tuxedo system passes the reason <code class="cCode">DR_TRANS_COMMITTING</code>, the object can, if necessary, invoke the <code class="cCode">rollback_only()</code> operation on the TransactionCurrent object. Note that if you do make an invocation to the <code class="cCode">rollback_only()</code> operation from within the <code class="cCode">Tobj_ServantBase::deactivate_object()</code> operation, the <code class="cCode">Tobj_ServantBase::deactivate_object()</code> operation is not invoked again.
+</p>
+<li><a name="wp1023500"> </a>You have an object that is likely to be invoked multiple times during the course of a single transaction, and you want to avoid the overhead of continually activating and deactivating the object during that transaction.</li>
+</ul></div>
+<p class="pBody"><a name="wp1023501"> </a>
+To give an object the ability to wait until the transaction is committing before writing to a database, assign the following policies to that object&#8217;s interface in the ICF file:
+</p>
+<p class="pGraphic"><a name="wp1023511"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1023504table1023502">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1023504"> </a>
+Activation Policy
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023506"> </a>
+Transaction Policy
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023508"> </a>
+<code class="cCode">transaction</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023510"> </a>
+<code class="cCode">always</code> or <code class="cCode">optional</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<a name="wp1023512"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Transaction-bound objects cannot start a transaction or invoke other objects from inside the <code class="cCode">Tobj_ServantBase::deactivate_object()</code> operation. The only valid invocations transaction-bound objects can make inside the <code class="cCode">Tobj_ServantBase::deactivate_object()</code> operation are write operations to the database. </td>
+</tr>
+</table>
+
+<a name="wp1023513"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>Also, if you have an object that is involved in a transaction, the Server object that manages that object must include invocations to open and close, respectively, the XA resource manager, even if the object does not write any data to disk. (If you have a transactional object that does not write data to disk, you specify the NULL resource manager.) For more information about opening and closing an XA resource manager, see the sections <a href="trans.html#wp1023458"><span class="cHyperlink">
+Opening an XA Resource Manager on page&#160;6-13</span></a> and <a href="trans.html#wp1023463"><span class="cHyperlink">
+Closing an XA Resource Manager on page&#160;6-13</span></a>.</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023524"> </a>
+Notes on Using Transactions in the Oracle Tuxedo System
+</h2><p class="pBody"><a name="wp1023528"> </a>
+Note the following about integrating transactions into your CORBA client/server applications:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023532"> </a>The following transactions are not permitted in the Oracle Tuxedo system:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023534"> </a>Nested transactions</li>
+<p class="pBodyRelative"><a name="wp1023535"> </a>
+You cannot start a new transaction if an existing transaction is already active. You may start a new transaction if you first suspend the existing one; however, the object that suspends the transaction is the only object that can subsequently resume the transaction.
+</p>
+<li><a name="wp1023536"> </a>Recursive transactions</li>
+<p class="pBodyRelative"><a name="wp1023537"> </a>
+A transactional object cannot call a second object, which in turn calls the first object.
+</p>
+</ul></div>
+<li><a name="wp1023538"> </a>The object that starts a transaction is the only entity that can end the transaction. (In a strict sense, the object can be the client application, the TP Framework, or an object managed by the server application.) An object that is invoked within the scope of a transaction may suspend and resume the transaction. While the transaction is suspended, the object can start and end other transactions. However, you cannot end a transaction in an object unless you began the transaction there.</li>
+<li><a name="wp1023541"> </a>Objects can be involved with only one transaction at one time. The Oracle Tuxedo system does not support concurrent transactions.</li>
+<li><a name="wp1023545"> </a>The Oracle Tuxedo system does not queue requests to objects that are currently involved in a transaction. If a nontransactional client application attempts to invoke an operation on an object that is currently in a transaction, the client application receives the following error message:</li>
+<a name="wp1023547"> </a><div class="pPreformattedRelative"><pre>CORBA::OBJ_ADAPTER</pre></div><p class="pBodyRelative"><a name="wp1023548"> </a>
+If a client that is in a transaction attempts to invoke an operation on an object that is currently in a different transaction, the client application receives the following error message:
+</p>
+<a name="wp1023549"> </a><div class="pPreformattedRelative"><pre>CORBA::INVALID_TRANSACTION</pre></div><li><a name="wp1023550"> </a>For transaction-bound objects, you might consider doing all state handling in the <code class="cCode">Tobj_ServantBase::deactivate_object()</code> operation. This makes it easier for the object to handle its state properly, since the outcome of the transaction is known at the time that the <code class="cCode">Tobj_ServantBase::deactivate_object()</code> operation is invoked.</li>
+<li><a name="wp1023551"> </a>For method-bound objects that have several operations, but only a few that affect the object&#8217;s durable state, you may want to consider the following:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023552"> </a>Assign the <code class="cCode">optional</code> transaction policy. </li>
+<li><a name="wp1023553"> </a>Scope any write operations within a transaction, by making invocations on the TransactionCurrent object.</li>
+<p class="pBodyRelative"><a name="wp1023554"> </a>
+If the object is invoked outside a transaction, the object does not incur the overhead of scoping a transaction for reading data. This way, regardless of whether the object is invoked within a transaction, all the object&#8217;s write operations are handled transactionally.
+</p>
+</ul></div>
+<li><a name="wp1023555"> </a>Transaction rollbacks are asynchronous. Therefore, it is possible for an object to be invoked while its transactional context is still active. If you try to invoke such an object, you receive an exception.</li>
+<li><a name="wp1023556"> </a>If an object with the <code class="cCode">always</code> transaction policy is involved in a transaction that is started by the Oracle Tuxedo system, and not the client application, note the following:</li>
+<p class="pBodyRelative"><a name="wp1023560"> </a>
+If an exception is raised inside an operation on that object, the client application receives an <code class="cCode">OBJ_ADAPTER </code>exception. In this situation, the Oracle Tuxedo system automatically rolls back the transaction. However, the client application is completely unaware that a transaction has been scoped in the Oracle Tuxedo domain.
+</p>
+<li><a name="wp1023567"> </a>If the client application initiates a transaction, and the server application marks the transaction for a rollback and returns a CORBA exception, the client application receives only a transaction rollback exception but not the CORBA exception.</li>
+</ul></div>
+<a name="wp1023568"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>In the WebLogic Enterprise version 4.2 software, no workaround exists for this situation. We recommend that applications perform as much data validation as possible before starting a transaction.</td>
+</tr>
+</table>
+
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024557"> </a>Note the following restriction on a transactional object that has the <code class="cCode">TP::deactivateEnable</code> method:</li>
+<p class="pBodyRelative"><a name="wp1024594"> </a>
+If the <code class="cCode">TP::deactivateEnable</code> method is invoked during a transaction, the object is deactivated <em class="cEmphasis">when the transaction ends</em>. However, if any methods are invoked on the object between the time that the <code class="cCode">TP::deactivateEnable</code> method is called and the time that the transaction is committed, the object is never deactivated.
+</p>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023571"> </a>
+User-defined Exceptions
+</h2><p class="pBody"><a name="wp1023572"> </a>
+The Transactions sample application includes an instance of a user-defined exception, <code class="cCode">TooManyCredits</code>. This exception is thrown by the server application when the client application tries to register a student for a course, and the student has exceeded the maximum number of courses for which he or she can register. When the client application catches this exception, the client application rolls back the transaction that registers a student for a course. This section explains how you can define and implement user-defined exceptions in your CORBA client/server application, using the <code class="cCode">TooManyCredits</code> exception as an example.
+</p>
+<p class="pBody"><a name="wp1023578"> </a>
+Including a user-defined exception in a CORBA client/server application involves the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023580"> </a>In your OMG IDL file, define the exception and specify the operations that can use it.</li>
+<li><a name="wp1023581"> </a>In the implementation file, include code that throws the exception.</li>
+<li><a name="wp1023582"> </a>In the client application source file, include code that catches and handles the exception.</li>
+</ol></div>
+<p class="pBody"><a name="wp1023583"> </a>
+The sections that follow explain and give examples of the first two steps.
+</p>
+<h3 class="pHeading2"><a name="wp1023584"> </a>
+Defining the Exception
+</h3>
+<p class="pBody"><a name="wp1023585"> </a>
+In the OMG IDL file for your client/server application:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023586"> </a>Define the exception and define the data sent with the exception. For example, the <code class="cCode">TooManyCredits</code> exception is defined to pass a short integer representing the maximum number of credits for which a student can register. Therefore, the definition for the <code class="cCode">TooManyCredits</code> exception contains the following OMG IDL statements:</li>
+<a name="wp1023587"> </a><div class="pPreformattedRelative"><pre>exception TooManyCredits<br />{<br />    unsigned short maximum_credits;<br />};</pre></div><li><a name="wp1023588"> </a>In the definition of the operations that throw the exception, include the exception. The following example shows the OMG IDL statements for the <code class="cCode">register_for_courses()</code> operation on the <code class="cCode">Registrar</code> interface:</li>
+<a name="wp1023589"> </a><div class="pPreformattedRelative"><pre>NotRegisteredList register_for_courses(<br />    in StudentId        student,<br />    in CourseNumberList courses)<br /> raises (TooManyCredits);</pre></div></ol></div>
+<h3 class="pHeading2"><a name="wp1023590"> </a>
+Throwing the Exception
+</h3>
+<p class="pBody"><a name="wp1023591"> </a>
+In the implementation of the operation that uses the exception, write the code that throws the exception, as in the following example.
+</p>
+<a name="wp1023592"> </a><div class="pPreformatted"><pre>if ( ... ) {<br />    UniversityZ::TooManyCredits e;<br />    e.maximum_credits = 18;<br />    throw e;<br />    }</pre></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="trans.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="security.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="wrapper.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

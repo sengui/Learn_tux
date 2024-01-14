@@ -1,0 +1,671 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="2" />
+<meta name="LOC_US_CHANGE" content="41903" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/achelp/fm/acacls.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/27/12 04:35:09" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Creating and Configuring Access Control Lists</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Administration Console Online Help
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="acwsl.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="accorba.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/achelp.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp906257"> </a>
+Creating and Configuring Access Control Lists
+</h1>
+<p class="pBody"><a name="wp874810"> </a>
+An <em class="cEmphasis">access control list</em> (ACL) is a list that specifies who and what is authorized to access Oracle Tuxedo system objects. The ACL enables a system manager to administer security through authenticating users, setting permissions, and controlling access. The Oracle Tuxedo Administration Console ACL objects allow the system manager to create and configure ACL objects. These objects are grouped into the following major categories:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp886368"> </a><a href="acacls.html#wp870471">ACL Groups</a></li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp886377"> </a><a href="acacls.html#wp877167">Creating ACL Groups</a></li>
+<li><a name="wp886417"> </a><a href="acacls.html#wp879772">Configuring ACL Groups (T_ACLGROUP Class)</a></li>
+</ul></div>
+<li><a name="wp886382"> </a><a href="acacls.html#wp873645">ACL Principals</a> (users or domains)</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp886427"> </a><a href="acacls.html#wp894785">Creating ACL Principals</a></li>
+<li><a name="wp886387"> </a><a href="acacls.html#wp518216">Configuring ACL Principals (T_ACLPRINCIPAL Class)</a></li>
+</ul></div>
+<li><a name="wp886390"> </a><a href="acacls.html#wp874334">ACLs</a></li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp886436"> </a><a href="acacls.html#wp872302">Creating ACLs</a></li>
+<li><a name="wp886439"> </a><a href="acacls.html#wp889917">Configuring ACLs (T_ACLPERM Class)</a></li>
+</ul></div>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp870471"> </a>
+ACL Groups
+</h2><p class="pBody"><a name="wp877260"> </a>
+The ACL Groups represent the groups of Oracle Tuxedo application users and domains.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;N_ACLGROUP&quot;&gt;&lt;/a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp877167"> </a>
+Creating ACL Groups
+</h2><p class="pBody"><a name="wp879670"> </a>
+To create new ACL Groups:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp887037"> </a>Select the ACL Groups folder in the tree view.</li>
+<li><a name="wp887044"> </a>Select Quick Menu &#8212;&gt;New (right-click) to display the New Object window. </li>
+<li><a name="wp887055"> </a>Enter values for the following fields:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp870475"> </a><a href="acacls.html#wp518186">Group Name (TA_GROUPNAME)</a></li>
+<li><a name="wp870476"> </a><a href="acacls.html#wp518209">Group ID (TA_GROUPID)</a> (optional)</li>
+</ul></div>
+<li><a name="wp870477"> </a>Click the Create button to close the window and create the new ACL group.</li>
+</ol></div>
+<p class="troubleshoot">
+&lt;a name=&quot;T_ACLGROUP&quot;&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp879772"> </a>
+Configuring ACL Groups (T_ACLGROUP Class)
+</h2><p class="pBody"><a name="wp879773"> </a>
+To configure ACL Groups, choose an ACL Groups object in the tree view. Enter values for the fields in the General tab displayed in the Configuration Tool pane.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;C_ACLGROUP&quot;&gt;&lt;/a&gt; 
+</p>
+<h3 class="pHeading2"><a name="wp878824"> </a>
+General Tab
+</h3>
+<p class="pBody"><a name="wp878825"> </a>
+The General tab page lists the ACL Groups Class attributes and includes the following fields:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp518168"> </a><a href="acacls.html#wp518186">Group Name (TA_GROUPNAME)</a></li>
+<li><a name="wp518169"> </a><a href="acacls.html#wp518209">Group ID (TA_GROUPID)</a></li>
+<li><a name="wp518170"> </a><a href="acacls.html#wp518211">Object State (TA_STATE)</a></li>
+</ul></div>
+<p class="troubleshoot">
+&lt;a name=&quot;13041&quot;&gt;&lt;/a&gt; &lt;a name=&quot;12379&quot;&gt;&lt;/a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp518186"> </a>
+Group Name (TA_GROUPNAME) 
+</h3>
+<h4 class="pHeading3"><a name="wp518175"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp518177"> </a>
+Logical name of an ACL group. An ACL group is a set of users characterized by the type of permission to access particular administrative objects, such as services.
+</p>
+<h4 class="pHeading3"><a name="wp518179"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp518181"> </a>
+A string of one to 30 characters. The group name must be printable and it may not include a pound sign (#), a comma, a colon, or a newline character.
+</p>
+<h4 class="pHeading3"><a name="wp518183"> </a>
+Example
+</h4>
+<p class="pBody"><a name="wp518185"> </a>
+<code class="cCode">banktellers</code>
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;13084&quot;&gt;&lt;/a&gt; &lt;a name=&quot;12377&quot;&gt;&lt;/a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp518209"> </a>
+Group ID (TA_GROUPID) 
+</h3>
+<h4 class="pHeading3"><a name="wp518190"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp518192"> </a>
+A decimal number representing the ACL group specified in the <a href="acacls.html#wp518186">Group Name (TA_GROUPNAME)</a>. A value of <code class="cCode">0</code> indicates the default group <code class="cCode">other</code>. If not specified at creation time, it defaults to the next available (unique) identifier greater than <code class="cCode">0</code>. 
+</p>
+<h4 class="pHeading3"><a name="wp518194"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp518196"> </a>
+A number greater than 0 but less than 16,384.
+</p>
+<h4 class="pHeading3"><a name="wp518198"> </a>
+Default
+</h4>
+<p class="pBody"><a name="wp518200"> </a>
+A unique ID number is assigned.
+</p>
+<h4 class="pHeading3"><a name="wp518202"> </a>
+Example
+</h4>
+<p class="pBody"><a name="wp518204"> </a>
+<code class="cCode">201</code>
+</p>
+<h4 class="pHeading3"><a name="wp518206"> </a>
+Notes
+</h4>
+<p class="pBody"><a name="wp518208"> </a>
+<code class="cCode">0</code> is reserved for a group named <code class="cCode">other</code> which is provided by Oracle Tuxedo. (You can add users to this group but you cannot modify or delete the group.)
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12378&quot;&gt;&lt;/a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp518211"> </a>
+Object State (TA_STATE)
+</h3>
+<h4 class="pHeading3"><a name="wp885580"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp518213"> </a>
+This field displays the state of your ACL group. An ACL group may be in only one state: <code class="cCode">VALID</code>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp873645"> </a>
+ACL Principals
+</h2><p class="pBody"><a name="wp894782"> </a>
+The users and remote domains in an application that need authentication and authorization are collectively known as <em class="cEmphasis">principals</em>. To join an application as a specific user, it is necessary to present a user-specific password.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;N_ACLPRINCIPAL&quot;&gt;&lt;/a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp894785"> </a>
+Creating ACL Principals
+</h2><p class="pBody"><a name="wp894786"> </a>
+To create new ACL Principals:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp887439"> </a>Select the ACL Principals folder in the tree view.</li>
+<li><a name="wp887440"> </a>Select Quick Menu &#8212;&gt;New (right-click) to display the New Object window. </li>
+<li><a name="wp887441"> </a>Enter values for the following fields:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp887557"> </a><a href="acacls.html#wp518242">Principal Name (TA_PRINNAME)</a></li>
+<li><a name="wp887561"> </a><a href="acacls.html#wp518328">Password (TA_PRINPASSWD)</a> (optional)</li>
+</ul></div>
+<li><a name="wp887928"> </a>Click the Create button to close the window and create the new ACL principals.</li>
+</ol></div>
+<p class="pBody"><a name="wp871585"> </a>
+The rest of this section describes the fields on the Create New Object window.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;T_ACLPRINCIPAL&quot;&gt;&lt;/a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp518216"> </a>
+Configuring ACL Principals (T_ACLPRINCIPAL Class)
+</h2><p class="pBody"><a name="wp879805"> </a>
+To configure ACL Principals, choose an ACL Principals object in the tree view. Enter values for the fields in the Configuration Tool General tab page.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;C_ACLPRINCIPAL&quot;&gt;&lt;/a&gt; 
+</p>
+<h3 class="pHeading2"><a name="wp874290"> </a>
+General Tab
+</h3>
+<p class="pBody"><a name="wp550588"> </a>
+The General tab page lists the ACL Principals Class attributes and includes the following fields:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp518220"> </a><a href="acacls.html#wp518242">Principal Name (TA_PRINNAME)</a></li>
+<li><a name="wp518221"> </a><a href="acacls.html#wp889685">Principal Client Name (TA_PRINCLTNAME)</a></li>
+<li><a name="wp518222"> </a><a href="acacls.html#wp518286">Principal ID (TA_PRINID)</a></li>
+<li><a name="wp518223"> </a><a href="acacls.html#wp882820">Principal Group (TA_PRINGRP)</a></li>
+<li><a name="wp518224"> </a><a href="acacls.html#wp518328">Password (TA_PRINPASSWD)</a></li>
+<li><a name="wp518225"> </a><a href="acacls.html#wp518330">Object State (TA_STATE)</a></li>
+</ul></div>
+<p class="troubleshoot">
+&lt;a name=&quot;13044&quot;&gt;&lt;/a&gt; &lt;a name=&quot;12388&quot;&gt;&lt;/a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp518242"> </a>
+Principal Name (TA_PRINNAME) 
+</h3>
+<h4 class="pHeading3"><a name="wp518230"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp518232"> </a>
+Logical name of a principal. A principal is a user or domain that can access a Oracle Tuxedo application. 
+</p>
+<h4 class="pHeading3"><a name="wp518234"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp518236"> </a>
+A string from 1 to 30 characters in length.
+</p>
+<p class="pBody"><a name="wp518237"> </a>
+The principal name must be printable and it cannot contain a pound sign (#), a colon, or a newline character.
+</p>
+<h4 class="pHeading3"><a name="wp518239"> </a>
+Example
+</h4>
+<p class="pBody"><a name="wp889681"> </a>
+<code class="cCode">bill_jones</code>
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12387&quot;&gt;&lt;/a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp889685"> </a>
+Principal Client Name (TA_PRINCLTNAME) 
+</h3>
+<h4 class="pHeading3"><a name="wp518246"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp518248"> </a>
+The client name associated with a principal (that is, a user or domain that can access a Oracle Tuxedo application). The client name provides a further qualifier on the user entry that is checked for authentication.
+</p>
+<h4 class="pHeading3"><a name="wp518250"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp518252"> </a>
+A string from 1 to 30 characters in length.
+</p>
+<p class="pBody"><a name="wp518253"> </a>
+The client name must be printable and it cannot contain a colon or a newline character. 
+</p>
+<h4 class="pHeading3"><a name="wp518255"> </a>
+Default
+</h4>
+<p class="pBody"><a name="wp518257"> </a>
+<code class="cCode">*</code> (wildcard character)
+</p>
+<h4 class="pHeading3"><a name="wp518259"> </a>
+Example
+</h4>
+<p class="pBody"><a name="wp518261"> </a>
+<code class="cCode">tpsysusr</code> (logs you in as the Oracle Tuxedo application administrator)
+</p>
+<p class="pBody"><a name="wp518262"> </a>
+<code class="cCode">typsysop</code> (logs you in as the Oracle Tuxedo application operator)
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12385&quot;&gt;&lt;/a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp518286"> </a>
+Principal ID (TA_PRINID) 
+</h3>
+<h4 class="pHeading3"><a name="wp518267"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp518269"> </a>
+A unique identification number for an ACL principal.
+</p>
+<h4 class="pHeading3"><a name="wp518271"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp518273"> </a>
+A number in the range of 1 to 131,071 inclusive.
+</p>
+<h4 class="pHeading3"><a name="wp518275"> </a>
+Default
+</h4>
+<p class="pBody"><a name="wp518277"> </a>
+A unique ID number is assigned.
+</p>
+<h4 class="pHeading3"><a name="wp518279"> </a>
+Example
+</h4>
+<p class="pBody"><a name="wp518281"> </a>
+<code class="cCode">2001</code>
+</p>
+<h4 class="pHeading3"><a name="wp518283"> </a>
+Notes
+</h4>
+<p class="pBody"><a name="wp885858"> </a>
+Oracle Tuxedo reserves principal client names for the administrator and operator of a Tuxedo application. The name <code class="cCode">tpsysadm</code> logs in the associated user as the administrator; <code class="cCode">tpsysop</code> logs in the associated user as the operator. If you plan to use either of these names, be sure to specify it in this field. If you do not, authentication will fail and the designated user will not be able to log in as the administrator (or operator).
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12384&quot;&gt;&lt;/a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp882820"> </a>
+Principal Group (TA_PRINGRP) 
+</h3>
+<h4 class="pHeading3"><a name="wp670968"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp518292"> </a>
+A group ID number that specifies the group to which a principal belongs. A value of <code class="cCode">0 </code>indicates the default group <code class="cCode">other</code>. If not specified at creation time, the default value <code class="cCode">0</code> is assigned.
+</p>
+<h4 class="pHeading3"><a name="wp518294"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp518296"> </a>
+A number in the range of 0 to 16,383 inclusive.
+</p>
+<h4 class="pHeading3"><a name="wp518298"> </a>
+Default
+</h4>
+<p class="pBody"><a name="wp518300"> </a>
+<code class="cCode">0</code> (assigned to group <code class="cCode">other</code>)
+</p>
+<h4 class="pHeading3"><a name="wp518302"> </a>
+Example
+</h4>
+<p class="pBody"><a name="wp518304"> </a>
+<code class="cCode">201</code>
+</p>
+<h4 class="pHeading3"><a name="wp518306"> </a>
+Notes
+</h4>
+<p class="pBody"><a name="wp885639"> </a>
+0 is reserved for a group named <code class="cCode">other</code> which is provided by Oracle Tuxedo. If you do not assign principals to a group, they will be assigned, by default, to group <code class="cCode">other</code>.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;13076&quot;&gt;&lt;/a&gt; &lt;a name=&quot;12389&quot;&gt;&lt;/a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp518328"> </a>
+Password (TA_PRINPASSWD)
+</h3>
+<h4 class="pHeading3"><a name="wp518313"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp518315"> </a>
+The authentication password for the associated ACL principal. 
+</p>
+<h4 class="pHeading3"><a name="wp518317"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp518319"> </a>
+A string.
+</p>
+<h4 class="pHeading3"><a name="wp518321"> </a>
+Example
+</h4>
+<p class="pBody"><a name="wp518323"> </a>
+<code class="cCode">obi1kenobi</code>
+</p>
+<h4 class="pHeading3"><a name="wp518325"> </a>
+Notes
+</h4>
+<p class="pBody"><a name="wp518327"> </a>
+The system automatically encrypts this password.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12386&quot;&gt;&lt;/a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp518330"> </a>
+Object State (TA_STATE)
+</h3>
+<h4 class="pHeading3"><a name="wp886298"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp518332"> </a>
+This field displays the state of your ACL principal. An ACL principal may be in only one state: <code class="cCode">VALID</code>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp874334"> </a>
+ACLs
+</h2><p class="pBody"><a name="wp889815"> </a>
+The ACLs, as a whole, comprise the principals and access control lists for Oracle Tuxedo applications services, application queues, and events. The ACLs indicate what groups are allowed to access Oracle Tuxedo system entities.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;N_ACLPERM&quot;&gt;&lt;/a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp872302"> </a>
+Creating ACLs
+</h2><p class="pBody"><a name="wp888247"> </a>
+To create new ACLs:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp888248"> </a>Select the ACLs folder in the tree view.</li>
+<li><a name="wp888249"> </a>Select Quick Menu &#8212;&gt;New (right-click) to display the New Object window. </li>
+<li><a name="wp888250"> </a>Enter values for the following fields:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp888372"> </a><a href="acacls.html#wp890102">ACL Entity Name (TA_ACLNAME)</a></li>
+<li><a name="wp888376"> </a><a href="acacls.html#wp892099">ACL Entity Type (TA_ACLTYPE)</a> (optional)</li>
+<li><a name="wp888380"> </a><a href="acacls.html#wp518394">Groups (TA_ACLGROUPIDS)</a></li>
+</ul></div>
+<li><a name="wp889913"> </a>Click the Create button to close the window and create the new ACL group.</li>
+</ol></div>
+<p class="troubleshoot">
+&lt;a name=&quot;T_ACLPERM&gt;&lt;/a&gt;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp889917"> </a>
+Configuring ACLs (T_ACLPERM Class)
+</h2><p class="pBody"><a name="wp891752"> </a>
+The Configuration Tool pane displays one General tab page with the fields for configuring ACLs.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;C_ACLPERM&gt;&lt;/a&gt; 
+</p>
+<h3 class="pHeading2"><a name="wp891754"> </a>
+General Tab
+</h3>
+<p class="pBody"><a name="wp518336"> </a>
+The General tab page lists the ACLs Class attributes and include the following fields:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp518339"> </a><a href="acacls.html#wp890102">ACL Entity Name (TA_ACLNAME)</a></li>
+<li><a name="wp518340"> </a><a href="acacls.html#wp892099">ACL Entity Type (TA_ACLTYPE)</a></li>
+<li><a name="wp890078"> </a><a href="acacls.html#wp518394">Groups (TA_ACLGROUPIDS)</a></li>
+<li><a name="wp890101"> </a><a href="acacls.html#wp886324">Object State (TA_STATE)</a></li>
+</ul></div>
+<p class="troubleshoot">
+&lt;a name=&quot;13042&quot;&gt;&lt;/a&gt; 
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12382&quot;&gt;&lt;/a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp890102"> </a>
+ACL Entity Name (TA_ACLNAME)
+</h3>
+<h4 class="pHeading3"><a name="wp518347"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp518349"> </a>
+The name of a service, event or queue (referred to, collectively, as an &#8220;entity&#8221;) for which permissions are being granted. 
+</p>
+<h4 class="pHeading3"><a name="wp518351"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp518353"> </a>
+A string from 1 to 30 characters in length.
+</p>
+<p class="pBody"><a name="wp518354"> </a>
+The ACL entity name must be printable and it cannot contain a colon, a pound sign (#), or a newline character.
+</p>
+<h4 class="pHeading3"><a name="wp518356"> </a>
+Example
+</h4>
+<p class="pBody"><a name="wp892095"> </a>
+<code class="cCode">TRANSFER</code>
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;13043&quot;&gt;&lt;/a&gt; &lt;a name=&quot;12383&quot;&gt;&lt;/a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp892099"> </a>
+ACL Entity Type (TA_ACLTYPE) 
+</h3>
+<h4 class="pHeading3"><a name="wp881809"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp881810"> </a>
+The type of the entity for which permissions are being granted.
+</p>
+<h4 class="pHeading3"><a name="wp881811"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp881812"> </a>
+<code class="cCode">ENQ</code> or <code class="cCode">DEQ</code> or <code class="cCode">SERVICE</code> or <code class="cCode">POSTEVENT</code>
+</p>
+<h4 class="pHeading3"><a name="wp881813"> </a>
+Example
+</h4>
+<p class="pBody"><a name="wp881814"> </a>
+<code class="cCode">SERVICE</code>
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;13083&quot;&gt;&lt;/a&gt; &lt;a name=&quot;12381&quot;&gt;&lt;/a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp518394"> </a>
+Groups (TA_ACLGROUPIDS) 
+</h3>
+<h4 class="pHeading3"><a name="wp518378"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp518380"> </a>
+A comma-separated list of numeric IDs for groups that are permitted access to the associated entity. 
+</p>
+<h4 class="pHeading3"><a name="wp518382"> </a>
+Valid Values
+</h4>
+<p class="pBody"><a name="wp518384"> </a>
+A string. 
+</p>
+<p class="pBody"><a name="wp518385"> </a>
+The length of this list is limited only by the amount of disk space on the machine.
+</p>
+<h4 class="pHeading3"><a name="wp518387"> </a>
+Example
+</h4>
+<p class="pBody"><a name="wp877346"> </a>
+<code class="cCode">201, 301</code>
+</p>
+<h4 class="pHeading3"><a name="wp877347"> </a>
+Notes
+</h4>
+<p class="pBody"><a name="wp877348"> </a>
+The values in this list are the Group ID numbers you entered for the relevant ACL groups on the General tab page for the ACL Groups class. See <a href="acacls.html#wp518209">Group ID (TA_GROUPID)</a>.
+</p>
+<p class="troubleshoot">
+&lt;a name=&quot;12380&quot;&gt;&lt;a&gt; 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp886324"> </a>
+Object State (TA_STATE)
+</h3>
+<h4 class="pHeading3"><a name="wp886328"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp886326"> </a>
+This field displays the state of your ACL. An ACL may be in only one state: <code class="cCode">VALID</code>.
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="acacls.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="acwsl.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="accorba.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

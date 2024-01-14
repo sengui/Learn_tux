@@ -1,0 +1,783 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="3" />
+<meta name="LOC_US_CHANGE" content="41968" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/salt12c/ref/fm/httpfml32.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/27/12 08:58:39" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Oracle SALT HTTP FML32 Buffer Format</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Reference Guide
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="sec10_assert.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next_grey1.gif" border="0" alt="Next" />&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/ref.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1055512"> </a>
+Oracle SALT HTTP FML32 Buffer Format
+</h1>
+<p class="pBody"><a name="wp1059078"> </a>
+The following section(s) provide Oracle SALT HTTP FML32 Buffer Format information: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1055522"> </a><a href="httpfml32.html#wp1055551">Oracle SALT HTTP FML32 Buffer Format</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1055551"> </a>
+Oracle SALT HTTP FML32 Buffer Format
+</h2><p class="pBody"><a name="wp1059763"> </a>
+Oracle Tuxedo services may be developed to generate dynamic HTML content.These services are sent data in a specific FML32 format, and must return responses in another FML32 buffer as shown in <a href="httpfml32.html#wp1059779">Listing&#160;G-1</a>
+</p>
+<div class="pCodeTitle"><a name="wp1059779"> </a>
+Listing&#160;G-1	   Oracle SALT HTTP FML32 Buffer Format
+</div> <a name="wp1059785"> </a><div class="pPreformatted"><pre>#include &lt;atmi.h&gt;</pre></div><a name="wp1059786"> </a><div class="pPreformatted"><pre>#include &lt;userlog.h&gt;</pre></div><a name="wp1059787"> </a><div class="pPreformatted"><pre>#include &lt;fml32.h&gt;</pre></div><a name="wp1059788"> </a><div class="pPreformatted"><pre>#include &lt;httpflds.h&gt; /* contains the HTTP field definitions */</pre></div><a name="wp1059790"> </a><div class="pPreformatted"><pre>/**</pre></div><a name="wp1059791"> </a><div class="pPreformatted"><pre> * MyService. Must match the TuxService parameter</pre></div><a name="wp1059792"> </a><div class="pPreformatted"><pre> * configured in mod_tuxedo </pre></div><a name="wp1059793"> </a><div class="pPreformatted"><pre> */</pre></div><a name="wp1059794"> </a><div class="pPreformatted"><pre>MyService(TPSVCINFO *rqst) {</pre></div><a name="wp1059795"> </a><div class="pPreformatted"><pre>    FBFR32 *response_buf;</pre></div><a name="wp1059796"> </a><div class="pPreformatted"><pre>    int rc;</pre></div><a name="wp1059797"> </a><div class="pPreformatted"><pre>    char *query_string;</pre></div><a name="wp1059798"> </a><div class="pPreformatted"><pre>    long query_len;</pre></div><a name="wp1059799"> </a><div class="pPreformatted"><pre>    char *response_body = &quot;&lt;html&gt;\n&lt;head&gt;\n&lt;title&gt;Tuxedo&quot;         </pre></div><a name="wp1059800"> </a><div class="pPreformatted"><pre>                          &quot;Test&lt;/title&gt;\n&lt;/head&gt;\n&lt;body&gt;\n&quot;</pre></div><a name="wp1059801"> </a><div class="pPreformatted"><pre>                          &quot;&lt;p&gt;Hello World&lt;/p&gt;\n&lt;/body&gt;\n&lt;html&gt;&quot;;</pre></div><a name="wp1059803"> </a><div class="pPreformatted"><pre>    query_string = malloc(QUERY_SIZE);</pre></div><a name="wp1059804"> </a><div class="pPreformatted"><pre>    if (query_string == NULL) {</pre></div><a name="wp1059805"> </a><div class="pPreformatted"><pre>        userlog(&quot;Unable to allocate query_string: %d&quot;, errno);</pre></div><a name="wp1059806"> </a><div class="pPreformatted"><pre>        tpreturn(TPFAIL, 0, NULL, 0L, 0);</pre></div><a name="wp1059807"> </a><div class="pPreformatted"><pre>    }</pre></div><a name="wp1059809"> </a><div class="pPreformatted"><pre>    rc = Fget32(rqst-&gt;data, QUERY_STRING, 0, </pre></div><a name="wp1059810"> </a><div class="pPreformatted"><pre>                (char*)query_string, </pre></div><a name="wp1059811"> </a><div class="pPreformatted"><pre>                &amp;query_len);</pre></div><a name="wp1059812"> </a><div class="pPreformatted"><pre>    if (rc &lt; 0) {</pre></div><a name="wp1059813"> </a><div class="pPreformatted"><pre>        userlog(&quot;Problem extracting query_string: %s&quot;, </pre></div><a name="wp1059814"> </a><div class="pPreformatted"><pre>                Fstrerror32(Ferror32));</pre></div><a name="wp1059815"> </a><div class="pPreformatted"><pre>        tpreturn(TPFAIL, 0, NULL, 0L, 0);</pre></div><a name="wp1059816"> </a><div class="pPreformatted"><pre>    }</pre></div><a name="wp1059818"> </a><div class="pPreformatted"><pre>    userlog(&quot;QUERY_STRING received: %s&quot;, query_string);</pre></div><a name="wp1059820"> </a><div class="pPreformatted"><pre>    if((response_buf = </pre></div><a name="wp1059821"> </a><div class="pPreformatted"><pre>        (FBFR32 *) tpalloc(&quot;FML32&quot;, NULL, 1024 )) == NULL) {</pre></div><a name="wp1059822"> </a><div class="pPreformatted"><pre>        userlog(&quot;Unable to allocate response_buf:%s&quot;, </pre></div><a name="wp1059823"> </a><div class="pPreformatted"><pre>                 tpstrerror(tperrno));</pre></div><a name="wp1059824"> </a><div class="pPreformatted"><pre>        tpreturn(TPFAIL, 0, NULL, 0L, 0);</pre></div><a name="wp1059825"> </a><div class="pPreformatted"><pre>    }</pre></div><a name="wp1059827"> </a><div class="pPreformatted"><pre>    if((response_data = </pre></div><a name="wp1059828"> </a><div class="pPreformatted"><pre>        tpalloc(&quot;CARRAY&quot;, NULL, strlen(response_body) + 1) == NULL) {</pre></div><a name="wp1059829"> </a><div class="pPreformatted"><pre>        userlog(&quot;Unable to allocate response_buf:%s&quot;, </pre></div><a name="wp1059830"> </a><div class="pPreformatted"><pre>                tpstrerror(tperrno));</pre></div><a name="wp1059831"> </a><div class="pPreformatted"><pre>        tpreturn(TPFAIL, 0, NULL, 0L, 0);</pre></div><a name="wp1059832"> </a><div class="pPreformatted"><pre>    }</pre></div><a name="wp1059834"> </a><div class="pPreformatted"><pre>    strcpy(response_data, response_body);</pre></div><a name="wp1059836"> </a><div class="pPreformatted"><pre>    rc = Fchg32(response_buf, RESPONSE_DATA, 0, </pre></div><a name="wp1059837"> </a><div class="pPreformatted"><pre>                (char*)respone_data, </pre></div><a name="wp1059838"> </a><div class="pPreformatted"><pre>                0);</pre></div><a name="wp1059839"> </a><div class="pPreformatted"><pre>    if (rc &lt; 0) {</pre></div><a name="wp1059840"> </a><div class="pPreformatted"><pre>        userlog(&quot;Problem setting response data: %s&quot;, </pre></div><a name="wp1059841"> </a><div class="pPreformatted"><pre>                Fstrerror32(Ferror32));</pre></div><a name="wp1059842"> </a><div class="pPreformatted"><pre>        tpreturn(TPFAIL, 0, NULL, 0L, 0);</pre></div><a name="wp1059843"> </a><div class="pPreformatted"><pre>    }</pre></div><a name="wp1059845"> </a><div class="pPreformatted"><pre>    tpreturn(TPSUCCESS, 0, (char *)response_buf, 0L, 0);</pre></div><a name="wp1059846"> </a><div class="pPreformatted"><pre>}</pre></div><h3 class="pHeading2"><a name="wp1059737"> </a>
+Input Buffers
+</h3>
+<p class="pBody"><a name="wp1060921"> </a>
+Upon invocation by <code class="cCode">mod_tuxedo</code>, an Oracle Tuxedo service receives an FML32 buffer as listed in <a href="httpfml32.html#wp1060991">Table&#160;G-1</a>.
+</p>
+<p class="pGraphic"><a name="wp1061329"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1060991table1060989"><caption><a name="wp1060991"> </a>
+Table&#160;G-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Input Buffers</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1060997"> </a>
+Field Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1060999"> </a>
+Description
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1061001"> </a>
+Type
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061003"> </a>
+<code class="cCode">AUTH_TYPE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061005"> </a>
+Describes the authentication method used by the web browser if any authentication method was used. This is not present unless security is used.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061007"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061009"> </a>
+<code class="cCode">CONTENT_TYPE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061011"> </a>
+Tells the media type of data being received from the user. This is used for requests performed using the POST method, and not present otherwise.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061013"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061015"> </a>
+<code class="cCode">DOCUMENT_ROOT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061017"> </a>
+The root path to the home HTML page for the server. Example: 
+</div>
+<div class="pCellBody"><a name="wp1061336"> </a>
+/home/httpd/html
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061019"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061027"> </a>
+<code class="cCode">PATH_INFO</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061029"> </a>
+Extra path information added to the end of the URL that accessed the server side script program.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061031"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061033"> </a>
+<code class="cCode">PATH_TRANSLATED</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061035"> </a>
+A translated version of the PATH_INFO variable translated by the webserver from virtual to physical path information.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061037"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061039"> </a>
+<code class="cCode">QUERY_STRING</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061362"> </a>
+&lt;A HREF=&quot;/cgi-bin/hits.pl?mainpage&gt;&lt;/A&gt; 
+</div>
+<div class="pCellBody"><a name="wp1061365"> </a>
+The information after the ? is the QUERY_STRING which is &quot;mainpage&quot; in this case. In this case QUERY_STRING will contain:
+</div>
+<div class="pCellBody"><a name="wp1061370"> </a>
+mainpage
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061043"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061069"> </a>
+<code class="cCode">REMOTE_ADDR</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061071"> </a>
+The IP address of the client computer. Example:
+</div>
+<div class="pCellBody"><a name="wp1061383"> </a>
+132.15.28.124
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061073"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061081"> </a>
+<code class="cCode">REMOTE_HOST</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061083"> </a>
+The fully qualified domain name of the client machine making the HTTP request. It may not be possible to determine this name since many client computers names are not recorded in the DNS system. Example:
+</div>
+<div class="pCellBody"><a name="wp1061396"> </a>
+myhost.mycompany.com
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061085"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061093"> </a>
+<code class="cCode">REMOTE_IDENT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061095"> </a>
+The ability to use this field is limited to servers that support RFC 931. This field may contain the client machine&#39;s username, but it is intended to be used for logging purposes only, when it is available.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061097"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061099"> </a>
+<code class="cCode">REMOTE_PORT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061101"> </a>
+The clients requesting port. An example:
+</div>
+<div class="pCellBody"><a name="wp1061409"> </a>
+3465
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061103"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061111"> </a>
+<code class="cCode">REMOTE_USER</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061113"> </a>
+If security is enabled and the user had to be logged in to get access to the service, this value will contain the user&#39;s log in name.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061115"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061117"> </a>
+<code class="cCode">REQUEST_URI</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061119"> </a>
+The path of the request sent by the client. An example:
+</div>
+<div class="pCellBody"><a name="wp1061422"> </a>
+/tux/processorder?orderId=1234
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061121"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061129"> </a>
+<code class="cCode">REQUEST_METHOD</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061131"> </a>
+This describes the request method used by the browser which is normally GET, POST, or HEAD.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061133"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061135"> </a>
+<code class="cCode">SERVER_ADMIN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061137"> </a>
+The e-mail address of the server administrator. Example:
+</div>
+<div class="pCellBody"><a name="wp1061435"> </a>
+webadmin@myhost.mycompany.com
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061139"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061153"> </a>
+<code class="cCode">SERVER_NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061155"> </a>
+The server hostname, IP address or DNS alias name shown as a self referencing URL. This does not include the protocol identifier such as &quot;HTTP:&quot;, the machine name, or port number. Example:
+</div>
+<div class="pCellBody"><a name="wp1061448"> </a>
+myhost
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061157"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061165"> </a>
+<code class="cCode">SERVER_PORT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061167"> </a>
+The port number the HTTP requests and responses are being sent on. Example:
+</div>
+<div class="pCellBody"><a name="wp1061461"> </a>
+80
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061169"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061177"> </a>
+<code class="cCode">SERVER_PROTOCOL</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061179"> </a>
+This value is normally HTTP which describes the protocol being used between the client and server computers. Example:
+</div>
+<div class="pCellBody"><a name="wp1061474"> </a>
+HTTP/1.1
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061181"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061189"> </a>
+<code class="cCode">SERVER_SIGNATURE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061191"> </a>
+Server information specifying the name and version of the web server and the port being serviced. Example:
+</div>
+<div class="pCellBody"><a name="wp1061491"> </a>
+Apache/2.2.15 Server at myhost Port 80
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061193"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061201"> </a>
+<code class="cCode">SERVER_SOFTWARE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061203"> </a>
+The name and version of the web server. Example:
+</div>
+<div class="pCellBody"><a name="wp1061504"> </a>
+Apache/2.2.15 (Unix) mod_fastcgi/2.4.6 mod_tuxedo/1.0.0
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061205"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061213"> </a>
+<code class="cCode">HTTP_ACCEPT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061215"> </a>
+The media types of data that the client browser can accept. These data types are separated by commas. An example:
+</div>
+<div class="pCellBody"><a name="wp1061522"> </a>
+image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/vnd.ms-excel, application/msword, application/vnd.ms-powerpoint, */* 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061217"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061225"> </a>
+<code class="cCode">HTTP_ACCEPT_ENCODING</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061227"> </a>
+An example:
+</div>
+<div class="pCellBody"><a name="wp1061539"> </a>
+gzip, deflate
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061229"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061237"> </a>
+<code class="cCode">HTTP_ACCEPT_LANGUAGE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061239"> </a>
+The language the client browser accepts. Example:
+</div>
+<div class="pCellBody"><a name="wp1061555"> </a>
+en-us
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061241"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061249"> </a>
+<code class="cCode">HTTP_COOKIE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061251"> </a>
+Used as an environment variable that contains cookies associated with the server domain from the browser.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061253"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061255"> </a>
+<code class="cCode">HTTP_FORWARDED</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061257"> </a>
+For example:
+</div>
+<div class="pCellBody"><a name="wp1061568"> </a>
+by http://proxy.yourcompany.com:8080 (Netscape-Proxy/3.5)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061259"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061267"> </a>
+<code class="cCode">HTTP_HOST</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061269"> </a>
+For example:
+</div>
+<div class="pCellBody"><a name="wp1061581"> </a>
+yourhost.yourcompany.com
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061271"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061279"> </a>
+<code class="cCode">HTTP_PRAGMA</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061281"> </a>
+For example:
+</div>
+<div class="pCellBody"><a name="wp1061594"> </a>
+No-Cache
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061283"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row">&#160;</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061291"> </a>
+<code class="cCode">HTTP_REFERRER</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061293"> </a>
+The page address where the HTTP request originated. 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061295"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061297"> </a>
+<code class="cCode">HTTP_USER_AGENT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061299"> </a>
+The name of the client web browser being used to make the request. Example:
+</div>
+<div class="pCellBody"><a name="wp1061607"> </a>
+Mozilla/5.0 (X11; U; Linux i686; en-US) AppleWebKit/532.9 (KHTML, like Gecko) Chrome/5.0.307.11
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061301"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061309"> </a>
+<code class="cCode">POST_DATA</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061311"> </a>
+For POST requests, the data as it was sent by the client browser. The data is url-encoded. Example:
+</div>
+<div class="pCellBody"><a name="wp1061620"> </a>
+Name=Jonathan+Doe&amp;Age=23&amp;Formula=a+%2B+b+%3D%3D+13%25%21
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061313"> </a>
+carray
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1059750"> </a>
+Output Buffers
+</h3>
+<p class="pBody"><a name="wp1061642"> </a>
+An Oracle Tuxedo server called by <code class="cCode">mod_tuxedo</code> must return an FML32 buffer containing the fields described in <a href="httpfml32.html#wp1062078">Table&#160;G-2</a> . Returning a buffer of any other type, or missing any of the mandatory fields results in a server error being returned to the client browser.
+</p>
+<p class="pGraphic"><a name="wp1061879"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1062078table1061690"><caption><a name="wp1062078"> </a>
+Table&#160;G-2  Output Buffers
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1062084"> </a>
+Field Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1062086"> </a>
+Description
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1062088"> </a>
+Type
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1062090"> </a>
+RESPONSE_CODE*
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1062092"> </a>
+Numeric code corresponding to the status string to return to the client. 
+</div>
+<div class="pCellBody"><a name="wp1062093"> </a>
+Examples: 200 or 404 or 302.
+</div>
+<div class="pCellBody"><a name="wp1062269"> </a>
+This field is mandatory.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1062095"> </a>
+long
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1062109"> </a>
+STATUS_LINE
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1062111"> </a>
+String version containing the complete status string to return to the client.
+</div>
+<div class="pCellBody"><a name="wp1062289"> </a>
+Examples:
+</div>
+<div class="pCellBody"><a name="wp1062298"> </a>
+200 OK
+</div>
+<div class="pCellBody"><a name="wp1062307"> </a>
+302 FOUND
+</div>
+<div class="pCellBody"><a name="wp1062316"> </a>
+This field is optional.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1062113"> </a>
+String
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1062139"> </a>
+CONTENT_TYPE
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1062141"> </a>
+Gives the MIME-type of the data in the body, such as text/html or image/gif.
+</div>
+<div class="pCellBody"><a name="wp1062338"> </a>
+A typical value is text/html, but programs may generate images and return image/gif contents.
+</div>
+<div class="pCellBody"><a name="wp1062349"> </a>
+If not specified, a text/html header is generated and returned.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1062143"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1062157"> </a>
+HTTP_COOKIE
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1062159"> </a>
+Corresponds to the Set-cookie header. May contain cookie data. For example, session ids may be set using this field.
+</div>
+<div class="pCellBody"><a name="wp1062377"> </a>
+Example contents:
+</div>
+<div class="pCellBody"><a name="wp1062370"> </a>
+sessionid=bbdb4cd00829aa5ffb5402395cb8f8c0; expires=Fri, 18-Mar-2011 19:39:19 GMT; Max-Age=1209600; Path=/
+</div>
+<div class="pCellBody"><a name="wp1062394"> </a>
+This field is optional.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1062161"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1062181"> </a>
+LOCATION
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1062183"> </a>
+Usually used in conjunction with &#39;302 FOUND&#39; response codes, contains the location of the redirect url.
+</div>
+<div class="pCellBody"><a name="wp1062414"> </a>
+Example:
+</div>
+<div class="pCellBody"><a name="wp1062423"> </a>
+http://123.456.1.123:2280/admin/
+</div>
+<div class="pCellBody"><a name="wp1062434"> </a>
+This field is mandatory if a &#39;302 FOUND&#39; response is returned.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1062185"> </a>
+string
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1062205"> </a>
+RESPONSE_DATA*
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1062207"> </a>
+The data that will be returned to the client browser or program, excluding headers. Proper headers are handled and generated by mod_tuxedo. For example:
+</div>
+<div class="pCellBody"><a name="wp1062455"> </a>
+<code class="cCode">&lt;html&gt;</code>
+</div>
+<div class="pCellBody"><a name="wp1062456"> </a>
+<code class="cCode"> &lt;head&gt;</code>
+</div>
+<div class="pCellBody"><a name="wp1062457"> </a>
+<code class="cCode">  &lt;title&gt;Tuxedo Test&lt;/title&gt;</code>
+</div>
+<div class="pCellBody"><a name="wp1062458"> </a>
+<code class="cCode"> &lt;/head&gt;</code>
+</div>
+<div class="pCellBody"><a name="wp1062459"> </a>
+<code class="cCode"> &lt;body&gt;</code>
+</div>
+<div class="pCellBody"><a name="wp1062460"> </a>
+<code class="cCode">  &lt;p&gt;Hello World&lt;/p&gt;</code>
+</div>
+<div class="pCellBody"><a name="wp1062461"> </a>
+<code class="cCode"> &lt;/body&gt;</code>
+</div>
+<div class="pCellBody"><a name="wp1062462"> </a>
+<code class="cCode">&lt;html&gt;</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1062209"> </a>
+carray
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="httpfml32.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="sec10_assert.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq9" src="/global_resources/images/nexttop_disabled.gif" border="0" alt="Next" />
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

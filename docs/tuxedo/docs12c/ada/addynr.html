@@ -1,0 +1,1251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="3" />
+<meta name="LOC_US_CHANGE" content="41998" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/ada/fm/addynr.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/28/12 11:40:31" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Dynamically Modifying an Application</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Administering an Oracle Tuxedo Application at Run Time
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="admon.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="adrnet.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/ada.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1067016"> </a>
+Dynamically Modifying an Application
+</h1>
+<p class="pBody"><a name="wp1064020"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1043158"> </a><a href="addynr.html#wp1048765">Dynamic Modification Methods</a></li>
+<li><a name="wp1046721"> </a><a href="addynr.html#wp1051699">Using tmconfig to Make Permanent Changes to Your Configuration</a></li>
+<li><a name="wp1046757"> </a><a href="addynr.html#wp1026071">How to Run tmconfig</a></li>
+<li><a name="wp1048759"> </a><a href="addynr.html#wp1063435">Making Temporary Modifications to Your Configuration with tmconfig</a></li>
+<li><a name="wp1052241"> </a><a href="addynr.html#wp1052148">Limitations on Dynamic Modification Using tmconfig</a></li>
+<li><a name="wp1052112"> </a><a href="addynr.html#wp1051863">Making Temporary Modifications to Your Configuration with tmadmin</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1048765"> </a>
+Dynamic Modification Methods
+</h2><p class="pBody"><a name="wp1049355"> </a>
+As an administrator, you must ensure that once an application is up and running, it continues to meet the performance, availability, and security requirements set by your company. The Oracle Tuxedo system allows you to make changes to your configuration without shutting it down. Without inconveniencing your users, you can do the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1049473"> </a>Modify existing entries in your configuration file, that is, make changes to <code class="cCode">TUXCONFIG</code>.</li>
+<li><a name="wp1049479"> </a>Add components to your application by adding entries for them to your configuration file.</li>
+<li><a name="wp1049494"> </a>Make temporary changes to an application by advertising, unadvertising, suspending, or resuming services, and changing service parameters (such as <code class="cCode">LOAD</code> and <code class="cCode">PRIORITY</code>).</li>
+</ul></div>
+<a name="wp1056783"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>To modify the configuration file for a running application, you must do one of the following:</td>
+</tr>
+</table>
+
+<div class="pSmartList1NoteBullet"><ul>
+<li><a name="wp1057318"> </a>Shut down your application first (and reboot it after revising the configuration file).</li>
+<li><a name="wp1057322"> </a>Run the <code class="cCode">tmconfig</code>(1) command (described on the <a href="../rfcm/rfcmd.html">tmconfig,&#160;wtmco</a><a href="../rfcm/rfcmd.html">nfig(1)</a> reference page), which allows you to modify your configuration file dynamically.</li>
+</ul></div>
+<p class="pBody"><a name="wp1049560"> </a>
+Thus, you can adjust your system to reflect either current or expected conditions by making either permanent or temporary changes to an application. Temporary changes are reflected in the bulletin board only. Permanent changes are made by modifying the <code class="cCode">TUXCONFIG</code> file. Because <code class="cCode">TUXCONFIG</code> is a binary file, however, you cannot edit it through a simple text editor. 
+</p>
+<h3 class="pHeading2"><a name="wp1050101"> </a>
+Tools for Modifying Your Application
+</h3>
+<p class="pBody"><a name="wp1050098"> </a>
+To help you dynamically modify your application, the Oracle Tuxedo system provides the following three methods: the Oracle Administration Console, command-line utilities, and the Management Information Base (MIB) API. These tools help you respond quickly and efficiently to the need for changes in your application resulting from changing business needs or failure conditions. Use them to keep your application performing fast, well, and securely.
+</p>
+<p class="pBody"><a name="wp1069547"> </a>
+<a href="addynr.html#wp1048157">Figure&#160;3-1</a> shows the dynamic modification tools.
+</p>
+<div class="pFigureTitle"><a name="wp1048157"> </a>
+Figure&#160;3-1  Dynamic Modification Tools
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1048161"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/dyntools.gif" alt="Dynamic Modification Tools" id="wp1048159"/></div><p class="pGraphic">
+
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1048162"> </a><span style="font-style: normal">Oracle Administration Console</span>&#8212;a Web-based graphical user interface (GUI) you can use to dynamically configure your application. You can display and change configuration information, determine the state of each component of the system, and obtain statistical information about items such as executed requests and queued requests.</li>
+<li><a name="wp1050360"> </a><span style="font-style: normal">Command-line utilities</span>&#8212;most of the functionality needed for dynamic modification is provided by two commands: <code class="cCode">tmadmin</code> and <code class="cCode">tmconfig</code>. <code class="cCode">tmadmin</code> is a shell-level command with over 70 subcommands for performing various administrative tasks, including dynamic system modification. <code class="cCode">tmconfig</code> is a shell-level command that you can use to add and modify configuration entries while your system is running. </li>
+<li><a name="wp1051302"> </a><span style="font-style: normal">MIB API</span>&#8212;a Management Information Base API that enables you to write your own programs to monitor your system and make dynamic changes to your system.</li>
+</ul></div>
+<p class="pBody"><a name="wp1050361"> </a>
+You always have the choice of these three tools for any administrative task. For dynamic modification or reconfiguration, however, we recommend the Oracle Administration Console for its ease of use. Full descriptions of all the features in the Administration Console are available through the Help utility provided with the GUI. 
+</p>
+<p class="pBody"><a name="wp1054979"> </a>
+If you prefer to work on the command line, however, simply run the <code class="cCode">tmadmin</code> or <code class="cCode">tmconfig</code> command.
+</p>
+<a name="wp1050313"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For lists of configuration parameters and reconfiguration restrictions, see <a href="../rfcm/rfcmd.html">tmconfig,&#160;wtmconfi</a><a href="../rfcm/rfcmd.html">g(1)</a> in the <em class="cEmphasis">Oracle Tuxedo Command Reference</em> and <a href="../rf5/rf5.html">TM_MIB(5)</a> in <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em>.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1050496"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1057151"> </a><a href="addynr.html#wp1051699">Using tmconfig to Make Permanent Changes to Your Configuration</a></li>
+<li><a name="wp1057096"> </a><span class="cHyperlink">
+&#8220;Management Operations Using the Oracle </span><a href="../int/intman.html"></a>Tuxedo Administration Console&#8221; in <em class="cEmphasis">Introducing Oracle Tuxedo ATMI</em></li>
+<li><a name="wp1057107"> </a><span class="cHyperlink">
+&#8220;Managing Operations </span><a href="../int/intman.html"></a>Using the MIB&#8221; in <em class="cEmphasis">Introducing Oracle Tuxedo ATMI</em></li>
+<li><a name="wp1051440"> </a><a href="../rf5/rf5.html">APPQ_MIB(5)</a>, <a href="../rf5/rf5.html">DM_MIB(5)</a>, <a href="../rf5/rf5.html">MIB(5)</a>, and <a href="../rf5/rf5.html">TM_MIB(5)</a> in the <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1051699"> </a>
+Using tmconfig to Make Permanent Changes to Your Configuration
+</h2><p class="pBody"><a name="wp1018417"> </a>
+The <code class="cCode">tmconfig</code> command enables you to browse and modify your configuration file (<code class="cCode">TUXCONFIG</code> on the <code class="cCode">MASTER</code> machine) and its associated entities, and to add new components (such as machines and servers) to your application while it is running. When you modify your configuration file (<code class="cCode">TUXCONFIG</code> on the <code class="cCode">MASTER</code> machine), <code class="cCode">tmconfig</code> enables you to perform the following tasks:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1027260"> </a>Update the <code class="cCode">TUXCONFIG</code> file on all machines that are currently booted in the application. </li>
+<li><a name="wp1027261"> </a>Propagate the <code class="cCode">TUXCONFIG</code> file automatically to new machines as they are booted.</li>
+<a name="wp1027264"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The <code class="cCode">tmconfig</code> command runs as a Oracle Tuxedo system client.</td>
+</tr>
+</table>
+
+</ul></div>
+<p class="pBody"><a name="wp1021469"> </a>
+Because <code class="cCode">tmconfig</code> runs as a Oracle Tuxedo client, it is characterized by the following conditions:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1021471"> </a><code class="cCode">tmconfig</code> fails if it cannot allocate a <code class="cCode">TPINIT</code> typed buffer.</li>
+<li><a name="wp1021472"> </a>The <code class="cCodeEmphasis">username</code> associated with the client is the login name of the user. (<code class="cCode">tmconfig</code> fails if the user&#8217;s login name cannot be determined.)</li>
+<li><a name="wp1021473"> </a>For a secure application (that is, an application for which the <code class="cCode">SECURITY</code> parameter has been set in the configuration file), <code class="cCode">tmconfig</code> prompts for the application password. If the application password is not provided, <code class="cCode">tmconfig</code> fails. </li>
+<li><a name="wp1021475"> </a>If <code class="cCode">tmconfig</code> cannot register as a client, an error message containing <code class="cCodeEmphasis">tperrno</code> is displayed and <code class="cCode">tmconfig</code> exits. If this happens, check the user log to determine the cause. The most likely causes for this type of failure are:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1021476"> </a>The <code class="cCode">TUXCONFIG</code> environment variable was not set correctly. </li>
+<li><a name="wp1021477"> </a>The system was not booted on the machine on which <code class="cCode">tmconfig</code> is being run.</li>
+</ul></div>
+<li><a name="wp1021478"> </a><code class="cCode">tmconfig</code> ignores all unsolicited messages.</li>
+<li><a name="wp1034909"> </a>The client name for the <code class="cCode">tmconfig</code> process that is displayed in the output from<code class="cCode"> printclient</code> (a <code class="cCode">tmadmin</code> command) is <code class="cCode">tpsysadm</code>.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1026255"> </a>
+How tmconfig Works
+</h3>
+<p class="pBody"><a name="wp1063413"> </a>
+When you type <code class="cCode">tmconfig</code> on a command line, you are launching the display of a series of menus and prompts through which you can request an operation such as the display or modification of a configuration file record. <code class="cCode">tmconfig</code> collects your menu choices, performs the requested operation, and prompts you (by displaying another set of menu choices) to request another operation. It repeatedly offers to perform operations (by repeatedly displaying the menus) until you exit the session by selecting <code class="cCode">QUIT</code> from a menu.
+</p>
+<p class="pBody"><a name="wp1028799"> </a>
+<a href="addynr.html#wp1028936">Listing&#160;3-1</a> shows the menus and prompts that are displayed once you launch a <code class="cCode">tmconfig</code> command session.
+</p>
+<a name="wp1037519"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The lines in the listing are numbered in this example for your convenience; during an actual <code class="cCode">tmconfig</code> session, these numbers are not displayed.</td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1028936"> </a>
+Listing&#160;3-1	   Menus and Prompts Displayed in a tmconfig Session
+</div> <a name="wp1028821"> </a><div class="pPreformatted"><pre>1   $ tmconfig<br />2   Section: 1) RESOURCES, 2) MACHINES, 3) GROUPS 4) SERVERS<br />3    5)SERVICES  6) NETWORK 7) ROUTING q) QUIT 9) WSL<br />4    10) NETGROUPS 11) NETMAPS 12) INTERFACES [1]: <br />5<br />6   Operation: 1) FIRST 2) NEXT 3) RETRIEVE 4) ADD 5) UPDATE<br />7    6) CLEAR BUFFER 7) QUIT [1]: <br />8   Enter editor to add/modify fields [n]? <br />9   Perform operation [y]? </pre></div><p class="pBody"><a name="wp1063372"> </a>
+As shown, you are asked to answer four questions:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1063373"> </a>In which section of the configuration file do you want to view, add, or modify a record?</li>
+<li><a name="wp1063374"> </a>For the section of the configuration file you have just specified, which operation do you want to perform?</li>
+<li><a name="wp1063341"> </a>Do you want to enter a text editor now to add or modify fields for the record?</li>
+<li><a name="wp1063342"> </a>Do you want <code class="cCode">tmconfig</code> to perform the requested operation now?</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1029535"> </a>
+How to Select a Section of the Configuration File
+</h4>
+<p class="pBody"><a name="wp1029545"> </a>
+When you start a <code class="cCode">tmconfig</code> session, the following menu is displayed Each item is a section of <code class="cCode">TUXCONFIG</code>, the configuration file for the application.
+</p>
+<a name="wp1029552"> </a><div class="pPreformattedRelative"><pre>Section: 1) RESOURCES, 2) MACHINES, 3) GROUPS 4) SERVERS<br />5)SERVICES  6) NETWORK 7) ROUTING q) QUIT 9) WSL<br />10) NETGROUPS 11) NETMAPS 12) INTERFACES [1]: </pre></div><a name="wp1029553"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For details about these sections (including a list of configurable parameters for each section), see <a href="../rf5/rf5.html">TM_MIB(5)</a> in the <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em>. <code class="cCode">TM_MIB</code> includes the names of fields that are displayed during a <code class="cCode">tmconfig</code> command session, the range of values for each field, the key fields for each section, and any restrictions or updates to the fields in each section.</td>
+</tr>
+</table>
+
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1029708"> </a>To select a section, enter the appropriate number after the menu prompt. For example, to select the <code class="cCode">MACHINES</code> section, enter <code class="cCode">2</code>, as follows.</li>
+<a name="wp1029554"> </a><div class="pPreformattedRelative"><pre>10) NETGROUPS 11) NETMAPS 12) INTERFACES [1]: 2</pre></div><li><a name="wp1029541"> </a>The default section is the <code class="cCode">RESOURCES</code> section, in which parameters that apply to your entire application are defined. To accept the default selection (which is displayed within square brackets), simply press the Enter key.</li>
+<a name="wp1029542"> </a><div class="pPreformattedRelative"><pre>10) NETGROUPS 11) NETMAPS 12) INTERFACES [1]:</pre></div></ul></div>
+<h4 class="pHeading3"><a name="wp1029397"> </a>
+How to Select a tmconfig Task
+</h4>
+<p class="pBody"><a name="wp1026515"> </a>
+A menu of tasks that <code class="cCode">tmconfig</code> can perform is displayed after you select a section of the configuration file.
+</p>
+<a name="wp1029592"> </a><div class="pPreformattedRelative"><pre>Operation: 1) FIRST 2) NEXT 3) RETRIEVE 4) ADD 5) UPDATE<br />6) CLEAR BUFFER 7) QUIT [1]:</pre></div><p class="pBody"><a name="wp1029697"> </a>
+To select an operation, enter the appropriate number at the menu prompt. For example, to select the CLEAR BUFFER section, enter <code class="cCode">6</code>, as follows.
+</p>
+<a name="wp1029600"> </a><div class="pPreformattedRelative"><pre>6) CLEAR BUFFER 7) QUIT [1]: 6</pre></div><p class="pBody"><a name="wp1029686"> </a>
+<a href="addynr.html#wp1061440">Table&#160;3-1</a> defines each task.
+</p>
+<p class="pGraphic"><a name="wp1026577"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1061440table1026516"><caption><a name="wp1061440"> </a>
+Table 3-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">tmconfig tasks</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1061446"> </a>
+This Menu Item
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1061448"> </a>
+Called
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1061450"> </a>
+Performs the Following Activities
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061452"> </a>
+1
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061454"> </a>
+<code class="cCode">FIRST</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061456"> </a>
+Displays the first record from the specified section. No key fields are needed. If any are in the input buffer, they are ignored.
+</div>
+<div class="pCellBody"><a name="wp1061457"> </a>
+Using the <code class="cCode">FIRST</code> operation can reduce the amount of typing that is needed. When adding a new record to a section, instead of typing all the required field names and values, use the <code class="cCode">FIRST</code> operation to retrieve an existing record for the <code class="cCode">UBBCONFIG</code> section. Then, select the <code class="cCode">ADD</code> operation and use the text editor to modify the parameter values in the newly created record.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061459"> </a>
+2
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061461"> </a>
+<code class="cCode">NEXT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061463"> </a>
+Displays the next record from the specified section, based on the key fields in the input buffer.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061465"> </a>
+3
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061467"> </a>
+<code class="cCode">RETRIEVE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061469"> </a>
+Displays the requested record (specified with the appropriate key fields) from the specified section.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061471"> </a>
+4
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061473"> </a>
+<code class="cCode">ADD</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061475"> </a>
+Adds the indicated record to the specified section. For any optional fields that are not specified, the defaults specified in <a href="../rf5/rf5.html">TM_MIB(5)</a> are used. (All defaults and validations used by <a href="../rfcm/rfcmd.html">tmloadcf(1)</a> are enforced.) The current values for all fields are returned in the output buffer. This operation can be done only by the Oracle Tuxedo application administrator.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061483"> </a>
+5
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061485"> </a>
+<code class="cCode">UPDATE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061487"> </a>
+Updates the record specified in the input buffer in the selected section. Any fields not specified in the input buffer remain unchanged. (All defaults and validations used by <a href="../rfcm/rfcmd.html">tmloadcf(1)</a> are enforced.) The current values for all fields are returned in the input buffer. This operation can be done only by the Oracle Tuxedo application administrator.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061492"> </a>
+6
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061494"> </a>
+<code class="cCode">CLEAR BUFFER</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061496"> </a>
+Clears the input buffer. (All fields are deleted.) After this operation, <code class="cCode">tmconfig</code> immediately prompts for the specified section again.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061498"> </a>
+7
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061500"> </a>
+<code class="cCode">QUIT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061502"> </a>
+Exits <code class="cCode">tmconfig</code> gracefully: the client is terminated. You can also exit <code class="cCode">tmconfig</code> at any time by entering <code class="cCode">q</code> at any prompt.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1026613"> </a>
+How Results of a tmconfig Task Are Displayed
+</h3>
+<p class="pBody"><a name="wp1026614"> </a>
+After <code class="cCode">tmconfig</code> completes a task, the results&#8212;a return value and the contents of the output buffer&#8212;are displayed on the screen.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1026615"> </a>If the <span style="font-style: normal">operation was successful</span> but<em style="font-style: italic" class="cEmphasis"> </em><span style="font-style: normal">no update was done</span><em class="cEmphasis">,</em> the following message is displayed:</li>
+<a name="wp1026616"> </a><div class="pPreformattedRelative"><pre>Return value TAOK</pre></div><p class="pBodyRelative"><a name="wp1026617"> </a>
+The message in the <code class="cCode">TA_STATUS</code> field is:
+</p>
+<a name="wp1026618"> </a><div class="pPreformattedRelative"><pre>Operation completed successfully.</pre></div><li><a name="wp1026619"> </a>If the <span style="font-style: normal">operation was successful</span> and <span style="font-style: normal">an update was done</span>, the following message is displayed:</li>
+<a name="wp1026620"> </a><div class="pPreformattedRelative"><pre>Return value TAUPDATED</pre></div><p class="pBodyRelative"><a name="wp1026621"> </a>
+The message in the <code class="cCode">TA_STATUS</code> field is:
+</p>
+<a name="wp1026622"> </a><div class="pPreformattedRelative"><pre>Update completed successfully.</pre></div><li><a name="wp1026623"> </a>If the <span style="font-style: normal">operation failed</span>, an error message is displayed: </li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1034672"> </a>If there is a problem with permissions or a Oracle Tuxedo system communications error (rather than with the configuration parameters), one of the following return values is displayed: <code class="cCode">TAEPERM</code>, <code class="cCode">TAEOS</code>, <code class="cCode">TAESYSTEM</code>, or <code class="cCode">TAETIME</code>.</li>
+<li><a name="wp1034678"> </a>If there is a problem with a configuration parameter of the running application, the name of that parameter is displayed as the value of the <code class="cCode">TA_BADFLDNAME</code> file, and the problem is indicated in the value of the <code class="cCode">TA_STATUS</code> field in the output buffer. If this type of problem occurs, one of the following return values is displayed: <code class="cCode">TAERANGE</code>, <code class="cCode">TAEINCONSIS</code>, <code class="cCode">TAECONFIG</code>, <code class="cCode">TAEDUPLICATE</code>, <code class="cCode">TAENOTFOUND</code>, <code class="cCode">TAEREQUIRED</code>, <code class="cCode">TAESIZE</code>, <code class="cCode">TAEUPDATE</code>, or <code class="cCode">TAENOSPACE</code>.</li>
+</ul></div>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1046236"> </a>
+tmconfig Error Message Conditions
+</h4>
+<p class="pBody"><a name="wp1034709"> </a>
+The following list describes the conditions indicated by both sets of error messages.
+</p>
+<h4 class="pDefTerm"><a name="wp1026624"> </a>
+<code class="cCode">TAEPERM</code> 
+</h4><div class="pDefPara"><a name="wp1026625"> </a>
+The <code class="cCode">UPDATE</code> or <code class="cCode">ADD</code> operation was selected but <code class="cCode">tmconfig</code> is not being run by the Oracle Tuxedo application administrator. 
+</div>
+<h4 class="pDefTerm"><a name="wp1044657"> </a>
+ <code class="cCode">TAESYSTEM</code>
+</h4><div class="pDefPara"><a name="wp1032758"> </a>
+An Oracle Tuxedo system error has occurred. The exact nature of the error is recorded in the user log. See <a href="../rf3c/rf3c.html">userlog(3c)</a> in the <em class="cEmphasis">Oracle Tuxedo ATMI C Function Reference</em>.
+</div>
+<h4 class="pDefTerm"><a name="wp1026644"> </a>
+<code class="cCode">TAEOS</code> 
+</h4><div class="pDefPara"><a name="wp1032739"> </a>
+An operating system error has occurred. The exact nature of the error is written to the user log.
+</div>
+<h4 class="pDefTerm"><a name="wp1026651"> </a>
+<code class="cCode">TAETIME</code> 
+</h4><div class="pDefPara"><a name="wp1032765"> </a>
+A blocking timeout has occurred. The output buffer is not updated so no information is returned for retrieval operations. The status of update operations can be checked by retrieving the record that was being updated.
+</div>
+<h4 class="pDefTerm"><a name="wp1034723"> </a>
+<code class="cCode">TAERANGE</code>
+</h4><div class="pDefPara"><a name="wp1026659"> </a>
+A field value is either out of range or invalid.
+</div>
+<h4 class="pDefTerm"><a name="wp1026660"> </a>
+<code class="cCode">TAEINCONSIS</code>
+</h4><div class="pDefPara"><a name="wp1059086"> </a>
+For example, an existing <code class="cCode">RQADDR</code> value or one <code class="cCode">SRVGRP</code>/<code class="cCode">SERVERNAME</code> entry may be specified for a different <code class="cCode">SRVGRP</code>/<code class="cCode">SERVERNAME</code> entry.
+</div>
+<h4 class="pDefTerm"><a name="wp1026663"> </a>
+<code class="cCode">TAECONFIG</code> 
+</h4><div class="pDefPara"><a name="wp1026664"> </a>
+An error occurred while the <code class="cCode">TUXCONFIG</code> file was being read.
+</div>
+<h4 class="pDefTerm"><a name="wp1026665"> </a>
+<code class="cCode">TAEDUPLICATE</code> 
+</h4><div class="pDefPara"><a name="wp1026666"> </a>
+The operation attempted to add a duplicate record.
+</div>
+<h4 class="pDefTerm"><a name="wp1026667"> </a>
+<code class="cCode">TAENOTFOUND</code> 
+</h4><div class="pDefPara"><a name="wp1026668"> </a>
+The record specified for the operation was not found.
+</div>
+<h4 class="pDefTerm"><a name="wp1026669"> </a>
+<code class="cCode">TAEREQUIRED</code> 
+</h4><div class="pDefPara"><a name="wp1026670"> </a>
+A field value is required but is not present.
+</div>
+<h4 class="pDefTerm"><a name="wp1026671"> </a>
+<code class="cCode">TAESIZE</code> 
+</h4><div class="pDefPara"><a name="wp1026672"> </a>
+A value for a string field is too long.
+</div>
+<h4 class="pDefTerm"><a name="wp1026673"> </a>
+<code class="cCode">TAEUPDATE</code> 
+</h4><div class="pDefPara"><a name="wp1026674"> </a>
+The operation attempted to do an update that is not allowed.
+</div>
+<h4 class="pDefTerm"><a name="wp1026675"> </a>
+<code class="cCode">TAENOSPACE</code> 
+</h4><div class="pDefPara"><a name="wp1026676"> </a>
+The operation attempted to do an update but there was not enough space in the <code class="cCode">TUXCONFIG</code> file and/or the bulletin board.
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1026071"> </a>
+How to Run tmconfig
+</h2><p class="pBody"><a name="wp1046343"> </a>
+To run <code class="cCode">tmconfig</code> properly, you must set the required environmental variables. Also, if you have not run <code class="cCode">tmconfig</code>, we recommend that you walk through a generic <code class="cCode">tmconfig</code> session, during which you modify entries in your configuration file.
+</p>
+<h3 class="pHeading2"><a name="wp1046329"> </a>
+How to Set Environment Variables for tmconfig
+</h3>
+<p class="pBody"><a name="wp1058152"> </a>
+Before you can start a <code class="cCode">tmconfig</code> session, you must set the required environment variables and permissions. For your convenience, you may also want to select a text editor other than the default editor.
+</p>
+<p class="pBody"><a name="wp1050592"> </a>
+Complete the following procedure to set up your working environment properly before running tmconfig.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1018423"> </a>Log in as the Oracle Tuxedo application administrator if you want to add entries to <code class="cCode">TUXCONFIG</code>, or modify existing entries. (You do not need to log in as the administrator if you only want to view existing configuration file entries without changing or adding to them.)</li>
+<li><a name="wp1018424"> </a>Assign values to two mandatory environment variables: <code class="cCode">TUXCONFIG</code> and <code class="cCode">TUXDIR</code>.</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1018425"> </a>The value of <code class="cCode">TUXCONFIG</code> must be the full pathname of the binary configuration file on the machine on which <code class="cCode">tmconfig</code> is being run.</li>
+<li><a name="wp1046324"> </a>The value of <code class="cCode">TUXDIR</code> must be the full pathname of the root directory for the Oracle Tuxedo system binary files. (<code class="cCode">tmconfig</code> must be able to extract field names and identifiers from <code class="cCode">$TUXDIR/udataobj/tpadmin</code>.)</li>
+</ul></div>
+<li><a name="wp1018430"> </a>You may also set the <code class="cCode">EDITOR</code> environment variable; this step is optional. The value of <code class="cCode">EDITOR</code> must be the name of the text editor you want to use when changing parameter values; the default is <code class="cCode">ed</code> (a UNIX system command-line editor).<span style="font-weight: bold"> </span></li>
+<a name="wp1018433"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Many full-screen editors do not function properly unless the <code class="cCode">TERM</code> environment variable is also set.</td>
+</tr>
+</table>
+
+</ol></div>
+<h3 class="pHeading2"><a name="wp1018447"> </a>
+How to Conduct a tmconfig Walkthrough Session
+</h3>
+<p class="pBody"><a name="wp1018448"> </a>
+The following procedure leads you through a sample <code class="cCode">tmconfig</code> session.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1018449"> </a>Enter <code class="cCode">tmconfig</code> after a shell prompt.</li>
+<a name="wp1018450"> </a><div class="pPreformattedRelative"><pre>$ tmconfig</pre></div><a name="wp1021579"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>You can end a session at any time by entering <code class="cCode">q</code> (short for quit) after the Section menu prompt.</td>
+</tr>
+</table>
+
+<p class="pBodyRelative"><a name="wp1018451"> </a>
+A menu of sections in the <code class="cCode">TUXCONFIG</code> file is displayed.
+</p>
+<a name="wp1018452"> </a><div class="pPreformattedRelative"><pre>Section: 1) RESOURCES, 2) MACHINES, 3) GROUPS 4) SERVERS<br />5)SERVICES  6) NETWORK 7) ROUTING q) QUIT 9) WSL<br />10) NETGROUPS 11) NETMAPS 12) INTERFACES [1]: </pre></div><li><a name="wp1018455"> </a>Select the section that you want to change by entering the appropriate menu number, such as <code class="cCode">2</code> for the <code class="cCode">MACHINES</code> section. The default choice is the <code class="cCode">RESOURCES</code> section, represented by [<code class="cCode">1</code>] at the end of the list of sections shown in Step 1. If you specify a section (instead of accepting the default), that section becomes the new default choice and remains so until you specify another section.</li>
+<p class="pBodyRelative"><a name="wp1018456"> </a>
+A menu of possible operations is displayed.
+</p>
+<a name="wp1018457"> </a><div class="pPreformattedRelative"><pre>Operation: 1) FIRST 2) NEXT 3) RETRIEVE 4) ADD 5) UPDATE<br />6) CLEAR BUFFER 7) QUIT [1]:</pre></div><p class="pBodyRelative"><a name="wp1018459"> </a>
+Each operation listed here is available to be performed on one record at a time of one section of the configuration file. The names of most operations (<code class="cCode">FIRST</code> and <code class="cCode">NEXT</code>) are self-explanatory. When you select <code class="cCode">FIRST</code>, you are asking to have the first record (in the specified section of the configuration file) displayed on the screen. When you select <code class="cCode">NEXT</code>, you are asking to have the contents of the buffer replaced by the second record in the specified section, and to have the new buffer contents displayed on the screen. By repeatedly choosing <code class="cCode">NEXT</code>, you can view all the records in a given section of the configuration file in the order in which they are listed.
+</p>
+<li><a name="wp1018460"> </a>Select the operation that you want to have performed.</li>
+<p class="pBodyRelative"><a name="wp1043328"> </a>
+The default choice is the FIRST operation, represented by [<code class="cCode">1</code>] at the end of the list of operations shown in step 2.
+</p>
+<p class="pBodyRelative"><a name="wp1018461"> </a>
+A prompt is displayed, asking whether you want to enter a text editor to start making changes to the <code class="cCode">TUXCONFIG</code> section you specified in step 2.
+</p>
+<a name="wp1018462"> </a><div class="pPreformattedRelative"><pre>Enter editor to add/modify fields [n]?</pre></div><li><a name="wp1018463"> </a>Select <code class="cCode">y</code> or <code class="cCode">n</code> (for <em class="cEmphasis">yes</em> or <em class="cEmphasis">no</em>, respectively). The default choice (shown at the end of the prompt) is <code class="cCode">n</code>.</li>
+<p class="pBodyRelative"><a name="wp1034778"> </a>
+If you select <span style="font-style: normal">yes</span> (<code class="cCode">y</code>), the specified editor is invoked and you can start adding or changing fields. The format of each field is:
+</p>
+<p class="pBodyRelative"><a name="wp1032537"> </a>
+<code class="cCodeEmphasis">field_name</code>&lt;<em class="cEmphasis">tabs</em>&gt;<code class="cCodeEmphasis">field_value</code>
+</p>
+<p class="pBodyRelative"><a name="wp1032538"> </a>
+where the name and value of the field are separated by one or more tabs.
+</p>
+<p class="pBodyRelative"><a name="wp1032617"> </a>
+In most cases, the field name is the same as the corresponding <code class="cCodeEmphasis">KEYWORD</code> in the <code class="cCode">UBBCONFIG</code> file, prefixed with <code class="cCode">TA_</code>.
+</p>
+<a name="wp1032553"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For details about valid input, see <a href="addynr.html#wp1032691">tmconfig Input Buffer Considerations</a>. For descriptions of the field names associated with each section of the <code class="cCode">UBBCONFIG</code> file, see <a href="../rf5/rf5.html">TM_MIB(5)</a> in the <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em>.</td>
+</tr>
+</table>
+
+<p class="pBodyRelative"><a name="wp1032438"> </a>
+When you finish editing the input buffer, <code class="cCode">tmconfig</code> reads it. If any errors are found, a syntax error is displayed and <code class="cCode">tmconfig</code> prompts you to decide whether to correct the problem.
+</p>
+<a name="wp1032439"> </a><div class="pPreformattedRelative"><pre>Enter editor to correct?</pre></div><li><a name="wp1032440"> </a>Select <code class="cCode">n</code> or <code class="cCode">y</code>.</li>
+<p class="pBodyRelative"><a name="wp1043329"> </a>
+If you decide not to correct the problem (by entering <code class="cCode">n</code>), the input buffer contains no fields; otherwise, the editor is executed again.
+</p>
+<p class="pBodyRelative"><a name="wp1018464"> </a>
+When you finish editing the input buffer, a prompt is displayed, asking whether you want to have the operation you specified (in step 3) performed now.
+</p>
+<a name="wp1018465"> </a><div class="pPreformattedRelative"><pre>Perform operation [y]?</pre></div><li><a name="wp1018466"> </a> Select <code class="cCode">n</code> or <code class="cCode">y</code>. The default choice (shown at the end of the prompt) is <code class="cCode">y</code>.</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1018467"> </a>If you select <span style="font-style: normal">no</span>, the menu of sections is displayed again. Return to step 2.</li>
+<li><a name="wp1021599"> </a>If you select <span style="font-style: normal">yes</span>, <code class="cCode">tmconfig</code> executes the requested operation and displays the following confirmation message.</li>
+<a name="wp1018468"> </a><div class="pPreformattedRelative"><pre>Return value TAOK</pre></div><p class="pBodyRelative"><a name="wp1018469"> </a>
+The results of the operation are displayed on the screen.
+</p>
+<p class="pBodyRelative"><a name="wp1018471"> </a>
+You have completed an operation on one section of <code class="cCode">TUXCONFIG</code>; you may now start another operation on the same section or on another section. To allow you to start a new operation, tmconfig displays, again, the menu of the <code class="cCode">TUXCONFIG</code> sections displayed in step 1.
+</p>
+<a name="wp1033205"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>All output buffer fields are available in the input buffer unless the input buffer is cleared.</td>
+</tr>
+</table>
+
+</ul></div>
+<li><a name="wp1018472"> </a>Continue your <code class="cCode">tmconfig</code> session by requesting more operations, or quit the session.</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1018473"> </a>To continue requesting operations, return to step 2.</li>
+<li><a name="wp1018474"> </a>To end your <code class="cCode">tmconfig</code> session, select <code class="cCode">QUIT</code> from the menu of operations (as shown in step 3).</li>
+</ul></div>
+<li><a name="wp1018475"> </a>After you end your <code class="cCode">tmconfig</code> session, you can make a backup copy, in text format, of your newly modified <code class="cCode">TUXCONFIG</code> file. In the following example, the administrator chooses the default response to the offer of a backup (<code class="cCode">yes</code>) and overrides the default name of the backup file (<code class="cCode">UBBCONFIG</code>) by specifying another name (<code class="cCode">backup</code>).</li>
+<a name="wp1018478"> </a><div class="pPreformattedRelative"><pre>Unload TUXCONFIG file into ASCII backup [y]? <br />Backup filename [UBBCONFIG]? backup<br />Configuration backed up in backup</pre></div></ol></div>
+<h3 class="pHeading2"><a name="wp1032691"> </a>
+tmconfig Input Buffer Considerations
+</h3>
+<p class="pBody"><a name="wp1043370"> </a>
+The following considerations apply to the input buffer used with tmconfig:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1032695"> </a>If the value that you are typing into a field extends beyond one line, you may continue it on the next line if you insert one or more tabs at the beginning of the second line. (The tab characters are dropped when your input is read into <code class="cCode">TUXCONFIG</code>.)</li>
+<li><a name="wp1032696"> </a>A line that contains only a single newline character is ignored.</li>
+<li><a name="wp1032697"> </a>If more than one line is provided for a particular field, the first occurrence is used and other occurrences are ignored.</li>
+<li><a name="wp1032698"> </a>To enter an unprintable character as part of the value of a field, or to enter a tab as the first character in a field, enter a backslash, followed by the two-character hexadecimal representation of the desired character. (For a mapping of ASCII to hexadecimal characters, see <code class="cCode">ASCII</code>(5) in a UNIX system reference manual.) Here are a few examples:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1034888"> </a>To insert a blank space, type:</li>
+<p class="pBodyRelative"><a name="wp1058236"> </a>
+<code class="cCode">\20</code>
+</p>
+<li><a name="wp1034893"> </a>To insert a backslash, type:</li>
+<p class="pBodyRelative"><a name="wp1058241"> </a>
+<code class="cCode">\\</code>
+</p>
+</ul></div>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1063435"> </a>
+Making Temporary Modifications to Your Configuration with tmconfig
+</h2><p class="pBody"><a name="wp1063436"> </a>
+Many aspects of your configuration can be changed dynamically. This section provides instructions for performing the tasks cited in the following list:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1063440"> </a><a href="addynr.html#wp1016377">How to Add a New Machine</a></li>
+<li><a name="wp1047779"> </a><a href="addynr.html#wp1017926">How to Add a Server</a></li>
+<li><a name="wp1047784"> </a><a href="addynr.html#wp1042240">How to Activate a Newly Configured Machine</a></li>
+<li><a name="wp1047795"> </a><a href="addynr.html#wp1016167">How to Add a New Group</a></li>
+<li><a name="wp1047818"> </a><a href="addynr.html#wp1058507">How to Change Data-dependent Routing (DDR) for an Application</a></li>
+<li><a name="wp1063975"> </a><a href="addynr.html#wp1063676">How to Change Factory-based Routing (FBR) for an Interface</a></li>
+<li><a name="wp1047830"> </a><a href="addynr.html#wp1016169">How to Change Application-wide Parameters</a></li>
+<li><a name="wp1047835"> </a><a href="addynr.html#wp1056174">How to Change an Application Password</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1016377"> </a>
+How to Add a New Machine
+</h2><div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1043429"> </a>Enter <code class="cCode">tmconfig</code>.</li>
+<li><a name="wp1055493"> </a>To specify the <code class="cCode">MACHINES</code> section of the configuration file, enter <code class="cCode">2</code> after the prompt following the list of sections. (Refer to lines 2-4 in the following sample listing.)</li>
+<li><a name="wp1059211"> </a>Press the Enter key to accept the default operation to be performed. The default is <code class="cCode">1) FIRST</code>, an operation that displays the first record in the designated section. In this case, the first record is for the first machine appearing in the <code class="cCode">MACHINES</code> section. (Refer to line 6.)</li>
+<li><a name="wp1017277"> </a>Press the Enter key to accept the default choices regarding whether to enter the text editor (<em class="cEmphasis">no</em>) and whether to have the specified operation performed (<em class="cEmphasis">yes</em>). As requested, the first record in the <code class="cCode">MACHINES</code> section is now displayed, which is the record for a machine named <code class="cCode">SITE1</code> in the following sample listing. (Refer to lines 10-35 in the following listing.)</li>
+<li><a name="wp1059687"> </a>Select the <code class="cCode">MACHINES</code> section again, by pressing the Enter key after the menu of sections. (Refer to lines 36-38.)</li>
+<li><a name="wp1059688"> </a>Select the <code class="cCode">ADD</code> operation by entering <code class="cCode">4</code> after the menu of operations. (Refer to lines 39-40.)</li>
+<li><a name="wp1059689"> </a>Enter the text editor by entering <code class="cCode">y</code> at the prompt. (Refer to line 41.)</li>
+<li><a name="wp1056920"> </a>Change pathnames as appropriate and specify new values for four key fields:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1056921"> </a><code class="cCode">TA_TLOGSIZE</code> (refer to lines 50-51)</li>
+<li><a name="wp1056922"> </a><code class="cCode">TA_PMID</code> (refer to lines 52-53)</li>
+<li><a name="wp1017280"> </a><code class="cCode">TA_LMID</code> (refer to lines 54-55)</li>
+<li><a name="wp1017281"> </a><code class="cCode">TA_TYPE</code> (refer to lines 56-57)</li>
+</ul></div>
+<li><a name="wp1059702"> </a>Write (that is, save) your input and quit the editor. (Refer to lines 58-60.)</li>
+<li><a name="wp1059889"> </a>Direct <code class="cCode">tmconfig</code> to perform the operation (add the machine) by entering <code class="cCode">y</code> at the prompt. (Refer to line 61.)</li>
+</ol></div>
+<p class="pBody"><a name="wp1041123"> </a>
+<a href="addynr.html#wp1017283">Listing&#160;3-2</a> illustrates a <code class="cCode">tmconfig</code> session in which a machine is being added.
+</p>
+<div class="pCodeTitle"><a name="wp1017283"> </a>
+Listing&#160;3-2	   Adding a Machine
+</div> <a name="wp1061842"> </a><div class="pPreformatted"><pre>1 $ tmconfig<br />2 Section: 1) RESOURCES, 2) MACHINES, 3) GROUPS 4) SERVERS<br />3 5)SERVICES  6) NETWORK 7) ROUTING q) QUIT 9) WSL<br />4  10) NETGROUPS 11) NETMAPS 12) INTERFACES [1]: 2<br />5 Operation: 1) FIRST 2) NEXT 3) RETRIEVE 4) ADD 5) UPDATE<br />6  6) CLEAR BUFFER 7) QUIT [1]:<br />7 Enter editor to add/modify fields [n]?<br />8 Perform operation [y]?<br />9 Return value TAOK<br />10 Buffer contents:<br />11 TA_OPERATION             4<br />12 TA_SECTION               1<br />13 TA_OCCURS                1<br />14 TA_PERM                  432<br />15 TA_MAXACCESSERS          40<br />16 TA_MAXGTT                20<br />17 TA_MAXCONV               10<br />18 TA_MAXWSCLIENTS          0<br />19 TA_TLOGSIZE              100<br />20 TA_UID                   4196<br />21 TA_GID                   601<br />22 TA_TLOGOFFSET            0<br />23 TA_TUXOFFSET             0<br />24 TA_STATUS                LIBTUX_CAT:1137: Operation completed successfully<br />25 TA_PMID                  mchn1<br />26 TA_LMID                  SITE1<br />27 TA_TUXCONFIG             /home/apps/bank/TUXCONFIG<br />28 TA_TUXDIR                /home/tuxroot<br />29 TA_STATE  <span style="font-weight: bold">  </span>             ACTIVE<br />30 TA_APPDIR                /home/apps/bank<br />31 TA_TYPE                  3B2<br />32 TA_TLOGDEVICE            /home/apps/bank/TLOG<br />33 TA_TLOGNAME              TLOG<br />34 TA_ULOGPFX               /home/apps/bank/ULOG<br />35 TA_ENVFILE               /home/apps/bank/ENVFILE<br />36 Section: 1) RESOURCES, 2) MACHINES, 3) GROUPS 4) SERVERS<br />37  5)SERVICES  6) NETWORK 7) ROUTING q) QUIT 9) WSL<br />38  10) NETGROUPS 11) NETMAPS 12) INTERFACES [2]: <br />39 Operation: 1) FIRST 2) NEXT 3) RETRIEVE 4) ADD 5) UPDATE<br />40  6) CLEAR BUFFER 7) QUIT [1]: 4<br />41 Enter editor to add/modify fields [n]? y<br />42 491<br />43 g/home/s//usr/p<br />44 TA_TUXCONFIG             /usr/apps/bank/TUXCONFIG<br />45 TA_TUXDIR                /usr/tuxroot<br />46 TA_APPDIR                /usr/apps/bank<br />47 TA_TLOGDEVICE            /usr/apps/bank/TLOG<br />48 TA_ULOGPFX               /usr/apps/bank/ULOG<br />49 TA_ENVFILE               /usr/apps/bank/ENVFILE<br />50 /100/s//150/p<br />51 TA_TLOGSIZE              150<br />52 /mchn1/s//mchn2/p<br />53 TA_PMID                  mchn2<br />54 /SITE1/s//SITE3/p<br />55 TA_LMID                  SITE3<br />56 /3B2/s//SPARC/p<br />57 TA_TYPE                  SPARC<br />58 w<br />59 412<br />60 q<br />61 Perform operation [y]?<br />62 Return value TAUPDATED<br />63 Buffer contents:<br />64 TA_OPERATION             2<br />65 TA_SECTION               1<br />66 TA_OCCURS                1<br />67 TA_PERM                  432<br />68 TA_MAXACCESSERS          40<br />69 TA_MAXGTT                20<br />70 TA_MAXCONV               10<br />71 TA_MAXWSCLIENTS          0<br />72 TA_TLOGSIZE              150<br />73 TA_UID                   4196<br />74 TA_GID                   601<br />75 TA_TLOGOFFSET            0<br />76 TA_TUXOFFSET             0<br />77 TA_STATUS                LIBTUX_CAT:1136: Update completed successfully<br />78 TA_PMID                  mchn2<br />79 TA_LMID                  SITE3<br />80 TA_TUXCONFIG             /usr/apps/bank/TUXCONFIG<br />81 TA_TUXDIR                /usr/tuxroot<br />82 TA_STATE                 NEW<br />83 TA_APPDIR                /usr/apps/bank<br />84 TA_TYPE                  SPARC<br />85 TA_TLOGDEVICE            /usr/apps/bank/TLOG<br />86 TA_TLOGNAME              TLOG<br />87 TA_ULOGPFX               /usr/apps/bank/ULOG<br />88 TA_ENVFILE               /usr/apps/bank/ENVFILE<br /></pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1017926"> </a>
+How to Add a Server
+</h2><div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1022359"> </a>Enter <code class="cCode">tmconfig</code>.</li>
+<li><a name="wp1022361"> </a>To specify the <code class="cCode">SERVERS</code> section of the configuration file, enter <code class="cCode">4</code> after the menu of sections. (Refer to line 3 in the following sample listing.)</li>
+<li><a name="wp1022362"> </a>Request the <code class="cCode">CLEAR</code> <code class="cCode">BUFFER</code> operation by entering <code class="cCode">6</code> after the menu of operations. (Refer to line 5 in the following sample listing.)</li>
+<li><a name="wp1022364"> </a>Press the Enter key to accept the default section: <code class="cCode">SERVERS</code>. (Refer to lines 7-9 in the following sample listing.)</li>
+<li><a name="wp1055577"> </a>Request the <code class="cCode">ADD</code> operation by entering <code class="cCode">4</code> after the menu of operations. (Refer to lines 10-11 in the listing.)</li>
+<li><a name="wp1022365"> </a>Enter the text editor by entering <code class="cCode">y</code> at the prompt. (Refer to line 12.)</li>
+<li><a name="wp1022366"> </a>Specify new values for three key fields:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1022367"> </a><code class="cCode">TA_SERVERNAME</code> (refer to line 15)</li>
+<li><a name="wp1039169"> </a><code class="cCode">TA_SRVGRP</code> (refer to line 16)</li>
+<li><a name="wp1039170"> </a><code class="cCode">TA_SRVID</code> (refer to line 17)</li>
+</ul></div>
+<li><a name="wp1060275"> </a>Write (that is, save) your input and quit the editor. (Refer to lines 19-21.)</li>
+<li><a name="wp1060276"> </a>Direct <code class="cCode">tmconfig</code> to perform the operation (add the server) by entering <code class="cCode">y</code> at the prompt. (Refer to line 22.)</li>
+</ol></div>
+<p class="pBody"><a name="wp1039172"> </a>
+<a href="addynr.html#wp1039171">Listing&#160;3-3</a> illustrates a <code class="cCode">tmconfig</code> session in which a server is being added.
+</p>
+<div class="pCodeTitle"><a name="wp1039171"> </a>
+Listing&#160;3-3	   Adding a Server
+</div> <a name="wp1042125"> </a><div class="pPreformatted"><pre>1 Section: 1) RESOURCES, 2) MACHINES, 3) GROUPS 4) SERVERS<br />2  5)SERVICES  6) NETWORK 7) ROUTING q) QUIT 9) WSL<br />3  10) NETGROUPS 11) NETMAPS 12) INTERFACES [1]: 4<br />4 Operation: 1) FIRST 2) NEXT 3) RETRIEVE 4) ADD 5) UPDATE<br />5  6) CLEAR BUFFER 7) QUIT [4]: 6<br />6 Buffer cleared<br />7 Section: 1) RESOURCES, 2) MACHINES, 3) GROUPS 4) SERVERS<br />8  5)SERVICES  6) NETWORK 7) ROUTING q) QUIT 9) WSL<br />9  10) NETGROUPS 11) NETMAPS 12) INTERFACES [4]: <br />10 Operation: 1) FIRST 2) NEXT 3) RETRIEVE 4) ADD 5) UPDATE<br />11    6) CLEAR BUFFER 7) QUIT [6]: 4<br />12 Enter editor to add/modify fields [n]? y<br />13 1<br />14 c<br />15 TA_SERVERNAME            XFER<br />16 TA_SRVGRP                BANKB1<br />17 TA_SRVID                 5<br />18 .<br />19 w<br />20 28<br />21 q<br />22 Perform operation [y]?<br />23 Return value TAOK<br />24 Buffer contents:<br />25 TA_OPERATION             3<br />26 TA_SECTION               3<br />27 TA_OCCURS                1<br />28 TA_SRVID                 5<br />29 TA_SEQUENCE              0<br />30 TA_MIN                   1<br />31 TA_MAX                   1<br />32 TA_RQPERM                432<br />33 TA_RPPERM                432<br />34 TA_MAXGEN                5<br />35 TA_GRACE                 86400<br />36 TA_STATUS                LIBTUX_CAT:1137: Operation completed successfully<br />37 TA_SYSTEM_ACCESS         FASTPATH<br />38 TA_ENVFILE              <span style="font-weight: bold"> <br /></span>39 TA_SRVGRP                BANKB1<br />40 TA_SERVERNAME            XFER<br />41 TA_CLOPT                 -A<br />42 TA_CONV                  N<br />43 TA_RQADDR                <br />44 TA_REPLYQ                Y<br />45 TA_RCMD                  <br />46 TA_RESTART               Y<br /></pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1042240"> </a>
+How to Activate a Newly Configured Machine
+</h2><div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1043430"> </a>Enter <code class="cCode">tmconfig</code>.</li>
+<li><a name="wp1039220"> </a>To specify the <code class="cCode">MACHINES</code> section of the configuration file, enter <code class="cCode">2</code> after the menu of sections. (Refer to lines 1-3 in the following sample listing.)</li>
+<li><a name="wp1060487"> </a>In order to select the appropriate record in the <code class="cCode">MACHINES</code> section, you need to toggle through the list of machine records. To view the first machine record, select the <code class="cCode">FIRST</code> operation by pressing the Enter key after the menu of operations. (Refer to lines 4-5 in the following sample listing.) If you do not want the first machine record, select the <code class="cCode">NEXT</code> operation to view the next machine record by entering <code class="cCode">2</code> after the menu of operations.</li>
+<li><a name="wp1060491"> </a>Press the Enter key to accept the default choices regarding whether to enter the text editor (<span style="font-style: normal">no</span>) and whether to have the specified operation performed (<span style="font-style: normal">yes</span>). The requested record in the <code class="cCode">MACHINES</code> section is now displayed, which is the record for a machine named <code class="cCode">SITE3</code> in the following sample listing. (Refer to lines 9-34 in the following listing.)</li>
+<li><a name="wp1060492"> </a>Select the <code class="cCode">MACHINES</code> section again, by pressing the Enter key after the menu of sections. (Refer to lines 35-37.)</li>
+<li><a name="wp1060493"> </a>Select the <code class="cCode">UPDATE</code> operation by entering <code class="cCode">5</code> after the menu of operations. (Refer to lines 38-39.)</li>
+<li><a name="wp1060494"> </a>Enter the text editor by entering <code class="cCode">y</code> at the prompt. (Refer to line 40.)</li>
+<li><a name="wp1022887"> </a>Change the value of the <code class="cCode">TA_STATE</code> field from <code class="cCode">NEW</code> to <code class="cCode">ACTIVE</code>. (Refer to lines 42-45.)</li>
+<li><a name="wp1060921"> </a>Write (that is, save) your input and quit the editor. (Refer to lines 46-48.)</li>
+<li><a name="wp1060922"> </a>Direct <code class="cCode">tmconfig</code> to perform the operation (activate the newly configured machine) by entering <code class="cCode">y</code> at the prompt. (Refer to line 49.)</li>
+<li><a name="wp1060919"> </a><code class="cCode">tmconfig</code> displays the revised record for the specified machine so that you can review your change and, if necessary, edit it.</li>
+<li><a name="wp1022905"> </a>If the revised entry is acceptable, select <code class="cCode">7</code> after the menu of operations to end the <code class="cCode">tmconfig</code> session.</li>
+</ol></div>
+<p class="pBody"><a name="wp1055658"> </a>
+<a href="addynr.html#wp1055659">Listing&#160;3-4</a> illustrates a <code class="cCode">tmconfig</code> session in which a server is being activated.
+</p>
+<div class="pCodeTitle"><a name="wp1055659"> </a>
+Listing&#160;3-4	   Activating a New Server
+</div> <a name="wp1055660"> </a><div class="pPreformatted"><pre>1  Section: 1) RESOURCES, 2) MACHINES, 3) GROUPS 4) SERVERS<br />2   5)SERVICES  6) NETWORK 7) ROUTING q) QUIT 9) WSL<br />3   10) NETGROUPS 11) NETMAPS 12) INTERFACES [1]: 2<br />4  Operation: 1) FIRST 2) NEXT 3) RETRIEVE 4) ADD 5) UPDATE<br />5   6) CLEAR BUFFER 7) QUIT [1]:<br />6  Enter editor to add/modify fields [n]?<br />7  Perform operation [y]?<br />8  Return value TAOK<br />9  Buffer contents:<br />10 TA_OPERATION             4<br />11 TA_SECTION               1<br />12 TA_OCCURS                1<br />13 TA_PERM                  432<br />14 TA_MAXACCESSERS          40<br />15 TA_MAXGTT                20<br />16 TA_MAXCONV               10<br />17 TA_MAXWSCLIENTS          0<br />18 TA_TLOGSIZE              150<br />19 TA_UID                   4196<br />20 TA_GID                   601<br />21 TA_TLOGOFFSET            0<br />22 TA_TUXOFFSET             0<br />23 TA_STATUS                LIBTUX_CAT:1175: Operation completed successfully<br />24 TA_PMID                  mchn2<br />25 TA_LMID                  SITE3<br />26 TA_TUXCONFIG             /usr/apps/bank/TUXCONFIG<br />27 TA_TUXDIR                /usr/tuxroot<br />28 TA_STATE  <span style="font-weight: bold">  </span>             NEW<br />29 TA_APPDIR                /usr/apps/bank<br />30 TA_TYPE                  SPARC<br />31 TA_TLOGDEVICE            /usr/apps/bank/TLOG<br />32 TA_TLOGNAME              TLOG<br />33 TA_ULOGPFX               /usr/apps/bank/ULOG<br />34 TA_ENVFILE               /usr/apps/bank/ENVFILE<br />35 Section: 1) RESOURCES, 2) MACHINES, 3) GROUPS 4) SERVERS<br />36  5)SERVICES  6) NETWORK 7) ROUTING q) QUIT 9) WSL<br />37  10) NETGROUPS 11) NETMAPS 12) INTERFACES [2]: <br />38 Operation: 1) FIRST 2) NEXT 3) RETRIEVE 4) ADD 5) UPDATE<br />39  6) CLEAR BUFFER 7) QUIT [1]: 5<br />40 Enter editor to add/modify fields [n]? y<br />41 491<br />42 /TA_STATE<br />43 TA_STATE                 NEW<br />44 s/NEW/ACTIVE<br />45 TA_STATE                 ACTIVE<br />46 w<br />47 412<br />48 q<br />49 Perform operation [y]?<br />50 Return value TAUPDATED<br />51 Buffer contents:<br />52 .<br />53 .<br />54 .<br /></pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1016167"> </a>
+How to Add a New Group
+</h2><div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1018032"> </a>Enter <code class="cCode">tmconfig</code>.</li>
+<li><a name="wp1018034"> </a>To specify the <code class="cCode">GROUPS</code> section of the configuration file, enter 3 after the prompt following the list of sections. (Refer to lines 1-3 in the following sample listing.)</li>
+<li><a name="wp1058441"> </a>Request the <code class="cCode">CLEAR</code> <code class="cCode">BUFFER</code> operation by entering 6 after the menu of operations. (Refer to line 5 in the following sample listing.)</li>
+<li><a name="wp1058442"> </a>Accept the default section, <code class="cCode">GROUPS</code>, by pressing the Enter key. (Refer to lines 7-9 in the following sample listing.)</li>
+<li><a name="wp1018037"> </a>Request the <code class="cCode">ADD</code> operation by entering 4 after the menu of operations. (Refer to lines 10-11 in the listing.)</li>
+<li><a name="wp1018038"> </a>Enter the text editor by entering <code class="cCode">y</code> at the prompt. (Refer to line 12.)</li>
+<li><a name="wp1018039"> </a>Specify new values for three key fields:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1018040"> </a><code class="cCode">TA_LMID</code> (refer to line 15)</li>
+<li><a name="wp1018041"> </a><code class="cCode">TA_SRVGRP</code> (refer to line 16)</li>
+<li><a name="wp1018042"> </a><code class="cCode">TA_GRPNO</code> (refer to line 17)</li>
+</ul></div>
+</ol></div>
+<p class="pBody"><a name="wp1039483"> </a>
+<a href="addynr.html#wp1018043">Listing&#160;3-5</a> illustrates a <code class="cCode">tmconfig</code> session in which a group is being added.
+</p>
+<div class="pCodeTitle"><a name="wp1018043"> </a>
+Listing&#160;3-5	   Adding a Group
+</div> <a name="wp1068383"> </a><div class="pPreformatted"><pre>1 Section: 1) RESOURCES, 2) MACHINES, 3) GROUPS 4) SERVERS<br />2  5)SERVICES  6) NETWORK 7) ROUTING q) QUIT 9) WSL<br />3  10) NETGROUPS 11) NETMAPS 12) INTERFACES [1]: 3<br />4 Operation: 1) FIRST 2) NEXT 3) RETRIEVE 4) ADD 5) UPDATE<br />5    6) CLEAR BUFFER 7) QUIT [4]: 6<br />6 Buffer cleared<br />7 Section: 1) RESOURCES, 2) MACHINES, 3) GROUPS 4) SERVERS<br />8  5)SERVICES  6) NETWORK 7) ROUTING q) QUIT 9) WSL<br />9  10) NETGROUPS 11) NETMAPS 12) INTERFACES [3]:<br />10 Operation: 1) FIRST 2) NEXT 3) RETRIEVE 4) ADD 5) UPDATE<br />11   6) CLEAR BUFFER 7) QUIT [6]: 4<br />12 Enter editor to add/modify fields [n]? y<br />13 1<br />14 c<br />15 TA_LMID                  SITE3<br />16 TA_SRVGRP                GROUP3<br />17 TA_GRPNO                 3<br />18 .<br />19 w<br />20 42<br />21 q<br />22 Perform operation [y]?<br />23 Return value TAUPDATED<br />24 Buffer contents:<br />25 TA_OPERATION             2<br />26 TA_SECTION               2<br />27 TA_OCCURS                1<br />28 TA_GRPNO                 3<br />29 TA_TMSCOUNT              0<br />30 TA_STATUS                LIBTUX_CAT:1136: Update completed successfully<br />31 TA_LMID                  SITE3<br />32 TA_SRVGRP                GROUP3<br />33 TA_TMSNAME<br />34 TA_OPENINFO<br />35 TA_CLOSEINFO</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1058507"> </a>
+How to Change Data-dependent Routing (DDR) for an Application
+</h2><p class="pBody"><a name="wp1063771"> </a>
+To change the data-dependent routing for an application, complete the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1043436"> </a>Enter <code class="cCode">tmconfig</code>.</li>
+<li><a name="wp1023305"> </a>To specify the <code class="cCode">ROUTING</code> section of the configuration file, enter 7 after the prompt following the list of sections.</li>
+<li><a name="wp1039531"> </a>Toggle through the list of entries for the <code class="cCode">ROUTING</code> section by selecting the <code class="cCode">FIRST</code> and <code class="cCode">NEXT</code> operations, which display the first and subsequent entries, respectively. Select the entry for which you want to change the <code class="cCode">DDR</code>.</li>
+<li><a name="wp1039618"> </a>Select <code class="cCode">5)UPDATE</code> from the menu of operations.</li>
+<li><a name="wp1023432"> </a>Enter the text editor by entering <code class="cCode">y</code> at the prompt.</li>
+<a name="wp1038297"> </a><div class="pPreformattedRelative"><pre>Do you want to edit(n)? y</pre></div><li><a name="wp1023433"> </a>Change the values of relevant fields to the values shown in the &#8220;Sample Value&#8221; column of <a href="addynr.html#wp1069585">Table&#160;3-2</a>.</li>
+<p class="pGraphic"><a name="wp1054529"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1069585table1054537"><caption><a name="wp1069585"> </a>
+Table 3-2  Change Data-dependent Routing (DDR) for an Application
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1054539"> </a>
+Field
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1054541"> </a>
+Sample Value
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1054543"> </a>
+Meaning
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054545"> </a>
+<code class="cCode">TA_ROUTINGNAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054547"> </a>
+<code class="cCode">account_routing</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054549"> </a>
+Name of the routing section
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054551"> </a>
+<code class="cCode">TA_BUFTYPE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054553"> </a>
+<code class="cCode">FML</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054555"> </a>
+Buffer type
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054557"> </a>
+<code class="cCode">TA_FIELD</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054559"> </a>
+<code class="cCode">account_ID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054561"> </a>
+Name of the routing field
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054563"> </a>
+<code class="cCode">TA_RANGES</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054565"> </a>
+<code class="cCode">1-10:group1,*:*</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054567"> </a>
+The routing criteria being used. If, as shown here, the value of <code class="cCode">account_ID</code> is between 1 and 10 (inclusive), requests are sent to the servers in group 1. Otherwise, requests are sent to any other server in the configuration.
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</ol></div>
+<a name="wp1023540"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For details, see <a href="../rfcm/rfcmd.html">tmconfig,&#160;wtmco</a><a href="../rfcm/rfcmd.html">nfig(1)</a> in the <em class="cEmphasis">Oracle Tuxedo Command Reference</em>.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1063676"> </a>
+How to Change Factory-based Routing (FBR) for an Interface
+</h2><a name="wp1064373"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For detailed information about factory-based routing for a distributed Oracle Tuxedo CORBA application, refer to the <em class="cEmphasis">Scaling, Distributing, and Tuning CORBA Applications</em> guide.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1063677"> </a>
+To change the factory-based routing for a CORBA interface, complete the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1063678"> </a>Start a <code class="cCode">tmconfig</code> session.</li>
+<li><a name="wp1063679"> </a>Select the <code class="cCode">ROUTING</code> section of the configuration file (choice #7 on the menu of configuration file sections).</li>
+<li><a name="wp1063680"> </a>Using the <code class="cCode">FIRST</code> and <code class="cCode">NEXT</code> operations, select the entry for which you want to change the FBR.</li>
+<li><a name="wp1063681"> </a>Select the <code class="cCode">UPDATE</code> operation.</li>
+<li><a name="wp1063682"> </a>Enter <code class="cCode">y</code> (for yes) when prompted to say whether you want to start editing.</li>
+<a name="wp1063683"> </a><div class="pPreformattedRelative"><pre>Do you want to edit(n)? y</pre></div><li><a name="wp1063684"> </a>Change the relevant fields to values such as those shown in the middle column in <a href="addynr.html#wp1069606">Table&#160;3-3</a>:</li>
+</ol></div>
+<p class="pBody"><a name="wp1063711"> </a>
+The value of the <code class="cCode">TA_RANGES</code> field is the routing criterion. For example, assume that our modest student enrollment before the update allowed for a routing criterion of student IDs between 100001&#8211; 100005 to <code class="cCode">ORA_GRP1</code>, and 100006&#8211; 100010 to <code class="cCode">ORA_GRP2</code>. In the change shown in the preceding table, if the value of <code class="cCode">student_id </code>is between 100001&#8211; 100050 (inclusive), requests are sent to the servers in <code class="cCode">ORA_GRP1</code>. Other requests are sent to <code class="cCode">ORA_GRP2</code>. 
+</p>
+<a name="wp1063712"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Dynamic changes that you make to a routing parameter with <code class="cCode">tmconfig</code> take effect on subsequent invocations and do not affect outstanding invocations. </td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1063713"> </a>
+You can also dynamically change the <code class="cCode">TA_FACTORYROUTING</code> assignment in the <code class="cCode">INTERFACES</code> section. For example:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1063714"> </a>Start a <code class="cCode">tmconfig</code> session.</li>
+<li><a name="wp1063715"> </a>Select the <code class="cCode">INTERFACES </code>section of the configuration file (choice #12 on the menu of configuration file sections).</li>
+<li><a name="wp1063716"> </a>Using the <code class="cCode">FIRST</code> and <code class="cCode">NEXT</code> operations, select the interface entry for which you want to change the FBR. For example, if you defined a new factory-based routing criterion named <code class="cCode">CAMPUS</code> in the <code class="cCode">ROUTING</code> section, you could reassign a Registrar interface to this criterion.</li>
+<li><a name="wp1063717"> </a>Select the <code class="cCode">UPDATE</code> operation.</li>
+<li><a name="wp1063718"> </a>Enter <code class="cCode">y</code> (for yes) when prompted to say whether you want to start editing.</li>
+<a name="wp1063719"> </a><div class="pPreformattedRelative"><pre>Do you want to edit(n)? y</pre></div></ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1016169"> </a>
+How to Change Application-wide Parameters
+</h2><p class="pBody"><a name="wp1040669"> </a>
+Some run-time parameters are relevant to all the components (machines, servers, and so on) of your configuration. These parameters are listed in the <code class="cCode">RESOURCES</code> section of the configuration file.
+</p>
+<p class="pBody"><a name="wp1040686"> </a>
+An easy way to familiarize yourself with the parameters in the <code class="cCode">RESOURCES</code> section is to display the first entry in that section. To do so, complete the following procedure.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1039669"> </a>Enter <code class="cCode">tmconfig</code>.</li>
+<li><a name="wp1040484"> </a>Select the <code class="cCode">RESOURCES</code> section, which is the default, by pressing the Enter key after the list of sections. (Refer to lines 1-3 in the following sample listing.)</li>
+<li><a name="wp1040485"> </a>Request the <code class="cCode">FIRST</code> operation, which is the default, by pressing the Enter key after the menu of operations. (Refer to lines 4-5.)</li>
+<li><a name="wp1040723"> </a>When asked whether you want to edit, accept the default (<code class="cCode">n</code>) by pressing the Enter key.</li>
+<a name="wp1039674"> </a><div class="pPreformattedRelative"><pre>Do you want to edit(n)?</pre></div><li><a name="wp1039675"> </a>When asked whether you want the specified operation (<code class="cCode">FIRST</code>) to be performed, accept the default (<code class="cCode">y</code>) by pressing the Enter key.</li>
+<a name="wp1040732"> </a><div class="pPreformattedRelative"><pre>Perform operation [y]?</pre></div></ol></div>
+<p class="pBody"><a name="wp1039737"> </a>
+<a href="addynr.html#wp1039751">Listing&#160;3-6</a> shows a <code class="cCode">tmconfig</code> session in which the first entry in the <code class="cCode">RESOURCES</code> section is displayed.
+</p>
+<div class="pCodeTitle"><a name="wp1039751"> </a>
+Listing&#160;3-6	   Displaying the First Entry in the RESOURCES Section
+</div> <a name="wp1056772"> </a><div class="pPreformatted"><pre>1 Section: 1) RESOURCES, 2) MACHINES, 3) GROUPS 4) SERVERS<br />2  5)SERVICES  6) NETWORK 7) ROUTING q) QUIT 9) WSL<br />3  10) NETGROUPS 11) NETMAPS 12) INTERFACES [1]: <br />4 Operation: 1) FIRST 2) NEXT 3) RETRIEVE 4) ADD 5) UPDATE<br />5  6) CLEAR BUFFER 7) QUIT [1]:<br />6 Enter editor to add/modify fields [n]? <br />7 Perform operation [y]? <br />8 Return value TAOK<br />9 Buffer contents:<br />10 TA_OPERATION       1<br />11 TA_SECTION         0<br />12 TA_STATUS          Operation completed successfully<br />13 TA_OCCURS          1<br />14 TA_PERM            432<br />15 TA_BBLQUERY        30<br />16 TA_BLOCKTIME       6<br />17 TA_DBBLWAIT        2<br />18 TA_GID             10<br />19 TA_IPCKEY          80997<br />20 TA_LICMAXUSERS     1000000<br />21 TA_MAXACCESSERS    100<br />22 TA_MAXBUFSTYPE     32<br />23 TA_MAXBUFTYPE      16<br />24 TA_MAXCONV         10<br />25 TA_MAXDRT          0<br />26 TA_MAXGROUPS       100<br />27 TA_MAXGTT          25<br />28 TA_MAXMACHINES     256<br />29 TA_MAXQUEUES       36<br />30 TA_MAXRFT          0<br />31 TA_MAXRTDATA       8<br />32 TA_MAXSERVERS      36<br />33 TA_MAXSERVICES     100<br />34 TA_MIBMASK         0<br />35 TA_SANITYSCAN      12<br />36 TA_SCANUNIT        10<br />37 TA_UID             5469<br />38 TA_MAXACLGROUPS    16384<br />39 TA_MAXNETGROUPS    8<br />40 TA_MAXINTERFACES   150<br />41 TA_MAXOBJECTS      1000<br />42 TA_SIGNATURE_AHEAD 3600<br />43 TA_SIGNATURE_BEHIND 604800<br />44 TA_MAXTRANTIME     0<br />45 TA_STATE           ACTIVE<br />46 TA_AUTHSVC      <br />47 TA_CMTRET          COMPLETE<br />48 TA_DOMAINID     <br />49 TA_LDBAL           Y<br />50 TA_LICEXPIRE       2003-09-15<br />51 TA_LICSERIAL       1234567890<br />52 TA_MASTER          SITE1<br />53 TA_MODEL           SHM<br />54 TA_NOTIFY          DIPIN<br />55 TA_OPTIONS      <br />56 TA_SECURITY        NONE<br />57 TA_SYSTEM_ACCESS   FASTPATH<br />58 TA_USIGNAL         SIGUSR2<br />59 TA_PREFERENCES     <br />60 TA_COMPONENTS 	     TRANSACTIONS,QUEUE,TDOMAINS, 												 <br />61 EVENTS,WEBGUI,WSCOMPRESSION,TDOMCOMPRESSION<br />62 TA_SIGNATURE_REQUIRED<br />63 TA_ENCRYPTION_REQUIRED<br />64 TA_SEC_PRINCIPAL_NAME<br />65 TA_SEC_PRINCIPAL_LOCATION<br />66 TA_SEC_PRINCIPAL_PASSVAR<br /></pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1056174"> </a>
+How to Change an Application Password
+</h2><div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1043453"> </a>Enter <code class="cCode">tmconfig</code>.</li>
+<li><a name="wp1023726"> </a>Select the <code class="cCode">RESOURCES</code> section, which is the default, by pressing the Enter key following the list of sections. (Refer to lines 2-4 in the following sample listing.)</li>
+<li><a name="wp1023727"> </a>Request the <code class="cCode">CLEAR BUFFER</code> operation by entering <code class="cCode">6</code> after the menu of operations. (Refer to line 6.)</li>
+<li><a name="wp1059599"> </a>Select the <code class="cCode">RESOURCES</code> section again, by pressing the Enter key after the menu of sections. (Refer to lines 8-10.)</li>
+<li><a name="wp1059606"> </a>Select the <code class="cCode">UPDATE</code> operation by entering <code class="cCode">5</code> after the menu of operations. (Refer to lines 11-12.)</li>
+<li><a name="wp1059611"> </a>Enter the text editor by entering <code class="cCode">y</code> at the prompt. (Refer to line 13.)</li>
+<li><a name="wp1023728"> </a>Enter (in the buffer):</li>
+<a name="wp1023729"> </a><div class="pPreformattedRelative"><pre>TA_PASSWORD  <code class="cCodeEmphasis"> new_password</code></pre></div><li><a name="wp1059622"> </a>Write (that is, save) your input and quit the editor. (Refer to lines 18-20.)</li>
+</ol></div>
+<p class="pBody"><a name="wp1040929"> </a>
+<a href="addynr.html#wp1040930">Listing&#160;3-7</a> shows a <code class="cCode">tmconfig</code> session in which an application password is changed to <code class="cCode">neptune</code>.
+</p>
+<div class="pCodeTitle"><a name="wp1040930"> </a>
+Listing&#160;3-7	   Changing an Application Password
+</div> <a name="wp1061154"> </a><div class="pPreformatted"><pre><code class="cCode">1 $ tmconfig<br /></code>2 Section: 1) RESOURCES, 2) MACHINES, 3) GROUPS 4) SERVERS<br />3  5)SERVICES  6) NETWORK 7) ROUTING q) QUIT 9) WSL<br />4  10) NETGROUPS 11) NETMAPS 12) INTERFACES [1]: <br />5 Operation: 1) FIRST 2) NEXT 3) RETRIEVE 4) ADD 5) UPDATE<br />6    6) CLEAR BUFFER 7) QUIT [4]: 6<br />7 Buffer cleared<br />8 Section: 1) RESOURCES, 2) MACHINES, 3) GROUPS 4) SERVERS<br />9  5)SERVICES 6) NETWORK 7) ROUTING q) QUIT 9) WSL<br />10 10) NETGROUPS 11) NETMAPS 12) INTERFACES [1]:<br />11 Operation: 1) FIRST 2) NEXT 3) RETRIEVE 4) ADD 5) UPDATE<br />12    6) CLEAR BUFFER 7) QUIT [6]: 5<br />13 Enter editor to add/modify fields [n]? y<br />14 1<br />15 c<br />16 TA_PASSWORD         neptune<br /><code class="cCode">17</code><code class="cCodeEmphasis"> .<br /></code>18 w<br />19 49<br />20 q<br />21 Perform operation [y]?<br />22 Return value TAUPDATED<br />23 Buffer contents:<br />24 TA_OPERATION       1<br />25 TA_SECTION         0<br />26 TA_STATUS          Operation completed successfully<br />27 TA_OCCURS          1<br />28 TA_PERM            432<br />29 TA_BBLQUERY        30<br />30 TA_BLOCKTIME       6<br />31 TA_DBBLWAIT        2<br />32 TA_GID             10<br />33 TA_IPCKEY          80997<br />34 TA_LICMAXUSERS     1000000<br />35 TA_MAXACCESSERS    100<br />36 TA_MAXBUFSTYPE     32<br />37 TA_MAXBUFTYPE      16<br />38 TA_MAXCONV         10<br />39 TA_MAXDRT          0<br />40 TA_MAXGROUPS       100<br />41 TA_MAXGTT          25<br />42 TA_MAXMACHINES     256<br />43 TA_MAXQUEUES       36<br />44 TA_MAXRFT          0<br />45 TA_MAXRTDATA       8<br />46 TA_MAXSERVERS      36<br />47 TA_MAXSERVICES     100<br />48 TA_MIBMASK         0<br />49 TA_SANITYSCAN      12<br />50 TA_SCANUNIT        10<br />51 TA_UID             5469<br />52 TA_MAXACLGROUPS    16384<br />53 TA_MAXNETGROUPS    8<br />54 TA_MAXINTERFACES   150<br />55 TA_MAXOBJECTS      1000<br />56 TA_PASSWORD        neptune<br />57 TA_STATE           ACTIVE<br />58 TA_AUTHSVC         <br />59 TA_CMTRET          COMPLETE<br />60 TA_DOMAINID        <br />61 TA_LDBAL           Y<br />62 TA_LICEXPIRE       1998-09-15<br />63 TA_LICSERIAL       1234567890<br />64 TA_MASTER          SITE1<br />65 TA_MODEL           SHM<br />66 TA_NOTIFY          DIPIN<br />67 TA_OPTIONS         <br />68 TA_SECURITY        NONE<br />69 TA_SYSTEM_ACCESS   FASTPATH<br />70 TA_USIGNAL         SIGUSR2<br />71 TA_PREFERENCES     <br />72 TA_COMPONENTS      TRANSACTIONS,QUEUE,TDOMAINS,EVENTS,WEBGUI,<br />73                    WSCOMPRESSION,TDOMCOMPRESSION<br /></pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1052148"> </a>
+Limitations on Dynamic Modification Using tmconfig
+</h2><p class="pBody"><a name="wp1052149"> </a>
+Keep in mind the following restrictions when modifying your application dynamically using <code class="cCode">tmconfig</code>. Be careful about setting parameters that cannot be changed easily. 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1052150"> </a>Associated with each section is a set of key fields that are used to identify the record upon which operations are performed. (For details, see <a href="../rfcm/rfcmd.html">tmconfig,&#160;wtmc</a><a href="../rfcm/rfcmd.html">onfig(1)</a> in the <em class="cEmphasis">Oracle Tuxedo</em> <em class="cEmphasis">Command</em> <em class="cEmphasis">Reference</em>.) Key field values cannot be changed while an application is running. Normally, it is sufficient to add a new entry, with a new key field, and use it instead of the old entry. When this is done, only the new entry is used; the old entry in the configuration is not booted by the administrator.</li>
+<li><a name="wp1052151"> </a>Generally speaking, you cannot update a parameter while the configuration component with which it is associated is booted. For example, you cannot change an entry in the <code class="cCode">MACHINES</code> section while the machine associated with that entry is booted. Specifically:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1052158"> </a>If any server in a group is booted, you cannot change the entry for that group.</li>
+<li><a name="wp1052159"> </a>If a server is booted, you cannot change its name, type (conversational or not), or parameters related to its message queue. (You can change other server parameters at any time but your changes do not take effect until the next time the server is booted.)</li>
+<li><a name="wp1052163"> </a>You can change a <code class="cCode">SERVICES</code> entry at any time, but your changes do not take effect until the next time the service is advertised.</li>
+<li><a name="wp1052167"> </a>Updates to the <code class="cCode">RESOURCES</code> section are restricted by the following conditions: the <code class="cCode">UID</code>, <code class="cCode">GID</code>, <code class="cCode">PERM</code>, <code class="cCode">MAXACCESSERS</code>, <code class="cCode">MAXGTT</code>, and <code class="cCode">MAXCONV</code> parameters cannot be updated in the <code class="cCode">RESOURCES</code> section but can be updated on a per-machine basis; and the <code class="cCode">IPCKEY</code>, <code class="cCode">MASTER</code>, <code class="cCode">MODEL</code>, <code class="cCode">OPTIONS</code>, <code class="cCode">USIGNAL</code>, <code class="cCode">MAXSERVERS</code>, <code class="cCode">MAXSERVICES</code>, <code class="cCode">MAXBUFTYPE</code>, and <code class="cCode">MAXBUFSTYPE</code> parameters cannot be changed dynamically.</li>
+</ul></div>
+<li><a name="wp1052172"> </a>Carefully track the section of the configuration file in which you are working; <code class="cCode">tmconfig</code> does not warn against performing an operation in the incorrect section. For example, if you try to update the <code class="cCode">ENVFILE</code> parameter (in the <code class="cCode">MACHINES</code> section) while you are working in the <code class="cCode">RESOURCES</code> section, the operation appears to succeed (that is, <code class="cCode">tmconfig</code> returns <code class="cCode">TAOK</code>), but the change does not appear in your unloaded <code class="cCode">UBBCONFIG</code> file. You can be sure an update is done only when the <code class="cCode">TAUPDATED</code> status message is displayed.</li>
+</ul></div>
+<p class="pBody"><a name="wp1052180"> </a>
+In a multiple-machine configuration, always perform the following tasks:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1052181"> </a>Specify a backup for the <code class="cCode">MASTER</code> machine, along with the <code class="cCode">MIGRATE</code> option (even if a need for application server migration is not anticipated). </li>
+<li><a name="wp1052182"> </a>For <code class="cCode">MAXSERVERS</code>, <code class="cCode">MAXSERVICES</code>, and other parameters that define maximum limits, assign settings that are high enough to allow for sufficient growth. If your application is initially deployed on only one machine, but is expected to grow to a multiple-machine configuration, use the MP model, specifying the <code class="cCode">LAN</code> option and a network entry for the initial machine. </li>
+<li><a name="wp1052186"> </a>Set the parameters in the <code class="cCode">MACHINES</code> section carefully because updating them requires shutting down the machine (and switching the <code class="cCode">MASTER</code> to the backup in the case of the <code class="cCode">MASTER</code> machine).</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1052187"> </a>
+Tasks That Cannot Be Performed on a Running System
+</h3>
+<p class="pBody"><a name="wp1052188"> </a>
+Most elements of the Oracle Tuxedo system can be changed dynamically, through either manual intervention or automatic processes. For example, new servers can be spawned, new machines can be added, timeout parameters can be changed, and so on. A few parameters, however, cannot be changed while a system is operational:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1052189"> </a>Any parameter that affects the size of the bulletin board is not dynamic. Most of these parameters begin with the string <code class="cCode">MAX</code>, such as <code class="cCode">MAXGTT</code>, which defines the maximum number of in-flight transactions allowed within the Oracle Tuxedo system at any time.</li>
+<li><a name="wp1056339"> </a>The name of a machine being used in a running application is not dynamic. New machines (that is, machines with new names) can be added, but an existing machine name cannot be changed.</li>
+<li><a name="wp1052191"> </a>Once server executables are assigned to run on both master and backup machines, the assignment of the master and backup cannot be changed. </li>
+</ul></div>
+<a name="wp1052192"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>You can configure new copies of a server executable to run on additional machines, but you cannot change existing servers with unique identifiers.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1051863"> </a>
+Making Temporary Modifications to Your Configuration with tmadmin
+</h2><p class="pBody"><a name="wp1051981"> </a>
+When you use the <code class="cCode">tmconfig</code> command to update the <code class="cCode">TUXCONFIG</code> file and any bulletin board entries associated with it, the changes you make are permanent; they persist after the system is shut down and rebooted.
+</p>
+<p class="pBody"><a name="wp1056383"> </a>
+In some situations, however you may want to make temporary changes to a running application. For example, you may want to:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1052018"> </a><a href="addynr.html#wp1051884">Suspend Tuxedo ATMI services or servers</a></li>
+<li><a name="wp1052019"> </a><a href="addynr.html#wp1047323">Resume Tuxedo ATMI services or servers</a></li>
+<li><a name="wp1052020"> </a><a href="addynr.html#wp1047332">Advertise services or servers</a></li>
+<li><a name="wp1052021"> </a><a href="addynr.html#wp1047337">Unadvertise services or servers</a></li>
+<li><a name="wp1051991"> </a><a href="addynr.html#wp1063138">Change ATMI service parameters</a></li>
+<li><a name="wp1063499"> </a><a href="addynr.html#wp1047342">Change CORBA interface parameters</a></li>
+<li><a name="wp1063553"> </a><a href="addynr.html#wp1056531">Change the timeout value</a></li>
+<li><a name="wp1063555"> </a><a href="addynr.html#wp1063172">Suspend CORBA interfaces</a></li>
+<li><a name="wp1063557"> </a><a href="addynr.html#wp1063263">Resume CORBA interfaces</a></li>
+</ul></div>
+<p class="pBody"><a name="wp1063558"> </a>
+You can perform these tasks with the <code class="cCode">tmadmin</code> command, as specified in the procedures provided in this section.
+</p>
+<h3 class="pHeading2"><a name="wp1052051"> </a>
+How to Set Environment Variables for tmadmin
+</h3>
+<p class="pBody"><a name="wp1052052"> </a>
+Before you can start a <code class="cCode">tmadmin</code> session, you must set your environment variables and any required permissions. For your convenience, you may also want to select a text editor other than the default editor.
+</p>
+<p class="pBody"><a name="wp1052053"> </a>
+Complete the following procedure to set up your working environment properly before running tmadmin.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1052054"> </a>Log in as the Oracle Tuxedo application administrator if you want to add entries to <code class="cCode">TUXCONFIG</code>, or to modify existing entries. This step is not required if you only want to view existing configuration file entries without changing or adding to them.</li>
+<li><a name="wp1052055"> </a>Assign values to two mandatory environment variables: <code class="cCode">TUXCONFIG</code> and <code class="cCode">TUXDIR</code>.</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1052056"> </a>The value of <code class="cCode">TUXCONFIG</code> must be the full path name of the binary configuration file on the machine on which <code class="cCode">tmconfig</code> is being run.</li>
+<li><a name="wp1052059"> </a>The value of <code class="cCode">TUXDIR</code> must be the root directory for the Oracle Tuxedo system binary files. (<code class="cCode">tmconfig</code> must be able to extract field names and identifiers from <code class="cCode">$TUXDIR/udataobj/tpadmin</code>.)</li>
+</ul></div>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1051884"> </a>
+How to Suspend Tuxedo ATMI Services or Servers
+</h2><p class="pBody"><a name="wp1047315"> </a>
+To suspend a Tuxedo ATMI server or a service, enter the <code class="cCode">tmadmin</code> and <code class="cCode">susp</code> (short for <code class="cCode">suspend</code>) commands, as follows:
+</p>
+<a name="wp1047316"> </a><div class="pPreformatted"><pre>$ tmadmin<br />&gt; susp</pre></div><p class="pBody"><a name="wp1047317"> </a>
+The <code class="cCode">suspend</code> command marks one of the following as inactive:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1047318"> </a>One service </li>
+<li><a name="wp1047319"> </a>All services of a particular queue </li>
+<li><a name="wp1047320"> </a>All services of a particular group ID or server ID combination</li>
+</ul></div>
+<p class="pBody"><a name="wp1047321"> </a>
+After you suspend a service or a server, any requests for it that remain on the queue are handled, but no new service requests are routed to the suspended server. If a group ID or server ID combination is specified and it is part of an MSSQ set, all servers in that MSSQ set become inactive for the services specified.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1047323"> </a>
+How to Resume Tuxedo ATMI Services or Servers
+</h2><p class="pBody"><a name="wp1047324"> </a>
+To have a Tuxedo ATMI server or a service resume, enter the <code class="cCode">tmadmin</code> and <code class="cCode">resume</code> (or <code class="cCode">res</code>) commands, as follows:
+</p>
+<a name="wp1047325"> </a><div class="pPreformatted"><pre>$ tmadmin<br />&gt; res</pre></div><p class="pBody"><a name="wp1047326"> </a>
+The <code class="cCode">resume</code> command undoes the effect of the <code class="cCode">suspend</code> command; it marks as active for the queue one of the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1047327"> </a>One service</li>
+<li><a name="wp1047328"> </a>All services of a particular queue </li>
+<li><a name="wp1047329"> </a>All services of a particular group ID/server ID combination</li>
+</ul></div>
+<p class="pBody"><a name="wp1047330"> </a>
+If, in this state, the group ID or the server ID is part of an MSSQ set, all servers in that MSSQ set become active for the services specified.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1047332"> </a>
+How to Advertise Services or Servers
+</h2><p class="pBody"><a name="wp1047333"> </a>
+To advertise a service or server, enter the following commands:
+</p>
+<a name="wp1047334"> </a><div class="pPreformatted"><pre>$ tmadmin<br />&gt; adv [{[-q <span style="font-style: italic">queue_name</span>] | [-g <span style="font-style: italic">grpid</span>] [-i <span style="font-style: italic">srvid</span>]}] <span style="font-style: italic">service</span></pre></div><p class="pBody"><a name="wp1047335"> </a>
+Although a service must be suspended before it may be unadvertised, you do not need to <em class="cEmphasis">unsuspend</em> a service before readvertising it. If you simply advertise a service that was unadvertised earlier, and is currently suspended, the service is unsuspended.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1047337"> </a>
+How to Unadvertise Services or Servers
+</h2><p class="pBody"><a name="wp1047338"> </a>
+To unadvertise a service or server, you must suspend it by entering the following commands:
+</p>
+<a name="wp1047339"> </a><div class="pPreformatted"><pre><code class="cCodeEmphasis">$</code> tmadmin<br />&gt; unadv [{[-q <span style="font-style: italic">queue_name</span>] | [-g <span style="font-style: italic">grpid</span>] [-i <span style="font-style: italic">srvid</span>]}] <span style="font-style: italic">service</span></pre></div><p class="pBody"><a name="wp1047340"> </a>
+Unadvertising a service has more drastic results than suspending it. When you unadvertise a service, the service table entry for it is deallocated and the cleared space in the service table becomes available to other services.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1063138"> </a>
+How to Change Service Parameters for Tuxedo ATMI Servers
+</h2><p class="pBody"><a name="wp1063139"> </a>
+The <code class="cCode">tmadmin</code> command allows you to change, dynamically, the values of service parameters for a specific group ID/server ID combination or for a specific queue.
+</p>
+<p class="pBody"><a name="wp1063140"> </a>
+<a href="addynr.html#wp1069635">Table&#160;3-4</a> lists the <code class="cCode">tmadmin</code> commands available for changing service parameters defined in this way.
+</p>
+<p class="pGraphic"><a name="wp1068270"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1069635table1063141"><caption><a name="wp1069635"> </a>
+Table 3-4  tmadmin Commands for Changing Service Parameters
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1063143"> </a>
+To Change...
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1063145"> </a>
+Enter the Following Commands...
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1063147"> </a>
+Load value (<code class="cCode">LOAD</code>)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1063149"> </a>
+<code class="cCode">$tmadmin<br />&gt;chl -s </code><code class="cCodeEmphasis">service_name</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1063151"> </a>
+Dequeueing priority (<code class="cCode">PRIO</code>)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1063153"> </a>
+<code class="cCode">$tmadmin<br />&gt;chp -s </code><code class="cCodeEmphasis">service_name</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1063155"> </a>
+Transaction timeout value
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1063157"> </a>
+<code class="cCode">$tmadmin<br />&gt;chtt -s </code><code class="cCodeEmphasis">service_name</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1063158"> </a>
+The <code class="cCode">-s</code> option must be specified, either on the <code class="cCode">tmadmin</code> <code class="cCode">default</code> command line or on the <code class="cCode">tmadmin</code> <code class="cCode">chl</code>, <code class="cCode">chp</code>, or <code class="cCode">chtt</code> command line. Because it is possible to set the <code class="cCode">-s</code> option on the <code class="cCode">default</code> command line, the <code class="cCode">-s</code> option is considered optional on the <code class="cCode">chl</code>, <code class="cCode">chp</code>, and <code class="cCode">chtt</code> command lines.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1047342"> </a>
+How to Change Interface Parameters for Tuxedo CORBA Servers
+</h2><p class="pBody"><a name="wp1047343"> </a>
+The <code class="cCode">tmadmin</code> command allows you to change, dynamically, the values of interface parameters for a specific group ID/server ID combination or for a specific queue.
+</p>
+<p class="pBody"><a name="wp1058725"> </a>
+<a href="addynr.html#wp1069646">Table&#160;3-5</a> lists the <code class="cCode">tmadmin</code> commands available for changing interface parameters defined in this way.
+</p>
+<p class="pGraphic"><a name="wp1068274"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1069646table1058726"><caption><a name="wp1069646"> </a>
+Table 3-5  tmadmin Commands for Changing Interface Parameters
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1061175"> </a>
+To Change...
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1061177"> </a>
+Enter the Following Commands...
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061179"> </a>
+Load value (<code class="cCode">LOAD</code>)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061181"> </a>
+<code class="cCode">$tmadmin<br />&gt;chl -I </code><code class="cCodeEmphasis">interface_name</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061183"> </a>
+Dequeueing priority (<code class="cCode">PRIO</code>)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061185"> </a>
+<code class="cCode">$tmadmin<br />&gt;chp -I </code><code class="cCodeEmphasis">interface_name</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061187"> </a>
+Transaction timeout value
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1061189"> </a>
+<code class="cCode">$tmadmin<br />&gt;chtt -I </code><code class="cCodeEmphasis">interface_name</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1058779"> </a>
+The <code class="cCode">-I</code> option must be specified, either on the <code class="cCode">tmadmin</code> <code class="cCode">default</code> command line or on the <code class="cCode">tmadmin</code> <code class="cCode">chl</code>, <code class="cCode">chp</code>, or <code class="cCode">chtt</code> command line. Because it is possible to set the <code class="cCode">-I</code> option on the <code class="cCode">default</code> command line, the <code class="cCode">-I</code> option is considered optional on the <code class="cCode">chl</code>, <code class="cCode">chp</code>, and <code class="cCode">chtt</code> command lines.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1056531"> </a>
+How to Change the AUTOTRAN Timeout Value
+</h2><p class="pBody"><a name="wp1047367"> </a>
+To change the transaction timeout (<code class="cCode">TRANTIME</code>) for an interface or service with the <code class="cCode">AUTOTRAN</code> flag set, run the <code class="cCode">changetrantime</code> (<code class="cCode">chtt</code>) command, as follows:
+</p>
+<p class="pBody"><a name="wp1063037"> </a>
+$ tmadmin<br />chtt [-m <code class="cCodeEmphasis">machine</code>] {-q <code class="cCodeEmphasis">qaddress</code> [-g <code class="cCodeEmphasis">groupname</code>] [-i srvid]<br />        [-s <code class="cCodeEmphasis">service</code>] | -g <code class="cCodeEmphasis">groupname</code> -i srvid -s <code class="cCodeEmphasis">service</code> |<br />        -I <em class="cEmphasis">interface</em> [-g <code class="cCodeEmphasis">groupname</code>]} <code class="cCodeEmphasis">newtlim</code>
+</p>
+<p class="pBody"><a name="wp1047369"> </a>
+You cannot change transaction timeouts begun by application clients using <code class="cCode">tpbegin()</code> or <code class="cCode">tx_set_transaction_timeout()</code>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1063172"> </a>
+How to Suspend Tuxedo CORBA Interfaces
+</h2><a name="wp1063175"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The execution of the <code class="cCode">suspend</code> commands has minimal impact on the Oracle Tuxedo system resources when compared with the resources gained by suspending a server.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1063180"> </a>
+To suspend an interface, enter the <code class="cCode">suspend</code> (or <code class="cCode">susp</code>) command. For example:
+</p>
+<a name="wp1063181"> </a><div class="pPreformatted"><pre>tmadmin<br />&gt;susp -i IDL:beasys.com/Simple:1.0</pre></div><p class="pBody"><a name="wp1063262"> </a>
+If an interface is suspended, a client will not be able to invoke a method on that interface until the interface is resumed.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1063263"> </a>
+How to Resume Tuxedo CORBA Interfaces
+</h2><a name="wp1063273"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The execution of the <code class="cCode">resume</code> command has minimal impact on the Oracle Tuxedo system resources when compared with the resources gained by suspending a server.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1063264"> </a>
+To resume an interface, enter the <code class="cCode">resume</code> (or <code class="cCode">res</code>) command. For example:
+</p>
+<a name="wp1063185"> </a><div class="pPreformatted"><pre>tmadmin<br />&gt;res -i IDL:beasys.com/Simple:1.0</pre></div><p class="pBody"><a name="wp1063186"> </a>
+If a suspended interface is resumed, clients will be able to invoke methods on that interface.
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="addynr.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="admon.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="adrnet.html"><img id="LongDescNotReq9" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

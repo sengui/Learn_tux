@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="2" />
+<meta name="LOC_US_CHANGE" content="41903" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/achelp/fm/acapximp.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/27/12 04:35:10" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Architecture and Implementation   </title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Administration Console Online Help
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="accorba.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next_grey1.gif" border="0" alt="Next" />&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/achelp.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp422800"> </a>
+Architecture and Implementation   
+</h1>
+<p class="pBody"><a name="wp418370"> </a>
+This appendix is a guide to the architecture and implementation of the Oracle Tuxedo Administration Console. It is meant for advanced users and developers who are familiar with the concepts and protocols of the World Wide Web and Java programs.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp417926"> </a>
+Architecture Overview
+</h2><p class="pBody"><a name="wp417930"> </a>
+The Oracle Tuxedo Administration Console applet is an advanced client-server application, written in Java on the client side, and C on the server side. The client (user) machine runs a Java applet, and the Oracle Tuxedo server machine runs a gateway program that interfaces with the Oracle Tuxedo MIB (Management Information Base) via a custom protocol.
+</p>
+<p class="pBody"><a name="wp418298"> </a>
+A Web (HTTP) server is not needed for the actual operation of the GUI, but is necessary for delivering the applet code to the Web browser, and for displaying the online help and snapshots. If you do not already have a Web server on your system, you can use <code class="cCode">tuxwsvr</code>, which is delivered with the Oracle Tuxedo software. 
+</p>
+<p class="pBody"><a name="wp418386"> </a>
+The Web server does two things:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp418395"> </a>It retrieves remote &#8220;content&#8221; files (HTML, Images, and Java files).</li>
+<li><a name="wp418402"> </a>It runs special programs that deliver &#8220;content.&#8221; Such programs are called CGI (Common Gateway Interface) programs. The Oracle Tuxedo Administration Console is delivered with one CGI program, called <code class="cCode">tuxadm</code> (described in the following paragraphs).</li>
+</ul></div>
+<p class="pBody"><a name="wp417938"> </a>
+The gateway program run on the server machine (as mentioned previously) is called <code class="cCode">wgated</code>. It is not run directly, but is kicked off by the Oracle Tuxedo Administration Console listener, <code class="cCode">wlisten</code>. If you run the <code class="cCode">ps</code> command while the GUI is running, you will see one or more <code class="cCode">wgated</code> processes.
+</p>
+<p class="pBody"><a name="wp417940"> </a>
+Both <code class="cCode">tuxwsvr</code> and <code class="cCode">wlisten</code> listen on distinct network ports waiting for requests to arrive. They know nothing about each other. Therefore, the GUI needs two network ports to operate. These are different from the network ports that are configured in the <code class="cCode">UBBCONFIG</code> file for the Bridges and <code class="cCode">tlisten</code> processes.
+</p>
+<p class="pBody"><a name="wp417942"> </a>
+In order for a Web browser to run a Java applet, the browser must load an HTML file containing an &lt;APPLET&gt; element. The applet element contains the name of the program, and the parameters to it. It is similar to a command line in an ordinary program.
+</p>
+<p class="pBody"><a name="wp418305"> </a>
+You could certainly hard-code the applet element for a particular invocation of the GUI, and then retrieve that HTML page with your Web browser. However, the flexibility of the Oracle Tuxedo Administration Console architecture makes it unnecessary for you to do so. An initialization file (or .<code class="cCode">ini</code> file) controls the operation of the GUI. Some of the parameters in the <code class="cCode">ini</code> file control the applet, some control the server gateway, and some are used by both.
+</p>
+<p class="pBody"><a name="wp417946"> </a>
+The <code class="cCode">tuxadm</code> CGI program mentioned above reads the <code class="cCode">ini</code> file, and merges it with an HTML template file, generating the applet HTML on the fly. The template file, delivered with the Oracle Tuxedo software, resides in:
+</p>
+<a name="wp418406"> </a><div class="pPreformatted"><pre>$TUXDIR/udataobj/webgui/webgui.html</pre></div><p class="pBody"><a name="wp418407"> </a>
+This is a bare bones template; customers are expected to add their corporate style to it. All that <code class="cCode">tuxadm</code> does is replace the keyword %APPLET% with the actual applet element. You can specify an alternate location for the template by setting the <code class="cCode">TEMPLATE</code> parameter in the server&#39;s initialization file (see the following instructions).
+</p>
+<p class="pBody"><a name="wp418408"> </a>
+If you use the &#8220;View Source&#8221; feature of your Web browser while the GUI is running, you can see this expanded HTML page that is used to deliver the applet.
+</p>
+<p class="pBody"><a name="wp417948"> </a>
+Before continuing, look at the following example of HTML code generated by <code class="cCode">tuxadm</code>:
+</p>
+<div class="pCodeTitle"><a name="wp417951"> </a>
+Listing&#160;A-1	   Sample HTML Code
+</div> <a name="wp419192"> </a><div class="pPreformatted"><pre>&lt;HTML&gt;<br />&lt;HEAD&gt;<br />&lt;TITLE&gt;BEA Administrator Console Applet Screen&lt;/TITLE&gt;<br />&lt;/HEAD&gt;<br />&lt;BODY&gt;<br />&lt;CENTER&gt;<br />&lt;H1&gt;The Applet is Loading&lt;/H1&gt;<br />&lt;APPLET ARCHIVE=&quot;bea/tuxadm/TuxApplet.jar&quot;<br />CODE=&quot;bea/tuxadm/TuxApplet.class&quot;<br />WIDTH=&quot;400&quot; HEIGHT=&quot;150&quot; CODEBASE=&quot;/java&quot;&gt;<br />&lt;PARAM NAME=&quot;TUXDIR&quot; VALUE=&quot;/usr/tuxedo&quot;&gt;<br />&lt;PARAM NAME=&quot;PORT&quot; VALUE=&quot;4009&quot;&gt;<br />&lt;PARAM NAME=&quot;WIDTH&quot; VALUE=&quot;400&quot;&gt;<br />&lt;PARAM NAME=&quot;HEIGHT&quot; VALUE=&quot;150&quot;&gt;<br />&lt;PARAM NAME=&quot;ENCRYPTBITS&quot; VALUE=&quot;0&quot;&gt;<br />&lt;PARAM NAME=&quot;DOCBASE&quot; VALUE=&quot;/docs&quot;&gt;<br />&lt;PARAM NAME=&quot;SNAPBASE&quot; VALUE=&quot;/java/snapshot&quot;&gt;<br />&lt;PARAM NAME=&quot;TOTALDOMAINS&quot; VALUE=&quot;2&quot;&gt;<br />&lt;PARAM NAME=&quot;DOMAINNAME0&quot; VALUE=&quot;simpapp&quot;&gt;<br />&lt;PARAM NAME=&quot;TUXCONFIG0&quot; VALUE=&quot;/home/sdo/simpapp/tuxconfig&quot;&gt;<br />&lt;PARAM NAME=&quot;DOMAINNAME1&quot; VALUE=&quot;bankapp&quot;&gt;<br />&lt;PARAM NAME=&quot;TUXCONFIG1&quot; VALUE=&quot;/home/sdo/bankapp/tuxconfig&quot;&gt;<br />&lt;B&gt;Your browser does not appear to support JAVA.<br />Administration Console must be run on a JAVA capable browser.CCheck your browser&#39;s options to see if JAVA processing has been disabled.&lt;/B&gt;<br />&lt;/APPLET&gt;<br />&lt;/CENTER&gt;<br />&lt;/BODY&gt;<br /><br />&lt;/HTML&gt;</pre></div><a name="wp419228"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If you are using encryption for communication between the Administration Console applet and server, the HTML code generated by <code class="cCode">tuxadm</code> contains some Javascript code. To see this generated code, use &#8220;View Source.&#8221;</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp421562"> </a>
+Now you can see why you do not want to create this by hand.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp419229"> </a>
+Running the Web Server
+</h2><p class="pBody"><a name="wp417987"> </a>
+To deliver the above HTML and the applet to the Web browser, a Web server must be running.
+</p>
+<p class="pBody"><a name="wp417988"> </a>
+To run <code class="cCode">tuxwsvr</code>, use the following command line:
+</p>
+<a name="wp417989"> </a><div class="pPreformatted"><pre><code class="cCode">tuxwsvr -l //</code><code class="cCodeEmphasis">machine:port</code><code class="cCode"> -i </code><code class="cCodeEmphasis">ini-file</code></pre></div><p class="pBody"><a name="wp418477"> </a>
+You may have to replace <code class="cCode">/dev/tcp</code> with the pathname of the correct device name for the network device. This device will be the same one that you used for <code class="cCode">tlisten</code>, and that you specify for the <code class="cCode">BRIDGE</code> parameter in the <code class="cCode">UBBCONFIG</code> file. The string <code class="cCodeEmphasis">machine:port</code> is based on the standard DNS naming convention used by Oracle Tuxedo. Web servers usually run at port 80. However, because you must be root in order to use that port, we recommend selecting a different one, for example:
+</p>
+<a name="wp418601"> </a><div class="pPreformatted"><pre>//lcuw99:8080</pre></div><a name="wp417991"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This is <em class="cEmphasis">not</em> the port number that you saw in the applet element shown previously. That port number was the one given to<b class="cBold"> </b><code class="cCode">WLISTEN</code><b style="font-weight: bold" class="cBold">, </b><span style="font-style: italic; font-weight: normal">not</span><b style="font-style: normal" class="cBold"> </b><code class="cCode">TUXWSVR</code><b class="cBold">. </b>We haven&#8217;t discussed<b class="cBold"> </b><code class="cCode">WLISTEN</code><b class="cBold"> </b>yet<b class="cBold">.</b></td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp417992"> </a>
+The <code class="cCode">ini-file</code> contains the directory mappings for the Web server.
+</p>
+<p class="pBody"><a name="wp417993"> </a>
+No administrator wants to open up the entire file system to outsiders. Therefore, several aliases are provided for the directory names used by the Oracle Tuxedo Administration Console:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp417994"> </a>One alias is for the main HTML page that launches the GUI. You will normally bring up the GUI by retrieving the page called <code class="cCode">webguitop.html</code>. This page has a button that calls the <code class="cCode">tuxadm</code> CGI program, which returns the above HTML needed to run the applet.</li>
+<li><a name="wp417995"> </a>One alias is for the directory in which CGI programs can be found.</li>
+<li><a name="wp417996"> </a>One alias is for the Java files and images.</li>
+<li><a name="wp417997"> </a>One alias is for the Help documents.</li>
+</ul></div>
+<p class="pBody"><a name="wp417998"> </a>
+If you do not want the ULOG and Event snapshot files to be written in your Java directory, you may need another alias for a replacement snapshot directory.
+</p>
+<p class="pBody"><a name="wp418318"> </a>
+When you installed Oracle Tuxedo software from CD, you created a Web server <code class="cCode">ini</code> file automatically. However, if you do not care for the default values in that file, you will need to create your own <code class="cCode">ini</code> file.
+</p>
+<p class="pBody"><a name="wp418001"> </a>
+Add the following to your <code class="cCode">ini</code> file for the Web server: 
+</p>
+<a name="wp418004"> </a><div class="pPreformatted"><pre>CGI      /cgi-bin<span style="font-style: oblique">   </span><code class="cCodeEmphasis">TUXDIR</code>/bin</pre></div><a name="wp418005"> </a><div class="pPreformatted"><pre>HTML     /java <code class="cCodeEmphasis">TUXDIR</code>/udataobj/webgui/java</pre></div><a name="wp420311"> </a><div class="pPreformatted"><pre>HTML     /<code class="cCodeEmphasis">TUXDIR</code>/udataobj/webgui</pre></div><a name="wp420312"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td><code class="cCodeEmphasis">TUXDIR</code> should be replaced by the full path to the Oracle Tuxedo root directory, e.g., <code class="cCode">/usr/tuxedo</code>. Do not put the word <code class="cCode">TUXDIR</code> in the <code class="cCode">ini</code> file.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp418624"> </a>
+What does this mean? Well, when the Web server gets the initial request to run the CGI program, it will look like <code class="cCode">/cgi-bin/tuxadm</code>.
+</p>
+<p class="pBody"><a name="wp418010"> </a>
+The above file maps this to the Oracle Tuxedo <code class="cCode">bin</code> directory, where <code class="cCode">tuxadm</code> resides. In a secure environment, you would not do this; you would copy <code class="cCode">tuxadm</code> somewhere else (or you might need it to be a shell script that sets <code class="cCode">LD_LIBRARY_PATH</code> and executes the real <code class="cCode">tuxadm</code>). It also helps to have <code class="cCode">TUXDIR</code> set in the environment before running <code class="cCode">tuxwsvr</code>.
+</p>
+<p class="pBody"><a name="wp418011"> </a>
+The APPLET element has an attribute called <code class="cCode">CODEBASE</code> which, as you can see from above, is <code class="cCode">/java</code>. When the Web browser attempts to retrieve the applet from the Web server using the path <code class="cCode">/java/bea/tuxadm/TuxApplet.class</code>, the above <code class="cCode">ini</code> file remaps that to the following:
+</p>
+<a name="wp418481"> </a><div class="pPreformatted"><pre>$TUXDIR/udataobj/webgui/java/bea/tuxadm/TuxApplet.class </pre></div><p class="pBody"><a name="wp419474"> </a>
+The mapping of <code class="cCode">/</code> to <code class="cCode">udataobj/webgui</code> is used to map the top-level Web page, <code class="cCode">webguitop.html</code>. (Because the <code class="cCode">java</code> directory is right under the <code class="cCode">webgui</code> directory, the mapping of <code class="cCode">/java</code> in the <code class="cCode">tuxwsvr.ini</code> file is not strictly needed. We have put it there for illustration purposes, in case you want to move your Java files elsewhere.)
+</p>
+<p class="pBody"><a name="wp419477"> </a>
+If you have installed the Oracle Tuxedo online documentation, you will probably also have a mapping for the documentation.
+</p>
+<p class="pBody"><a name="wp419478"> </a>
+The Web server&#8217;s <code class="cCode">ini</code> file can contain multiple CGI and HTML lines, and they are processed in sequential order until a match is reached.
+</p>
+<p class="pBody"><a name="wp418015"> </a>
+This is a good place to describe the difference between the <code class="cCode">webgui.ini</code> parameters that end in <code class="cCode">DIR</code> and <code class="cCode">BASE. DIR</code> means a directory on the server, where <code class="cCode">wlisten</code> was run. The server programs use files there.
+</p>
+<p class="pBody"><a name="wp418016"> </a>
+<code class="cCode">BASE</code> means the URL prefix that a Web browser uses to retrieve a document. The <code class="cCode">CODEBASE</code> for the Java code is <code class="cCode">/java</code>, but the server directory for the Java code is <code class="cCode">/usr/tuxedo/udataobj/webgui/java</code>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp418017"> </a>
+Configuring the Oracle Tuxedo Administration Console
+</h2><p class="pBody"><a name="wp418019"> </a>
+The next step is to set up the <code class="cCode">webgui.ini</code> file, which is used by <code class="cCode">tuxadm</code> and <code class="cCode">wlisten</code>.<code class="cCode"> tuxadm</code> will look in <code class="cCode">$TUXDIR/udataobj/webgui/webgui.ini</code> if it is not given the <code class="cCode">INIFILE</code> parameter (more on this later). <code class="cCode">wlisten</code> requires the <code class="cCode">ini</code> file path on the command line (more later). (If you have installed Oracle Tuxedo using the installation utility, you probably have a usable <code class="cCode">webgui.ini</code> file already.)
+</p>
+<a name="wp418020"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This is a different <code class="cCode">ini</code> file from the one described for the Web Server. Listing A-2 shows what your <code class="cCode">ini</code> file might look like:</td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp419681"> </a>
+Listing&#160;A-2	   Sample webgui.ini File
+</div> <a name="wp419682"> </a><div class="pPreformatted"><pre>TUXDIR=/usr/tuxedo<br />INIFILE=/home/sdo/gui/webgui.ini<br />NADDR=//lcuw99:4009<br />DEVICE=/dev/tcp<br />ENCRYPTBITS=128<br />DOCBASE=/tuxdocs<br />CODEBASE=/java<br />WIDTH=400 (optional)<br />HEIGHT=150 (optional)<br />FRAMEWIDTH=800<br />FRAMEHEIGHT=450<br />TEMPLATE=/usr/tuxedo/udataobj/webgui/webgui.html (optional)<br />DOMAIN=simpapp;/home/sdo/simpapp/tuxconfig<br />DOMAIN=bankapp;/home/sdo/bankapp/tuxconfig<br />DOMAIN=...</pre></div><div class="pSmartList1Bullet"><ul>
+<li><a name="wp419639"> </a><code class="cCode">TUXDIR</code> is where Oracle Tuxedo is installed.</li>
+<li><a name="wp418038"> </a><code class="cCode">NADDR</code> is the network address that you will use for <code class="cCode">wlisten</code>, in the standard Oracle Tuxedo syntax (DNS, 0x, . . . or another provider-specific form).</li>
+<li><a name="wp421369"> </a><code class="cCode">DEVICE</code> is the device filename for the TCP/IP device (not needed on some systems that use sockets, such as HP and IBM).</li>
+<li><a name="wp421370"> </a><code class="cCode">ENCRYPTBITS</code> is 0, 40, 56, or 128. This parameter specifies the strength of encryption used in communication between the GUI applet and the Administration Console server. The default is 128-bit. </li>
+<li><a name="wp421332"> </a><code class="cCode">CODEBASE</code> is the path of the directory in which the Java code can be found (i.e., the aliased path recognized by the Web server, not the physical path on the machine).</li>
+<li><a name="wp418042"> </a><code class="cCode">DOCBASE</code> is where the Oracle Tuxedo help files will be found.</li>
+<li><a name="wp418043"> </a><code class="cCode">INIFILE</code> is the path of this file (the real path, not the aliased path).</li>
+<li><a name="wp418044"> </a><code class="cCode">TEMPLATE</code> is where the HTML template file that <code class="cCode">tuxadm</code> uses to deliver the applet.</li>
+</ul></div>
+<p class="pBody"><a name="wp418500"> </a>
+The <code class="cCode">DOMAIN</code> list is optional, especially if you are using the GUI to create your domains from scratch.
+</p>
+<p class="pBody"><a name="wp418046"> </a>
+For each domain in the domain list (up to 64), include a DOMAIN line that looks like:
+</p>
+<a name="wp418047"> </a><div class="pPreformatted"><pre>DOMAIN=<code class="cCodeEmphasis">domain_name;tuxconfig-path</code></pre></div><p class="pBody"><a name="wp418048"> </a>
+The value of <code class="cCodeEmphasis">tuxconfig-path</code> is the real path, not the aliased path.
+</p>
+<p class="pBody"><a name="wp418049"> </a>
+Now you can see how the APPLET HTML code is generated by <code class="cCode">tuxadm</code>.
+</p>
+<p class="pBody"><a name="wp418050"> </a>
+Once you start using the GUI, it will add some lines to the <code class="cCode">ini</code> file to store such information as your folder selection lists, and the options you set from the options button.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp418051"> </a>
+Running wlisten
+</h2><p class="pBody"><a name="wp418052"> </a>
+Before running <code class="cCode">wlisten</code>, you need to set the FML32 environment variables so that the programs can find the Oracle Tuxedo MIB field tables. Set the following variables as shown:
+</p>
+<a name="wp418538"> </a><div class="pPreformatted"><pre>FLDTBLDIR32=$TUXDIR/udataobj<br />FIELDTBLS32=tpadm,evt_mib</pre></div><p class="pBody"><a name="wp418054"> </a>
+The command line for <code class="cCode">wlisten</code> is:
+</p>
+<a name="wp418323"> </a><div class="pPreformatted"><pre>wlisten -i <code class="cCodeEmphasis">ini-file</code></pre></div><p class="pBody"><a name="wp418056"> </a>
+<code class="cCode">wlisten</code> can operate in either of two security modes:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp418551"> </a>Authentication mode</li>
+<li><a name="wp418552"> </a>Encryption mode</li>
+</ul></div>
+<p class="pBody"><a name="wp418555"> </a>
+These modes can be used together or authentication can be used by itself.
+</p>
+<p class="pBody"><a name="wp420114"> </a>
+Authentication is done based on the <code class="cCode">tlisten</code> password file. If there is a file of passwords called <code class="cCode">tlisten.pw</code>, in either <code class="cCode">$TUXDIR/udataobj</code> or <code class="cCode">$APPDIR/.adm</code>, then the user is required to enter a username and password when the applet starts. The password must match one of the passwords in the password file, or authentication fails. The username is passed to <code class="cCode">tpinit</code> when the GUI gateway program, <code class="cCode">wgated</code>, connects to Oracle Tuxedo.
+</p>
+<p class="pBody"><a name="wp420115"> </a>
+If encryption is also being used, then the communications that occur from then on, between the applet and the server, are encrypted using RSA encryption.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp420208"> </a>
+Starting the Oracle Tuxedo Administration Console (for Nonexpert Users)
+</h2><p class="pBody"><a name="wp420211"> </a>
+Now that you have a Web server and a <code class="cCode">wlisten</code> running, it is time to run the Oracle Tuxedo Administration Console.
+</p>
+<p class="pBody"><a name="wp418061"> </a>
+The installation script places a file called <code class="cCode">webguitop.html</code> in the directory used by the Web Server for its general HTML files. The bottom of this file has a Submit FORM, which generates the URL to run <code class="cCode">tuxadm</code> (the CGI program).
+</p>
+<p class="pBody"><a name="wp418062"> </a>
+You would normally bring up this Web page by entering the following URL:
+</p>
+<a name="wp418063"> </a><div class="pPreformatted"><pre>http://lcuw99:8080/webguitop.html</pre></div><p class="pBody"><a name="wp418064"> </a>
+and clicking the button at the bottom.
+</p>
+<p class="pBody"><a name="wp418065"> </a>
+If you want to edit the default <code class="cCode">webguitop.html</code> file, you should go to the very bottom, where you will see:
+</p>
+<a name="wp418066"> </a><div class="pPreformatted"><pre>&lt;FORM ACTION=&quot;http://HOST/CGI-BIN/tuxadm&quot;&gt;</pre></div><a name="wp418067"> </a><div class="pPreformatted"><pre>&lt;INPUT TYPE=HIDDEN NAME=&quot;TUXDIR&quot; VALUE=&quot;TUXDIRVALUE&quot;&gt;</pre></div><p class="pBody"><a name="wp418068"> </a>
+You should edit it to something like:
+</p>
+<a name="wp418069"> </a><div class="pPreformatted"><pre>&lt;FORM ACTION=&quot;/cgi-bin/tuxadm&quot;&gt;</pre></div><a name="wp418070"> </a><div class="pPreformatted"><pre>&lt;INPUT TYPE=HIDDEN NAME=&quot;INIFILE&quot; VALUE=&quot;/home/sdo/gui/webgui.ini&quot;&gt;</pre></div><p class="pBody"><a name="wp418071"> </a>
+where <code class="cCode">INIFILE</code> is set to the place where you have put your GUI <code class="cCode">ini</code> file.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp418072"> </a>
+Starting the Oracle Tuxedo Administration Console (for Developers)
+</h2><p class="pBody"><a name="wp418073"> </a>
+If you have previously agreed to the software license on the <code class="cCode">webguitop.html</code> page, you can proceed directly into the GUI by using the special URL:
+</p>
+<a name="wp418074"> </a><div class="pPreformatted"><pre>http://machine:port/cgi-bin/tuxadm?TUXDIR=tuxdir-path&amp;INIFILE=inifile-path</pre></div><p class="pBody"><a name="wp418075"> </a>
+The port is the port at which you ran the Web server (<code class="cCode">tuxwsvr</code>), not the <code class="cCode">wlisten</code>. You will get strange results if you use the wlisten port by mistake.
+</p>
+<p class="pBody"><a name="wp418076"> </a>
+The <code class="cCode">tuxdir-path</code> is the absolute path of the Oracle Tuxedo root directory on the server machine. The <code class="cCode">inifile-path</code> is the absolute path of the <code class="cCode">ini</code> file for the wlisten (not the Web server). <code class="cCode">INIFILE</code> should match the <code class="cCode">INIFILE</code> parameter within the <code class="cCode">ini</code> file. You can leave out the entire <code class="cCode">&amp;INIFILE= . . .</code> if the <code class="cCode">INIFILE</code> is in the default location of <code class="cCode">$TUXDIR/udataobj/webgui/webgui.ini</code>.
+</p>
+<p class="pBody"><a name="wp420142"> </a>
+The URL that would be used in our example is:
+</p>
+<a name="wp420143"> </a><div class="pPreformatted"><pre>http://lcuw99:8080/cgi-bin/tuxadm?TUXDIR=/home/units/<br />r63&amp;INIFILE=/home/sdo/gui/webgui.ini</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp418504"> </a>
+Using Appletviewer
+</h2><p class="pBody"><a name="wp418080"> </a>
+This is an advanced topic not needed by most Administration Console users. However, if you are a Java programmer, you might want to know how to run the Administration Console using the Appletviewer (the standalone program for running a Java applet). 
+</p>
+<a name="wp420388"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Oracle has not tested, nor does it support using Appletviewer, but in special circumstances, (for example, if your Web Server is not working properly), you might want to run the console using the Appletviewer.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp418082"> </a>
+The applet code and images can be installed on a machine where the Java Appletviewer program will be run.
+</p>
+<p class="pBody"><a name="wp418083"> </a>
+The HTML containing the APPLET element needs to be modified in two ways: the <code class="cCode">CODEBASE</code> needs to point to a local directory on the machine, and you need to add a <code class="cCode">HOST</code> parameter to give the DNS name of the machine on which <code class="cCode">wlisten</code> is running.
+</p>
+<p class="pBody"><a name="wp418084"> </a>
+In our example from above, your APPLET element would have a new PARAM tag that looks like:
+</p>
+<a name="wp418085"> </a><div class="pPreformatted"><pre>&lt;<code class="cCodeEmphasis">PARAM NAME</code>=&quot;<code class="cCodeEmphasis">HOST</code>&quot; <code class="cCodeEmphasis">VALUE</code>=&quot;lcuw99&quot;&gt;</pre></div><p class="pBody"><a name="wp418086"> </a>
+This HOST parameter is undocumented, so do not look for it anywhere.
+</p>
+<p class="pBody"><a name="wp418087"> </a>
+The Web server is not used in this configuration. However, since you are not using a browser, you will not be able to use the Help system, nor see the ULOG and Event snapshots. The Oracle Administration Console has not been tested on and therefore does not support Java version 1.1.
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="acapximp.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="accorba.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq10" src="/global_resources/images/nexttop_disabled.gif" border="0" alt="Next" />
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

@@ -1,0 +1,835 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="40264" />
+<meta name="LOC_US_SRCFILE" content="//depot/ecs/ositp/v11gr1/ositpug/fm/manage.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="08/26/10 09:48:35" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Managing Transactions and Buffers </title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">User Guide
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="intro.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="underst.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/ositpug.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1033226"> </a>
+Managing Transactions and Buffers 
+</h1>
+<p class="pBody"><a name="wp1030232"> </a>
+This section covers the following topics:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1030236"> </a><a href="manage.html#wp1030258"><span class="cHyperlink">
+Transaction Management</span></a> </li>
+<li><a name="wp1030240"> </a><a href="manage.html#wp1030488"><span class="cHyperlink">
+Buffer and Data Translation</span></a> </li>
+<li><a name="wp1030244"> </a><a href="manage.html#wp1030588"><span class="cHyperlink">
+Managing Parameters for Buffer and Record Conversion</span></a> </li>
+<li><a name="wp1030248"> </a><a href="manage.html#wp1030790"><span class="cHyperlink">
+Mapping Buffers to Records</span></a> </li>
+<li><a name="wp1030252"> </a><a href="manage.html#wp1031704"><span class="cHyperlink">
+Mapping Records to Buffers</span></a> </li>
+<li><a name="wp1030256"> </a><a href="manage.html#wp1030871"><span class="cHyperlink">
+Special Cases and Examples of Buffer Conversion</span></a> </li>
+<li><a name="wp1031291"> </a><a href="manage.html#wp1034182"><span class="cHyperlink">
+XML Buffer Support</span></a> </li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1030258"> </a>
+Transaction Management
+</h2><p class="pBody"><a name="wp1030260"> </a>
+Transaction management provides coordination for the completion of transactions, whether the transaction is successful or not. Application programmers can request the execution of remote services within a transaction, or users at remote domains can request the execution of local services within a transaction. Domains transaction management coordinates the mapping of remote transactions to local transactions, and the sane termination (commitment or rollback) of these transactions. 
+</p>
+<p class="pBody"><a name="wp1030262"> </a>
+In the Oracle Tuxedo system, a transaction tree is a two-level tree where the root is the group coordinating a global transaction and the branches are other groups on other machines that are involved in the transaction. Each group performs its part of the global transaction independently from the parts done by other groups. Each group, therefore, implicitly defines a transaction branch. If this Oracle Tuxedo transaction branch is controlled by the TMA OSI TP domain, it may contain multiple actual OSI TP transaction branches. The TMA OSI TP gateway controls the mapping between the single Oracle Tuxedo transaction root and the many OSI TP transaction branches. The Oracle Tuxedo system uses Transaction Manager Servers (TMS) to coordinate the completion of the global transaction and make sure each branch completes. 
+</p>
+<p class="pBody"><a name="wp1030266"> </a>
+Domains transaction management can be summarized as follows: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1030267"> </a>Gateways generate mappings from an Oracle Tuxedo transaction to a network transaction. A new mapping is generated for each Oracle Tuxedo transaction or for each incoming network transaction branch. </li>
+<li><a name="wp1030268"> </a>Each instantiation handles its own representation of the network transaction tree. Instantiations observe the hierarchical nature of the inter-domain communication.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1030270"> </a>
+Tightly-Coupled and Loosely-Coupled Transactions
+</h3>
+<p class="pBody"><a name="wp1030273"> </a>
+In the Open Group DTP Model, a Transaction Manager (TM) can construct transaction trees by defining either tightly-coupled or loosely-coupled relationships with a Resource Manager (RM). The coupling of the relationships are determined by the way the local service is defined in the <code class="cCode">DMCONFIG</code> file. 
+</p>
+<p class="pBody"><a name="wp1030276"> </a>
+A tightly-coupled relationship is one in which the same transaction identifier, XID, is used by all processes participating in the same global transaction and accessing the same RM. This relationship maximizes data sharing between processes; XA-compliant RMs expect to share locks for resources used by processes having the same XID. 
+</p>
+<p class="pBody"><a name="wp1030277"> </a>
+The Oracle Tuxedo system achieves the tightly-coupled relationship through the group concept; that is, work done by a group on behalf of a given global transaction belongs to the same transaction branch; all the processes are given the same XID. In a loosely-coupled relationship, the TM generates a transaction branch for each part of the work in support of the global transaction. The RM handles each transaction branch separately; there is no sharing of data or of locks between the transaction branches. Deadlocks between transaction branches can occur. A deadlock results in the rollback of the global transaction. In the Oracle Tuxedo system, when different groups participate in the same global transaction each group defines a transaction branch; this results in a loosely-coupled relationship. The TMA OSI TP instantiation is user configurable and can provide a tightly-coupled integration that solves this deadlock problem by minimizing the number of transaction branches required in the interoperation between two domains. 
+</p>
+<p class="pBody"><a name="wp1030281"> </a>
+Following are diagrams showing loosely-coupled and tightly-coupled integrations and an explanation of each diagram.
+</p>
+<div class="pFigureTitle"><a name="wp1031138"> </a>
+Figure&#160;2-1  Example of a Tightly-Coupled Integration
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1031206"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/tight.gif" height="479" width="456" alt="Example of a Tightly-Coupled Integration" id="wp1031140"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1031210"> </a>
+The transaction tree for the tightly-coupled integration shown in <a href="manage.html#wp1031138">Figure&#160;2-1</a> eliminates the probability for intra-transaction deadlock by minimizing the number of transaction branches required in the interoperation between two domains. Application A makes three requests (r1, r2 and r3) to a remote Domain B. OSI TP sends all three requests mapped to the same OSI TP transaction, T1. On Domain B, the TMA OSI TP gateway checks the <code class="cCode">COUPLING</code> flag for the remote service and discovers that for service B the <code class="cCode">COUPLING=TIGHT</code>. In this case all requests for service B belong to the same Oracle Tuxedo system transaction. Each request for service B is added to the previous requests and all will have the same Oracle Tuxedo <code class="cCode">XID</code> indicated by T2. Resources in group G1 will not be isolated and changes made by any instantiation of service B for this transaction will be &#8220;seen&#8221; by the others. Request r4 is mapped to identifier T2 on Domain B, but the Tuxedo domain generates a new branch in its transaction tree (r4: B to A&#39;). This is a new transaction branch on Domain A, and therefore, the gateway generates a new mapping T3, to a new Oracle Tuxedo system transaction. The gateway group on Domain A also coordinates group G4, so the hierarchical nature of inter-domain communication is fully enforced with this mapping; group G4 cannot commit before group G1.
+</p>
+<div class="pFigureTitle"><a name="wp1033597"> </a>
+Figure&#160;2-2  Example of a Lossely-Coupled Integration
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1033602"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/loose.gif" height="479" width="310" alt="Example of a Lossely-Coupled Integration" id="wp1033603"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1030432"> </a>
+The transaction tree for the loosely-coupled integration shown in <a href="manage.html#wp1033597">Figure&#160;2-2</a> shows group G0 in Domain A coordinating the global transaction started by the client. In this case application A sends three requests (r1, r2, and r3) to a remote Domain B. Like the tightly-coupled case, all three branches are represented by OSI TP transaction T1. On Domain B, the TMA OSI TP gateway checks the <code class="cCode">COUPLING</code> flag for the remote service and sees that service B is <code class="cCode">COUPLING=LOOSE</code>. In this case, the TMA OSI TP gateway generates three Oracle Tuxedo system transactions: T2, T3 and T4. Any changes made to G1 are isolated. For example, any changes made by service B can not be &#8220;seen&#8221; by service B&#39;. When B calls back the A&#39;, a new transaction, T5, is generated.
+</p>
+<h3 class="pHeading2"><a name="wp1030433"> </a>
+Global Transactions Across Domains
+</h3>
+<p class="pBody"><a name="wp1030435"> </a>
+A global transaction in a single Oracle Tuxedo application follows a two-level transaction tree, but a global transaction across domains follows a more complex transaction tree. There are two reasons for this: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1030437"> </a>A transaction across domains may involve more domains than can be known from the root domain (where the transaction is controlled), so the structure of the transaction tree cannot be fully known. </li>
+<li><a name="wp1030438"> </a>The root domain of a transaction across domains may not be directly connected to all domains in the transaction as would be required for a two-level transaction tree.</li>
+</ul></div>
+<p class="pBody"><a name="wp1030440"> </a>
+The commitment protocol across domains must be hierarchical to handle the complex transaction tree structure. For example, a loop-back service request is made from one domain (Domain A) to another domain (Domain B) and then comes back to be processed in the original domain. The service in Domain B requests another service in Domain A. The transaction tree has two branches at the network level: a branch b1 from A to B and a branch b2 from B to A. Domain A cannot commit the work done on branch b2 before receiving commit instructions from B. 
+</p>
+<p class="pBody"><a name="wp1030444"> </a>
+The TMA OSI TP instantiation optimizes <code class="cCode">GTRID</code> mapping by optionally implementing a tightly-coupled relationship. In TMA OSI TP, service requests issued on behalf of the same global transaction are mapped to the same network transaction branch. Therefore, incoming service requests can be mapped to a single Oracle Tuxedo transaction. However, the hierarchical structure of inter-domain communication and the inter-domain transaction tree must still be maintained. See <a href="manage.html#wp1031138">Figure&#160;2-1</a> for an example of a tightly-coupled relationship.
+</p>
+<p class="pBody"><a name="wp1030454"> </a>
+The optimization that TMA OSI TP introduces applies only to a single domain. When two or more domains are involved in the transaction, the network transaction tree contains at least one branch per domain interaction. Therefore, across domains, the network transaction tree remains loosely-coupled. There will be as many branches as there are domains involved in the transaction (even if all branches access the same resource manager instance). Domains gateway groups implement a loosely-coupled relationship because they generate different transaction branches for inter-domain transactions. 
+</p>
+<p class="pBody"><a name="wp1031604"> </a>
+See <a href="manage.html#wp1033597">Figure&#160;2-2</a> for an example of a loosely-coupled relationship. Notice that the gateway still must perform mappings between an Oracle Tuxedo transaction and a network transaction, and that the hierarchical nature of the communication between domains must be strictly enforced. <a href="manage.html#wp1033597">Figure&#160;2-2</a> shows that requests r1, r2, and r3 are mapped to a single TMA OSI TP transaction branch. Therefore, on Domain B only one Oracle Tuxedo transaction needs to be generated; request r4 is mapped to an identifier on Domain B, but TMA OSI TP generates a new branch in its transaction tree (r4: B to A&#39;). This is a new transaction branch on Domain A, and therefore, the gateway generates a mapping to a new Oracle Tuxedo transaction. The graph shows that gateway group GW on Domain A also coordinates group G4. Hence, the hierarchical nature of inter-domain communication is fully enforced with this mapping: group G4 cannot commit before group G1. 
+</p>
+<h3 class="pHeading2"><a name="wp1030466"> </a>
+Transaction Recovery
+</h3>
+<p class="pBody"><a name="wp1030467"> </a>
+OSI TP can recover an entire transaction of individual dialogues if one or more failures occur during the second phase of the two-phase commit process. Failures that occur before the second phase of commitment cause the transaction to roll back automatically. Three types of failure can occur after the second phase of commitment begins. For these types of failures, the following transaction recovery actions can occur:
+</p>
+<p class="pGraphic"><a name="wp1034012"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp707557table1030469"><caption><a name="wp707557"> </a>
+Table 2-1  Transaction Recovery Actions for Failures
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1030471"> </a>
+Type of Failure
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1030473"> </a>
+Transaction Recovery Action
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030475"> </a>
+Communications Failure
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030477"> </a>
+TMA OSI TP automatically re-establishes communications so the transaction can be completed
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030479"> </a>
+Software Failure
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030481"> </a>
+TMA OSI TP maintains communications with the other hosts involved in the transactions until the application is restored. When the application is restored, OSI TP informs the application of the active transactions that need to be completed and the state of each transaction. The application must direct OSI TP to commit or roll back each transaction.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030483"> </a>
+System Failure
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030485"> </a>
+The application informs TMA OSI TP of the active transactions that need to be completed and the state of each transaction from the secured data log. TMA OSI TP then establishes communications with the other hosts involved so that transactions can be completed.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1030488"> </a>
+Buffer and Data Translation
+</h2><p class="pBody"><a name="wp1030494"> </a>
+The TMA OSI TP software uses typed buffers to transmit and receive data. Full buffer translation is supported for the following buffer types:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1030495"> </a>CARRAY</li>
+<li><a name="wp1030496"> </a>X_OCTET</li>
+</ul></div>
+<a name="wp1030497"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Null X_OCTET buffers are <em class="cEmphasis">not</em> supported.</td>
+</tr>
+</table>
+
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1030498"> </a>FML and FML32</li>
+<li><a name="wp1030499"> </a>STRING</li>
+<li><a name="wp1030500"> </a>VIEW and VIEW32</li>
+<li><a name="wp1030501"> </a>X_C_TYPE</li>
+<li><a name="wp1030502"> </a>X_COMMON</li>
+<li><a name="wp1031305"> </a>XML</li>
+</ul></div>
+<p class="pBody"><a name="wp1030506"> </a>
+The following sections introduce procedures that TMA OSI TP follows to process and convert data buffers. 
+</p>
+<h3 class="pHeading2"><a name="wp1030508"> </a>
+Layout Conversion for Buffer Types
+</h3>
+<p class="pBody"><a name="wp1030510"> </a>
+XATMI (X/Open Application Transaction Manager Interface) mappings to OSI TP are defined in the XATMI ASE (Application Service Element). Oracle TMA OSI TP supports this combination. Interoperability using TMA OSI TP requires that remote systems support XATMI ASE. Therefore, Tuxedo-specific buffer types, such as <code class="cCode">STRING, VIEW, FML,</code> and <code class="cCode">CARRAY</code> may need to be converted into XATMI standard types. Oracle TMA OSI TP Gateways perform these layout conversions implicitly. 
+</p>
+<h3 class="pHeading2"><a name="wp1030523"> </a>
+ASN.1 Encoding
+</h3>
+<p class="pBody"><a name="wp1030525"> </a>
+Abstract Syntax Notation 1 (ASN.1) is an international standard that provides a canonical representation to deal with data representation differences such as byte order, word length, and character sets. The local gateway (<code class="cCode">GWOSITP</code>) encodes input from the local client program. It produces an ASN.1 encoded record that is sent to the remote service. When a reply is received, it is decoded before being returned to the client. Similarly, when remote requests for local services are received by the local gateway, they are decoded from the ASN.1 format. Replies are then encoded for return to the remote client.
+</p>
+<h3 class="pHeading2"><a name="wp1030529"> </a>
+Buffers and Records
+</h3>
+<p class="pBody"><a name="wp1030530"> </a>
+The following terms are used to describe input and output data: 
+</p>
+<h4 class="pDefTerm"><a name="wp1030531"> </a>
+<b class="cBold">Buffer </b>
+</h4><div class="pDefPara"><a name="wp1030532"> </a>
+Input or output data as it exists inside the local Oracle Tuxedo region. This includes all the buffer types that Oracle Tuxedo software supports-both Oracle Tuxedo ATMI buffer types and X/Open XATMI buffer types. 
+</div>
+<h4 class="pDefTerm"><a name="wp1030535"> </a>
+<b class="cBold">Record </b>
+</h4><div class="pDefPara"><a name="wp1030536"> </a>
+Input or output data as it exists outside the local Oracle Tuxedo region on different kinds of Open/OLTP systems. 
+</div>
+<p class="pBody"><a name="wp1030540"> </a>
+These terms make it easier to understand how TMA OSI TP handles input and output data. 
+</p>
+<h3 class="pHeading2"><a name="wp1030542"> </a>
+Buffers Received from Local Programs
+</h3>
+<p class="pBody"><a name="wp1030547"> </a>
+The TMA OSI TP gateway processes buffers from local programs in the following manner. 
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1030551"> </a>When TMA OSI TP receives a buffer from a local program, it automatically determines the buffer&#39;s type. </li>
+<p class="pBodyRelative"><a name="wp1030555"> </a>
+The TMA OSI TP product automatically &#8220;types&#8221; input buffers that local client programs send to remote services. 
+</p>
+<p class="pBodyRelative"><a name="wp1030559"> </a>
+The TMA OSI TP product automatically &#8220;types&#8221; output buffers that local services return to remote client programs. 
+</p>
+<li><a name="wp1030563"> </a>After TMA OSI TP determines a buffer&#39;s type, it refers to the configuration file (<code class="cCode">DMCONFIG</code>) to determine whether the buffer needs to be converted to a different format. </li>
+<p class="pBodyRelative"><a name="wp1030564"> </a>
+Client requests sent to remote services may need to be converted to record formats that are meaningful to those services. 
+</p>
+<p class="pBodyRelative"><a name="wp1030565"> </a>
+Server responses returned to remote client programs may need to be converted to record formats that are meaningful to those programs. 
+</p>
+<li><a name="wp1030569"> </a>If the configuration indicates that conversion is required, TMA OSI TP transforms the buffer into the record format that is specified in the configuration. </li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1030571"> </a>
+Records Received from Remote Programs
+</h3>
+<p class="pBody"><a name="wp1030576"> </a>
+The TMA OSI TP gateway processes records from remote programs in the following manner. 
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1030580"> </a>When TMA OSI TP receives a record from a remote system, it refers to the domain configuration (<code class="cCode">DMCONFIG</code>) to determine the record&#39;s type and whether the record needs to be converted to a different format. </li>
+<p class="pBodyRelative"><a name="wp1030581"> </a>
+Client requests from remote client programs may need to be converted to buffer formats that are acceptable to local service routines. 
+</p>
+<p class="pBodyRelative"><a name="wp1030582"> </a>
+Server responses returned from remote services may need to be converted to buffer formats that are acceptable to local client programs. 
+</p>
+<li><a name="wp1030586"> </a>If the configuration indicates that conversion is required, TMA OSI TP transforms the record into the buffer format that is specified in the configuration. </li>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1030588"> </a>
+Managing Parameters for Buffer and Record Conversion
+</h2><p class="pBody"><a name="wp1030593"> </a>
+The TMA OSI TP product provides four configuration parameters you can use to map buffers and records. These parameters are optional.
+</p>
+<p class="pBody"><a name="wp1030594"> </a>
+The following buffer configuration parameters are specified in the <code class="cCode">DM_LOCAL_SERVICES</code> and/or the <code class="cCode">DM_REMOTE_SERVICES</code> sections of the domain configuration file (<code class="cCode">DMCONFIG</code>) as appropriate. 
+</p>
+<h4 class="pDefTerm"><a name="wp1030595"> </a>
+<b class="cBold">INBUFTYPE</b> 
+</h4><div class="pDefPara"><a name="wp1030596"> </a>
+Identifies the type, and in some cases the format, of a buffer received from a Tuxedo client or server. This restricts the buffer type naming space of data types accepted by this service to a single buffer type.
+</div>
+<h4 class="pDefTerm"><a name="wp1030597"> </a>
+<b class="cBold">OUTBUFTYPE</b> 
+</h4><div class="pDefPara"><a name="wp1030598"> </a>
+Identifies the type, and in some cases the format, of a buffer to be sent to a Tuxedo client or server. Use this parameter to specify the type and format to translate the incoming message to. 
+</div>
+<h4 class="pDefTerm"><a name="wp1030599"> </a>
+<b class="cBold">INRECTYPE</b> 
+</h4><div class="pDefPara"><a name="wp1030600"> </a>
+Identifies the type, and in some cases the format, of a record to be sent to a remote gateway. This parameter is used for buffer and record translation. 
+</div>
+<h4 class="pDefTerm"><a name="wp1030601"> </a>
+<b class="cBold">OUTRECTYPE</b> 
+</h4><div class="pDefPara"><a name="wp1030602"> </a>
+Identifies the type, and in some cases the format, of a record received from a remote gateway. 
+</div>
+<p class="pBody"><a name="wp1030603"> </a>
+The definitions of these four parameters depend on whether the service requests originate locally or remotely. The following sections describe these parameters in relation to where the service request originates.
+</p>
+<h3 class="pHeading2"><a name="wp1030605"> </a>
+Parameters for Locally Originated Calls
+</h3>
+<p class="pBody"><a name="wp1030609"> </a>
+This section describes in more detail how TMA OSI TP handles service calls that originate locally, within the immediate Oracle Tuxedo region. It also explains how the <code class="cCode">INBUFTYPE, INRECTYPE, OUTRECTYPE</code>, and <code class="cCode">OUTBUFTYPE</code> parameters can be used to manage the conversion of buffers and records that flow between local client programs and remote services. 
+</p>
+<p class="pBody"><a name="wp1030611"> </a>
+In the following figure, a local Oracle Tuxedo client program issues a service call that a local TMA OSI TP gateway routes to a remote server through TMA OSI TP. 
+</p>
+<div class="pFigureTitle"><a name="wp1030618"> </a>
+Figure&#160;2-3  How Parameters Are Mapped During Locally Originated Calls
+</div>
+
+ 
+ <p class="pBody"><a name="wp1030623"> </a>
+In this situation, the four configuration parameters that are shown in the figure have the following meanings:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1030624"> </a>The <code class="cCode">INBUFTYPE</code> parameter describes the Oracle Tuxedo input buffer that the local client program provides to the TMA OSI TP gateway through Oracle Tuxedo software. When this parameter is specified, the data type and subtype are verified.</li>
+<li><a name="wp1030628"> </a>The <code class="cCode">INRECTYPE</code> parameter describes the input record that is sent to the service on the remote system. </li>
+<li><a name="wp1030629"> </a>The <code class="cCode">OUTRECTYPE</code> parameter describes the output record that is received from the service on the remote system. </li>
+<li><a name="wp1030630"> </a>The <code class="cCode">OUTBUFTYPE</code> parameter describes the Oracle Tuxedo output buffer that is returned to the local client program. </li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1030631"> </a>
+Guidelines for Mapping Input Buffers to Input Records
+</h4>
+<p class="pBody"><a name="wp1030632"> </a>
+The following sections provide detailed information explaining how to use the <code class="cCode">INBUFTYPE</code> and <code class="cCode">INRECTYPE</code> parameters for service calls that originate locally (where local client programs call remote services). 
+</p>
+<h4 class="pDefTerm"><a name="wp1030633"> </a>
+<b class="cBold">INBUFTYPE </b>
+</h4><div class="pDefPara"><a name="wp1030634"> </a>
+The <code class="cCode">INBUFTYPE</code> parameter is used to specify the request buffer type that is provided to a local TMA OSI TP gateway when a local client program issues a service request. Tuxedo uses this information to restrict the buffer type from the local client to only the types defined by the <code class="cCode">INBUFTYPE</code> parameter.
+</div>
+<h4 class="pDefTerm"><a name="wp1030638"> </a>
+<b class="cBold">INRECTYPE </b>
+</h4><div class="pDefPara"><a name="wp1030639"> </a>
+The <code class="cCode">INRECTYPE</code> parameter is used to specify the type, and in some cases the format, of the request record that a particular remote service requires. The TMA OSI TP gateway uses this information to convert Oracle Tuxedo request buffers into records that remote services can process. 
+</div>
+<div class="pDefParaCont"><a name="wp1030643"> </a>
+The <code class="cCode">INRECTYPE</code> parameter may be omitted if the request buffer is identical, in type and structure, to the request record the remote service expects. 
+<a name="wp1030644"> </a>
+You must specify the <code class="cCode">INRECTYPE</code> parameter when one of the cases described in the following table is true. 
+<p class="pGraphic"><a name="wp1030658"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1030647table1030645">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1030647"> </a>
+Case
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1030649"> </a>
+Explanation
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030651"> </a>
+The remote service uses an input record that is structured differently from the client program&#39;s request buffer
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030653"> </a>
+The remote service uses a record that is structured differently from the client program&#39;s <code class="cCode">VIEW, X_C_TYPE</code>, or <code class="cCode">X_COMMON</code> buffer. For example, the remote service may expect structure members to be sequenced differently. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030655"> </a>
+The remote service uses a request record that differs from the client program&#39;s request buffer in both type and structure.
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030657"> </a>
+The client program uses an Oracle Tuxedo <code class="cCode">FML</code> buffer and the remote service expects a corresponding record with an appropriate structure.
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</div>
+<h4 class="pHeading3"><a name="wp1030659"> </a>
+Guidelines for Mapping Output Records to Output Buffers
+</h4>
+<p class="pBody"><a name="wp1030660"> </a>
+The following sections provide detailed information explaining how to use the <code class="cCode">OUTRECTYPE</code> and <code class="cCode">OUTBUFTYPE</code> parameters for service calls that originate locally (where local client programs call remote services and receive output from those services). 
+</p>
+<h4 class="pDefTerm"><a name="wp1030661"> </a>
+<b class="cBold">OUTBUFTYPE </b>
+</h4><div class="pDefPara"><a name="wp1030662"> </a>
+The <code class="cCode">OUTBUFTYPE</code> parameter is used to specify the type, and in some cases the structure, of the reply buffer that a local client program expects. The TMA OSI TP gateway uses this information to map reply records from remote services to the appropriate kinds of reply buffers.The TMA OSI TP maps the incoming record to the type and subtype defined by the <code class="cCode">OUTBUFTYPE</code> parameter.
+</div>
+<h4 class="pDefTerm"><a name="wp1030669"> </a>
+<b class="cBold">OUTRECTYPE</b> 
+</h4><div class="pDefPara"><a name="wp1030670"> </a>
+The <code class="cCode">OUTRECTYPE</code> parameter is used to specify the type, and in some cases the format, of the reply record that a particular remote service returns to the local TMA OSI TP gateway. The TMA OSI TP maps the incoming record to the type and subtype defined by the <code class="cCode">OUTBUFTYPE</code> parameter.
+</div>
+<div class="pDefParaCont"><a name="wp1030677"> </a>
+The <code class="cCode">OUTBUFTYPE</code> parameter may be omitted if the remote service returns a reply record that is identical, in type and structure, to the reply buffer the local client program expects. 
+<a name="wp1030678"> </a>
+You must specify the <code class="cCode">OUTBUFTYPE</code> parameter when one of the cases described in the following table is true. 
+<p class="pGraphic"><a name="wp1030692"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1030681table1030679">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1030681"> </a>
+Case
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1030683"> </a>
+Explanation
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030685"> </a>
+The remote service returns a reply record that is structured differently from the reply buffer the local client program expects. 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030687"> </a>
+The remote service returns a record that is structured differently from the client program&#39;s <code class="cCode">VIEW, X_C_TYPE,</code> or <code class="cCode">X_COMMON</code> buffer. For example, the structure members of the output record may be sequenced differently than the structure members of the output buffer. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030689"> </a>
+The remote service returns a reply record that differs in both type and structure from the reply buffer the client program expects. 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030691"> </a>
+The remote service returns a particular record and the local client program expects a corresponding Oracle Tuxedo <code class="cCode">FML</code> buffer. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</div>
+<h3 class="pHeading2"><a name="wp1030694"> </a>
+Parameters for Remotely Originated Calls
+</h3>
+<p class="pBody"><a name="wp1030698"> </a>
+This section describes how TMA OSI TP handles service calls that originate on remote computers, outside the local Oracle Tuxedo region. It also explains how the <code class="cCode">INRECTYPE, INBUFTYPE, OUTBUFTYPE,</code> and <code class="cCode">OUTRECTYPE</code> parameters can be used to manage the conversion of buffers and records that flow between remote client programs and local services. 
+</p>
+<p class="pBody"><a name="wp1030699"> </a>
+In the following figure, a remote client program issues a service request that a remote TMA OSI TP gateway routes to the local TMA OSI TP gateway. The gateway receives the request from the network and passes the request to a local Oracle Tuxedo server. 
+</p>
+<div class="pFigureTitle"><a name="wp1033787"> </a>
+Figure&#160;2-4  How Parameters Are Mapped During Remotely Originated Calls
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1033793"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/remorg.gif" alt="How Parameters Are Mapped During Remotely Originated Calls" id="wp1033794"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1033789"> </a>
+In this situation, the four configuration parameters that are shown in the figure have the following meanings: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1030715"> </a>The <code class="cCode">OUTRECTYPE</code> parameter describes the record that the remote client sends to the TMA OSI TP gateway. </li>
+<li><a name="wp1030719"> </a>The <code class="cCode">OUTBUFTYPE</code> parameter describes the Oracle Tuxedo buffer that is provided to the local server. </li>
+<li><a name="wp1030720"> </a>The <code class="cCode">INBUFTYPE</code> parameter describes the Oracle Tuxedo buffer that the local server returns to the TMA OSI TP gateway. </li>
+<li><a name="wp1030727"> </a>The <code class="cCode">INRECTYPE</code> parameter describes the record that the local TMA OSI TP gateway returns to the remote client program. </li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1030728"> </a>
+Guidelines for Mapping Input Records to Input Buffers
+</h4>
+<p class="pBody"><a name="wp1030729"> </a>
+This section provides detailed information explaining how to use the <code class="cCode">INRECTYPE</code> and <code class="cCode">INBUFTYPE</code> parameters for service calls that originate on remote systems (where remote client programs call local services). 
+</p>
+<h4 class="pDefTerm"><a name="wp1030730"> </a>
+<b class="cBold">INBUFTYPE</b> 
+</h4><div class="pDefPara"><a name="wp1030731"> </a>
+The <code class="cCode">INBUFTYPE</code> parameter is used to specify the type, and in some cases the structure, of the reply buffer that the TMA OSI TP gateway expects from a local server. This restricts the buffer type naming space of data types accepted by this service to a single buffer type. Because the gateway determines the type of buffer automatically at runtime this parameter is described here for conceptual completeness only.
+</div>
+<h4 class="pDefTerm"><a name="wp1030735"> </a>
+<b class="cBold">INRECTYPE</b> 
+</h4><div class="pDefPara"><a name="wp1030736"> </a>
+The <code class="cCode">INRECTYPE</code> parameter is used to specify the type, and in some cases the format, of the reply record that the local TMA OSI TP gateway sends to the remote client. You can omit the <code class="cCode">INRECTYPE</code> parameter if the local server program sends a reply buffer that is identical in type and structure to the reply record the remote client expects. 
+</div>
+<div class="pDefParaCont"><a name="wp1030740"> </a>
+You must specify the <code class="cCode">INRECTYPE</code> parameter when one of the cases described in the following table is true. 
+<p class="pGraphic"><a name="wp1030754"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1030743table1030741">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1030743"> </a>
+Case
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1030745"> </a>
+Explanation
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030747"> </a>
+The remote client program requires a reply record that is structured differently from the reply buffer the local service provides. 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030749"> </a>
+The remote client program sends a record that is structured differently than the local service&#39;s <code class="cCode">VIEW, X_C_TYPE</code>, or <code class="cCode">X_COMMON </code>buffer. For example, the structure members of the input record may be sequenced differently than the structure members of the input buffer. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030751"> </a>
+The remote client program requires a reply record that differs in both type and structure from the reply buffer the local service provides. 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030753"> </a>
+The remote client program requires a particular record and the local service provides a corresponding Oracle Tuxedo <code class="cCode">FML</code> buffer. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</div>
+<h4 class="pHeading3"><a name="wp1030755"> </a>
+Guidelines for Mapping Output Buffers to Output Records
+</h4>
+<p class="pBody"><a name="wp1030756"> </a>
+This section provide detailed information explaining how to use the <code class="cCode">OUTBUFTYPE</code> and <code class="cCode">OUTRECTYPE</code> parameters for service calls that originate on remote computers (where remote client programs call local services and receive output from those services). 
+</p>
+<h4 class="pDefTerm"><a name="wp1030757"> </a>
+<b class="cBold">OUTBUFTYPE </b>
+</h4><div class="pDefPara"><a name="wp1030758"> </a>
+The <code class="cCode">OUTBUFTYPE</code> parameter specifies the request buffer type that the local TMA OSI TP gateway provides to the local server. The TMA OSI TP gateway uses this information to convert request records from remote clients into buffers that local server programs can process.
+</div>
+<h4 class="pDefTerm"><a name="wp1030765"> </a>
+<b class="cBold">OUTRECTYPE </b>
+</h4><div class="pDefPara"><a name="wp1030766"> </a>
+The <code class="cCode">OUTRECTYPE</code> parameter is used to specify the type, and in some cases the format, of the request record a particular remote client program sends to the TMA OSI TP gateway. The TMA OSI TP maps the incoming record to the type and subtype defined by the <code class="cCode">OUTRECTYPE</code> parameter.
+</div>
+<div class="pDefParaCont"><a name="wp1030773"> </a>
+The <code class="cCode">OUTBUFTYPE</code> parameter may be omitted if the local service&#39;s request buffer is identical, in type and structure, to the request record the remote client program provides. 
+<a name="wp1030774"> </a>
+You must specify the <code class="cCode">OUTBUFTYPE</code> parameter when one of the cases described in the following table is true. 
+<p class="pGraphic"><a name="wp1030788"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1030777table1030775">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1030777"> </a>
+Case
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1030779"> </a>
+Explanation
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030781"> </a>
+The remote client program provides a request record that is structured differently from the local service&#39;s request buffer. 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030783"> </a>
+The remote client program provides a record that is structured differently than the local service&#39;s <code class="cCode">VIEW, X_C_TYPE</code>, or <code class="cCode">X_COMMON</code> buffer. For example, the local server program may expect structure members to be sequenced differently. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030785"> </a>
+The remote client program provides a request record that differs from the local service&#39;s request buffer in both type and structure. 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1030787"> </a>
+The remote client outputs a record and the local service program expects a corresponding Oracle Tuxedo <code class="cCode">FML</code> buffer.
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1030790"> </a>
+Mapping Buffers to Records
+</h2><p class="pBody"><a name="wp1030792"> </a>
+The following figure shows all the possibilities for mapping buffers to records. The TMA OSI TP gateway is responsible for mapping buffers to records based on information it finds in the TMA OSI TP configuration. This mapping occurs for Tuxedo client requests and Tuxedo server responses. 
+</p>
+<div class="pFigureTitle"><a name="wp1030799"> </a>
+Figure&#160;2-5  Buffer to Record Mappings
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1030803"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/BufRcmap.gif" alt="Buffer to Record Mappings" id="wp1030801"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1030804"> </a>
+Following are explanations about the mapping possibilities shown in the figure above and some suggestions for setting the <code class="cCode">INRECTYPE</code> parameter. The <code class="cCode">INBUFTYPE</code> parameter is only used for verification purposes and is not discussed here. 
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1030805"> </a>Oracle Tuxedo <code class="cCode">CARRAY</code> input buffers can be copied to <code class="cCode">X_OCTET</code> input records. A <code class="cCode">CARRAY</code> buffer contains raw data that is not converted or translated. The TMA OSI TP gateway automatically sends the <code class="cCode">CARRAY</code> Tuxedo buffer as <code class="cCode">X_OCTET</code> to the remote system; there is no need to set the <code class="cCode">INRECTYPE</code> parameter. </li>
+<li><a name="wp1030809"> </a>Oracle Tuxedo <code class="cCode">STRING</code> input buffers can be mapped to <code class="cCode">X_OCTET </code>input records. No data conversion or translation is performed. The <code class="cCode">STRING</code> buffer is copied left to right, up to and including the first NULL character encountered. However, before sending the data, the gateway removes the NULL terminator. The TMA OSI TP gateway automatically sends the <code class="cCode">STRING</code> buffer as <code class="cCode">X_OCTET</code>; there is no need to set the <code class="cCode">INRECTYPE</code> parameter.</li>
+<li><a name="wp1031314"> </a>Oracle Tuxedo XML input buffers can be mapped to <code class="cCode">X_OCTET</code> input records. The XML buffer is copied to an <code class="cCode">X_OCTET</code> buffer. There is no translation or conversion performed on the data. This can be useful when passing XML data to systems that do not support XML data types.</li>
+<li><a name="wp1030813"> </a>Oracle Tuxedo <code class="cCode">VIEW</code> input buffers can be mapped to <code class="cCode">X_COMMON</code> or <code class="cCode">X_C_TYPE</code> input records. Specify the desired record type and the name of this <code class="cCode">VIEW</code> definition with the <code class="cCode">INRECTYPE</code> parameter. The TMA OSI TP gateway translates the <code class="cCode">VIEW</code> into the correct <code class="cCode">X_COMMON</code> or <code class="cCode">X_C_TYPE</code> input record.      </li>
+<li><a name="wp1030817"> </a>Oracle Tuxedo <code class="cCode">VIEW, X_COMMON </code>or <code class="cCode">X_C_TYPE</code> input buffers can be mapped to <code class="cCode">X_COMMON</code> or <code class="cCode">X_C_TYPE</code> input records-in any combination. However, in this situation, the data structure that the remote service expects (designated as <code class="cCode">X_COMMON </code>`B&#39; mapping possibilities in Figure 3-3) differs from the data structure the client program uses (designated as VIEW `A&#39; in Figure 3-3). Consequently, you must </li>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp1030818"> </a>Create a VIEW definition for the data structure that the remote service expects. </li>
+<li><a name="wp1030819"> </a>Specify the desired record type and the name of this VIEW definition with the <code class="cCode">INRECTYPE</code> parameter. </li>
+</ol></div>
+<li><a name="wp1030820"> </a>Before an Oracle Tuxedo FML input buffer can be sent to a remote service that does not support FML, it must be mapped to one of the following input record types: <code class="cCode">X_C_TYPE</code> or <code class="cCode">X_COMMON</code>. Also, you must create a VIEW definition for the input data structure that the remote service expects. Set <code class="cCode">INRECTYPE</code> to <code class="cCode">VIEW:viewname</code>. Refer to the Oracle Tuxedo online documentation for more detailed information about FML translation.</li>
+<a name="wp1030821"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If the source and target VIEW names are different, FML fields must be specified for all VIEW to VIEW conversions that TMA OSI TP performs (For example, <code class="cCode">VIEW=V10.V --&gt; X_C_TYPE=V10.V</code> does not require FML mapping fields). In other words, any VIEW that is to be used in a VIEW to different VIEW, VIEW to FML, or FML to VIEW<code class="cCode"> </code>conversion must be defined with appropriate FML fields (no dashes in the <code class="cCode">FNAME</code> column of the VIEW definition). In order for the FML fields to match, you must compile the VIEWs without the -n option specified.</td>
+</tr>
+</table>
+
+<li><a name="wp1031702"> </a>The Native-A encoding feature in TMA OSI TP converts Tuxedo <code class="cCode">VIEW</code> buffer types into <code class="cCode">NATIVE A </code>record types. This feature moves most of the encode/decode processing from the A-Series to the Tuxedo system.</li>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1031704"> </a>
+Mapping Records to Buffers
+</h2><p class="pBody"><a name="wp1030828"> </a>
+The following figure shows all the possibilities for mapping records to buffers. The TMA OSI TP gateway is responsible for mapping records to buffers, based on information it finds in the TMA OSI TP configuration. This mapping occurs for remote client requests and remote server responses. 
+</p>
+<div class="pFigureTitle"><a name="wp1030836"> </a>
+Figure&#160;2-6  Record to Buffer Mappings
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1030840"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/RcBufmap.gif" alt="Record to Buffer Mappings" id="wp1030838"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1030841"> </a>
+Following are explanations about the mapping possibilities shown in the figure above and some suggestions for setting the <code class="cCode">OUTBUFTYPE</code> parameter (for service calls that originate locally. These suggestions use the <code class="cCode">OUTBUFTYPE</code> parameter, which controls data translation. 
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1030842"> </a>Incoming <code class="cCode">X_OCTET</code> output records can be copied to <code class="cCode">CARRAY</code> or <code class="cCode">X_OCTET</code> output buffers. A <code class="cCode">CARRAY</code> buffer contains raw data that is not converted or translated. Set the <code class="cCode">OUTBUFTYPE</code> to either <code class="cCode">CARRAY</code> or <code class="cCode">X_OCTET</code>; the <code class="cCode">OUTRECTYPE</code> does not need to be set. </li>
+<li><a name="wp1030843"> </a>Incoming <code class="cCode">X_OCTET</code> output records can also be copied to <code class="cCode">STRING</code> output buffers. This creates a string that goes through no conversion and no translation. When going from <code class="cCode">X_OCTET</code> to <code class="cCode">STRING</code>, a NULL value is added at the end for the Tuxedo application. The resultant buffer is the length of the original <code class="cCode">X_OCTET</code> buffer. Since all characters are copied, if the <code class="cCode">X_OCTET</code> buffer contains null characters, it affects the buffer when later handled as a <code class="cCode">STRING</code>. The <code class="cCode">OUTBUFTYPE</code> should be set to <code class="cCode">STRING</code>. </li>
+<li><a name="wp1031331"> </a>Incoming <code class="cCode">X_OCTET</code> output records can be mapped to XML output buffers. No translation or conversion is performed on the data. This can be useful when passing XML buffers from systems that do not support XML buffer types to a Tuxedo domain that does support XML data types.</li>
+<li><a name="wp1030844"> </a>Incoming output records can be mapped to identical Oracle Tuxedo <code class="cCode">VIEW</code> output buffers. In this situation, the data structure that the remote service returns is identical to the data structure the local client program expects. There is no need to create a new <code class="cCode">VIEW</code> definition. The <code class="cCode">OUTRECTYPE</code> parameter can be set to <code class="cCode">VIEW:viewname</code>, for greater type checking, but it is not mandatory.</li>
+<li><a name="wp1030845"> </a>Incoming <code class="cCode">X_C_TYPE</code> and <code class="cCode">X_COMMON</code> output records can be mapped to <code class="cCode">VIEW</code> output buffers-in any combination. However, in this situation, the data structure that the remote service returns (designated as<code class="cCode"> X_C_TYPE </code>`B&#39; in <a href="manage.html#wp1030836">Figure&#160;2-6</a>) differs from the data structure the client program expects (designated as <code class="cCode">VIEW</code> `A&#39; in <a href="manage.html#wp1030836">Figure&#160;2-6</a>). To facilitate the conversion process, perform the following tasks. </li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1030852"> </a>Create a VIEW definition for the data structure that the remote service returns. </li>
+<li><a name="wp1030853"> </a>If the name given to the VIEW definition is different from the name that the remote service returns (that is, ATMI buffer subtype), specify the output record type and the name of <code class="cCode">X_C_TYPE</code> (or <code class="cCode">X_COMMON</code>)`B&#39; with the <code class="cCode">OUTBUFTYPE</code> parameter. (By doing this, you override the value the TMA OSI TP requester automatically detects.) </li>
+<li><a name="wp1030857"> </a>Specify the output buffer type and the name of an existing view (VIEW `A&#39; in the figure) specified in the <code class="cCode">OUTBUFTYPE</code> parameter.</li>
+<a name="wp1030858"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>FML Field definitions may be required to map VIEW &#39;B&#39; to VIEW &#39;A&#39;.</td>
+</tr>
+</table>
+
+</ul></div>
+<li><a name="wp1030859"> </a>Incoming <code class="cCode">X_COMMON</code> or <code class="cCode">X_C_TYPE</code> output records can be mapped to FML output buffers. To facilitate the conversion process, you must perform the following tasks. </li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1030860"> </a>Create a VIEW definition that describes the data structure that the remote service returns. </li>
+<li><a name="wp1030861"> </a>If the name given to the VIEW definition is different from the name that the remote service returns (that is, the ATMI buffer subtype), specify the output record type and the name of your VIEW definition with the <code class="cCode">OUTBUFTYPE</code> parameter. (By doing this, you override the value the TMA OSI TP requester automatically detects.) </li>
+<li><a name="wp1030865"> </a>If verification of the FML buffer is desired, set the <code class="cCode">OUTBUFTYPE</code> to FML or <code class="cCode">FML32</code> in the <code class="cCode">DMCONFIG</code> followed by a colon(:). (Example: <code class="cCode">OUTBUFTYPE=&#8221;FML32:&#8221;</code>)</li>
+<a name="wp1030868"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>FML fields must be specified for all FML to VIEW conversions that TMA OSI TP performs. In other words, any <code class="cCode">VIEW</code> that is to be used in an FML to VIEW conversion must be defined with appropriate FML fields (no dashes in the <code class="cCode">FBNAME</code> column of the VIEW definition). In order for the FML fields to match, you must compile the VIEWs without the -n option specified.</td>
+</tr>
+</table>
+
+</ul></div>
+<li><a name="wp1031727"> </a>Incoming<code class="cCode"> NATIVE A </code>output records can be mapped to <code class="cCode">VIEW</code> output buffers.</li>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1030871"> </a>
+Special Cases and Examples of Buffer Conversion
+</h2><p class="pBody"><a name="wp1030873"> </a>
+Following are some examples of special cases and considerations for buffer conversion.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1030874"> </a>If the incoming buffer <code class="cCode">(INBUFTYPE) </code>or<code class="cCode"> (OUTRECTYPE) = STRING</code>, <code class="cCode">CARRAY,  X-OCTET</code>,<code class="cCode"> </code>or<code class="cCode"> XML</code> the conversion type must be<code class="cCode"> STRING, CARRAY, X-OCTET</code>,<code class="cCode"> </code>or<code class="cCode"> XML</code></li>
+<li><a name="wp1030875"> </a>Conversion must be between 16-bit buffers, or between 32-bit buffers.You can not convert a 16-bit buffer to a 32-bit buffer, or vice versa.</li>
+<p class="pBodyRelative"><a name="wp1030876"> </a>
+Examples:	 
+</p>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp1030877"> </a><code class="cCode">OUTRECTYPE=&#8221;VIEW:v10&#8221;<br />OUTBUFTYPE=&#8221;VIEW:v12&#8221;/* OK */</code></li>
+<li><a name="wp1030878"> </a><code class="cCode">OUTRECTYPE=&#8221;VIEW:v10&#8221;<br />OUTBUFTYPE=&#8221;VIEW32:v13&#8221;/* ERROR */</code></li>
+<li><a name="wp1030879"> </a><code class="cCode">OUTRECTYPE=&#8221;VIEW32:v13&#8221;<br />OUTBUFTYPE=&#8221;FML32:&#8221;/* OK */</code></li>
+<li><a name="wp1030880"> </a><code class="cCode">OUTRECTYPE=&#8221;VIEW32:v13&#8221;<br />OUTBUFTYPE=&#8221;FML:&#8221;/* ERROR */</code></li>
+</ol></div>
+<li><a name="wp1030881"> </a>If <code class="cCode">INBUFTYPE = &quot;FML&quot;</code> or &quot;<code class="cCode">FML32&quot;</code>: or if the buffer being sent to a remote service is of type <code class="cCode">&quot;FML&quot;</code> or <code class="cCode">&quot;FML32&quot;, then...</code> </li>
+<p class="pBodyRelative"><a name="wp1030882"> </a>
+<code class="cCode">INRECTYPE</code>, of the remote service, <b class="cBold">must</b> be configured to &quot;<code class="cCode">VIEW&quot;</code> or &quot;<code class="cCode">VIEW32&quot;</code>, respectively.
+</p>
+<li><a name="wp1030883"> </a><code class="cCode">INRECTYPE</code> and <code class="cCode">OUTRECTYPE</code> cannot be <code class="cCode">&quot;FML&quot;</code> or &quot;<code class="cCode">FML32&quot;</code>.</li>
+<p class="pBodyRelative"><a name="wp1030884"> </a>
+<code class="cCode">INRECTYPE=&#8221;FML:&#8221;/* ERROR */<br />OUTRECTYPE=&#8221;FML32:&#8221;/* ERROR */</code>
+</p>
+<li><a name="wp1030885"> </a>For <code class="cCode">INBUFTYPE</code> and <code class="cCode">OUTBUFTYPE</code>, configure buffer type <code class="cCode">FML</code> as follows:</li>
+<p class="pBodyRelative"><a name="wp1030886"> </a>
+<code class="cCode"> INBUFTYPE=&#8221;FML:&#8221;<br /> OUTBUFTYPE=&#8221;FML32:&#8221;</code>
+</p>
+<a name="wp1030887"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>A colon is required at the end of keywords <code class="cCode">FML</code> and <code class="cCode">FML32</code>.</td>
+</tr>
+</table>
+
+<li><a name="wp1030888"> </a><code class="cCode">INBUFTYPE</code> and <code class="cCode">OUTRECTYPE</code> must be configured to the same type/subtype as the incoming buffer type/subtype.	</li>
+<li><a name="wp1030889"> </a>Packed decimal type <code class="cCode">dec_t</code> cannot be used in views participating in a conversion when either the source or the destination buffer is FML or FML32 or when the source and destination are two different views.</li>
+<li><a name="wp1031334"> </a>Packed decimal type <code class="cCode">dec_t</code> cannot be used in views participating in conversion to NATIVE A buffers.</li>
+<li><a name="wp1030890"> </a>For views participating in conversion, substitute view fields of type <code class="cCode">int</code> with fields of type <code class="cCode">long</code> or <code class="cCode">short</code>.</li>
+<li><a name="wp1030891"> </a>If a View member contains system default values, that member will not be transferred during buffer conversion. To force the transfer, use <code class="cCode">&#8220;NONE&#8221;</code> in the default Null column of the source View file.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1030893"> </a>
+DMCONFIG Examples for Conversion to View32 and FML
+</h3>
+<p class="pBody"><a name="wp1030894"> </a>
+In the following example, incoming buffer <code class="cCode">X_COMMON:v10</code> gets converted to <code class="cCode">VIEW:v12</code> before the request is sent to the service.
+</p>
+<div class="pCodeTitle"><a name="wp1030895"> </a>
+Listing&#160;2-1	   Conversion to View32
+</div> <a name="wp1030896"> </a><div class="pPreformatted"><pre>*DM_REMOTE_SERVICES<br />TOUPPER12<br />RDOM=DALNT2<br />LDOM=DALNT19220<br />PRIO=66<br />RNAME=&#8221;TOUPPER12&#8221;<br />INBUFTYPE=&#8221;X_COMMON:v10&#8221;<br />INRECTYPE=&#8221;VIEW:v12&#8221;</pre></div><p class="pBody"><a name="wp1030898"> </a>
+In the following example, incoming buffer <code class="cCode">VIEW:v12 </code>gets converted to FML, before the request is sent to the local service, and FML gets converted to <code class="cCode">X_C_TYPE:v16 </code>before the reply is returned to the remote client.
+</p>
+<div class="pCodeTitle"><a name="wp1030899"> </a>
+Listing&#160;2-2	   Conversion to FML
+</div> <a name="wp1030900"> </a><div class="pPreformatted"><pre>*DM_LOCAL_SERVICES<br />OUTRECTYPE=&#8221;VIEW:v12&#8221;<br />OUTBUFTYPE=&#8221;FML:&#8221;<br />INBUFTYPE=&#8221;FML:&#8221;<br />INRECTYPE=&#8221;X_C_TYPE:v16&#8221;</pre></div><p class="pBody"><a name="wp1034180"> </a>
+For more information about FML, refer to the Oracle Tuxedo Online Documentation at<span class="cHyperlink">
+<a href="http://www.oracle.com/bea/support.html"> http://www.oracle.com/bea/support.html</a></span>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1034182"> </a>
+XML Buffer Support
+</h2><p class="pBody"><a name="wp1031290"> </a>
+Oracle TMA OSI TP supports Tuxedo XML buffer types. XML buffers are treated like X_OCTET buffers because they are only passed through to the network. No data conversion is performed on the data.
+</p>
+<p class="pBody"><a name="wp1025248"> </a>
+XML buffers are passed to the remote domain as an XML data type unless converted to <code class="cCode">X_OCTET</code>. If the remote domain does not support the XML data type, a decoding error occurs on the remote domain.
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="manage.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="intro.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="underst.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

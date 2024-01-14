@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>Policy Management</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = ohj/ohw) - Version 5.1.2 Build 050" />
+<meta name="date" content="2013-02-27T17:52:29Z" />
+<meta name="robots" content="noarchive" />
+<meta name="doctitle" content="Policy Management" />
+<meta name="relnum" content="" />
+<meta name="partnum" content="" />
+<meta name="topic-id" content="/txdo/resbroker/policy" />
+<link rel="copyright" href="./dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+<link rel="stylesheet" href="./dcommon/css/blafdoc.css" title="Oracle BLAFDoc" type="text/css" />
+<link rel="contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="prev" href="resbroker004.htm" title="Previous" type="text/html" />
+<link rel="next" href="resbroker006.htm" title="Next" type="text/html" />
+</head>
+<body>
+<div class="zz-skip-header"><a href="#BEGIN">Skip Headers</a></div>
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<col width="86%" />
+<col width="*" />
+<tr valign="bottom">
+<td align="left"></td>
+<td align="center"><a href="resbroker004.htm"><img src="./dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="resbroker006.htm"><img src="./dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+<p><a id="/txdo/resbroker/policy" name="/txdo/resbroker/policy"></a></p>
+<div class="sect1"><!-- infolevel="all" infotype="General" --><a id="sthref87" name="sthref87"></a>
+<h1>Policy Management</h1>
+<a name="BEGIN" id="BEGIN"></a>
+<p>Policies define the conditions that trigger a dynamic deployment/undeployment of application packages and machines and automatic server spawn/decay.</p>
+<p>The policies are defined and managed centrally in the Policy Management console. To enter the Policy Management console, click <span class="bold">Policy Management</span> in the Controls panel of domain editor.</p>
+<div class="sect2"><!-- infolevel="all" infotype="General" --><a id="sthref88" name="sthref88"></a>
+<h2>Creating the Policy</h2>
+<p>Resource broker deployment policy is dependent on the event and incident subsystem provided by Oracle Enterprise Manager. The first step of defining policy is creating and enabling the incident rule.</p>
+<div class="sect3"><!-- infolevel="all" infotype="General" --><a id="sthref89" name="sthref89"></a>
+<h3>Incident Rule</h3>
+<p>An incident rule specifies that under what condition the resource broker policy evaluator is triggered. The condition can be complex and made up of criteria combination that represents the event characters, for example, the event type, severity, category, and etc. By defining the incident rules, you can specify that when one of the following conditions is met, the deployment policies are evaluated:</p>
+<ul>
+<li>
+<p>The CPU utilization of a host reaches 85%</p>
+</li>
+<li>
+<p>The average execution time of certain Tuxedo service exceeds 500 microseconds</p>
+</li>
+<li>
+<p>Some Tuxedo machines are down, and etc.</p>
+</li>
+</ul>
+<p>Actually, an incident rule can contain any metrics provided by any monitored target.</p>
+<p>To make the incident rule be evaluated on specific targets, create the EM group on the targets and refer to this group in the rule set.</p>
+</div>
+<!-- class="sect3" -->
+<div class="sect3"><!-- infolevel="all" infotype="General" --><a id="sthref90" name="sthref90"></a>
+<h3>Deployment Policy</h3>
+<p>Once the incident rule is defined, you can create a deployment policy from the Policy Management console by clicking <span class="bold">Add</span>. In the Policy Propertise page, specify the following options:</p>
+<ul>
+<li>
+<p><span class="bold">Name:</span> The policy name. It is the only identification of a policy, and must be global unique.</p>
+</li>
+<li>
+<p><span class="bold">Type</span>: Choose one of the following policy types:</p>
+<ul>
+<li>
+<p>Package Level Deployment</p>
+<p>All the added packages that are marked as "Candidate" are listed in the <span class="bold">Candidate Groups</span> list. Only one package can be selected each time to be deployed.</p>
+<p>All the running candidate machines that are compatible with the selected packages are listed in the <span class="bold">Machines</span> list. Multiple machines can be selected. One of the selected machines will be chose to be the target when the policy is evaluated. Which machine will become the target machine depends on the machine filtering rule. The machine filtering rule contains various metrics of the host target, which can be combined to form the rule. The rule is evaluated to be fulfilled only when all the metrics expression are true.</p>
+</li>
+<li>
+<p>Package Level Undeployment</p>
+<p>All the deployed candidate packages are listed in the <span class="bold">Group</span> list. Multiple packages can be selected to be undeployed. The machine from which the packages to be undeployed hosts the target that triggers the incident rule. If the designated package is found not deployed on the target machine, the undeployment procedure will be terminated. If multiple packages are selected, all of them must have been deployed on the target machine.</p>
+</li>
+<li>
+<p>Machine Level Deployment</p>
+<p>Machines that have been added to the domain are listed for selection. The selected machines will be turned into candidate machines for dynamically deployment. Dynamic depolyment of candidate machines can only be triggered by policy evaluation, as manual deployment ignores all the candidate machines. When dynamically deploying the machine, all the non-candidate packages added to it are deployed at the same time.</p>
+<p>When the deployment policy is being evaluated, one machine is selected from the candidate machines to be finally deployed. The selection of the target machine depends on the machine filtering rule. If there is only one candidate machine with no machine filtering rule configured on it, the machine will definitely be deployed.</p>
+</li>
+<li>
+<p>Machine Level Undeployment</p>
+<p>When an incident rule is fulfilled, two types of undeployment can be performed:</p>
+<ul>
+<li>
+<p>Undeploy the machine that hosts the target triggering the incident rule.</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>Undeploy one machine from the candidate list. The selection of final undeployed machine depends on the machine filtering rule.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Server Auto Spawn</p>
+<p>When an incident rule is fulfilled, increase the number of specific server instances. You can specify the increment to allow one or more server instances to be spawned each time. The maximum server instance number should be no more than the value of MAX parameter in UBBCONFIG. The server is only spawned when matching the machine filtering rule.</p>
+<p>This type of policy can only be defined on a Tuxedo server that has both MIN and MAX parameters set.</p>
+</li>
+<li>
+<p>Server Auto Decay</p>
+<p>When an incident rule is fulfilled, decrease the number of specific server instances. You can specify the decrement to allow one or more server instances to be decayed each time. The minimum server instance number should be no less than the value of MIN parameter in UBBCONFIG.</p>
+<p>This type of policy can only be defined on a Tuxedo server that has both MIN and MAX parameters set.</p>
+</li>
+</ul>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+The Server Auto Spawn and Server Auto Decay policy can only be defined on a Tuxedo server that has both MIN and MAX parameters set. The value of MIN must be less than MAX.</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</li>
+<li>
+<p>Rule Set: Enter the name of the rule set that contains the rule you are going to use for triggering the policy evaluation.</p>
+</li>
+<li>
+<p>Rule Name: Enter the name of the rule you are going to use for triggering the policy evaluation. The incident rule is created by users previously in the Incident Rules page (Go to Setup -&gt; Incidents -&gt; Incident Rules).</p>
+</li>
+<li>
+<p>Enabled: Specifies whether to enable the policy immediately.</p>
+</li>
+<li>
+<p>Repeatable: Specifies whether the policy is repeatable. If this checkbox is not selected, the policy is set to disabled after it is triggered and performs corresponding deployment/undeployment action successfully once.</p>
+</li>
+</ul>
+</div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" -->
+<!-- Start Footer -->
+<div class="footer">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<col width="86%" />
+<col width="*" />
+<tr>
+<td align="left"><span class="copyrightlogo">Copyright&nbsp;&copy;&nbsp;2013,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span><br />
+<a href="./dcommon/html/cpyr.htm"><span class="copyrightlogo">Legal Notices</span></a></td>
+<td align="center"><a href="resbroker004.htm"><img src="./dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="resbroker006.htm"><img src="./dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</div>
+<!-- class="footer" -->
+</body>
+</html>

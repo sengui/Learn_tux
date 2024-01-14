@@ -1,0 +1,516 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<title>A Sample Application</title>
+<meta name="generator" content="Oracle DARB XHTML Converter (Mode = document) - Version 5.1 Build 128" />
+<meta name="date" content="2008-12-09T7:52:55Z" />
+<meta name="robots" content="noarchive" />
+<meta name="doctitle" content="A Sample Application" />
+<meta name="relnum" content="Release 5.1" />
+<meta name="partnum" content="A12345-01" />
+<link rel="copyright" href="../../dcommon/html/cpyr.htm" title="Copyright" type="text/html" />
+<link rel="stylesheet" href="../../dcommon/css/blafdoc.css" title="Oracle BLAFDoc" type="text/css" />
+<link rel="contents" href="toc.htm" title="Contents" type="text/html" />
+<link rel="prev" href="txc05.htm" title="Previous" type="text/html" />
+<link rel="next" href="txxb.htm" title="Next" type="text/html" />
+</head>
+<body>
+<div class="header"><a id="top" name="top"></a>
+<div class="zz-skip-header"><a href="#BEGIN">Skip Headers</a></div>
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td align="left" valign="top"><b>Programming an Oracle Tuxedo Application Using TxRPC</b><b></b><br /></td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+<td align="center" valign="top"><a href="toc.htm"><img src="../../dcommon/gifs/toc.gif" alt="Go To Table Of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<tr>
+<td align="center"><a href="txc05.htm"><img src="../../dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="txxb.htm"><img src="../../dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<a name="BEGIN" id="BEGIN"></a></div>
+<!-- class="header" -->
+<div class="ind"><!-- End Header --><a id="g1027039" name="g1027039"></a><a id="i1011539" name="i1011539"></a>
+  <h1 class="appendix"><span class="secnum">A</span> A Sample Application</h1>
+<p>This topic includes the following sections:</p>
+<ul>
+<li>
+<p><a href="#i1011670">Appendix Contents</a></p>
+</li>
+<li>
+<p><a href="#i1011679">Prerequisites</a></p>
+</li>
+<li>
+<p><a href="#i1011725">Building the rpcsimp Application</a></p>
+</li>
+</ul>
+<a id="i1011670" name="i1011670"></a>
+<div class="sect1">
+<h2 class="sect1">Appendix Contents</h2>
+<p>This appendix contains a description of a one-client, one-server application called <code>rpcsimp</code> that uses TxRPC. The source files for this interactive application are distributed with the Oracle Tuxedo ATMI software, except they are not included in the RTK binary delivery.</p>
+</div>
+<!-- class="sect1" -->
+<a id="i1011679" name="i1011679"></a>
+<div class="sect1">
+<h2 class="sect1">Prerequisites</h2>
+<p>Before you can run this sample application, the Oracle Tuxedo software must be installed so that the files and commands referred to in this chapter are available.</p>
+</div>
+<!-- class="sect1" -->
+<a id="i1011725" name="i1011725"></a>
+<div class="sect1">
+<h2 class="sect1">Building the rpcsimp Application</h2>
+<p><code>rpcsimp</code> is a very basic Oracle Tuxedo ATMI application that uses TxRPC. It has one application client and one server. The client calls the remote procedure calls (operations) <code>to_upper()</code> and <code>to_lower()</code>, which are implemented in the server. The operation <code>to_upper()</code> converts a string from lowercase to uppercase and returns it to the client, while <code>to_lower()</code> converts a string from uppercase to lowercase and returns it to the client. When each procedure call returns, the client displays the string output on the user's screen.</p>
+<p>What follows is a procedure to build and run the example.</p>
+<div class="sect2"><a id="sthref27" name="sthref27"></a>
+<h3 class="sect2">Step 1: Create an Application Directory</h3>
+<p>Make a directory for <code>rpcsimp</code> and <code>cd</code> to it:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+mkdir rpcsimpdir
+cd rpcsimpdir
+</pre>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+This is suggested so you will be able to see clearly the <code>rpcsimp</code> files you have at the start and the additional files you create along the way. Use the standard shell (<code>/bin/sh</code>) or the Korn shell; do not use the C shell (<code>csh</code>).</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</div>
+<!-- class="sect2" -->
+<div class="sect2"><a id="sthref28" name="sthref28"></a>
+<h3 class="sect2">Step 2: Set Environment Variables</h3>
+<p>Set and export the necessary environment variables:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+TUXDIR=&lt;<span class="italic">pathname of the Oracle Tuxedo System root directory</span>&gt;
+TUXCONFIG=&lt;<span class="italic">pathname of your present working directory</span>&gt;/TUXCONFIG
+PATH=$PATH:$TUXDIR/bin
+# SVR4, Unixware
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$TUXDIR/lib
+# HPUX
+SHLIB_PATH=$LD_LIBRARY_PATH:$TUXDIR/lib
+# RS6000
+LIBPATH=$LD_LIBRARY_PATH:$TUXDIR/lib
+export TUXDIR TUXCONFIG PATH LD_LIBRARY_PATH SHLIB_PATH LIBPATH
+</pre>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+You need <code>TUXDIR</code> and <code>PATH</code> to be able to access files in the Oracle Tuxedo ATMI directory structure and to execute Oracle Tuxedo ATMI commands. You need to set <code>TUXCONFIG</code> to be able to load the configuration file. It may also be necessary to set an environment variable (for example, <code>LD_LIBRARY_PATH</code>) if shared objects are being used.</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</div>
+<!-- class="sect2" -->
+<div class="sect2"><a id="sthref29" name="sthref29"></a>
+<h3 class="sect2">Step 3: Copy files</h3>
+<p>Copy the <code>rpcsimp</code> files to the application directory:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+cp $TUXDIR/apps/rpcsimp/* .
+</pre>
+<p>You will be editing some of the files and making them executable, so it is best to begin with a copy of the files rather than the originals delivered with the software.</p>
+</div>
+<!-- class="sect2" -->
+<div class="sect2"><a id="sthref30" name="sthref30"></a>
+<h3 class="sect2">Step 4: List the Files</h3>
+<p>List the files:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+$ ls
+client.c
+rpcsimp.mk
+server.c
+simp.idl
+ubbconfig
+wclient.def
+wsimpdll.def
+$
+</pre>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+This list does not include files that are used in the DCE-Gateway example described in <a href="txxb.htm#g1026316">Appendix B, "A DCE-Gateway Application."</a></td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+<p>The files that make up the application are described in the following sections.</p>
+<div class="sect3"><a id="sthref31" name="sthref31"></a>
+<h4 class="sect3">IDL Input File&mdash;simp.idl</h4>
+<div class="example"><a id="sthref32" name="sthref32"></a>
+<p class="titleinexample">Example A-1 simp.idl</p>
+<pre xml:space="preserve" class="oac_no_warn">
+[uuid(C996A680-9FC2-110F-9AEF-930269370000), version(1.0) ]
+interface changecase
+{
+/* change a string to upper case */
+void to_upper([in, out, string] char *str);
+/* change a string to lower case */
+void to_lower([in, out, string] char *str);
+}
+</pre></div>
+<!-- class="example" -->
+<p>This file defines a single interface, <code>changecase</code> version 1.0, with two operations, <code>to_upper</code> and <code>to_lower</code>. Each of the operations takes a NULL-terminated character string, that is both an input and output parameter. Because no ACF file is provided, status variables are not used and the client program must be able to handle exceptions. Each operation has a void return indicating that no return value is generated. <code>simp.idl</code> is used to generate the stub functions (see below).</p>
+</div>
+<!-- class="sect3" -->
+<div class="sect3"><a id="sthref33" name="sthref33"></a>
+<h4 class="sect3">The Client Source Code&mdash;client.c</h4>
+<div class="example"><a id="sthref34" name="sthref34"></a>
+<p class="titleinexample">Example A-2 client.c</p>
+<pre xml:space="preserve" class="oac_no_warn">
+#include &lt;stdio.h&gt;
+#include "simp.h"
+#include "atmi.h"
+main(argc, argv)
+int argc;
+char **argv;
+{
+  idl_char str[100];
+  unsigned char error_text[100];
+  int status;
+  if (argc &gt; 1) {/* use command line argument if it exists */
+    (void) strncpy(str, argv[1], 100);
+    str[99] = '\0';
+  }
+  else
+    (void) strcpy(str, "Hello, world");
+  TRY
+  to_upper(str);
+  (void) fprintf(stdout, "to_upper returns: %s\n", str);
+  to_lower(str);
+  (void) fprintf(stdout, "to_lower returns: %s\n", str);
+  /* control flow continues after ENDTRY */
+  CATCH_ALL
+    exc_report(THIS_CATCH); /* print to stderr */
+    (void) tpterm();
+    exit(1);
+  ENDTRY
+  (void) tpterm();
+  exit(0);
+}
+</pre></div>
+<!-- class="example" -->
+<p>The header, <code>simp.h</code>, which is generated by the IDL compiler based on <code>simp.idl</code>, has the function prototypes for the two operations. The <code>simp.h</code> header also includes the header files for the RPC run-time functions (none appear in this example) and exception handling. The <code>atmi.h</code> header file is included because <a href="../rf3c/rf3c.html"><code>tpterm(3c)</code></a> is called. If an argument is provided on the command line, then it is used for the conversion to uppercase and lowercase (the default being "<code>hello world</code>"). Exception handling is used to catch any errors. For example, exceptions are generated for unavailable servers, memory allocation failures, communication failures, and so forth. The <code>TRY</code> block encapsulates the two remote procedure calls. If an error occurs, the execution will jump to the <code>CATCH_ALL</code> block which converts the exception (<code>THIS_CATCH</code>) into a string, prints it to the standard error output using <code>exc_report</code>, and exits. Note that in both the abnormal and normal execution, <a href="../rfcm/rfcmd.html"><code>tidl(1)</code></a> is called to leave the application gracefully. If this is not done, a warning is printed in the <a href="../rf3c/rf3c.html"><code>userlog(3c)</code></a> for non-Workstation clients, and resources are tied up (until the connection times out, for Workstation clients).</p>
+</div>
+<!-- class="sect3" -->
+<div class="sect3"><a id="sthref35" name="sthref35"></a>
+<h4 class="sect3">The Server Source Code&mdash;server.c</h4>
+<div class="example"><a id="sthref36" name="sthref36"></a>
+<p class="titleinexample">Example A-3 server.c</p>
+<pre xml:space="preserve" class="oac_no_warn">
+#include &lt;stdio.h&gt;
+#include &lt;ctype.h&gt;
+#include "tx.h"
+#include "simp.h"
+int
+tpsvrinit(argc, argv)
+int argc;
+char **argv;
+{
+  if (tx_open() != TX_OK) {
+    (void) userlog("tx_open failed");
+    return(-1);
+  }
+  (void) userlog("tpsvrinit() succeeds.");
+  return(1);
+}
+void
+to_upper(str)
+idl_char *str;
+{
+  idl_char *p;
+  for (p=str; *p != '\0'; p++)
+    *p = toupper((int)*p);
+  return;
+}
+void
+to_lower(str)
+idl_char *str;
+{
+  idl_char *p;
+  for (p=str; *p != '\0'; p++)
+    *p = tolower((int)*p);
+  return;
+} 
+</pre></div>
+<!-- class="example" -->
+<p>As with <code>client.c</code>, this file includes <code>simp.h</code>.</p>
+<p>It also includes <code>tx.h</code> because <a href="../rf3c/rf3c.html"><code>tx_open(3c)</code></a> is called (as required by the X/OPEN TxRPC specification, even if no resource manager is accessed). A <a href="../rf3c/rf3c.html"><code>tpsvrinit(3c)</code></a> function is provided to ensure that <code>tx_open()</code> is called once at boot time. On failure, <code>-1</code> is returned and the server fails to boot. This is done automatically, so you may not need to supply it.</p>
+<p>The two operation functions are provided to do the application work, in this case, converting to upper and lower case.</p>
+</div>
+<!-- class="sect3" -->
+<div class="sect3"><a id="sthref37" name="sthref37"></a>
+<h4 class="sect3">Makefile&mdash;rpcsimp.mk</h4>
+<div class="example"><a id="sthref38" name="sthref38"></a>
+<p class="titleinexample">Example A-4 rpcsimp.mk</p>
+<pre xml:space="preserve" class="oac_no_warn">
+CC=cc
+CFLAGS=
+TIDL=$(TUXDIR)/bin/tidl
+LIBTRPC=-ltrpc
+all:  client server
+# Tuxedo client
+client: simp.h simp_cstub.o
+        CC=$(CC) CFLAGS=$(CFLAGS) $(TUXDIR)/bin/buildclient \
+            -oclient -fclient.c -fsimp_cstub.o -f$(LIBTRPC)
+# Tuxedo server
+server: simp.h simp_sstub.o
+        CC=$(CC) CFLAGS=$(CFLAGS) $(TUXDIR)/bin/buildserver \ 
+                  -oserver -s changecasev1_0 -fserver.c -fsimp_sstub.o \
+                  -f$(LIBTRPC)
+simp_cstub.o simp_sstub.o simp.h:     simp.idl
+        $(TIDL) -cc_cmd "$(CC) $(CFLAGS) -c" simp.idl
+#
+# THIS PART OF THE FILE DEALING WITH THE DCE GATEWAY IS OMMITTED
+#
+
+# Cleanup
+clean::
+         rm -f *.o server $(ALL2) ULOG.* TUXCONFIG
+         rm -f stderr stdout *stub.c *.h simpdce.idl gwinit.c
+clobber: clean
+</pre></div>
+<!-- class="example" -->
+<p>The <code>makefile</code> builds the executable client and server programs.</p>
+<p>The part of the <code>makefile</code> dealing with the DCE Gateway (described in <a href="txxb.htm#g1026316">Appendix B, "A DCE-Gateway Application,"</a> is omitted from the figure.</p>
+<p>The client is dependent on the <code>simp.h</code> header file and the client stub object file. <code>buildclient</code> is executed to create the output client executable, using the <code>client.c</code> source file, the client stub object file, and the <code>-ltrpc</code> RPC run-time library.</p>
+<p>The server is dependent on the <code>simp.h</code> header file and the server stub object file. <code>buildserver</code> is an output server executable, using the <code>server.c</code> source file, the server stub object file, and the <code>-ltrpc</code> RPC run-time library.</p>
+<p>The client and server stub object files and the <code>simp.h</code> header file are all created by running the <code>tidl</code> compiler on the IDL input file.</p>
+<p>The <code>clean</code> target removes any files that are created while building or running the application.</p>
+</div>
+<!-- class="sect3" -->
+<div class="sect3"><a id="sthref39" name="sthref39"></a>
+<h4 class="sect3">The Configuration File&mdash;ubbconfig</h4>
+<p>The following is a sample ASCII configuration file. The machine name, <code>TUXCONFIG</code>, <code>TUXDIR</code>, and <code>APPDIR</code> must be set based on your configuration.</p>
+<div class="example"><a id="sthref40" name="sthref40"></a>
+<p class="titleinexample">Example A-5 ubbconfig</p>
+<pre xml:space="preserve" class="oac_no_warn">
+*RESOURCES
+IPCKEY     187345
+MODEL      SHM
+MASTER     SITE1
+PERM       0660
+*MACHINES
+&lt;<span class="italic">UNAME</span>&gt;   LMID=SITE1
+          TUXCONFIG="&lt;<span class="italic">TUXCONFIG</span>&gt;"
+          TUXDIR="&lt;<span class="italic">TUXDIR</span>&gt;"
+          APPDIR="&lt;<span class="italic">APPDIR</span>&gt;"
+#         MAXWSCLIENTS=10
+*GROUPS
+GROUP1    LMID=SITE1      GRPNO=1
+*SERVERS
+server SRVGRP=GROUP1 SRVID=1
+#WSL SRVGRP=GROUP1 SRVID=2 RESTART=Y GRACE=0
+#         CLOPT="-A -- -n &lt;<span class="italic">address</span>&gt; -x 10 -m 1 -M 10 -d &lt;<span class="italic">device</span>&gt;"
+#
+# Tuxedo-to-DCE Gateway
+#simpgw SRVGRP=GROUP1 SRVID=2
+*SERVICES
+*ROUTING
+</pre></div>
+<!-- class="example" -->
+<p>The lines for <code>MAXWSCLIENTS</code> and <code>WSL</code> would be uncommented and are used for a Workstation configuration. The literal <code><span class="codeinlineitalic">netaddr</span></code> for the Workstation listener must be set as described in <a href="../rf5/rf5.html"><code>WSL(5)</code></a> in the Oracle Tuxedo File Formats and Data Descriptions Reference.</p>
+</div>
+<!-- class="sect3" --></div>
+<!-- class="sect2" -->
+<div class="sect2"><a id="sthref41" name="sthref41"></a>
+<h3 class="sect2">Step 5: Modify the Configuration</h3>
+<p>Edit the ASCII <code>ubbconfig</code> configuration file to provide location-specific information (for example, your own directory pathnames and machine name), as described in the next step. The text to be replaced is enclosed in angle brackets. You need to substitute the full pathname for <code>TUXDIR</code>, <code>TUXCONFIG</code>, and <code>APPDIR</code>, and the name of the machine on which you are running. The following is a summary of the required values.</p>
+<pre xml:space="preserve" class="oac_no_warn">
+TUXDIR
+</pre>
+<p>The full pathname of the root directory of the Oracle Tuxedo software, as set above.</p>
+<pre xml:space="preserve" class="oac_no_warn">
+TUXCONFIG
+</pre>
+<p>The full pathname of the binary configuration file, as set above.</p>
+<pre xml:space="preserve" class="oac_no_warn">
+APPDIR
+</pre>
+<p>The full pathname of the directory in which your application will run.</p>
+<pre xml:space="preserve" class="oac_no_warn">
+UNAME
+</pre>
+<p>The machine name of the machine on which your application will run; this is the output of the UNIX command <code>uname -n</code>.</p>
+<p>For a Workstation configuration, the <code>MAXWSCLIENTS</code> and <code>WSL</code> lines must be uncommented and the &lt;<code><span class="codeinlineitalic">address</span></code>&gt; must be set for the Workstation Listener. (See <code>WSL</code>(5) for further details.)</p>
+</div>
+<!-- class="sect2" -->
+<div class="sect2"><a id="sthref42" name="sthref42"></a>
+<h3 class="sect2">Step 6: Build the Application</h3>
+<p>Build the client and server programs by running the following:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+make -f rpcsimp.mk TUXDIR=$TUXDIR
+</pre></div>
+<!-- class="sect2" -->
+<div class="sect2"><a id="sthref43" name="sthref43"></a>
+<h3 class="sect2">Step 7: Load the Configuration</h3>
+<p>Load the binary <code>TUXCONFIG</code> configuration file by running the following:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+tmloadcf -y ubbconfig
+</pre></div>
+<!-- class="sect2" -->
+<div class="sect2"><a id="sthref44" name="sthref44"></a>
+<h3 class="sect2">Step 8: Boot the Configuration</h3>
+<p>Boot the application by running the following:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+tmboot -y
+</pre></div>
+<!-- class="sect2" -->
+<div class="sect2"><a id="sthref45" name="sthref45"></a>
+<h3 class="sect2">Step 9: Run the Client</h3>
+<ol>
+<li>
+<p>The native client program can be run by optionally specifying a string to be converted first to uppercase, and then to lowercase, as shown in the following:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+$ client HeLlO
+to_upper returns: HELLO
+to_lower returns: hello
+$
+</pre></li>
+<li>
+<p>When running on a Workstation, set the <code>WSNADDR</code> environment variable to match the address specified for the WSL program. The Windows client can be run by executing:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+&gt;win wclient
+</pre>
+<div align="center">
+<div class="inftblnote"><br />
+<table class="Note oac_no_warn" summary="" border="1" width="80%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0">
+<tbody>
+<tr>
+<td align="left">
+<p class="notep1">Note:</p>
+The dynamic link library may be used in a separately developed application such as a visual builder.</td>
+</tr>
+</tbody>
+</table>
+<br /></div>
+<!-- class="inftblnote" --></div>
+</li>
+</ol>
+</div>
+<!-- class="sect2" -->
+<div class="sect2"><a id="sthref46" name="sthref46"></a>
+<h3 class="sect2">Step 10: Monitor the RPC Server</h3>
+<p>You can monitor the RPC server using <code>tmadmin</code>(1). In the following example, <code>psr</code> and <code>psc</code> are used to view the information for the <code>server</code> program. Note that the length of the RPC service name causes it to be truncated in terse mode (indicated by the "+"); verbose mode can be used to get the full name.</p>
+<div class="example"><a id="sthref47" name="sthref47"></a>
+<p class="titleinexample">Example A-6 tmadmin psr and psc Output</p>
+<pre xml:space="preserve" class="oac_no_warn">
+$ tmadmin
+&gt; psr
+a.out Name Queue Name  Grp Name ID RqDone Load Done Current Service
+---------- ----------  -------- -- ------ --------- ---------------
+BBL        587345      SITE1     0   0            0 ( IDLE )
+server     00001.00001 GROUP1    1   2          100 ( IDLE )
+&gt; psc
+Service Name Routine Name a.out Name Grp Name ID  Machine # Done Status
+------------ ------------ ---------- -------- --  ------- ------ ------
+ADJUNCTBB    ADJUNCTBB    BBL        SITE1     0    SITE1      0 AVAIL
+ADJUNCTADMIN ADJUNCTADMIN BBL        SITE1     0    SITE1      0 AVAIL
+changecasev+ changecasev+ server     GROUP1    1    SITE1      2 AVAIL
+&gt; verbose
+Verbose now on.
+&gt; psc -g GROUP1
+    Service Name: changecasev1_0
+    Service Type: USER
+    Routine Name: changecasev1_0
+      a.out Name: /home/sdf/trpc/rpcsimp/server
+      Queue Name: 00001.00001
+      Process ID: 8602, Machine ID: SITE1
+        Group ID: GROUP1, Server ID: 1
+    Current Load: 50
+Current Priority: 50
+Current Trantime: 30
+   Requests Done: 2
+  Current status: AVAILABLE
+&gt; quit
+</pre></div>
+<!-- class="example" --></div>
+<!-- class="sect2" -->
+<div class="sect2"><a id="sthref48" name="sthref48"></a>
+<h3 class="sect2">Step 11: Shut Down the Configuration</h3>
+<p>Shut down the application by running the following:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+tmshutdown -y
+</pre></div>
+<!-- class="sect2" -->
+<div class="sect2"><a id="sthref49" name="sthref49"></a>
+<h3 class="sect2">Step 12: Clean Up the Created Files</h3>
+<p>Clean up the created files by running the following:</p>
+<pre xml:space="preserve" class="oac_no_warn">
+make -f rpcsimp.mk clean
+</pre></div>
+<!-- class="sect2" --></div>
+<!-- class="sect1" --></div>
+<!-- class="ind" -->
+<!-- Start Footer -->
+<div class="footer">
+<hr />
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100%">
+<col width="33%" />
+<col width="*" />
+<col width="33%" />
+<tr>
+<td valign="bottom">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="100">
+<col width="*" />
+<col width="48%" />
+<col width="48%" />
+<tr>
+<td>&nbsp;</td>
+<td align="center"><a href="txc05.htm"><img src="../../dcommon/gifs/leftnav.gif" alt="Previous" /><br />
+<span class="icon">Previous</span></a>&nbsp;</td>
+<td align="center"><a href="txxb.htm"><img src="../../dcommon/gifs/rightnav.gif" alt="Next" /><br />
+<span class="icon">Next</span></a></td>
+</tr>
+</table>
+</td>
+<td class="copyrightlogo"><img class="copyrightlogo" src="../../dcommon/gifs/oracle.gif" alt="Oracle Logo" /><br />
+<span class="copyrightlogo">Copyright&nbsp;&copy;&nbsp;1996, 2009,&nbsp;Oracle&nbsp;and/or&nbsp;its&nbsp;affiliates.&nbsp;All&nbsp;rights&nbsp;reserved.</span> <a href="../../dcommon/html/cpyr.htm"><br />
+<span class="copyrightlogo">Legal Notices</span></a></td>
+<td valign="bottom" align="right">
+<table class="simple oac_no_warn" summary="" cellspacing="0" cellpadding="0" width="225">
+<tr>
+<td>&nbsp;</td>
+<td align="center" valign="top"><a href="toc.htm"><img src="../../dcommon/gifs/toc.gif" alt="Go To Table Of Contents" /><br />
+<span class="icon">Contents</span></a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<!-- class="footer" -->
+</body>
+</html>

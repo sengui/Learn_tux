@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="40264" />
+<meta name="LOC_US_SRCFILE" content="//depot/ecs/tcp/v11gr1/imsug/fm/imsundr.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="08/24/10 07:24:27" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Understanding How Oracle TMA TCP for IMS Works</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">IMS User Guide
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="imsintr.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="imssec.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/imsug.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1024905"> </a>
+Understanding How Oracle TMA TCP for IMS Works
+</h1>
+<p class="pBody"><a name="wp1023855"> </a>
+The following information helps you understand how Oracle Tuxedo Mainframe Adapter for TCP (IMS) (hereafter referenced as TMA TCP for IMS) works:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023863"> </a><a href="imsundr.html#wp1023975"><span class="cHyperlink">
+Inbound Processing</span></a> </li>
+<li><a name="wp1023867"> </a><a href="imsundr.html#wp1024045"><span class="cHyperlink">
+Outbound Processing</span></a> </li>
+<li><a name="wp1023871"> </a><a href="imsundr.html#wp1024125"><span class="cHyperlink">
+How Oracle TMA TCP for IMS Is Initialized</span></a> </li>
+<li><a name="wp1023875"> </a><a href="imsundr.html#wp1024138"><span class="cHyperlink">
+Processing IMS Server Requests</span></a> </li>
+<li><a name="wp1024560"> </a><a href="imsundr.html#wp1024157"><span class="cHyperlink">
+Processing IMS Client Requests</span></a> </li>
+<li><a name="wp1024564"> </a><a href="imsundr.html#wp1024203"><span class="cHyperlink">
+How Oracle TMA TCP for IMS Shuts Down</span></a> </li>
+</ul></div>
+<p class="pBody"><a name="wp1024571"> </a>
+As shown in <a href="imsundr.html#wp1023895"><span class="cHyperlink">
+Figure&#160;2-1</span></a>, the TMA TCP for IMS gateway serves as the interface between IMS and remote Oracle Tuxedo Mainframe Adapter gateways via TCP/IP.
+</p>
+<div class="pFigureTitle"><a name="wp1023895"> </a>
+Figure&#160;2-1  IMS Processing
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1023972"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/imsug-02-1-1.gif" height="172" width="535" alt="IMS Processing" id="wp1023897"/></div><p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023975"> </a>
+Inbound Processing
+</h2><p class="pBody"><a name="wp1023976"> </a>
+The gateway &#8220;listens&#8221; for incoming TCP/IP connection requests from remote gateways. When a request is received, an <span style="font-style: italic">inbound session</span> is established over which the remote gateway can present requests for service.
+</p>
+<p class="pBody"><a name="wp1023981"> </a>
+As shown in <a href="imsundr.html#wp1023989"><span class="cHyperlink">
+Figure&#160;2-2</span></a>, when a request is received from a remote system, it is relayed to IMS which schedules the appropriate server transaction to process the request. If a response is required, the server transaction places the response in the IMS message queue. If the TMA TCP gateway is running as an OTMA client, the response is queued to the transaction pipe and delivered to the client through the cross-system coupling facility (XCF). The response is returned to the remote system over the TCP/IP connection.
+</p>
+<div class="pFigureTitle"><a name="wp1023989"> </a>
+Figure&#160;2-2  IMS Inbound Processing
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1024042"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/imsug-02-1-2.gif" height="285" width="539" alt="IMS Inbound Processing" id="wp1023991"/></div><p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024045"> </a>
+Outbound Processing
+</h2><p class="pBody"><a name="wp1024049"> </a>
+The TMA TCP for IMS product can also initiate TCP/IP connections with remote systems. These <span style="font-style: italic">outbound sessions</span> are used to send IMS client requests to remote systems for processing.
+</p>
+<p class="pBody"><a name="wp1024055"> </a>
+As shown in <a href="imsundr.html#wp1024064">Figure&#160;2-3</a>, an IMS client transaction initiates a request by placing a properly formatted message into the IMS message queue. When running the gateway, two IMS user exits must be installed to route messages to the OTMA client. (For more information about request/response processing, refer to the <a href="imsprog.html"><span class="cHyperlink">
+Programming Oracle TMA TCP for IMS</span></a> section, and for sample user exits, refer to the <a href="imsapjcl.html"><span class="cHyperlink">
+Sample JCL and User Exits</span></a> section.) The gateway retrieves the request and forwards it to the appropriate remote system for processing. When the response (if required) is received from the remote system, it is returned to IMS for delivery to a transaction that processes the response.
+</p>
+<div class="pFigureTitle"><a name="wp1024064"> </a>
+Figure&#160;2-3  IMS Outbound Processing
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1024119"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/imsug-02-1-3.gif" height="285" width="539" alt="IMS Outbound Processing" id="wp1024066"/></div><p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024125"> </a>
+How Oracle TMA TCP for IMS Is Initialized
+</h2><p class="pBody"><a name="wp1024129"> </a>
+The TMA TCP for IMS gateway is started by submitting the appropriate JCL (or as a started task) for an OTMA client. The following activities then occur.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1024130"> </a>The gateway (load module name, <code class="cCode">BEATCPI</code>) opens a message log (normally allocated to a disk dataset) into which all messages issued during the course of execution are written.</li>
+<li><a name="wp1024131"> </a>If the message log cannot be opened, the gateway immediately terminates; any messages are written to a <code class="cCode">SYSOUT</code> dataset by default.</li>
+<li><a name="wp1024132"> </a>The gateway obtains configuration information from a sequential dataset containing text statements. These statements define the operating environment for TMA TCP for IMS, including the definitions of local and remote gateways. If any configuration errors are detected during initialization, the gateway immediately terminates.</li>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024138"> </a>
+Processing IMS Server Requests
+</h2><p class="pBody"><a name="wp1024139"> </a>
+An IMS server request, also referred to as an <span style="font-style: italic">inbound request</span> (relative to IMS), is a request issued by a remote client for a service provided by an IMS server transaction.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1024143"> </a>When TMA TCP for IMS receives a request from a remote system, a <span style="font-style: italic">request message</span> is formatted and is inserted into the IMS message queue, destined for the specified IMS server transaction (the <span style="font-style: italic">service name</span> for the request corresponds to the <span style="font-style: italic">transaction code</span> of the IMS server transaction that handles the request).</li>
+<li><a name="wp1024145"> </a>IMS schedules the specified server transaction to process the request message.</li>
+<li><a name="wp1024146"> </a>The server transaction retrieves the request message from the IMS message queue and performs the indicated processing.</li>
+<li><a name="wp1024147"> </a>If a response is required, the server transaction formats a <span style="font-style: italic">response message</span> and inserts it into the IMS message queue, destined for the TMA TCP for IMS gateway.</li>
+<li><a name="wp1024154"> </a>The TMA TCP for IMS gateway retrieves the response message from IMS and returns it to the requesting remote system via the TCP/IP connection.</li>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024157"> </a>
+Processing IMS Client Requests
+</h2><p class="pBody"><a name="wp1024159"> </a>
+An IMS client request, also referred to as an <span style="font-style: italic">outbound request</span> (relative to IMS), is a request issued by an IMS application message processing program (MPP) for a service provided by a remote system.
+</p>
+<h3 class="pHeading2"><a name="wp1024160"> </a>
+Two Phases of an IMS Client Request
+</h3>
+<p class="pBody"><a name="wp1024161"> </a>
+Because of the design philosophy of IMS, processing of an IMS client request occurs in two distinct &#8220;phases.&#8221; 
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1024162"> </a>A <span style="font-style: italic">request phase </span>wherein<span style="font-style: italic"> </span>the request is issued during the execution of one transaction (T1).</li>
+<li><a name="wp1024163"> </a>A corresponding <span style="font-style: italic">response phase</span> wherein the response is processed during the execution of a second transaction (T2).</li>
+</ol></div>
+<p class="pBody"><a name="wp1024164"> </a>
+Transactions T1 and T2 may in fact be the same transaction ID (with appropriate logic to perform the required request or response processing, based on execution context). T1 and T2 must be two distinct transaction executions. This distinction is necessary because T1 can only initiate a request; it cannot &#8220;wait&#8221; on the response to that request because the architecture and design philosophy of IMS does not permit this.
+</p>
+<h3 class="pHeading2"><a name="wp1024168"> </a>
+How Oracle TMA TCP for IMS Processes an IMS Client Request
+</h3>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1024169"> </a>An IMS transaction issues a client request by inserting a properly formatted message into the IMS message queue specifying the TMA TCP for IMS OTMA client (through the use of the appropriate IMS user exit) as the destination.</li>
+<a name="wp1024175"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For information about the IMS user exits, refer to the <a href="imsapjcl.html"><span class="cHyperlink">
+Sample JCL and User Exits</span></a> section.</td>
+</tr>
+</table>
+
+<li><a name="wp1024177"> </a>Once the request has been inserted into the Message Queue, the requester is effectively &#8220;decoupled&#8221; from the request; that is, processing of the request by TMA TCP for IMS proceeds asynchronously with respect to execution of the requesting transaction. The request includes the name (transaction code) of a <span style="font-style: italic">response transaction</span> that is scheduled by TMA TCP for IMS to process the response to the request.</li>
+<li><a name="wp1024187"> </a>The TMA TCP for IMS gateway retrieves the request from IMS and validates it for proper format. If any errors are detected, the specified response transaction is immediately scheduled with appropriate return codes.</li>
+<li><a name="wp1024188"> </a>The requested service name is located in the directory of services offered by remote systems to which TMA TCP for IMS has access. If the requested service cannot be found, or the required remote gateway is currently inaccessible, an error is recognized and the response transaction is immediately scheduled with appropriate return codes.</li>
+<li><a name="wp1024192"> </a>If a remote service provider is successfully identified for the request, an outbound session is established with the remote system (if one is not available) and the request is sent to the remote system for processing.</li>
+<li><a name="wp1024196"> </a>If a response <span style="font-style: italic">is</span> required, TMA TCP for IMS schedules the response transaction (with any response data) when the response is received. </li>
+<li><a name="wp1024197"> </a>Eventually, if no response is received from the remote system, the request <span style="font-style: italic">times out</span>, an error is recognized, and the response transaction is scheduled with appropriate return codes.</li>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024203"> </a>
+How Oracle TMA TCP for IMS Shuts Down
+</h2><p class="pBody"><a name="wp1024207"> </a>
+Once started, TMA TCP for IMS normally executes as a non-ending job, servicing inbound requests from remote systems and outbound requests originated by IMS client transactions.
+</p>
+<p class="pBody"><a name="wp1024208"> </a>
+Normal termination is initiated when a system operator issues the <code class="cCode">SHUTDOWN</code> command. In response to a <code class="cCode">SHUTDOWN</code> command, TMA TCP for IMS performs the following tasks.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1024213"> </a>Stops accepting new inbound TCP/IP connection requests.</li>
+<li><a name="wp1024214"> </a>Terminates active inbound sessions.</li>
+<li><a name="wp1024215"> </a>Terminates active outbound sessions.</li>
+<li><a name="wp1024216"> </a>Returns control to z/OS.</li>
+</ol></div>
+<a name="wp1024217"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Pending or in progress transactions are not allowed to complete prior to the system shutting down.</td>
+</tr>
+</table>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="imsundr.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="imsintr.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="imssec.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

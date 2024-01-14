@@ -1,0 +1,4198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/snmpmref/fm/8appqmib.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:44:41" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Application Queue MIB</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">SNMP Agent MIB Reference
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="7wksmib.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="9evtbrok.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/snmpmref.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp386117"> </a>
+Application Queue MIB
+</h1>
+<p class="pBody"><a name="wp374215"> </a>
+Oracle Tuxedo systems incorporate the capability to use application queues for time-independent communication. The Tuxedo Application Queue MIB provides the administrative environment required for managing and controlling access to application queues. The Application Queue MIB defines the structure of the application queues. 
+</p>
+<p class="pBody"><a name="wp371546"> </a>
+In Tuxedo applications, messages are stored on a queue, and queues are defined within a particular queue space. Queueing and dequeuing is done within a transaction. The Application Queue MIB consists of five different groups for defining queue access, queues, messages, queues spaces, and queue transactions.
+</p>
+<p class="pBody"><a name="wp371547"> </a>
+The Application Queue MIB consists of the following groups.
+</p>
+<p class="pGraphic"><a name="wp371588"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp371550table371548">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp371550"> </a>
+<span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Group Name</span>
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp371552"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371557"> </a>
+<a href="8appqmib.html#wp371591"><code class="cCode">tuxTAppQctrl</code></a>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371559"> </a>
+Access control to application queues
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371564"> </a>
+<a href="8appqmib.html#wp371734"><code class="cCode">tuxTAppQTbl</code></a>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371566"> </a>
+Application queues within a queue space 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371571"> </a>
+<a href="8appqmib.html#wp372054"><code class="cCode">tuxTAppQmsgTbl</code></a>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371573"> </a>
+Messages within an application queue 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371578"> </a>
+<a href="8appqmib.html#wp372290"><code class="cCode">tuxTQspaceTbl</code></a>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371580"> </a>
+Application queue spaces 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371585"> </a>
+<a href="8appqmib.html#wp372904"><code class="cCode">tuxTQtransTbl</code></a>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371587"> </a>
+Transactions associated with application queues
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp371591"> </a>
+tuxTAppQctrl
+</h2><p class="pBody"><a name="wp371592"> </a>
+The <code class="cCode">tuxTAppQctrl</code> group enables controlled access to all Application Queue related MIB groups.
+</p>
+<p class="pGraphic"><a name="wp371638"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp371595table371593">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp371595"> </a>
+Object Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp371597"> </a>
+Object ID
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371599"> </a>
+<code class="cCode">tuxTAppQctrlLmid</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371601"> </a>
+.1.3.6.1.4.1.140.300.12.5.1
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371603"> </a>
+<code class="cCode">tuxTAppQctrlQmConfig</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371605"> </a>
+.1.3.6.1.4.1.140.300.12.5.2
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371607"> </a>
+<code class="cCode">tuxTAppQctrlSpaceName</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371609"> </a>
+.1.3.6.1.4.1.140.300.12.5.3
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371611"> </a>
+<code class="cCode">tuxTAppQctrlQname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371613"> </a>
+.1.3.6.1.4.1.140.300.12.5.4
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371615"> </a>
+<code class="cCode">tuxTAppQctrlMsgLoPrio</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371617"> </a>
+.1.3.6.1.4.1.140.300.12.5.5
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371619"> </a>
+<code class="cCode">tuxTAppQctrlMsgHiPrio</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371621"> </a>
+.1.3.6.1.4.1.140.300.12.5.6
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371623"> </a>
+<code class="cCode">tuxTAppQctrlMsgEndTime</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371625"> </a>
+.1.3.6.1.4.1.140.300.12.5.7
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371627"> </a>
+<code class="cCode">tuxTAppQctrlMsgStartTime</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371629"> </a>
+.1.3.6.1.4.1.140.300.12.5.8
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371631"> </a>
+<code class="cCode">tuxTAppQctrlMsgExpireEndTime</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371633"> </a>
+.1.3.6.1.4.1.140.300.12.5.20
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371635"> </a>
+<code class="cCode">tuxTAppQctrlMsgExpireStartTime</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371637"> </a>
+.1.3.6.1.4.1.140.300.12.5.30
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371640"> </a>
+tuxTAppQctrlLmid
+</h3>
+<h4 class="pHeading3"><a name="wp371641"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371642"> </a>
+<code class="cCode">INTEGER { local(1), all(2) }</code> 
+</p>
+<h4 class="pHeading3"><a name="wp371643"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371644"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371645"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371646"> </a>
+This applies to all Application Queue related MIB groups. This object value controls the machines for which the values are returned.
+</p>
+<p class="pBody"><a name="wp371647"> </a>
+If the value is <code class="cCode">local(1)</code>, only the local host where Oracle SNMP Agent is running is considered; alternatively, all LMIDs known to the application are considered if the value is <code class="cCode">all(2)</code>.
+</p>
+<p class="pBody"><a name="wp371648"> </a>
+The default for this object is <code class="cCode">local(1)</code>. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371650"> </a>
+tuxTAppQctrlQmConfig
+</h3>
+<h4 class="pHeading3"><a name="wp371651"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371652"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..78</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp371653"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371654"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371655"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371656"> </a>
+This applies to all Application Queue related MIB groups. This object value controls the device for which the values are returned. 
+</p>
+<p class="pBody"><a name="wp371657"> </a>
+The default for this object is &#8220;*&#8221;, in which case all known devices (which are a part of some group) are considered. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371659"> </a>
+tuxTAppQctrlSpaceName
+</h3>
+<h4 class="pHeading3"><a name="wp371660"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371661"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..15</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp371662"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371663"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371664"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371665"> </a>
+This applies to all Application Queue related MIB groups. This object value controls the queue space for which the values are returned. 
+</p>
+<p class="pBody"><a name="wp371666"> </a>
+The default for this object is &#8220;*&#8221;, in which case all queue spaces for the devices (qualified by <code class="cCode">tuxTAppQctrlQmConfig</code>) are considered. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371668"> </a>
+tuxTAppQctrlQname
+</h3>
+<h4 class="pHeading3"><a name="wp371669"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371670"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..127</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp371671"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371672"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371673"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371674"> </a>
+This object value controls the queue for which the values are returned. This applies to <code class="cCode">tuxTAppQTbl</code> and <code class="cCode">tuxTAppQmsgTbl</code>. 
+</p>
+<p class="pBody"><a name="wp371675"> </a>
+The default for this object is &#8220;*&#8221;, in which case all queues for the devices (qualified by <code class="cCode">tuxTAppQctrlQmConfig</code>) and queue spaces (qualified by <code class="cCode">tuxTAppQctrlSpaceName</code>) are considered. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371677"> </a>
+tuxTAppQctrlMsgLoPrio
+</h3>
+<h4 class="pHeading3"><a name="wp371678"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371679"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp371680"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371681"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371682"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371683"> </a>
+This object applies only to <code class="cCode">tuxTAppQmsgTbl</code>. The lowest priority within which to search for occurrences of <code class="cCode">tuxTAppQmsgTbl</code> instances. This object value is valid only for PRIO-based queues. By default, the minimum value of priority is considered. To revert to the default setting, set this object to <code class="cCode">0</code>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371685"> </a>
+tuxTAppQctrlMsgHiPrio
+</h3>
+<h4 class="pHeading3"><a name="wp371686"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371687"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp371688"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371689"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371690"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371691"> </a>
+This object applies only to <code class="cCode">tuxTAppQmsgTbl</code>. The highest priority within which to search for occurrences of <code class="cCode">tuxTAppQmsgTbl</code> instances. This object value is valid only for PRIO-based queues. By default, the maximum value of priority is considered. To revert to the default setting, set this object to <code class="cCode">0</code>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371693"> </a>
+tuxTAppQctrlMsgEndTime
+</h3>
+<h4 class="pHeading3"><a name="wp371694"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371695"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..15</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp371696"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371697"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371698"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371699"> </a>
+This object applies only to <code class="cCode">tuxTAppQmsgTbl</code>. The end time within which to search for occurrences of <code class="cCode">tuxTAppQmsgTbl</code> instances. The range is inclusive. This object value is valid only for TIME-based queues. The default value is the maximum number possible on that machine. To use the default setting, set this object to &#8220;*&#8221;.
+</p>
+<h4 class="pDefTerm"><a name="wp371700"> </a>
+<code class="cCode">YY[MM[DD[hh[mm[ss]]]]]</code>
+</h4><div class="pDefPara"><a name="wp371701"> </a>
+Specifies the year, month, date, hour, minute, and second respectively. Any value which is not specified defaults to its minimum value (e.g., 9506 is taken as 950601000000). The years 00 through 37 are treated as 2000 through 2037, 70 through 99 as 1970 through 1999, and 38 through 69 are invalid.
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371703"> </a>
+tuxTAppQctrlMsgStartTime
+</h3>
+<h4 class="pHeading3"><a name="wp371704"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371705"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..15</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp371706"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371707"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371708"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371709"> </a>
+This object applies only to <code class="cCode">tuxTAppQmsgTbl</code>. The start time within which to search for occurrences of <code class="cCode">tuxTAppQmsgTbl</code> instances. The range is inclusive. This object value is valid only for TIME-based queues. By default, the minimum time value is considered to be <code class="cCode">0</code>. To use the default setting, set this object to &#8220;*&#8221;. 
+</p>
+<h4 class="pDefTerm"><a name="wp371710"> </a>
+<code class="cCode">YY[MM[DD[hh[mm[ss]]]]]</code>
+</h4><div class="pDefPara"><a name="wp371711"> </a>
+Specifies the year, month, date, hour, minute, and second respectively. Any value which is not specified defaults to its minimum value (e.g., 9506 is taken as 950601000000). The years 00 through 37 are treated as 2000 through 2037, 70 through 99 as 1970 through 1999, and 38 through 69 are invalid.
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371713"> </a>
+tuxTAppQctrlMsgExpireEndTime
+</h3>
+<h4 class="pHeading3"><a name="wp371714"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371715"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..12</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp371716"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371717"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371718"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371719"> </a>
+This object applies only to <code class="cCode">tuxTAppQmsgTbl</code>. The expire end time within which to search for occurrences of <code class="cCode">tuxTAppQmsgTbl</code> instances. The range is inclusive. This object value is valid only for TIME-based queues. The default value is the maximum number possible on that machine. To use the default setting, set this object to &#8220;*&#8221;.
+</p>
+<h4 class="pDefTerm"><a name="wp371720"> </a>
+<code class="cCode">YY[MM[DD[hh[mm[ss]]]]]</code>
+</h4><div class="pDefPara"><a name="wp371721"> </a>
+Specifies the year, month, date, hour, minute, and second respectively. Any value which is not specified defaults to its minimum value (e.g., 9506 is taken as 950601000000). The years 00 through 37 are treated as 2000 through 2037, 70 through 99 as 1970 through 1999, and 38 through 69 are invalid.
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371723"> </a>
+tuxTAppQctrlMsgExpireStartTime
+</h3>
+<h4 class="pHeading3"><a name="wp371724"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371725"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..12</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp371726"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371727"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371728"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371729"> </a>
+This object applies only to <code class="cCode">tuxTAppQmsgTbl</code>. The Expire start time within which to search for occurrences of <code class="cCode">tuxTAppQmsgTbl</code> instances. The range is inclusive. This object value is valid only for TIME-based queues. By default, the minimum time value is considered to be <code class="cCode">0</code>. To use the default setting, set this object to &#8220;*&#8221;. 
+</p>
+<h4 class="pDefTerm"><a name="wp371730"> </a>
+<code class="cCode">YY[MM[DD[hh[mm[ss]]]]]</code>
+</h4><div class="pDefPara"><a name="wp371731"> </a>
+Specifies the year, month, date, hour, minute, and second respectively. Any value which is not specified defaults to its minimum value (e.g., 9506 is taken as 950601000000). The years 00 through 37 are treated as 2000 through 2037, 70 through 99 as 1970 through 1999, and 38 through 69 are invalid.
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp371734"> </a>
+tuxTAppQTbl
+</h2><p class="pBody"><a name="wp371735"> </a>
+The <code class="cCode">tuxTAppQTbl</code> group contains objects that represent application queues. One or more application queues can exist in a single application queue space. Objects in this table are only accessible through a Tuxedo SNMP agent installed on the local machine.
+</p>
+<p class="pBody"><a name="wp371737"> </a>
+Creation of a New Queue &#8212; For creating a new queue(row), in this group the <code class="cCode">SET</code> request should have the value of <code class="cCode">tuxTAppQname</code>, <code class="cCode">tuxTAppQspaceName</code>, and <code class="cCode">tuxTAppQmConfig</code>. Also the value of <code class="cCode">tuxTAppQgrpNo</code> (which is a part of the index) should be the corresponding group number for that queue space or &#8220;40000&#8221; (if no such group exists).
+</p>
+<a name="wp371738"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For this and all other Application Queue related MIB groups, there is a control MIB which can be used to filter the data returned as a part of all Application Queue related MIB groups. Refer to <code class="cCode">tuxTAppQctrl</code>.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp371739"> </a>
+To create a new row in this table, issue a SET request that specifies at least the values for <code class="cCode">tuxTAppQname</code>, <code class="cCode">tuxTAppQspaceName</code>, and <code class="cCode">tuxTAppQmConfig</code>.
+</p>
+<p class="pGraphic"><a name="wp371833"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp371742table371740">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp371742"> </a>
+Object Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp371744"> </a>
+Object ID
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371746"> </a>
+<code class="cCode">tuxTAppQname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371748"> </a>
+.1.3.6.1.4.1.140.300.12.1.1.1
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371750"> </a>
+<code class="cCode">tuxTAppQspaceName</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371752"> </a>
+.1.3.6.1.4.1.140.300.12.1.1.2
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371754"> </a>
+<code class="cCode">tuxTAppQmConfig</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371756"> </a>
+.1.3.6.1.4.1.140.300.12.1.1.3
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371758"> </a>
+<code class="cCode">tuxTAppQlmid</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371760"> </a>
+.1.3.6.1.4.1.140.300.12.1.1.4
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371762"> </a>
+<code class="cCode">tuxTAppQgrpNo</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371764"> </a>
+.1.3.6.1.4.1.140.300.12.1.1.5
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371766"> </a>
+<code class="cCode">tuxTAppQstate</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371768"> </a>
+.1.3.6.1.4.1.140.300.12.1.1.6
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371770"> </a>
+<code class="cCode">tuxTAppQorder</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371772"> </a>
+.1.3.6.1.4.1.140.300.12.1.1.7
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371774"> </a>
+<code class="cCode">tuxTAppQcmd</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371776"> </a>
+.1.3.6.1.4.1.140.300.12.1.1.8
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371778"> </a>
+<code class="cCode">tuxTAppQcmdHw</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371780"> </a>
+.1.3.6.1.4.1.140.300.12.1.1.9
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371782"> </a>
+<code class="cCode">tuxTAppQcmdLw</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371784"> </a>
+.1.3.6.1.4.1.140.300.12.1.1.10
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371786"> </a>
+<code class="cCode">tuxTAppQmaxRetries</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371788"> </a>
+.1.3.6.1.4.1.140.300.12.1.1.11
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371790"> </a>
+<code class="cCode">tuxTAppQoutOfOrder</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371792"> </a>
+.1.3.6.1.4.1.140.300.12.1.1.12
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371794"> </a>
+<code class="cCode">tuxTAppQretryDelay</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371796"> </a>
+.1.3.6.1.4.1.140.300.12.1.1.13
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371798"> </a>
+<code class="cCode">tuxTAppQcurBlocks</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371800"> </a>
+.1.3.6.1.4.1.140.300.12.1.1.14
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371802"> </a>
+<code class="cCode">tuxTAppQcurMsg</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371804"> </a>
+.1.3.6.1.4.1.140.300.12.1.1.15
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371806"> </a>
+<code class="cCode">tuxTAppQDefExpirationTime</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371808"> </a>
+.1.3.6.1.4.1.140.300.12.1.1.30
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371810"> </a>
+<code class="cCode">tuxTAppQDefDeliveryPolicy</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371812"> </a>
+.1.3.6.1.4.1.140.300.12.1.1.40
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371814"> </a>
+<code class="cCode">tuxTAppQCmdNonPersist</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371816"> </a>
+.1.3.6.1.4.1.140.300.12.1.1.50
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371818"> </a>
+<code class="cCode">tuxTAppQCmdNonPersistHw</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371820"> </a>
+.1.3.6.1.4.1.140.300.12.1.1.60
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371822"> </a>
+<code class="cCode">tuxTAppQCmdNonPersistLw</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371824"> </a>
+.1.3.6.1.4.1.140.300.12.1.1.70
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371826"> </a>
+<code class="cCode">tuxTAppQCurNonPersistBytes</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371828"> </a>
+.1.3.6.1.4.1.140.300.12.1.1.80
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp371830"> </a>
+<code class="cCode">tuxTAppQCurNonPersistMsg</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp371832"> </a>
+.1.3.6.1.4.1.140.300.12.1.1.90
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371835"> </a>
+tuxTAppQname
+</h3>
+<h4 class="pHeading3"><a name="wp371836"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371837"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..127</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp371838"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371839"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371840"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371841"> </a>
+Name of the application queue. 
+</p>
+<a name="wp371842"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371844"> </a>
+tuxTAppQspaceName
+</h3>
+<h4 class="pHeading3"><a name="wp371845"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371846"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..15</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp371847"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371848"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371849"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371850"> </a>
+Name of the application queue space containing the application queue. 
+</p>
+<a name="wp371851"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371853"> </a>
+tuxTAppQmConfig
+</h3>
+<h4 class="pHeading3"><a name="wp371854"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371855"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..78</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp371856"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371857"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371858"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371859"> </a>
+Absolute pathname of the file or device where the application queue space is located.
+</p>
+<a name="wp371860"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371862"> </a>
+tuxTAppQlmid
+</h3>
+<h4 class="pHeading3"><a name="wp371863"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371864"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..30</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp371865"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371866"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371867"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371868"> </a>
+Identifier of the logical machine where the application queue space is located.
+</p>
+<a name="wp371869"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371871"> </a>
+tuxTAppQgrpNo
+</h3>
+<h4 class="pHeading3"><a name="wp371872"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371873"> </a>
+<code class="cCode">INTEGER (1..29999)</code>
+</p>
+<h4 class="pHeading3"><a name="wp371874"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371875"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371876"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371877"> </a>
+Group number of any server group for which this queue is a resource manager, in other words that group&#8217;s openinfo string <code class="cCode">tuxTgroupOpenInfo</code> contains the device name and queue space name for this queue.
+</p>
+<a name="wp371878"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371880"> </a>
+tuxTAppQstate
+</h3>
+<h4 class="pHeading3"><a name="wp371881"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371882"> </a>
+<code class="cCode">INTEGER { valid(1), invalid(2) }</code>
+</p>
+<h4 class="pHeading3"><a name="wp371883"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371884"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371885"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371886"> </a>
+The values for <code class="cCode">GET</code> and <code class="cCode">SET</code> operations are as follows:
+</p>
+<h4 class="pDefTerm"><a name="wp371887"> </a>
+<code class="cCode">GET: valid(1)</code>
+</h4><div class="pDefPara"><a name="wp371888"> </a>
+A <code class="cCode">GET</code> operation retrieves information about the selected application queues. The following list describes the meaning of the <code class="cCode">tuxTAppQstate</code> object returned in response to a <code class="cCode">GET</code> request. States not listed are not returned.
+</div>
+<h4 class="pDefTerm"><a name="wp371889"> </a>
+<code class="cCode">valid(1)</code>
+</h4><div class="pDefPara"><a name="wp371890"> </a>
+The specified queue exists.
+</div>
+<h4 class="pDefTerm"><a name="wp371891"> </a>
+<code class="cCode">SET: invalid(2)</code>
+</h4><div class="pDefPara"><a name="wp371892"> </a>
+A <code class="cCode">SET</code> operation changes characteristics of the selected application queue or creates a new queue. The following list describes the meaning of the <code class="cCode">tuxTAppQstate</code> object returned by a <code class="cCode">SET</code> request. States not listed cannot be set.
+</div>
+<h4 class="pDefTerm"><a name="wp371893"> </a>
+<code class="cCode">invalid(2)</code>
+</h4><div class="pDefPara"><a name="wp371894"> </a>
+Delete the specified queue. If the queue space has processes attached to it, the queue is not deleted. In addition, if the queue has messages in it, it is not deleted. Successful return leaves the object in the <code class="cCode">invalid(2)</code> state.
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371896"> </a>
+tuxTAppQorder
+</h3>
+<h4 class="pHeading3"><a name="wp371897"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371898"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..30</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp371899"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371900"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371901"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371902"> </a>
+The order in which messages in the queue are to be processed. Legal values are <code class="cCode">PRIO</code> or <code class="cCode">TIME</code>, followed by a comma, optionally followed by another occurrence of <code class="cCode">PRIO</code> or <code class="cCode">TIME</code>, followed by one of the values <code class="cCode">LIFO</code> or <code class="cCode">FIFO</code>. If neither <code class="cCode">FIFO</code> nor <code class="cCode">LIFO</code> is specified, <code class="cCode">FIFO</code> is assumed. If nothing is specified when a queue is created, the default is <code class="cCode">FIFO</code>. For example, these are some legal settings:
+</p>
+<a name="wp371903"> </a><div class="pPreformatted"><pre>PRIO<br />PRIO,TIME,LIFO<br />TIME,PRIO,FIFO<br />TIME,FIFO</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371905"> </a>
+tuxTAppQcmd
+</h3>
+<h4 class="pHeading3"><a name="wp371906"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371907"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">0..127</code>)) (up to 78 bytes for Oracle Tuxedo 8.0 or earlier)
+</p>
+<h4 class="pHeading3"><a name="wp371908"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371909"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371910"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371911"> </a>
+The command to be automatically executed when the high water mark, <code class="cCode">tuxTAppQcmdHw</code>, is reached. The command is re-executed when the high water mark is reached again after the low water mark, <code class="cCode">tuxTAppQcmdLw</code>, has been reached. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371913"> </a>
+tuxTAppQcmdHw
+</h3>
+<h4 class="pHeading3"><a name="wp371914"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371915"> </a>
+<code class="cCodeEmphasis">DisplayString</code> 
+</p>
+<h4 class="pHeading3"><a name="wp371916"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371917"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371918"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371919"> </a>
+The high water mark. Refer to <code class="cCode">tuxTAppQcmdLw</code> for further information.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371921"> </a>
+tuxTAppQcmdLw
+</h3>
+<h4 class="pHeading3"><a name="wp371922"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371923"> </a>
+<code class="cCodeEmphasis">DisplayString</code> 
+</p>
+<h4 class="pHeading3"><a name="wp371924"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371925"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371926"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371927"> </a>
+The low water marks that control the automatic execution of the command specified in the <code class="cCode">tuxTAppQcmd</code> object. Each is an integer greater than or equal to zero optionally followed by one of the following keyletters. The keyletters must be consistent for <code class="cCode">tuxTAppQcmdHw</code> and <code class="cCode">tuxTAppQcmdLw</code>. 
+</p>
+<h4 class="pDefTerm"><a name="wp371928"> </a>
+<code class="cCode">b</code>
+</h4><div class="pDefPara"><a name="wp371929"> </a>
+The high and low water marks pertain to the number of bytes used by messages in the queue.
+</div>
+<h4 class="pDefTerm"><a name="wp371930"> </a>
+<code class="cCode">B</code>
+</h4><div class="pDefPara"><a name="wp371931"> </a>
+The high and low water marks pertain to the number of blocks used by messages in the queue.
+</div>
+<h4 class="pDefTerm"><a name="wp371932"> </a>
+<code class="cCode">m</code>
+</h4><div class="pDefPara"><a name="wp371933"> </a>
+The high and low water marks pertain to the number of messages in the queue.
+</div>
+<h4 class="pDefTerm"><a name="wp371934"> </a>
+<code class="cCode">%</code>
+</h4><div class="pDefPara"><a name="wp371935"> </a>
+The high and low water marks are expressed in terms of a percentage of queue capacity.
+</div>
+<p class="pBody"><a name="wp371936"> </a>
+For example, if <code class="cCode">tuxTAppQcmdLw</code> is 50m and <code class="cCode">tuxTAppQcmdHw</code> is 100m, then the command specified in <code class="cCode">tuxTAppQcmd</code> is executed when 100 messages are on the queue, and it is not executed again until the queue is drained below 50 messages and is filled again to 100 messages.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371938"> </a>
+tuxTAppQmaxRetries
+</h3>
+<h4 class="pHeading3"><a name="wp371939"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371940"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp371941"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371942"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371943"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371944"> </a>
+The maximum number of retries for a failed queue message. When the number of retries is exhausted, the message is placed on the error queue of the associated application queue space. If there is no error queue, the message is dropped. The default is zero.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371946"> </a>
+tuxTAppQoutOfOrder
+</h3>
+<h4 class="pHeading3"><a name="wp371947"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371948"> </a>
+<code class="cCode">INTEGER { none(1), top(2), msgid(3) }</code> 
+</p>
+<h4 class="pHeading3"><a name="wp371949"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371950"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371951"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371952"> </a>
+The way in which out-of-order message processing is to be handled. The default is <code class="cCode">none(1)</code>. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371954"> </a>
+tuxTAppQretryDelay
+</h3>
+<h4 class="pHeading3"><a name="wp371955"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371956"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp371957"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371958"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371959"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371960"> </a>
+The delay, in seconds, between retries for a failed queue message. The default is zero. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371962"> </a>
+tuxTAppQcurBlocks
+</h3>
+<h4 class="pHeading3"><a name="wp371963"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371965"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp371966"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371967"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp371968"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371969"> </a>
+The number of disk pages currently consumed by the queue. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371971"> </a>
+tuxTAppQcurMsg
+</h3>
+<h4 class="pHeading3"><a name="wp371972"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371973"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp371974"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371975"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp371976"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371977"> </a>
+The number of messages currently in the queue.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371979"> </a>
+tuxTAppQDefExpirationTime
+</h3>
+<h4 class="pHeading3"><a name="wp371980"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371981"> </a>
+<code class="cCode">DisplayString</code>
+</p>
+<h4 class="pHeading3"><a name="wp371982"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371983"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371984"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371985"> </a>
+This object specifies an expiration time for messages enqueued with no explicit expiration time. The expiration time can be either a relative expiration time or none. The relative expiration time is determined by associating a fixed amount of time with a message after the message arrives at the queue manager process. When a message&#8217;s expiration time is reached and the message has not been dequeued or administratively deleted, all resources associated with the message are reclaimed by the system and statistics are updated. If a messages expires during a transaction, the expiration does not cause the transaction to fail. Messages that expire while being enqueued or dequeued within a transaction are removed from the queue when the transaction ends. There is no notification that the message has expired. If no default expiration time is specified for a queue, the message without an explicit expiration time does not expire. When the queue&#8217;s expiration time is modified, the expiration times of messages that were in the queue before the modification are not changed.
+</p>
+<p class="pBody"><a name="wp371986"> </a>
+The format is <code class="cCode">+seconds</code>, where <code class="cCode">seconds</code> is the number of seconds allowed to lapse between the time that the queue manager successfully completes the operation and the time that the message is to expire. If <code class="cCode">seconds</code> is set to zero (0), the message expires immediately.
+</p>
+<p class="pBody"><a name="wp371987"> </a>
+The value of this object may also be set to the string &#8220;<code class="cCode">none</code>.&#8221; The <code class="cCode">none</code> string indicates that messages enqueued to the queue with no explicit expiration time do not expire. You can change the expiration time for messages already in a queue with the <code class="cCode">tuxTAppQmsgExpireTime</code> object of the <code class="cCode">tuxTAppQmsgTbl</code> group.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp371989"> </a>
+tuxTAppQDefDeliveryPolicy
+</h3>
+<h4 class="pHeading3"><a name="wp371990"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp371991"> </a>
+<code class="cCode">INTEGER { persist(1), non-persist(2) }</code>
+</p>
+<h4 class="pHeading3"><a name="wp371992"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp371993"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp371994"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp371995"> </a>
+This object specifies the default delivery policy for the queue when no delivery mode is specified for a message enqueued to the queue. When the value is &#8220;<code class="cCode">persist,</code>&#8221; messages enqueued to the queue without an explicitly specified delivery mode are delivered using the persistent (disk-based) delivery method. When the value is non-persist, messages enqueued to the queue without an explicitly specified delivery method are delivered using the non-persistent (in memory) delivery method. When a queue&#8217;s default delivery policy is modified, the delivery quality of service of messages that are in the queue before the modification are not changed. If the queue being modified is the reply queue named for any messages currently in the queue space, the reply quality of service is not changed for those messages as a result of changing the default delivery policy of the queue.
+</p>
+<p class="pBody"><a name="wp380801"> </a>
+For non-persistent delivery, if the memory area is exhausted or fragmented so that a message cannot be enqueued, the enqueuing operation fails, even if there is sufficient persistent storage for the message. Similarly, if the persistent storage area is exhausted or fragmented so that a message cannot be enqueued, the enqueuing operation fails, even if there is sufficient non-persistent storage for the message. If the <code class="cCode">tuxTQspaceMemNonPersist</code> object of the <code class="cCode">tuxTQspaceTbl</code> group is zero (0) for a queue space, no space is reserved for non -persistent messages. In such a case, any attempt to enqueue a non-persistent message fails. This type of failure results, for example, when no delivery quality of service has been specified for a message and the <code class="cCode">tuxTAppQDefDeliveryPolicy</code> object for the target queue has been set to &#8220;non-persist.&#8221;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp380803"> </a>
+tuxTAppQCmdNonPersist
+</h3>
+<h4 class="pHeading3"><a name="wp380804"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372000"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..127</code>)) (up to 78 bytes for Oracle Tuxedo 8.0 or earlier)
+</p>
+<h4 class="pHeading3"><a name="wp372001"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372002"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372003"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372004"> </a>
+This object specifies the command to be executed automatically when the high-water mark for non -persistent (memory-based delivery) messages, <code class="cCode">tuxTAppQCmdNonPersistHw</code>, is reached. The command is re-executed when the high-water mark is reached again after the low-water mark for non-persistent (memory-based delivery) messages, <code class="cCode">tuxTAppQCmdNonPersistLw</code>, has been reached.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372006"> </a>
+tuxTAppQCmdNonPersistHw
+</h3>
+<h4 class="pHeading3"><a name="wp372007"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372008"> </a>
+<code class="cCodeEmphasis">DisplayString</code>
+</p>
+<h4 class="pHeading3"><a name="wp372009"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372010"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372011"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372012"> </a>
+These objects specify the high- and low-water marks that control the automatic execution of the command specified in the<code class="cCode"> tuxTAppQCmdNonPersist</code> object. Each is an integer greater than or equal to zero, followed by one of the following keyletters. The keyletters must be consistent for <code class="cCode">tuxTAppQCmdNonPersistHw</code> and <code class="cCode">tuxTAppQCmdNonPersistLw</code>.
+</p>
+<h4 class="pDefTerm"><a name="wp372013"> </a>
+<code class="cCode">b</code>
+</h4><div class="pDefPara"><a name="wp372014"> </a>
+The high- and low-water marks are expressed as the number of bytes used by non-persistent (in-memory) messages in the queue.
+</div>
+<h4 class="pDefTerm"><a name="wp372015"> </a>
+<code class="cCode">B</code>
+</h4><div class="pDefPara"><a name="wp372016"> </a>
+The high- and low-water marks are expressed as the number of blocks used by non-persistent (in-memory) messages in the queue.
+</div>
+<h4 class="pDefTerm"><a name="wp372017"> </a>
+<code class="cCode">%</code>
+</h4><div class="pDefPara"><a name="wp372018"> </a>
+The high- and low-water marks are expressed as a percentage of the shared memory capacity reserved for non-persistent messages in the queue space used by the queue.
+</div>
+<p class="pBody"><a name="wp372019"> </a>
+The messages threshold type specified through the <code class="cCode">tuxTAppQCmdHw</code> and <code class="cCode">tuxTAppQcmdLw</code> objects (when followed by an m) applies to all messages in a queue, including both persistent and non-persistent messages, and therefore is not available as a threshold type for <code class="cCode">tuxTAppQCmdNonPersistHw</code> and <code class="cCode">tuxTAppQCmdNonPersistLw.</code>
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372021"> </a>
+tuxTAppQCmdNonPersistLw
+</h3>
+<h4 class="pHeading3"><a name="wp372022"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372023"> </a>
+<code class="cCodeEmphasis">DisplayString</code>
+</p>
+<h4 class="pHeading3"><a name="wp372024"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372025"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372026"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372027"> </a>
+These objects specify the high- and low-water marks that control the automatic execution of the command specified in the<code class="cCode"> tuxTAppQCmdNonPersist</code> object. Each is an integer greater than or equal to zero, followed by one of the following keyletters. The keyletters must be consistent for <code class="cCode">tuxTAppQCmdNonPersistHw</code> and <code class="cCode">tuxTAppQCmdNonPersistLw</code>.
+</p>
+<h4 class="pDefTerm"><a name="wp372028"> </a>
+<code class="cCode">b</code>
+</h4><div class="pDefPara"><a name="wp372029"> </a>
+The high- and low-water marks are expressed as the number of bytes used by non-persistent (in-memory) messages in the queue.
+</div>
+<h4 class="pDefTerm"><a name="wp372030"> </a>
+<code class="cCode">B</code>
+</h4><div class="pDefPara"><a name="wp372031"> </a>
+The high- and low-water marks are expressed as the number of blocks used by non-persistent (in-memory) messages in the queue.
+</div>
+<h4 class="pDefTerm"><a name="wp372032"> </a>
+<code class="cCode">%</code>
+</h4><div class="pDefPara"><a name="wp372033"> </a>
+The high- and low-water marks are expressed as a percentage of the shared memory capacity reserved for non-persistent messages in the queue space used by the queue.
+</div>
+<p class="pBody"><a name="wp372034"> </a>
+The messages threshold type specified through the <code class="cCode">tuxTAppQCmdHw</code> and <code class="cCode">tuxTAppQcmdLw</code> objects (when followed by an m) applies to all messages in a queue, including both persistent and non-persistent messages, and therefore is not available as a threshold type for <code class="cCode">tuxTAppQCmdNonPersistHw</code> and <code class="cCode">tuxTAppQCmdNonPersistLw</code>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372036"> </a>
+tuxTAppQCurNonPersistBytes
+</h3>
+<h4 class="pHeading3"><a name="wp372037"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372038"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp372039"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372040"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372041"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372042"> </a>
+This object specifies the number of shared memory bytes currently consumed by the non-persistent messages on the queue.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372044"> </a>
+tuxTAppQCurNonPersistMsg
+</h3>
+<h4 class="pHeading3"><a name="wp372045"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372046"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp372047"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372048"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372049"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372050"> </a>
+This object specifies the number of non-persistent messages currently in the queue. To determine the total number of messages in the queue, add the value of <code class="cCode">tuxTAppQcurMsg</code> to this value.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp372054"> </a>
+tuxTAppQmsgTbl
+</h2><p class="pBody"><a name="wp372055"> </a>
+The <code class="cCode">tuxTAppQmsgTbl</code> group contains objects that represent messages stored in application queues. A message is not created by an administrator; instead, it comes into existence as a result of a call to <code class="cCode">tpenqueue</code>(3). A message can be destroyed either by a call to <code class="cCode">tpdequeue</code>(3) or by an administrator. In addition, certain objects of a message can be modified by an administrator. For example, an administrator can move a message from one queue to another queue within the same queue space or change its priority. 
+</p>
+<p class="pBody"><a name="wp372056"> </a>
+Objects in this table are only accessible through a Tuxedo SNMP agent installed on the local machine.
+</p>
+<p class="pGraphic"><a name="wp372130"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp372059table372057">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp372059"> </a>
+Object Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp372061"> </a>
+Object ID
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372063"> </a>
+<code class="cCode">tuxTAppQmsgId</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372065"> </a>
+.1.3.6.1.4.1.140.300.12.2.1.1
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372067"> </a>
+<code class="cCode">tuxTAppQmsgSerNo</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372069"> </a>
+.1.3.6.1.4.1.140.300.12.2.1.2
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372071"> </a>
+<code class="cCode">tuxTAppQmsgGrpNo</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372073"> </a>
+.1.3.6.1.4.1.140.300.12.2.1.3
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372075"> </a>
+<code class="cCode">tuxTAppQmsgQname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372077"> </a>
+.1.3.6.1.4.1.140.300.12.2.1.4
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372079"> </a>
+<code class="cCode">tuxTAppQmsgQmConfig</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372081"> </a>
+.1.3.6.1.4.1.140.300.12.2.1.5
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372083"> </a>
+<code class="cCode">tuxTAppQmsgQspaceName</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372085"> </a>
+.1.3.6.1.4.1.140.300.12.2.1.6
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372087"> </a>
+<code class="cCode">tuxTAppQmsgLmid</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372089"> </a>
+.1.3.6.1.4.1.140.300.12.2.1.7
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372091"> </a>
+<code class="cCode">tuxTAppQmsgState</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372093"> </a>
+.1.3.6.1.4.1.140.300.12.2.1.8
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372095"> </a>
+<code class="cCode">tuxTAppQmsgNewQname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372097"> </a>
+.1.3.6.1.4.1.140.300.12.2.1.9
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372099"> </a>
+<code class="cCode">tuxTAppQmsgPrior</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372101"> </a>
+.1.3.6.1.4.1.140.300.12.2.1.10
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372103"> </a>
+<code class="cCode">tuxTAppQmsgTime</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372105"> </a>
+.1.3.6.1.4.1.140.300.12.2.1.11
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372107"> </a>
+<code class="cCode">tuxTAppQmsgCorId</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372109"> </a>
+.1.3.6.1.4.1.140.300.12.2.1.12
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372111"> </a>
+<code class="cCode">tuxTAppQmsgCurRetries</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372113"> </a>
+.1.3.6.1.4.1.140.300.12.2.1.13
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372115"> </a>
+<code class="cCode">tuxTAppQmsgSize</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372117"> </a>
+.1.3.6.1.4.1.140.300.12.2.1.14
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372119"> </a>
+<code class="cCode">tuxTAppQmsgExpireTime</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372121"> </a>
+.1.3.6.1.4.1.140.300.12.2.1.20
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372123"> </a>
+<code class="cCode">tuxTAppQmsgPersistent</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372125"> </a>
+.1.3.6.1.4.1.140.300.12.2.1.30
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372127"> </a>
+<code class="cCode">tuxTAppQmsgReplyPersistent</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372129"> </a>
+.1.3.6.1.4.1.140.300.12.2.1.40
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372132"> </a>
+tuxTAppQmsgId
+</h3>
+<h4 class="pHeading3"><a name="wp372133"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372134"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..32</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp372135"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372136"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372137"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372138"> </a>
+A unique identifier for the queue message, which can be used to select the message for <code class="cCode">GET</code> or <code class="cCode">SET</code> operations. No significance should be placed on this value beyond using it for equality comparisons. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372140"> </a>
+tuxTAppQmsgSerNo
+</h3>
+<h4 class="pHeading3"><a name="wp372141"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372142"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372143"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372144"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372145"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372146"> </a>
+A running number corresponding to <code class="cCode">tuxTAppQmsgId</code> for the queue message, which is a part of the composite index of this table.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372148"> </a>
+tuxTAppQmsgGrpNo
+</h3>
+<h4 class="pHeading3"><a name="wp372149"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372150"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372151"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372152"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372153"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372154"> </a>
+Group number of any server group for which this queue is a resource manager, in other words that group&#8217;s openinfo string <code class="cCode">tuxTgroupOpenInfo</code> contains the device name and queue space name for this queue. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372156"> </a>
+tuxTAppQmsgQname
+</h3>
+<h4 class="pHeading3"><a name="wp372157"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372158"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..127</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp372159"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372160"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372161"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372162"> </a>
+Name of the application queue in which the message is stored. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372164"> </a>
+tuxTAppQmsgQmConfig
+</h3>
+<h4 class="pHeading3"><a name="wp372165"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372166"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..78</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp372167"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372168"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372169"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372170"> </a>
+Absolute pathname of the file or device where the application queue space for the queue containing this message is located. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372172"> </a>
+tuxTAppQmsgQspaceName
+</h3>
+<h4 class="pHeading3"><a name="wp372173"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372174"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..15</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp372175"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372176"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372177"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372178"> </a>
+Name of the application queue space containing the application queue in which this message is located. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372180"> </a>
+tuxTAppQmsgLmid
+</h3>
+<h4 class="pHeading3"><a name="wp372181"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372182"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..30</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp372183"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372184"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372185"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372186"> </a>
+Logical machine id for the machine on which the queue containing this message is located. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372188"> </a>
+tuxTAppQmsgState
+</h3>
+<h4 class="pHeading3"><a name="wp372189"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372190"> </a>
+<code class="cCode">INTEGER { valid(1), invalid(2) }</code>
+</p>
+<h4 class="pHeading3"><a name="wp372191"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372192"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372193"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372194"> </a>
+The values for <code class="cCode">GET</code> and <code class="cCode">SET</code> operations are as follows:
+</p>
+<h4 class="pDefTerm"><a name="wp372195"> </a>
+<code class="cCode">GET: valid(1)</code>
+</h4><div class="pDefPara"><a name="wp372196"> </a>
+A <code class="cCode">GET</code> operation retrieves information about the selected messages. The following list describes the meaning of the <code class="cCode">tuxTAppQmsgState</code> object returned in response to a <code class="cCode">GET</code> request. States not listed are not returned.
+</div>
+<h4 class="pDefTerm"><a name="wp372197"> </a>
+<code class="cCode">valid(1)</code> 
+</h4><div class="pDefPara"><a name="wp372198"> </a>
+The message exists.
+</div>
+<h4 class="pDefTerm"><a name="wp372199"> </a>
+<code class="cCode">SET: invalid(2)</code>
+</h4><div class="pDefPara"><a name="wp372200"> </a>
+A <code class="cCode">SET</code> operation changes characteristics of the selected message. The following list describes the meaning of the <code class="cCode">tuxTAppQmsgState</code> object returned by a <code class="cCode">SET</code> request. States not listed cannot be set.
+</div>
+<h4 class="pDefTerm"><a name="wp372201"> </a>
+<code class="cCode">invalid(2)</code>
+</h4><div class="pDefPara"><a name="wp372202"> </a>
+The message is deleted from its queue space. The message must be in state <code class="cCode">valid(1)</code> before attempting this operation. Successful return leaves the object in the <code class="cCode">invalid(2)</code> state. 
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372204"> </a>
+tuxTAppQmsgNewQname
+</h3>
+<h4 class="pHeading3"><a name="wp372205"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372206"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..15</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp372207"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372209"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372210"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372211"> </a>
+Name of the queue into which to move the selected message. This queue must be an existing queue in the same queue space. The message must be in state <code class="cCode">valid(1)</code> for this operation to succeed. This object value is not returned by a <code class="cCode">GET</code> operation. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372213"> </a>
+tuxTAppQmsgPrior
+</h3>
+<h4 class="pHeading3"><a name="wp372214"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372215"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372216"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372217"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372218"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372219"> </a>
+The priority of the message. This object value is valid only for PRIO-based queues. The value -1 is returned by a <code class="cCode">GET</code> operation if the queue is not PRIO-based. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372221"> </a>
+tuxTAppQmsgTime
+</h3>
+<h4 class="pHeading3"><a name="wp372222"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372223"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..15</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp372224"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372225"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372226"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372227"> </a>
+The time when the message is processed. This object value is valid only for TIME-based queues. The empty string is returned by a <code class="cCode">GET</code> operation if the queue is not TIME-based. The format is one of the following:
+</p>
+<h4 class="pDefTerm"><a name="wp372228"> </a>
+<code class="cCodeEmphasis">+seconds</code>
+</h4><div class="pDefPara"><a name="wp372229"> </a>
+Specifies that the message is processed <code class="cCodeEmphasis">seconds</code> in the future. The value zero specifies that the message should be processed immediately. 
+</div>
+<h4 class="pDefTerm"><a name="wp372230"> </a>
+<code class="cCodeEmphasis">YY[MM[DD[hh[mm[ss]]]]]</code>
+</h4><div class="pDefPara"><a name="wp372231"> </a>
+Specifies the year, month, day, hour, minute, and second when the message should be processed. Omitted units default to their minimum possible values. For example, 9506 is equivalent to 950601000000. The years 00 through 37 are treated as 2000 through 20037, 70 through 99 are treated as 1970 through 1999, and 38 through 69 are invalid. 
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372233"> </a>
+tuxTAppQmsgCorId
+</h3>
+<h4 class="pHeading3"><a name="wp372234"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372235"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">0..32</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp372236"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372237"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372238"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372239"> </a>
+The correlation identifier for this message provided by the application in the <code class="cCode">tpenqueue</code>(3) request. The empty string indicates that a correlation identifier is not present. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372242"> </a>
+tuxTAppQmsgCurRetries
+</h3>
+<h4 class="pHeading3"><a name="wp372243"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372244"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372245"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372246"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372247"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372248"> </a>
+The number of retries that have been attempted so far on this message. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372250"> </a>
+tuxTAppQmsgSize
+</h3>
+<h4 class="pHeading3"><a name="wp372251"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372252"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372253"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372254"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372255"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372256"> </a>
+The size of the message, in bytes.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372258"> </a>
+tuxTAppQmsgExpireTime
+</h3>
+<h4 class="pHeading3"><a name="wp372259"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372260"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..15</code>))
+</p>
+<h4 class="pHeading3"><a name="wp372261"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372262"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372263"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372264"> </a>
+This object specifies the time at which a message expires (that is, the time at which the message should be removed from the queue if it has not already been dequeued or administratively deleted). When a message expires, all resources it uses are reclaimed by the system and statistics are updated. If a message expires during a transaction, the expiration does not cause the transaction to fail. Messages that expire while being enqueued or dequeued within a transaction are removed from the queue when the transaction ends. There is no notification that the message has expired. Expiration times cannot be added to messages enqueued by versions of the Oracle Tuxedo system that do not support message expiration, even when the queue manager responsible for changing this value supports message expiration. Attempts to add an expiration time fail.
+</p>
+<p class="pBody"><a name="wp372265"> </a>
+The empty string is returned by a <code class="cCode">GET</code> operation if the expiration time is not set. The expiration time format is one of the following:
+</p>
+<h4 class="pDefTerm"><a name="wp372266"> </a>
+<code class="cCode">+seconds</code>
+</h4><div class="pDefPara"><a name="wp372267"> </a>
+Specifies that the message will be removed after the specified number of seconds. If the value of seconds is set to zero (0), the message is removed immediately from the queue. Relative expiration time is calculated on the basis of the time at which the MIB request arrives and has been processed by the corresponding queue manager.
+</div>
+<h4 class="pDefTerm"><a name="wp372268"> </a>
+<code class="cCode">YY[MM[DD[hh]MM[SS]]]]</code>
+</h4><div class="pDefPara"><a name="wp372269"> </a>
+Specifies the year, month, day, hour, minute, and second when the message will be removed if it has not already been dequeued or administratively deleted. Omitted units default to their minimum possible values. For example, 9506 is equivalent to 950601000000. The years 00 through 37 are treated as 2000 through 2037, 70 through 99 are treated as 1970 through 1999, and 38 through 69 are invalid. An absolute expiration time is determined by the clock on the machine where the queue manager process resides.
+</div>
+<h4 class="pDefTerm"><a name="wp372270"> </a>
+<code class="cCode">none</code>
+</h4><div class="pDefPara"><a name="wp372271"> </a>
+Specifies that the message will never expire.
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372273"> </a>
+tuxTAppQmsgPersistent
+</h3>
+<h4 class="pHeading3"><a name="wp372274"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372275"> </a>
+<code class="cCode">INTEGER { yes(1), no(2) }</code>
+</p>
+<h4 class="pHeading3"><a name="wp372276"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372277"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372278"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372279"> </a>
+This read-only state is set to &#8220;<code class="cCode">no</code>&#8221; for non-persistent messages and &#8220;<code class="cCode">yes</code>&#8221; for persistent messages. It is the delivery quality of service for the message.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372281"> </a>
+tuxTAppQmsgReplyPersistent
+</h3>
+<h4 class="pHeading3"><a name="wp372282"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372283"> </a>
+<code class="cCode">INTEGER</code> <code class="cCode">{ yes(1), no(2) }</code>
+</p>
+<h4 class="pHeading3"><a name="wp372284"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372285"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372286"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372287"> </a>
+This read-only state is set to &#8220;<code class="cCode">no</code>&#8221; for non-persistent messages and &#8220;<code class="cCode">yes</code>&#8221; for persistent messages. It is the delivery quality that replies to the message
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp372290"> </a>
+tuxTQspaceTbl
+</h2><p class="pBody"><a name="wp372291"> </a>
+The <code class="cCode">tuxTQspaceTbl</code> group contains objects that represent application queue spaces. Objects in this table are only accessible through a Tuxedo SNMP agent installed on the local machine.
+</p>
+<a name="wp372292"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The values returned by this MIB are controlled by <code class="cCode">tuxTAppQctrl</code>. For details, see the description of the above group. </td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp378057"> </a>
+To create a new row in this table, a <code class="cCode">SET</code> request should be issued with an index (<code class="cCode">tuxTQspaceGrpNo</code>) of 40000, which is a reserved value for row creation in the table. The <code class="cCode">SET</code> request also needs to specify values for at least <code class="cCode">tuxTQspaceQmConfig</code>, <code class="cCode">tuxTQspaceName</code>, <code class="cCode">tuxTQspaceLmid</code>, <code class="cCode">tuxTQspaceIpckey</code>, <code class="cCode">tuxTQspaceMaxMsg</code>, <code class="cCode">tuxTQspaceMaxPages</code>, <code class="cCode">tuxTQspaceMaxProc</code>, <code class="cCode">tuxTQspaceMaxQueues</code>, and <code class="cCode">tuxTQspaceMaxTrans</code>. The newly created instance (row) is not visible until it is attached to some server group.
+</p>
+<p class="pGraphic"><a name="wp378263"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp380267table380265">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp380267"> </a>
+Object Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp380269"> </a>
+Object ID
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380271"> </a>
+<code class="cCode">tuxTQspaceName</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380273"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.1
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380275"> </a>
+<code class="cCode">tuxTQspaceQmConfig</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380277"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.2
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380279"> </a>
+<code class="cCode">tuxTQspaceLmid</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380281"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.3
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380283"> </a>
+<code class="cCode">tuxTQspaceGrpNo</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380285"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.4
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380287"> </a>
+<code class="cCode">tuxTQspaceState</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380289"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.5
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380291"> </a>
+<code class="cCode">tuxTQspaceBlocking</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380293"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.6
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380295"> </a>
+<code class="cCode">tuxTQspaceErrQname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380297"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.7
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380299"> </a>
+<code class="cCode">tuxTQspaceForceInit</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380301"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.8
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380303"> </a>
+<code class="cCode">tuxTQspaceIpckey</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380305"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.9
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380307"> </a>
+<code class="cCode">tuxTQspaceMaxMsg</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380309"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.10
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380311"> </a>
+<code class="cCode">tuxTQspaceMaxPages</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380313"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.11
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380315"> </a>
+<code class="cCode">tuxTQspaceMaxProc</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380317"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.12
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380319"> </a>
+<code class="cCode">tuxTQspaceMaxQueues</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380321"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.13
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380323"> </a>
+<code class="cCode">tuxTQspaceMaxTrans</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380325"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.14
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380327"> </a>
+<code class="cCode">tuxTQspaceCurExtent</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380329"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.15
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380331"> </a>
+<code class="cCode">tuxTQspaceCurMsg</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380333"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.16
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380335"> </a>
+<code class="cCode">tuxTQspaceCurProc</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380337"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.17
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380339"> </a>
+<code class="cCode">tuxTQspaceCurQueues</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380341"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.18
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380343"> </a>
+<code class="cCode">tuxTQspaceCurTrans</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380345"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.19
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380347"> </a>
+<code class="cCode">tuxTQspaceHwMsg</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380349"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.20
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380351"> </a>
+<code class="cCode">tuxTQspaceHwProc</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380353"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.21
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380355"> </a>
+<code class="cCode">tuxTQspaceHwQueues</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380357"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.22
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380359"> </a>
+<code class="cCode">tuxTQspaceHwTrans</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380361"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.23
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380363"> </a>
+<code class="cCode">tuxTQspacePercentInit</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380365"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.24
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380367"> </a>
+<code class="cCode">tuxTQspaceMaxActions</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380369"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.40
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380371"> </a>
+<code class="cCode">tuxTQspaceMaxHandles</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380373"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.50
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380375"> </a>
+<code class="cCode">tuxTQspaceMaxOwners</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380377"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.60
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380379"> </a>
+<code class="cCode">tuxTQspaceMaxTmpQueues</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380381"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.70
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380383"> </a>
+<code class="cCode">tuxTQspaceMaxCursors</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380385"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.80
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380387"> </a>
+<code class="cCode">tuxTQspaceMemNonPersist</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380389"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.90
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380391"> </a>
+<code class="cCode">tuxTQspaceMemFilters</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380393"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.100
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380395"> </a>
+<code class="cCode">tuxTQspaceMemOverFlow</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380397"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.110
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380399"> </a>
+<code class="cCode">tuxTQspaceMemSystemReserved</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380401"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.120
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380403"> </a>
+<code class="cCode">tuxTQspaceMemTotalAllocated</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380405"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.130
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380407"> </a>
+<code class="cCode">tuxTQspaceCurActions</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380409"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.140
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380411"> </a>
+<code class="cCode">tuxTQspaceCurHandles</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380413"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.150
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380415"> </a>
+<code class="cCode">tuxTQspaceCurOwners</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380417"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.160
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380419"> </a>
+<code class="cCode">tuxTQspaceCurTmpQueues</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380421"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.170
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380423"> </a>
+<code class="cCode">tuxTQspaceCurCursors</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380425"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.180
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380427"> </a>
+<code class="cCode">tuxTQspaceCurMemNonPersist</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380429"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.190
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380431"> </a>
+<code class="cCode">tuxTQspaceCurMemFilters</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380433"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.200
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380435"> </a>
+<code class="cCode">tuxTQspaceCurMemOverFlow</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380437"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.210
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380439"> </a>
+<code class="cCode">tuxTQspaceHwActions</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380441"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.220
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380443"> </a>
+<code class="cCode">tuxTQspaceHwHandles</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380445"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.230
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380447"> </a>
+<code class="cCode">tuxTQspaceHwOwners</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380449"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.240
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380451"> </a>
+<code class="cCode">tuxTQspaceHwTmpQueues</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380453"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.250
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380455"> </a>
+<code class="cCode">tuxTQspaceHwCursors</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380457"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.260
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380459"> </a>
+<code class="cCode">tuxTQspaceHwMemNonPersist</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380461"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.270
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380463"> </a>
+<code class="cCode">tuxTQspaceHwMemFilters</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380465"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.280
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp380467"> </a>
+<code class="cCode">tuxTQspaceHwMemOverFlow</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp380469"> </a>
+.1.3.6.1.4.1.140.300.12.3.1.290
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp378265"> </a>
+tuxTQspaceName
+</h3>
+<h4 class="pHeading3"><a name="wp372503"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372504"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..15</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp372505"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372506"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372507"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372508"> </a>
+Name of the application queue space. 
+</p>
+<a name="wp372509"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372511"> </a>
+tuxTQspaceQmConfig
+</h3>
+<h4 class="pHeading3"><a name="wp372512"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372513"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..78</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp372514"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372515"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372516"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372517"> </a>
+Absolute pathname of the file or device where the application queue space is located. 
+</p>
+<a name="wp372518"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372520"> </a>
+tuxTQspaceLmid
+</h3>
+<h4 class="pHeading3"><a name="wp372521"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372522"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..30</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp372523"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372524"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372525"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372526"> </a>
+Identifier of the logical machine where the application queue space is located. 
+</p>
+<a name="wp372527"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372529"> </a>
+tuxTQspaceGrpNo
+</h3>
+<h4 class="pHeading3"><a name="wp372530"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372531"> </a>
+<code class="cCode">INTEGER (1..29999)</code>
+</p>
+<h4 class="pHeading3"><a name="wp372532"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372533"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372534"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372535"> </a>
+Group number of any server group for which this queue space is a resource manager, in other words that group&#8217;s openinfo string <code class="cCode">tuxTgroupOpenInfo</code> contains the device name and queue space name for this queue space. 
+</p>
+<a name="wp372536"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This object can be updated only during row creation.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372538"> </a>
+tuxTQspaceState
+</h3>
+<h4 class="pHeading3"><a name="wp372539"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372540"> </a>
+<code class="cCode">INTEGER { inactive(1), initializing(2), open(3), active(4), cleaning(5), invalid(6) }</code>
+</p>
+<h4 class="pHeading3"><a name="wp372541"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372543"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372544"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372545"> </a>
+The values for <code class="cCode">GET</code> and <code class="cCode">SET</code> operations are as follows:
+</p>
+<h4 class="pDefTerm"><a name="wp372546"> </a>
+<code class="cCode">GET: inactive(1)|initializing(2)|open(3)|active(4)</code>
+</h4><div class="pDefPara"><a name="wp372547"> </a>
+A <code class="cCode">GET</code> operation retrieves information about the selected application queue space. The following list describes the meaning of the <code class="cCode">tuxTQspaceState</code> object returned in response to a <code class="cCode">GET</code> request. States not listed are not returned.
+</div>
+<h4 class="pDefTerm"><a name="wp372548"> </a>
+<code class="cCode">inactive(1)</code>
+</h4><div class="pDefPara"><a name="wp372549"> </a>
+The queue space exists; i.e., disk space for it has been reserved in a device and the space has been initialized (if requested or if necessary).
+</div>
+<h4 class="pDefTerm"><a name="wp372550"> </a>
+<code class="cCode">initializing(2)</code>
+</h4><div class="pDefPara"><a name="wp372551"> </a>
+Disk space for the queue space is currently being initialized.
+</div>
+<h4 class="pDefTerm"><a name="wp372552"> </a>
+<code class="cCode">open(3)</code>
+</h4><div class="pDefPara"><a name="wp372553"> </a>
+Shared memory and other IPC resources for the queue space have been allocated and initialized, but no processes are currently attached to the shared memory.
+</div>
+<h4 class="pDefTerm"><a name="wp372554"> </a>
+<code class="cCode">active(4)</code>
+</h4><div class="pDefPara"><a name="wp372555"> </a>
+Shared memory and other IPC resources for the queue space have been allocated and initialized, and at least one process is currently attached to the shared memory. These processes can be the queue servers (<code class="cCode">TMS_QM</code>, <code class="cCode">TMQUEUE</code>, and perhaps <code class="cCode">TMQFORWARD</code>) associated with the queue space, or they can be administrative processes such as <code class="cCode">qmadmin</code>(1), or they can be processes associated with another application.
+</div>
+<h4 class="pDefTerm"><a name="wp372556"> </a>
+<code class="cCode">SET: open(3)|cleaning(5)|invalid(6)</code>
+</h4><div class="pDefPara"><a name="wp372557"> </a>
+A <code class="cCode">SET</code> operation changes the selected application queue space or creates a new one. The following list describes the meaning of the <code class="cCode">tuxTQspaceState</code> object returned by a <code class="cCode">SET</code> request. States not listed cannot be set.
+</div>
+<h4 class="pDefTerm"><a name="wp372558"> </a>
+<code class="cCode">open(3)</code>
+</h4><div class="pDefPara"><a name="wp372559"> </a>
+Allocate and initialize shared memory and other IPC resources for the queue space, which is allowed only if the queue space is in the <code class="cCode">inactive(1)</code> state.
+</div>
+<h4 class="pDefTerm"><a name="wp372560"> </a>
+<code class="cCode">cleaning(5)</code>
+</h4><div class="pDefPara"><a name="wp372561"> </a>
+Remove the shared memory and other IPC resources for the queue space, which is allowed only when the queue space is in the <code class="cCode">active(4)</code> or <code class="cCode">open(3)</code> state. Successful return leaves the object in the <code class="cCode">inactive(1)</code> state.
+</div>
+<h4 class="pDefTerm"><a name="wp372562"> </a>
+<code class="cCode">invalid(6)</code>
+</h4><div class="pDefPara"><a name="wp372563"> </a>
+Delete the queue space. An error is reported if the state is <code class="cCode">active(4)</code> or if messages exist on any queues in the queue space. Successful return leaves the object in the <code class="cCode">invalid(6)</code> state.
+</div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372565"> </a>
+tuxTQspaceBlocking
+</h3>
+<h4 class="pHeading3"><a name="wp372566"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372567"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372568"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372569"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372570"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372571"> </a>
+The blocking factor used for disk space management of the queue space. The default when a new queue space is created is 16. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372573"> </a>
+tuxTQspaceErrQname
+</h3>
+<h4 class="pHeading3"><a name="wp372574"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372575"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">0..127</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp372576"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372577"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372578"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372579"> </a>
+Name of the error queue associated with the queue space. If there is no error queue, an empty string is returned by a <code class="cCode">GET</code> request. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372581"> </a>
+tuxTQspaceForceInit
+</h3>
+<h4 class="pHeading3"><a name="wp372582"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372583"> </a>
+<code class="cCode">INTEGER { yes(1), no(2) }</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372584"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372585"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372586"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372587"> </a>
+This object value determines whether or not to initialize disk pages on new extents for the queue space. The default is not to initialize. Depending on the device type (e.g., regular file or raw slice), initialization can occur even if not requested. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372589"> </a>
+tuxTQspaceIpckey
+</h3>
+<h4 class="pHeading3"><a name="wp372590"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372591"> </a>
+<code class="cCode">INTEGER (32769..262143)</code>
+</p>
+<h4 class="pHeading3"><a name="wp372592"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372593"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372594"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372595"> </a>
+The IPC key used to access queue space shared memory.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372597"> </a>
+tuxTQspaceMaxMsg
+</h3>
+<h4 class="pHeading3"><a name="wp372598"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372599"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372600"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372601"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372602"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372603"> </a>
+The maximum number of messages that the queue space can contain.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372605"> </a>
+tuxTQspaceMaxPages
+</h3>
+<h4 class="pHeading3"><a name="wp372606"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372607"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372608"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372609"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372610"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372611"> </a>
+The maximum number of disk pages for all queues in the queue space. Each time the <code class="cCode">tuxTQspaceMaxPages</code> object is increased, a new extent is allocated (see <code class="cCode">tuxTQspaceCurExtent</code>). It is not possible to decrease the number of pages by setting this object to a lower number; an error is reported in this case. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372613"> </a>
+tuxTQspaceMaxProc
+</h3>
+<h4 class="pHeading3"><a name="wp372614"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372615"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372616"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372617"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372618"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372619"> </a>
+The maximum number of processes that can attach to the queue space.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372621"> </a>
+tuxTQspaceMaxQueues
+</h3>
+<h4 class="pHeading3"><a name="wp372622"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372623"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372624"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372625"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372626"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372627"> </a>
+The maximum number of queues that the queue space can contain.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372629"> </a>
+tuxTQspaceMaxTrans
+</h3>
+<h4 class="pHeading3"><a name="wp372630"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372631"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372632"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372633"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372634"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372635"> </a>
+The maximum number of simultaneously active transactions allowed by the queue space. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372637"> </a>
+tuxTQspaceCurExtent
+</h3>
+<h4 class="pHeading3"><a name="wp372638"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372639"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372640"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372641"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372642"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372643"> </a>
+The current number of extents used by the queue space. The largest number allowed is 100. Each time the <code class="cCode">tuxTQspaceMaxPages</code> object is increased, a new extent is allocated. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372645"> </a>
+tuxTQspaceCurMsg
+</h3>
+<h4 class="pHeading3"><a name="wp372646"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372647"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372648"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372649"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372650"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372651"> </a>
+The current number of messages in the queue space. This number can be determined only if the queue space is <code class="cCode">open(3)</code> or <code class="cCode">active(4)</code>, or if the queue space is newly created. If none of the conditions apply, the value -1 is returned.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372653"> </a>
+tuxTQspaceCurProc
+</h3>
+<h4 class="pHeading3"><a name="wp372654"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372655"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372656"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372657"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372658"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372659"> </a>
+The current number of processes accessing the queue space.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372661"> </a>
+tuxTQspaceCurQueues
+</h3>
+<h4 class="pHeading3"><a name="wp372662"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372663"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372664"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372665"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372666"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372667"> </a>
+The current number of queues existing in the queue space. This number can be determined only if the queue space is <code class="cCode">open(3)</code> or <code class="cCode">active(4)</code>, or if the queue space is newly created. If none of these conditions apply, the value -1 is returned. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372670"> </a>
+tuxTQspaceCurTrans
+</h3>
+<h4 class="pHeading3"><a name="wp372671"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372672"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372673"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372674"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372675"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372676"> </a>
+The current number of outstanding transactions involving the queue space.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372678"> </a>
+tuxTQspaceHwMsg
+</h3>
+<h4 class="pHeading3"><a name="wp372679"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372680"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372681"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372682"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372683"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372684"> </a>
+The highest number of messages in the queue space since the queue space was last opened. The number is reset to 0 when the queue space state is set to <code class="cCode">cleaning(5)</code>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372686"> </a>
+tuxTQspaceHwProc
+</h3>
+<h4 class="pHeading3"><a name="wp372687"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372688"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372689"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372690"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372691"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372692"> </a>
+The highest number of processes simultaneously attached to the queue space since the queue space was last opened. The number is reset to 0 when the queue space state is set to <code class="cCode">cleaning(5)</code>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372694"> </a>
+tuxTQspaceHwQueues
+</h3>
+<h4 class="pHeading3"><a name="wp372695"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372696"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372697"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372698"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372699"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372700"> </a>
+The highest number of queues existing in the queue space since the queue space was last opened. The number is reset to 0 when the queue space state is set to <code class="cCode">cleaning(5)</code>. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372702"> </a>
+tuxTQspaceHwTrans
+</h3>
+<h4 class="pHeading3"><a name="wp372703"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372704"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372705"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372706"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372707"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372708"> </a>
+The highest number of outstanding transactions involving the queue space since the queue space was last opened. If the queue space is accessed by more than one application, this number reflects all applications &#8212; not just the application represented by the TUXCONFIG environment variable. The number is reset to 0 when the queue space state is set to <code class="cCode">cleaning(5)</code>. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372710"> </a>
+tuxTQspacePercentInit
+</h3>
+<h4 class="pHeading3"><a name="wp372711"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372712"> </a>
+<code class="cCode">INTEGER (0..100)</code>
+</p>
+<h4 class="pHeading3"><a name="wp372713"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372714"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372715"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372716"> </a>
+The percentage (as an integer between 0 and 100 inclusive) of disk space that has been initialized for the queue space.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372717"> </a>
+tuxTQspaceMaxActions
+</h3>
+<h4 class="pHeading3"><a name="wp372718"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372719"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp372720"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372721"> </a>
+read-write 
+</p>
+<h4 class="pHeading3"><a name="wp372722"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372723"> </a>
+This object specifies the number of additional actions that the Queuing Services component of the Oracle Engine can handle concurrently. When a blocking operation is encountered and additional actions are available, the blocking operation is set aside until it can be satisfied. After setting aside the blocking operation, another operation request can be handled. When the blocking operation is completed, the action associated with the operation is made available for a subsequent operation. The system reserve actions are equivalent to the number of processes that can attach to a queue space, so that each queue manager process can have at least one blocking action. Beyond the system-reserved number of blocking actions, the administrator can configure the system to enable it to accommodate additional blocking actions beyond the reserve. An operation fails if a blocking operation is requested and cannot be immediately satisfied and there are no actions available.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372724"> </a>
+tuxTQspaceMaxHandles
+</h3>
+<h4 class="pHeading3"><a name="wp372725"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372726"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp372727"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372728"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372729"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372730"> </a>
+This object specifies the number of handles that users of the Queueing Services component of the Oracle Engine can use concurrently. Objects manipulated by the queuing services API require handles to access the objects. When an object is opened by a call to the Queuing Services API, a new handle is created and returned to the user. When an object handle is closed, the handle is made available for subsequent open object operations. When the Queuing Services API is used by an application, the administrator must configure the system to accommodate the maximum number of handles that are opened concurrently. An operation fails if a user attempts to open a queuing services object and there are no handles available. Adjusting this value has no effect on Tuxedo applications other than unnecessarily consuming shared memory resources.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372731"> </a>
+tuxTQspaceMaxOwners
+</h3>
+<h4 class="pHeading3"><a name="wp372732"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372733"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp372734"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372735"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372736"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372737"> </a>
+This object specifies the number of additional Oracle Engine authenticated users that can concurrently use Queuing Services resources. There is one owner record per user, regardless of the number of open handles for the user. When there are no open handles for a user, the owner record is made available to subsequent users. The system reserves a number of owners equivalent to the number of actions, so that each action can be initiated by a different owner. Beyond the system-reserved number of owners that can concurrently use queuing services resources, the administrator can configure the system to accommodate additional owners beyond the reserved number. An operation fails if a user attempts to open a handle when there currently are no open handles, and there are no owners available. Adjusting this value has no effect on Oracle Tuxedo applications other than unnecessarily consuming shared memory resources. Adjusting this value has no effect on Tuxedo applications other than unnecessarily consuming shared memory resources.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372738"> </a>
+tuxTQspaceMaxTmpQueues
+</h3>
+<h4 class="pHeading3"><a name="wp372739"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372740"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp372741"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372742"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372743"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372744"> </a>
+This object specifies the number of temporary queues that can be opened concurrently in the Queuing Services component of the Oracle Engine. Temporary queues are used by dynamic, self-configuring applications and reduce the need for administrators to configure each queue used by an application. Messages enqueued to temporary queues are not persistent. When all handles to a temporary queue are closed, the temporary queue resources are made available for subsequent temporary queue creation. When the temporary queues are used by an application, the administrator must configure the system to accommodate the maximum number of temporary queues that are active concurrently. An open operation fails if a user attempts to open a temporary queue and there are no temporary queue resources available. This object specifies the number of additional Oracle Engine authenticated users that can concurrently use Queuing Services
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372745"> </a>
+tuxTQspaceMaxCursors
+</h3>
+<h4 class="pHeading3"><a name="wp372746"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372747"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp372748"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372749"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372750"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372751"> </a>
+This object specifies the number of cursors that user of the Queuing Services component of the Oracle Engine can use concurrently. CUrsors are used to navigate a queue. When a cursor is destroyed, the cursor resources are made available for subsequent cursor creation operations. When the cursors are used by an application, the administrator must configure the system to accommodate the maximum number of cursors that are allocated concurrently. An operation fails if a user attempts to create a cursor and there are no cursor resources available. This object specifies the number of additional Oracle Engine authenticated users that can concurrently use Queuing Services.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372752"> </a>
+tuxTQspaceMemNonPersist
+</h3>
+<h4 class="pHeading3"><a name="wp372753"> </a>
+Syntax 
+</h4>
+<p class="pBody"><a name="wp372754"> </a>
+<code class="cCodeEmphasis">DisplayString</code>
+</p>
+<h4 class="pHeading3"><a name="wp372755"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372756"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372757"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372758"> </a>
+This object specifies the size of the area reserved in shared memory to hold non-persistent messages for all queues in the queue space. The memory size can be specified in bytes (<code class="cCode">b</code>) or blocks (<code class="cCode">B</code>). (The size of a block in this context is equivalent to the size of a disk block.)
+</p>
+<p class="pBody"><a name="wp372759"> </a>
+The [<code class="cCode">bB</code>]suffix is optional and, if not specified, the default is blocks. Note that the number of bytes requested can be rounded up to the next internal data size. When read, the value is always the actual amount of memory allocated in bytes (<code class="cCode">b</code>).
+</p>
+<p class="pBody"><a name="wp372760"> </a>
+All non-persistent messages in the specified queue space are permanently lost when this variable is successfully changed. 
+</p>
+<p class="pBody"><a name="wp372761"> </a>
+If the variable for a queue space is zero (0), no queue space is reserved. for non-persistent messages. In this case, any attempt to enqueue a non-persistent message fails. This type of failure results, for example, when no delivery quality of service has been specified for a message and the <code class="cCode">tuxTAppQDefDeliverPolicy</code> object of the <code class="cCode">tuxTAppTbl</code> group for the target queue has been set to <code class="cCode">NONPERSIST</code>. For non-persistent delivery, if the memory area is exhausted or fragmented so that a message cannot be enqueued, the enqueuing operation fails, even if there is sufficient persistent storage for the message. Similarly, if the persistent storage area is exhausted or fragmented so that a message cannot be enqueued, the enqueuing operation fails, even if there is sufficient non-persistent storage for the message.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372762"> </a>
+tuxTQspaceMemFilters
+</h3>
+<h4 class="pHeading3"><a name="wp372763"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372764"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp372765"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372766"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372767"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372768"> </a>
+This object specifies the size of the memory area to reserve in shared memory to hold the compiled representation of user-defined filters. The memory size is specified in bytes. Filters are used by the Queuing Services component of the Oracle Engine for message selection in dequeuing and cursor operations. Filters can be specified using various grammars, but are compiled into an engine normal form and stored in shared memory. Filters are referenced by a handle that is returned when they are compiled. When a filter is destroyed, the memory used by the filter is made available for subsequent compiled filters. When the filters are defined by an application, the administrator must configure the system to accommodate the maximum number of filters that will be concurrently compiled. An operation fails if a user attempts to create a new filter and there is not enough memory allocated for the compiled version of the filter. Adjusting this value has no effect on Tuxedo applications other than unnecessarily consuming shared memory resources.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372769"> </a>
+tuxTQspaceMemOverFlow
+</h3>
+<h4 class="pHeading3"><a name="wp372770"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372771"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp372772"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372773"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp372774"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372775"> </a>
+This object specifies the size of the memory area to reserve in shared memory to accommodate peak load situations where some or all of the allocated shared memory resources are exhausted. The memory size is specified in bytes. Additional objects are allocated from this additional memory on a first-come, first-served basis. When an object created in the additional memory is closed or destroyed, the memory is released for subsequent overflow situations. This additional memory space can yield more objects than the configured number, but there is no guarantee that additional memory is available for any particular object at any given point in time. Currently, only actions, handles, cursors, owners, temporary queues, timers, and filters use the overflow.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372776"> </a>
+tuxTQspaceMemSystemReserved
+</h3>
+<h4 class="pHeading3"><a name="wp372777"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372778"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp372779"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372780"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372781"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372782"> </a>
+This object specifies the total amount of memory (in bytes) reserved from shared memory for queuing services system use.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372783"> </a>
+tuxTQspaceMemTotalAllocated
+</h3>
+<h4 class="pHeading3"><a name="wp372784"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372785"> </a>
+<code class="cCode">INTEGER</code><code class="cCodeEmphasis"> </code>
+</p>
+<h4 class="pHeading3"><a name="wp372786"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372787"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372788"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372789"> </a>
+This object specifies the total amount of memory (in bytes) allocated from shared memory for all queuing services objects.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372790"> </a>
+tuxTQspaceCurActions
+</h3>
+<h4 class="pHeading3"><a name="wp372791"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372792"> </a>
+<code class="cCode">INTEGER</code><code class="cCodeEmphasis"> </code>
+</p>
+<h4 class="pHeading3"><a name="wp372793"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372794"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372795"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372796"> </a>
+This object specifies the current number of actions in use in the queue space. This number can be determined if the queue space is OPEn or ACTive, or if the queue space is newly created. If none of the conditions apply, the value <code class="cCode">-1</code> is returned.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372797"> </a>
+tuxTQspaceCurHandles
+</h3>
+<h4 class="pHeading3"><a name="wp372798"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372799"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp372800"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372801"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372802"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372803"> </a>
+This object specifies the current number of cursors in use in the queue space. This number can be determined if the queue space is OPEn or ACTive, or if the queue space is newly created. If none of the conditions apply, the value <code class="cCode">-1</code> is returned.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372804"> </a>
+tuxTQspaceCurOwners
+</h3>
+<h4 class="pHeading3"><a name="wp372805"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372806"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp372807"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372808"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372809"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372810"> </a>
+This object specifies the current number of owners in use in the queue space. This number can be determined if the queue space is OPEn or ACTive, or if the queue space is newly created. If none of the conditions apply, the value <code class="cCode">-1</code> is returned.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372811"> </a>
+tuxTQspaceCurTmpQueues
+</h3>
+<h4 class="pHeading3"><a name="wp372812"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372813"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp372814"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372815"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372816"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372817"> </a>
+This object specifies the current number of temporary queues in use in the queue space. This number can be determined if the queue space is OPEn or ACTive, or if the queue space is newly created. If none of the conditions apply, the value <code class="cCode">-1</code> is returned.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372818"> </a>
+tuxTQspaceCurCursors
+</h3>
+<h4 class="pHeading3"><a name="wp372819"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372820"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp372821"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372822"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372823"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372824"> </a>
+This object specifies the current number of cursors in use in the queue space. This number can be determined if the queue space is OPEn or ACTive, or if the queue space is newly created. If none of the conditions apply, the value <code class="cCode">-1</code> is returned.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372825"> </a>
+tuxTQspaceCurMemNonPersist
+</h3>
+<h4 class="pHeading3"><a name="wp372826"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372827"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp372828"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372829"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372830"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372831"> </a>
+This object specifies the current amount of memory, in bytes, consumed by non-persistent messages in the queue space. This number can be determined if the queue space is OPEn or ACTive, or if the queue space is newly created. If none of the conditions apply, the value <code class="cCode">-1</code> is returned.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372832"> </a>
+tuxTQspaceCurMemFilters
+</h3>
+<h4 class="pHeading3"><a name="wp372833"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372834"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp372835"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372836"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372837"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372838"> </a>
+This object specifies the current number of bytes in use for filters in the queue space. This number can be determined if the queue space is OPEn or ACTive, or if the queue space is newly created. If none of the conditions apply, the value <code class="cCode">-1</code> is returned.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372839"> </a>
+tuxTQspaceCurMemOverFlow
+</h3>
+<h4 class="pHeading3"><a name="wp372840"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372841"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp372842"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372843"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372844"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372845"> </a>
+This object specifies the current number of bytes of overflow memory in use in the queue space. This number can be determined if the queue space is OPEn or ACTive, or if the queue space is newly created. If none of the conditions apply, the value <code class="cCode">-1</code> is returned.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372846"> </a>
+tuxTQspaceHwActions
+</h3>
+<h4 class="pHeading3"><a name="wp372847"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372848"> </a>
+<code class="cCode">INTEGER (0..100)</code>
+</p>
+<h4 class="pHeading3"><a name="wp372849"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372850"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372851"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372852"> </a>
+This object specifies the highest number of concurrent actions reached in the queue space since the queue space was last opened. The number is reset to 0 when the queue space is set to CLEaning.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372853"> </a>
+tuxTQspaceHwHandles
+</h3>
+<h4 class="pHeading3"><a name="wp372854"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372855"> </a>
+<code class="cCode">INTEGER (0..100)</code>
+</p>
+<h4 class="pHeading3"><a name="wp372856"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372857"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372858"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372859"> </a>
+This object specifies the highest number of concurrent handles opened in the queue space since the queue space was last opened. The number is reset to 0 when the queue space is set to CLEaning.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372860"> </a>
+tuxTQspaceHwOwners
+</h3>
+<h4 class="pHeading3"><a name="wp372861"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372862"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp372863"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372864"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372865"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372866"> </a>
+This object specifies the highest number of concurrent owners reached in the queue space since the queue space was last opened. The number is reset to 0 when the queue space is set to CLEaning.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372867"> </a>
+tuxTQspaceHwTmpQueues
+</h3>
+<h4 class="pHeading3"><a name="wp372868"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372869"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp372870"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372871"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372872"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372873"> </a>
+This object specifies the highest number of concurrent temporary queues opened in the queue space since the queue space was last opened. The number is reset to 0 when the queue space is set to CLEaning.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372874"> </a>
+tuxTQspaceHwCursors
+</h3>
+<h4 class="pHeading3"><a name="wp372875"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372876"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp372877"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372878"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372879"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372880"> </a>
+This object specifies the highest number of concurrent cursors created in the queue space since the queue space was last opened. The number is reset to 0 when the queue space is set to CLEaning.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372881"> </a>
+tuxTQspaceHwMemNonPersist
+</h3>
+<h4 class="pHeading3"><a name="wp372882"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372883"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp372884"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372885"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372886"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372887"> </a>
+This object specifies the largest amount of memory in bytes consumed by non-persistent messages since the queue space was last opened. The number is reset to 0 when the queue space is set to CLEaning.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372888"> </a>
+tuxTQspaceHwMemFilters
+</h3>
+<h4 class="pHeading3"><a name="wp372889"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372890"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp372891"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372892"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372893"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372894"> </a>
+This object specifies the highest number of bytes used for filters in the queue space since the queue space was last opened. The number is reset to 0 when the queue space is set to CLEaning.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372895"> </a>
+tuxTQspaceHwMemOverflow
+</h3>
+<h4 class="pHeading3"><a name="wp372896"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372897"> </a>
+<code class="cCode">INTEGER</code>
+</p>
+<h4 class="pHeading3"><a name="wp372898"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372899"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372900"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372901"> </a>
+This object specifies the highest number of bytes used in the overflow memory in the queue space since the queue space was last opened. The number is reset to 0 when the queue space is set to CLEaning.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp372904"> </a>
+tuxTQtransTbl
+</h2><p class="pBody"><a name="wp372905"> </a>
+The <code class="cCode">tuxTQtransTbl</code> group contains objects that represent run-time characteristics of transactions associated with application queue spaces. Objects in this table are only accessible through a Tuxedo SNMP agent installed on the local machine.
+</p>
+<p class="pGraphic"><a name="wp372956"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp372909table372907">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp372909"> </a>
+Object Name
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp372911"> </a>
+Object ID
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372913"> </a>
+<code class="cCode">tuxTQtransXid</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372915"> </a>
+.1.3.6.1.4.1.140.300.12.4.1.1
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372917"> </a>
+<code class="cCode">tuxTQtransIndx1</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372919"> </a>
+.1.3.6.1.4.1.140.300.12.4.1.2
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372921"> </a>
+<code class="cCode">tuxTQtransIndx2</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372923"> </a>
+.1.3.6.1.4.1.140.300.12.4.1.3
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372925"> </a>
+<code class="cCode">tuxTQtransIndx3</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372927"> </a>
+.1.3.6.1.4.1.140.300.12.4.1.4
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372929"> </a>
+<code class="cCode">tuxTQtransIndx4</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372931"> </a>
+.1.3.6.1.4.1.140.300.12.4.1.5
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372933"> </a>
+<code class="cCode">tuxTQtransIndx5</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372935"> </a>
+.1.3.6.1.4.1.140.300.12.4.1.6
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372937"> </a>
+<code class="cCode">tuxTQtransGrpNo</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372939"> </a>
+.1.3.6.1.4.1.140.300.12.4.1.7
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372941"> </a>
+<code class="cCode">tuxTQtranSpaceName</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372943"> </a>
+.1.3.6.1.4.1.140.300.12.4.1.8
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372945"> </a>
+<code class="cCode">tuxTQtransQmConfig</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372947"> </a>
+.1.3.6.1.4.1.140.300.12.4.1.9
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372949"> </a>
+<code class="cCode">tuxTQtransLmid</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372951"> </a>
+.1.3.6.1.4.1.140.300.12.4.1.10
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp372953"> </a>
+<code class="cCode">tuxTQtransState</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp372955"> </a>
+.1.3.6.1.4.1.140.300.12.4.1.11
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372958"> </a>
+tuxTQtransXid
+</h3>
+<h4 class="pHeading3"><a name="wp372959"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372960"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..78</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp372961"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372962"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372963"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372964"> </a>
+Transaction identifier as returned by <code class="cCode">tx_info</code>(3) and mapped to a string representation. The data in this field should not be interpreted directly by the user except for equality comparison. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372966"> </a>
+tuxTQtransIndx1
+</h3>
+<h4 class="pHeading3"><a name="wp372967"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372968"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372969"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372970"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372971"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372972"> </a>
+An integer index for <code class="cCode">tuxTQtransTbl</code>. This should not be interpreted by the user. It is used only for uniquely identifying a particular row in this table by the combination of Indx1 through Indx5. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372974"> </a>
+tuxTQtransIndx2
+</h3>
+<h4 class="pHeading3"><a name="wp372975"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372976"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372977"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372978"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372979"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372980"> </a>
+An integer index for <code class="cCode">tuxTQtransTbl</code>. This should not be interpreted by the user. It is used only for uniquely identifying a particular row in this table by the combination of Indx1 through Indx5. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372982"> </a>
+tuxTQtransIndx3
+</h3>
+<h4 class="pHeading3"><a name="wp372983"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372984"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372985"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372986"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372987"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372988"> </a>
+An integer index for <code class="cCode">tuxTQtransTbl</code>. This should not be interpreted by the user. It is used only for uniquely identifying a particular row in this table by the combination of Indx1 through Indx5.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372990"> </a>
+tuxTQtransIndx4
+</h3>
+<h4 class="pHeading3"><a name="wp372991"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp372992"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp372993"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp372994"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp372995"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp372996"> </a>
+An integer index for <code class="cCode">tuxTQtransTbl</code>. This should not be interpreted by the user. It is used only for uniquely identifying a particular row in this table by the combination of Indx1 through Indx5.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp372998"> </a>
+tuxTQtransIndx5
+</h3>
+<h4 class="pHeading3"><a name="wp372999"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp373000"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp373001"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp373002"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp373003"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp373004"> </a>
+An integer index for <code class="cCode">tuxTQtransTbl</code>. This should not be interpreted by the user. It is used only for uniquely identifying a particular row in this table by the combination of Indx1 through Indx5. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp373006"> </a>
+tuxTQtransGrpNo
+</h3>
+<h4 class="pHeading3"><a name="wp373007"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp373008"> </a>
+<code class="cCode">INTEGER</code> 
+</p>
+<h4 class="pHeading3"><a name="wp373009"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp373010"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp373011"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp373012"> </a>
+Group number of any server group for which the queue space concerning this transaction is a resource manager, in other words that group&#8217;s openinfo string <code class="cCode">tuxTgroupOpenInfo</code> contains the device name and queue space name for the queue space concerning this transaction. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp373014"> </a>
+tuxTQtranSpaceName
+</h3>
+<h4 class="pHeading3"><a name="wp373015"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp373016"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..15</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp373017"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp373018"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp373019"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp373020"> </a>
+Name of the application queue space associated with the transaction. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp373022"> </a>
+tuxTQtransQmConfig
+</h3>
+<h4 class="pHeading3"><a name="wp373023"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp373024"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..78</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp373025"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp373026"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp373027"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp373028"> </a>
+Absolute pathname of the file or device where the application queue space is located.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp373030"> </a>
+tuxTQtransLmid
+</h3>
+<h4 class="pHeading3"><a name="wp373031"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp373032"> </a>
+<code class="cCodeEmphasis">DisplayString</code> (<code class="cCode">SIZE</code>(<code class="cCodeEmphasis">1..30</code>)) 
+</p>
+<h4 class="pHeading3"><a name="wp373033"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp373034"> </a>
+read-only
+</p>
+<h4 class="pHeading3"><a name="wp373035"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp373036"> </a>
+Identifier of the logical machine where the application queue space is located.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h3 class="pRefObject"><a name="wp373038"> </a>
+tuxTQtransState
+</h3>
+<h4 class="pHeading3"><a name="wp373039"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp373040"> </a>
+<code class="cCode">INTEGER { active(1), abort-only(2), aborted(3), com-called(4), ready(5), decided(6), suspended(7), habort(8), hcommit(9) }</code>
+</p>
+<h4 class="pHeading3"><a name="wp373041"> </a>
+Access
+</h4>
+<p class="pBody"><a name="wp373042"> </a>
+read-write
+</p>
+<h4 class="pHeading3"><a name="wp373043"> </a>
+Description
+</h4>
+<p class="pBody"><a name="wp373044"> </a>
+The values for <code class="cCode">GET</code> and <code class="cCode">SET</code> operations are as follows:
+</p>
+<h4 class="pDefTerm"><a name="wp373045"> </a>
+<code class="cCode">GET: {actdive(1)|abort-only(2)|aborted(3)|com-called(4)|ready(5)| decided(6)|suspended(7)}</code>
+</h4><div class="pDefPara"><a name="wp373046"> </a>
+A <code class="cCode">GET</code> operation retrieves run-time information about the selected transactions. The following list describes the meaning of the <code class="cCode">tuxTQtransState</code> object returned in response to a <code class="cCode">GET</code> request. States not listed are not returned.
+</div>
+<h4 class="pDefTerm"><a name="wp373047"> </a>
+<code class="cCode">active(1)</code>
+</h4><div class="pDefPara"><a name="wp373048"> </a>
+The transaction is active.
+<a name="wp373049"> </a><div class="pPreformatted"><pre><code class="cCode">abort-only(2)</code></pre></div><p class="pBodyRelative"><a name="wp373050"> </a>
+The transaction has been identified for rollback.
+</p>
+</div>
+<h4 class="pDefTerm"><a name="wp373051"> </a>
+<code class="cCode">aborted(3)</code>
+</h4><div class="pDefPara"><a name="wp373052"> </a>
+The transaction has been identified for rollback and rollback has been initiated.
+</div>
+<h4 class="pDefTerm"><a name="wp373053"> </a>
+<code class="cCode">com-called(4)</code>
+</h4><div class="pDefPara"><a name="wp373054"> </a>
+The initiator of the transaction has called <code class="cCode">tpcommit</code>(3) and the first phase of two-phase commit has begun.
+</div>
+<h4 class="pDefTerm"><a name="wp373055"> </a>
+<code class="cCode">ready(5)</code>
+</h4><div class="pDefPara"><a name="wp373056"> </a>
+All of the participating groups on the retrieval site have successfully completed the first phase of the two-phase commit and are ready to be committed.
+</div>
+<h4 class="pDefTerm"><a name="wp373057"> </a>
+<code class="cCode">decided(6)</code>
+</h4><div class="pDefPara"><a name="wp373058"> </a>
+The second phase of the two-phase commit has begun.
+<a name="wp373059"> </a><div class="pPreformatted"><pre><code class="cCode">suspended(7)</code></pre></div><p class="pBodyRelative"><a name="wp373060"> </a>
+The initiator of the transaction has suspended processing on the transaction.
+</p>
+</div>
+<h4 class="pDefTerm"><a name="wp373061"> </a>
+<code class="cCode">SET: {habort(8)|hcommit(9)}</code>
+</h4><div class="pDefPara"><a name="wp373062"> </a>
+A <code class="cCode">SET</code> operation updates the state of the selected transactions. The following list describes the meaning of the <code class="cCode">tuxTQtransState</code> object returned by a <code class="cCode">SET</code> request. States not listed cannot be set.
+</div>
+<h4 class="pDefTerm"><a name="wp373063"> </a>
+<code class="cCode">habort(8)</code>
+</h4><div class="pDefPara"><a name="wp373064"> </a>
+Heuristically abort the transaction. Successful return leaves the object in the <code class="cCode">habort(8)</code> state.
+</div>
+<h4 class="pDefTerm"><a name="wp373065"> </a>
+<code class="cCode">hcommit(9)</code>
+</h4><div class="pDefPara"><a name="wp373066"> </a>
+Heuristically commit the transaction. Successful return leaves the object in the <code class="cCode">hommit(9)</code> state.
+</div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="8appqmib.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="7wksmib.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="9evtbrok.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

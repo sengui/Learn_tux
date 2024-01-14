@@ -1,0 +1,1518 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="40264" />
+<meta name="LOC_US_SRCFILE" content="//depot/ecs/tcp/v11gr1/imsug/fm/imsconf.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="08/24/10 07:24:37" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Configuring Oracle TMA TCP for IMS</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">IMS User Guide
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="imssec.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="imsmont.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/imsug.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1028743"> </a>
+Configuring Oracle TMA TCP for IMS
+</h1>
+<p class="pBody"><a name="wp1023860"> </a>
+Oracle Tuxedo Mainframe Adapter for TCP (IMS) (hereafter referenced as TMA TCP for IMS) makes use of a <em style="font-style: italic" class="cEmphasis">configuration file</em><span style="font-style: italic"> </span>that is read and processed at runtime to establish the processing environment. The configuration file is a simple, plain-text file that a systems programmer can edit easily to define and alter the configuration. 
+</p>
+<p class="pBody"><a name="wp1023861"> </a>
+The configuration is defined in terms of the local (IMS) gateways, one or more remote gateways (for example, CICS), and one or more remote services offered by various remote gateways to which TMA TCP for IMS can have access. When using the OTMA client, you must configure local services as well.
+</p>
+<p class="pBody"><a name="wp1023868"> </a>
+To change the configuration file without shutting down the TMA TCP for IMS system, refer to <a href="imsconf.html#wp1024549"><span class="cHyperlink">
+Dynamically Configuring TMA TCP for IMS</span></a> section.
+</p>
+<p class="pBody"><a name="wp1023873"> </a>
+The configuration file includes the following information:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023874"> </a>A <code class="cCode">SYSTEM</code> statement that defines the system configuration parameters (refer to the <a href="imsconf.html#wp1023916"><span class="cHyperlink">
+System Configuration Parameters</span></a> section)</li>
+<li><a name="wp1023878"> </a>Statements that define one or more IMS host systems (OTMA only) with which TMA TCP for IMS establishes communications (refer to the <a href="imsconf.html#wp1024089"><span class="cHyperlink">
+Defining the Local Host</span></a> section)</li>
+<li><a name="wp1023887"> </a>Statements that define one or more local gateways (refer to the <a href="imsconf.html#wp1024142"><span class="cHyperlink">
+Defining the Local Gateway</span></a> section)</li>
+<li><a name="wp1023891"> </a>Statements that define one or more remote gateways with which TMA TCP for IMS can establish connections and exchange requests and responses (refer to the <a href="imsconf.html#wp1024240"><span class="cHyperlink">
+Defining Remote Gateways</span></a> section)</li>
+<li><a name="wp1023896"> </a>Statements that define one or more services offered by remote gateways that can be requested by IMS clients of TMA TCP for IMS (refer to the <a href="imsconf.html#wp1024392"><span class="cHyperlink">
+Defining Remote Services</span></a> section)</li>
+<li><a name="wp1023903"> </a>Statements that define one or more services offered by local IMS Hosts (OTMA only) that can be requested by remote clients of TMA TCP for IMS (refer to the <a href="imsconf.html#wp1024457"><span class="cHyperlink">
+Defining Local Services</span></a> section)</li>
+<li><a name="wp1023910"> </a>Security information when running as an OTMA client (refer to the <a href="imsconf.html#wp1024549"><span class="cHyperlink">
+Dynamically Configuring TMA TCP for IMS</span></a> section)</li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023916"> </a>
+System Configuration Parameters
+</h2><p class="pBody"><a name="wp1023917"> </a>
+System configuration parameters are defined by the <code class="cCode">SYSTEM</code> statement. Only one <code class="cCode">SYSTEM</code> statement is allowed, and it should be the first statement in the configuration file. See <a href="imsconf.html#wp1023924"><span class="cHyperlink">
+Listing&#160;4-1</span></a> for parameter syntax.
+</p>
+<h3 class="pHeading2"><a name="wp1023921"> </a>
+Syntax of the SYSTEM Statement
+</h3>
+<p class="pBody"><a name="wp1023922"> </a>
+The following listing contains the parameter syntax for the <code class="cCode">SYSTEM</code> statement.
+</p>
+<div class="pCodeTitle"><a name="wp1023924"> </a>
+Listing&#160;4-1	   <code class="cCodeBold">SYSTEM</code> Statement Syntax
+</div> <a name="wp1023925"> </a><div class="pPreformatted"><pre>SYSTEM,<br />	SLEEPTIME=<span style="font-style: italic">(sleep-min,sleep-max,sleep-delta),<br /></span>	OTMACLIENT=TMA<code style="font-style: italic" class="cCodeEmphasis">-</code><span style="font-style: italic">clientname</span>],<br />	OTMAGROUP=<span style="font-style: italic">XCF-groupname</span>]<br />	[,OTMASECURITY={Yes|<span style="text-decoration: underline">No</span>}]<br />	[,MSGLEVEL={<span style="font-style: italic">msg-level</span>|<span style="text-decoration: underline">4</span>}]<br />	[,CLIENTSHUTDOWN={Yes|<span style="text-decoration: underline">No</span>}]<br />	[,IDLETIMEOUT={nn|<span style="text-decoration: underline">0</span>}]<br />	[,DRUEXIT=exit-name|<span style="text-decoration: underline">DFSYDRU0</span>]<br />	[,SPARESOCKETS=nn|0]</pre></div><h3 class="pHeading2"><a name="wp1029329"> </a>
+Description of SYSTEM Parameters
+</h3>
+<p class="pBody"><a name="wp1029327"> </a>
+The <code class="cCode">SYSTEM</code> statement uses the following parameters. 
+</p>
+<p class="pGraphic"><a name="wp1024087"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1023943table1023941">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1023943"> </a>
+<span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Parameter</span>
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023945"> </a>
+Value
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023947"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023949"> </a>
+<code class="cCode">SLEEPTIME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023951"> </a>
+<code class="cCode">sleep-min</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023953"> </a>
+Specifies the minimum amount of time (decimal, milliseconds) that TMA TCP for IMS delays before checking for work.
+</div>
+<div class="pCellBody"><a name="wp1023958"> </a>
+Default value: 150
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023962"> </a>
+<code class="cCode">sleep-max</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023964"> </a>
+Specifies the maximum amount of time (decimal, milliseconds) that TMA TCP for IMS delays before checking for work.
+</div>
+<div class="pCellBody"><a name="wp1023969"> </a>
+Default value: 500
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023973"> </a>
+<code class="cCode">sleep-delta</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023975"> </a>
+Specifies the incremental amount of time (decimal, milliseconds) that TMA TCP for IMS uses to graduate from the minimum sleep time to the maximum sleep time.
+</div>
+<div class="pCellBody"><a name="wp1025369"> </a>
+TMA TCP for IMS periodically &#8220;polls&#8221; for new work. The TMA TCP for IMS product uses a graduated polling interval that is set to the minimum sleep time whenever new work is found. The polling interval is then incrementally increased by the delta time until one of the following occurs:
+</div>
+<div class="pSmartList1TableBullet"><ul class="SmartList1TableBullet">
+<li><a name="wp1023986"> </a>New work is found (in which case the polling interval is again reset to the minimum value)</li>
+<li><a name="wp1023987"> </a>The maximum sleep time is reached (in which case the polling interval remains at the maximum value)</li>
+</ul></div>
+<div class="pCellBody"><a name="wp1023988"> </a>
+This value limits the amount of CPU time required to poll for work when traffic is heavier.
+</div>
+<div class="pCellBody"><a name="wp1023989"> </a>
+Avoid specifying values that cause the polling interval to be very small (or zero), or values smaller than 100 milliseconds. These values may result in polling too frequently. However, also avoid specifying values that cause the polling interval to be too large (greater than one second). These values may cause TMA TCP for IMS to be unresponsive. Varying the sleep time between 100 and 500 milliseconds in 5 millisecond increments is recommended.
+</div>
+<div class="pCellBody"><a name="wp1023994"> </a>
+Default value: 5
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023996"> </a>
+<code class="cCode">OTMACLIENT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023998"> </a>
+<code class="cCode">clientname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024002"> </a>
+Specifies the XCF client name for TMA TCP OTMA. This parameter is 1-16 characters. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024005"> </a>
+<code class="cCode">OTMAGROUP</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024007"> </a>
+<code class="cCode">groupname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024009"> </a>
+Specifies the XCF group name for IMS and TMA TCP. This parameter is 1-8 characters. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024014"> </a>
+<code class="cCode">OTMASECURITY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024016"> </a>
+<code class="cCode">Yes|No</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024018"> </a>
+Specifies whether to enable or disable security for user authorization. Specify Yes to enable security or No to disable security. 
+</div>
+<div class="pCellBody"><a name="wp1024020"> </a>
+Default value: No
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024022"> </a>
+<code class="cCode">MSGLEVEL</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024024"> </a>
+<code class="cCode">msg-level | 4</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024026"> </a>
+Specifies the message detail level to be logged by TMA TCP for IMS.
+</div>
+<div class="pCellBody"><a name="wp1024031"> </a>
+0 - No messages are logged<br />2 - Error Messages only<br />3 - Informational Messages and Error Messages
+</div>
+<div class="pCellBody"><a name="wp1027783"> </a>
+4 - Security Audit Messages
+</div>
+<div class="pCellBody"><a name="wp1027785"> </a>
+The message level is cumulative. For example, if a message level of 4 is specified, all messages with a message level of 4 or less is logged (such as, security audit, informational, and error messages) and is also displayed on the z/OS console.
+</div>
+<div class="pCellBody"><a name="wp1024036"> </a>
+Normally, a message level of 4 should be specified, which results in TMA TCP for IMS logging all security, informational and error messages.
+</div>
+<div class="pCellBody"><a name="wp1024041"> </a>
+Default value: 5
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024043"> </a>
+<code class="cCode">CLIENTSHUTDOWN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024045"> </a>
+<code class="cCode">Yes|No</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024047"> </a>
+Specifies whether a <code class="cCode">SHUTDOWN</code> request can be made by a remote client request or as a response to a remote client request. For additional information for shutting down the system, refer to the <a href="imsmont.html"><span class="cHyperlink">
+Monitoring Oracle TMA TCP for IMS</span></a> section.
+</div>
+<div class="pCellBody"><a name="wp1024052"> </a>
+Default value: No
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024054"> </a>
+<code class="cCode">IDLETIMEOUT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024056"> </a>
+<code class="cCode">nn | 0</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024058"> </a>
+Specifies the number of seconds that lapses before the local gateway terminates a session.
+</div>
+<div class="pCellBody"><a name="wp1024060"> </a>
+Default value: 0
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024071"> </a>
+<code class="cCode">DRUEXIT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024073"> </a>
+<code class="cCode">exit-name</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024075"> </a>
+Specifies the name of the destination resolution User Exit routine in IMS that this client should use. The default is <code class="cCode">DFSYDRU0</code>. For a sample of the <code class="cCode">DFSYDRU0</code> user exit, refer to the <a href="imsapjcl.html"><span class="cHyperlink">
+Sample JCL and User Exits</span></a> section.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024080"> </a>
+<code class="cCode">SPARESOCKETS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024082"> </a>
+<code class="cCode">nn</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024084"> </a>
+Specifies the number of spare socket descriptors reserved for dynamic configuration changes, for example, adding a gateway, increasing the maximum number of sessions for a gateway. 
+</div>
+<div class="pCellBody"><a name="wp1024086"> </a>
+Default value: 0.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024089"> </a>
+Defining the Local Host
+</h2><p class="pBody"><a name="wp1024091"> </a>
+IMS host systems that service IMS requests are defined with the <code class="cCode">HOST TYPE=IMS</code> statement. This statement is only used when running TMA TCP for IMS as an OTMA client.
+</p>
+<h3 class="pHeading2"><a name="wp1024095"> </a>
+Syntax of the HOST Statement
+</h3>
+<p class="pBody"><a name="wp1024096"> </a>
+The following listing contains the parameter syntax for the <code class="cCode">HOST</code> statement.
+</p>
+<div class="pCodeTitle"><a name="wp1024097"> </a>
+Listing&#160;4-2	   <code class="cCodeBold">HOST</code> Statement Syntax
+</div> <a name="wp1029122"> </a><div class="pPreformatted"><pre>HOST,TYPE=IMS,<br />	IMSID=<code class="cCodeEmphasis">IMS-system-logical-identifier</code>,<br />	OTMANAME=<code class="cCodeEmphasis">IMS-clientname</code>,<br />	OTMAINPIPE=<code class="cCodeEmphasis">server-request-name,<br /></code>	OTMAOUTPIPE=<code class="cCodeEmphasis">client-request-name</code>] <br />	[,NUMTPIPES=(nnnn|1)]<br />	MAXRSPLEN=nnnn</pre></div><h3 class="pHeading2"><a name="wp1024100"> </a>
+Description of HOST Parameters
+</h3>
+<p class="pBody"><a name="wp1024101"> </a>
+The <code class="cCode">HOST</code> statement uses the following parameters. 
+</p>
+<p class="pGraphic"><a name="wp1024139"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024104table1024102">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1024104"> </a>
+Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024106"> </a>
+Value
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024108"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024110"> </a>
+<code class="cCode">IMSID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024112"> </a>
+<code class="cCode">IMS-system-logical-identifier</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024114"> </a>
+Specifies a symbolic name that uniquely identifies the IMS system definition.
+</div>
+<div class="pCellBody"><a name="wp1027271"> </a>
+This parameter is not related to the <code class="cCode">IMSID</code> parameter specified in the IMS sysgen or on IMS region JCL statements.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024116"> </a>
+<code class="cCode">OTMANAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024118"> </a>
+<code class="cCode">IMS-clientname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024120"> </a>
+Specifies the XCF client name for the IMS system. This parameter is 1-16 characters.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024122"> </a>
+<code class="cCode">OTMAINPIPE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024124"> </a>
+<code class="cCode">server-request-name</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024126"> </a>
+Specifies the transaction pipe name for the IMS server requests. This parameter is 1-4 characters. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024128"> </a>
+<code class="cCode">OTMAOUTPIPE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024130"> </a>
+<code class="cCode">client-request-name</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024132"> </a>
+Specifies the transaction pipe name for the IMS client requests. This parameter is 1-8 characters. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024134"> </a>
+<code class="cCode">NUMTPIPES</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024136"> </a>
+<code class="cCode">nnnn|1</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024138"> </a>
+Specifies the number of transaction pipes for IMS server requests. The value can range from 1-9,999.<br /><br />Default value: 1
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1028975"> </a>
+<code class="cCode">MAXRSPLEN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1028977"> </a>
+<code class="cCode">nnnn</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1028979"> </a>
+Specifies the maximum permissible length for IMS server response. The value can range from 1024-8,192,000.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024142"> </a>
+Defining the Local Gateway
+</h2><p class="pBody"><a name="wp1024143"> </a>
+The local (IMS) gateway defines the access points that remote gateways can use to connect to the IMS gateway.
+</p>
+<p class="pBody"><a name="wp1024144"> </a>
+The local gateway can be defined as having a single physical IP address and port number, or multiple physical IP addresses and/or port numbers. Furthermore, each physical port can be defined as accepting one or more concurrent <span style="font-style: italic">inbound</span> TCP/IP connections from remote gateways.
+</p>
+<p class="pBody"><a name="wp1024145"> </a>
+One or more <code class="cCode">GATEWAY TYPE=LOCAL</code> statements must exist in the configuration file to define the local gateways. Each <code class="cCode">GATEWAY TYPE=LOCAL</code> statement defines a specific IP address and port number through which TMA TCP for IMS accepts inbound connection requests from remote gateways. Inbound connections are used by a remote gateway to send client requests to the IMS gateway for processing by IMS server transactions. Each local gateway (as defined by a <code class="cCode">GATEWAY TYPE=LOCAL</code> statement) must have a unique logical machine ID (a symbolic name used to identify a gateway).
+</p>
+<p class="pBody"><a name="wp1024149"> </a>
+Remote systems attempting to establish an inbound session with the local gateway can optionally be required to supply a valid account ID and/or password.
+</p>
+<p class="pBody"><a name="wp1024153"> </a>
+For sample configurations, refer to the <a href="imsapcfx.html"><span class="cHyperlink">
+Example Configuration Files</span></a> section.
+</p>
+<h3 class="pHeading2"><a name="wp1024154"> </a>
+Syntax of the GATEWAY TYPE=LOCAL Statement
+</h3>
+<p class="pBody"><a name="wp1024158"> </a>
+<a href="imsconf.html#wp1024160">Listing&#160;4-3</a> contains the parameter syntax for the local gateway.
+</p>
+<div class="pCodeTitle"><a name="wp1024160"> </a>
+Listing&#160;4-3	   Local Gateway Syntax
+</div> <a name="wp1024161"> </a><div class="pPreformatted"><pre>GATEWAY,TYPE=LOCAL,<br />	LMID=<span style="font-style: italic">logical-machine-id</span>,<br />	PORT=<span style="font-style: italic">port-number</span>,<br />	ACCOUNT={<span style="font-style: italic">account-id</span>|*},<br />	PASSWORD={<span style="font-style: italic">password</span>|*}<br />	[,HOSTADDR=(<span style="font-style: italic">ip-address|hostname)</span>]<br />	[,MAXMSGLEN={<span style="font-style: italic">max-message-length</span>|<span style="text-decoration: underline">2048</span>}]<br />	[,SESSIONS={(<span style="font-style: italic">startup-sessions,max-sessions)</span>|<span style="text-decoration: underline">1</span>}]<br />	[,IDLETIMEOUT={nn|<span style="text-decoration: underline">0</span>}]<br />	[,MULTIPLEX={nn|<span style="text-decoration: underline">1</span>}]<br /></pre></div><h3 class="pHeading2"><a name="wp1024164"> </a>
+Description of GATEWAY TYPE=LOCAL Parameters
+</h3>
+<p class="pBody"><a name="wp1024165"> </a>
+The <code class="cCode">GATEWAY TYPE=LOCAL</code> statement uses the following parameters. 
+</p>
+<p class="pGraphic"><a name="wp1024237"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024168table1024166">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1024168"> </a>
+Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024170"> </a>
+Value
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024172"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024174"> </a>
+<code class="cCode">LMID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024176"> </a>
+<code class="cCode">logical-machine-id</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024178"> </a>
+Specifies a symbolic name (1-16 characters) that uniquely identifies this gateway/port.
+</div>
+<p class="pTableNote"><a name="wp1024179"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Special characters are <span style="font-style: italic">not</span> supported.</td></tr>
+</table>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024181"> </a>
+<code class="cCode">PORT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024183"> </a>
+<code class="cCode">port-number</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024185"> </a>
+Specifies the port number (decimal, 1-32,767) at which inbound connections from remote gateways are accepted. Choose a port number that is not in the range of well-known port numbers reserved for use by TCP/IP applications.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024187"> </a>
+<code class="cCode">ACCOUNT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024189"> </a>
+<code class="cCode">account-id|*</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024191"> </a>
+Specifies the account ID (1-8 characters) that must be specified by a remote gateway to establish a connection. If an account ID is not used, <code class="cCode">ACCOUNT=*</code> should be specified.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024193"> </a>
+<code class="cCode">PASSWORD</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024195"> </a>
+<code class="cCode">password|*</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024197"> </a>
+Specifies the password (1-8 characters) that must be specified by a remote gateway to establish a connection. If a password is not used, <code class="cCode">PASSWORD=*</code> should be specified.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024199"> </a>
+<code class="cCode">HOSTADDR</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024201"> </a>
+<code class="cCode">ip-address|hostname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024203"> </a>
+Is the IP address or hostname for this machine over which inbound connections from remote gateways are accepted at the specified port number. The IP address is specified using standard dotted-decimal notation (for example, <code class="cCode">199.203.45.99</code>). The hostname is specified as a 1-256 character string and must match the DNS entry.
+</div>
+<p class="pTableNote"><a name="wp1027998"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If any special characters, such as &quot;-&quot; are in the host address, quotes must be placed around the address name. Example: <code class="cCode">HOSTADDR=&quot;SIA-COTS&quot;</code></td></tr>
+</table>
+</p>
+<div class="pCellBody"><a name="wp1024205"> </a>
+Default value: If this parameter is not specified, then connections are accepted over any network interface.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024207"> </a>
+<code class="cCode">MAXMSGLEN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024209"> </a>
+<code class="cCode">max-message-length|2048</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024211"> </a>
+Specifies the maximum TCP/IP message length that is accepted over the connection. The value range is 1-32,767.
+</div>
+<div class="pCellBody"><a name="wp1024213"> </a>
+Default value: 2048
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024215"> </a>
+<code class="cCode">SESSIONS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024217"> </a>
+<code class="cCode">(startup-sessions,max-sessions)|1</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024219"> </a>
+Is the maximum number of concurrent, active inbound sessions that is accepted by this gateway. The input format is (<em class="cEmphasis">startup-sessions</em>,<em class="cEmphasis">max-sessions</em>), where the <em class="cEmphasis">startup-sessions</em> represents the number of sessions to initiate at startup and <em class="cEmphasis">max-sessions</em> specifying the maximum concurrent, active, inbound sessions. The range for the <em class="cEmphasis">max-sessions</em> is 0-32,767.
+</div>
+<div class="pCellBody"><a name="wp1024221"> </a>
+Default value: 1
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024223"> </a>
+<code class="cCode">IDLETIMEOUT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024225"> </a>
+<code class="cCode">nn|0</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024227"> </a>
+Specifies the number of seconds that lapse before the local gateway terminates a session.
+</div>
+<div class="pCellBody"><a name="wp1024228"> </a>
+Default value: 0
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024230"> </a>
+<code class="cCode">MULTIPLEX</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024232"> </a>
+<code class="cCode">nn|1</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024234"> </a>
+Is the maximum number of concurrent messages per session that is accepted by this gateway.
+</div>
+<div class="pCellBody"><a name="wp1024236"> </a>
+Default value: 1
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024240"> </a>
+Defining Remote Gateways
+</h2><p class="pBody"><a name="wp1024244"> </a>
+A remote gateway is another Oracle Tuxedo Mainframe Adapter gateway (TUX, CICS, or IMS) to which TMA TCP for IMS can be connected by one or more TCP/IP connections. A remote gateway definition defines the access points that TMA TCP for IMS uses to connect to the remote gateway.
+</p>
+<p class="pBody"><a name="wp1024251"> </a>
+The remote gateway is defined by its IP address and port number. The remote gateway may be defined as accepting one or more concurrent <span style="font-style: italic">outbound</span> TCP/IP connections initiated by the local (IMS) gateway. Outbound connections are used by the IMS gateway to send IMS client requests to a remote gateway for processing by the requested service.
+</p>
+<p class="pBody"><a name="wp1024252"> </a>
+One or more <code class="cCode">GATEWAY TYPE=REMOTE</code> statements are used in the configuration file to define remote gateways. Each <code class="cCode">GATEWAY TYPE=REMOTE</code> statement defines the IP address and port number that TMA TCP for IMS uses to establish an outbound connection with a remote gateway. The <code class="cCode">GATEWAY TYPE=REMOTE</code> statement also identifies a remote gateway by a unique logical machine ID.
+</p>
+<p class="pBody"><a name="wp1024256"> </a>
+The configuration file may contain multiple <code class="cCode">GATEWAY TYPE=REMOTE</code> statements, each defining a different remote gateway. If no <code class="cCode">GATEWAY TYPE=REMOTE</code> statements are present, then TMA TCP for IMS cannot establish outbound connections with remote gateways, and therefore cannot process IMS client requests.
+</p>
+<p class="pBody"><a name="wp1024263"> </a>
+The TMA TCP for IMS software can optionally be configured to supply a valid account ID and valid password when establishing an outbound session with a remote gateway.
+</p>
+<p class="pBody"><a name="wp1024266"> </a>
+For examples of the <code class="cCode">GATEWAY TYPE=REMOTE </code>statement, refer to the <a href="imsapcfx.html"><span class="cHyperlink">
+Example Configuration Files</span></a> section.
+</p>
+<h3 class="pHeading2"><a name="wp1024268"> </a>
+Syntax of the GATEWAY TYPE=REMOTE Statement
+</h3>
+<p class="pBody"><a name="wp1024272"> </a>
+<a href="imsconf.html#wp1024274">Listing&#160;4-4</a> contains the parameter syntax for the <code class="cCode">GATEWAY TYPE=REMOTE</code> statement.
+</p>
+<div class="pCodeTitle"><a name="wp1024274"> </a>
+Listing&#160;4-4	   Remote Gateway Syntax
+</div> <a name="wp1024275"> </a><div class="pPreformatted"><pre>GATEWAY,TYPE=(REMOTE,{TUX|IMS|CICS,<code class="cCodeEmphasis">tran-id</code><code class="cCode">|CICSCPT}),<br /></code><code class="cCodeEmphasis">       </code><code class="cCode">LMID=</code><code class="cCodeEmphasis">logical-machine-id</code><code class="cCode">,<br /></code><code class="cCodeEmphasis">       </code><code class="cCode">HOSTADDR=(</code><code class="cCodeEmphasis">ip-address|hostname),<br />       </code><code class="cCode">PORT=</code><code class="cCodeEmphasis">port-number</code><code class="cCode">,<br /></code><code class="cCodeEmphasis">       </code><code class="cCode">ACCOUNT={</code><code class="cCodeEmphasis">account-id</code><code class="cCode">,*},<br /></code><code class="cCodeEmphasis">       </code><code class="cCode">PASSWORD={</code><code class="cCodeEmphasis">password</code><code class="cCode">,*}<br /></code><code class="cCodeEmphasis">       </code><code class="cCode">[,MAXMSGLEN=</code><code class="cCodeEmphasis">max-message-length|2048</code><code class="cCode">]<br /></code><code class="cCodeEmphasis">       </code><code class="cCode">[,SESSIONS=(</code><code class="cCodeEmphasis">min-sessions</code><code class="cCode">),(</code><code class="cCodeEmphasis">max-sessions</code><code class="cCode">)]<br />       [,MULTIPLEX={nn|0}]<br /></code><code class="cCodeEmphasis">       </code>[,<code class="cCode">IDLETIMEOUT={nn|0}]</code></pre></div><h3 class="pHeading2"><a name="wp1024278"> </a>
+Description of GATEWAY TYPE=REMOTE Parameters
+</h3>
+<p class="pBody"><a name="wp1024279"> </a>
+The <code class="cCode">GATEWAY TYPE=REMOTE</code> statement uses the following parameters. 
+</p>
+<p class="pGraphic"><a name="wp1024390"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024282table1024280">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1024282"> </a>
+Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024284"> </a>
+Value
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024286"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024288"> </a>
+<code class="cCode">TYPE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024290"> </a>
+<code class="cCode">(REMOTE,type) </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024292"> </a>
+Specifies the remote gateway type. You must specify one of the following.
+</div>
+<div class="pCellBody"><a name="wp1024295"> </a>
+<code class="cCode">TUX</code> - The remote gateway is an TMA TCP Gateway gateway.
+</div>
+<div class="pCellBody"><a name="wp1024299"> </a>
+<code class="cCode">IMS</code> -The remote gateway is an TMA TCP for IMS gateway.
+</div>
+<div class="pCellBody"><a name="wp1024301"> </a>
+<code class="cCode">CICS, </code><em class="cEmphasis">tran-id</em> - The remote gateway is an TMA TCP for CICS gateway. <span style="font-style: italic">tran-id</span> specifies the 1-4 character name of the TMA TCP for CICS transaction that is to be scheduled by CICS to handle incoming TCP/IP TMA requests. Refer to the <span style="font-style: italic">Oracle </span>Tuxedo Mainframe Adapter for TCP<span style="font-style: italic"> CICS User Guide </span>for more information.
+</div>
+<div class="pCellBody"><a name="wp1024314"> </a>
+<code class="cCode">CICSCPT</code> - The remote gateway is an TMA TCP for CICS gateway that uses the Interlink CPT product for TCP/IP access.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024319"> </a>
+<code class="cCode">LMID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024321"> </a>
+<code class="cCode">logical-machine-id </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024323"> </a>
+Specifies a symbolic name (1-16 characters) that uniquely identifies the remote gateway. The logical machine ID is used to associate a remote service with a particular remote gateway.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024325"> </a>
+<code class="cCode">HOSTADDR</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024327"> </a>
+<code class="cCode">ip-address|hostname </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024329"> </a>
+Specifies the IP address of the remote gateway. The IP address is specified using standard dotted-decimal notation (for example, <code class="cCode">103.204.79.82</code>). The hostname is specified as a 1-256 character string and must match the DNS entry.
+</div>
+<p class="pTableNote"><a name="wp1028050"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If any special characters, such as &quot;-&quot; are in the host address, quotes must be placed around the address name. Example: <code class="cCode">HOSTADDR=&quot;SIA-COTS&quot;</code></td></tr>
+</table>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024331"> </a>
+<code class="cCode">PORT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024333"> </a>
+<code class="cCode">port-number</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024335"> </a>
+Specifies the port number (decimal, 1-32,767) to be used to establish a connection with the remote gateway.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024337"> </a>
+<code class="cCode">ACCOUNT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024339"> </a>
+<code class="cCode">account-id</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024341"> </a>
+Specifies the account ID (1-8 characters) to be used to establish a connection with the remote gateway. If an account ID is not used, <code class="cCode">ACCOUNT=*</code> should be specified.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024343"> </a>
+<code class="cCode">PASSWORD</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024345"> </a>
+<code class="cCode">password</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024347"> </a>
+Specifies the password (1-8 characters) to be used to establish a connection with the remote gateway. If a password is not used, <code class="cCode">PASSWORD=*</code> should be specified.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024349"> </a>
+<code class="cCode">MAXMSGLEN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024351"> </a>
+<code class="cCode">max-message-length</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024353"> </a>
+Specifies the maximum TCP/IP message length (decimal, 1-32,767) that is sent over the connection.
+</div>
+<div class="pCellBody"><a name="wp1024355"> </a>
+Default value: 2048
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024357"> </a>
+<code class="cCode">SESSIONS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024359"> </a>
+<code class="cCode">min-sessions</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024361"> </a>
+Specifies the minimum number of outbound sessions (decimal, 0-32,767) that are to be automatically started with this gateway during initialization of TMA TCP for IMS. Additional sessions (up to the maximum number of sessions specified) are started on a demand basis.
+</div>
+<div class="pCellBody"><a name="wp1024365"> </a>
+Remember that by specifying a minimum number (greater than 0) of outbound sessions for a remote gateway, you can cause outbound session to be automatically established with that gateway during initialization. This process can be helpful in verifying outbound connectivity without having to make use of test transactions.
+</div>
+<div class="pCellBody"><a name="wp1024367"> </a>
+Default value: 0
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024371"> </a>
+<code class="cCode">max-sessions</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024373"> </a>
+Specifies the maximum number of concurrent, active, outbound sessions (decimal, 0-32,767) that are established with this gateway.
+</div>
+<div class="pCellBody"><a name="wp1024375"> </a>
+Default value: 1
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024377"> </a>
+<code class="cCode">MULTIPLEX</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024379"> </a>
+<code class="cCode">nn|0</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024381"> </a>
+Specifies the maximum number of concurrent messages per session that the gateway accepts.
+</div>
+<div class="pCellBody"><a name="wp1024382"> </a>
+Default value: 1
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024384"> </a>
+<code class="cCode">IDLETIMEOUT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024386"> </a>
+<code class="cCode">nn|0</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024388"> </a>
+Specifies the number of seconds that lapse before the remote gateway terminates a session. The remote gateway terminates sessions until it is equal to the minimum sessions allowed.
+</div>
+<div class="pCellBody"><a name="wp1024389"> </a>
+Default value: 0
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024392"> </a>
+Defining Remote Services
+</h2><p class="pBody"><a name="wp1024397"> </a>
+A remote service is a service offered by a remote gateway to which TMA TCP for IMS has access. IMS client transactions can make requests for services offered by remote gateways.
+</p>
+<p class="pBody"><a name="wp1024399"> </a>
+One or more <code class="cCode">SERVICE TYPE=REMOTE</code> statements are used in the configuration file to define remote services. Each <code class="cCode">SERVICE TYPE=REMOTE</code> statement defines the local service name (used by the IMS client transaction to request the service), the remote service name (used to invoke the service on the remote system), and the logical machine ID of a remote gateway that offers the service. There must be a corresponding <code class="cCode">GATEWAY TYPE=REMOTE</code> statement in the configuration file for the specified logical machine ID.
+</p>
+<p class="pBody"><a name="wp1024401"> </a>
+The configuration file can contain multiple <code class="cCode">SERVICE TYPE=REMOTE</code> statements for a given (local) service name, each pointing to a different logical machine ID (that is, remote gateway). In this case, TMA TCP for IMS distributes requests for the service among the available service providers, thus maximizing throughput during busy periods.
+</p>
+<p class="pBody"><a name="wp1024408"> </a>
+For examples of this statement, refer to the <a href="imsapcfx.html"><span class="cHyperlink">
+Example Configuration Files</span></a> section.
+</p>
+<h3 class="pHeading2"><a name="wp1024410"> </a>
+Syntax of the SERVICE TYPE=REMOTE Statement
+</h3>
+<p class="pBody"><a name="wp1024414"> </a>
+<a href="imsconf.html#wp1024416">Listing&#160;4-5</a> contains the parameter syntax for the <code class="cCode">SERVICE TYPE=REMOTE</code> statement.
+</p>
+<div class="pCodeTitle"><a name="wp1024416"> </a>
+Listing&#160;4-5	   Remote Services Syntax
+</div> <a name="wp1024417"> </a><div class="pPreformatted"><pre>SERVICE,TYPE=REMOTE,<br />       NAME=(<span style="font-style: italic">local-service-name</span>,<span style="font-style: italic">remote-service-name</span>),<br />       LMID=<span style="font-style: italic">logical-machine-id<br /></span>       [,TIMEOUT={<span style="font-style: italic">timeout</span>|<span style="text-decoration: underline">30</span>}]</pre></div><h3 class="pHeading2"><a name="wp1024420"> </a>
+Description of SERVICE TYPE=REMOTE Parameters
+</h3>
+<p class="pBody"><a name="wp1024421"> </a>
+The <code class="cCode">SERVICE TYPE=REMOTE</code> statement uses the following parameters. 
+</p>
+<p class="pGraphic"><a name="wp1024454"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024424table1024422">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1024424"> </a>
+Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024426"> </a>
+Value
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024428"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024430"> </a>
+<code class="cCode">NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024432"> </a>
+<code class="cCode">local-service-name</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024434"> </a>
+Specifies the name (1-16 characters) by which the service is known on <span style="font-style: italic">this</span> machine. This is the name which must be used by an IMS client to request the service.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024438"> </a>
+<code class="cCode">remote-service-name</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024440"> </a>
+Specifies the name (1-16 characters) by which the service is known on the <span style="font-style: italic">remote</span> machine. This name is the name used to invoke the service on the remote machine.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024442"> </a>
+<code class="cCode">LMID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024444"> </a>
+<code class="cCode">logical-machine-id</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024446"> </a>
+Specifies the logical machine ID (1-16 characters) of a remote gateway that offers this service. This name must match a logical machine ID (LMID) specified in a <code class="cCode">GATEWAY TYPE=REMOTE</code> statement.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024448"> </a>
+<code class="cCode">TIMEOUT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024450"> </a>
+<code class="cCode">timeout|30</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024452"> </a>
+Specifies the time limit in seconds (decimal, 1 - 32,767) for the service. If a response is not received within the specified period of time, an error condition is recognized.
+</div>
+<div class="pCellBody"><a name="wp1024453"> </a>
+Default value: 30 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024457"> </a>
+Defining Local Services
+</h2><p class="pBody"><a name="wp1024458"> </a>
+A service offered by a local IMS host is defined by a <code class="cCode">SERVICE TYPE=LOCAL</code> statement. There can be multiple <code class="cCode">SERVICE TYPE=LOCAL</code> statements and multiple statements defining the same service, provided each specifies a different local <code class="cCode">IMSID</code>.
+</p>
+<h3 class="pHeading2"><a name="wp1024460"> </a>
+Syntax of the SERVICE TYPE=LOCAL Statement
+</h3>
+<p class="pBody"><a name="wp1024465"> </a>
+<a href="imsconf.html#wp1024471">Listing&#160;4-6</a> contains the parameter syntax for the <code class="cCode">SERVICE TYPE=LOCAL</code> statement.
+</p>
+<a name="wp1024468"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td><code class="cCode">SERVICE TYPE=LOCAL</code> statements are only used when running TMA TCP for IMS as an OTMA client.</td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1024471"> </a>
+Listing&#160;4-6	   Local Service Syntax
+</div> <a name="wp1024472"> </a><div class="pPreformatted"><pre>SERVICE,TYPE=LOCAL,<br />       NAME=(<span style="font-style: italic">local-service-name</span>,<span style="font-style: italic">remote-service-name</span>),<br />       IMSID=<span style="font-style: italic">logical-IMS-id</span>,<br />	[,V21COMPAT={Yes|<span style="text-decoration: underline">No</span>}]<br />	[,FASTPATH={Yes|<span style="text-decoration: underline">No</span>}]<br />	[,SECURITY={Yes|<span style="text-decoration: underline">No</span>}]<br />	[,RESPONSE=<code class="cCodeEmphasis">remote-service-name</code>]</pre></div><h3 class="pHeading2"><a name="wp1024474"> </a>
+Description of SERVICES Parameters
+</h3>
+<p class="pBody"><a name="wp1024475"> </a>
+The <code class="cCode">LOCAL SERVICES</code> statement uses the following parameters.
+</p>
+<p class="pGraphic"><a name="wp1024543"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024478table1024476">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1024478"> </a>
+Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024480"> </a>
+Value
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024482"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024484"> </a>
+<code class="cCode">NAME</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024486"> </a>
+<code class="cCode">local-service-name</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024488"> </a>
+Specifies the name (1-16 characters) by which the service is known on <span style="font-style: italic">this</span> machine. This name is the name passed to IMS as the transaction name.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024492"> </a>
+<code class="cCode">remote-service-name</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024494"> </a>
+Specifies the name (1-16 characters) by which the service is known on the <span style="font-style: italic">remote</span> machine. This name is the name passed by the remote client to invoke this service.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024496"> </a>
+<code class="cCode">IMSID</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024498"> </a>
+<code class="cCode">logical-IMS-id</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024500"> </a>
+Specifies a symbolic name that uniquely identifies an IMS system definition. This name must match a logical IMS ID (<code class="cCode">IMSID</code>) specified in a <code class="cCode">HOST</code>, <code class="cCode">TYPE=IMS</code> statement.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024502"> </a>
+<code class="cCode">FASTPATH</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024504"> </a>
+<code class="cCode">Yes|No</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024506"> </a>
+Specifies whether this service is a FastPath transactions. Specify <code class="cCode">Yes</code> to enable FastPath transactions or <code class="cCode">No</code> to disable FastPath transactions. 
+</div>
+<div class="pCellBody"><a name="wp1024508"> </a>
+Default value: <code class="cCode">No</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024510"> </a>
+<code class="cCode">SECURITY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024512"> </a>
+<code class="cCode">Yes|No</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024514"> </a>
+Specifies whether to enable or disable security for this service. Specify <code class="cCode">Yes</code> to enable security or <code class="cCode">No</code> to disable security.
+</div>
+<div class="pCellBody"><a name="wp1024516"> </a>
+Default value: <code class="cCode">No</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024518"> </a>
+<code class="cCode">RESPONSE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024520"> </a>
+<code class="cCode">remote-service-name</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024522"> </a>
+Specifies the remote service name you want to send the response to as a request. 
+</div>
+<p class="pTableNote"><a name="wp1024523"> </a><table>
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This parameter is only valid for local service requests with a <code class="cCode">NOREPLY</code> response.</td></tr>
+</table>
+</p>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024525"> </a>
+<code class="cCode">V21COMPAT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024527"> </a>
+<code class="cCode">Yes|No</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024529"> </a>
+Specifies whether the transaction specifically developed to run with version 2.1 or previous versions of TMA TCP. Specify <code class="cCode">Yes</code> to run transactions that were developed with version 2.1 or previous versions of TMA TCP for IMS. Specify <code class="cCode">No</code> to run transactions that were <em class="cEmphasis">not</em> developed with version 2.1 of TMA TCP for IMS or previous versions of TMA TCP for IMS.
+</div>
+<div class="pCellBody"><a name="wp1024542"> </a>
+Default value: <code class="cCode">No</code>.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024549"> </a>
+Dynamically Configuring TMA TCP for IMS
+</h2><p class="pBody"><a name="wp1024553"> </a>
+The TMA TCP for IMS product makes use of a <em style="font-style: italic" class="cEmphasis">configuration file</em><span style="font-style: italic"> </span>that is read and processed at runtime to establish the processing environment. The configured parameters can be modified while the gateway is running. You can make the following changes to the TMA TCP for IMS gateway configuration dynamicallyby entering the commands on TCP Outstanding WTOR:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1026077"> </a><a href="imsconf.html#wp1026178"><span class="cHyperlink">
+Modifying SYSTEM Parameters</span></a><span class="cHyperlink">
+ </span></li>
+<li><a name="wp1026093"> </a><a href="imsconf.html#wp1024602"><span class="cHyperlink">
+Writing the Configuration to a File</span></a></li>
+<li><a name="wp1026109"> </a><a href="imsconf.html#wp1024613">Processing a File</a></li>
+<li><a name="wp1026125"> </a><a href="imsconf.html#wp1024624">Changing Gateway Configurations</a></li>
+<li><a name="wp1026172"> </a><a href="imsconf.html#wp1024757">Changing Remote Service Definitions</a></li>
+<li><a name="wp1026208"> </a><a href="imsconf.html#wp1024871">Display Status Information</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1026178"> </a>
+Modifying SYSTEM Parameters
+</h3>
+<p class="pBody"><a name="wp1024584"> </a>
+You can modify the following <code class="cCode">SYSTEM</code> parameters dynamically using the <code class="cCode">MOD&#160;SYSTEM</code> command.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024586"> </a><code class="cCode">SLEEPTIME</code></li>
+<li><a name="wp1024587"> </a><code class="cCode">MSGLEVEL</code></li>
+<li><a name="wp1024588"> </a><code class="cCode">CLIENTSHUTDOWN</code></li>
+</ul></div>
+<p class="pBody"><a name="wp1024592"> </a>
+The example in <a href="imsconf.html#wp1024594"><span class="cHyperlink">
+Listing&#160;4-7</span></a> uses the <code class="cCode">MOD SYSTEM</code> command.
+</p>
+<div class="pCodeTitle"><a name="wp1024594"> </a>
+Listing&#160;4-7	   <code class="cCodeBold">MOD SYSTEM</code> Command Example
+</div> <a name="wp1024595"> </a><div class="pPreformatted"><pre>MOD SYSTEM, SLEEPTIME=(150,500,5), MSGLEVEL=4, CLIENTSHUTDOWN=NO</pre></div><p class="pBody"><a name="wp1024599"> </a>
+For parameter descriptions and syntax, refer to the <a href="imsconf.html#wp1029329"><span class="cHyperlink">
+Description of SYSTEM Parameters</span></a> section.
+</p>
+<h3 class="pHeading2"><a name="wp1024602"> </a>
+Writing the Configuration to a File
+</h3>
+<p class="pBody"><a name="wp1028869"> </a>
+To write the current configuration to a file, use the <code class="cCode">CHKPT CONFIG</code> command with a fully qualified file name. The example in <a href="imsconf.html#wp1024609"><span class="cHyperlink">
+Listing&#160;4-8</span></a> saves the current configuration to a file named <code class="cCode">BEA.TMATCP.CONFIG1</code>.
+</p>
+<div class="pCodeTitle"><a name="wp1024609"> </a>
+Listing&#160;4-8	   <code class="cCodeBold">CHKPT CONFIG</code> Command Example 
+</div> <a name="wp1024610"> </a><div class="pPreformatted"><pre>CHKPT CONFIG, FILE=&quot;BEA.TMATCP.CONFIG1&quot;</pre></div><h3 class="pHeading2"><a name="wp1024613"> </a>
+Processing a File
+</h3>
+<p class="pBody"><a name="wp1028876"> </a>
+To process a file containing commands, use the <code class="cCode">INFILE</code> command with a fully qualified file name. The example in <a href="imsconf.html#wp1024620"><span class="cHyperlink">
+Listing&#160;4-9</span></a> processes the <code class="cCode">BEA.TMATCP.TESTFILE1</code> file.
+</p>
+<div class="pCodeTitle"><a name="wp1024620"> </a>
+Listing&#160;4-9	   <code class="cCodeBold">INFILE</code> Command Example
+</div> <a name="wp1024621"> </a><div class="pPreformatted"><pre>INFILE BEA.TMATCP.TESTFILE1</pre></div><h3 class="pHeading2"><a name="wp1024624"> </a>
+Changing Gateway Configurations
+</h3>
+<p class="pBody"><a name="wp1024626"> </a>
+You can dynamically change gateway configurations by adding a new gateway, modifying an existing gateway definition, starting a gateway, and stopping a gateway. For parameter descriptions and syntax, refer to the <a href="imsconf.html#wp1024164"><span class="cHyperlink">
+Description of GATEWAY TYPE=LOCAL Parameters</span></a> and <a href="imsconf.html#wp1024278"><span class="cHyperlink">
+Description of GATEWAY TYPE=REMOTE Parameters</span></a> sections.
+</p>
+<h4 class="pHeading3"><a name="wp1024633"> </a>
+Adding a Gateway
+</h4>
+<p class="pBody"><a name="wp1024635"> </a>
+To add a gateway to the current configuration, use the <code class="cCode">ADD GATEWAY</code> command. The following <code class="cCode">GATEWAY</code> statement parameters are supported with this command.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024636"> </a><code class="cCode">TYPE</code></li>
+<li><a name="wp1024637"> </a><code class="cCode">LMID</code></li>
+<li><a name="wp1024638"> </a><code class="cCode">PORT</code></li>
+<li><a name="wp1024639"> </a><code class="cCode">ACCOUNT</code></li>
+<li><a name="wp1024640"> </a><code class="cCode">PASSWORD</code></li>
+<li><a name="wp1024641"> </a><code class="cCode">HOSTADDR</code></li>
+<li><a name="wp1024642"> </a><code class="cCode">MAXMSGLEN</code></li>
+<li><a name="wp1024643"> </a><code class="cCode">SESSIONS</code></li>
+<li><a name="wp1024644"> </a><code class="cCode">MULTIPLEX</code></li>
+</ul></div>
+<p class="pBody"><a name="wp1024648"> </a>
+The example in <a href="imsconf.html#wp1024650">Listing&#160;4-10</a> uses the <code class="cCode">ADD GATEWAY</code> command.
+</p>
+<div class="pCodeTitle"><a name="wp1024650"> </a>
+Listing&#160;4-10	   <code class="cCodeBold">ADD GATEWAY</code> Command Example
+</div> <a name="wp1024651"> </a><div class="pPreformatted"><pre>ADD GATEWAY, TYPE=LOCAL,<br />    LMID=IMS1,<br />    PORT=4500,<br />    ACCOUNT=ACCT101,<br />    PASSWORD=PSWD101,<br />    HOSTADDR=128.0.0.1,<br />    MAXMSGLEN=2048,<br />    SESSIONS=5,<br />    MULTIPLEX=3</pre></div><h4 class="pHeading3"><a name="wp1024653"> </a>
+Starting a Gateway
+</h4>
+<p class="pBody"><a name="wp1024655"> </a>
+To start a gateway, use the <code class="cCode">START GATEWAY</code> command with the <code class="cCode">LMID</code> parameter. The example in <a href="imsconf.html#wp1024660">Listing&#160;4-11</a> starts the OS3901 gateway.
+</p>
+<div class="pCodeTitle"><a name="wp1024660"> </a>
+Listing&#160;4-11	   <code class="cCodeBold">START GATEWAY</code> Command Example
+</div> <a name="wp1024661"> </a><div class="pPreformatted"><pre>START GATEWAY, LMID=OS3901</pre></div><h4 class="pHeading3"><a name="wp1024663"> </a>
+Stopping a Gateway
+</h4>
+<p class="pBody"><a name="wp1024665"> </a>
+To stop a gateway, use the <code class="cCode">STOP GATEWAY</code> command with the <code class="cCode">LMID</code> parameter.   Use the <code class="cCode">IMMED=YES</code> parameter to stop the gateway immediately <em class="cEmphasis">without</em> waiting for requests in progress to complete. Outstanding requests are sent an error message and all gateway connections are closed. Use the <code class="cCode">IMMED=NO</code> to allow the gateway to complete transaction processing and then shutdown. While waiting, the gateway does not accept any new requests. <code class="cCode">IMMED=NO</code> is the default. The example in <a href="imsconf.html#wp1024670">Listing&#160;4-12</a> stops the OS3901 gateway after transaction processing completes.
+</p>
+<div class="pCodeTitle"><a name="wp1024670"> </a>
+Listing&#160;4-12	   <code class="cCode">STOP GATEWAY</code> Command Example
+</div> <a name="wp1024671"> </a><div class="pPreformatted"><pre>STOP GATEWAY, LMID=OS3901</pre></div><h4 class="pHeading3"><a name="wp1024673"> </a>
+Modifying an Existing Gateway
+</h4>
+<p class="pBody"><a name="wp1024674"> </a>
+To change an existing gateway, stop the gateway first. Then use the <code class="cCode">MOD GATEWAY</code> command to change any supported parameter definitions. You must specify an existing LMID for the <code class="cCode">MOD GATEWAY</code> command. The following <code class="cCode">GATEWAY</code> statement parameters are supported with this command.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024676"> </a><code class="cCode">LMID</code></li>
+<li><a name="wp1024677"> </a><code class="cCode">ACCOUNT</code></li>
+<li><a name="wp1024678"> </a><code class="cCode">PASSWORD</code></li>
+<li><a name="wp1024679"> </a><code class="cCode">MAXMSGLEN</code></li>
+<li><a name="wp1024680"> </a><code class="cCode">SESSIONS</code></li>
+</ul></div>
+<p class="pBody"><a name="wp1024684"> </a>
+The example in <a href="imsconf.html#wp1024686">Listing&#160;4-13</a> uses the <code class="cCode">MOD GATEWAY</code> command.
+</p>
+<div class="pCodeTitle"><a name="wp1024686"> </a>
+Listing&#160;4-13	   <code class="cCodeBold">MOD GATEWAY</code> Command Example
+</div> <a name="wp1024687"> </a><div class="pPreformatted"><pre>MOD GATEWAY, LMID=SUN2, ACCOUNT=ACCT102, PASSWORD=PSWD102, MAXMSGLEN=2048</pre></div><h3 class="pHeading2"><a name="wp1024689"> </a>
+Changing IMS Host Configurations
+</h3>
+<p class="pBody"><a name="wp1024691"> </a>
+You can dynamically change IMS host configurations by adding a new host, modifying an existing host definition, starting a host, and stopping a host. For parameter descriptions and syntax, refer to the <a href="imsconf.html#wp1024164"><span class="cHyperlink">
+Description of GATEWAY TYPE=LOCAL Parameters</span></a> and <a href="imsconf.html#wp1024278"><span class="cHyperlink">
+Description of GATEWAY TYPE=REMOTE Parameters</span></a> sections.
+</p>
+<h4 class="pHeading3"><a name="wp1024699"> </a>
+Adding a Host
+</h4>
+<p class="pBody"><a name="wp1024701"> </a>
+To add a host to the current configuration, use the <code class="cCode">ADD HOST</code> command. The following <code class="cCode">HOST TYPE=IMS</code> statement parameters are supported with this command.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024702"> </a><code class="cCode">TYPE</code></li>
+<li><a name="wp1024703"> </a><code class="cCode">IMSID</code></li>
+<li><a name="wp1024704"> </a><code class="cCode">OTMANAME</code></li>
+<li><a name="wp1024705"> </a><code class="cCode">OTMAINPIPE</code></li>
+<li><a name="wp1024706"> </a><code class="cCode">OTMAOUTPIPE</code></li>
+<li><a name="wp1024707"> </a><code class="cCode">NUMTPIPES</code></li>
+</ul></div>
+<p class="pBody"><a name="wp1024711"> </a>
+The example in <a href="imsconf.html#wp1024713">Listing&#160;4-14</a> uses the <code class="cCode">ADD HOST</code> command.
+</p>
+<div class="pCodeTitle"><a name="wp1024713"> </a>
+Listing&#160;4-14	   <code class="cCode">ADD HOST</code> Command Example
+</div> <a name="wp1024714"> </a><div class="pPreformatted"><pre>ADD HOST, TYPE=IMS,<br />    IMSID=IMS3,<br />    OTMANAME=IMS71SYS3,<br />    OTMAINPIPE=SYS3,<br />    OTMAOUTPIPE=SYS3OUT,<br />    NUMTPIPES=5</pre></div><h4 class="pHeading3"><a name="wp1024716"> </a>
+Starting a Host
+</h4>
+<p class="pBody"><a name="wp1024718"> </a>
+To start a host, use the <code class="cCode">START HOST</code> command with the <code class="cCode">IMSID</code> parameter. The example in <a href="imsconf.html#wp1024723">Listing&#160;4-15</a> starts the IMS3 host.
+</p>
+<div class="pCodeTitle"><a name="wp1024723"> </a>
+Listing&#160;4-15	   <code class="cCodeBold">START HOST</code> Command Example
+</div> <a name="wp1024724"> </a><div class="pPreformatted"><pre>START HOST, IMSID=IMS3</pre></div><h4 class="pHeading3"><a name="wp1024726"> </a>
+Modifying an Existing Host
+</h4>
+<p class="pBody"><a name="wp1024727"> </a>
+The following tasks explain how to change an existing host.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1024728"> </a>Stop the host first. </li>
+<li><a name="wp1024730"> </a>Then use the <code class="cCode">MOD HOST</code> command to change any supported parameter definitions. You must specify an <code class="cCode">IMSID</code> for the <code class="cCode">MOD HOST</code> command. </li>
+</ol></div>
+<p class="pBody"><a name="wp1024731"> </a>
+The following <code class="cCode">HOST</code> statement parameters are modifiable with this command.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024732"> </a><code class="cCode">OTMAINPIPE</code></li>
+<li><a name="wp1024733"> </a><code class="cCode">OTMAOUTPIPE</code></li>
+<li><a name="wp1024734"> </a><code class="cCode">NUMTPIPES</code></li>
+</ul></div>
+<p class="pBody"><a name="wp1024738"> </a>
+The example in <a href="imsconf.html#wp1024740">Listing&#160;4-16</a> uses the <code class="cCode">MOD HOST</code> command.
+</p>
+<div class="pCodeTitle"><a name="wp1024740"> </a>
+Listing&#160;4-16	   MOD HOST Command Example
+</div> <a name="wp1024741"> </a><div class="pPreformatted"><pre>MOD HOST, IMSID=IMS3, NUMTPIPES=6</pre></div><h4 class="pHeading3"><a name="wp1024743"> </a>
+Stopping a Host
+</h4>
+<p class="pBody"><a name="wp1024745"> </a>
+To stop a host, use the <code class="cCode">STOP HOST</code> command with the <code class="cCode">IMSID</code> parameter with a value matching the <code class="cCode">IMSID</code> specification on the <code class="cCode">HOST, TYPE=IMS</code> statement. Refer to the <a href="imsconf.html#wp1024142"><span class="cHyperlink">
+Defining the Local Gateway</span></a> section. Use the <code class="cCode">IMMED=YES</code> parameter to stop the host immediately <span style="font-style: italic">without</span> waiting for requests in progress to complete. Outstanding requests are sent an error message. (For a description of error messages, refer to the <a href="imsaperm.html"><span class="cHyperlink">
+Error and Informational Messages</span></a> section.) Use the <code class="cCode">IMMED=NO</code> to allow the host to complete processing outstanding requests and then shutdown. While waiting, the host does not accept any new requests. <code class="cCode">IMMED=NO</code> is the default. The example in <a href="imsconf.html#wp1024753">Listing&#160;4-17</a> stops the IMS3 host after transaction processing completes.
+</p>
+<div class="pCodeTitle"><a name="wp1024753"> </a>
+Listing&#160;4-17	   <code class="cCodeBold">STOP HOST</code> Command Example
+</div> <a name="wp1024754"> </a><div class="pPreformatted"><pre>STOP HOST, IMSID=IMS3</pre></div><h3 class="pHeading2"><a name="wp1024757"> </a>
+Changing Remote Service Definitions
+</h3>
+<p class="pBody"><a name="wp1024759"> </a>
+You can dynamically change remote service definitions by adding a new service, modifying an existing service definition, or starting and stopping services. Existing services must be stopped prior to modifying them. For parameter descriptions and syntax, refer to the <a href="imsconf.html#wp1024420"><span class="cHyperlink">
+Description of SERVICE TYPE=REMOTE Parameters</span></a> section.
+</p>
+<h4 class="pHeading3"><a name="wp1024763"> </a>
+Adding a Remote Service
+</h4>
+<p class="pBody"><a name="wp1024765"> </a>
+To add a remote service to the current configuration, use the <code class="cCode">ADD SERVICE</code> command. The following <code class="cCode">SERVICE TYPE=REMOTE</code> statement parameters are supported with this command. <code class="cCode">TYPE</code>, <code class="cCode">LMID</code>, and <code class="cCode">NAME</code> are required parameters.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024766"> </a><code class="cCode">TYPE</code></li>
+<li><a name="wp1024767"> </a><code class="cCode">LMID</code></li>
+<li><a name="wp1024768"> </a><code class="cCode">NAME</code></li>
+<li><a name="wp1024769"> </a><code class="cCode">TIMEOUT</code></li>
+</ul></div>
+<p class="pBody"><a name="wp1024773"> </a>
+The example in <a href="imsconf.html#wp1024775">Listing&#160;4-18</a> uses the <code class="cCode">ADD SERVICE</code> command to add a remote service.
+</p>
+<div class="pCodeTitle"><a name="wp1024775"> </a>
+Listing&#160;4-18	   <code class="cCodeBold">ADD SERVICE</code> Command (RemoteService) Example
+</div> <a name="wp1024776"> </a><div class="pPreformatted"><pre>ADD SERVICE, TYPE=REMOTE,<br />    LMID=TUX1,<br />    NAME=(ECHO,ECHO),<br />    TIMEOUT=60</pre></div><h4 class="pHeading3"><a name="wp1024778"> </a>
+Stopping a Remote Service
+</h4>
+<p class="pBody"><a name="wp1024780"> </a>
+To stop a remote service, use the <code class="cCode">STOP SERVICE</code> command with the <code class="cCode">LMID</code> and <code class="cCode">NAME</code> parameters. In this case, the <code class="cCode">NAME</code> parameter only specifies the <code class="cCodeEmphasis">local name</code>, rather than the fully qualified (<code class="cCodeEmphasis">local name, remote name</code>) syntax. Use the <code class="cCode">IMMED=YES</code> parameter to stop the service immediately <em class="cEmphasis">without</em> waiting for requests in progress to complete. Outstanding requests are sent an error message. Use the <code class="cCode">IMMED=NO</code> to allow the requests to complete processing. While waiting, the gateway does not accept any new requests. <code class="cCode">IMMED=NO</code> is the default. The example in <a href="imsconf.html#wp1024785">Listing&#160;4-19</a> stops <code class="cCode">ECHO</code> on the <code class="cCode">TUX1</code> gateway.
+</p>
+<div class="pCodeTitle"><a name="wp1024785"> </a>
+Listing&#160;4-19	   <code class="cCodeBold">STOP SERVICE</code> Command (Remote Service) Example
+</div> <a name="wp1024786"> </a><div class="pPreformatted"><pre>STOP SERVICE, <br />    LMID=TUX1,<br />    NAME=ECHO</pre></div><h4 class="pHeading3"><a name="wp1024788"> </a>
+Modifying an Existing Remote Service
+</h4>
+<p class="pBody"><a name="wp1024789"> </a>
+The following tasks explain how to change an existing remote service definition.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1024790"> </a>Stop the service first. </li>
+<li><a name="wp1024792"> </a>Then use the <code class="cCode">MOD SERVICE</code> command to change the service information. Use the <code class="cCode">LMID</code> and <code class="cCode">NAME</code> parameters to specify the service you want to modify. The <code class="cCode">TIMEOUT</code> parameter in the <code class="cCode">SERVICE TYPE=REMOTE</code> statement is the only parameter that can be modified with this command and is required.</li>
+</ol></div>
+<p class="pBody"><a name="wp1024796"> </a>
+The example in <a href="imsconf.html#wp1024798">Listing&#160;4-20</a> uses the <code class="cCode">MOD SERVICE</code> command. In this case, the <code class="cCode">NAME</code> parameter only specifies the <code class="cCodeEmphasis">local name</code>, rather than the fully qualified (<code class="cCodeEmphasis">local name, remote name</code>) syntax.
+</p>
+<div class="pCodeTitle"><a name="wp1024798"> </a>
+Listing&#160;4-20	   <code class="cCodeBold">MOD SERVICE</code> Command (Remote Service) Example
+</div> <a name="wp1024799"> </a><div class="pPreformatted"><pre>MOD SERVICE,<br />    LMID=TUX1,<br />    NAME=ECHO,<br />    TIMEOUT=60</pre></div><h4 class="pHeading3"><a name="wp1024801"> </a>
+Starting a Remote Service
+</h4>
+<p class="pBody"><a name="wp1024803"> </a>
+To start a service, use the <code class="cCode">START SERVICE</code> command with the <code class="cCode">LMID</code> and <code class="cCode">NAME</code> parameters. In this case, the <code class="cCode">NAME</code> parameter only specifies the <code class="cCodeEmphasis">local name</code> rather than the fully qualified (<code class="cCodeEmphasis">local name, remote name</code>) syntax. The example in <a href="imsconf.html#wp1024808">Listing&#160;4-21</a> starts the <code class="cCode">TUX1</code> service.
+</p>
+<div class="pCodeTitle"><a name="wp1024808"> </a>
+Listing&#160;4-21	   <code class="cCodeBold">START SERVICE</code> Command (Remote Service) Example
+</div> <a name="wp1024809"> </a><div class="pPreformatted"><pre>START SERVICE, <br />    LMID=TUX1, <br />    NAME=ECHO</pre></div><h3 class="pHeading2"><a name="wp1024811"> </a>
+Changing Local Service Definitions
+</h3>
+<p class="pBody"><a name="wp1024813"> </a>
+You can dynamically change local service definitions by adding a new service, modifying an existing service definition, or starting and stopping services. Existing services must be stopped prior to modifying them. For parameter descriptions and syntax, refer to the <a href="imsconf.html#wp1024457"><span class="cHyperlink">
+Defining Local Services</span></a> section.
+</p>
+<h4 class="pHeading3"><a name="wp1024815"> </a>
+Adding a Local Service
+</h4>
+<p class="pBody"><a name="wp1024817"> </a>
+To add a local service to the current configuration, use the <code class="cCode">ADD SERVICE</code> command. The <code class="cCode">TYPE</code>, <code class="cCode">IMSID</code>, and <code class="cCode">NAME</code> are required parameters when adding a local service. The following <code class="cCode">SERVICE TYPE=LOCAL</code> statement parameters are supported with this command.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024818"> </a><code class="cCode">TYPE</code></li>
+<li><a name="wp1024819"> </a><code class="cCode">IMSID</code></li>
+<li><a name="wp1024820"> </a><code class="cCode">NAME</code></li>
+<li><a name="wp1024821"> </a><code class="cCode">SECURITY</code></li>
+<li><a name="wp1024822"> </a><code class="cCode">FASTPATH</code></li>
+<li><a name="wp1024823"> </a><code class="cCode">V21COMPAT</code></li>
+</ul></div>
+<p class="pBody"><a name="wp1024827"> </a>
+The example in <a href="imsconf.html#wp1024829">Listing&#160;4-22</a> uses the ADD SERVICE command.
+</p>
+<div class="pCodeTitle"><a name="wp1024829"> </a>
+Listing&#160;4-22	   <code class="cCodeBold">ADD SERVICE</code> Command (Local Service) Example
+</div> <a name="wp1024830"> </a><div class="pPreformatted"><pre>ADD SERVICE, TYPE=LOCAL,<br />    IMSID=IMS1,<br />    NAME=(BEASVR01,ECHO),<br />    SECURITY=YES,<br />    FASTPATH=NO,<br />    V21COMPAT=NO</pre></div><h4 class="pHeading3"><a name="wp1024833"> </a>
+Stopping a Local Service
+</h4>
+<p class="pBody"><a name="wp1024835"> </a>
+To stop a local service, use the <code class="cCode">STOP SERVICE</code> command with the <code class="cCode">IMSID</code> and <code class="cCode">NAME</code> parameters. In this case, the <code class="cCode">NAME</code> parameter only specifies the <code class="cCodeEmphasis">remote name</code>, rather than the fully qualified (<code style="font-style: italic" class="cCodeEmphasis">local name, remote name</code><span style="font-style: italic">)</span> syntax. Use the <code class="cCode">IMMED=YES</code> parameter to stop the service immediately <span style="font-style: italic">without</span> waiting for requests in progress to complete. Outstanding requests are sent an error message. Use the <code class="cCode">IMMED=NO</code> to allow the requests to complete processing. While waiting, the gateway does not accept any new requests. <code class="cCode">IMMED=NO</code> is the default. The example in <a href="imsconf.html#wp1024840">Listing&#160;4-23</a> stops <code class="cCode">ECHO</code> on the <code class="cCode">IMS1</code> host.
+</p>
+<div class="pCodeTitle"><a name="wp1024840"> </a>
+Listing&#160;4-23	   <code class="cCodeBold">STOP SERVICE</code> Command (Local Service) Example
+</div> <a name="wp1024841"> </a><div class="pPreformatted"><pre>STOP SERVICE, IMSID=IMS1, NAME=ECHO</pre></div><h4 class="pHeading3"><a name="wp1024843"> </a>
+Modifying an Existing Local Service
+</h4>
+<p class="pBody"><a name="wp1024844"> </a>
+The following tasks explain how to change an existing local service definition.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1024845"> </a>Stop the service first. </li>
+<li><a name="wp1024847"> </a>Then use the <code class="cCode">MOD SERVICE</code> command to change any supported parameters. </li>
+</ol></div>
+<p class="pBody"><a name="wp1024848"> </a>
+The following <code class="cCode">SERVICE TYPE=LOCAL</code> statement parameters can be modified with this command.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024849"> </a><code class="cCode">SECURITY</code></li>
+<li><a name="wp1024850"> </a><code class="cCode">FASTPATH</code></li>
+<li><a name="wp1024851"> </a><code class="cCode">V21COMPAT</code></li>
+</ul></div>
+<p class="pBody"><a name="wp1024855"> </a>
+The example in <a href="imsconf.html#wp1024857">Listing&#160;4-24</a> uses the <code class="cCode">MOD SERVICE</code> command. In this case, the <code class="cCode">NAME</code> parameter only specifies the <code class="cCodeEmphasis">remote name</code>, rather than the fully qualified (<code style="font-style: italic" class="cCodeEmphasis">local name, remote name</code><span style="font-style: italic">)</span> syntax.
+</p>
+<div class="pCodeTitle"><a name="wp1024857"> </a>
+Listing&#160;4-24	   MOD SERVICE Command (Local Service) Example
+</div> <a name="wp1024858"> </a><div class="pPreformatted"><pre>MOD SERVICE, IMSID=IMS1, NAME=ECHO, SECURITY=YES</pre></div><h4 class="pHeading3"><a name="wp1024860"> </a>
+Starting a Local Service
+</h4>
+<p class="pBody"><a name="wp1024862"> </a>
+To start a local service, use the <code class="cCode">START SERVICE</code> command with the <code class="cCode">IMSID</code> and <code class="cCode">NAME</code> parameters. In this case, the <code class="cCode">NAME</code> parameter only specifies the <code class="cCodeEmphasis">remote name</code>, rather than the fully qualified (<code style="font-style: italic" class="cCodeEmphasis">local name, remote name</code><span style="font-style: italic">)</span> syntax. The example in <a href="imsconf.html#wp1024867">Listing&#160;4-25</a> starts the <code class="cCode">ECHO</code> service for <code class="cCode">IMS1</code>.
+</p>
+<div class="pCodeTitle"><a name="wp1024867"> </a>
+Listing&#160;4-25	   <code class="cCodeBold">START SERVICE</code> Command (Local Service) Example
+</div> <a name="wp1024868"> </a><div class="pPreformatted"><pre>START SERVICE, IMSID=IMS1, NAME=ECHO</pre></div><h3 class="pHeading2"><a name="wp1024871"> </a>
+Display Status Information
+</h3>
+<p class="pBody"><a name="wp1024876"> </a>
+Use the <code class="cCode">STATUS</code> command to display the status of the TMA TCP gateway. The command displays XCF status with all IMS hosts, the number of messages processed, the number of XCF messages received, message control block usage, and service counts. The following status codes for IMS hosts can result:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024877"> </a><code class="cCode">ACTIVE</code></li>
+<li><a name="wp1024878"> </a><code class="cCode">ERROR</code></li>
+<li><a name="wp1024879"> </a><code class="cCode">RESTART</code></li>
+<li><a name="wp1024880"> </a><code class="cCode">BID SENT</code></li>
+<li><a name="wp1024881"> </a><code class="cCode">UNKNOWN</code></li>
+<div class="pCodeTitle"><a name="wp1024882"> </a>
+Listing&#160;4-26	   STATUS Command Response Example
+</div> <a name="wp1024883"> </a><div class="pPreformatted"><pre>BEA2128I      XCF Status with IMS Client IMS71CR1 = Active<br />BEA2128I      XCF Status with IMS Client IMS71CR2 = Active<br />BEA2184I      XCF Messages Received = 4<br />BEA2183I      Messages Processed = 0<br />BEA2185I      MCBs: Allocated = 771 Assigned = 0<br />BEA2186I      Services: Remote = 7 Local = 6</pre></div></ul></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="imsconf.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="imssec.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="imsmont.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

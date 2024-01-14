@@ -1,0 +1,666 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41824" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/cservers/fm/creasimp.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/26/12 11:03:52" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Designing and Implementing a Basic CORBA Server Application</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Creating CORBA Server Applications
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="maksrv.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="mtserv.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/cservers.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1026013"> </a>
+Designing and Implementing a Basic CORBA Server Application
+</h1>
+<p class="pBody"><a name="wp1023043"> </a>
+This chapter describes how to design and implement a CORBA server application, using the Basic University sample application as an example. The content of this chapter assumes that the design of the application to be implemented is complete and is expressed in OMG IDL. This chapter focuses on design and implementation choices that are oriented to the server application.
+</p>
+<p class="pBody"><a name="wp1023045"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023048"> </a><a href="creasimp.html#wp1023080">How the Basic University Sample Application Works</a>, which helps provide context to the design and implementation considerations</li>
+<li><a name="wp1023052"> </a><a href="creasimp.html#wp1023177">Design Considerations for the University Server Application</a>, which includes comprehensive discussions about the following topics:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023056"> </a><a href="creasimp.html#wp1023212">Design Considerations for Generating Object References</a></li>
+<li><a name="wp1023060"> </a><a href="creasimp.html#wp1023247">Design Considerations for Managing Object State</a></li>
+<li><a name="wp1023064"> </a><a href="creasimp.html#wp1023275">Design Considerations for Handling Durable State Information</a></li>
+<li><a name="wp1023068"> </a><a href="creasimp.html#wp1023313">How the Basic Sample Application Applies Design Patterns</a></li>
+<li><a name="wp1023072"> </a><a href="creasimp.html#wp1023345">Additional Performance Efficiencies Built into the Oracle Tuxedo System</a></li>
+<li><a name="wp1023076"> </a><a href="creasimp.html#wp1024360">Preactivating an Object with State</a></li>
+</ul></div>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023080"> </a>
+How the Basic University Sample Application Works
+</h2><p class="pBody"><a name="wp1023081"> </a>
+The Basic University sample application provides the student with the ability to browse course information from a central University database. Using the Basic sample application, the student can do the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023082"> </a>Browse course synopses from the database by specifying a search string. The server application then returns synopses for all courses that have a title, professor, or description containing the search string. (A course synopsis returned to the client application includes only the course number and title.)</li>
+<li><a name="wp1023083"> </a>View detailed information about specific courses. The detailed information available for a specified course includes the following, in addition to synopsis information:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023084"> </a>Cost</li>
+<li><a name="wp1023085"> </a>Number of credits</li>
+<li><a name="wp1023086"> </a>Class schedule</li>
+<li><a name="wp1023087"> </a>Number of seats</li>
+<li><a name="wp1023088"> </a>Number of registered students</li>
+<li><a name="wp1023089"> </a>Professor</li>
+<li><a name="wp1023090"> </a>Description</li>
+</ul></div>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1023092"> </a>
+The Basic University Sample Application OMG IDL
+</h3>
+<p class="pBody"><a name="wp1023093"> </a>
+In its OMG IDL file, the Basic University sample application defines the following interfaces:
+</p>
+<p class="pGraphic"><a name="wp1023121"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1023096table1023094">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1023096"> </a>
+<span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Interface</span>
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023098"> </a>
+Description
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023100"> </a>
+Operations
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023102"> </a>
+<code class="cCode">RegistrarFactory</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023104"> </a>
+Creates object references to the <code class="cCode">Registrar</code> object
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023106"> </a>
+<code class="cCode">find_registrar()</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023108"> </a>
+<code class="cCode">Registrar</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023110"> </a>
+Obtains course information from the database
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023112"> </a>
+<code class="cCode">get_courses_synopsis()</code>
+</div>
+<div class="pCellBody"><a name="wp1023113"> </a>
+<code class="cCode">get_courses_details()</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023115"> </a>
+<code class="cCode">CourseSynopsisEnumerator</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023117"> </a>
+Fetches synopses of courses that match the search criteria from the database and reads them into memory
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023119"> </a>
+<code class="cCode">get_next_n()</code>
+</div>
+<div class="pCellBody"><a name="wp1023120"> </a>
+<code class="cCode">destroy()</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1023124"> </a>
+The Basic University sample application is shown in <a href="creasimp.html#wp1023127">Figure&#160;3-1</a>.
+</p>
+<div class="pFigureTitle"><a name="wp1023127"> </a>
+Figure&#160;3-1  Basic University Sample Application
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1023131"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/m3ubasic.gif" height="331" width="497" alt="Basic University Sample Application" id="wp1023689"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1023132"> </a>
+For the purposes of explaining what happens when the Basic University sample application runs, the following separate groups of events are described:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023133"> </a>Application startup&#8212;when the server application is booted and the client application gets an object reference to the <code class="cCode">Registrar</code> object</li>
+<li><a name="wp1023134"> </a>Browsing course synopses&#8212;when the client application sends a request to view course synopses</li>
+<li><a name="wp1023135"> </a>Browsing course details&#8212;when the client application sends a request to view details on a specific list of courses</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1023136"> </a>
+Application Startup
+</h3>
+<p class="pBody"><a name="wp1023137"> </a>
+The following sequence shows a typical set of events that take place when the Basic client and server applications are started and the client application obtains an object reference to the <code class="cCode">Registrar</code> object:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023138"> </a>The Basic client and server applications are started, and the client application obtains a reference to the <code class="cCode">RegistrarFactory</code> object from the FactoryFinder.</li>
+<li><a name="wp1023139"> </a>Using the reference to the <code class="cCode">RegistrarFactory</code> object, the client application invokes the <code class="cCode">find_registrar()</code> operation on the <code class="cCode">RegistrarFactory</code> object.</li>
+<li><a name="wp1023140"> </a>The <code class="cCode">RegistrarFactory</code> object is not in memory (because no previous request for that object has arrived in the server process), so the TP Framework invokes the <code class="cCode">Server::create_servant()</code> operation in the Server object to instantiate it. </li>
+<li><a name="wp1023141"> </a>Once instantiated, the <code class="cCode">RegistrarFactory</code> object&#8217;s <code class="cCode">find_registrar()</code> operation is invoked. The <code class="cCode">RegistrarFactory</code> object creates the <code class="cCode">Registrar</code> object reference and returns it to the client application.</li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1023142"> </a>
+Browsing Course Synopses
+</h3>
+<p class="pBody"><a name="wp1023143"> </a>
+The following sequence traces the events that may occur when the student browses a list of course synopses:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023144"> </a>Using the object reference to the <code class="cCode">Registrar</code> object, the client application invokes the <code class="cCode">get_courses_synopsis()</code> operation, specifying:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023145"> </a>A search string to be used for retrieving course synopses from the database.</li>
+<li><a name="wp1023146"> </a>An integer, represented by the variable <code class="cCode">number_to_get</code>, which specifies the size of the synopsis list to be returned.</li>
+</ul></div>
+<li><a name="wp1023147"> </a>The <code class="cCode">Registrar</code> object is not in memory (because no previous request for that object has arrived in the server process), so the TP Framework invokes the <code class="cCode">Server::create_servant()</code> operation, which is implemented in the Server object. This causes the <code class="cCode">Registrar</code> object to be instantiated in the server machine&#8217;s memory.</li>
+<li><a name="wp1023148"> </a>The <code class="cCode">Registrar</code> object receives the client request and creates an object reference to the <code class="cCode">CourseSynopsisEnumerator</code> object. The <code class="cCode">CourseSynopsisEnumerator</code> object is invoked by the <code class="cCode">Registrar</code> object to fetch the course synopses from the database. </li>
+<p class="pBodyRelative"><a name="wp1023149"> </a>
+To create the object reference <code class="cCode">CourseSynopsisEnumerator</code> object, the <code class="cCode">Registrar</code> object does the following:
+</p>
+<div class="pSmartList2"><ol type="a" class="pSmartList2">
+<li><a name="wp1023150"> </a>Generates a unique ID for the <code class="cCode">CourseSynopsisEnumerator</code> object.</li>
+<li><a name="wp1023151"> </a>Generates an object ID for the <code class="cCode">CourseSynopsisEnumerator</code> object that is a concatenation of the unique ID generated in the preceding step and the search string specified by the client.</li>
+<li><a name="wp1023152"> </a>Gets the <code class="cCode">CourseSynopsisEnumerator</code> object&#8217;s Interface Repository ID from the interface typecode.</li>
+<li><a name="wp1023153"> </a>Invokes the <code class="cCode">TP::create_object_reference()</code> operation. This operation creates an object reference to the <code class="cCode">CourseSynopsisEnumerator</code> object needed for the initial client request.</li>
+</ol></div>
+<li><a name="wp1023154"> </a>Using the object reference created in the preceding step, the <code class="cCode">Registrar</code> object invokes the <code class="cCode">get_next_n()</code> operation on the <code class="cCode">CourseSynopsisEnumerator</code> object, passing the list size. The list size is represented by the parameter <code class="cCode">number_to_get</code>, described in step 1.</li>
+<li><a name="wp1023155"> </a>The TP Framework invokes the <code class="cCode">Server::create_servant()</code> operation on the Server object to instantiate the <code class="cCode">CourseSynopsisEnumerator</code> object. </li>
+<li><a name="wp1023156"> </a>The TP Framework invokes the <code class="cCode">activate_object()</code> operation on the <code class="cCode">CourseSynopsisEnumerator</code> object. This operation does the following two things:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023157"> </a>Extracts the search criteria from its OID.</li>
+<li><a name="wp1023158"> </a>Using the search criteria, fetches matching course synopses from the database and reads them into the server machine&#8217;s memory.</li>
+</ul></div>
+<li><a name="wp1023159"> </a>The <code class="cCode">CourseSynopsisEnumerator</code> object returns the following information to the <code class="cCode">Registrar</code> object:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023160"> </a>A course synopsis list, specified in the return value <code class="cCode">CourseSynopsisList</code>, which is a <code class="cCode">sequence</code> containing the first list of course synopses.</li>
+<li><a name="wp1023161"> </a>The number of matching course synopses that have not yet been returned, specified by the parameter <code class="cCode">number_remaining.</code></li>
+</ul></div>
+<li><a name="wp1023162"> </a>The <code class="cCode">Registrar</code> object returns the <code class="cCode">CourseSynopsisEnumerator</code> object reference to the client application, and also returns the following information obtained from that object:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023163"> </a>The initial course synopsis list</li>
+<li><a name="wp1023164"> </a>The <code class="cCode">number_remaining</code> variable</li>
+<p class="pBodyRelative"><a name="wp1023165"> </a>
+(If the <code class="cCode">number_remaining</code> variable is 0, the <code class="cCode">Registrar</code> object invokes the <code class="cCode">destroy()</code> operation on the <code class="cCode">CourseSynopsisEnumerator</code> object and returns a nil reference to the client application.)
+</p>
+</ul></div>
+<li><a name="wp1023166"> </a>The client application sends directly to the <code class="cCode">CourseSynopsisEnumerator</code> object its next request to get the next batch of matching synopses.</li>
+<li><a name="wp1023167"> </a>The <code class="cCode">CourseSynopsisEnumerator</code> object satisfies the client request, also returning the updated <code class="cCode">number_remaining</code> variable.</li>
+<li><a name="wp1023168"> </a>When the client application is done with the <code class="cCode">CourseSynopsisEnumerator</code> object, the client application invokes the <code class="cCode">destroy()</code> operation on the <code class="cCode">CourseSynopsisEnumerator</code> object. This causes the <code class="cCode">CourseSynopsisEnumerator</code> object to invoke the <code class="cCode">TP::deactivateEnable()</code> operation. </li>
+<li><a name="wp1023169"> </a>The TP Framework invokes the <code class="cCode">deactivate_object()</code> operation on the <code class="cCode">CourseSynopsisEnumerator</code> object. This causes the list of course synopses maintained by the <code class="cCode">CourseSynopsisEnumerator</code> object to be erased from the server computer&#8217;s memory so that the <code class="cCode">CourseSynopsisEnumerator</code> object&#8217;s servant can be reused for another client request.</li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1023170"> </a>
+Browsing Course Details
+</h3>
+<p class="pBody"><a name="wp1023171"> </a>
+The following sequence shows a typical set of events that take place when the client application browses course details:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023172"> </a>The student enters the course numbers for the courses about which he or she is interested in viewing details.</li>
+<li><a name="wp1023173"> </a>The client application invokes the <code class="cCode">get_course_details()</code> operation on the <code class="cCode">Registrar</code> object, passing the list of course numbers.</li>
+<li><a name="wp1023174"> </a>The <code class="cCode">Registrar</code> object searches the database for matches on the course numbers, and then returns a list containing full details for each of the specified courses. The list is contained in the <code class="cCode">CourseDetailsList </code>variable, which is a sequence of <code class="cCode">struct</code>s containing full course details.</li>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023177"> </a>
+Design Considerations for the University Server Application
+</h2><p class="pBody"><a name="wp1023178"> </a>
+The Basic University sample application contains the University server application, which deals with several fundamental CORBA server application design issues. This section addresses the following topics:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023184"> </a><a href="creasimp.html#wp1023212">Design Considerations for Generating Object References</a></li>
+<li><a name="wp1023188"> </a><a href="creasimp.html#wp1023247">Design Considerations for Managing Object State</a></li>
+<li><a name="wp1023192"> </a><a href="creasimp.html#wp1023275">Design Considerations for Handling Durable State Information</a></li>
+<li><a name="wp1023196"> </a><a href="creasimp.html#wp1023313">How the Basic Sample Application Applies Design Patterns</a></li>
+</ul></div>
+<p class="pBody"><a name="wp1023198"> </a>
+This section also addresses the following two topics:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023201"> </a><a href="creasimp.html#wp1023345">Additional Performance Efficiencies Built into the Oracle Tuxedo System</a></li>
+<li><a name="wp1023205"> </a><a href="creasimp.html#wp1024360">Preactivating an Object with State</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1023212"> </a>
+Design Considerations for Generating Object References
+</h3>
+<p class="pBody"><a name="wp1023213"> </a>
+The Basic client application needs references to the following objects, which are managed by the University server application:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023214"> </a>The <code class="cCode">RegistrarFactory</code> object</li>
+<li><a name="wp1023215"> </a>The <code class="cCode">Registrar</code> object</li>
+<li><a name="wp1023216"> </a>The <code class="cCode">CourseSynopsisEnumerator</code> object</li>
+</ul></div>
+<p class="pBody"><a name="wp1023217"> </a>
+The following table shows how these references are generated and returned.
+</p>
+<p class="pGraphic"><a name="wp1023238"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1023220table1023218">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1023220"> </a>
+Object
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023222"> </a>
+How the Object Reference Is <br />Generated and Returned
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023224"> </a>
+<code class="cCode">RegistrarFactory</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023226"> </a>
+The object reference for the <code class="cCode">RegistrarFactory</code> object is generated in the Server object, which registers the <code class="cCode">RegistrarFactory</code> object with the FactoryFinder. The client application then obtains a reference to the <code class="cCode">RegistrarFactory</code> object from the FactoryFinder.
+</div>
+<div class="pCellBody"><a name="wp1023227"> </a>
+There is only one <code class="cCode">RegistrarFactory</code> object in the Basic University server application process.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023229"> </a>
+<code class="cCode">Registrar</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023231"> </a>
+The object reference for the <code class="cCode">Registrar</code> object is generated by the <code class="cCode">RegistrarFactory</code> object and is returned when the client application invokes the <code class="cCode">find_registrar()</code> operation. The object reference created for the <code class="cCode">Registrar</code> object is always the same; this object reference does not contain a unique OID.
+</div>
+<div class="pCellBody"><a name="wp1023232"> </a>
+There is only one <code class="cCode">Registrar</code> object in the Basic University server application process.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023234"> </a>
+<code class="cCode">CourseSynopsisEnumerator</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023236"> </a>
+The object reference for the <code class="cCode">CourseSynopsisEnumerator</code> object is generated by the <code class="cCode">Registrar</code> object when the client application invokes the <code class="cCode">get_courses_synopsis()</code> operation. In this way, the <code class="cCode">Registrar</code> object is the factory for the <code class="cCode">CourseSynopsisEnumerator</code> object. The design and use of the <code class="cCode">CourseSynopsisEnumerator</code> object is described later in this chapter.
+</div>
+<div class="pCellBody"><a name="wp1023237"> </a>
+There can be any number of  <code class="cCode">CourseSynopsisEnumerator</code> objects in the Basic University server application process.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1023239"> </a>
+Note the following about how the University server application generates object references:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023240"> </a>The Server object registers the <code class="cCode">RegistrarFactory</code> object with the FactoryFinder. This is the recommended way to ensure that client applications can locate the factories they need to obtain references to the basic objects in the application.</li>
+<li><a name="wp1023241"> </a>The object reference to the <code class="cCode">Registrar</code> object is created by the <code class="cCode">RegistrarFactory</code> object. This shows a very common and basic way to return object references to the client application; namely, that there is a factory dedicated to creating and returning references to the primary object that is required by the client application to execute business logic. </li>
+<li><a name="wp1023242"> </a>The object reference to the <code class="cCode">CourseSynopsisEnumerator</code> object is created outside a registered factory. In the University sample applications, this is a good design because of the way the <code class="cCode">CourseSynopsisEnumerator</code> object is meant to be used; namely, its existence is specific to a particular client application operation. The <code class="cCode">CourseSynopsisEnumerator</code> object returns a specific list and results that are not related to the results from other queries.</li>
+<li><a name="wp1023243"> </a>Because the <code class="cCode">Registrar</code> object creates, in one of its operations, an object reference to another object, the <code class="cCode">Registrar</code> object is a factory. However, the <code class="cCode">Registrar</code> object is not registered as a factory with the FactoryFinder; therefore, client applications cannot get a reference to the <code class="cCode">Registrar</code> object from the FactoryFinder.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1023247"> </a>
+Design Considerations for Managing Object State
+</h3>
+<p class="pBody"><a name="wp1023248"> </a>
+Each of the three objects in the Basic sample application has its own state management requirements. This section discusses the object state management requirements for each.
+</p>
+<h4 class="pHeading3"><a name="wp1023249"> </a>
+The RegistrarFactory Object
+</h4>
+<p class="pBody"><a name="wp1023250"> </a>
+The <code class="cCode">RegistrarFactory</code> object does not need to be unique for any particular client request. It makes sense to keep this object in memory and avoid the expense of activating and deactivating this object for each client invocation on it. Therefore, the <code class="cCode">RegistrarFactory</code> object has the <code class="cCode">process</code> activation policy.
+</p>
+<h4 class="pHeading3"><a name="wp1023251"> </a>
+The Registrar Object
+</h4>
+<p class="pBody"><a name="wp1023252"> </a>
+The Basic sample application is meant to be deployed in a small-scale environment. The <code class="cCode">Registrar</code> object has many qualities similar to the <code class="cCode">RegistrarFactory</code> object; namely, this object does not need to be unique for any particular client request. Also, it makes sense to avoid the expense of continually activating and deactivating this object for each invocation on it. Therefore, in the Basic sample application, the <code class="cCode">Registrar</code> object has the <code class="cCode">process</code> activation policy.
+</p>
+<h4 class="pHeading3"><a name="wp1023255"> </a>
+The CourseSynopsisEnumerator Object
+</h4>
+<p class="pBody"><a name="wp1023256"> </a>
+The fundamental design problem for the University server application is how to handle a list of course synopses that is potentially too big to be returned to the client application in a single response. Therefore, the solution centers on the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023257"> </a>To begin a conversation between the client application and an object that can fetch the course synopses from the University database.</li>
+<li><a name="wp1023258"> </a>To have the object return an initial batch of synopses to the client application.</li>
+<li><a name="wp1023259"> </a>To keep the remainder of the course synopses in memory so that the client application can retrieve them one batch at a time.</li>
+<li><a name="wp1023260"> </a>To have the client application terminate the conversation when finished, thus freeing machine resources.</li>
+</ul></div>
+<p class="pBody"><a name="wp1023261"> </a>
+The University server application has the <code class="cCode">CourseSynopsisEnumerator</code> object, which implements this solution. Although this object returns an initial batch of synopses when it is first invoked, this object retains an in-memory context so that the client application can get the remainder of the synopses in subsequent requests. To retain an in-memory context, the CourseSynopsisEnumerator object must be stateful; that is, this object stays in memory between client invocations on it.
+</p>
+<p class="pBody"><a name="wp1023262"> </a>
+When the client is finished with the <code class="cCode">CourseSynopsisEnumerator</code> object, this object needs a way to be flushed from memory. Therefore, the appropriate state management decision for the <code class="cCode">CourseSynopsisEnumerator</code> object is to assign it the <code class="cCode">process</code> activation policy and to implement the CORBA application-controlled deactivation feature.
+</p>
+<p class="pBody"><a name="wp1023266"> </a>
+Application-controlled deactivation is implemented in the <code class="cCode">destroy()</code> operation on that object. 
+</p>
+<p class="pBody"><a name="wp1023267"> </a>
+The following code example shows the <code class="cCode">destroy()</code> operation on the <code class="cCode">CourseSynopsisEnumerator</code> object:
+</p>
+<a name="wp1023268"> </a><div class="pPreformatted"><pre>void CourseSynopsisEnumerator_i::destroy()<br />{<br />        // When the client calls &quot;destroy&quot; on the enumerator,<br />        // then this object needs to be &quot;destructed&quot;.<br />        // Do this by telling the TP framework that we&#39;re<br />        // done with this object.<br /> <br />        TP::deactivateEnable();<br />}</pre></div><h4 class="pHeading3"><a name="wp1023270"> </a>
+Basic University Sample Application ICF File
+</h4>
+<p class="pBody"><a name="wp1023271"> </a>
+The following code example shows the ICF file for the Basic sample application:
+</p>
+<a name="wp1023272"> </a><div class="pPreformatted"><pre>module POA_UniversityB<br />{<br />    implementation CourseSynopsisEnumerator_i<br />    {<br />        activation_policy  ( process                               );<br />        transaction_policy ( optional                              );<br />        implements         ( UniversityB::CourseSynopsisEnumerator );<br />    };<br />    implementation Registrar_i<br />    {<br />        activation_policy  ( process                               );<br />        transaction_policy ( optional                              );<br />        implements         ( UniversityB::Registrar                );<br />    };<br />    implementation RegistrarFactory_i<br />    {<br />        activation_policy  ( process                               );<br />        transaction_policy ( optional                              );<br />        implements         ( UniversityB::RegistrarFactory         );<br />    };<br />};</pre></div><h3 class="pHeading2"><a name="wp1023275"> </a>
+Design Considerations for Handling Durable State Information
+</h3>
+<p class="pBody"><a name="wp1023276"> </a>
+Handling durable state information refers specifically to reading durable state information from disk at some point during or after the object activation, and writing it, if necessary, at some point before or during deactivation. The following two objects in the Basic sample application handle durable state information: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023277"> </a>The <code class="cCode">Registrar</code> object</li>
+<li><a name="wp1023278"> </a>The <code class="cCode">CourseSynopsisEnumerator</code> object</li>
+</ul></div>
+<p class="pBody"><a name="wp1023279"> </a>
+The following two sections describe the design considerations for how these two objects handle durable state information.
+</p>
+<h4 class="pHeading3"><a name="wp1023280"> </a>
+The Registrar Object
+</h4>
+<p class="pBody"><a name="wp1023281"> </a>
+One of the operations on the <code class="cCode">Registrar</code> object returns detailed course information to the client application. In a typical scenario, a student who has browsed dozens of course synopses may be interested in viewing detailed information on perhaps as few as two or three courses at one time.
+</p>
+<p class="pBody"><a name="wp1023282"> </a>
+To implement this usage scenario efficiently, the <code class="cCode">Registrar</code> object is defined to have the <code class="cCode">get_course_details()</code> operation. This operation accepts an input parameter that specifies a list of course numbers. This operation then retrieves full course details from the database and returns the details to the client application. Because the object in which this operation is implemented is process-bound, this operation should avoid keeping any state data in memory after an invocation on that operation is complete.
+</p>
+<p class="pBody"><a name="wp1023283"> </a>
+The <code class="cCode">Registrar</code> object does not keep any durable state in memory. When the client application invokes the <code class="cCode">get_course_details()</code> operation, this object simply fetches the relevant course information from the University database and sends it to the client. This object does not keep any course data in memory. No durable state handling is done via the <code class="cCode">activate_object()</code> or <code class="cCode">deactivate_object()</code> operations on this object.
+</p>
+<h4 class="pHeading3"><a name="wp1023285"> </a>
+The CourseSynopsisEnumerator Object
+</h4>
+<p class="pBody"><a name="wp1023286"> </a>
+The <code class="cCode">CourseSynopsisEnumerator</code> object handles course synopses, which this object retrieves from the University database. The design considerations, with regard to handling state, involve how to read state from disk. This object does not write any state to disk.
+</p>
+<p class="pBody"><a name="wp1023287"> </a>
+There are three important aspects of how the <code class="cCode">CourseSynopsisEnumerator</code> object works that influence the design choices for how this object reads its durable state:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023288"> </a>The OID for this object contains the search criteria provided in the initial client request for synopses. The search criteria work as a key to the database: this object extracts information from the database based on search criteria stored in the OID.</li>
+<li><a name="wp1023289"> </a>All the operations on this object use the course synopses that this object reads into memory.</li>
+<li><a name="wp1023290"> </a>This object must flush course synopses from memory when it is deactivated.</li>
+</ul></div>
+<p class="pBody"><a name="wp1023291"> </a>
+Given these three aspects, it makes sense for this object to:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023292"> </a>Read its durable state information when activated; namely, via the <code class="cCode">activate_object()</code> operation on this object. </li>
+<li><a name="wp1023293"> </a>Flush the course synopses from memory when deactivated; namely, via the <code class="cCode">deactivate_object()</code> operation.</li>
+</ul></div>
+<p class="pBody"><a name="wp1023294"> </a>
+Therefore, when the <code class="cCode">CourseSynopsisEnumerator</code> object is activated, the <code class="cCode">activate_object()</code> operation on this object does the following:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023295"> </a>Extracts the search criteria from its OID.</li>
+<li><a name="wp1023296"> </a>Retrieves from the database course synopses that match the search criteria.</li>
+</ol></div>
+<a name="wp1023297"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If you implement the <code class="cCode">Tobj_ServantBase::activate_object()</code> or <code class="cCode">Tobj_ServantBase::deactivate_object()</code>operations on an object, remember to edit the implementation header file (that is, the <code class="cCodeEmphasis">application</code><code class="cCode">_i.h</code> file) and add the definitions for those operations to the class definition template for the object&#8217;s interface.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp1023299"> </a>
+Using the University Database
+</h4>
+<p class="pBody"><a name="wp1023300"> </a>
+Note the following about the way in which the University sample applications use the University database:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023301"> </a>All of the University sample applications access the University database to manipulate course and student information. Typically this is a large part of the code you write in the implementation files. To make the University sample implementation files simpler, and to help you focus on CORBA features instead of database code, the samples have wrapped all the code that reads and writes to the database within a set of classes. The file <code class="cCode">samplesdb.h</code> in the <code class="cCode">utils</code> directory contains the definitions of these classes. These classes make all the necessary SQL calls to read and write the course and student records in the University database.</li>
+</ul></div>
+<a name="wp1023302"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The Oracle Tuxedo Teller Application in the Wrapper and Production sample applications accesses the account information in the University database directly and does not use the <code class="cCode">samplesdb.h</code> file.</td>
+</tr>
+</table>
+
+<p class="pBodyRelative"><a name="wp1023303"> </a>
+For more information on the files you build into the Basic server application, see the <a href="../usamples/index.html">Guide to the CORBA University Sample Applications</a>.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023307"> </a>The <code class="cCode">CourseSynopsisEnumerator</code> object uses a database cursor to find matching course synopses from the University database. Because database cursors cannot span transactions, the <code class="cCode">activate_object()</code> operation on the <code class="cCode">CourseSynopsisEnumerator</code> object reads all matching course synopses into memory. Note that the cursor is managed by an iterator class and is thus not visible to the <code class="cCode">CourseSynopsisEnumerator</code> object. For more information about how the University sample applications use transactions, see <a href="trans.html">Integrating Transactions into a CORBA Server Application.</a> </li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1023313"> </a>
+How the Basic Sample Application Applies Design Patterns
+</h3>
+<p class="pBody"><a name="wp1023314"> </a>
+The Basic sample application uses the following design patterns:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023315"> </a>Process-Entity</li>
+<li><a name="wp1023316"> </a>List-Enumerator</li>
+</ul></div>
+<p class="pBody"><a name="wp1023317"> </a>
+This section describes why these two patterns are appropriate for the Basic sample application and how this application implements them.
+</p>
+<h4 class="pHeading3"><a name="wp1023319"> </a>
+Process-Entity Design Pattern
+</h4>
+<p class="pBody"><a name="wp1023323"> </a>
+As mentioned in the section <a href="concepts.html#wp1022803"><span class="cHyperlink">
+Process-Entity Design Pattern on page&#160;1-22</span></a>, this design pattern is appropriate in situations where you can have one process object that handles data entities needed by the client application. The data entities are encapsulated as CORBA <code class="cCode">struct</code>s that are manipulated by the process object and not by the client application.
+</p>
+<p class="pBody"><a name="wp1023324"> </a>
+Adapting the Process-Entity design pattern to the Basic sample application allows the application to avoid implementing fine-grained objects. For example, the <code class="cCode">Registrar</code> object is an efficient alternative to a similarly numerous set of course objects. The processing burden of managing a single, coarse-grained <code class="cCode">Registrar</code> object is small relative to the potential overhead of managing hundreds or thousands of fine-grained course objects.
+</p>
+<p class="pBody"><a name="wp1023327"> </a>
+For complete details about the Process-Entity design pattern, see the Design Patterns technical article.
+</p>
+<h4 class="pHeading3"><a name="wp1023330"> </a>
+List-Enumerator Design Pattern
+</h4>
+<p class="pBody"><a name="wp1023331"> </a>
+This design pattern is appropriate in situations where an object has generated an internal list of data that is potentially too large to return to the client application in a single response. Therefore, the object must return an initial batch of data to the client application in one response, and have the ability to return the remainder of the data in subsequent responses. 
+</p>
+<p class="pBody"><a name="wp1023332"> </a>
+A list-enumerator object must also simultaneously keep track of how much of the data has already been returned so that the object can return the correct subsequent batch. List-enumerator objects are always stateful (that is, they remain active and in memory between client invocations on them) and the server application has the ability to deactivate them when they are no longer needed.
+</p>
+<p class="pBody"><a name="wp1023333"> </a>
+The list-enumerator design pattern is an excellent choice for the <code class="cCode">CourseSynopsisEnumerator</code> object, and implementing this design pattern provides the following benefits:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023334"> </a>The University server application has a means to return potentially large lists of course synopses in a way that client applications can handle; namely, in manageable chunks.</li>
+<li><a name="wp1023335"> </a>Each <code class="cCode">CourseSynopsisEnumerator</code> object is unique, and its content is determined by the request that caused this object to be created. (In addition, each <code class="cCode">CourseSynopsisEnumerator</code> object ID is also unique.) When the client invokes the <code class="cCode">get_courses_synopsis()</code> operation on the <code class="cCode">Registrar</code> object, the <code class="cCode">Registrar</code> object returns the following:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1023336"> </a>An initial list of synopses.</li>
+<li><a name="wp1023337"> </a>An object reference to a <code class="cCode">CourseSynopsisEnumerator</code> object that can return the remainder of the synopses.</li>
+<p class="pBodyRelative"><a name="wp1023338"> </a>
+Therefore, all subsequent invocations go to the correct <code class="cCode">CourseSynopsisEnumerator</code> object. This is critical in the situation where the server process has multiple active instances of the <code class="cCode">CourseSynopsisEnumerator</code> class. 
+</p>
+<p class="pBodyRelative"><a name="wp1023339"> </a>
+Because the <code class="cCode">get_courses_synopsis()</code> operation returns a unique <code class="cCode">CourseSynopsisEnumerator</code> object reference, client requests never collide; that is, a client request never mistakenly goes to the wrong <code class="cCode">CourseSynopsisEnumerator</code> object. 
+</p>
+</ul></div>
+</ul></div>
+<p class="pBody"><a name="wp1023340"> </a>
+Although the <code class="cCode">Registrar</code> object has the <code class="cCode">get_courses_synopsis()</code> operation on it, the knowledge of the database query and the synopsis list is embedded entirely in the <code class="cCode">CourseSynopsisEnumerator</code> object. In this situation, the <code class="cCode">Registrar</code> object serves only as a means for the client to get the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023341"> </a>The initial list of synopses.</li>
+<li><a name="wp1023342"> </a>A reference to a <code class="cCode">CourseSynopsisEnumerator</code> object that can return the remainder of the synopses.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1023345"> </a>
+Additional Performance Efficiencies Built into the Oracle Tuxedo System
+</h3>
+<p class="pBody"><a name="wp1023351"> </a>
+The Oracle Tuxedo system implements a performance efficiency in which data marshaling between two objects in the same server process is automatically disabled. This efficiency exists if the following circumstances exist:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023353"> </a>An object reference routes to the same group as the one containing the server process in which the object reference was created.</li>
+<li><a name="wp1023354"> </a>An object in that server process invokes an operation using that object reference that causes an object to be instantiated in the same process.</li>
+</ul></div>
+<p class="pBody"><a name="wp1023355"> </a>
+An example of this is when the <code class="cCode">Registrar</code> object creates an object reference to the <code class="cCode">CourseSynopsisEnumerator</code> object and causes that object to be instantiated. No data marshaling takes place in the requests and responses between those two objects.
+</p>
+<h3 class="pHeading2"><a name="wp1024360"> </a>
+Preactivating an Object with State
+</h3>
+<p class="pBody"><a name="wp1024364"> </a>
+The preactivate object with state feature allows you to preactivate an object before a client application invokes that object. This feature can be particularly useful for creating iterator objects, such as the <code class="cCode">CourseSynopsisEnumerator</code> object in the University samples.
+</p>
+<p class="pBody"><a name="wp1023364"> </a>
+Preactivating an object with state centers around using the <code class="cCode">TP::create_active_object_reference()</code> operation. Typically, objects are not created in a CORBA server application until a client issues an invocation on that object.  However, by preactivating an object and using the <code class="cCode">TP::create_active_object_reference()</code> operation to pass a reference to that object back to the client, your client application can invoke an object that is already active and populated with state.
+</p>
+<a name="wp1024349"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The preactivate object with state feature was first introduced in WebLogic Enterprise version 4.2.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp1023368"> </a>
+How You Preactivate an Object with State
+</h4>
+<p class="pBody"><a name="wp1023371"> </a>
+The process for using the preactivation feature is to write code in the server application that:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023373"> </a>Includes an invocation of the C++ <code class="cCode">new</code> statement to create an object.</li>
+<li><a name="wp1023374"> </a>Sets the object&#8217;s state.</li>
+<li><a name="wp1023375"> </a>Invokes the <code class="cCode">TP::create_active_object_reference()</code> operation to obtain a reference for the newly created object.  This object reference can then be returned to the client application.</li>
+</ol></div>
+<p class="pBody"><a name="wp1023376"> </a>
+Thus, the preactivated object is created in such a way that the TP Framework invokes neither the <code class="cCode">Server::create_servant()</code> nor the <code class="cCode">Tobj_ServantBase::activate_object()</code> operations for that object.
+</p>
+<h4 class="pHeading3"><a name="wp1023380"> </a>
+Usage Notes for Preactivated Objects
+</h4>
+<p class="pBody"><a name="wp1023381"> </a>
+Note the following when using the preactivation feature:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023382"> </a>Preactivated objects must have the <code class="cCode">process</code> activation policy.  Therefore, these objects can be deactivated only at the end of the process or by an invocation to the <code class="cCode">TP::deactivateEnable()</code> operation on those objects.</li>
+<li><a name="wp1023383"> </a>The object reference created by the <code class="cCode">TP::create_active_object_reference()</code> operation is <em class="cEmphasis">transient</em>.  This is because a preactivated object should exist only for the lifetime of the process in which it was created, and this object should not be reactivated again in another server process.</li>
+<p class="pBodyRelative"><a name="wp1023384"> </a>
+If a client application invokes on a transient object reference after the process in which the object reference was created is shut down, the TP Framework returns the following exception:
+</p>
+<a name="wp1023385"> </a><div class="pPreformattedRelative"><pre>CORBA::OBJECT_NOT_EXIST</pre></div><li><a name="wp1023386"> </a>For objects that are preactivated, the state usually cannot be recovered if a crash occurs.  However, this is acceptable because such objects are typically meant to be used within the context of a specific series of operations, and then deleted. Its state has no meaning outside that specific series.  </li>
+<p class="pBodyRelative"><a name="wp1023387"> </a>
+To prevent the situation in which a server has crashed, and a client application subsequently attempts to invoke the now-deleted object, add the <code class="cCode">TobjS::ActivateObjectFailed</code> exception to the implementation of the <code class="cCode">Tobj_ServantBase::activate_object()</code> operation to the object meant for preactivation.  Then, if a client attempts to invoke such an object after a server crash, in which case the TP Framework invokes the <code class="cCode">Tobj_ServantBase::activate_object()</code> operation on that object, the TP Framework returns the following exception to the client application:
+</p>
+<a name="wp1023388"> </a><div class="pPreformattedRelative"><pre>CORBA::OBJECT_NOT_EXIST</pre></div><li><a name="wp1023389"> </a>Use preactivation sparingly because, as with all process-bound objects, preactivation preallocates scarce resources.</li>
+</ul></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="creasimp.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="maksrv.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="mtserv.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

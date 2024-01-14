@@ -1,0 +1,2393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="40264" />
+<meta name="LOC_US_SRCFILE" content="//depot/ecs/tcp/v11gr1/tuxug/fm/tuxconf.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="08/24/10 07:30:49" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Configuring Oracle&#160;TMA TCP Gateway</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Gateway User Guide
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="tuxsec.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="tuxstrt.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/tuxug.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1051721"> </a>
+Configuring Oracle&#160;TMA TCP Gateway
+</h1>
+<p class="pBody"><a name="wp1023855"> </a>
+The following configuration files must be set up prior to running Oracle Tuxedo Mainframe Adapter for TCP Gateway (hereafter referenced as TMA TCP Gateway):
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023860"> </a><code class="cCode">UBBCONFIG</code></li>
+<li><a name="wp1023861"> </a><code class="cCode">GWICONFIG</code></li>
+<li><a name="wp1023862"> </a><code class="cCode">DMCONFIG</code></li>
+</ul></div>
+<p class="pBody"><a name="wp1023866"> </a>
+This document explains the following tasks for configuring TMA TCP Gateway:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023872"> </a><a href="tuxconf.html#wp1023887"><span class="cHyperlink">
+Updating the Oracle Tuxedo UBBCONFIG File</span></a>   </li>
+<li><a name="wp1023876"> </a><a href="tuxconf.html#wp1050612"><span class="cHyperlink">
+Specifying Parameters in the GWICONFIG File</span></a> </li>
+<li><a name="wp1023880"> </a><a href="tuxconf.html#wp1024455"><span class="cHyperlink">
+Defining Domain Configurations in the DMCONFIG File</span></a> </li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023887"> </a>
+Updating the Oracle Tuxedo UBBCONFIG File
+</h2><p class="pBody"><a name="wp1023890"> </a>
+As with any Tuxedo server, you must establish a server group for TMA TCP Gateway by adding entries for TMA TCP Gateway in the <code class="cCode">UBBCONFIG</code> file for the local region. Specifically, you must add records to:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023895"> </a>The <code class="cCode">GROUPS</code> section</li>
+<li><a name="wp1023896"> </a>The <code class="cCode">SERVERS</code> section</li>
+<li><a name="wp1023897"> </a>The <code class="cCode">SERVICES</code> section</li>
+</ul></div>
+<p class="pBody"><a name="wp1023898"> </a>
+See the<span style="font-style: italic"> Oracle Tuxedo Administrator&#8217;s Guide</span> for more information about the <code class="cCode">UBBCONFIG</code> file. For information about the <code class="cCode">UBBCONFIG</code> file specific to the gateway, refer to the <a href="tuxconf.html#wp1023911"><span class="cHyperlink">
+Updating the GROUPS Section to Establish a Server Group</span></a> and <a href="tuxconf.html#wp1023973"><span class="cHyperlink">
+Updating the SERVERS Section</span></a> sections. 
+</p>
+<a name="wp1023908"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Lines beginning with an asterisk (*) indicate the beginning of a specification section. Each such line contains the name of the section immediately following the *. The asterisk is required when specifying a section name.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1023911"> </a>
+Updating the GROUPS Section to Establish a Server Group
+</h3>
+<p class="pBody"><a name="wp1023916"> </a>
+To establish a server group for TMA TCP Gateway, you must add the following items to the <code class="cCode">GROUPS</code> section of the Oracle Tuxedo <code class="cCode">UBBCONFIG</code> file:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023923"> </a>A name for the TMA TCP Gateway server group using the <code class="cCodeEmphasis">groupname</code> variable</li>
+<li><a name="wp1023927"> </a>The logical machine name for the system on which TMA TCP Gateway is installed using the <code class="cCode">LMID</code> parameter</li>
+<a name="wp1023928"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For Windows NT, the <code class="cCode">LMID</code> must be in uppercase</td>
+</tr>
+</table>
+
+<li><a name="wp1023932"> </a>A group number for the TMA TCP Gateway server group using the <code class="cCode">GROUPNO</code> parameter</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1023933"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp1023934"> </a>
+The syntax of the configuration file entry is as follows.
+</p>
+<div class="pCodeTitle"><a name="wp1023935"> </a>
+Listing&#160;5-1	   Syntax for <code class="cCodeBold">GROUPS</code> Section of <code class="cCodeBold">UBBCONFIG</code> File
+</div> <a name="wp1023936"> </a><div class="pPreformatted"><pre><code class="cCodeEmphasis">groupname</code> LMID=<code class="cCodeEmphasis">logical_machine_identifier<br /></code>          GROUPNO=<code class="cCodeEmphasis">group_number</code></pre></div><p class="pBody"><a name="wp1023938"> </a>
+The variable definitions follow.
+</p>
+<p class="pGraphic"><a name="wp1023965"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1023941table1023939">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1023941"> </a>
+<span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Variable</span>
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1023943"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023945"> </a>
+<code class="cCodeEmphasis">groupname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023949"> </a>
+Specifies the name you select for the TMA TCP Gateway server group.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023952"> </a>
+<code class="cCodeEmphasis">logical_machine_identifier</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023954"> </a>
+Specifies the logical machine identifier for the system on which TMA TCP Gateway is installed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023959"> </a>
+<code class="cCodeEmphasis">group_number</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1023963"> </a>
+Specifies the number you assign to the TMA TCP Gateway server group.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1023966"> </a>
+Example
+</h4>
+<p class="pBody"><a name="wp1023967"> </a>
+Here is an example of a <code class="cCode">UBBCONFIG</code> entry that establishes a server group.
+</p>
+<div class="pCodeTitle"><a name="wp1023968"> </a>
+Listing&#160;5-2	   Establishing a Server Group
+</div> <a name="wp1023969"> </a><div class="pPreformatted"><pre>NODE2GATE   LMID=NODE2<br />            GROUPNO=1</pre></div><h3 class="pHeading2"><a name="wp1023973"> </a>
+Updating the SERVERS Section
+</h3>
+<p class="pBody"><a name="wp1023980"> </a>
+This section explains how to specify TMA TCP Gateway servers in the Oracle Tuxedo configuration.
+</p>
+<p class="pBody"><a name="wp1023985"> </a>
+The TMA TCP Gateway product provides the gateway you need to list in the <code class="cCode">SERVERS</code> section of the Oracle Tuxedo <code class="cCode">UBBCONFIG</code> configuration file.
+</p>
+<p class="pBody"><a name="wp1023992"> </a>
+For each TMA TCP Gateway server group, you can specify one gateway. There must also be entries for domain administration (<code class="cCode">DMADM</code>) and gateway administration (<code class="cCode">GWADM</code>) servers.
+</p>
+<h4 class="pHeading3"><a name="wp1023993"> </a>
+Syntax
+</h4>
+<p class="pBody"><a name="wp1023994"> </a>
+The syntax of each configuration file entry is as follows.
+</p>
+<div class="pCodeTitle"><a name="wp1023995"> </a>
+Listing&#160;5-3	   Syntax for <code class="cCodeBold">SERVER</code> Section of <code class="cCodeBold">UBBCONFIG</code> File
+</div> <a name="wp1023996"> </a><div class="pPreformatted"><pre>DMADM      SVRGRP=<code class="cCodeEmphasis">groupname</code> SRVID=<code class="cCodeEmphasis">integer<br /></code>GWADM      SVRGRP=<code class="cCodeEmphasis">groupname</code> SRVID=<code class="cCodeEmphasis">integer<br /></code>GWIDOMAIN  SVRGRP=<code class="cCodeEmphasis">groupname</code> SRVID=<code class="cCodeEmphasis">integer<br /></code>            CLOPT=&quot;-A -- -r<span style="font-style: italic">&quot;</span></pre></div><p class="pBody"><a name="wp1023998"> </a>
+The following table describes the parts of the syntax.
+</p>
+<p class="pGraphic"><a name="wp1024050"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1024001table1023999">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1024001"> </a>
+Part
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1024003"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024005"> </a>
+<code class="cCode">GWIDOMAIN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024010"> </a>
+Specifies the name of the TMA TCP Gateway.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024012"> </a>
+<code class="cCode">DMADM</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024017"> </a>
+Specifies the name of the Oracle Tuxedo supplied domain administration server.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024019"> </a>
+<code class="cCode">GWADM</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024024"> </a>
+Specifies the name of the Oracle Tuxedo supplied gateway administration server.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024026"> </a>
+<code class="cCodeEmphasis">groupname</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024030"> </a>
+Specifies the name you select for the TMA TCP Gateway server group. This is the group with which the server in question is associated.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024033"> </a>
+<code class="cCodeEmphasis">integer</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024037"> </a>
+Specifies the number you assign to the TMA TCP Gateway server.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024040"> </a>
+<code class="cCode">CLOPT=&quot;-A -- -r&quot;</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1024042"> </a>
+<code class="cCode">-A</code> specifies the command line option string that is used to initialize TMA TCP Gateway when it is invoked. This is the default for Oracle Tuxedo server processes.
+</div>
+<div class="pCellBody"><a name="wp1050953"> </a>
+<code class="cCode">-r</code> after the double dashes specifies that the server should record, in its standard error file, a log of services performed. This log may be analyzed by the <code class="cCode">txrpt</code> command. When using this option, ensure that the <code class="cCode">ULOGDEG</code> variable is not set to &#8220;<code class="cCode">y</code>&#8221;.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1024054"> </a>
+For more information about Oracle Tuxedo servers and related configuration parameters, see the Oracle Tuxedo <span style="font-style: italic">Administrator&#8217;s Guide</span>.
+</p>
+<h4 class="pHeading3"><a name="wp1051167"> </a>
+Using the Request Logging Option
+</h4>
+<p class="pBody"><a name="wp1051169"> </a>
+Output from the -r command line option should be capable of being processed by <code class="cCode">txrpt</code> command. The <code class="cCode">txrpt</code> command analyzes the standard error output of a Oracle Tuxedo server and provides a summary of service processing time within the server. The report shows the number of times each service was dispatched and the average amount of time it took for each service to process a request during the specified period. <code class="cCode">txrpt</code> takes its input from the standard input or from a standard error file redirected as input. 
+</p>
+<a name="wp1051170"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Notes:</strong></td>
+<td>The process of gathering statistics creates overhead. Use this option selectively.</td></tr>
+</table>
+
+<a name="wp1053732"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>The -r option applies to servers but does not apply to GWIDOMAIN because it is a Gateway.</td>
+</tr>
+</table>
+<h4 class="pHeading3"><a name="wp1024060"> </a>
+Other Options for Configuring Servers
+</h4>
+<p class="pBody"><a name="wp1027771"> </a>
+As with other Tuxedo servers, you can use some of Oracle Tuxedo system server boot options with TMA TCP Gateway servers. Boot options must be specified with <code class="cCode">CLOPT</code> parameter (before the <code class="cCode">CLOPT</code> double-dash separator).
+</p>
+<a name="wp1027859"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Because TMA TCP Gateway dynamically advertises services that are listed in its initialization file, you should not advertise services by using the <code class="cCode">-s</code> option.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1027862"> </a>
+For more information about these and other boot options, see <code class="cCode">servopts(5)</code> in the Oracle Tuxedo<span style="font-style: italic"> Administrator&#8217;s Guide</span>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1050612"> </a>
+Specifying Parameters in the GWICONFIG File
+</h2><p class="pBody"><a name="wp1032394"> </a>
+The <code class="cCode">GWICONFIG</code> file is the mechanism that system administrators use to configure TMA TCP Gateway. The particular file the gateway uses is determined by the environment variable <code class="cCode">GWICONFIG</code>. The configuration file is similar to the Tuxedo Transaction Manager <code class="cCode">UBBCONFIG</code> file, both in structure and in composition. This makes it possible for experienced Oracle Tuxedo administrators to configure TMA TCP Gateway without extensive training.
+</p>
+<a name="wp1024151"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td><code class="cCode">GWICONFIG</code> is a generic filename. You are free to choose other filenames just as with the Tuxedo <code class="cCode">UBBCONFIG</code> file and <code class="cCode">DMCONFIG</code> file. Be sure that the name of the <code class="cCode">GWICONFIG</code> file is specified in the <code class="cCode">GWICONFIG</code> environment variable. Also, the <code class="cCode">GWICONFIG</code> file should be saved to the application directory.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1024152"> </a>
+The <code class="cCode">GWICONFIG</code> file is divided into the following required sections:
+</p>
+<p class="pGraphic"><a name="wp1052177"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp89410table1052232"><caption><a name="wp89410"> </a>
+Table 5-1  Required GWICONFIG File Sections
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1052234"> </a>
+Section
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1052236"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1052272"> </a>
+<code class="cCode">GLOBAL</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1052277"> </a>
+Describes certain general characteristics of all TMA TCP Gateways.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1052281"> </a>
+<code class="cCode">NATIVE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1052284"> </a>
+Describes all native systems. Use the gateway name, specified in the <code class="cCode">GWI_GWNAME</code> environment variable, to distinguish different gateways in the same configuration file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1052287"> </a>
+<code class="cCode">FOREIGN</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1052289"> </a>
+Describes all foreign systems.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1052292"> </a>
+<code class="cCode">LOCAL_SERVICES</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1052296"> </a>
+Describes local services that are accessible in the Oracle Tuxedo domain through the TMA TCP Gateway. Each local service is linked to a native system using the <code class="cCode">NATIVE</code> parameter. For each local service, TMA TCP Gateway uses the TCP port number and IP address of the corresponding native system to establish a TCP listening endpoint.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1052306"> </a>
+<code class="cCode">REMOTE_SERVICES</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1052310"> </a>
+Describes remote services that are accessible from the Oracle Tuxedo domain. Each remote service describes a TCP service on a foreign system. For each remote service, the <code class="cCode">FOREIGN</code> parameter defines the name of the foreign system. TMA TCP Gateway uses the TCP port number and IP address of the foreign system to connect to the remote TCP service.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<a name="wp1052126"> </a>
+<table class="Note">
+<tr>
+<td valign="top"><strong>WARNING:</strong></td>
+<td>The <code class="cCode">GWICONFIG</code> file <em class="cEmphasis">must</em> contain the required sections in the order shown in <a href="tuxconf.html#wp1024191">Listing&#160;5-4</a>. Each section requires the asterisk (*) in the name.</td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1024191"> </a>
+Listing&#160;5-4	   Sample <code class="cCodeBold">GWICONFIG</code> File
+</div> <a name="wp1030703"> </a><div class="pPreformatted"><pre>*GLOBAL<br />		NWDEVICE=&quot;/dev/tcp&quot;<br />		CONNECT_TIME=20<br />		OUTREQ_TIME=20<br />		LATENCY=-2<br />		SECURE=N<br />		MULTIPLEX=2<br />		DFLTWRAP=&quot;TPS&quot;<br />		DFLTTYPE=&quot;MVS&quot;<br />*NATIVE<br />LOCAL		IPADDR=&quot;//beasun2&quot;<br />		TCP_PORT=9002<br />		IDLE_TIME=20<br /><br />*FOREIGN<br />RIGHTY		WRAP=&quot;TPS&quot;<br />		TYPE=&quot;MVS&quot;<br />		IPADDR=&quot;//beasun2&quot;<br />		TCP_PORT=9004<br />		MULTIPLEX=2<br />		IDLE_TIME=30<br />		RMTACCT=&quot;zeke&quot;<br />		PASSWORD=&quot;maple&quot;<br /><br />MIKE		WRAP=&quot;TPS&quot;<br />		TYPE=&quot;MVS&quot;<br />		IPADDR=&quot;//dalvs3&quot;<br />		TCP_PORT=9001<br />		MULTIPLEX=6<br /><br />*LOCAL_SERVICES<br />TUXTOUPPER <br /><br />ECHO		<br /><br />*REMOTE_SERVICES<br />TUXTOLOWER <br />		OUTREQ_TIME=20<br /><br />BEASVR07		<br />		OUTRECTYPE=&quot;VIEW:weird&quot;<br /><br />TST1V <br /></pre></div><a name="wp1024194"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Changes to the <code class="cCode">GWCONFIG</code> file must be made when upgrading from previous releases of TMA&#160;TCP. See the Oracle Tuxedo Mainframe Adapter for TCP<em class="cEmphasis"> Release Notes</em> for specific upgrade information. </td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1050696"> </a>
+Defining the GLOBAL Section of the GWICONFIG File
+</h3>
+<p class="pBody"><a name="wp1024195"> </a>
+The following sections describe parameters that are associated with the <code class="cCode">GLOBAL</code> section of the <code class="cCode">GWICONFIG</code> file. These parameters describe global characteristics for the gateway.
+</p>
+<p class="pBody"><a name="wp1024197"> </a>
+The format of the <code class="cCode">GLOBAL</code> section of the <code class="cCode">GWICONFIG</code> file is shown in the following listing.
+</p>
+<div class="pCodeTitle"><a name="wp1024198"> </a>
+Listing&#160;5-5	   Syntax for <code class="cCodeBold">GLOBAL</code> Section of <code class="cCodeBold">GWICONFIG</code> File
+</div> <a name="wp1024199"> </a><div class="pPreformatted"><pre>[ # A comment (from &quot;#&quot; to end of line)]<br /><br />*GLOBAL<br />[ NWDEVICE=<code class="cCodeEmphasis">TCP_device</code> ]<br />[ CONNECT_TIME=<code class="cCodeEmphasis">n</code>]<br />[ IDLE_TIME=<code class="cCodeEmphasis">n</code>]<br />[ OUTREQ_TIME=<code class="cCodeEmphasis">n</code>]<br />[ LATENCY=<code class="cCodeEmphasis">n</code>|<span style="text-decoration: underline">1</span> ]<br />[ SECURE=Y|<span style="text-decoration: underline">N</span> ]<br />[ MULTIPLEX=<code class="cCodeEmphasis">n</code>|<span style="text-decoration: underline">1</span> ]<br />[ DFLTWRAP=<code class="cCodeEmphasis">wrapper name</code> ]<br />[ DFLTTYPE=<code class="cCodeEmphasis">translation type</code> ]</pre></div><p class="pBody"><a name="wp1032880"> </a>
+The following table describes the parameters that are set in the <code class="cCode">GLOBAL</code> section.
+</p>
+<p class="pGraphic"><a name="wp1052040"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1050758table1032761"><caption><a name="wp1050758"> </a>
+Table 5-2  Parameters for the GLOBAL Section
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1050766"> </a>
+Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1050768"> </a>
+Required/Optional
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1050770"> </a>
+Default
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1050772"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050774"> </a>
+<code class="cCode">NWDEVICE=</code>&quot;<code class="cCodeEmphasis">TCP_device</code>&quot;
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050776"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050778"> </a>
+<code class="cCode">&#8220;/dev/tcp&#8221;</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050781"> </a>
+Specifies the network device to be used for communication with remote gateways. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050784"> </a>
+<code class="cCode">CONNECT_TIME=</code><code class="cCodeEmphasis">n</code><code class="cCode"> seconds</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050786"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050788"> </a>
+No timeout
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050790"> </a>
+Specifies the number of seconds the gateway waits to establish a connection. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050793"> </a>
+<code class="cCode">IDLE_TIME=</code><code class="cCodeEmphasis">n</code><code class="cCode"> seconds</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050795"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050797"> </a>
+No idle timeout
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050799"> </a>
+Specifies the number of seconds a connection can be idle before timing out.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050802"> </a>
+<code class="cCode">OUTREQ_TIME=</code><code class="cCodeEmphasis">n</code><code class="cCode"> seconds</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050804"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050806"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050808"> </a>
+<code class="cCode">S</code>pecifies the default timeout value, in seconds, for requests sent to foreign gateways.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050811"> </a>
+<code class="cCode">LATENCY=</code><code class="cCodeEmphasis">n</code><code class="cCode"> seconds</code> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050813"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050815"> </a>
+<code class="cCode">1</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050817"> </a>
+Specifies the number of seconds to be deducted from the timeout value sent to a remote gateway for a Tuxedo client request. This increases the likelihood that the remote gateway detects a timeout before the local gateway. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050820"> </a>
+<code class="cCode">SECURE=Y | N</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050822"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050824"> </a>
+<code class="cCode">N</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050829"> </a>
+Specifies whether the TMA TCP Gateway supplies user information to local and remote services.
+</div>
+<div class="pCellBody"><a name="wp1050833"> </a>
+If <code class="cCode">SECURE=Y</code>, then the TMA TCP Gateway supplies user information to remote services and applies remote user information to local services using the <code class="cCode">appkey</code>.
+</div>
+<div class="pCellBody"><a name="wp1050838"> </a>
+If <code class="cCode">SECURE=N</code>, then the TMA TCP Gateway does not supply user information to remote services and does not apply remote user information to local services using the <code class="cCode">appkey</code>. 
+</div>
+<div class="pCellBody"><a name="wp1050840"> </a>
+If <code class="cCode">SECURE=N</code> and the Tuxedo domain is set with <code class="cCode">SECURITY=ACL</code> in the <code class="cCode">UBBCONFIG</code> file, a request to a local service can fail even if ACLs are in place.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050843"> </a>
+<code class="cCode">MULTIPLEX=</code><code class="cCodeEmphasis">n</code> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050845"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050847"> </a>
+<code class="cCode">1</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050849"> </a>
+Specifies the maximum number of outstanding requests per connection that the local gateway can support.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050852"> </a>
+<code class="cCode">DFLTWRAP=</code><code class="cCodeEmphasis">wrapper name</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050854"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050856"> </a>
+<code class="cCode">TPS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050858"> </a>
+Specifies the name of the default wrapping library to use for wrapping and unwrapping messages for machines without a <code class="cCode">FOREIGN</code> section or without a <code class="cCode">WRAP</code> parameter in the <code class="cCode">FOREIGN</code> section. A corresponding wrapper object <code class="cCode">WRAP&lt;</code><code class="cCodeEmphasis">wrapper name</code><code class="cCode">&gt;</code> must exist. The wrapper name <code class="cCode">TPS</code> is used in most cases. Specify <code class="cCode">TPSD</code> if data area security is used. For more information about data area security, refer to <a href="tuxsec.html"><span class="cHyperlink">
+Setting Up Security for Oracle TMA TCP Gateway.</span></a> 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050864"> </a>
+<code class="cCode">DFLTTYPE=system type</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050866"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050868"> </a>
+<code class="cCode">DFLTYPE=MVS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050870"> </a>
+Specifies the default foreign system type for encoding and decoding message buffers. If you specify <code class="cCode">TYPE</code> in the <code class="cCode">FOREIGN</code> section, that <code class="cCode">TYPE</code> definition overrides this default value. For normal C-to-COBOL encoding, specify <code class="cCode">DFLTYPE=&quot;MVSC&quot;</code> to enable COBOL data encoding.
+</div>
+<div class="pCellBody"><a name="wp1050871"> </a>
+For more information about <code class="cCode">DFLTYPE</code> values MVS and MVSC, refer to <a href="tuxdmp.html"><span class="cHyperlink">
+Configuring Oracle TMA TCP Gateway for Data Mapping.</span></a>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1032882"> </a>
+Defining the NATIVE Section of the GWICONFIG File
+</h3>
+<p class="pBody"><a name="wp1024253"> </a>
+The following sections describe parameters that are associated with the <code class="cCode">NATIVE</code> section of the <code class="cCode">GWICONFIG</code> file. These parameters are specific to the local system. You can specify multiple native systems in the same configuration file allowing multiple gateway processes to access the same configuration file. This makes a single repository of connectivity services. The link between the gateway process and the native system entry is made through the <code class="cCode">GWINAME</code> environment variable.
+</p>
+<p class="pBody"><a name="wp1024255"> </a>
+The format of the <code class="cCode">NATIVE</code> section of the <code class="cCode">GWICONFIG</code> file is illustrated in the following listing.
+</p>
+<div class="pCodeTitle"><a name="wp1024256"> </a>
+Listing&#160;5-6	   Syntax for <code class="cCodeBold">NATIVE</code> Section of <code class="cCodeBold">GWICONFIG</code> File
+</div> <a name="wp1024257"> </a><div class="pPreformatted"><pre>[ # A comment (from &quot;#&quot; to end of line)]<br />*NATIVE<br />  &lt;<code class="cCodeEmphasis">GATEWAY_NAME&gt;</code> <br />[ IPADDR=<code class="cCodeEmphasis">ip_address</code> ]<br />[ TCP_PORT=<span style="font-style: italic">port number</span> ]<br />[ IDLE_TIME=<code class="cCodeEmphasis">n</code>]<br />[ MULTIPLEX=<span style="font-style: italic">n</span>]<br />[ POLL_TIME=<code class="cCodeEmphasis">n</code>]<br />[ MAXCONNECT=<span style="font-style: italic">n</span>]</pre></div><p class="pBody"><a name="wp1033095"> </a>
+The following table describes for each local system that are specified in the <code class="cCode">NATIVE</code> section.
+</p>
+<p class="pGraphic"><a name="wp1053836"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1033098table1033096"><caption><a name="wp1033098"> </a>
+Table 5-3  Parameters for the NATIVE Section
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1033106"> </a>
+Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1033108"> </a>
+Required/Optional
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1033110"> </a>
+Default
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1033112"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033115"> </a>
+<em class="cEmphasis">&lt;</em><code class="cCodeEmphasis">GATEWAY_NAME</code>&gt;
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033118"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033120"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033180"> </a>
+This parameter is a 1-78 alphanumeric character string that represents the gateway identification passed in the <code class="cCode">GWINAME</code> environment variable.
+</div>
+<div class="pCellBody"><a name="wp1033181"> </a>
+The <code class="cCodeEmphasis">GATEWAY_NAME</code> parameter must match an entry in the <code class="cCode">DM_LOCAL_DOMAINS</code> section of the <code class="cCode">DMCONFIG</code> file. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033306"> </a>
+<code class="cCode">IPADDR=</code><code class="cCodeEmphasis">ip_address</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033126"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033128"> </a>
+ IP address of the local host machine
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033344"> </a>
+Specifies the IP address for the local system. The <code class="cCode">IPADDR</code> can be in the hexadecimal format <code class="cCode">0xaaaaaaaa</code>, the dotted decimal format<code class="cCode"> //#.#.#.#</code>, or the DNS format //<code class="cCode">host[.domainname]</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033375"> </a>
+<code class="cCode">TCP_PORT=</code><code class="cCodeEmphasis">port number</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033134"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033136"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033389"> </a>
+Specifies the local port number used for listening for services. This parameter is optional if no local services are advertised. If you do not specify TCP_PORT, a listener port is not created.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033504"> </a>
+<code class="cCode">IDLE_TIME=</code><code class="cCodeEmphasis">n </code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033142"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033144"> </a>
+No idle time value
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033617"> </a>
+Specifies the number of seconds a connection can remain idle before being disconnected.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033660"> </a>
+<code class="cCode">MULTIPLEX=</code><code class="cCodeEmphasis">n</code> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033150"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033152"> </a>
+1
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033666"> </a>
+Specifies the number of outstanding requests per connection that the local gateway can support.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033673"> </a>
+<code class="cCode">POLL_TIME=</code><code class="cCodeEmphasis">n</code> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033158"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033160"> </a>
+250,000 micro<br />seconds
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033748"> </a>
+Specifies the polling timeout (in microseconds) to be used in polling for Tuxedo messages. The range of values for this parameter is 100,000-10,000,000. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033788"> </a>
+<code class="cCode">MAXCONNECT=</code><code class="cCodeEmphasis">n</code> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033166"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034211"> </a>
+No maximum
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1033798"> </a>
+Specifies the number of connections into the gateway from remote hosts. If the remote system attempts more connections than this parameter specifies, the remote systems are disconnected. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1024287"> </a>
+Defining the FOREIGN Section of the GWICONFIG File
+</h3>
+<p class="pBody"><a name="wp1024288"> </a>
+The <code class="cCode">FOREIGN</code> section of the <code class="cCode">GWICONFIG</code> file contains parameters that collectively describe foreign systems. 
+</p>
+<p class="pBody"><a name="wp1024290"> </a>
+The format of the <code class="cCode">FOREIGN</code> section of the <code class="cCode">GWICONFIG</code> file is illustrated in the following listing. 
+</p>
+<div class="pCodeTitle"><a name="wp1024291"> </a>
+Listing&#160;5-7	   Syntax for <code class="cCodeBold">FOREIGN</code> Section of <code class="cCodeBold">GWICONFIG</code> File
+</div> <a name="wp1024292"> </a><div class="pPreformatted"><pre>[ # A comment (from &quot;#&quot; to end of line)]<br />*FOREIGN<br />  <code class="cCodeEmphasis">&lt;SYSTEM_NAME&gt;<br /></code>  IPADDR=<code style="font-style: italic" class="cCodeEmphasis">ip_address<br /></code><span style="font-style: italic">  </span>[TYPE=<code class="cCodeEmphasis">system_type</code>]<br /><code class="cCodeEmphasis">  </code>[WRAP=<code class="cCodeEmphasis">wrapper name</code>]<br />  [TCP_PORT=<span style="font-style: italic">port number</span>]<br />  [MULTIPLEX=<span style="font-style: italic">n </span>sessions]<br />  [IDLE_TIME=<span style="font-style: italic">n </span>seconds]<br />  [RMTACCT=&#8221;<code class="cCodeEmphasis">userid</code>&#8221;]<br />  [PASSWORD=&#8221;<code class="cCodeEmphasis">password</code>&#8221;]<br />  [CICS=Y | N]<br />  [CICSHAND=<code class="cCodeEmphasis">&lt;name&gt;</code>]<br />  [MAXCONNECT=<em class="cEmphasis">n</em>]<br />  [CONNSYNC=Y|<span style="text-decoration: underline">N</span>]<br />  [CONNECT_TIME=<code class="cCodeEmphasis">n</code>]<br />  [CICSDATA=<code class="cCodeEmphasis">&quot;string&quot;</code>]</pre></div><p class="pBody"><a name="wp1024295"> </a>
+The following table describes the parameters that are set for the each foreign system that you specify in the <code class="cCode">FOREIGN</code> section.
+</p>
+<p class="pBody"><a name="wp1034246"> </a>
+The following table describes the parameters that are specified in the <code class="cCode">FOREIGN</code> section.
+</p>
+<p class="pGraphic"><a name="wp1053840"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1034371table1034369"><caption><a name="wp1034371"> </a>
+Table 5-4  Parameters for the <code class="cCodeBold">FOREIGN</code> Section
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1034577"> </a>
+Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1034579"> </a>
+Required/Optional
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1034581"> </a>
+Default
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1034583"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036577"> </a>
+<em class="cEmphasis">&lt;</em><code class="cCodeEmphasis">SYSTEM_NAME</code>&gt;
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034588"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034590"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036586"> </a>
+This parameter is a 1-78 alpha-numeric character string that represents the foreign system name.
+</div>
+<div class="pCellBody"><a name="wp1036587"> </a>
+The <code class="cCodeEmphasis">SYSTEM_NAME</code> parameter must match an entry in the <code class="cCode">DM_REMOTE_DOMAINS</code> section of the <code class="cCode">DMCONFIG</code> file. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036903"> </a>
+<code class="cCode">IPADDR=</code><code class="cCodeEmphasis">ip_address</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034597"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034599"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036978"> </a>
+Specifies the IP address for the remote system. The <code class="cCode">IPADDR</code> can be in the hexadecimal format <code class="cCode">0xaaaaaaaa</code>, the dotted decimal format<code class="cCode"> //#.#.#.#</code>, or the DNS format //<code class="cCode">host[.domainname]</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037015"> </a>
+<code class="cCode">TYPE=</code><code class="cCodeEmphasis">system type</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034606"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034608"> </a>
+<code class="cCode">&#8220;MVS&#8221;</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037149"> </a>
+Specifies the foreign system type for encoding and decoding the Tuxedo buffers (application data). <code class="cCode">TYPE</code> values of MVS and MVSC support C-to-COBOL or COBOL data encoding. If you do not specify <code class="cCode">TYPE</code>, the value in <code class="cCode">DFLTYPE</code> in the <code class="cCode">GLOBAL</code> section is used.
+</div>
+<div class="pCellBody"><a name="wp1037238"> </a>
+For more information about MVS and MVSC <code class="cCode">TYPE</code> values, refer to <a href="tuxdmp.html">Configuring Oracle TMA TCP Gateway for Data Mapping.</a>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037302"> </a>
+<code class="cCode">WRAP=</code><code class="cCodeEmphasis">wrapper name</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034615"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034617"> </a>
+<code class="cCode">&#8220;TPS&#8221;</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037468"> </a>
+Specifies the name of the wrapping entry to use for wrapping and unwrapping messages for this host. A corresponding wrapper object <code class="cCode">wrap&lt;wrapper name&gt;</code> must exist. The wrapper name <code class="cCode">TPS</code> is used in most cases.
+</div>
+<div class="pCellBody"><a name="wp1038810"> </a>
+Specify <code class="cCode">TPSD</code> if data area security is used. For more information about data area security, refer to <a href="tuxsec.html">Setting Up Security for Oracle TMA TCP Gateway.</a> 
+</div>
+<div class="pCellBody"><a name="wp1038814"> </a>
+If <code class="cCode">WRAP</code> is not specified in the <code class="cCode">FOREIGN</code> section, the value for <code class="cCode">DFLTWRAP</code> in the <code class="cCode">GLOBAL</code> section is used.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037541"> </a>
+<code class="cCode">TCP_PORT=</code><code class="cCodeEmphasis">port number</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034624"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034626"> </a>
+No port number
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037550"> </a>
+Specifies the port number of the foreign gateway. This parameter is optional if remote services are not defined for this foreign system. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037607"> </a>
+<code class="cCode">MULTIPLEX=</code><code class="cCodeEmphasis">n</code> sessions per connection
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034633"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034636"> </a>
+1 session per connection
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037663"> </a>
+Specifies the maximum number of sessions per connection that the local gateway can support. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037720"> </a>
+<code class="cCode">IDLE_TIME=</code><code class="cCodeEmphasis">n</code> seconds
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034643"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034645"> </a>
+No idle timeout
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037776"> </a>
+Specifies the number of seconds a connection can remain idle before being disconnected. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037833"> </a>
+<code class="cCode">CICS=Y | N</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034651"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034653"> </a>
+N
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1037893"> </a>
+Specifies whether to send control information to the IBM TCP/IP listener for use with the TMA TCP for CICS gateway. 
+</div>
+<div class="pCellBody"><a name="wp1037957"> </a>
+If <code class="cCode">CICS=Y</code> and you are not using IBM TCP/IP or your remote gateway is not TMA TCP for CICS, the transaction does not process correctly.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1038040"> </a>
+<code class="cCode">CICSHAND=</code><code class="cCodeEmphasis">&lt;name&gt;</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034660"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1038978"> </a>
+BEAH
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1038064"> </a>
+Specifies the name of the handler transaction to be passed to the IBM TCP/IP listener for use with TMA TCP for CICS. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1038088"> </a>
+<code class="cCode">RMTACCT=</code><code class="cCodeEmphasis">&#8221;userid&#8221;</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034669"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1038996"> </a>
+&quot;&#160;&quot;
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1038112"> </a>
+Specifies the user ID for gateway-level security on the foreign system. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1038133"> </a>
+<code class="cCode">PASSWORD=</code><code class="cCodeEmphasis">&#8221;password&#8221;</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034678"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1039016"> </a>
+&quot;&#160;&quot;
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1038157"> </a>
+Specifies the password associated with the user ID for gateway-level security on the foreign system.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1038178"> </a>
+<code class="cCode">MAXCONNECT=</code><code class="cCodeEmphasis">n</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034687"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1039040"> </a>
+No limit
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1038202"> </a>
+Specifies the maximum number of connections to the specified host. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1038227"> </a>
+<code class="cCode">CONNSYNC=Y|N</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034696"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1039058"> </a>
+<code class="cCode">N</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1038251"> </a>
+Specifies whether to force the gateway to establish connections to the specified host in a synchronous manner. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1038272"> </a>
+<code class="cCode">CONNECT_TIME=</code><code class="cCodeEmphasis">n</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034705"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034708"> </a>
+Value from <code class="cCode">GLOBAL</code> section
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1038296"> </a>
+Specifies the number of seconds the gateway waits to establish a connection. If you do not specify this parameter, the value of <code class="cCode">CONNECT_TIME</code> in the <code class="cCode">GLOBAL</code> section is used.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1038317"> </a>
+<code class="cCode">CICSDATA=</code><code class="cCodeEmphasis">&#8221;string&#8221;</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1034715"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1039333"> </a>
+&quot;&#160;&quot;
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1038338"> </a>
+Specifies a string to be passed to the IBM TCP/IP listener for use with the TMA TCP for CICS gateway. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1024365"> </a>
+Defining the LOCAL_SERVICES Section of the GWICONFIG File
+</h3>
+<p class="pBody"><a name="wp1024366"> </a>
+The <code class="cCode">LOCAL_SERVICES</code> section of the <code class="cCode">GWICONFIG</code> file contains parameters for each local service specified in the <code class="cCode">DMCONFIG</code> file. Each service entry name matches the remote name of the service in the <code class="cCode">DM_LOCAL_SERVICES</code> section.
+</p>
+<p class="pBody"><a name="wp1024368"> </a>
+The format of the <code class="cCode">LOCAL_SERVICES</code> section of the <code class="cCode">GWICONFIG</code> file is illustrated in the following listing.
+</p>
+<div class="pCodeTitle"><a name="wp1024369"> </a>
+Listing&#160;5-8	   Syntax for <code class="cCodeBold">LOCAL_SERVICES</code> Section of <code class="cCodeBold">GWICONFIG</code> File
+</div> <a name="wp1024370"> </a><div class="pPreformatted"><pre>[ # A comment (from &quot;#&quot; to end of line)]<br />*LOCAL_SERVICES<br />  <code class="cCodeEmphasis">&lt;SERVICE_NAME&gt;<br /></code>[INRECTYPE=<code class="cCodeEmphasis">&#8221;foreign_incoming_buffer_type&#8221;</code>]<br /><code class="cCodeEmphasis">  </code>[OUTRECTYPE=<code class="cCodeEmphasis">&#8221;foreign_outgoing_buffer_type&#8221;</code>]<br />  [SECURE=Y | <span style="text-decoration: underline">N</span>]<br />  [CONV=Y | <span style="text-decoration: underline">N</span>]</pre></div><p class="pBody"><a name="wp1039785"> </a>
+The following section describes the parameters set for each service you specify in the <code class="cCode">LOCAL_SERVICES</code> section.
+</p>
+<p class="pGraphic"><a name="wp1053844"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1054597table1039786"><caption><a name="wp1054597"> </a>
+Table 5-5  Parameters for LOCAL_SERVICES Section
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1039788"> </a>
+Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1039790"> </a>
+Required/Optional
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1039792"> </a>
+Default
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1039794"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1039796"> </a>
+<em class="cEmphasis">&lt;</em><code class="cCodeEmphasis">SERVICE_NAME</code>&gt;
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1039799"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1039801"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1039804"> </a>
+This parameter i<em class="cEmphasis">s </em>a 1-78 alphanumeric character string that represents the local service name that matches the service name value in the <code class="cCode">DM_LOCAL_SERVICES</code> section of the <code class="cCode">DMCONFIG</code> file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040494"> </a>
+<code class="cCode">INRECTYPE</code>=<code class="cCodeEmphasis">&#8221;foreign_incoming_buffer_type&#8221;</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1039821"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1039823"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040576"> </a>
+<code class="cCode">S</code>pecifies the foreign buffer type for replies to remote clients. If you do not specify INRECTYPE, the default is no type. In this case, the type of buffer is unchanged.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040634"> </a>
+<code class="cCode">OUTRECTYPE</code>=<code class="cCodeEmphasis">&#8221;foreign_outgoing_buffer_type&#8221;</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1039829"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1039831"> </a>
+Match the <code class="cCode">INRECTYPE</code> value
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040663"> </a>
+Specifies the foreign buffer type for requests from remote clients. If you do not specify <code class="cCode">OUTRECTYPE</code>, the default is to match the <code class="cCode">INRECTYPE</code> value.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040688"> </a>
+<code class="cCode">SECURE=Y | N</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1039837"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1041567"> </a>
+ <code class="cCode">N</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040771"> </a>
+Specifies whether the TMA TCP Gateway applies remote user information to local services.
+</div>
+<div class="pCellBody"><a name="wp1040775"> </a>
+If <code class="cCode">SECURE=Y</code>, then the TMA TCP Gateway applies remote user information to local services using the <code class="cCode">appkey</code>.
+</div>
+<div class="pCellBody"><a name="wp1040779"> </a>
+If <code class="cCode">SECURE=N</code>, then the TMA TCP Gateway does not apply remote user information to local services using the <code class="cCode">appkey</code>.
+</div>
+<div class="pCellBody"><a name="wp1041563"> </a>
+If <code class="cCode">SECURE=N</code> and the Tuxedo domain is set with <code class="cCode">SECURITY=ACL</code> in the <code class="cCode">UBBCONFIG</code> file, a request to a local Tuxedo service can fail even if ACLs are in place.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1040956"> </a>
+<code class="cCode">CONV=Y | N</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1039845"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1041585"> </a>
+<code class="cCode">N</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1041034"> </a>
+Specifies whether service is conversational. Conversational mode is not currently supported, so <code class="cCode">Y</code> returns an error message and the gateway does not start. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1024409"> </a>
+Defining the REMOTE_SERVICES Section of the GWICONFIG File
+</h3>
+<p class="pBody"><a name="wp1024410"> </a>
+The <code class="cCode">REMOTE_SERVICES</code> section of the <code class="cCode">GWICONFIG</code> file contains parameters for each remote service specified in the <code class="cCode">DMCONFIG</code> file. Each service entry name matches the remote name of the service in the <code class="cCode">DM_REMOTE_SERVICES</code> section.
+</p>
+<p class="pBody"><a name="wp1024412"> </a>
+The format of the <code class="cCode">REMOTE_SERVICES</code> section of the <code class="cCode">GWICONFIG</code> file is illustrated in the following listing.
+</p>
+<div class="pCodeTitle"><a name="wp1024413"> </a>
+Listing&#160;5-9	   Syntax for <code class="cCodeBold">REMOTE_SERVICES</code> Section of <code class="cCodeBold">GWICONFIG</code> File
+</div> <a name="wp1024414"> </a><div class="pPreformatted"><pre>[ # A comment (from &quot;#&quot; to end of line)]<br />*REMOTE_SERVICES<br />  <code class="cCodeEmphasis">&lt;SERVICE_NAME&gt;<br /></code>[INRECTYPE=<code class="cCodeEmphasis">&#8221;foreign_outgoing_buffer_type&#8221;</code>]<br /><code class="cCodeEmphasis">  </code>[OUTRECTYPE=<code class="cCodeEmphasis">&#8221;foreign_incoming_buffer_type&#8221;</code>]<br />  [OUTREQ_TIME=<code class="cCodeEmphasis">n</code>]<br />  [SECURE=Y | <span style="text-decoration: underline">N</span>]<br />  [CONV=Y | <span style="text-decoration: underline">N</span>]</pre></div><p class="pBody"><a name="wp1042823"> </a>
+The following table describes the parameters set for each service you specify in the <code class="cCode">REMOTE_SERVICES</code> section.
+</p>
+<p class="pGraphic"><a name="wp1053852"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1054583table1042824"><caption><a name="wp1054583"> </a>
+Table 5-6  Parameters for REMOTE_SERVICES Section
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1042826"> </a>
+Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1042828"> </a>
+Required/Optional
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1042830"> </a>
+Default
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1042832"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1042835"> </a>
+<em class="cEmphasis">&lt;</em><code class="cCodeEmphasis">SERVICE_NAME</code>&gt;
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1042838"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1042842"> </a>
+This parameter is a 1-78 alphanumeric character string that represents the local service name that matches the <code class="cCode">RNAME</code> value in the <code class="cCode">DM_REMOTE_SERVICES</code> section of the <code class="cCode">DMCONFIG</code> file. If <code class="cCode">RNAME</code> is not specified, this name matches the Tuxedo service name.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1043206"> </a>
+<code class="cCode">INRECTYPE</code>=<code class="cCodeEmphasis">&#8221;foreign_outgoing_buffer_type&#8221;</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1042847"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1042849"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1043222"> </a>
+Specifies the foreign buffer type for requests to remote servers. If you do not specify <code class="cCode">INRECTYPE</code>, the default is no type. In this case, the type of buffer is changed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1043323"> </a>
+<code class="cCode">OUTRECTYPE</code>=<code class="cCodeEmphasis">&#8221;foreign_incoming_buffer_type&#8221;</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1042855"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1042857"> </a>
+Match the <code class="cCode">OUTBUFTYPE</code> value
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1043419"> </a>
+Specifies the foreign buffer type for replies from remote servers. If you do not specify <code class="cCode">OUTRECTYPE</code>, the default is no type. In this case, the type of buffer is unchanged.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1043472"> </a>
+<code class="cCode">OUTREQ_TIME</code>=<code class="cCodeEmphasis">n</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1042863"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1042865"> </a>
+Value from <code class="cCode">GLOBAL</code> section
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1043551"> </a>
+Specifies the timeout value, in seconds, for requests sent to this service. If you do not specify this parameter, the value for <code class="cCode">OUTREQ_TIME</code> in the <code class="cCode">GLOBAL</code> section is used. If <code class="cCode">OUTREQ_TIME</code> is not specified in this section or the <code class="cCode">GLOBAL</code> section, an error message occurs.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1043605"> </a>
+<code class="cCode">SECURE=Y | N</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1042871"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1042873"> </a>
+<code class="cCode">N</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1043681"> </a>
+Specifies whether the TMA TCP Gateway supplies local user information to remote services.
+</div>
+<div class="pCellBody"><a name="wp1043685"> </a>
+If <code class="cCode">SECURE=Y</code>, then the TMA TCP Gateway supplies user information to remote services.
+</div>
+<div class="pCellBody"><a name="wp1043689"> </a>
+If <code class="cCode">SECURE=N</code>, then the TMA TCP Gateway does not supply user information to remote services.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1043738"> </a>
+<code class="cCode">CONV=Y | N</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1042879"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1042881"> </a>
+<code class="cCode">N</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1043763"> </a>
+Specifies whether the service is conversational. Conversational mode is not currently supported, so <code class="cCode">Y</code> returns an error message and the gateway does not start. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024455"> </a>
+Defining Domain Configurations in the DMCONFIG File
+</h2><p class="pBody"><a name="wp1024457"> </a>
+The domain configuration file (<code class="cCode">DMCONFIG</code>) is made up of specification sections. Lines beginning with an asterisk (*) indicate the beginning of a specification section. Each such line contains the name of the section immediately following the *. The asterisk is required when specifying a section name. Allowable section names are: <code class="cCode">DM_LOCAL_DOMAINS</code>, <code class="cCode">DM_REMOTE_DOMAINS</code>, <code class="cCode">DM_LOCAL_SERVICES</code>, <code class="cCode">DM_REMOTE_SERVICES</code>, <code class="cCode">DM_ROUTING</code>, and <code class="cCode">DM_ACCESS_CONTROL</code>. 
+</p>
+<a name="wp1024458"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The <code class="cCode">DM_LOCAL_DOMAINS</code> section must precede the <code class="cCode">DM_REMOTE_DOMAINS</code>. </td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1024461"> </a>
+The following paragraphs describe the significant parameters within specific sections of the <code class="cCode">DMCONFIG</code> file that define new gateway configurations.
+</p>
+<h3 class="pHeading2"><a name="wp1024462"> </a>
+DM_LOCAL_DOMAINS Section
+</h3>
+<p class="pBody"><a name="wp1024467"> </a>
+This section identifies local domains and their associated gateway groups. The section must have an entry for each gateway group (local domain). Each entry specifies the parameters required for the domain gateway processes running in that group. 
+</p>
+<p class="pBody"><a name="wp1024470"> </a>
+The format of the <code class="cCode">DM_LOCAL_DOMAINS</code> section of the <code class="cCode">DMCONFIG</code> file is illustrated in the following listing. 
+</p>
+<div class="pCodeTitle"><a name="wp1024471"> </a>
+Listing&#160;5-10	   Syntax for <code class="cCodeBold">DM_LOCAL_DOMAINS</code> Section of <code class="cCodeBold">DMCONFIG</code> File
+</div> <a name="wp1024472"> </a><div class="pPreformatted"><pre><span style="font-style: italic">LDOM</span>   required parameters  [optional parameters] </pre></div><p class="pBody"><a name="wp1024475"> </a>
+<code class="cCode">LDOM</code> is an <span style="font-style: italic">identifier</span> value used to name each local domain and must be unique within a particular configuration. In the description of the <code class="cCode">DM_LOCAL_SERVICES</code> section, <code class="cCodeEmphasis">LDOM</code> is the identifier that connects local services with a particular gateway group.
+</p>
+<p class="pBody"><a name="wp1053863"> </a>
+The following table describes the parameters that are set in the <code class="cCode">DM_LOCAL_SERVICES</code> section. 
+</p>
+<p class="pGraphic"><a name="wp1054024"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1054563table1053864"><caption><a name="wp1054563"> </a>
+Table 5-7  Parameters for the DM_LOCAL_SERVICES Section
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1054403"> </a>
+Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1054405"> </a>
+Required/Optional
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1054407"> </a>
+Default
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1054409"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054411"> </a>
+<code class="cCode">GWGRP</code>  = <span style="font-style: italic">identifier</span>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054413"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054415"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054418"> </a>
+Specifies the name of the gateway server group (the name provided in the <code class="cCode">TUXCONFIG</code> file) representing this local domain. A one-to-one relationship must exist between a <code class="cCode">DOMAINID</code> and the name of the gateway server group; each <code class="cCode">GWGRP</code> must have its own unique <code class="cCode">DOMAINID</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054420"> </a>
+<code class="cCode">TYPE</code>  = <span style="font-style: italic">identifier</span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054422"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054424"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054426"> </a>
+Is used for grouping local domain into classes. <code class="cCode">TYPE</code> can be set to <code class="cCode">TDOMAIN</code> or any other domain gateway type. The <code class="cCode">TDOMAIN</code> value indicates that this local domain can only communicate with another Tuxedo System/Domain. For use with TMA TCP Gateway, specify <code class="cCode">TYPE=IDOMAIN</code>. Domain types must be defined in the <code class="cCode">$TUXDIR/udataobj/DMTYPE</code> file. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054433"> </a>
+<code class="cCode">DOMAINID</code>  = <span style="font-style: italic">string</span> 	
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054435"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054437"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054439"> </a>
+Is used to identify the local domain. <code class="cCode">DOMAINID</code> must be unique across both local and remote domains. The value of <span style="font-style: italic">string</span> can be a sequence of characters (for example, &quot;<code class="cCode">BA.CENTRAL01</code>&quot;), or a sequence of hexadecimal digits preceded by &quot;0x&quot; (for example, &quot;<code class="cCode">0x0002FF98C0000B9D6</code>&quot;). <code class="cCode">DOMAINID</code> must be 32 octets or fewer in length. If the value is a string, it must be 31 characters or fewer. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054441"> </a>
+<code class="cCode">AUDITLOG </code> = <span style="font-style: italic">string</span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054443"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054445"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054448"> </a>
+Specifies the name of the audit log file for this local domain. The audit log feature is activated from the <code class="cCode">dmadmin</code> command and records all the operations within this local domain. If the audit log feature is active and this parameter is not specified, the file <code class="cCode">DMmmddyy.LOG</code> (where <code class="cCodeEmphasis">mm</code>=month, <code class="cCodeEmphasis">dd</code>=day, and <code class="cCodeEmphasis">yy</code>=year) is created in the directory specified by the <code class="cCode">$APPDIR</code> environment variable or the <code class="cCode">APPDIR</code> keyword of the <code class="cCode">MACHINES</code> section of the <code class="cCode">TUXCONFIG</code> file. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054451"> </a>
+<code class="cCode">BLOCKTIME</code>  = <span style="font-style: italic">numeric</span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054453"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054455"> </a>
+ The value of <code class="cCode">BLOCKTIME</code> parameter specified in the <code class="cCode">TUXCONFIG</code> file
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054457"> </a>
+Specifies the maximum wait time allowed for a blocking call. The value sets a multiplier of the <code class="cCode">SCANUNIT</code> parameters specified in the <code class="cCode">TUXCONFIG</code> file. The value <code class="cCode">SCANUNIT * BLOCKTIME</code> must be greater than or equal to <code class="cCode">SCANUNIT</code> and less than 32,768 seconds. 
+</div>
+<div class="pCellBody"><a name="wp1054459"> </a>
+A timeout always implies a failure of the affected request. Notice that the timeout specified for transactions in the <code class="cCode">TUXCONFIG</code> is always used when the request is issued within a transaction.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054461"> </a>
+<code class="cCode">CODEPAGE</code> = <em class="cEmphasis">table-identifier</em>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054464"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054466"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054468"> </a>
+Specifies the mapping to use with remote hosts that are not specified in the <code class="cCode">DMCONFIG</code> file. <code class="cCode">CODEPAGE</code> designates a bidirectional translation table for ASCII to EBCDIC conversion between a local Tuxedo application and a remote mainframe application. The <em class="cEmphasis">table-identifier</em> describes a file containing a translation table. The name of the file, located in the <code class="cCode">$TUXDIR/udatajobj/codepage</code> directory, is a composite of the code page numbers used for the translation. This parameter specifies the mapping to use with remote hosts that are not specified in the <code class="cCode">DMCONFIG</code> file. 
+</div>
+<div class="pCellBody"><a name="wp1054469"> </a>
+For example, specifying <code class="cCode">CODEPAGE=00819x00297</code> designates the translation table for converting ASCII CP-00819 characters to French EBCDIC CP-00297 characters, and vice versa. The translation tables can be modified. For complete character listings, refer to <a href="tuxapcde.html">Code Page Translation Tables.</a> 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054474"> </a>
+<code class="cCode">DMTLOGDEV</code>  = <span style="font-style: italic">string</span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054476"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054478"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054481"> </a>
+Specifies the Tuxedo file system that contains the Domain transaction log (<code class="cCode">DMTLOG</code>) for this machine. The <code class="cCode">DMTLOG</code> is stored as a Tuxedo System VTOC table on the device. If this parameter is not specified, the domain gateway group is not allowed to process requests in transaction mode. Local domains running on the same machine can share the same <code class="cCode">DMTLOGDEV</code> file system, but each local domain must have its own log (a table in the <code class="cCode">DMTLOGDEV</code>) named as specified by the <code class="cCode">DMTLOGNAME</code> keyword. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054485"> </a>
+<code class="cCode">DMTLOGNAME</code>  = <span style="font-style: italic">identifier</span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054487"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054489"> </a>
+&#8220;<code class="cCode">DMTLOG</code>&#8221;
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054492"> </a>
+Specifies the name of the domain transaction log for this domain. This name must be unique when the same <code class="cCode">DMTLOGDEV</code> is used for several local domains. The name must be 30 characters or less. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054494"> </a>
+<code class="cCode">DMTLOGSIZE</code>  = <span style="font-style: italic">numeric</span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054496"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054498"> </a>
+100 pages
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054501"> </a>
+Specifies the numeric size, in pages, of the Domain transaction log for this machine. It must be greater than 0 and less than the amount of available space on the Tuxedo file system. If not specified, the default is 100 pages. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054503"> </a>
+<code class="cCode">MAXDATALEN</code>  = <span style="font-style: italic">numeric</span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054505"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054507"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054510"> </a>
+Specifies a maximum amount of data (in bytes) that can be sent to or from any services advertised by this local domain. There is no limit if this parameter is not specified. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054513"> </a>
+<code class="cCode">MAXRDOM</code> = <span style="font-style: italic">numeric</span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054515"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054517"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054520"> </a>
+Specifies the maximum number of connections (or dialogs if the domain is of type <span style="font-style: italic">OSITP</span>) allowed per gateway. There is no limit if this parameter is not specified. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054523"> </a>
+<code class="cCode">MAXRDTRAN</code>  = <span style="font-style: italic">numeric</span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054525"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054527"> </a>
+16
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054529"> </a>
+Specifies the maximum number of domains that can be involved in a transaction. It must be greater than 0 and less than 32,768. If not specified, the default is 16. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054531"> </a>
+<code class="cCode">MAXTRAN</code>  = <span style="font-style: italic">numeric</span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054533"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054535"> </a>
+The value of <code class="cCode">MAXGTT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054537"> </a>
+Specifies the maximum number of simultaneous global transactions allowed on this local domain. It must be greater than or equal to 0 and less than or equal to the <code class="cCode">MAXGTT</code> parameter specified in the <code class="cCode">TUXCONFIG</code> file. If not specified, the default is the value of <code class="cCode">MAXGTT</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054541"> </a>
+<code class="cCode">MAXSENDLEN</code>  = <span style="font-style: italic">numeric</span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054544"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054546"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054548"> </a>
+Specifies the maximum length (in bytes) of messages sent or received by this local domain. If this parameter is set, all messages sent or received are broken up into packets of no more than <code class="cCode">MAXSENDLEN</code> bytes. There is no limit if this parameter is not specified. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1054015"> </a>
+DM_REMOTE_DOMAINS Section
+</h3>
+<p class="pBody"><a name="wp1024542"> </a>
+This section identifies the known set of remote domains and their characteristics. 
+</p>
+<p class="pBody"><a name="wp1024546"> </a>
+The format of the <code class="cCode">DM_REMOTE_DOMAINS</code> section of the <code class="cCode">DMCONFIG</code> file is illustrated in the following listing. 
+</p>
+<div class="pCodeTitle"><a name="wp1024547"> </a>
+Listing&#160;5-11	   Syntax for <code class="cCodeBold">DM_REMOTE_DOMAINS</code> Section of <code class="cCodeBold">DMCONFIG</code>
+</div> <a name="wp1024548"> </a><div class="pPreformatted"><pre><span style="font-style: italic">RDOM</span>   required parameters [optional parameters]</pre></div><p class="pBody"><a name="wp1046731"> </a>
+<code class="cCodeEmphasis">RDOM</code> is an <span style="font-style: italic">identifier</span> value used to identify each remote domain known to this configuration and must be unique within the configuration.
+</p>
+<p class="pBody"><a name="wp1046734"> </a>
+The following table describes the parameters that are set in the <code class="cCode">DM_REMOTE_DOMAINS</code> section. 
+</p>
+<p class="pGraphic"><a name="wp1054038"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1054636table1046735"><caption><a name="wp1054636"> </a>
+Table 5-8  Parameters for the DM_REMOTE_DOMAINS Section
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1046737"> </a>
+Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1046739"> </a>
+Required/Optional
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1046741"> </a>
+Default
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1046743"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1046745"> </a>
+<code class="cCode">TYPE</code>  = <span style="font-style: italic">identifier</span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1046747"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1046749"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1046753"> </a>
+Is used for grouping remote domain into classes. <code class="cCode">TYPE</code> can be set to <code class="cCode">TDOMAIN</code> or any other domain gateway type. The <code class="cCode">TDOMAIN</code> value indicates that this remote domain can only communicate with another Tuxedo System/Domain. The <code class="cCode">OSITP</code> value indicates that this remote domain communicates with another TP domain via the OSI-TP protocol. For use with TMA TCP Gateway, specify <code class="cCode">TYPE=IDOMAIN</code>. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1046758"> </a>
+<code class="cCode">DOMAINID</code>  = <span style="font-style: italic">string</span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1046760"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1046762"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1046765"> </a>
+Is used to identify a remote domain. <code class="cCode">DOMAINID</code> must be 32 octets or fewer in length. If the value is a string, it must be 31 characters or fewer. <code class="cCode">DOMAINID</code> must be unique across remote domains. The value of <span style="font-style: italic">string</span> can be a sequence of characters or a sequence of hexadecimal digits preceded by &quot;0x&quot;.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1046992"> </a>
+<code class="cCode">CODEPAGE</code> = <em class="cEmphasis">table-identifier</em>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1046769"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1046771"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1047047"> </a>
+Is used to designate a bidirectional translation table for ASCII to EBCDIC conversion between a local Tuxedo application and a remote mainframe application. The <em class="cEmphasis">table-identifier</em> describes a file containing a translation table. The name of the file, located in the <code class="cCode">$TUXDIR/udatajobj/codepage</code> directory, is a composite of the code page numbers used for the translation. 
+</div>
+<div class="pCellBody"><a name="wp1047048"> </a>
+For example, specifying <code class="cCode">CODEPAGE=00819x00297</code> designates the translation table for converting ASCII CP-00819 characters to French EBCDIC CP-00297 characters, and vice versa. The translation tables can be modified. For complete character listings, refer to <a href="tuxapcde.html">Code Page Translation Tables.</a> 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1024574"> </a>
+DM_ACCESS_CONTROL Section
+</h3>
+<p class="pBody"><a name="wp1024576"> </a>
+This section is optional in the <code class="cCode">DMCONFIG</code> file and specifies the access control lists used by local domain.
+</p>
+<p class="pBody"><a name="wp1024581"> </a>
+The format of the <code class="cCode">DM_ACCESS_CONTROL</code> section of the <code class="cCode">DMCONFIG</code> file is illustrated in the following listing. 
+</p>
+<div class="pCodeTitle"><a name="wp1024582"> </a>
+Listing&#160;5-12	   Syntax for <code class="cCodeBold">DM_ACCESS_CONTROL</code> Section of <code class="cCodeBold">DMCONFIG</code>
+</div> <a name="wp1024583"> </a><div class="pPreformatted"><pre><span style="font-style: italic">ACL_NAME</span>   required parameters</pre></div><p class="pBody"><a name="wp1054053"> </a>
+<code class="cCodeEmphasis">ACL_NAME</code> is a name (<span style="font-style: italic">identifier</span>) used to identify a particular access control list; it must be 15 characters or less in length.
+</p>
+<p class="pGraphic"><a name="wp1054078"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1054656table1054054"><caption><a name="wp1054656"> </a>
+Table 5-9  Parameters for DM_ACCESS_CONTROL Section
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1054056"> </a>
+Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1054058"> </a>
+Required/Optional
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1054060"> </a>
+Default
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1054062"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054064"> </a>
+<code class="cCode">ACLIST</code> = <span style="font-style: italic">identifier</span> [,<span style="font-style: italic">identifier</span>]
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054066"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054068"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1054070"> </a>
+An <code class="cCode">ACLIST</code> is composed of one or more remote domain names (<code class="cCode">RDOM</code>) separated by commas. The wildcard character (<code class="cCode">*</code>) can be used to specify that all the remote domains defined in the <code class="cCode">DM_REMOTE_DOMAINS</code> section can access a local domain. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1054075"> </a>
+DM_LOCAL_SERVICES Section
+</h3>
+<p class="pBody"><a name="wp1024600"> </a>
+This section provides information on the services exported by each local domain. This section is optional and if it is not specified then all local domains defined in the <code class="cCode">DM_LOCAL_DOMAINS</code> section accept requests to all of the services advertised by the Tuxedo System/Domain application. If this section is defined then it should be used to restrict the set of local services that can be requested from a remote domain.
+</p>
+<p class="pBody"><a name="wp1024604"> </a>
+The format of the <code class="cCode">DM_LOCAL_SERVICES</code> section of the <code class="cCode">DMCONFIG</code> file is illustrated in the following listing. 
+</p>
+<div class="pCodeTitle"><a name="wp1024605"> </a>
+Listing&#160;5-13	   Syntax for <code class="cCodeBold">DM_LOCAL_SERVICES</code> Section of <code class="cCodeBold">DMCONFIG</code> File
+</div> <a name="wp1024606"> </a><div class="pPreformatted"><pre><span style="font-style: italic">service</span>    [optional parameters] </pre></div><p class="pBody"><a name="wp1024608"> </a>
+<code class="cCodeEmphasis">service</code> is the local name (<span style="font-style: italic">identifier</span>) of the exported service, and it must be 15 characters or fewer in length. 
+</p>
+<p class="pBody"><a name="wp1024609"> </a>
+This name corresponds to a name advertised by one or more servers running with the local Tuxedo System/Domain application. Notice that exported services inherit the default or special properties specified for the service in an entry in the <code class="cCode">SERVICES</code> section of the <code class="cCode">TUXCONFIG</code> file. Some of these parameters are: <code class="cCode">LOAD</code>, <code class="cCode">PRIO</code>, <code class="cCode">AUTOTRAN</code>, <code class="cCode">ROUTING</code>, <code class="cCode">BUFTYPE</code>, and <code class="cCode">TRANTIME</code>. 
+</p>
+<p class="pGraphic"><a name="wp1054082"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1054666table1035923"><caption><a name="wp1054666"> </a>
+Table 5-10  Parameters for DM_LOCAL_SERVICES Section
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1050035"> </a>
+Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1050037"> </a>
+Required/Optional
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1050039"> </a>
+Default
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1050041"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050043"> </a>
+<code class="cCode">ACL</code> = <span style="font-style: italic">identifier</span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050045"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050047"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050049"> </a>
+Specifies the name of the access control list (ACL) to be used by the local domain to restrict requests made to this service by remote domains. The name of the ACL is defined in the <code class="cCode">DM_ACCESS_CONTROL</code> section. If this parameter is not specified, then access control is not performed for requests to this service. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050053"> </a>
+<code class="cCode">LDOM</code> = <span style="font-style: italic">identifier</span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050055"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050057"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050059"> </a>
+Specifies the name identifying the local domain exporting this service. If this keyword is not specified, then all the local domains defined in the <code class="cCode">DM_LOCAL_DOMAINS</code> section accept requests to this local service. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050061"> </a>
+<code class="cCode">RNAME</code> = <span style="font-style: italic">string</span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050063"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050065"> </a>
+The service name in the <code class="cCode">GWICONFIG</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050067"> </a>
+Specifies the name exported to remote domains. The remote domains use this name for request to this service. If this parameter is not specified, the local service name is supposed to be the name used by any remote domain. For TMA&#160;TCP, this should match the service name in the <code class="cCode">GWICONFIG</code>. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050074"> </a>
+<code class="cCode">INBUFTYPE</code>=<br /><code class="cCode">&#8221;</code><code class="cCodeEmphasis">type:subtype</code><code class="cCode"> | FML:</code><code class="cCodeEmphasis">servicename</code><code class="cCode">&#8221;</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050076"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050078"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050080"> </a>
+Specifies the Tuxedo buffer type for replies from local servers.
+</div>
+<div class="pCellBody"><a name="wp1050081"> </a>
+To use an alternate data mapping product, specify FML as the buffer type (regardless of the actual Tuxedo buffer type being passed) and the encoding service name as the subtype. Because the gateway does not do the encoding, the FML buffer type in the <code class="cCode">DMCONFIG</code> file is a flag for alternate data mapping only. The Tuxedo server and the alternate data mapping product should be configured with the actual Tuxedo buffer type.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050084"> </a>
+<code class="cCode">OUTBUFTYPE</code>=<br /><code class="cCode">&#8221;</code><code class="cCodeEmphasis">type:subtype</code><code class="cCode"> | FML:</code><code class="cCodeEmphasis">servicename</code><code class="cCode">&#8221;</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050086"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050088"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1050090"> </a>
+Specifies the Tuxedo buffer type for requests to local servers.
+</div>
+<div class="pCellBody"><a name="wp1050091"> </a>
+To use an alternate data mapping product, specify FML as the buffer type (regardless of the actual Tuxedo buffer type being passed) and the decoding service name as the subtype. Because the gateway does not do the decoding, the FML buffer type in the <code class="cCode">DMCONFIG</code> file is a flag for alternate data mapping only. The Tuxedo server and the alternate data mapping product should be configured with the actual Tuxedo buffer type.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1024636"> </a>
+DM_REMOTE_SERVICES Section
+</h3>
+<p class="pBody"><a name="wp1024639"> </a>
+This section provides information on services &#8220;imported&#8221; and available on remote domains. 
+</p>
+<p class="pBody"><a name="wp1024643"> </a>
+The format of the <code class="cCode">DM_REMOTE_SERVICES</code> section of the <code class="cCode">DMCONFIG</code> file is illustrated in the following listing. 
+</p>
+<div class="pCodeTitle"><a name="wp1024644"> </a>
+Listing&#160;5-14	   Syntax for <code class="cCodeBold">DM_REMOTE_SERVICES</code> Section of <code class="cCodeBold">DMCONFIG</code>
+</div> <a name="wp1024645"> </a><div class="pPreformatted"><pre><span style="font-style: italic">service</span>    [optional parameters]</pre></div><p class="pBody"><a name="wp1024647"> </a>
+<code class="cCodeEmphasis">service</code> is the name (<span style="font-style: italic">identifier</span>) used by the local Tuxedo System/Domain application for a particular remote service. Remote services are associated with a particular remote domain. 
+</p>
+<p class="pGraphic"><a name="wp1054089"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1054679table1036088"><caption><a name="wp1054679"> </a>
+Table 5-11  Parameters for DM_REMOTE_SERVICES Section
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1036090"> </a>
+Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1036092"> </a>
+Required/Optional
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1036094"> </a>
+Default
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1036096"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048602"> </a>
+<code class="cCode">CONV = {Y | N}</code> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036100"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036102"> </a>
+ <code class="cCode">N</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048621"> </a>
+Specifies whether the remote service is a conversational service. Use Y to specify the remote service is a conversational service. Use <code class="cCode">N</code> to specify the remote service is not a conversational service. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048634"> </a>
+<code class="cCode">LDOM</code> = <span style="font-style: italic">identifier</span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036108"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036110"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048658"> </a>
+Specifies the name of a local domain in charge of routing requests to this remote service. The gateway group associated with the local domain advertises <code class="cCodeEmphasis">service</code> in the Tuxedo System/Domain Bulletin Board. If this parameter is not specified, then all the local domains are able to accept requests to this remote service. The service request is redirected to a remote domain of the same type (see the following definition for <code class="cCode">RDOM</code> keyword). 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048686"> </a>
+<code class="cCode">RDOM</code> = <span style="font-style: italic">identifier</span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036116"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036118"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048708"> </a>
+Specifies the name of the remote domain responsible for the actual execution of this service. If this parameter is not specified and a routing criteria (see the following definition for <code class="cCode">ROUTING</code> keyword) is not specified, then the local domain assumes that any remote domain of the same type accepts this service and it selects a known domain (a domain to which a connection already exists) or remote domain from the <code class="cCode">DM_REMOTE_DOMAINS</code> section. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048754"> </a>
+<code class="cCode">RNAME</code> = <span style="font-style: italic">string</span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036124"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036126"> </a>
+The service name in the <code class="cCode">GWICONFIG</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048799"> </a>
+Specifies the actual service name expected by the remote domain. If this parameter is not specified, the remote service name is the same as the name specified in <span style="font-style: italic">service</span>. For TMA&#160;TCP, this name should match the service name in the <code class="cCode">GWICONFIG</code> file.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048819"> </a>
+<code class="cCode">ROUTING</code> = <span style="font-style: italic">identifier</span>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036132"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036134"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048837"> </a>
+When more than one remote domain offers the same service, a local domain can perform data-dependent routing if this optional parameter is specified. The <span style="font-style: italic">identifier</span> specifies the name of the routing criteria used for this data-dependent routing. If not specified, data-dependent routing is not done for this service. <span style="font-style: italic">identifier</span> must be 15 characters or less in length. If multiple entries exist for the same service name but with different <code class="cCode">RDOM</code> parameters, the <code class="cCode">ROUTING</code> parameter should be the same for all of these entries. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048882"> </a>
+<code class="cCode">TRANTIME</code> = <span style="font-style: italic">integer</span> 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036140"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036142"> </a>
+30 seconds
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048904"> </a>
+Specifies the default time-out value in seconds for a transaction automatically started for the associated service. The value must be greater than or equal to 0 and less than 2147483648. A value of 0 implies the maximum time-out value for the machine. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048927"> </a>
+<code class="cCode">INBUFTYPE</code>=<code class="cCode">&#8221;</code><code class="cCodeEmphasis">type:<br />subtype </code><code class="cCode">| FML:<br /></code><code class="cCodeEmphasis">servicename&#8221;</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036148"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036150"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048946"> </a>
+Specifies the Tuxedo buffer type for requests from local clients. 
+</div>
+<div class="pCellBody"><a name="wp1048947"> </a>
+To use an alternate data mapping product, specify FML as the buffer type (regardless of the actual Tuxedo buffer type being passed) and the encoding service name as the subtype. Because the gateway does not do the encoding, the FML buffer type in the <code class="cCode">DMCONFIG</code> file is a flag for alternate data mapping only. The Tuxedo application and the alternate data mapping product should be configured with the actual Tuxedo buffer type.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048974"> </a>
+<code class="cCode">OUTBUFTYPE</code>=<code class="cCode">&#8221;</code><code class="cCodeEmphasis">type:<br />subtype</code><code class="cCode"> | FML:</code><code class="cCodeEmphasis">servicename</code><code class="cCode">&#8221;</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036156"> </a>
+Optional
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036158"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048988"> </a>
+Specifies the Tuxedo buffer type for replies to local clients
+</div>
+<div class="pCellBody"><a name="wp1048989"> </a>
+To use an alternate data mapping product, specify FML as the buffer type (regardless of the actual Tuxedo buffer type being passed) and the decoding service name as the subtype. Because the gateway does not do the decoding, the FML buffer type in the <code class="cCode">DMCONFIG</code> file is a flag for alternate data mapping only. The Tuxedo application and the alternate data mapping product should be configured with the actual Tuxedo buffer type.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1024686"> </a>
+DM_ROUTING Section
+</h3>
+<p class="pBody"><a name="wp1024687"> </a>
+This section is optional in the <code class="cCode">DMCONFIG</code> file and provides information for data-dependent routing of service requests using <code class="cCode">FML</code>, <code class="cCode">VIEW</code>, <code class="cCode">X_C_TYPE</code>, and <code class="cCode">X_COMMON</code> typed buffers. 
+</p>
+<p class="pBody"><a name="wp1024694"> </a>
+The format of the <code class="cCode">DM_ROUTING</code> section of the <code class="cCode">DMCONFIG</code> file is illustrated in the following listing.
+</p>
+<div class="pCodeTitle"><a name="wp1024695"> </a>
+Listing&#160;5-15	   Syntax for <code class="cCodeBold">DM_ROUTING</code> Section of <code class="cCodeBold">DMCONFIG</code> File
+</div> <a name="wp1024696"> </a><div class="pPreformatted"><pre><span style="font-style: italic">CRITERION_NAME</span>    required parameters </pre></div><p class="pBody"><a name="wp1024698"> </a>
+<code class="cCodeEmphasis">CRITERION_NAME</code> is the (<span style="font-style: italic">identifier</span>) name of the routing entry that was specified on the services entry. <code class="cCodeEmphasis">CRITERION_NAME</code> must be 15 characters or less in length.
+</p>
+<p class="pGraphic"><a name="wp1053127"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp89343table1053138"><caption><a name="wp89343"> </a>
+Table 5-12  Parameters for DM_ROUTING Section
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1053140"> </a>
+Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1053142"> </a>
+Required/Optional
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1053144"> </a>
+Default
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1053146"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1053148"> </a>
+<code class="cCode">FIELD</code> = <span style="font-style: italic">identifier</span>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1053150"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1053152"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1053154"> </a>
+Specifies the name of the routing field. It must be 30 characters or less. This field is assumed to be a field name that is identified in an FML field table (for FML buffers) or an FML view table (for <code class="cCode">VIEW</code>, <code class="cCode">X_C_TYPE</code>, or <code class="cCode">X_COMMON</code> buffers). The <code class="cCode">FLDTBLDIR</code> and <code class="cCode">FIELDTBLS</code> environment variables are used to locate FML field tables, and the <code class="cCode">VIEWDIR</code> and <code class="cCode">VIEWFILES</code> environment variables are used to locate FML view tables. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1053156"> </a>
+<code class="cCode">RANGES</code> = <span style="font-style: italic">string</span>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1053158"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1053160"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1053209"> </a>
+Specifies the ranges and associated remote domain names (<code class="cCode">RDOM</code>) for the routing field. <span style="font-style: italic">string</span> must be enclosed in double quotes. The format of <span style="font-style: italic">string</span> is a comma-separated ordered list of range/<code class="cCode">RDOM</code> pairs. 
+</div>
+<div class="pCellBody"><a name="wp1053210"> </a>
+A range is either a single value (signed numeric value or character string in single quotes), or a range of the form ‘‘lower - upper&#8217;&#8217; (where lower and upper are both signed numeric values or character strings in single quotes). Note that ‘‘lower&#8217;&#8217; must be less than or equal to ‘‘upper.&#8217;&#8217; To embed a single quote in a character string value (as in O&#8217;Brien, for example), it must be preceded by two backslashes (&#8217;O\\&#8217;Brien&#8217;). 
+</div>
+<div class="pCellBody"><a name="wp1053214"> </a>
+The value <code class="cCode">MIN</code> can be used to indicate the minimum value for the data type of the associated <code class="cCode">FIELD</code>; for strings and arrays, it is the null string; for character fields, it is 0; for numeric values, it is the minimum numeric value that can be stored in the field. 
+</div>
+<div class="pCellBody"><a name="wp1053215"> </a>
+The value <code class="cCode">MAX</code> can be used to indicate the maximum value for the data type of the associated <code class="cCode">FIELD</code>; for strings and arrays, it is effectively an unlimited string of octal-255 characters; for a character field, it is a single octal-255 character; for numeric values, it is the maximum numeric value that can be stored in the field.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1053291"> </a>
+Thus, ‘‘<code class="cCode">MIN - -5</code>&#8217;&#8217; is all numbers less than or equal to &#8211; 5 and ‘‘<code class="cCode">6 - MAX</code>&#8217;&#8217; is all numbers greater than or equal to 6. The meta-character ‘‘*&#8217;&#8217; (wildcard) in the position of a range indicates any values not covered by the other ranges previously seen in the entry; only one wildcard range is allowed per entry and it should be last (ranges following it are ignored). 
+</div>
+<div class="pCellBody"><a name="wp1053170"> </a>
+The routing field can be of any data type supported in FML. A numeric routing field must have numeric range values and a string routing field must have string range values.
+</div>
+<div class="pCellBody"><a name="wp1053300"> </a>
+String range values for string, array, and character field types must be placed inside a pair of single quotes and cannot be preceded by a sign. Short and long integer values are a string of digits, optionally preceded by a plus or minus sign. Floating point numbers are of the form accepted by the C compiler or <code class="cCode">atof():</code> an optional sign, then a string of digits optionally containing a decimal point, then an optional e or E followed by an optional sign or space, followed by an integer.
+</div>
+<div class="pCellBody"><a name="wp1053301"> </a>
+When a field value matches a range, the associated <code class="cCode">RDOM</code> value specifies the remote domain to which the request should be routed. A <code class="cCode">RDOM</code> value of ‘‘*&#8217;&#8217; indicates that the request can go to any remote domain known by the gateway group.
+</div>
+<div class="pCellBody"><a name="wp1053298"> </a>
+Within a range/<code class="cCode">RDOM</code> pair, the range is separated from the <code class="cCode">RDOM</code> by a ‘‘<span style="font-weight: bold">:</span>&#8217;&#8217;. 
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1053172"> </a>
+<code class="cCode">BUFTYPE</code> = ~<span style="font-style: italic">type1</span>[<span style="font-style: italic">:subtype1[,subtype2 . . . </span>]][;<span style="font-style: italic">type2[:subtype3</span>[, . . . ]]] . . .~ 
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1053174"> </a>
+Required
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1053176"> </a>
+None
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1053310"> </a>
+Is a list of types and subtypes of data buffers for which this routing entry is valid. The types are restricted to be either <code class="cCode">FML</code>, <code class="cCode">VIEW</code>, <code class="cCode">X_C_TYPE</code>, or <code class="cCode">X_COMMON</code>. No subtype can be specified for type FML and subtypes are required for the other types (‘‘*&#8217;&#8217; is not allowed). Duplicate type/subtype pairs cannot be specified for the same routing criterion name; more than one routing entry can have the same criterion name as long as the type/subtype pairs are unique. 
+</div>
+<div class="pCellBody"><a name="wp1053320"> </a>
+If multiple buffer types are specified for a single routing entry, the data types of the routing field for each buffer type must be the same. 
+</div>
+<div class="pCellBody"><a name="wp1053178"> </a>
+If the field value is not set (for FML buffers), or does not match any specific range and a wildcard range has not been specified, an error is returned to the application process that requested the execution of the remote service.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1053031"> </a>
+Sample DMCONFIG File
+</h3>
+<p class="pBody"><a name="wp1024726"> </a>
+<a href="tuxconf.html#wp1024732">Listing&#160;5-16</a> is a sample <code class="cCode">DMCONFIG</code> file and must be set up prior to running the TMA TCP Gateway product. For a sample <code class="cCode">DMCONFIG</code> file that uses alternate data mapping tools, refer to the <span class="cHyperlink">
+&#8220;Configuring Oracle </span>TMA TCP Gateway<span class="cHyperlink">
+ for Data Mapping&#8221;</span> section.
+</p>
+<div class="pCodeTitle"><a name="wp1024732"> </a>
+Listing&#160;5-16	   Sample <code class="cCodeBold">DMCONFIG</code> File
+</div> <a name="wp1024733"> </a><div class="pPreformatted"><pre>#<br />#	Copyright (c) 2008 Oracle Systems, Inc<br />#	All Rights Reserved<br />#<br />#	THIS IS UNPUBLISHED PROPRIETARY SOURCE CODE OF<br />#	Oracle Systems, Inc.<br />#	The copyright notice above does not evidence any<br />#	actual or intended publication of such source code.<br />#<br />#<br />*DM_LOCAL_DOMAINS<br />LOCAL 		GWGRP=GROUP<br />		TYPE=IDOMAIN<br />		DOMAINID=&quot;LOCAL&quot;<br /><br />#<br />*DM_REMOTE_DOMAINS<br />REMOTE 		TYPE=IDOMAIN<br />		DOMAINID=&quot;REMOTE&quot;<br /><br />#<br />*DM_LOCAL_SERVICES<br />ECHOX		RNAME=&quot;ZECHOSV4&quot;<br />TOLOWER		RNAME=&quot;TUXTOLOWER&quot;<br />		INBUFTYPE=string<br />		OUTBUFTYPE=string<br /><br />#<br />*DM_REMOTE_SERVICES<br />TOUPPER		RDOM=REMOTE<br />		LDOM=LOCAL<br />		RNAME=&quot;TUXTOUPPER&quot;<br /><br /><br />ECHOFAR		RDOM=REMOTE<br />		LDOM=LOCAL<br />		RNAME=&quot;BEASVR07&quot;<br />		INBUFTYPE=&quot;VIEW:myview&quot;<br />		OUTBUFTYPE=&quot;FML&quot;<br /><br />NORMAL		RDOM=REMOTE<br />		LDOM=LOCAL<br />		RNAME=&quot;TST1V&quot;</pre></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="tuxconf.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="tuxsec.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="tuxstrt.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

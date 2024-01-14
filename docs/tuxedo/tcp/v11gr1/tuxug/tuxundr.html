@@ -1,0 +1,536 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="40264" />
+<meta name="LOC_US_SRCFILE" content="//depot/ecs/tcp/v11gr1/tuxug/fm/tuxundr.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="08/24/10 07:30:33" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Understanding How Oracle TMA TCP Gateway Works</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Gateway User Guide
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="tuxintr.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="tuxdmp.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/tuxug.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1026584"> </a>
+Understanding How Oracle TMA TCP Gateway Works
+</h1>
+<p class="pBody"><a name="wp1026591"> </a>
+To understand how Tuxedo Mainframe Adapter for TCP Gateway (hereafter referenced as TMA TCP Gateway) works, you need to understand how it performs the following tasks:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1023863"> </a><a href="tuxundr.html#wp1023886"><span class="cHyperlink">
+Planning Your Configuration</span></a> </li>
+<li><a name="wp1023867"> </a><a href="tuxundr.html#wp1023941"><span class="cHyperlink">
+Initializing TMA TCP Gateway</span></a> </li>
+<li><a name="wp1023871"> </a><a href="tuxundr.html#wp1023964"><span class="cHyperlink">
+Processing Local Service Requests</span></a> </li>
+<li><a name="wp1023875"> </a><a href="tuxundr.html#wp1024106"><span class="cHyperlink">
+Processing Remote Service Requests</span></a> </li>
+<li><a name="wp1023879"> </a><a href="tuxundr.html#wp1024123"><span class="cHyperlink">
+Processing Shut Down Requests</span></a> </li>
+<li><a name="wp1023883"> </a><a href="tuxundr.html#wp1024136"><span class="cHyperlink">
+Programming Considerations</span></a> </li>
+</ul></div>
+<p class="pBody"><a name="wp1023884"> </a>
+Each of these operations is described in the following subsections.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023886"> </a>
+Planning Your Configuration
+</h2><p class="pBody"><a name="wp1023890"> </a>
+One of the major benefits of using Tuxedo Mainframe Adapter for TCP Gateway to connect dissimilar systems is the degree to which different programming environments can be isolated. Oracle Tuxedo programmers rarely need to know that services are handled by dissimilar systems or by systems in remote regions. Application programs do not need to be developed in any special way.
+</p>
+<p class="pBody"><a name="wp1023897"> </a>
+The key to this high degree of transparency is the TMA TCP Gateway configuration. Through TMA TCP Gateway configuration, environmental differences, such as naming conventions and data formats, are concealed from programmers and programs.
+</p>
+<p class="pBody"><a name="wp1023900"> </a>
+Three kinds of environmental differences are isolated in the TMA TCP Gateway configuration files (<code class="cCode">GWICONFIG</code> and <code class="cCode">DMCONFIG</code>). They are:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1025253"> </a>Service names</li>
+<p class="pBodyRelative"><a name="wp1025261"> </a>
+Different systems have different rules for naming services. Service names can differ in length, allowable characters, and even conventions as to how they are constructed or chosen.
+</p>
+<li><a name="wp1025272"> </a>Input and output data formats</li>
+<p class="pBodyRelative"><a name="wp1025279"> </a>
+Different systems have different conventions for formatting input and output data (such as structure, character set, and so forth).
+</p>
+<li><a name="wp1025316"> </a>Error handling</li>
+<p class="pBodyRelative"><a name="wp1025323"> </a>
+Different systems report application errors in different ways.
+</p>
+</ul></div>
+<p class="pBody"><a name="wp1023917"> </a>
+The technique that hides these differences is called mapping. Generally, when you map things, you associate local values or entities with values or entities that are meaningful to programs on remote systems.
+</p>
+<p class="pBody"><a name="wp1023918"> </a>
+The procedure for mapping service names is self-explanatory; you create a configuration file record in which a local name for a service is paired with a remote name for that service. On the other hand, procedures for mapping input data, output data, and application errors are more complex. Conceptual information and other background information are required.
+</p>
+<p class="pBody"><a name="wp1023922"> </a>
+For detailed information about updating the TMA TCP Gateway configuration files (<code class="cCode">GWICONFIG</code> and <code class="cCode">DMCONFIG</code>), see the <a href="tuxconf.html"><span class="cHyperlink">
+Configuring Oracle&#160;TMA TCP Gateway</span></a> section. 
+</p>
+<a name="wp1023929"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>All TMA TCP Gateway configuration parameters are described in the <a href="tuxconf.html"><span class="cHyperlink">
+Configuring Oracle&#160;TMA TCP Gateway</span></a><span class="cHyperlink">
+ </span>section.<span class="cHyperlink">
+ </span>This document focuses on complex parameters that require a separate introduction.</td>
+</tr>
+</table>
+
+<a name="wp1023933"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>The task of configuring data mappings could be considered a programming activity because it requires knowledge of the Oracle Tuxedo programming environment. However, because configuration parameters affect many application programs, configuration is usually an administrator&#39;s responsibility.</td>
+</tr>
+</table>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023941"> </a>
+Initializing TMA TCP Gateway
+</h2><p class="pBody"><a name="wp1023948"> </a>
+When you boot Oracle Tuxedo software using the <code class="cCode">tmboot</code> command, TMA TCP Gateway initializes in the following manner.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1023954"> </a>The TMA TCP Gateway software parses the <code class="cCode">GWICONFIG</code> configuration file and initializes all parameters. If syntax errors are encountered during parsing, TMA TCP Gateway writes a message to the <code class="cCode">ULOG</code> file and initialization fails.</li>
+<li><a name="wp1023962"> </a>After reading the <code class="cCode">GWICONFIG</code> file, TMA TCP Gateway advertises remote services that are named in the file dynamically. These services includes services for all remote gateways.</li>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1023964"> </a>
+Processing Local Service Requests
+</h2><p class="pBody"><a name="wp1023971"> </a>
+When TMA TCP Gateway receives an Oracle Tuxedo service request from a local client program, it processes the request in the following manner.
+</p>
+<h3 class="pHeading2"><a name="wp1023976"> </a>
+Step 1: Receiving a Service Request from Oracle Tuxedo Software
+</h3>
+<p class="pBody"><a name="wp1023977"> </a>
+When a client program sends a request for a remote service that is accessible through TMA TCP Gateway, Oracle Tuxedo forwards the request to the gateway pending the requested service.
+</p>
+<h3 class="pHeading2"><a name="wp1023986"> </a>
+Step 2: Connecting to a Remote System
+</h3>
+<p class="pBody"><a name="wp1023987"> </a>
+The TMA TCP Gateway will determine which remote system will process each request. Data-dependent routing rules may be used to determine the desired remote system.
+</p>
+<p class="pBody"><a name="wp1025980"> </a>
+If no connection to the target remote system exists or an existing connection has been broken, the TMA TCP Gateway opens a new connection at this time.
+</p>
+<p class="pBody"><a name="wp1023994"> </a>
+If the remote system returns a connection failure indication, the Oracle Tuxedo service request fails and an error is returned to the caller. The actual error value returned depends on the timing of the connection failure. Information about failures is written to the <code class="cCode">ULOG</code> file.
+</p>
+<h3 class="pHeading2"><a name="wp1023996"> </a>
+Step 3: Converting Input Buffer Types
+</h3>
+<p class="pBody"><a name="wp1023998"> </a>
+In some circumstances, typed buffers associated with service requests must be converted before service requests can be sent to remote systems. Type conversion involves changing the layout of a buffer to a format that is acceptable to a remote service.
+</p>
+<p class="pBody"><a name="wp1023999"> </a>
+For example, if a local client program places user input in an FML buffer that a remote service cannot process, the buffer must be converted into the structure the remote service expects.
+</p>
+<p class="pBody"><a name="wp1024000"> </a>
+In situations where input type conversion is required, programmers or administrators must perform the following tasks:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024001"> </a>Determine the format of the input data the remote service expects.</li>
+<li><a name="wp1024002"> </a>If necessary, create a <code class="cCode">VIEW</code> definition that describes the format of the input data. <code class="cCode">VIEW</code> definitions are descriptions of data structures that are used for input and output in the Oracle Tuxedo environment.</li>
+<li><a name="wp1024010"> </a>Specify this information in the TMA TCP Gateway configuration files (<code class="cCode">GWICONFIG</code> and <code class="cCode">DMCONFIG</code>).</li>
+</ul></div>
+<p class="pBody"><a name="wp1024014"> </a>
+Once these tasks have been completed, TMA TCP Gateway performs all necessary type conversions automatically.
+</p>
+<p class="pBody"><a name="wp1024015"> </a>
+For information about creating <code class="cCode">VIEW</code> definitions to facilitate type conversion, see <a href="tuxdmp.html">Configuring Oracle TMA TCP Gateway for Data Mapping.</a> For information about the&#160;TMA TCP Gateway configuration file, see <a href="tuxconf.html">Configuring Oracle&#160;TMA TCP Gateway.</a>
+</p>
+<h3 class="pHeading2"><a name="wp1024027"> </a>
+Step 4: Translating Input Data
+</h3>
+<p class="pBody"><a name="wp1024031"> </a>
+The TMA TCP Gateway software automatically translates data as required. Translation refers to a change in how intrinsic data types are represented with respect to word length, byte ordering, and character encoding.
+</p>
+<p class="pBody"><a name="wp1024032"> </a>
+To facilitate data translation, administrators must specify certain parameters in the <code class="cCode">GWICONFIG</code> configuration file. For detailed information about how TMA TCP Gateway translates data, refer to the <a href="tuxdmp.html"><span class="cHyperlink">
+Configuring Oracle TMA TCP Gateway for Data Mapping</span></a> section.
+</p>
+<h3 class="pHeading2"><a name="wp1024041"> </a>
+Step 5: Transmitting the Service Request
+</h3>
+<p class="pBody"><a name="wp1024046"> </a>
+The TMA TCP Gateway product constructs a request message. This message includes the following items and is sent to the remote system:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024047"> </a>The remote service name</li>
+<li><a name="wp1024051"> </a>The input data record that TMA TCP Gateway has converted and translated, as required</li>
+<li><a name="wp1024052"> </a>An indication of whether the remote service should return a reply to the caller</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1024054"> </a>
+Step 6: Receiving a Reply 
+</h3>
+<p class="pBody"><a name="wp1024058"> </a>
+After sending a request message, TMA TCP Gateway performs a receive operation. If the TMA TCP Gateway receive timeout expires before a message arrives from the remote system, a <code class="cCode">TPETIME</code> error is returned to the caller.
+</p>
+<h3 class="pHeading2"><a name="wp1024062"> </a>
+Step 7: Translating the Reply
+</h3>
+<p class="pBody"><a name="wp1024066"> </a>
+After TMA TCP Gateway receives a reply, data representations are translated as needed, in the reverse of the input translation. For details, see the <a href="tuxundr.html#wp1024027"><span class="cHyperlink">
+Step 4: Translating Input Data</span></a> section in this document.
+</p>
+<h3 class="pHeading2"><a name="wp1024071"> </a>
+Step 8: Converting Output Data
+</h3>
+<p class="pBody"><a name="wp1024074"> </a>
+If the format of the reply is not suitable for the local client program, TMA TCP Gateway converts the reply into an appropriate buffer format.
+</p>
+<p class="pBody"><a name="wp1024076"> </a>
+In situations where output conversion is required, programmers or administrators must do the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024077"> </a>Determine the type and the format of the output buffer the local client program expects</li>
+<li><a name="wp1024078"> </a>If necessary, create a <code class="cCode">VIEW</code> definition that describes the format of the output buffer</li>
+<li><a name="wp1024082"> </a>Specify this information in the TMA TCP Gateway configuration files (<code class="cCode">GWICONFIG</code> and <code class="cCode">DMCONFIG</code>)</li>
+</ul></div>
+<p class="pBody"><a name="wp1024086"> </a>
+Once these tasks have been completed, TMA TCP Gateway performs all necessary conversions automatically.
+</p>
+<p class="pBody"><a name="wp1024087"> </a>
+For information about creating <code class="cCode">VIEW</code> definitions to facilitate type conversion, see the <a href="tuxdmp.html"><span class="cHyperlink">
+Configuring Oracle TMA TCP Gateway for Data Mapping</span></a> section. For information about the TMA TCP Gateway configuration file, see the <a href="tuxconf.html"><span class="cHyperlink">
+Configuring Oracle&#160;TMA TCP Gateway</span></a> section.
+</p>
+<h3 class="pHeading2"><a name="wp1024099"> </a>
+Step 9: Sending the Reply to the Caller
+</h3>
+<p class="pBody"><a name="wp1024103"> </a>
+The Oracle Tuxedo buffer resulting from output type conversion and output data translation is returned to the caller with a <code class="cCode">TPSUCCESS</code> or <code class="cCode">TPFAIL</code> indication.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024106"> </a>
+Processing Remote Service Requests
+</h2><p class="pBody"><a name="wp1024110"> </a>
+The TMA TCP Gateway software processes remote service requests (those which originate on remote systems) in much the same way that it processes local requests. The following list offers a brief summary.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1024114"> </a>The TMA TCP Gateway receives the service request and, if necessary, the input record associated with the request is translated and converted into the specified input buffer format.</li>
+<li><a name="wp1024115"> </a>Acting as a client program, the gateway passes the service request to Oracle Tuxedo software. </li>
+<li><a name="wp1024116"> </a>When the service routine is complete, the output buffer is converted into the specified output record format and/or translated, when required.</li>
+<li><a name="wp1024117"> </a>Finally, the output is sent to the requester on the remote system. </li>
+</ol></div>
+<p class="pBody"><a name="wp1024118"> </a>
+For more detailed information about record and buffer conversion, and data translation, see the <a href="tuxundr.html#wp1023964"><span class="cHyperlink">
+Processing Local Service Requests</span></a> section. 
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024123"> </a>
+Processing Shut Down Requests
+</h2><p class="pBody"><a name="wp1024128"> </a>
+When you send a shutdown request to TMA TCP Gateway using the <code class="cCode">tmshutdown</code> command, TMA TCP Gateway performs the following tasks.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1024132"> </a>Completes outstanding requests</li>
+<li><a name="wp1024133"> </a>Drops all open connections</li>
+<li><a name="wp1024134"> </a>Terminates</li>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1024136"> </a>
+Programming Considerations
+</h2><p class="pBody"><a name="wp1024142"> </a>
+In general, Oracle Tuxedo application programs that send requests through TMA TCP Gateway are developed the same as other Oracle Tuxedo application programs.
+</p>
+<p class="pBody"><a name="wp1024147"> </a>
+The TMA TCP Gateway product supports all request/reply communications functions that are included in the ATMI and XATMI interfaces. In addition, all supported functions can be used in the standard manner documented in the Oracle Tuxedo documentation. 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024154"> </a>All XATMI and ATMI buffer types are supported.</li>
+<li><a name="wp1024157"> </a>All system errors are reported in the standard manner as documented in the Oracle Tuxedo documentation.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1024159"> </a>
+Input and Output Issues
+</h3>
+<p class="pBody"><a name="wp1024160"> </a>
+This subsection describes several input and output issues that programmers need to consider when developing application programs that use TMA TCP Gateway.
+</p>
+<h4 class="pHeading3"><a name="wp1024167"> </a>
+Preparing Input and Output Data with TMA TCP Gateway
+</h4>
+<p class="pBody"><a name="wp1024171"> </a>
+The <a href="tuxundr.html#wp1023964"><span class="cHyperlink">
+Processing Local Service Requests</span></a> section describes many circumstances that require conversion of input and output parameters into formats acceptable to remote systems or regions and the local system.
+</p>
+<p class="pBody"><a name="wp1024175"> </a>
+The TMA TCP Gateway product provides powerful configuration capabilities that make it possible for you to convert or map parameters easily rather than requiring you to program in a different way.
+</p>
+<p class="pBody"><a name="wp1024180"> </a>
+The TMA TCP Gateway configuration files (<code class="cCode">GWICONFIG</code> and <code class="cCode">DMCONFIG</code>) are a centralized mechanism that you can use to define and maintain relationships between the local system and remote systems or regions. In addition to input and output parameter mappings, these relationships include service name mappings (where remote service names are mapped to local service names) and error record mappings.
+</p>
+<p class="pBody"><a name="wp1024184"> </a>
+For more information about the <code class="cCode">GWICONFIG</code> configuration file, see the <a href="tuxconf.html"><span class="cHyperlink">
+Configuring Oracle&#160;TMA TCP Gateway</span></a> section. 
+</p>
+<h4 class="pHeading3"><a name="wp1024187"> </a>
+Service Request Parameters
+</h4>
+<p class="pBody"><a name="wp1024191"> </a>
+Oracle Tuxedo application programs can request the following two categories of remote services through TMA TCP Gateway:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024195"> </a>Existing application programs that were originally developed for traditional OLTP environments and have been adapted for use with Oracle Tuxedo.</li>
+<li><a name="wp1024201"> </a>Services that were developed specifically for the XATMI or ATMI (Oracle Tuxedo) environments. Included in this category are services that reside in remote Oracle Tuxedo regions.</li>
+</ul></div>
+<p class="pBody"><a name="wp1024209"> </a>
+If a remote service was developed specifically for the Oracle Tuxedo environment, the input it requires is shaped by three factors:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024210"> </a>Application-specific requirements</li>
+<li><a name="wp1024211"> </a>Normal ATMI or XATMI requirements for defining and sending input</li>
+<li><a name="wp1024212"> </a>Machine-specific requirements for how input is formatted (such as those described in <a href="tuxundr.html#wp1023964"><span class="cHyperlink">
+Processing Local Service Requests</span></a>)</li>
+</ul></div>
+<p class="pBody"><a name="wp1024216"> </a>
+On the other hand, if a remote service is an existing OLTP application program, additional requirements for input are often required. For example, many systems require input that includes terminal data. 
+</p>
+<p class="pBody"><a name="wp1024220"> </a>
+Often, by creative use of the TMA TCP Gateway configuration capabilities previously introduced, you can eliminate the need to include control information, such as terminal data, in the Oracle Tuxedo application source code that you develop. For instance, you can include terminal control codes in <code class="cCode">VIEW</code> definitions that are associated with the TMA TCP Gateway configuration.
+</p>
+<p class="pBody"><a name="wp1024230"> </a>
+For information about the normal input requirements of Oracle Tuxedo services, see the Oracle Tuxedo<em style="font-style: italic" class="cEmphasis"> </em><span style="font-style: italic">Programmer&#8217;s Guide.</span> 
+</p>
+<h4 class="pHeading3"><a name="wp1024232"> </a>
+Output Data Considerations
+</h4>
+<p class="pBody"><a name="wp1024238"> </a>
+To maintain the location transparency of the Oracle Tuxedo environment, TMA TCP Gateway does not preserve data from Oracle Tuxedo input buffers in the associated output buffers. Hence, the consequences of using the same buffer for input and output must be understood to avoid problems.
+</p>
+<p class="pBody"><a name="wp1024246"> </a>
+In particular, some existing Oracle Tuxedo applications may use FML buffers to accumulate results or to maintain application context across service requests. Developers adding&#160;TMA TCP Gateway to such an application must do one of the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024250"> </a>Maintain a copy of the necessary data in the client program (or service routine) that makes requests.</li>
+<li><a name="wp1024251"> </a>Ensure that the remote service returns input data with the output record.</li>
+</ul></div>
+<p class="pBody"><a name="wp1024252"> </a>
+This requirement is no different from the requirement that existed before the use of TMA TCP Gateway. That is, application programs that accumulate output data in FML buffers must ensure that services return replies in original FML input buffers (with output data added)&#8212;not in new or re-initialized buffers.
+</p>
+<h3 class="pHeading2"><a name="wp1024258"> </a>
+Limitations on the Use of Certain ATMI Functions 
+</h3>
+<p class="pBody"><a name="wp1024259"> </a>
+The ATMI interface includes several features and functions&#8212;related primarily to conversations, transactions and client identities&#8212;that application programs cannot propagate to other application programs through TMA TCP Gateway.
+</p>
+<p class="pBody"><a name="wp1024263"> </a>
+In this guide, permanent limitations of this sort are referred to as operational considerations. Specific operational considerations are described in the following sections.
+</p>
+<a name="wp1024264"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>In this discussion, a local application program is one that resides within the immediate Oracle Tuxedo region. A remote application program is one that resides outside the immediate Oracle Tuxedo region.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp1024271"> </a>
+Conversational Communication Functions
+</h4>
+<p class="pBody"><a name="wp1024273"> </a>
+Conversational communication functions are subject to the following operational considerations:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024275"> </a>Local client and server programs cannot use the <code class="cCode">tpconnect()</code> function to establish conversations with remote services.</li>
+<li><a name="wp1024277"> </a>Remote client and server programs cannot use the <code class="cCode">tpconnect()</code> function to establish conversations with local services.</li>
+<li><a name="wp1024281"> </a>Similarly, the <code class="cCode">tpsend()</code>, <code class="cCode">tprecv()</code>, and <code class="cCode">tpdiscon()</code> functions may not be used for communication through TMA TCP Gateway. </li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1024285"> </a>
+Non-Transactional Communications
+</h4>
+<p class="pBody"><a name="wp1024290"> </a>
+The TMA TCP Gateway product supports only non-transactional communications. Therefore, all communications via TMA TCP Gateway are subject to the following operational considerations:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024294"> </a>Remote services called by local client or server programs are always invoked outside the boundaries of any local transaction.</li>
+<li><a name="wp1024295"> </a>Local services called by remote client or server programs are always invoked outside the boundaries of any local transaction.</li>
+<li><a name="wp1024296"> </a>Local client or server programs calling remote services should invoke the <code class="cCode">tpcall()</code> function, or the <code class="cCode">tpacall()</code> and <code class="cCode">tpgetrply()</code> functions, outside the boundaries of any local transaction, such as <code class="cCode">tx_begin()</code>/<code class="cCode">tx_commit()</code> or <code class="cCode">tpbegin()</code>/<code class="cCode">tpcommit()</code> pair.</li>
+<li><a name="wp1024302"> </a>If local client or server programs must call remote services within the boundaries of a local transaction, <code class="cCode">TPNOTRAN</code> must be specified as one of the flags to the <code class="cCode">tpcall()</code> or <code class="cCode">tpacall()</code> function.</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1024304"> </a>
+The tpsprio( ) and tpgprio( ) Functions
+</h4>
+<p class="pBody"><a name="wp1024307"> </a>
+The <code class="cCode">tpsprio()</code> and <code class="cCode">tpgprio()</code> functions are subject to the following operational considerations:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024308"> </a>Local client and server programs cannot use the <code class="cCode">tpsprio()</code> function to set the priority at which remote services are processed. Instead, a call to the <code class="cCode">tpsprio()</code> function causes the priority of a local TMA TCP Gateway to be set.</li>
+<li><a name="wp1024312"> </a>Remote client and server programs cannot use the <code class="cCode">tpsprio()</code> function to set the priority at which local services are processed.</li>
+<li><a name="wp1024313"> </a>When local client or server programs use the <code class="cCode">tpgprio()</code> function to determine the priority of a remote service, the priority of a local TMA TCP Gateway is returned.</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1024318"> </a>
+The tpbroadcast() and tpnotify() Functions
+</h4>
+<p class="pBody"><a name="wp1024320"> </a>
+The <code class="cCode">tpbroadcast()</code> and <code class="cCode">tpnotify()</code> functions are subject to the following operational considerations:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024321"> </a>Local client programs cannot use the <code class="cCode">tpbroadcast()</code> function to send unsolicited messages to remote client programs (and the reverse).</li>
+<li><a name="wp1024322"> </a>Local services cannot use the <code class="cCode">tpbroadcast()</code> or <code class="cCode">tpnotify()</code> functions to send messages to remote client programs (and the reverse).</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1024323"> </a>
+Error Handling
+</h3>
+<p class="pBody"><a name="wp1024324"> </a>
+Three kinds of errors can be encountered by local application programs when they send requests through TMA TCP Gateways:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024328"> </a>Gateway errors</li>
+<li><a name="wp1024329"> </a>Problems on remote systems</li>
+<li><a name="wp1024330"> </a>Errors from remote application programs</li>
+</ul></div>
+<p class="pBody"><a name="wp1024334"> </a>
+The following sections explain how TMA TCP Gateway handles these different kinds of errors.
+</p>
+<h4 class="pHeading3"><a name="wp1024335"> </a>
+Gateway Errors
+</h4>
+<p class="pBody"><a name="wp1024339"> </a>
+When local or remote gateway errors occur, they are logged in the Oracle Tuxedo <code class="cCode">ULOG</code> file and associated service requests fail. Also, appropriate error codes are returned to callers.
+</p>
+<h4 class="pHeading3"><a name="wp1024340"> </a>
+Remote System Failures
+</h4>
+<p class="pBody"><a name="wp1024341"> </a>
+When remote systems encounter problems, service requests may fail or time out. The exact outcome depends on whether the remote system provides a means for TMA TCP Gateway to detect failure.
+</p>
+<p class="pBody"><a name="wp1024348"> </a>
+If the remote target system does not make it possible for TMA TCP Gateway to detect particular types of failure, the TMA TCP Gateway blocking timeout parameter can be tuned to provide timely detection of the problem.
+</p>
+<p class="pBody"><a name="wp1024354"> </a>
+For more information about the blocking timeout parameter, see the <a href="tuxconf.html"><span class="cHyperlink">
+Configuring Oracle&#160;TMA TCP Gateway</span></a> section.
+</p>
+<h4 class="pHeading3"><a name="wp1024356"> </a>
+Application Errors
+</h4>
+<p class="pBody"><a name="wp1024357"> </a>
+Application errors are similar to remote system failures. Remote systems may or may not use error indicators to pass information back to the local TMA TCP Gateway resulting in the generation of error messages. If no such error indicators exist, service routines typically use their own mechanisms to report failures to callers.
+</p>
+<p class="pBody"><a name="wp1024361"> </a>
+When application errors occur, some service routines may not return their usual output records at all. Instead, they may return some other data indicating that there has been an error, such as a string that contains a failure message.
+</p>
+<p class="pBody"><a name="wp1024365"> </a>
+When TMA TCP Gateway receives a service failure message from a remote system, it:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024366"> </a>Converts the output buffer as required based on instructions it finds in the <code class="cCode">GWICONFIG</code> file</li>
+<li><a name="wp1024367"> </a>Writes an error record in the <code class="cCode">ULOG</code> file if the configuration directs it to do so</li>
+<li><a name="wp1024371"> </a>Returns the appropriate type of Oracle Tuxedo buffer to the caller</li>
+</ul></div>
+<a name="wp1024375"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>When Oracle Tuxedo applications detect service failures, they should not assume that returned buffers are the expected type. Oracle Tuxedo application programs may ignore return buffers when failures occur. If you need to check a buffer type, use the Oracle Tuxedo <code class="cCode">tptypes()</code> function. When the type is known, the buffer can be handled accordingly (for example, by displaying a window containing an error string).</td>
+</tr>
+</table>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="tuxundr.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="tuxintr.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="tuxdmp.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

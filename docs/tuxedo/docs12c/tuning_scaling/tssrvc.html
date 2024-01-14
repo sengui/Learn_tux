@@ -1,0 +1,627 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41263" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux11gr1/tuning_scaling/fm/tssrvc.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="11/28/11 08:49:17" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Scaling CORBA Server Applications</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Scaling, Distributing, and Tuning CORBA Applications
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="concepts.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="tsadmds.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/tuning_scaling.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1041503"> </a>
+Scaling CORBA Server Applications
+</h1>
+<p class="pBody"><a name="wp1038602"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024656"> </a><a href="tssrvc.html#wp1017346">About Scaling the Production Sample Application</a></li>
+<li><a name="wp1024660"> </a><a href="tssrvc.html#wp1017370">Changing the OMG IDL</a></li>
+<li><a name="wp1025304"> </a><a href="tssrvc.html#wp1025400">Using a Stateless Object Model</a></li>
+<li><a name="wp1024664"> </a><a href="tssrvc.html#wp1025516">Scaling by Replicating Server Processes and Server Groups</a></li>
+<li><a name="wp1024672"> </a><a href="tssrvc.html#wp1017548">Scaling with Factory-based Routing</a></li>
+<li><a name="wp1024676"> </a><a href="tssrvc.html#wp1017637">Additional Design Considerations</a></li>
+<li><a name="wp1020184"> </a><a href="tssrvc.html#wp1017713">Scaling the Application Further</a></li>
+</ul></div>
+<p class="pBody"><a name="wp1024641"> </a>
+Using the Production sample application as an example, this topic demonstrates scaling an CORBA C++ application to increase its processing capability. Before&#160;you begin, be sure to read:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1031025"> </a><a href="concepts.html">Scaling Oracle Tuxedo CORBA Applications,</a> for a comprehensive introduction to tuning and scaling Oracle Tuxedo CORBA applications.</li>
+<li><a name="wp1036256"> </a><a href="">Production Sample Application</a> in the Oracle Tuxedo online documentation.</li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1017346"> </a>
+About Scaling the Production Sample Application
+</h2><p class="pBody"><a name="wp1031282"> </a>
+The Production sample application provides the same end-user functionality as the Wrapper sample application. The Production sample application demonstrates how to use features of the Oracle Tuxedo software to scale an existing Oracle Tuxedo application.
+</p>
+<p class="pBody"><a name="wp1024857"> </a>
+This section includes the following topics:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024860"> </a><a href="tssrvc.html#wp1030809">Design Goals</a></li>
+<li><a name="wp1030807"> </a><a href="tssrvc.html#wp1024847">How the Application Has Been Scaled</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1030809"> </a>
+Design Goals
+</h3>
+<p class="pBody"><a name="wp1030810"> </a>
+The primary design goal of the Production sample application is to significantly increase the number of client applications it can accommodate by:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1024888"> </a>Processing, in parallel and on one machine, client requests on multiple objects that implement the same interface.</li>
+<li><a name="wp1024889"> </a>Directing requests on behalf of certain students to one machine, and other students to other machines.</li>
+<li><a name="wp1024890"> </a>Adding more machines to share the processing load.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1024847"> </a>
+How the Application Has Been Scaled
+</h3>
+<p class="pBody"><a name="wp1017350"> </a>
+To accommodate these design goals, the Production sample application has been scaled by:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1025626"> </a>Implementing a stateless object model to scale up the number of client requests the server process can manage simultaneously.</li>
+<li><a name="wp1029657"> </a>Replicating the University, Billing, and Oracle Tuxedo Teller Application server processes within the groups in which they are configured (the <code class="cCode">ORA_GRP</code> and <code class="cCode">APP_GRP</code> server groups defined in the <code class="cCode">UBBCONFIG</code> file).</li>
+<li><a name="wp1031397"> </a>Replicating the <code class="cCode">ORA_GRP</code> and <code class="cCode">APP_GRP</code> server groups on an additional server machine, Production Machine 2, and also partitioning the database.</li>
+<li><a name="wp1017354"> </a>Assigning unique object IDs (OIDs) to the following objects so that they can be instantiated multiple times simultaneously in their respective groups.</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1017355"> </a><code class="cCode">RegistrarFactory</code></li>
+<li><a name="wp1017356"> </a><code class="cCode">Registrar</code></li>
+<li><a name="wp1017357"> </a><code class="cCode">TellerFactory</code></li>
+<li><a name="wp1017358"> </a><code class="cCode">Teller</code></li>
+<p class="pBodyRelative"><a name="wp1017359"> </a>
+This makes these objects available on a per-client application (and not per-process) basis, thereby accommodating a parallel processing capability.
+</p>
+</ul></div>
+<li><a name="wp1020430"> </a>Implementing factory-based routing to direct client requests on behalf of some students to one machine, and other students to another machine.</li>
+</ul></div>
+<a name="wp1017360"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>To make the Production sample application easy to use, this application is configured on the Oracle Tuxedo software kit to run on one machine, using one database. The examples shown in this chapter, however, show running this application on two machines using two databases.</td>
+</tr>
+</table>
+
+<a name="wp1017364"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>The Production sample application is designed so that it can be configured to run on several machines and to use multiple databases. Changing the configuration to multiple machines and databases involves modifying the <code class="cCode">UBBCONFIG</code> file and partitioning the databases, which is described in <a href="tssrvc.html#wp1017713">Scaling the Application Further</a>.</td>
+</tr>
+</table>
+<p class="pBody"><a name="wp1031478"> </a>
+The sections that follow describe how the Production sample application uses replicated server processes and server groups, object state management, and factory-based routing to meet its scalability goals.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1017370"> </a>
+Changing the OMG IDL
+</h2><p class="pBody"><a name="wp1017371"> </a>
+The only OMG IDL changes for the Production sample application are limited to the <code class="cCode">find_registrar()</code> and <code class="cCode">find_teller()</code> operations on, respectively, the <code class="cCode">RegistrarFactory</code> and <code class="cCode">TellerFactory</code> objects. These two operations need to be modified to require, respectively, a student ID and account number, which are needed to implement factory-based routing. See <a href="tssrvc.html#wp1017548">Scaling with Factory-based Routing</a> to read about how the Production sample application implements and uses factory-based routing.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1025400"> </a>
+Using a Stateless Object Model
+</h2><p class="pBody"><a name="wp1025462"> </a>
+This section describes how object state management is used with the <code class="cCode">Registrar</code> and <code class="cCode">Teller</code> objects in the Production sample applications to increase the application&#8217;s scalability. For an introduction to object state management, see <a href="concepts.html#wp1030157">Using Object State Management</a>. 
+</p>
+<p class="pBody"><a name="wp1025408"> </a>
+To increase scalability, the <code class="cCode">Registrar</code> and <code class="cCode">Teller</code> objects are configured in the Production server application with the <code class="cCode">method</code> activation policy. The <code class="cCode">method</code> activation policy assigned to these two objects results in the following behavior changes:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1025412"> </a>Whenever these objects are invoked, they are instantiated by the Oracle Tuxedo domain in the appropriate server group.</li>
+<li><a name="wp1025416"> </a>After the invocation is complete, the Oracle Tuxedo domain deactivates these objects.</li>
+</ul></div>
+<p class="pBody"><a name="wp1032044"> </a>
+With the Basic through the Wrapper sample applications, the <code class="cCode">Registrar</code> object was process-bound (<code class="cCode">process</code> activation policy). All client requests on the <code class="cCode">Registrar</code> object invariably went to the same object instance in the memory of the server machine. The Basic sample application design may be adequate for a small-scale deployment. However, as client application demands increase, client requests on the <code class="cCode">Registrar</code> object eventually become queued, and response time drops.
+</p>
+<p class="pBody"><a name="wp1025418"> </a>
+However, when the <code class="cCode">Registrar</code> and <code class="cCode">Teller</code> objects are stateless (<code class="cCode">method</code> activation policy), and the server processes that manage these objects are replicated, the <code class="cCode">Registrar</code> and <code class="cCode">Teller</code> objects can process multiple client requests in parallel. The only constraint on the number of simultaneous client requests that these objects can handle is the number of server processes that are available that can instantiate the <code class="cCode">Registrar</code> and <code class="cCode">Teller</code> objects. These stateless objects, thereby, make for more efficient use of machine resources and reduced client response time.
+</p>
+<p class="pBody"><a name="wp1032407"> </a>
+Most importantly, so that Oracle Tuxedo CORBA can instantiate copies of the <code class="cCode">Registrar</code> and <code class="cCode">Teller</code> objects in each of the replicated server processes, each copy of these objects must be unique. To make each instance of these objects unique, the factories for those objects must assign unique object IDs to them. 
+</p>
+<p class="pBody"><a name="wp1032340"> </a>
+For the Oracle Tuxedo application to instantiate copies of the <code class="cCode">Registrar</code> and <code class="cCode">Teller</code> objects in each of the replicated server application processes, each copy of the <code class="cCode">Registrar</code> and <code class="cCode">Teller</code> objects have an unique object ID (OID). The factories that create these objects are responsible for assigning them unique OIDs. For information about generating unique object IDs, see <span style="font-style: italic"><a href="../cservers/index.html"></span><em class="cEmphasis">Creating CORBA Server Applications</em><span class="cHyperlink">
+</a></span>. For more information about other design considerations, see <a href="tssrvc.html#wp1017637">Additional Design Considerations</a>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1025516"> </a>
+Scaling by Replicating Server Processes and Server Groups
+</h2><p class="pBody"><a name="wp1025832"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1025836"> </a><a href="tssrvc.html#wp1017394">Replicating Server Processes in the Production Application</a></li>
+<li><a name="wp1025840"> </a><a href="tssrvc.html#wp1017435">Replicating Server Groups in the Production Application</a></li>
+<li><a name="wp1025844"> </a><a href="tssrvc.html#wp1017477">Configuring Replicated Server Processes and Groups in the Production Application</a></li>
+</ul></div>
+<p class="pBody"><a name="wp1025845"> </a>
+This topic describes how the Production sample application was scaled by replicating server processes and server groups. For an introduction to this topic, see <a href="concepts.html#wp1022319">Replicating Server Processes and Server Groups</a>.
+</p>
+<h3 class="pHeading2"><a name="wp1017394"> </a>
+Replicating Server Processes in the Production Application 
+</h3>
+<p class="pBody"><a name="wp1031594"> </a>
+This section describes how the Production sample application replicates server applications. For an introduction to this feature, see <a href="concepts.html#wp1023963">Replicating Server Processes</a>.
+</p>
+<p class="pBody"><a name="wp1017412"> </a>
+<a href="tssrvc.html#wp1017414">Figure&#160;2-1</a> shows the replicated <code class="cCode">ORA_GRP</code> and <code class="cCode">APP_GRP</code> groups running on a single machine.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1033589"> </a>The University server application, Oracle Tuxedo Teller Application, and Oracle7 TMS server processes are replicated within the <code class="cCode">ORA_GRP</code> group.</li>
+<li><a name="wp1033590"> </a>The Billing server process is replicated within the <code class="cCode">APP_GRP</code> group.</li>
+<div class="pFigureTitle"><a name="wp1017414"> </a>
+Figure&#160;2-1  Replicated Server Groups in the Production Sample
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1017418"> </a>
+<br />
+<img src="wwimages/m3ugroup.gif" height="410" width="400" alt="Replicated Server Groups in the Production Sample" id="wp1017416"/><br />
+
+</p>
+</ul></div>
+<p class="pBody"><a name="wp1037707"> </a>
+When a request arrives for either of these groups, the Oracle Tuxedo domain has several server processes available that can process the request, and the Oracle Tuxedo domain can choose the server process that is the least busy.
+</p>
+<p class="pBody"><a name="wp1017430"> </a>
+In <a href="tssrvc.html#wp1017414">Figure&#160;2-1</a>, note the following points:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1031795"> </a>At any time, there may be no more than one instance of the <code class="cCode">RegistrarFactory</code>, <code class="cCode">Registrar</code>, <code class="cCode">TellerFactory</code>, or <code class="cCode">Teller</code> objects within a given server process.</li>
+<li><a name="wp1031796"> </a>There may be any number of <code class="cCode">CourseSynopsisEnumerator</code> objects in any University server process.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1017435"> </a>
+Replicating Server Groups in the Production Application
+</h3>
+<p class="pBody"><a name="wp1017446"> </a>
+This section describes how the Production sample application replicates server groups. For an introduction to this feature, see <a href="concepts.html#wp1044086">Replicating Server Groups</a>.
+</p>
+<p class="pBody"><a name="wp1031877"> </a>
+<a href="tssrvc.html#wp1017448">Figure&#160;2-2</a> shows the Production sample application groups replicated on another machine, as specified in the application&#8217;s <code class="cCode">UBBCONFIG</code> file, as <code class="cCode">ORA_GRP2</code> and <code class="cCode">APP_GRP2</code>.
+</p>
+<div class="pFigureTitle"><a name="wp1017448"> </a>
+Figure&#160;2-2  Replicating Server Groups Across Machines
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1017452"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/m3ugrps.gif" height="361" width="557" alt="Replicating Server Groups Across Machines" id="wp1017450"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1017456"> </a>
+In <a href="tssrvc.html#wp1017448">Figure&#160;2-2</a>, the only difference between the content of the groups on Production Machines 1 and 2 is the database:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1031886"> </a>The database on Production Machine 1 contains student and account information for students with IDs between <code class="cCode">100001</code> and <code class="cCode">100005</code>.</li>
+<li><a name="wp1031916"> </a>The database on Production Machine 2 contains student and account information for students with IDs between <code class="cCode">100006</code> and <code class="cCode">100010</code>.</li>
+</ul></div>
+<a name="wp1031976"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The course information table in both databases is identical.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1025961"> </a>
+Note that the student information in a given database may be completely unrelated to the account information in the same database.
+</p>
+<p class="pBody"><a name="wp1025971"> </a>
+For more information about how the Production sample application uses factory-based routing to distribute the application&#8217;s processing load across multiple machines, see <a href="tssrvc.html#wp1017548">Scaling with Factory-based Routing</a>.
+</p>
+<h3 class="pHeading2"><a name="wp1017477"> </a>
+Configuring Replicated Server Processes and Groups in the Production Application 
+</h3>
+<p class="pBody"><a name="wp1017491"> </a>
+<a href="tssrvc.html#wp1017492">Listing&#160;2-1</a> shows excerpts from the <code class="cCode">GROUPS</code> and <code class="cCode">SERVERS</code> sections of the <code class="cCode">UBBCONFIG</code> file for the Production sample application.
+</p>
+<div class="pCodeTitle"><a name="wp1017492"> </a>
+Listing&#160;2-1	   GROUPS and SERVERS Sections in a UBBCONFIG File
+</div> <a name="wp1036629"> </a><div class="pPreformatted"><pre>*GROUPS<br />&#160;&#160;&#160;&#160;APP_GRP1<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LMID      = SITE1<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;GRPNO     = 2<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TMSNAME   = TMS<br />&#160;&#160;&#160;&#160;APP_GRP2<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LMID      = SITE1<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;GRPNO     = 3<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TMSNAME   = TMS<br />&#160;&#160;&#160;&#160;ORA_GRP1<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LMID      = SITE1<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;GRPNO     = 4<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;OPENINFO  = &quot;ORACLE_XA:Oracle_XA+Acc=P/scott/...&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CLOSEINFO = &quot;&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TMSNAME   = &quot;TMS_ORA&quot;<br />&#160;&#160;&#160;&#160;ORA_GRP2<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LMID      = SITE1<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;GRPNO     = 5<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;OPENINFO  = &quot;ORACLE_XA:Oracle_XA+Acc=P/scott/...&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CLOSEINFO = &quot;&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TMSNAME   = &quot;TMS_ORA&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br />*SERVERS<br />&#160;&#160;&#160;&#160;# By default, activate 2 instances of each server<br />&#160;&#160;&#160;&#160;# and allow the administrator to activate up to 5<br />&#160;&#160;&#160;&#160;# instances of each server<br />&#160;&#160;&#160;&#160;DEFAULT:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MIN     = 2<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;MAX     = 5<br />&#160;&#160;&#160;&#160;tellp_server<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SRVGRP  = ORA_GRP1<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SRVID   = 10<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;RESTART = N<br />&#160;&#160;&#160;&#160;tellp_server<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SRVGRP  = ORA_GRP2<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SRVID   = 10<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;RESTART = N<br />&#160;&#160;&#160;&#160;billp_server<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SRVGRP  = APP_GRP1<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SRVID   = 10<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;RESTART = N<br />&#160;&#160;&#160;&#160;billp_server<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SRVGRP  = APP_GRP2<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SRVID   = 10<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;RESTART = N<br />&#160;&#160;&#160;&#160;univp_server<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SRVGRP  = ORA_GRP1<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SRVID   = 20<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;RESTART = N<br />&#160;&#160;&#160;&#160;univp_server<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SRVGRP  = ORA_GRP2<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;SRVID   = 20<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;RESTART = N</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1017548"> </a>
+Scaling with Factory-based Routing 
+</h2><p class="pBody"><a name="wp1025685"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1025703"> </a><a href="tssrvc.html#wp1026091">About Factory-based Routing in the Production Application</a></li>
+<li><a name="wp1025711"> </a><a href="tssrvc.html#wp1032900">Configuring Factory-based Routing in the UBBCONFIG File</a></li>
+<li><a name="wp1025742"> </a><a href="tssrvc.html#wp1017601">Implementing Factory-based Routing in a Factory</a></li>
+<li><a name="wp1025766"> </a><a href="tssrvc.html#wp1017615">What Happens at Run Time</a></li>
+</ul></div>
+<p class="pBody"><a name="wp1025688"> </a>
+This topic describes how the Production sample application was scaled using factory-based routing. For an introduction to factory-based routing, see <a href="concepts.html#wp1030589">Using Factory-based Routing (CORBA Servers Only)</a>.
+</p>
+<h3 class="pHeading2"><a name="wp1026091"> </a>
+About Factory-based Routing in the Production Application
+</h3>
+<p class="pBody"><a name="wp1037504"> </a>
+This section describes how the Production sample application uses a factory-based routing. For an introduction to this feature, see <a href="concepts.html#wp1030589">Using Factory-based Routing (CORBA Servers Only)</a>.
+</p>
+<p class="pBody"><a name="wp1037511"> </a>
+You can use factory-based routing to expand the load-balancing and scalability features of Oracle Tuxedo CORBA. In the Production sample application, you can use factory-based routing to send requests to register one subset of students to one machine, and requests for another subset of students to another machine. As you increase your application&#8217;s processing capability, you can easily modify the factory-based routing in your application to add more machines.
+</p>
+<p class="pBody"><a name="wp1032731"> </a>
+The primary design consideration regarding implementing factory-based routing in the Production sample application is in choosing the value on which routing is based. The Production sample application uses factory-based routing in the following ways:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1032614"> </a>Requests from client applications to the <code class="cCode">Registrar</code> object are routed based on the student ID. Requests from student ID <code class="cCode">100001</code> to <code class="cCode">100005</code> go to Production Machine 1. Requests from student ID <code class="cCode">100006</code> to <code class="cCode">100010</code> go to Production Machine 2.</li>
+<li><a name="wp1032615"> </a>Requests from the <code class="cCode">Registrar</code> object to the <code class="cCode">Teller</code> object are routed based on account number. Billing requests for account <code class="cCode">200010</code> to <code class="cCode">200014</code> go to Production Machine 1. Billing requests for account <code class="cCode">200015</code> to <code class="cCode">200019</code> go to Production Machine 2.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1032900"> </a>
+Configuring Factory-based Routing in the UBBCONFIG File
+</h3>
+<p class="pBody"><a name="wp1032792"> </a>
+The University Production sample application demonstrates how to implement factory-based routing. The INTERFACES, <code class="cCode">ROUTING</code>, and <code class="cCode">GROUPS</code> sections from the <code class="cCode">ubb_b.nt</code> configuration file show how you can implement factory-based routing in an Oracle Tuxedo CORBA application. You can find the <code class="cCode">ubb_p.nt</code> or <code class="cCode">ubb_p.mk</code> <code class="cCode">UBBCONFIG</code> files for this sample in the directory where the Oracle Tuxedo software is installed (see the <code class="cCode">\samples\corba\university\production</code> subdirectory).
+</p>
+<p class="pBody"><a name="wp1026366"> </a>
+The <code class="cCode">UBBCONFIG</code> file must specify the following data in the <code class="cCode">INTERFACES</code> and <code class="cCode">ROUTING</code> sections, as well as how groups and machines are identified.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1017582"> </a>The <code class="cCode">INTERFACES</code> section lists the names of the interfaces for which you want to enable factory-based routing. For each interface, this section specifies the kinds of criteria on which the interface routes. This section specifies the routing criteria via an identifier, <code class="cCode">FACTORYROUTING</code>, as shown in <a href="tssrvc.html#wp1042181">Listing&#160;2-2</a>.</li>
+<div class="pCodeTitle"><a name="wp1042181"> </a>
+Listing&#160;2-2	   INTERFACES Section of a UBBCONFIG File
+</div> <a name="wp1042182"> </a><div class="pPreformattedRelative"><pre>INTERFACES<br />&#160;&#160;&#160;&#160;&quot;IDL:beasys.com/UniversityP/Registrar:1.0&quot;<br />        FACTORYROUTING = STU_ID<br />&#160;&#160;&#160;&#160;&quot;IDL:beasys.com/BillingP/Teller:1.0&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;FACTORYROUTING = ACT_NUM</pre></div><p class="pBodyRelative"><a name="wp1024351"> </a>
+<a href="tssrvc.html#wp1042181">Listing&#160;2-2</a> shows the fully qualified interface names for the two interfaces in the Production sample in which factory-based routing is used. The <code class="cCode">FACTORYROUTING</code> identifier specifies the names of the routing values, which are <code class="cCode">STU_ID</code> and <code class="cCode">ACT_NUM</code>, respectively.
+</p>
+<li><a name="wp1036777"> </a>The <code class="cCode">ROUTING</code> section specifies the parameters in <a href="tssrvc.html#wp1036784">Table&#160;2-1</a> for each routing value.</li>
+<p class="pGraphic"><a name="wp1041799"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1036784table1036778"><caption><a name="wp1036784"> </a>
+Table 2-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Parameters Specified in the ROUTING Section&#160;</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1036788"> </a>
+Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1036790"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036792"> </a>
+<code class="cCode">TYPE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036794"> </a>
+Specifies the type of routing. In the Production sample, the type of routing is factory-based routing. Therefore, this parameter is defined as <code class="cCode">FACTORY</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036796"> </a>
+<code class="cCode">FIELD</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036798"> </a>
+Specifies the variable name that the factory inserts in the routing value. In the Production sample, the field parameters are <code class="cCode">student_id</code> and <code class="cCode">account_number</code>, respectively.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036800"> </a>
+<code class="cCode">FIELDTYPE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036802"> </a>
+Specifies the data type of the routing value. In the Production sample, the field types for <code class="cCode">student_id</code> and <code class="cCode">account_number</code> are <code class="cCode">long</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036804"> </a>
+<code class="cCode">RANGES</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1036806"> </a>
+Specifies the values that are routed to each group. 
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+<p class="pBodyRelative"><a name="wp1036807"> </a>
+<a href="tssrvc.html#wp1029906">Listing&#160;2-3</a> shows the <code class="cCode">ROUTING</code> section of the <code class="cCode">UBBCONFIG</code> file used in the Production sample application.
+</p>
+<div class="pCodeTitle"><a name="wp1029906"> </a>
+Listing&#160;2-3	   ROUTING Section of the UBBCONFIG File
+</div> <a name="wp1036714"> </a><div class="pPreformatted"><pre>ROUTING<br />&#160;&#160;&#160;&#160;STU_ID<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;FIELD     = &quot;student_id&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TYPE      = FACTORY<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;FIELDTYPE = LONG<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;RANGES    = &quot;100001-100005:ORA_GRP1,100006-100010:ORA_GRP2&quot;<br />&#160;&#160;&#160;&#160;ACT_NUM<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;FIELD     = &quot;account_number&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TYPE      = FACTORY<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;FIELDTYPE = LONG<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;RANGES    = &quot;200010-200014:APP_GRP1,200015-200019:APP_GRP2&quot;</pre></div><p class="pBodyRelative"><a name="wp1017592"> </a>
+<a href="tssrvc.html#wp1029906">Listing&#160;2-3</a> shows that <code class="cCode">Registrar</code> object references for students with IDs in one range are routed to one server group, and <code class="cCode">Registrar</code> object references for students with IDs in another range are routed to another group. Likewise, <code class="cCode">Teller</code> object references for accounts in one range are routed to one server group, and <code class="cCode">Teller</code> object references for accounts in another range are routed to another group.
+</p>
+<li><a name="wp1017593"> </a>The groups specified by the <code class="cCode">RANGES</code> identifier in the <code class="cCode">ROUTING</code> section of the <code class="cCode">UBBCONFIG</code> file need to be identified and configured. For example, the Production sample specifies four groups: <code class="cCode">APP_GRP1</code>, <code class="cCode">APP_GRP2</code>, <code class="cCode">ORA_GRP1</code>, and <code class="cCode">ORA_GRP2</code>. These groups need to be configured, and the machines on which they run need to be identified.</li>
+<p class="pBodyRelative"><a name="wp1017594"> </a>
+<a href="tssrvc.html#wp1032875">Listing&#160;2-4</a> shows the <code class="cCode">GROUPS</code> section of the Production sample <code class="cCode">UBBCONFIG</code> file, in which the <code class="cCode">ORA_GRP1</code> and <code class="cCode">ORA_GRP2</code> groups are configured. Notice how the names in the <code class="cCode">GROUPS</code> section match the group names specified in the <code class="cCode">RANGES</code> parameter in the <code class="cCode">ROUTING</code> section. This is critical for factory-based routing to work correctly. Furthermore, any change in the way groups are configured in an application must be reflected in the <code class="cCode">ROUTING</code> section. (Note that the Production sample packaged with the Oracle Tuxedo software is configured to run entirely on one machine. However, you can easily configure this application to run on multiple machines.)
+</p>
+<div class="pCodeTitle"><a name="wp1032875"> </a>
+Listing&#160;2-4	   GROUPS Section of a UBBCONFIG File
+</div> <a name="wp1036728"> </a><div class="pPreformatted"><pre>*GROUPS<br />&#160;&#160;&#160;&#160;APP_GRP1<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LMID      = SITE1<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;GRPNO     = 2<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TMSNAME   = TMS<br />&#160;&#160;&#160;&#160;APP_GRP2<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LMID      = SITE1<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;GRPNO     = 3<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TMSNAME   = TMS<br />&#160;&#160;&#160;&#160;ORA_GRP1<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LMID      = SITE1<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;GRPNO     = 4<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;OPENINFO = &quot;ORACLE_XA:Oracle_XA+Acc=P/scott/tiger+SesTm=100+LogDir=.+MaxCur=5&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CLOSEINFO = &quot;&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TMSNAME   = &quot;TMS_ORA&quot;<br />&#160;&#160;&#160;&#160;ORA_GRP2<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;LMID      = SITE1<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;GRPNO     = 5<br />OPENINFO = &quot;ORACLE_XA:Oracle_XA+Acc=P/scott/tiger+SesTm=100+LogDir=.+MaxCur=5&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CLOSEINFO = &quot;&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TMSNAME   = &quot;TMS_ORA&quot;</pre></div></ol></div>
+<h3 class="pHeading2"><a name="wp1017601"> </a>
+Implementing Factory-based Routing in a Factory 
+</h3>
+<p class="pBody"><a name="wp1017602"> </a>
+Factories implement factory-based routing in the way the invocation to the <code class="cCode">TP::create_object_reference()</code> operation is implemented. This operation has the C++ binding in <a href="tssrvc.html#wp1017603">Listing&#160;2-5</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1017603"> </a>
+Listing&#160;2-5	   C++ Binding for create_object_reference
+</div> <a name="wp1036814"> </a><div class="pPreformatted"><pre>CORBA::Object_ptr  TP::create_object_reference (<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;const char* interfaceName,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;const PortableServer::oid &amp;stroid,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CORBA::NVlist_ptr criteria);</pre></div><p class="pBody"><a name="wp1030614"> </a>
+The third parameter to this operation, <code class="cCode">criteria</code>, specifies a list of named values to be used for factory-based routing. To implement factory-based routing in a factory, you need to build the <code class="cCode">NVlist</code>. The use of factory-based routing is optional and is dependent on this argument. Instead of using factory-based routing, you can pass a value of <code class="cCode">0</code> (zero) for this argument.
+</p>
+<p class="pBody"><a name="wp1030615"> </a>
+As stated previously, the <code class="cCode">RegistrarFactory</code> object in the Production sample application specifies the value <code class="cCode">STU_ID</code>. This value must exactly match the following information in the <code class="cCode">UBBCONFIG</code> file:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1017606"> </a>The routing name, type, and allowable values specified by the <code class="cCode">FACTORYROUTING</code> identifier in the <code class="cCode">INTERFACES</code> section.</li>
+<li><a name="wp1017607"> </a>The routing criteria name, field, and field type specified in the <code class="cCode">ROUTING</code> section.</li>
+</ul></div>
+<p class="pBody"><a name="wp1017608"> </a>
+The <code class="cCode">RegistrarFactory</code> object inserts the student ID into the <code class="cCode">NVlist</code> using the code shown in <a href="tssrvc.html#wp1017609">Listing&#160;2-6</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1017609"> </a>
+Listing&#160;2-6	   NVlist in the RegistrarFactory Object
+</div> <a name="wp1036840"> </a><div class="pPreformatted"><pre>// put the student id (which is the routing criteria)<br />// into a CORBA NVList:<br />CORBA::NVList_var v_criteria;<br />TP::orb()-&gt;create_list(1, v_criteria.out());<br />CORBA::Any any;<br />any &lt;&lt;= (CORBA::Long)student;<br />v_criteria-&gt;add_value(&quot;student_id&quot;, any, 0);</pre></div><p class="pBody"><a name="wp1017610"> </a>
+The <code class="cCode">RegistrarFactory</code> object has the invocation to the <code class="cCode">TP::create_object_reference()</code> operation, shown in <a href="tssrvc.html#wp1017611">Listing&#160;2-7</a>, passing the <code class="cCode">NVlist</code> created in <a href="tssrvc.html#wp1017609">Listing&#160;2-6</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1017611"> </a>
+Listing&#160;2-7	   Invoking create_object_reference in the RegistrarFactory Object
+</div> <a name="wp1036886"> </a><div class="pPreformatted"><pre>// create the registrar object reference using<br />// the routing criteria :<br />CORBA::Object_var v_reg_oref =<br />&#160;&#160;&#160;&#160;TP::create_object_reference(<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;UniversityP::_tc_Registrar-&gt;id(),<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;object_id,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;v_criteria.in()<br />&#160;&#160;&#160;&#160;);</pre></div><p class="pBody"><a name="wp1017612"> </a>
+The Production sample application also uses factory-based routing in the <code class="cCode">TellerFactory</code> object to determine the group in which <code class="cCode">Teller</code> objects should be instantiated based on an account number.
+</p>
+<h3 class="pHeading2"><a name="wp1017615"> </a>
+What Happens at Run Time
+</h3>
+<p class="pBody"><a name="wp1017619"> </a>
+When you implement factory-based routing in a factory, Oracle Tuxedo CORBA generates an object reference. The following example shows how the client application gets an object reference to a <code class="cCode">Registrar</code> object when factory-based routing is implemented.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1017620"> </a>The client application invokes the <code class="cCode">RegistrarFactory</code> object, requesting a reference to a <code class="cCode">Registrar</code> object. The request includes a student ID.</li>
+<li><a name="wp1017621"> </a>The <code class="cCode">RegistrarFactory</code> inserts the student ID into an <code class="cCode">NVlist</code>, which is used as the routing criteria.</li>
+<li><a name="wp1017622"> </a>The <code class="cCode">RegistrarFactory</code> invokes the <code class="cCode">TP::create_object_reference()</code> operation, passing the <code class="cCode">Registrar</code> interface name, a unique OID, and the <code class="cCode">NVlist</code>.</li>
+<li><a name="wp1017626"> </a>Oracle Tuxedo CORBA compares the contents of the routing tables with the value in the <code class="cCode">NVlist</code> to determine a group ID.</li>
+<li><a name="wp1017630"> </a>Oracle Tuxedo CORBA inserts information about the group into the object reference.</li>
+</ol></div>
+<p class="pBody"><a name="wp1017631"> </a>
+When the client application subsequently invokes an object using the object reference, Oracle Tuxedo CORBA routes the request to the group specified in the object reference.
+</p>
+<a name="wp1017635"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If you use the process-entity design pattern, you should use caution in how you implement factory-based routing. The object can service only those entities that are contained in the group&#8217;s database.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1017637"> </a>
+Additional Design Considerations
+</h2><p class="pBody"><a name="wp1026569"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1026573"> </a><a href="tssrvc.html#wp1026583">About the Additional Design Considerations</a></li>
+<li><a name="wp1026577"> </a><a href="tssrvc.html#wp1017648">Instantiating the Registrar and Teller Objects</a></li>
+<li><a name="wp1026581"> </a><a href="tssrvc.html#wp1017682">Ensuring That Student Registration Occurs in the Correct Server Group</a></li>
+<li><a name="wp1026620"> </a><a href="tssrvc.html#wp1017705">Ensuring That the Teller Object Is Instantiated in the Correct Server Group</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1026583"> </a>
+About the Additional Design Considerations
+</h3>
+<p class="pBody"><a name="wp1017638"> </a>
+When designing the <code class="cCode">Registrar</code> and <code class="cCode">Teller</code> objects, you should ensure that:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1017639"> </a>The <code class="cCode">Registrar</code> and <code class="cCode">Teller</code> objects work properly for the Production deployment environment; namely, across multiple replicated server processes and multiple groups. Given that the University and Billing server processes are replicated, the design must consider how these two objects should be instantiated.</li>
+<li><a name="wp1017640"> </a>Client requests for registration and billing operations for a given student go to the correct server group, given that the two server groups in the Production Oracle Tuxedo domain each deal with different databases.</li>
+</ul></div>
+<p class="pBody"><a name="wp1017644"> </a>
+These objects must have unique object IDs (OIDs) and must be method-bound (that is, they must have the <code class="cCode">method</code> activation policy assigned to them).
+</p>
+<h3 class="pHeading2"><a name="wp1017648"> </a>
+Instantiating the Registrar and Teller Objects
+</h3>
+<p class="pBody"><a name="wp1017652"> </a>
+In the University server applications that are less sophisticated than the Production sample application, the run-time behavior of the <code class="cCode">Registrar</code> and <code class="cCode">Teller</code> objects was simpler:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1017653"> </a>Each object was process-bound, meaning that each was activated the first time it was invoked, and it stayed in memory until the server process in which it ran was shut down.</li>
+<li><a name="wp1017657"> </a>Since there was only one server group running in the Oracle Tuxedo domain, and only one University and Billing server process in the group, all client requests were directed to the same objects. As multiple client requests arrived in the Oracle Tuxedo domain, these objects each processed one client request at one time.</li>
+<li><a name="wp1017661"> </a>Because there was only one instance of each object in the server processes in which they ran, neither object needed a unique OID. The OID for each object specified only the Interface Repository ID.</li>
+</ul></div>
+<p class="pBody"><a name="wp1017665"> </a>
+However, because the University and Billing server processes are now replicated, Oracle Tuxedo CORBA must be able to differentiate among multiple instances of the <code class="cCode">Registrar</code> and <code class="cCode">Teller</code> objects. For example, if there are two University server processes running in a group, Oracle Tuxedo CORBA must have a means to distinguish between the <code class="cCode">Registrar</code> object running in the first University server process and the <code class="cCode">Registrar</code> object running in the second University server process. To distinguish multiple instances of these objects, each object instance must be unique.
+</p>
+<p class="pBody"><a name="wp1017673"> </a>
+To make each <code class="cCode">Registrar</code> and <code class="cCode">Teller</code> object unique, the factories for those objects must change the way in which they make object references to them. For example, when the <code class="cCode">RegistrarFactory</code> object in the Basic sample application created an object reference to the <code class="cCode">Registrar</code> object, the <code class="cCode">TP::create_object_reference()</code> operation specified an OID that consisted only of the string <code class="cCode">registrar</code>. However, in the Production sample application, the same <code class="cCode">TP::create_object_reference()</code> operation uses a generated unique OID instead.
+</p>
+<p class="pBody"><a name="wp1017674"> </a>
+As a result of giving each <code class="cCode">Registrar</code> and <code class="cCode">Teller</code> object a unique OID, multiple instances of these objects may be running simultaneously in the Oracle Tuxedo domain. This characteristic is typical of the stateless object model, and is an example of how the Oracle Tuxedo domain can be highly scalable while it offers high performance.
+</p>
+<p class="pBody"><a name="wp1017681"> </a>
+Finally, because unique <code class="cCode">Registrar</code> and <code class="cCode">Teller</code> objects need to be brought into memory for each client request on them, it is critical that these objects be deactivated when the invocations on them are completed so that any object state associated with them does not remain idle in memory. The Production server application addresses this issue by assigning the <code class="cCode">method</code> activation policy to these two objects in the Implementation Configuration File (ICF).
+</p>
+<h3 class="pHeading2"><a name="wp1017682"> </a>
+Ensuring That Student Registration Occurs in the Correct Server Group
+</h3>
+<p class="pBody"><a name="wp1017683"> </a>
+The primary scalability advantage of using replicated server groups is being able to distribute processing across multiple machines. However, if your application interacts with a database, which is the case with the University sample applications, it is critical that you consider the impact of these multiple server groups on the database interactions.
+</p>
+<p class="pBody"><a name="wp1017687"> </a>
+In many cases, you may have one database associated with each machine in your deployment. If your server application is distributed across multiple machines, you must consider how you set up your databases.
+</p>
+<p class="pBody"><a name="wp1017688"> </a>
+The Production sample application, as described in this chapter, uses two databases. However, this application can easily be configured to accommodate more. The system administrator can decide on how many databases to use. 
+</p>
+<p class="pBody"><a name="wp1026688"> </a>
+In the Production sample application, the student and account information is partitioned across the two databases, but course information is identical. Having identical course information in both databases is not a problem because the course information is read-only for the purposes of course registration. However, the student and account information is read-write. If multiple databases were also to contain identical data for students and accounts (that is, the database is not partitioned), the application would need to deal with the overhead of synchronizing the updates to student and account information across all the databases each time any student or account information were to change.
+</p>
+<p class="pBody"><a name="wp1017690"> </a>
+The Production sample application uses factory-based routing to send one set of requests to one machine, and another set to the other machine. How factory-based routing is implemented in the <code class="cCode">RegistrarFactory</code> object depends on the way in which references to <code class="cCode">Registrar</code> objects are created.
+</p>
+<p class="pBody"><a name="wp1017691"> </a>
+For example, when the client application sends a request to the <code class="cCode">RegistrarFactory</code> object to get an object reference to a <code class="cCode">Registrar</code> object, the client application includes a student ID in that request. The client application must use the object reference that the <code class="cCode">RegistrarFactory</code> object returns to make all subsequent invocations on a <code class="cCode">Registrar</code> object on a particular student&#8217;s behalf, because the object reference returned by the factory is group-specific. Therefore, for example, when the client application subsequently invokes the <code class="cCode">get_student_details()</code> operation on the <code class="cCode">Registrar</code> object, the client application can be assured that the <code class="cCode">Registrar</code> object is active in the server group associated with the database containing data for that student.
+</p>
+<p class="pBody"><a name="wp1026693"> </a>
+To show how this works, consider the following execution scenario, which is implemented in the Production sample application:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1017692"> </a>The client application invokes the <code class="cCode">find_registrar()</code> operation on the <code class="cCode">RegistrarFactory</code> object. Included in this invocation is the student ID <code class="cCode">1000003</code>.</li>
+<li><a name="wp1017696"> </a>Oracle Tuxedo CORBA routes the client request to any <code class="cCode">RegistrarFactory</code> object.</li>
+<li><a name="wp1017697"> </a>The <code class="cCode">RegistrarFactory</code> object uses the student ID to create an object reference to a <code class="cCode">Registrar</code> object in <code class="cCode">ORA_GRP1</code>, based on the routing information in the <code class="cCode">UBBCONFIG</code> file, and returns that object reference to the client application.</li>
+<li><a name="wp1039047"> </a>The client application invokes the <code class="cCode">register_for_courses()</code> operation on the <code class="cCode">Registrar</code> object.</li>
+<li><a name="wp1039051"> </a>Oracle Tuxedo CORBA receives the client request and routes it to the server group specified in the object reference. In this case, the client request goes to the University server process in <code class="cCode">ORA_GRP1</code>, which is on Production Machine&#160;1.</li>
+<li><a name="wp1017703"> </a>The University server process instantiates a <code class="cCode">Registrar</code> object and sends the client invocation to it.</li>
+</ol></div>
+<p class="pBody"><a name="wp1017704"> </a>
+The <code class="cCode">RegistrarFactory</code> object from the preceding scenario returns to the client application a unique reference to a <code class="cCode">Registrar</code> object that can be instantiated only in <code class="cCode">ORA_GRP1</code>, which runs on Production Machine 1 and has a database containing student data for students with IDs in the range <code class="cCode">100001</code> to <code class="cCode">100005</code>. Therefore, when the client application sends subsequent requests to this <code class="cCode">Registrar</code> object on behalf of a given student, the <code class="cCode">Registrar</code> object interacts with the correct database.
+</p>
+<h3 class="pHeading2"><a name="wp1017705"> </a>
+Ensuring That the Teller Object Is Instantiated in the Correct Server Group
+</h3>
+<p class="pBody"><a name="wp1017706"> </a>
+When the <code class="cCode">Registrar</code> object needs a <code class="cCode">Teller</code> object, the <code class="cCode">Registrar</code> object invokes the <code class="cCode">TellerFactory</code> object, using the <code class="cCode">TellerFactory</code> object reference cached in the University Server object.
+</p>
+<p class="pBody"><a name="wp1017710"> </a>
+However, because factory-based routing is used in the <code class="cCode">TellerFactory</code> object, the <code class="cCode">Registrar</code> object passes the student&#8217;s account number when the <code class="cCode">Registrar</code> object requests a reference to a <code class="cCode">Teller</code> object. This way, the <code class="cCode">TellerFactory</code> object creates a reference to a <code class="cCode">Teller</code> object in the group that has the correct database.
+</p>
+<a name="wp1017711"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For the Production sample application to work properly, it is essential that the system administrator configures the server groups and the databases properly. In particular, the system administrator must make sure that a match exists between the routing criteria specified in the routing tables and the databases to which requests using those criteria are routed. Using the Production sample as an example, the database in a given group must contain the correct student and account information for the requests that are routed to that group.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1017713"> </a>
+Scaling the Application Further
+</h2><p class="pBody"><a name="wp1017714"> </a>
+In the future, the system administrator of the Production sample application may want to add capacity to the Oracle Tuxedo domain. For example, the University may eventually experience a large increase in the student population, or the Production application may be scaled up to accommodate the course registration process for an entire state university system, encompassing several campuses. This can be done without modifying or rebuilding the application.
+</p>
+<p class="pBody"><a name="wp1017721"> </a>
+The system administrator can continually add capacity by:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1017722"> </a>Replicating the server groups in the Production sample application across additional machines.</li>
+<p class="pBodyRelative"><a name="wp1017723"> </a>
+The system administrator must modify the <code class="cCode">UBBCONFIG</code> file to specify the additional server groups, the server processes that run in those groups, and the machines on which the server groups run.
+</p>
+<li><a name="wp1017724"> </a>Changing the factory-based routing tables.</li>
+<p class="pBodyRelative"><a name="wp1017725"> </a>
+For example, instead of routing to the two existing groups in the Production sample application, the system administrator can modify the routing rules in the <code class="cCode">UBBCONFIG</code> file to partition the application further among additional server groups added to the Oracle Tuxedo domain. Any modification to the routing tables must match the information for the configured server groups and machines in the <code class="cCode">UBBCONFIG</code> file.
+</p>
+</ul></div>
+<a name="wp1025217"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>If you add capacity to an existing Oracle Tuxedo CORBA application that uses a database, you must also consider the impact on how the database is set up, particularly when you are using factory-based routing. For example, if the Production sample application is distributed across six machines, the database on each machine must be set up appropriately and in accordance with the routing tables in the <code class="cCode">UBBCONFIG</code> file.</td>
+</tr>
+</table>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="tssrvc.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="concepts.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="tsadmds.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

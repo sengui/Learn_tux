@@ -1,0 +1,2300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="1" />
+<meta name="LOC_US_CHANGE" content="41824" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/pgc/fm/pgthr.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/26/12 11:37:57" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Programming a Multithreaded and Multicontexted ATMI Application</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Programming an Oracle Tuxedo ATMI Application Using C
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pgglob.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pgerr.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/pgc.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1154770"> </a>
+Programming a Multithreaded and Multicontexted ATMI Application
+</h1>
+<p class="pBody"><a name="wp1136126"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1088722"> </a><a href="pgthr.html#wp1088736">Support for Programming a Multithreaded/Multicontexted ATMI Application</a></li>
+<li><a name="wp1160896"> </a><a href="pgthr.html#wp1162493">Planning and Designing a Multithreaded/Multicontexted ATMI Application</a></li>
+<li><a name="wp1160900"> </a><a href="pgthr.html#wp1089315">Implementing a Multithreaded/ Multicontexted ATMI Application</a></li>
+<li><a name="wp1088734"> </a><a href="pgthr.html#wp1089832">Testing a Multithreaded/Multicontexted ATMI Application</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1088736"> </a>
+Support for Programming a Multithreaded/Multicontexted ATMI Application
+</h2><p class="pBody"><a name="wp1088737"> </a>
+The Oracle Tuxedo system only supports:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1088738"> </a>Kernel-level threads packages (user-level threads packages are not supported)</li>
+<li><a name="wp1088739"> </a>Multithreaded applications written in C (multithreaded COBOL applications are not supported)</li>
+<li><a name="wp1088740"> </a>Multicontexted applications written in either C or COBOL</li>
+</ul></div>
+<p class="pBody"><a name="wp1088741"> </a>
+If your operating system supports POSIX threads functions as well as other types of threads functions, we recommend using the POSIX threads functions, which make your code easier to port to other platforms later.
+</p>
+<p class="pBody"><a name="wp1164944"> </a>
+To find out whether your platform supports a kernel-level threads package, C functions, or POSIX functions, see the data sheet for your operating system in <span class="cHyperlink">
+<a href="../install/inspds.html">&#8220;Oracle Tuxedo </a></span>11<em class="cEmphasis">g </em>Release 1 (11.1.1.3.0)<span class="cHyperlink">
+ Platform Data Sheets&#8221; </span>in <em class="cEmphasis">Installing the Oracle Tuxedo System</em>.
+</p>
+<h3 class="pHeading2"><a name="wp1164952"> </a>
+Platform-specific Considerations for Multithreaded/Multicontexted Applications
+</h3>
+<p class="pBody"><a name="wp1164897"> </a>
+Many platforms have idiosyncratic requirements for multithreaded and multicontexted applications. <span class="cHyperlink">
+<a href="../install/inspds.html">&#8220;Oracle Tuxedo </a></span>11<em class="cEmphasis">g </em>Release 1 (11.1.1.3.0)<span class="cHyperlink">
+ Platform Data Sheets&#8221; </span>in <em class="cEmphasis">Installing the Oracle Tuxedo System</em> lists these platform-specific requirements. To find out what is needed on your platform, check the appropriate data sheet.
+</p>
+<h3 class="pHeading2"><a name="wp1088745"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1088749"> </a><a href="pgthr.html#wp1088785">What Are Multithreading and Multicontexting?</a></li>
+<li><a name="wp1088752"> </a><a href="pgthr.html#wp1088942">Advantages and Disadvantages of a Multithreaded/Multicontexted ATMI Application</a></li>
+<li><a name="wp1088757"> </a><a href="pgthr.html#wp1088990">How Multithreading and Multicontexting Work in a Client</a></li>
+<li><a name="wp1162490"> </a><a href="pgthr.html#wp1089108">How Multithreading and Multicontexting Work in Server-Dispatched Threads an on ATMI Server</a></li>
+<li><a name="wp1162499"> </a><a href="pgthr.html#wp1157969">How Multithreading and Multicontexting Work in Application-Created Threads of an ATMI Server</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1162493"> </a>
+Planning and Designing a Multithreaded/Multicontexted ATMI Application
+</h2><p class="pBody"><a name="wp1136127"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1088767"> </a><a href="pgthr.html#wp1088785">What Are Multithreading and Multicontexting?</a></li>
+<li><a name="wp1161397"> </a><a href="pgthr.html#wp1088924">Auditing a Multithreaded or Multicontexted Application</a></li>
+<li><a name="wp1088771"> </a><a href="pgthr.html#wp1088942">Advantages and Disadvantages of a Multithreaded/Multicontexted ATMI Application</a></li>
+<li><a name="wp1088775"> </a><a href="pgthr.html#wp1088990">How Multithreading and Multicontexting Work in a Client</a></li>
+<li><a name="wp1088779"> </a><a href="pgthr.html#wp1089108">How Multithreading and Multicontexting Work in Server-Dispatched Threads an on ATMI Server</a></li>
+<li><a name="wp1088783"> </a><a href="pgthr.html#wp1157969">How Multithreading and Multicontexting Work in Application-Created Threads of an ATMI Server</a></li>
+<li><a name="wp1162519"> </a><a href="pgthr.html#wp1157794">Design Considerations for a Multithreaded and Multicontexted ATMI Application</a> </li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1088785"> </a>
+What Are Multithreading and Multicontexting?
+</h3>
+<p class="pBody"><a name="wp1088786"> </a>
+The Oracle Tuxedo system allows you to use a single process to perform multiple tasks simultaneously. The programming techniques for implementing this sort of process usage are <em class="cEmphasis">multithreading</em> and <em class="cEmphasis">multicontexting</em>. This topic provides basic information about these techniques:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1088790"> </a><a href="pgthr.html#wp1088796">What Is Multithreading?</a></li>
+<li><a name="wp1088794"> </a><a href="pgthr.html#wp1088871">What Is Multicontexting?</a></li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1088796"> </a>
+What Is Multithreading?
+</h4>
+<p class="pBody"><a name="wp1088797"> </a>
+Multithreading is the inclusion of more than one unit of execution in a single process. In a multithreaded application, multiple simultaneous calls can be made from the same process. For example, an individual process is not limited to one outstanding <a href="pgreq.html#wp1055338">tpcall()</a>.
+</p>
+<p class="pBody"><a name="wp1088798"> </a>
+In a server, multithreading requires multicontexting except when application-created threads are used in a singled-context server. The only way to create a multithreaded, single-context application is to use application-created threads.
+</p>
+<p class="pBody"><a name="wp1088799"> </a>
+The Oracle Tuxedo system supports multithreaded applications written in C. It does not support multithreaded COBOL applications.
+</p>
+<p class="pBody"><a name="wp1088800"> </a>
+<a href="pgthr.html#wp1088801">Figure&#160;10-1</a> shows how a multithreaded client can issue calls to three servers simultaneously.
+</p>
+<div class="pFigureTitle"><a name="wp1088801"> </a>
+Figure&#160;10-1  Sample Multithreaded Process
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1088841"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/pgc-10-1-1.gif" height="343" width="456" alt="Sample Multithreaded Process" id="wp1088803"/></div><p class="pGraphic">
+
+</p>
+<p class="pBodyRelative"><a name="wp1088842"> </a>
+In a multithreaded application, multiple service-dispatched threads are available in the same server, which means that fewer servers need to be started for that application.
+</p>
+<p class="pBodyRelative"><a name="wp1088843"> </a>
+<a href="pgthr.html#wp1088869">Figure&#160;10-2</a> shows how a server process can dispatch multiple threads to different clients simultaneously.
+</p>
+<div class="pFigureTitle"><a name="wp1088869"> </a>
+Figure&#160;10-2  Multiple Service Threads Dispatched in One Server Process
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1155915"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/pgc-10-1-2.gif" height="384" width="456" alt="Multiple Service Threads Dispatched in One Server Process" id="wp1088845"/></div><p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1088871"> </a>
+What Is Multicontexting?
+</h4>
+<p class="pBody"><a name="wp1088872"> </a>
+A context is an association to a domain. Multicontexting is the ability of a single process to have one of the following: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1088873"> </a>More than one connection within a domain </li>
+<li><a name="wp1088874"> </a>Connections to more than one domain</li>
+</ul></div>
+<p class="pBody"><a name="wp1088875"> </a>
+Multicontexting can be used in both clients and servers. When used in servers, multicontexting implies the use of multithreading, as well.
+</p>
+<p class="pBody"><a name="wp1088876"> </a>
+For a more complete list of the characteristics of a context, see &#8220;Context Attributes&#8221; in one of the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1088880"> </a><a href="pgthr.html#wp1089400">Writing Code to Enable Multicontexting in an ATMI Client</a></li>
+<li><a name="wp1088883"> </a><a href="pgthr.html#wp1089480">Writing Code to Enable Server-Dispatched Multicontexting and Multithreading Threads in an ATMI Server</a></li>
+</ul></div>
+<p class="pBody"><a name="wp1088885"> </a>
+The Oracle Tuxedo system supports multicontexted applications written in either C or COBOL. Multithreaded applications, however, are supported only in C.
+</p>
+<p class="pBody"><a name="wp1088886"> </a>
+<a href="pgthr.html#wp1088923">Figure&#160;10-3</a> shows how a multicontexted client process works within a domain. Each arrow represents an outstanding call to a server.
+</p>
+<div class="pFigureTitle"><a name="wp1088923"> </a>
+Figure&#160;10-3  Multicontexted Process in Two Domains
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1155919"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/pgc-10-1-3.gif" height="260" width="552" alt="Multicontexted Process in Two Domains" id="wp1088888"/></div><p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1088924"> </a>
+Auditing a Multithreaded or Multicontexted Application
+</h3>
+<p class="pBody"><a name="wp1088925"> </a>
+Each context is counted as one user. For example:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1088926"> </a>If a process has two contexts associated with Application A and one with Application B, the Oracle Tuxedo system counts a total of three users (two in Application A and one in Application B).</li>
+<li><a name="wp1088927"> </a>If a process has multiple threads accessing one application within the same context, the system counts only one user.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1088928"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1088931"> </a><a href="pgthr.html#wp1088942">Advantages and Disadvantages of a Multithreaded/Multicontexted ATMI Application</a></li>
+<li><a name="wp1088936"> </a><a href="pgthr.html#wp1088990">How Multithreading and Multicontexting Work in a Client</a></li>
+<li><a name="wp1088940"> </a><a href="pgthr.html#wp1089108">How Multithreading and Multicontexting Work in Server-Dispatched Threads an on ATMI Server</a></li>
+<li><a name="wp1162527"> </a><a href="pgthr.html#wp1157969">How Multithreading and Multicontexting Work in Application-Created Threads of an ATMI Server</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1088942"> </a>
+Advantages and Disadvantages of a Multithreaded/Multicontexted ATMI Application
+</h3>
+<p class="pBody"><a name="wp1088943"> </a>
+Multithreading and multicontexting are powerful tools for enhancing the performance of Oracle Tuxedo applications&#8212;given the appropriate circumstances. Before embarking on a plan to use these techniques, however, it is important to understand potential benefits and pitfalls.
+</p>
+<h4 class="pHeading3"><a name="wp1088944"> </a>
+Advantages of a Multithreaded/Multicontexted ATMI Application
+</h4>
+<p class="pBody"><a name="wp1088945"> </a>
+Multithreaded and multicontexted ATMI applications offer the following advantages:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1088946"> </a>Improved performance and concurrency</li>
+<p class="pBodyRelative"><a name="wp1088947"> </a>
+For certain applications, performance and concurrency can be improved by using multithreading and multicontexting together. In other applications, performance can be unaffected or even degraded by using multithreading and multicontexting together. How performance is affected depends on your application.
+</p>
+<li><a name="wp1088948"> </a>Simplified coding of remote procedure calls and conversations</li>
+<p class="pBodyRelative"><a name="wp1088949"> </a>
+In some applications it is easier to code different remote procedure calls and conversations in separate threads than to manage them from the same thread.
+</p>
+<li><a name="wp1088950"> </a>Simultaneous access to multiple applications</li>
+<p class="pBodyRelative"><a name="wp1088951"> </a>
+Your Oracle Tuxedo clients can be connected to more than one application at a time.
+</p>
+<li><a name="wp1088952"> </a>Reduced number of required servers</li>
+<p class="pBodyRelative"><a name="wp1088953"> </a>
+Because one server can dispatch multiple service threads, the number of servers to start for your application is reduced. This capability for multiple dispatched threads is especially useful for conversational servers, which otherwise must be dedicated to one client for the entire duration of a conversation.
+</p>
+</ul></div>
+<p class="pBody"><a name="wp1088954"> </a>
+For applications in which client threads are created by the Microsoft Internet Information Server API or the Netscape Enterprise Server interface (that is, the NSAPI), the use of multiple threads is essential if you want to obtain the full benefits afforded by these tools. This may be true of other tools, as well.
+</p>
+<h4 class="pHeading3"><a name="wp1088956"> </a>
+Disadvantages of a Multithreaded/Multicontexted ATMI Application
+</h4>
+<p class="pBody"><a name="wp1088957"> </a>
+Multithreaded and multicontexted ATMI applications present the following disadvantages:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1088958"> </a>Difficulty of writing code</li>
+<p class="pBodyRelative"><a name="wp1088959"> </a>
+Multithreaded and multicontexted applications are not easy to write. Only experienced programmers should undertake coding for these types of applications.
+</p>
+<li><a name="wp1088960"> </a>Difficulty of debugging</li>
+<p class="pBodyRelative"><a name="wp1088961"> </a>
+It is much harder to replicate an error in a multithreaded or multicontexted application than it is to do so in a single-threaded, single-contexted application. As a result, it is more difficult, in the former case, to identify and verify root causes when errors occur.
+</p>
+<li><a name="wp1088962"> </a>Difficulty of managing concurrency </li>
+<p class="pBodyRelative"><a name="wp1088963"> </a>
+The task of managing concurrency among threads is difficult and has the potential to introduce new problems into an application.
+</p>
+<li><a name="wp1088964"> </a>Difficulty of testing</li>
+<p class="pBodyRelative"><a name="wp1088965"> </a>
+Testing a multithreaded application is more difficult than testing a single-threaded application because defects are often timing-related and more difficult to reproduce.
+</p>
+<li><a name="wp1088966"> </a>Difficulty of porting existing code</li>
+<p class="pBodyRelative"><a name="wp1088967"> </a>
+Existing code often requires significant re-architecting to take advantage of multithreading and multicontexting. Programmers need to:
+</p>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1088968"> </a>Remove static variables</li>
+<li><a name="wp1088969"> </a>Replace any function calls that are not thread-safe</li>
+<li><a name="wp1088970"> </a>Replace any other code that is not thread-safe</li>
+<p class="pBodyRelative"><a name="wp1088971"> </a>
+Because the completed port must be tested and retested, the work required to port a multithreaded and/or multicontexted application is substantial.
+</p>
+</ul></div>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1088972"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1088976"> </a><a href="pgthr.html#wp1088785">What Are Multithreading and Multicontexting?</a></li>
+<li><a name="wp1088980"> </a><a href="pgthr.html#wp1088990">How Multithreading and Multicontexting Work in a Client</a></li>
+<li><a name="wp1088984"> </a><a href="pgthr.html#wp1089108">How Multithreading and Multicontexting Work in Server-Dispatched Threads an on ATMI Server</a></li>
+<li><a name="wp1088987"> </a><a href="pgthr.html#wp1157969">How Multithreading and Multicontexting Work in Application-Created Threads of an ATMI Server</a></li>
+<li><a name="wp1162537"> </a><a href="pgthr.html#wp1157794">Design Considerations for a Multithreaded and Multicontexted ATMI Application</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1088990"> </a>
+How Multithreading and Multicontexting Work in a Client
+</h3>
+<p class="pBody"><a name="wp1103941"> </a>
+When a multithreaded and multicontexted application is active, the life cycle of a client can be described in three phases:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1088995"> </a><a href="pgthr.html#wp1089005">Start-up Phase</a></li>
+<li><a name="wp1088999"> </a><a href="pgthr.html#wp1089032">Work Phase</a></li>
+<li><a name="wp1089003"> </a><a href="pgthr.html#wp1089083">Completion Phase</a></li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1089005"> </a>
+Start-up Phase
+</h4>
+<p class="pBody"><a name="wp1089006"> </a>
+In the start-up phase the following events occur:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1111354"> </a>Some client threads join one or more Oracle Tuxedo applications by calling <a href="pgclt.html#wp1030381">tpinit()</a>.</li>
+<li><a name="wp1111356"> </a>Other client threads share the contexts created by the first set of threads by calling <a href="../rf3c/rf3c.html">tpsetctxt(3c)</a>.</li>
+<li><a name="wp1089009"> </a>Some client threads join multiple contexts. </li>
+<li><a name="wp1089010"> </a>Some client threads switch to an existing context.</li>
+</ul></div>
+<a name="wp1089011"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>There may also be threads that work independently of the Oracle Tuxedo system. We do not consider such threads in this documentation.</td>
+</tr>
+</table>
+
+<h5 class="pHeading4"><a name="wp1089012"> </a>
+Client Threads Join Multiple Contexts
+</h5>
+<p class="pBody"><a name="wp1089013"> </a>
+A client in an Oracle Tuxedo multicontexted application can have more than one application association as long as the following rules are observed:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089014"> </a>All associations must be made to the same installation of the Oracle Tuxedo system.</li>
+<li><a name="wp1089015"> </a>All application associations must be made from the same type of client. In other words, one of the following must be true:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1089016"> </a>All application associations must be made from native clients only.</li>
+<li><a name="wp1106302"> </a>All application associations must be made from Workstation clients only.</li>
+</ul></div>
+</ul></div>
+<p class="pBody"><a name="wp1106304"> </a>
+To join multiple contexts, clients call the <a href="pgclt.html#wp1030381">tpinit()</a> function with the <code class="cCode">TPMULTICONTEXTS</code> flag set in the <code class="cCodeEmphasis">flags</code> element of the <code class="cCode">TPINFO</code> data type.
+</p>
+<p class="pBody"><a name="wp1089019"> </a>
+When <code class="cCode">tpinit()</code> is called with the <code class="cCode">TPMULTICONTEXTS</code> flag set, a new application association is created and is designated the current association for the thread. The Oracle Tuxedo domain to which the new association is made is determined by the value of the <code class="cCode">TUXCONFIG</code> or <code class="cCode">WSENVFILE/WSNADDR</code> environment variable.
+</p>
+<h5 class="pHeading4"><a name="wp1089020"> </a>
+Client Threads Switch to an Existing Context
+</h5>
+<p class="pBody"><a name="wp1089023"> </a>
+Many ATMI functions operate on a per-context basis. (For a complete list, see <a href="pgthr.html#wp1089698">Using Per-context Functions and Data Structures in a Multithreaded ATMI Client</a>.) In such cases, the target context must be the current context. Although clients can join more than one context, at any time, in any thread, only one context can be the current context.
+</p>
+<p class="pBody"><a name="wp1089025"> </a>
+As task priorities shift within an application, requiring interactions with one Oracle Tuxedo domain rather than another, it is sometimes advantageous to reassign a thread from one context to another.
+</p>
+<p class="pBody"><a name="wp1089026"> </a>
+In such situations, one client threads calls <a href="../rf3c/rf3c.html">tpgetctxt(3c)</a> and passes the handle that is returned (the value of which is the current context) to a second client thread. The second thread then associates itself with the current context by calling <a href="../rf3c/rf3c.html">tpsetctxt(3c)</a> and specifying the handle it received from <a href="../rf3c/rf3c.html">tpgetctxt(3c)</a> via the first thread.
+</p>
+<p class="pBody"><a name="wp1089027"> </a>
+Once the second thread is associated with the desired context, it is available to perform tasks executed by ATMI functions that operate on a per-context basis. For details, see <a href="pgthr.html#wp1089698">Using Per-context Functions and Data Structures in a Multithreaded ATMI Client</a>.
+</p>
+<h4 class="pHeading3"><a name="wp1089032"> </a>
+Work Phase
+</h4>
+<p class="pBody"><a name="wp1089033"> </a>
+In this phase each thread performs a task. The following is a list of sample tasks:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089034"> </a>A thread issues a request for a service.</li>
+<li><a name="wp1089035"> </a>A thread gets the reply to a service request.</li>
+<li><a name="wp1089036"> </a>A thread initiates and/or participates in a conversation.</li>
+<li><a name="wp1089037"> </a>A thread begins, commits, or rolls back a transaction.</li>
+</ul></div>
+<h5 class="pHeading4"><a name="wp1089038"> </a>
+Service Requests
+</h5>
+<p class="pBody"><a name="wp1089039"> </a>
+A thread sends a request to a server by calling either <a href="pgreq.html#wp1055338">tpcall()</a> for a synchronous request or <a href="pgreq.html#wp1055487">tpacall()</a> for an asynchronous request. If the request is sent with <code class="cCode">tpcall()</code>, then the reply is received without further action by any thread.
+</p>
+<h5 class="pHeading4"><a name="wp1104943"> </a>
+Replies to Service Requests
+</h5>
+<p class="pBody"><a name="wp1104945"> </a>
+If an asynchronous request for a service has been sent with <a href="pgreq.html#wp1055487">tpacall()</a>, a thread in the same context (which may or may not be the same thread that sent the request) gets the reply by calling <a href="pgreq.html#wp1098002">tpgetrply()</a>.
+</p>
+<h5 class="pHeading4"><a name="wp1089042"> </a>
+Transactions
+</h5>
+<p class="pBody"><a name="wp1089043"> </a>
+If one thread starts a transaction, then all threads that share the context of that thread also share the transaction.
+</p>
+<p class="pBody"><a name="wp1089044"> </a>
+Many threads in a context may work on a transaction, but only one thread may commit or abort it. The thread that commits or aborts the transaction can be any thread working on the transaction; it is not necessarily the same thread that started the transaction. Threaded applications are responsible for providing appropriate synchronization so that the normal rules of transactions are followed. (For example, there can be no outstanding RPC calls or conversations when a transaction is committed, and no stray calls are allowed after a transaction has been committed or aborted.) A process may be part of at most one transaction for each of its application associations.
+</p>
+<p class="pBody"><a name="wp1089045"> </a>
+If one thread of an application calls <a href="pgglob.html#wp1045424">tpcommit()</a> concurrently with an RPC or conversational call in another thread of the application, the system acts as if the calls were issued in some serial order. An application context may temporarily suspend work on a transaction by calling <a href="pgglob.html#wp1132056">tpsuspend()</a> and then start another transaction subject to the same restrictions that exist for single-threaded and single-context programs.
+</p>
+<h5 class="pHeading4"><a name="wp1089046"> </a>
+Unsolicited Messages
+</h5>
+<p class="pBody"><a name="wp1089047"> </a>
+For each context in a multithreaded or multicontexted application, you may choose one of three methods for handling unsolicited messages.
+</p>
+<p class="pGraphic"><a name="wp1155920"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1089050table1089048">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1089050"> </a>
+A context may . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1089052"> </a>
+By setting . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089054"> </a>
+Ignore unsolicited messages
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089056"> </a>
+<code class="cCode">TPU_IGN</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089058"> </a>
+Use dip-in notification
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089060"> </a>
+<code class="cCode">TPU_DIP</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089062"> </a>
+Use dedicated thread notification<span style="font-style: italic">.<br /></span>(available only for C applications)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089064"> </a>
+<code class="cCode">TPU_THREAD</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1089065"> </a>
+The following caveats apply:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089066"> </a>SIGNAL-based notification is not allowed in multithreaded or multicontexted processes.</li>
+<li><a name="wp1089067"> </a>If your application runs on a platform that supports multicontexting but not multithreading, then you cannot use the <code class="cCode">TPU_THREAD</code> unsolicited notification method. As a result, you cannot receive immediate notification of events.</li>
+<p class="pBodyRelative"><a name="wp1089068"> </a>
+If receiving immediate notification of events is important to your application, then you should carefully consider whether to use a multicontexted approach on this platform.
+</p>
+<li><a name="wp1089069"> </a>Dedicated thread notification is available only:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1089070"> </a>For applications written in C</li>
+<li><a name="wp1089071"> </a>On multithreaded platforms supported by the Oracle Tuxedo system</li>
+</ul></div>
+</ul></div>
+<p class="pBody"><a name="wp1089072"> </a>
+When dedicated thread notification is chosen, the system dedicates a separate thread to receive unsolicited messages and dispatch the unsolicited message handler. Only one copy of the unsolicited message handler can run at any one time in a given context.
+</p>
+<p class="pBody"><a name="wp1089073"> </a>
+If <a href="pgclt.html#wp1030381">tpinit()</a> is called on a platform for which the Oracle Tuxedo system does not support threads, with parameters indicating that <code class="cCode">TPU_THREAD</code> notification is being requested on a platform that does not support threads, <code class="cCode">tpinit()</code> returns <code class="cCode">-1</code> and sets <code class="cCode">tperrno</code> to <code class="cCode">TPEINVAL</code>. If the <a href="../rf5/rf5.html">UBBCONFIG(5)</a> default <code class="cCode">NOTIFY</code> option is set to <code class="cCode">THREAD</code> but threads are not available on a particular machine, the default behavior for that machine is downgraded to <code class="cCode">DIPIN</code>. The difference between these two behaviors allows an administrator to specify a default for all machines in a mixed configuration&#8212;a configuration that includes some machines that support threads and some that do not&#8212;but it does not allow a client to explicitly request a behavior that is not available on its machine.
+</p>
+<p class="pBody"><a name="wp1089074"> </a>
+If <a href="pgevb.html#wp1081079">tpsetunsol()</a> is called from a thread that is not associated with a context, a per-process default unsolicited message handler for all new <a href="pgclt.html#wp1030381">tpinit()</a> contexts created is established. A specific context may change the unsolicited message handler for that context by calling <code class="cCode">tpsetunsol()</code> again when the context is active. The per-process default unsolicited message handler may be changed by again calling <code class="cCode">tpsetunsol()</code> in a thread not currently associated with a context.
+</p>
+<p class="pBody"><a name="wp1089075"> </a>
+If a process has multiple associations with the same application, then each association is assigned a different <code class="cCode">CLIENTID</code> so that it is possible to send an unsolicited message to a specific application association. If a process has multiple associations with the same application, then any <a href="pgevb.html#wp1081110">tpbroadcast()</a> is sent separately to each of the application associations that meet the broadcast criteria. When performing a dip-in check for receiving unsolicited messages, an application checks for only those messages sent to the current application association.
+</p>
+<p class="pBody"><a name="wp1089076"> </a>
+In addition to the ATMI functions permitted in unsolicited message handlers, it is permissible to call <a href="../rf3c/rf3c.html">tpgetctxt(3c)</a> within an unsolicited message handler. This functionality allows an unsolicited message handler to create another thread to perform any more substantial ATMI work required within the same context.
+</p>
+<h5 class="pHeading4"><a name="wp1089077"> </a>
+Userlog Maintains Thread-specific Information
+</h5>
+<p class="pBody"><a name="wp1089078"> </a>
+For each thread in each application, <a href="../rf3c/rf3c.html">userlog(3c)</a> records the following identifying information:
+</p>
+<a name="wp1089079"> </a><div class="pPreformatted"><pre><em class="cEmphasis">process_ID</em>.<em class="cEmphasis">thread_ID</em>.<em class="cEmphasis">context_ID</em></pre></div><p class="pBody"><a name="wp1089080"> </a>
+Placeholders are printed in the <code class="cCodeEmphasis">thread_ID</code> and <code class="cCodeEmphasis">context_ID</code> fields of entries for non-threaded platforms and single-contexted applications.
+</p>
+<p class="pBody"><a name="wp1089081"> </a>
+The <a href="../rf5/rf5.html">TM_MIB(5)</a> supports this functionality in the <code class="cCode">TA_THREADID</code> and <code class="cCode">TA_CONTEXTID</code> fields in the <code class="cCode">T_ULOG</code> class.
+</p>
+<h4 class="pHeading3"><a name="wp1089083"> </a>
+Completion Phase
+</h4>
+<p class="pBody"><a name="wp1089084"> </a>
+In this phase, when the client process is about to exit, on behalf of the current context and all associated threads, a thread ends its application association by calling <a href="pgclt.html#wp1030538">tpterm()</a>. Like other ATMI functions, <code class="cCode">tpterm()</code> operates on the current context. It affects all threads for which the context is set to the terminated context, and terminates any commonality of context among these threads.
+</p>
+<p class="pBody"><a name="wp1089085"> </a>
+A well-designed application normally waits for all work in a particular context to complete before it calls <code class="cCode">tpterm()</code>. Be sure that all threads are synchronized before your application calls <code class="cCode">tpterm()</code>.
+</p>
+<h3 class="pHeading2"><a name="wp1089086"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089090"> </a><a href="pgthr.html#wp1088785">What Are Multithreading and Multicontexting?</a></li>
+<li><a name="wp1089093"> </a><a href="pgthr.html#wp1157794">Design Considerations for a Multithreaded and Multicontexted ATMI Application</a></li>
+<li><a name="wp1089098"> </a><a href="pgthr.html#wp1089400">Writing Code to Enable Multicontexting in an ATMI Client</a></li>
+<li><a name="wp1089102"> </a><a href="pgthr.html#wp1162213">Writing a Multithreaded ATMI Client</a></li>
+<li><a name="wp1089106"> </a><a href="pgthr.html#wp1089434">Synchronizing Threads Before an ATMI Client Termination</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1089108"> </a>
+How Multithreading and Multicontexting Work in Server-Dispatched Threads an on ATMI Server
+</h3>
+<p class="pBody"><a name="wp1089109"> </a>
+The events that occur in an ATMI server when a multithreaded and multicontexted application is active can be described in three phases:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089113"> </a><a href="pgthr.html#wp1089123">Start-up Phase</a></li>
+<li><a name="wp1089117"> </a><a href="pgthr.html#wp1089149">Work Phase</a></li>
+<li><a name="wp1089121"> </a><a href="pgthr.html#wp1089214">Completion Phase</a></li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1089123"> </a>
+Start-up Phase
+</h4>
+<p class="pBody"><a name="wp1089124"> </a>
+What happens during the start-up phase depends on the value of the <code class="cCode">MINDISPATCHTHREADS</code> and <code class="cCode">MAXDISPATCHTHREADS</code> parameters in the configuration file.
+</p>
+<p class="pGraphic"><a name="wp1156125"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1089127table1089125">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1089127"> </a>
+If the value of <code class="cCode">MINDISPATCHTHREADS</code> is . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1089129"> </a>
+And the value of <code class="cCode">MAXDISPATCHTHREADS<br /></code>is . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1089131"> </a>
+Then . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089133"> </a>
+0
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089135"> </a>
+&gt; 1
+</div>
+</td>
+    <td class="table" scope="row"><div class="pSmartList1Table"><ol type="1" class="pSmartList1Table">
+<li value="1"><a name="wp1089137"> </a>The Oracle Tuxedo system creates a thread dispatcher.</li>
+<li value="2"><a name="wp1089138"> </a>The dispatcher calls <a href="pgserv.html#wp1386336">tpsvrinit()</a> to join the application.</li>
+</ol></div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089140"> </a>
+&gt; 0
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089142"> </a>
+&gt; 1
+</div>
+</td>
+    <td class="table" scope="row"><div class="pSmartList1Table"><ol type="1" class="pSmartList1Table">
+<li value="1"><a name="wp1089144"> </a>The Oracle Tuxedo system creates a thread dispatcher.</li>
+<li value="2"><a name="wp1089145"> </a>The dispatcher calls <a href="pgserv.html#wp1386336">tpsvrinit()</a> to join the application.</li>
+<li value="3"><a name="wp1089146"> </a>The Oracle Tuxedo system creates additional threads for handling service requests, and a context for each new thread.</li>
+<li value="4"><a name="wp1089147"> </a>Each new system-created thread calls <a href="../rf3c/rf3c.html">tpsvrthrinit(3c)</a> to join the application.</li>
+</ol></div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1089149"> </a>
+Work Phase
+</h4>
+<p class="pBody"><a name="wp1089150"> </a>
+In this phase, the following activities occur:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089151"> </a>Multiple client requests to one server are handled concurrently in multiple contexts. The system allocates a separate thread for each request.</li>
+<li><a name="wp1089152"> </a>If necessary, additional threads (up to the number indicated by <code class="cCode">MAXDISPATCHTHREADS</code>) are created.</li>
+<li><a name="wp1089153"> </a>The system keeps statistics on server threads.</li>
+</ul></div>
+<h5 class="pHeading4"><a name="wp1089154"> </a>
+How Server-Dispatched Threads Are Used
+</h5>
+<p class="pBody"><a name="wp1089155"> </a>
+In response to clients&#8217; requests for a service, the server dispatcher creates multiple threads (up to a configurable maximum) in one server that can be assigned to various client requests concurrently. A server cannot call <a href="pgclt.html#wp1030381">tpinit()</a>.
+</p>
+<p class="pBody"><a name="wp1089156"> </a>
+Each dispatched thread is associated with a separate context. This feature is useful in both conversational and RPC servers. It is especially useful for conversational servers which otherwise sit idle, waiting for the client side of a conversation while other conversational connections are waiting for service.
+</p>
+<p class="pBody"><a name="wp1089157"> </a>
+This functionality is controlled by the following parameters in the <code class="cCode">SERVERS</code> section of the <a href="../rf5/rf5.html">UBBCONFIG(5)</a> file and the <a href="../rf5/rf5.html">TM_MIB(5)</a>.
+</p>
+<p class="pGraphic"><a name="wp1156189"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1089160table1089158">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1089160"> </a>
+UBBCONFIG Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1089162"> </a>
+MIB Parameter
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1089164"> </a>
+Default 
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089166"> </a>
+<code class="cCode">MINDISPATCHTHREADS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089168"> </a>
+<code class="cCode">TA_MINDISPATCHTHREADS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089170"> </a>
+0
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089172"> </a>
+<code class="cCode">MAXDISPATCHTHREADS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089174"> </a>
+<code class="cCode">TA_MAXDISPATCHTHREADS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089176"> </a>
+1
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089178"> </a>
+<code class="cCode">THREADSTACKSIZE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089180"> </a>
+<code class="cCode">TA_THREADSTACKSIZE</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089182"> </a>
+0 (representing the OS default)
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089183"> </a>Each dispatched thread is created with the stack size specified by <code class="cCode">THREADSTACKSIZE</code> (or <code class="cCode">TA_THREADSTACKSIZE</code>). If this parameter is not specified or has a value of 0, the operating system default is used. On a few operating systems on which the default is too small to be used by the Oracle Tuxedo system, a larger default is used.</li>
+<li><a name="wp1089184"> </a>If the value of this parameter is not specified or is 0, or if the operating system does not support setting a <code class="cCode">THREADSTACKSIZE</code>, then the operating system default is used.</li>
+<li><a name="wp1089185"> </a><code class="cCode">MINDISPATCHTHREADS</code> (or <code class="cCode">TA_MINDISPATCHTHREADS</code>) must be less than or equal to <code class="cCode">MAXDISPATCHTHREADS</code> (or <code class="cCode">TA_MAXDISPATCHTHREADS</code>).</li>
+<li><a name="wp1089186"> </a>If <code class="cCode">MAXDISPATCHTHREADS</code> (or <code class="cCode">TA_MAXDISPATCHTHREADS</code>) is 1, then the dispatcher thread and the service function thread are the same thread.</li>
+<li><a name="wp1089187"> </a>If <code class="cCode">MAXDISPATCHTHREADS</code> (or <code class="cCode">TA_MAXDISPATCHTHREADS</code>) is greater than 1, any separate thread used for dispatching other threads does not count toward the limit of dispatched threads.</li>
+<li><a name="wp1089188"> </a>Initially, the system boots <code class="cCode">MINDISPATCHTHREADS</code> (or <code class="cCode">TA_MINDISPATCHTHREADS</code>) server threads. </li>
+<li><a name="wp1089189"> </a>The system never boots more than <code class="cCode">MAXDISPATCHTHREADS</code> (or <code class="cCode">TA_MAXDISPATCHTHREADS</code>) server threads.</li>
+</ul></div>
+<h5 class="pHeading4"><a name="wp1089199"> </a>
+Bulletin Board Liaison Verifies Sanity of System Processes
+</h5>
+<p class="pBody"><a name="wp1089200"> </a>
+The Bulletin Board Liaison (BBL) periodically checks servers. If a server is taking too long to execute a particular service request, the BBL kills that server. (If specified, the BBL then restarts the server.) If the BBL kills a multicontexted server, the other service calls that are currently being executed are also terminated as a result of the process being killed.
+</p>
+<p class="pBody"><a name="wp1089201"> </a>
+The BBL also sends a message to any process or thread that has been waiting longer than its timeout value to receive a message. The blocking message receive call then returns an error indicating a timeout.
+</p>
+<h5 class="pHeading4"><a name="wp1089202"> </a>
+System Keeps Statistics on Server Threads
+</h5>
+<p class="pBody"><a name="wp1089203"> </a>
+For each server, the Oracle Tuxedo system maintains statistics for the following information:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089204"> </a>Maximum number of server-dispatched threads allowed</li>
+<li><a name="wp1089205"> </a>Number of server-dispatched threads currently in use (<code class="cCode">TA_CURDISPATCHTHREADS</code>)</li>
+<li><a name="wp1089206"> </a>High-water mark of concurrent server-dispatched threads since the server was booted (<code class="cCode">TA_HWDISPATCHTHREADS</code>)</li>
+<li><a name="wp1089207"> </a>Number of server-dispatched threads historically started (<code class="cCode">TA_NUMDISPATCHTHREADS</code>)</li>
+</ul></div>
+<h5 class="pHeading4"><a name="wp1089208"> </a>
+Userlog Maintains Thread-specific Information
+</h5>
+<p class="pBody"><a name="wp1089209"> </a>
+For each thread in each application, <a href="../rf3c/rf3c.html">userlog(3c)</a> records the following identifying information:
+</p>
+<a name="wp1089210"> </a><div class="pPreformatted"><pre><em class="cEmphasis">process_ID</em>.<em class="cEmphasis">thread_ID</em>.<em class="cEmphasis">context_ID</em></pre></div><p class="pBody"><a name="wp1089211"> </a>
+Placeholders are printed in the <code class="cCodeEmphasis">thread_ID</code> and <code class="cCodeEmphasis">context_ID</code> fields of entries for non-threaded platforms and single-contexted applications.
+</p>
+<p class="pBody"><a name="wp1089212"> </a>
+The <a href="../rf5/rf5.html">TM_MIB(5)</a> supports this functionality in the <code class="cCode">TA_THREADID</code> and <code class="cCode">TA_CONTEXTID</code> fields in the <code class="cCode">T_ULOG</code> class.
+</p>
+<h4 class="pHeading3"><a name="wp1089214"> </a>
+Completion Phase
+</h4>
+<p class="pBody"><a name="wp1089215"> </a>
+When the application is shut down, <a href="../rf3c/rf3c.html">tpsvrthrdone(3c)</a> and <a href="../rf3c/rf3c.html">tpsvrdone(3c)</a> are called to perform any termination processing that is necessary, such as closing a resource manager.
+</p>
+<h3 class="pHeading2"><a name="wp1089216"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089220"> </a><a href="pgthr.html#wp1088785">What Are Multithreading and Multicontexting?</a></li>
+<li><a name="wp1089223"> </a><a href="pgthr.html#wp1157794">Design Considerations for a Multithreaded and Multicontexted ATMI Application</a></li>
+<li><a name="wp1089227"> </a><a href="pgthr.html#wp1089480">Writing Code to Enable Server-Dispatched Multicontexting and Multithreading Threads in an ATMI Server</a></li>
+<li><a name="wp1089232"> </a><a href="pgthr.html#wp1089807">Writing a Multithreaded ATMI Server</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1157969"> </a>
+How Multithreading and Multicontexting Work in Application-Created Threads of an ATMI Server
+</h3>
+<p class="pBody"><a name="wp1157970"> </a>
+Using your operating system functions, you may create additional threads within a Tuxedo application server. Initially, application-created server threads are not associated with any Tuxedo context. Application-created threads may:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1157973"> </a>Operate independently of the Tuxedo system.</li>
+<li><a name="wp1157974"> </a>Operate in the context created by <code class="cCode">tpappthrinit(3c)</code>. (This feature is available from Tuxedo 11<em class="cEmphasis">g </em>Release 1 (11.1.1.3.0)).</li>
+<li><a name="wp1157975"> </a>Operate in the same context as an existing server-dispatched thread and work on behalf of server-dispatched contexts.</li>
+<p class="pBodyRelative"><a name="wp1157976"> </a>
+In this situation, the application-created server thread may call <code class="cCode">tpsetctxt(3c)</code> (and pass it a value returned by a previous call to <code class="cCode">tpgetctxt(3c)</code> within a server-dispatched thread) to associate itself with that server-dispatched context.
+</p>
+<p class="pBodyRelative"><a name="wp1157977"> </a>
+When an application-created server thread associated with a server-dispatched context has finished its work, it must call <code class="cCode">tpsetctxt(3c)</code> to set to <code class="cCode">TPNULLCONTEXT</code> before the originally dispatched thread calls <code class="cCode">tpreturn()</code>.
+</p>
+<li><a name="wp1157978"> </a>An application-created thread cannot call <code class="cCode">tpreturn()</code> or <code class="cCode">tpforward()</code>.</li>
+</ul></div>
+<p class="pBody"><a name="wp1161886"> </a>
+An application-created server thread may create a separate Tuxedo context and associate itself with this context using <code class="cCode">tpappthrinit(3c)</code>. The life cycle of a Tuxedo context created by <code class="cCode">tpappthrinit(3c)</code> when an application-created server thread is active can be described in three phases:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1161901"> </a><a href="pgthr.html#wp1161923">Start-Up Phase</a></li>
+<li><a name="wp1161920"> </a><a href="pgthr.html#wp1157989">Work Phase</a></li>
+<li><a name="wp1161921"> </a><a href="pgthr.html#wp1158005">Completion Phase</a></li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1161923"> </a>
+Start-Up Phase
+</h4>
+<p class="pBody"><a name="wp1157986"> </a>
+An application-created server thread creates a Tuxedo context and associates itself with this context by calling <code class="cCode">tpappthrinit(3c)</code>. The context created by <code class="cCode">tpappthrinit(3c)</code> connects to the domain that the application server is in.
+</p>
+<p class="pBody"><a name="wp1157988"> </a>
+If necessary, after successfully calling <code class="cCode">tpappthrinit(3c)</code>, the application-created thread within an ATMI server may call <code class="cCode">tpgetctxt(3c)</code> and pass the handle that is returned (the value of which is the current context) to a second application thread within the same process.
+</p>
+<h4 class="pHeading3"><a name="wp1157989"> </a>
+Work Phase
+</h4>
+<p class="pBody"><a name="wp1157990"> </a>
+Each application-created server thread performs the following tasks:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1157991"> </a>An application-created thread issues a request for a service.</li>
+<li><a name="wp1157992"> </a>An application-created thread gets the reply to service request.</li>
+<li><a name="wp1157993"> </a>An application-created thread initiates and/or participates in a conversation.</li>
+<li><a name="wp1157994"> </a>An application-created thread begins, commits, or rolls back a transaction.</li>
+</ul></div>
+<p class="pBody"><a name="wp1157996"> </a>
+These tasks performed in an application-created server thread share the same characteristics as in a client program. For more information, see <a href="pgthr.html#wp1088990">How Multithreading and Multicontexting Work in a Client</a>.
+</p>
+<a name="wp1157999"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Notes:</strong></td>
+<td>An application-created server thread cannot call either <code class="cCode">tpreturn()</code> or <code class="cCode">tpforward()</code>.</td></tr>
+</table>
+
+<p class="pBodyRelative"><a name="wp1158000"> </a>
+Application-created server thread may send, but cannot receive unsolicited messages.
+</p>
+<h5 class="pHeading4"><a name="wp1158001"> </a>
+Userlog Maintains Thread-specific Information
+</h5>
+<p class="pBody"><a name="wp1158002"> </a>
+For each application-created thread in an ATMI server, <code class="cCode">userlog(3c)</code> records the following identifying information: <code class="cCode">process_ID.thread_ID.context_ID</code>.
+</p>
+<p class="pBody"><a name="wp1158004"> </a>
+The <code class="cCode">TM_MIB(5)</code> supports this functionality in the <code class="cCode">TA_THREADID</code> and <code class="cCode">TA_CONTEXTID</code> fields in the <code class="cCode">T_ULOG</code> class.
+</p>
+<h4 class="pHeading3"><a name="wp1158005"> </a>
+Completion Phase
+</h4>
+<p class="pBody"><a name="wp1158006"> </a>
+When an application-created server thread has finished its work, the thread calls <code class="cCode">tpappthrterm(3c)</code> to terminate the current context.
+</p>
+<p class="pBody"><a name="wp1158008"> </a>
+<code class="cCode">tpappthrterm(3c)</code> affects all application-created server threads that are currently working on the same context. Avoid calling <code class="cCode">tpappthrterm(3c)</code> while other application threads are still working on the terminated context.
+</p>
+<p class="pBody"><a name="wp1158010"> </a>
+A well-designed application normally waits for all work in a particular context to complete before it calls <code class="cCode">tpappthrterm(3c)</code>. Be sure that all application threads are synchronized before your application thread calls <code class="cCode">tpappthrterm(3c)</code>.
+</p>
+<h3 class="pHeading2"><a name="wp1158012"> </a>
+See Also
+</h3>
+<p class="pBody"><a name="wp1158013"> </a>
+<a href="pgthr.html#wp1088990">How Multithreading and Multicontexting Work in a Client</a>
+</p>
+<p class="pBody"><a name="wp1162345"> </a>
+<a href="pgthr.html#wp1157794">Design Considerations for a Multithreaded and Multicontexted ATMI Application</a>
+</p>
+<p class="pBody"><a name="wp1162346"> </a>
+<a href="pgthr.html#wp1159681">Writing Code to Enable Multicontexting in Application-Created Threads of an ATMI Server</a>
+</p>
+<p class="pBody"><a name="wp1162347"> </a>
+<a href="pgthr.html#wp1089480">Writing Code to Enable Server-Dispatched Multicontexting and Multithreading Threads in an ATMI Server</a>
+</p>
+<p class="pBody"><a name="wp1162566"> </a>
+<a href="pgthr.html#wp1162213">Writing a Multithreaded ATMI Client</a>
+</p>
+<h3 class="pHeading2"><a name="wp1157794"> </a>
+Design Considerations for a Multithreaded and Multicontexted ATMI Application
+</h3>
+<p class="pBody"><a name="wp1089235"> </a>
+Multithreaded and multicontexted ATMI applications are appropriate for some Oracle Tuxedo domains, but not all. To decide whether to create such applications, you should consider the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089236"> </a><a href="pgthr.html#wp1089239">Environment Requirements</a></li>
+<li><a name="wp1089237"> </a><a href="pgthr.html#wp1089247">Design Requirements</a></li>
+<li><a name="wp1103977"> </a><a href="pgthr.html#wp1104318">Interoperability Restrictions for Workstation Clients</a></li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1089239"> </a>
+Environment Requirements
+</h4>
+<p class="pBody"><a name="wp1089240"> </a>
+When considering the development of multithreaded and/or multicontexted applications, examine the following aspects of your development and run-time environments:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089241"> </a>Do you have an experienced team of programmers capable of writing and debugging multithreaded and multicontexted programs that successfully manage concurrency and synchronization?</li>
+<li><a name="wp1089242"> </a>Are the multithreading features of the Oracle Tuxedo system supported on the platform on which you are developing your application? These features are supported only on platforms with an OS-provided threads package, providing an appropriate level of functionality.</li>
+<li><a name="wp1089243"> </a>Do the resource managers (RMs) used by your servers support multithreading? If so, consider the following issues, as well:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1089244"> </a>Do you need to set any parameters required by your RM to enable multithreaded access by your servers? For example, if you use an Oracle database with a multithreaded application, you must set the <code class="cCode">THREADS=true</code> parameter as part of the <code class="cCode">OPENINFO</code> string passed to Oracle. By doing so, you make it possible for individual threads to operate as separate Oracle associations.</li>
+<li><a name="wp1089245"> </a>Does your RM support a mixed mode of operation? A mixed-mode operation is a form of access such that multiple threads in a process can map to one RM association while other threads in the same process simultaneously map to different RM associations. Within one process, for example, Threads A and B map to RM Association X, while Thread C maps to RM Association Y. </li>
+<p class="pBodyRelative"><a name="wp1089246"> </a>
+Not all RMs support mixed-mode operation. Some require all threads in a given process to map to the same RM association. If you are designing an application that will make use of transactional RM access within application-created threads, make sure your RM supports mixed-mode operation.
+</p>
+</ul></div>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1089247"> </a>
+Design Requirements
+</h4>
+<p class="pBody"><a name="wp1089248"> </a>
+When designing a multithreaded and/or multicontexted application, you should consider the following design questions:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089249"> </a><a href="pgthr.html#wp1089253">Is the Task of Your Application Suitable for Multithreading and/or Multicontexting?</a></li>
+<li><a name="wp1089250"> </a><a href="pgthr.html#wp1089285">How Many Applications and Connections Do You Want?</a></li>
+<li><a name="wp1089251"> </a><a href="pgthr.html#wp1089295">What Synchronization Issues Need to Be Addressed?</a></li>
+<li><a name="wp1089252"> </a><a href="pgthr.html#wp1089297">Will You Need to Port Your Application?</a></li>
+<li><a name="wp1160794"> </a><a href="pgthr.html#wp1089299">Which Threads Model Is Best for You?</a></li>
+</ul></div>
+<h5 class="pHeading4"><a name="wp1089253"> </a>
+Is the Task of Your Application Suitable for Multithreading and/or Multicontexting?
+</h5>
+<p class="pBody"><a name="wp1089254"> </a>
+The following table provides a list of questions to help you decide whether your application would be improved if it were multithreaded and/or multicontexted. This list is not comprehensive; your individual requirements will determine other factors that should be considered. 
+</p>
+<p class="pBody"><a name="wp1089255"> </a>
+For additional suggestions, we recommend that you consult a multithreaded and/or multicontexted programming publication.
+</p>
+<p class="pGraphic"><a name="wp1156193"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1089258table1089256">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1089258"> </a>
+<b class="cBold">If the answer to this question . . .</b>
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1089260"> </a>
+<b class="cBold">Is YES, then you might consider using . . .</b>
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089262"> </a>
+Does your client need to connect to more than one application without using the Domains feature?
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089264"> </a>
+Multicontexting.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089266"> </a>
+Does your client perform the role of a multiplexer within your application? For example, have you designated one machine in your application the &#8220;surrogate&#8221; for 100 other machines?
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089268"> </a>
+Multicontexting.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089270"> </a>
+Does your client use multicontexting?
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089272"> </a>
+Multithreading. By allocating one thread per context, you can simplify your code.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089274"> </a>
+Does your client perform two or more tasks that can be executed independently for a long time such that the performance gains from concurrent execution outweigh the costs and complexities of threads synchronization?
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089276"> </a>
+Multithreading.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089278"> </a>
+Do you want one server to process multiple concurrent requests?
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089280"> </a>
+Multithreading. Assign a value greater than 1 to <code class="cCode">MAXDISPATCHTHREADS</code>. This value enables multiple clients, each in its own thread, for the server.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1158188"> </a>
+Do you want to perform ATMI calls in application-created server thread?
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1158200"> </a>
+Multithreading.
+</div>
+<div class="pCellBody"><a name="wp1158201"> </a>
+Application-created server thread creates a separate Tuxedo context and associates itself with the context by calling tpappthrinit(3c) (This feature is available from Tuxedo 11<em class="cEmphasis">g </em>Release 1 (11.1.1.3.0))
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089282"> </a>
+If your client or server had multiple threads, would it be necessary to synchronize them after each thread had performed only a little work?
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089284"> </a>
+Not using multithreading.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h5 class="pHeading4"><a name="wp1089285"> </a>
+How Many Applications and Connections Do You Want?
+</h5>
+<p class="pBody"><a name="wp1089286"> </a>
+Decide how many applications you want to access and the number of connections you want to make.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089287"> </a>If you want connections to more than one application, then we recommend one of the following:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1089288"> </a>A single-threaded, multicontexted application</li>
+<li><a name="wp1089289"> </a>A multithreaded, multicontexted application</li>
+</ul></div>
+<li><a name="wp1089290"> </a>If you want more than one connection to an application, then we recommend a multithreaded, multicontexted application.</li>
+<li><a name="wp1089291"> </a>If you want only one connection to one application, then we recommend one of the following:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1089292"> </a>Multithreaded, single-contexted clients</li>
+<li><a name="wp1089293"> </a>Single-threaded, single-contexted clients</li>
+<p class="pBodyRelative"><a name="wp1089294"> </a>
+In both cases, multithreaded, multicontexted servers may be used.
+</p>
+</ul></div>
+</ul></div>
+<h5 class="pHeading4"><a name="wp1089295"> </a>
+What Synchronization Issues Need to Be Addressed?
+</h5>
+<p class="pBody"><a name="wp1089296"> </a>
+This issue is an important one during the design phase. It is, however, beyond the scope of this documentation. Please refer to a publication about multithreaded and/or multicontexted programming.
+</p>
+<h5 class="pHeading4"><a name="wp1089297"> </a>
+Will You Need to Port Your Application?
+</h5>
+<p class="pBody"><a name="wp1089298"> </a>
+If you may need to port your application in the future, you should keep in mind that different operating systems have different sets of functions. If you think you may want to port your application after completing the initial version of it on one platform, remember to consider the amount of staff time that will be needed to revise the code with a different set of functions.
+</p>
+<h5 class="pHeading4"><a name="wp1089299"> </a>
+Which Threads Model Is Best for You?
+</h5>
+<p class="pBody"><a name="wp1089300"> </a>
+Various models for multithreaded programs are now being used, including the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089301"> </a>Boss/worker model</li>
+<li><a name="wp1089302"> </a>Siblings model</li>
+<li><a name="wp1089303"> </a>Workflow model</li>
+</ul></div>
+<p class="pBody"><a name="wp1089304"> </a>
+We do not discuss threads models in this documentation. We recommend that you research all available models and consider your design requirements carefully when choosing a programming model for your application.
+</p>
+<h4 class="pHeading3"><a name="wp1104318"> </a>
+Interoperability Restrictions for Workstation Clients
+</h4>
+<p class="pBody"><a name="wp1104319"> </a>
+Interoperability between release 7.1 Workstation clients and applications based on pre-7.1 releases of the Oracle Tuxedo system is supported in any of the following situations:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1104320"> </a>The client is neither multithreaded nor multicontexted.</li>
+<li><a name="wp1104321"> </a>The client is multicontexted.</li>
+<li><a name="wp1104322"> </a>The client is multithreaded and each thread is in a different context.</li>
+</ul></div>
+<p class="pBody"><a name="wp1104323"> </a>
+An Oracle Tuxedo Release 7.1 Workstation client with multiple threads in a single context cannot interoperate with a pre-7.1 release of the Oracle Tuxedo system.
+</p>
+<h3 class="pHeading2"><a name="wp1104313"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089308"> </a><a href="pgthr.html#wp1088942">Advantages and Disadvantages of a Multithreaded/Multicontexted ATMI Application</a></li>
+<li><a name="wp1089312"> </a><a href="pgthr.html#wp1089341">Preliminary Guidelines for Programming a Multithreaded/Multicontexted ATMI Application</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1089315"> </a>
+Implementing a Multithreaded/ Multicontexted ATMI Application
+</h2><div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089318"> </a><a href="pgthr.html#wp1089341">Preliminary Guidelines for Programming a Multithreaded/Multicontexted ATMI Application</a></li>
+<li><a name="wp1089323"> </a><a href="pgthr.html#wp1089400">Writing Code to Enable Multicontexting in an ATMI Client</a></li>
+<li><a name="wp1089326"> </a><a href="pgthr.html#wp1089480">Writing Code to Enable Server-Dispatched Multicontexting and Multithreading Threads in an ATMI Server</a></li>
+<li><a name="wp1162570"> </a><a href="pgthr.html#wp1159681">Writing Code to Enable Multicontexting in Application-Created Threads of an ATMI Server</a></li>
+<li><a name="wp1089331"> </a><a href="pgthr.html#wp1162213">Writing a Multithreaded ATMI Client</a></li>
+<li><a name="wp1089335"> </a><a href="pgthr.html#wp1089807">Writing a Multithreaded ATMI Server</a></li>
+<li><a name="wp1089338"> </a><a href="pgthr.html#wp1089813">Compiling Code for a Multithreaded/Multicontexted ATMI Application</a> </li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1089341"> </a>
+Preliminary Guidelines for Programming a Multithreaded/Multicontexted ATMI Application
+</h3>
+<p class="pBody"><a name="wp1089342"> </a>
+Before you start coding, make sure you have fulfilled or thought about the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089346"> </a><a href="pgthr.html#wp1089356">Prerequisites for a Multithreaded ATMI Application</a></li>
+<li><a name="wp1089350"> </a><a href="pgthr.html#wp1089362">General Multithreaded Programming Considerations</a></li>
+<li><a name="wp1089354"> </a><a href="pgthr.html#wp1089369">Concurrency Considerations</a></li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1089356"> </a>
+Prerequisites for a Multithreaded ATMI Application
+</h4>
+<p class="pBody"><a name="wp1089357"> </a>
+Make sure your environment meets the following prerequisites before starting your development project.
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089358"> </a>Your operating system must provide a suitable threads package supported by the Oracle Tuxedo system.</li>
+<p class="pBodyRelative"><a name="wp1089359"> </a>
+The Oracle Tuxedo system does not supply tools for creating threads, but it supports various threads packages provided by different operating systems. To create and synchronize threads, you must use the functions native to your operating system. To find out which, if any, threads packages are supported by your operating system, see <span class="cHyperlink">
+<a href="../install/inspds.html">&#8220;Oracle Tuxedo </a></span>11<em class="cEmphasis">g </em>Release 1 (11.1.1.3.0)<span class="cHyperlink">
+ Platform Data Sheets&#8221; </span>in <em class="cEmphasis">Installing the Oracle Tuxedo System</em>.
+</p>
+<li><a name="wp1089360"> </a>If you are using multithreaded servers, the resource managers used by those servers must support threads.</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1089362"> </a>
+General Multithreaded Programming Considerations
+</h4>
+<p class="pBody"><a name="wp1089363"> </a>
+Only experienced programmers should write multithreaded programs. In particular, programmers should already be familiar with basic design issues specific to this task, such as:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089364"> </a>The need for concurrency control among multiple threads</li>
+<li><a name="wp1089365"> </a>The need to avoid the use of static variables in most instances</li>
+<li><a name="wp1089366"> </a>Potential problems that may arise from the use of signals in multithreaded programs</li>
+</ul></div>
+<p class="pBody"><a name="wp1089367"> </a>
+These are just a few of the issues, too numerous to list here, with which we assume any programmer undertaking the writing of a multithreaded program is already familiar. These issues are discussed in many commercially available books on the subject of multithreaded programming.
+</p>
+<h4 class="pHeading3"><a name="wp1089369"> </a>
+Concurrency Considerations
+</h4>
+<p class="pBody"><a name="wp1089370"> </a>
+Multithreading enables different threads of an application to perform concurrent operations on the same conversation. We do not recommend this approach, but the Oracle Tuxedo system does not forbid it. If different threads perform concurrent operations on the same conversation, the system acts as if the concurrent calls were issued in some arbitrary order.
+</p>
+<p class="pBody"><a name="wp1089371"> </a>
+When programming with multiple threads, you must manage the concurrency among them by using mutexes or other concurrency-control functions. Here are three examples of the need for concurrency control:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089372"> </a>When multithreaded threads are operating on the same context, the programmer must ensure that functions are being executed in the required serial order. For example, all RPC calls and conversations must be invoked before <a href="pgglob.html#wp1045424">tpcommit()</a> can be called. If <code class="cCode">tpcommit()</code> is called from a thread other than the thread from which all these RPC or conversational calls are made, some concurrency control is probably required in the application. </li>
+<li><a name="wp1089373"> </a>Similarly, it is permissible to call <a href="pgreq.html#wp1055487">tpacall()</a> in one thread and <a href="pgreq.html#wp1098002">tpgetrply()</a> in another, but the application must either:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1089374"> </a>Ensure that <code class="cCode">tpacall()</code> is called before <code class="cCode">tpgetrply()</code>, or </li>
+<li><a name="wp1089375"> </a>Manage the consequences if <code class="cCode">tpacall()</code> is not called before <code class="cCode">tpgetrply()</code></li>
+</ul></div>
+<li><a name="wp1102521"> </a>Multiple threads may operate on the same conversation but application programmers must realize that if different threads issue <a href="pgconv.html#wp1062634">tpsend()</a> at approximately the same time, the system acts as though these <code class="cCode">tpsend()</code> calls have been issued in an arbitrary order. </li>
+<p class="pBodyRelative"><a name="wp1089377"> </a>
+For most applications, the best strategy is to code all the operations for one conversation in one thread. The second best strategy is to serialize these operations using concurrency control.
+</p>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1089378"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089381"> </a><a href="pgthr.html#wp1157794">Design Considerations for a Multithreaded and Multicontexted ATMI Application</a></li>
+<li><a name="wp1089386"> </a><a href="pgthr.html#wp1089400">Writing Code to Enable Multicontexting in an ATMI Client</a></li>
+<li><a name="wp1089389"> </a><a href="pgthr.html#wp1089480">Writing Code to Enable Server-Dispatched Multicontexting and Multithreading Threads in an ATMI Server</a></li>
+<li><a name="wp1162577"> </a><a href="pgthr.html#wp1159681">Writing Code to Enable Multicontexting in Application-Created Threads of an ATMI Server</a></li>
+<li><a name="wp1089394"> </a><a href="pgthr.html#wp1162213">Writing a Multithreaded ATMI Client</a></li>
+<li><a name="wp1089398"> </a><a href="pgthr.html#wp1089807">Writing a Multithreaded ATMI Server</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1089400"> </a>
+Writing Code to Enable Multicontexting in an ATMI Client
+</h3>
+<p class="pBody"><a name="wp1089401"> </a>
+This section contains the following topics:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089402"> </a><a href="pgthr.html#wp1089412">Context Attributes</a></li>
+<li><a name="wp1160812"> </a><a href="pgthr.html#wp1089421">Setting Up Multicontexting at Initialization</a></li>
+<li><a name="wp1089403"> </a><a href="pgthr.html#wp1089430">Implementing Security for a Multicontexted ATMI Client</a></li>
+<li><a name="wp1089404"> </a><a href="pgthr.html#wp1089434">Synchronizing Threads Before an ATMI Client Termination</a> </li>
+<li><a name="wp1089405"> </a><a href="pgthr.html#wp1089438">Switching Contexts</a></li>
+<li><a name="wp1089406"> </a><a href="pgthr.html#wp1089507">Coding Rules for Server-Dispatched Threads in Multicontexted ATMI Server</a></li>
+<li><a name="wp1160835"> </a><a href="pgthr.html#wp1089518">Initializing and Terminating ATMI Servers and Server Threads</a></li>
+</ul></div>
+<p class="pBody"><a name="wp1089407"> </a>
+If your application uses transactions, you should also keep in mind the consequences of multicontexting for transactions. For more information, see <a href="pgthr.html#wp1089463">Coding Rules for Transactions in a Multithreaded/Multicontexted ATMI Application</a>.
+</p>
+<a name="wp1089411"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The instructions and sample code provided in this section refer to the C library functions provided by the Oracle Tuxedo system. Equivalent COBOL library functions are also available; for details, see the <em class="cEmphasis">Oracle Tuxedo COBOL Function Reference</em>.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp1089412"> </a>
+Context Attributes
+</h4>
+<p class="pBody"><a name="wp1089413"> </a>
+When writing your code, keep in mind the following considerations about contexts:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1107170"> </a>If an application-created server thread which is currently associated with a server-disptached context exits without changing context before the original dispatched thread exits, then <a href="pgserv.html#wp1167965">tpreturn()</a> or <a href="pgserv.html#wp1168061">tpforward()</a> fails. The execution of a thread exit does not automatically trigger a call to <a href="../rf3c/rf3c.html">tpsetctxt(3c)</a> to change the context to <code class="cCode">TPNULLCONTEXT</code>.</li>
+<li><a name="wp1089415"> </a>For all contexts in a process, the same buffer type switch must be used.</li>
+<li><a name="wp1089416"> </a>As with any other type of data structure, a multithreaded application must properly make use of Oracle Tuxedo buffers, that is, buffers should not be used concurrently in two calls when one of the following may be true:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1089417"> </a>Both calls may use the buffer</li>
+<li><a name="wp1089418"> </a>Both calls may free the buffer</li>
+<li><a name="wp1089419"> </a>One call may use the buffer and one call may free the buffer</li>
+</ul></div>
+<li><a name="wp1089420"> </a>If you call <a href="pgclt.html#wp1030381">tpinit()</a> more than once, either to join multiple applications or to make multiple connections to a single application, keep in mind that on each <code class="cCode">tpinit()</code> you must accommodate whatever security mechanisms have been established.</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1089421"> </a>
+Setting Up Multicontexting at Initialization
+</h4>
+<p class="pBody"><a name="wp1092986"> </a>
+When a client is ready to join an application, specify <a href="pgclt.html#wp1030381">tpinit()</a> with the <code class="cCode">TPMULTICONTEXTS</code> flag set, as shown in <a href="pgthr.html#wp1092987">Listing&#160;10-1</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1092987"> </a>
+Listing&#160;10-1	   Sample Code for a Client Joining a Multicontexted Application
+</div> <a name="wp1092988"> </a><div class="pPreformatted"><pre>#include &lt;stdio.h&gt;<br />#include &lt;atmi.h&gt;<br /><br />TPINIT   *   tpinitbuf;<br /><br />main()<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpinitbuf = tpalloc(&#8220;TPINIT&#8221;, NULL, TPINITNEED(0));<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpinitbuf-&gt;flags = TPMULTICONTEXTS;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (tpinit (tpinitbuf) == -1) {</pre></div><a name="wp1089425"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<code class="cCodeEmphasis">ERROR_PROCESSING_CODE<br /></code>&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.</pre></div><a name="wp1089426"> </a><div class="pPreformatted"><pre>}</pre></div><p class="pBody"><a name="wp1089428"> </a>
+A new application association is created and assigned to the Oracle Tuxedo domain specified in the <code class="cCode">TUXCONFIG</code> or <code class="cCode">WSENVFILE/WSNADDR</code> environment variable.
+</p>
+<a name="wp1089429"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>In any one process, either all calls to <a href="pgclt.html#wp1030381">tpinit()</a> must include the <code class="cCode">TPMULTICONTEXTS</code> flag or else no call to <code class="cCode">tpinit()</code> may include this flag. The only exception to this rule is that if all of a client&#8217;s application associations are terminated by successful calls to <a href="pgclt.html#wp1030538">tpterm()</a>, then the process is restored to a state in which the inclusion of the <code class="cCode">TPMULTICONTEXTS</code> flag in the next call to <code class="cCode">tpinit()</code> is optional.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp1089430"> </a>
+Implementing Security for a Multicontexted ATMI Client
+</h4>
+<p class="pBody"><a name="wp1089431"> </a>
+Each application association in the same process requires a separate security validation. The nature of that validation depends on the type of security mechanisms used in your application. In an Oracle Tuxedo application you might, for example, use a system-level password or an application password.
+</p>
+<p class="pBody"><a name="wp1089432"> </a>
+As the programmer of a multicontexted application, you are responsible for identifying the type of security used in your application and implementing it for each application association in a process.
+</p>
+<h4 class="pHeading3"><a name="wp1089434"> </a>
+Synchronizing Threads Before an ATMI Client Termination
+</h4>
+<p class="pBody"><a name="wp1089435"> </a>
+When you are ready to disconnect a client from an application, invoke <a href="pgclt.html#wp1030538">tpterm()</a>. Keep in mind, however, that in a multicontexted application <code class="cCode">tpterm()</code> destroys the current context. All the threads operating on that context are affected. As the application programmer, you must carefully coordinate the use of multiple threads to make sure that <code class="cCode">tpterm()</code> is not called unexpectedly.
+</p>
+<p class="pBody"><a name="wp1089436"> </a>
+It is important to avoid calling <a href="pgclt.html#wp1030538">tpterm()</a> on a context while other threads are still working on that context. If such a call to <code class="cCode">tpterm()</code> is made, the Oracle Tuxedo system places the other threads that had been associated with that context in a special invalid context state. When in the invalid context state, most ATMI functions are disallowed. A thread may exit from the invalid context state by calling <a href="../rf3c/rf3c.html">tpsetctxt(3c)</a> or <code class="cCode">tpterm()</code>. Most well designed applications never have to deal with the invalid context state.
+</p>
+<a name="wp1089437"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The Oracle Tuxedo system does not support multithreading in COBOL applications.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp1089438"> </a>
+Switching Contexts
+</h4>
+<p class="pBody"><a name="wp1089439"> </a>
+The following is a summary of the coding steps that might be made by a client that calls services from two contexts.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1089440"> </a>Set the <code class="cCode">TUXCONFIG</code> environment variable to the value required by <code class="cCode">firstapp</code>.</li>
+<li><a name="wp1089441"> </a>Join the first application by calling <a href="pgclt.html#wp1030381">tpinit()</a> with the <code class="cCode">TPMULTICONTEXTS</code> flag set.</li>
+<li><a name="wp1089442"> </a>Obtain a handle to the current context by calling <a href="../rf3c/rf3c.html">tpgetctxt(3c)</a>.</li>
+<li><a name="wp1112502"> </a>Switch the value of the <code class="cCode">TUXCONFIG</code> environment variable to the value required by the <code class="cCode">secondapp</code> context, by calling <code class="cCode">tuxputenv()</code>.</li>
+<li><a name="wp1112504"> </a>Join the second application by calling <a href="pgclt.html#wp1030381">tpinit()</a> with the <code class="cCode">TPMULTICONTEXTS</code> flag set.</li>
+<li><a name="wp1089445"> </a>Get a handle to the current context by calling <a href="../rf3c/rf3c.html">tpgetctxt(3c)</a>.</li>
+<li><a name="wp1089446"> </a>Beginning with the <code class="cCode">firstapp</code> context, start toggling between contexts by calling <a href="../rf3c/rf3c.html">tpsetctxt(3c)</a>.</li>
+<li><a name="wp1089447"> </a>Call <code class="cCode">firstapp</code> services.</li>
+<li><a name="wp1089448"> </a>Switch the client to the <code class="cCode">secondapp</code> context (by calling <a href="../rf3c/rf3c.html">tpsetctxt(3c)</a>) and call <code class="cCode">secondapp</code> services.</li>
+<li><a name="wp1089449"> </a>Switch the client to the <code class="cCode">firstapp</code> context (by calling <a href="../rf3c/rf3c.html">tpsetctxt(3c)</a>) and call <code class="cCode">firstapp</code> services.</li>
+<li><a name="wp1089450"> </a>Terminate the <code class="cCode">firstapp</code> context by calling <a href="pgclt.html#wp1030538">tpterm()</a>.</li>
+<li><a name="wp1089451"> </a>Switch the client to the <code class="cCode">secondapp</code> context (by calling <a href="../rf3c/rf3c.html">tpsetctxt(3c)</a>) and call <code class="cCode">secondapp</code> services.</li>
+<li><a name="wp1089452"> </a>Terminate the <code class="cCode">secondapp</code> context by calling <a href="pgclt.html#wp1030538">tpterm()</a>.</li>
+</ol></div>
+<p class="pBody"><a name="wp1089453"> </a>
+The following sample code provides an example of these steps.
+</p>
+<a name="wp1089454"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>In order to simplify the sample, error checking code is not included.</td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1089455"> </a>
+Listing&#160;10-2	   Sample Code for Switching Contexts in a Client 
+</div> <a name="wp1163657"> </a><div class="pPreformatted"><pre>#include &lt;stdio.h&gt;<br />#include &quot;atmi.h&quot;		/* Oracle Tuxedo header file */<br /><br />#if defined(__STDC__) || defined(__cplusplus)<br />main(int argc, char *argv[])<br />#else<br />main(argc, argv)<br />int argc;<br />char *argv[];<br />#endif<br />{<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPINIT * tpinitbuf;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;TPCONTEXT_T firstapp_contextID, secondapp_contextID;<br />&#160;&#160;&#160;/* Assume that TUXCONFIG is initially set to /home/firstapp/TUXCONFIG*/<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;* Attach to the Oracle Tuxedo system in multicontext mode.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;*/<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpinitbuf=tpalloc(&#8220;TPINIT&#8221;, NULL, TPINITNEED(0));<br />&#160;&#160;&#160;tpinitbuf-&gt;flags = TPMULTICONTEXTS;<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (tpinit((TPINIT *) tpinitbuf) == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;(void) fprintf(stderr, &quot;Tpinit failed\n&quot;);<br />&#160;&#160;&#160;&#160;&#160;&#160;exit(1);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;/*<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;* Obtain a handle to the current context.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;*/<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpgetctxt(&amp;firstapp_contextID, 0);<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/*<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;* Use tuxputenv to change the value of TUXCONFIG,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;* so we now tpinit to another application.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;*/<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tuxputenv(&quot;TUXCONFIG=/home/second_app/TUXCONFIG&quot;);<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/*<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;* tpinit to secondapp.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;*/<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if (tpinit((TPINIT *) tpinitbuf) == -1) {<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(void) fprintf(stderr, &quot;Tpinit failed\n&quot;);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;exit(1);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;}<br /><br />&#160;&#160;&#160;	/*<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;* Get a handle to the context of secondapp.<br />	    */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpgetctxt(&amp;secondapp_contextID, 0);<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;/*<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;* Now you can alternate between the two contexts<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;* using tpsetctxt and the handles you obtained from<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;* tpgetctxt. You begin with firstapp.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;*/<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpsetctxt(firstapp_contextID, 0);<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;/*<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;* You call services offered by firstapp and then switch<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;* to secondapp.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;*/<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpsetctxt(secondapp_contextID, 0);<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;/*<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;* You call services offered by secondapp.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;* Then you switch back to firstapp.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;*/<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpsetctxt(firstapp_contextID, 0);<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;/*<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;* You call services offered by firstapp. When you have<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;* finished, you terminate the context for firstapp.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;*/<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpterm();<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;/*<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;* Then you switch back to secondapp.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;*/<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpsetctxt(secondapp_contextID, 0);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;/*<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;* You call services offered by secondapp. When you have<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;finished, you terminate the context for secondapp and<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;end your program.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;*/<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpterm();<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;return(0);<br />}</pre></div><h4 class="pHeading3"><a name="wp1089457"> </a>
+Handling Unsolicited Messages
+</h4>
+<p class="pBody"><a name="wp1089458"> </a>
+For each context in which you want to handle unsolicited messages, you must set up an unsolicited message handler or use the process handler default if you have set one up.
+</p>
+<p class="pBody"><a name="wp1089459"> </a>
+If <a href="pgevb.html#wp1081079">tpsetunsol()</a> is called from a thread that is not associated with a context, a per-process default unsolicited message handler for all new <a href="pgclt.html#wp1030381">tpinit()</a> contexts created is established. A specific context may change the unsolicited message handler for that context by calling <code class="cCode">tpsetunsol()</code> again when the context is active. The per-process default unsolicited message handler may be changed by again calling <code class="cCode">tpsetunsol()</code> in a thread not currently associated with a context.
+</p>
+<p class="pBody"><a name="wp1089460"> </a>
+Set up the handler in the same way you set one up for a single-threaded or single-contexted application. See <a href="pgevb.html#wp1081079">tpsetunsol()</a> for details.
+</p>
+<p class="pBody"><a name="wp1089461"> </a>
+You can use <a href="../rf3c/rf3c.html">tpgetctxt(3c)</a> in an unsolicited message handler if you want to identify the context in which you are currently working.
+</p>
+<h4 class="pHeading3"><a name="wp1089463"> </a>
+Coding Rules for Transactions in a Multithreaded/Multicontexted ATMI Application
+</h4>
+<p class="pBody"><a name="wp1089464"> </a>
+The following consequences of using transactions should be kept in mind while you are writing your application:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089465"> </a>You can have only one transaction in any one context.</li>
+<li><a name="wp1089466"> </a>You can have a different transaction for each context.</li>
+<li><a name="wp1089467"> </a>All the threads associated with a given context at a given time share the same transaction state (if any) of that context.</li>
+<li><a name="wp1089468"> </a>You must synchronize your threads so all conversations and RPC calls are complete before you call <a href="pgglob.html#wp1045424">tpcommit()</a>.</li>
+<li><a name="wp1089469"> </a>You can call <a href="pgglob.html#wp1045424">tpcommit()</a> from only one thread in any particular transaction.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1089470"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089474"> </a><a href="pgthr.html#wp1088990">How Multithreading and Multicontexting Work in a Client</a></li>
+<li><a name="wp1089478"> </a><a href="pgthr.html#wp1162213">Writing a Multithreaded ATMI Client</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1089480"> </a>
+Writing Code to Enable Server-Dispatched Multicontexting and Multithreading Threads in an ATMI Server
+</h3>
+<p class="pBody"><a name="wp1136175"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089484"> </a><a href="pgthr.html#wp1089498">Context Attributes</a></li>
+<li><a name="wp1160841"> </a><a href="pgthr.html#wp1089507">Coding Rules for Server-Dispatched Threads in Multicontexted ATMI Server</a></li>
+<li><a name="wp1089488"> </a><a href="pgthr.html#wp1089518">Initializing and Terminating ATMI Servers and Server Threads</a></li>
+</ul></div>
+<a name="wp1089497"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The instructions and sample code provided in this section refer to the C library functions provided by the Oracle Tuxedo system. (See the <em class="cEmphasis">Oracle Tuxedo C Function</em> <em class="cEmphasis">Reference</em> for details.) Equivalent COBOL routines are not available because multithreading (which is required to create a multicontexted server) is not supported for COBOL applications.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp1089498"> </a>
+Context Attributes
+</h4>
+<p class="pBody"><a name="wp1089499"> </a>
+When writing your code, keep in mind the following considerations about contexts:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089500"> </a>If an application-created server thread which is currently associated with a server-dispatched context exits without changing context before the original dispatched thread exits, then <a href="pgserv.html#wp1167965">tpreturn()</a> or <a href="pgserv.html#wp1168061">tpforward()</a> fails. The execution of a thread exit does not automatically trigger a call to <a href="../rf3c/rf3c.html">tpsetctxt(3c)</a> to change the context to <code class="cCode">TPNULLCONTEXT</code>.</li>
+<li><a name="wp1089501"> </a>For all contexts in a process, the same buffer type switch must be used.</li>
+<li><a name="wp1089502"> </a>As with any other type of data structure, a multithreaded application must properly make use of Oracle Tuxedo buffers, that is, buffers should not be used concurrently in two calls when one of the following may be true:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1089503"> </a>Both calls may use the buffer.</li>
+<li><a name="wp1089504"> </a>Both calls may free the buffer.</li>
+<li><a name="wp1089505"> </a>One call may use the buffer and one call may free the buffer.</li>
+</ul></div>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1089507"> </a>
+Coding Rules for Server-Dispatched Threads in Multicontexted ATMI Server
+</h4>
+<p class="pBody"><a name="wp1089508"> </a>
+Keep in mind the following rules for coding multicontexted servers:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089509"> </a>The Oracle Tuxedo dispatcher on the server may dispatch the same service and/or different services multiple times, creating a different dispatch context for each service dispatched.</li>
+<li><a name="wp1102793"> </a>A server is prohibited from calling <a href="pgclt.html#wp1030381">tpinit()</a> . If a server process calls <code class="cCode">tpinit()</code>, <code class="cCode">tpinit()</code> returns <code class="cCode">-1</code> and sets <a href="../rf5/rf5.html">tperrno(5)</a> to <code class="cCode">TPEPROTO</code>.</li>
+<li><a name="wp1102804"> </a>Only a server-dispatched thread may call <a href="pgserv.html#wp1167965">tpreturn()</a> or <a href="pgserv.html#wp1168061">tpforward()</a>. </li>
+<li><a name="wp1102807"> </a>A server cannot execute a <a href="pgserv.html#wp1167965">tpreturn()</a> or <a href="pgserv.html#wp1168061">tpforward()</a> if any application-created thread is still associated with any application context. Therefore, before a server-dispatched thread calls <code class="cCode">tpreturn()</code>, each application-created thread associated with that context must call <a href="../rf3c/rf3c.html">tpsetctxt(3c)</a> with the context set to either <code class="cCode">TPNULLCONTEXT</code> or another valid context.</li>
+<p class="pBodyRelative"><a name="wp1089513"> </a>
+If this rule is violated, then <a href="pgserv.html#wp1167965">tpreturn()</a> or <a href="pgserv.html#wp1168061">tpforward()</a> writes a message to the user log, indicates <code class="cCode">TPESVCERR</code> to the caller, and returns control to the main server dispatch loop. The threads that had been in the context where the invalid <code class="cCode">tpreturn()</code> was done are placed in an invalid context.
+</p>
+<li><a name="wp1089514"> </a>If there are outstanding ATMI calls, RPC calls, or conversations when <a href="pgserv.html#wp1167965">tpreturn()</a> or <a href="pgserv.html#wp1168061">tpforward()</a> is called, <code class="cCode">tpreturn()</code> or <code class="cCode">tpforward()</code> writes a message to the user log, indicates <code class="cCode">TPESVCERR</code> to the caller, and returns control to the main server dispatch loop.</li>
+<li><a name="wp1089515"> </a>A server-dispatched thread may not call <a href="../rf3c/rf3c.html">tpsetctxt(3c)</a>.</li>
+<li><a name="wp1089516"> </a>Unlike single-contexted servers, it is permissible for a multicontexted server thread to call a service that is offered only by that same server process.</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1089518"> </a>
+Initializing and Terminating ATMI Servers and Server Threads
+</h4>
+<p class="pBody"><a name="wp1157644"> </a>
+To initialize and terminate your servers and server threads, you can use the default functions provided by the Oracle Tuxedo system.
+</p>
+<p class="pGraphic"><a name="wp1157688"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1157653table1157650"><caption><a name="wp1157653"> </a>
+Table 10-1  Default Functions for Initialization and Termination
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1157657"> </a>
+To . . .
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1157659"> </a>
+Use the default function
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1157661"> </a>
+Initialize a server
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1157664"> </a>
+<a href="../rf3c/rf3c.html">tpsvrinit(3c)</a>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1157666"> </a>
+Initialize a server thread
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1157669"> </a>
+<span class="cHyperlink">
+<a href="../rf3c/rf3c.html">tpsvrthrinit(3c)</a></span>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1157675"> </a>
+Terminate a server
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1157678"> </a>
+<a href="../rf3c/rf3c.html">tpsvrdone(3c)</a>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1157680"> </a>
+Terminate a server thread
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1157683"> </a>
+<span class="cHyperlink">
+<a href="../rf3c/rf3c.html">tpsvrthrdone(3c)</a></span>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1089543"> </a>
+See Also
+</h3>
+<p class="pBody"><a name="wp1159478"> </a>
+<a href="pgthr.html#wp1089108">How Multithreading and Multicontexting Work in Server-Dispatched Threads an on ATMI Server</a>
+</p>
+<h3 class="pHeading2"><a name="wp1159681"> </a>
+Writing Code to Enable Multicontexting in Application-Created Threads of an ATMI Server
+</h3>
+<p class="pBody"><a name="wp1160887"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1160854"> </a><a href="pgthr.html#wp1159682">Creating Threads</a></li>
+<li><a name="wp1160862"> </a><a href="pgthr.html#wp1159685">Associating Application Threads with a Context</a></li>
+<li><a name="wp1160867"> </a><a href="pgthr.html#wp1159692">Associating Application Threads with an Existing Server-Dispatched Context</a></li>
+<li><a name="wp1160872"> </a><a href="pgthr.html#wp1159701">Sample Code for Associating Application Thread with an Existing Server-Dispatched Context in a Multicontexted Server</a></li>
+<li><a name="wp1160877"> </a><a href="pgthr.html#wp1159743">Associating Application Threads with Application-Created Context</a></li>
+<li><a name="wp1162768"> </a><a href="pgthr.html#wp1160250">Sample Code for Associating Application Thread with Application-created server Context in a Multicontexted Server</a></li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1159682"> </a>
+Creating Threads
+</h4>
+<p class="pBody"><a name="wp1159683"> </a>
+You can create additional threads within a Tuxedo application server by using OS threads functions. These new application threads may operate independently of the Tuxedo system, or they may operate in the same context as one of the server-dispatched threads. Application-created server threads may also operate in separate context created via <code class="cCode">tpappthrinit(3c)</code>.
+</p>
+<h4 class="pHeading3"><a name="wp1159685"> </a>
+Associating Application Threads with a Context
+</h4>
+<p class="pBody"><a name="wp1159686"> </a>
+Initially, application-created server threads are not associated with any Tuxedo context. If called before being initialized, however, most ATMI functions perform an implicit <code class="cCode">tpinit()</code>. Such calls introduce problems because servers are prohibited from calling <code class="cCode">tpinit()</code>. (If a server process calls <code class="cCode">tpinit()</code>, <code class="cCode">tpinit()</code> returns <code class="cCode">-1</code> and sets <code class="cCode">tperrno(5)</code> to <code class="cCode">TPEPROTO</code>.)
+</p>
+<p class="pBody"><a name="wp1159688"> </a>
+Therefore, an application-created server thread must associate itself with a valid context before calling any ATMI functions. An application-created server thread may:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1159689"> </a>Associate itself with an existing server-dispatched context</li>
+<li><a name="wp1159690"> </a>Associate itself with a separated context created via <code class="cCode">tpappthrinit(3c)</code> (This feature is available from Tuxedo 11<em class="cEmphasis">g </em>Release 1 (11.1.1.3.0))</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1159692"> </a>
+Associating Application Threads with an Existing Server-Dispatched Context
+</h4>
+<p class="pBody"><a name="wp1159693"> </a>
+To associate an application-created server thread with an existing server-dispatched context, you must write code that implements the following procedures.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1159694"> </a><code class="cCode">Server-dispatched-thread_A</code> gets a handle to the current context by calling <code class="cCode">tpgetctxt(3c)</code>.</li>
+<li><a name="wp1159695"> </a><code class="cCode">Server-dispatched-thread_A</code> passes the handle returned by <code class="cCode">tpgetctxt(3c)</code> to <code class="cCode">Application_thread_B</code>.</li>
+<li><a name="wp1159696"> </a><code class="cCode">Application_thread_B</code> associates itself with the current context by calling <code class="cCode">tpsetctxt(3c)</code> specifying the handle received from <code class="cCode">Server-dispatched-thread_A</code>.</li>
+</ol></div>
+<a name="wp1159697"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Application-created server threads cannot call<code class="cCode"> tpreturn() </code>and/or <code class="cCode">tpforward()</code>. Before the original server-dispatched thread calls <code class="cCode">tpreturn()</code> or <code class="cCode">tpforward()</code>, all application-created server threads that have been in that context must switch to <code class="cCode">TPNULLCONTEXT</code> or another valid context. </td>
+</tr>
+</table>
+
+<a name="wp1159699"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>If this rule is not observed, then <code class="cCode">tpforward()</code> or <code class="cCode">tpreturn()</code> fails and indicates a service error to caller.</td>
+</tr>
+</table>
+<h4 class="pHeading3"><a name="wp1159701"> </a>
+Sample Code for Associating Application Thread with an Existing Server-Dispatched Context in a Multicontexted Server
+</h4>
+<p class="pBody"><a name="wp1159702"> </a>
+For those applications that need to create an application thread in a server, <a href="pgthr.html#wp1159705">Listing&#160;10-3</a> shows a multicontexted server example where a service creates another thread to help perform its work in the same server-dispatched context. Operating system (OS) threads functions differ from one OS to another. In this sample POSIX and ATMI functions are used.
+</p>
+<a name="wp1159704"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>In order to simplify the example, error checking code is not included. Also, an example of a multicontexted server using only threads dispatched by the Oracle Tuxedo system is not included because such a server is coded in exactly the same way as a single-contexted server, as long as thread-safe programming practices are used.</td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1159705"> </a>
+Listing&#160;10-3	   Code Sample for Application-Created Server Thread Working in Server-Dispatched Context
+</div> <a name="wp1159706"> </a><div class="pPreformatted"><pre>#include &lt;pthread.h&gt;<br />#include &lt;atmi.h&gt;<br /><br />void *withdrawalthread(void *);<br /><br />struct sdata {<br />&#160;&#160;&#160;&#160;TPCONTEXT_T ctxt;<br />&#160;&#160;&#160;&#160;TPSVCINFO   *svcinfoptr;<br />};<br /><br />void	<br />TRANSFER(TPSVCINFO *svcinfo)<br />{<br />&#160;&#160;&#160;&#160;struct sdata  transferdata;<br />&#160;&#160;&#160;&#160;pthread_t    withdrawalthreadid;<br /><br />&#160;&#160;&#160;&#160;tpgetctxt(&amp;transferdata.ctxt, 0);<br />&#160;&#160;&#160;&#160;transferdata.svcinfoptr = svcinfo;<br />pthread_create( &amp;withdrawalthreadid, NULL,<br />withdrawalthread, &amp;transferdata );<br />&#160;&#160;&#160;&#160;tpcall(&quot;DEPOSIT&quot;, ...);<br />&#160;&#160;&#160;&#160;pthread_join(withdrawalthreadid, NULL);<br />&#160;&#160;&#160;&#160;tpreturn(TPSUCCESS, ...);<br />}<br /><br />void *<br />withdrawalthread(void *arg)<br />{<br />&#160;&#160;&#160;&#160;tpsetctxt(arg-&gt;ctxt, 0);<br />&#160;&#160;&#160;&#160;tpopen();<br />&#160;&#160;&#160;&#160;tpcall(&quot;WITHDRAWAL&quot;, ...);<br />&#160;&#160;&#160;&#160;tpclose();<br />&#160;&#160;&#160;&#160;tpsetctxt(TPNULLCONTEXT, 0);<br />&#160;&#160;&#160;&#160;return(NULL);<br />}</pre></div><h4 class="pHeading3"><a name="wp1159743"> </a>
+Associating Application Threads with Application-Created Context
+</h4>
+<p class="pBody"><a name="wp1159744"> </a>
+An application-created thread within an ATMI server can create a separate Tuxedo context and associate itself with this context by calling <code class="cCode">tpappthrinit(3c)</code>.
+</p>
+<h5 class="pHeading4"><a name="wp1159746"> </a>
+Context Attributes
+</h5>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1159747"> </a>The context created via <code class="cCode">tpappthrinit(3c)</code> is independent from any server-dispatched context. It connects to the domain that the application server is in.</li>
+<li><a name="wp1159748"> </a>The context created via <code class="cCode">tpappthrinit(3c)</code> must be terminated by calling <code class="cCode">tpappthrterm(3c)</code> after the application-created server thread has finished its work on that context.</li>
+<li><a name="wp1159749"> </a>Depending on the type of security mechanism used in your application, user authentication information can be associated with the context when invoking <code class="cCode">tpappthrinit(3c)</code>. Each application association of an application-created context requires a separate security validation.</li>
+</ul></div>
+<h5 class="pHeading4"><a name="wp1159750"> </a>
+Code Rules for Application-Created Thread of an ATMI Server in Application-Created Context
+</h5>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1159751"> </a>Only Tuxedo server process can call <code class="cCode">tpappthrinit()</code>/<code class="cCode">tpappthrterm()</code>.</li>
+<li><a name="wp1159752"> </a>The server must be built with <code class="cCode">&quot;-t&quot;</code> option when executing buildserver command.</li>
+<li><a name="wp1159753"> </a>It is not allowed to call <code class="cCode">tpappthrinit()</code>/<code class="cCode">tpappthrterm()</code> in a client program.</li>
+<li><a name="wp1159754"> </a>It is not allowed to call <code class="cCode">tpappthrinit()</code>/<code class="cCode">tpappthrterm()</code> in a server-dispatched thread.</li>
+<li><a name="wp1159755"> </a>It is not allowed to call <code class="cCode">tpappthrterm()</code> in an application-created thread which is currently associated with a server-dispatched context.</li>
+<li><a name="wp1159756"> </a>It should be avoided calling <code class="cCode">tpappthrterm()</code> on an application-created context while other application threads are still working on that context. </li>
+<li><a name="wp1159757"> </a>Handles and call descriptors are portable within the same context in the same process, but not between contexts or processes. Handles and call descriptors can be used only in the application context in which they are originally assigned.</li>
+<li><a name="wp1159758"> </a>Once a conversation has been started, any thread in the same context within the same process can work on that conversation.</li>
+<li><a name="wp1160238"> </a>Any application thread operating in the same context within the same server process can invoke <code class="cCode">tpgetrply()</code> to receive a response to an earlier call to <code class="cCode">tpacall()</code>, regardless of whether or not that application thread originally called <code class="cCode">tpacall()</code>.</li>
+<li><a name="wp1160239"> </a>A transaction can be committed or aborted by only one application thread in the same context within the same process, which may or may not be the same application thread that started it.</li>
+<li><a name="wp1159761"> </a><code class="cCode">tpbegin()</code> cannot be issued for a context that is already in transaction mode.</li>
+<li><a name="wp1159762"> </a>If the application server is in a group that is configured with XA transaction, <code class="cCode">tpopen()</code> must be invoked before performing any transaction activities, such as <code class="cCode">tpbegin()</code> and SQL operations. When transaction operations are finished, <code class="cCode">tpclose()</code> should be called.</li>
+<li><a name="wp1162848"> </a>Application-created server thread may send, but cannot receive unsolicited messages.</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1160250"> </a>
+Sample Code for Associating Application Thread with Application-created server Context in a Multicontexted Server
+</h4>
+<p class="pBody"><a name="wp1162202"> </a>
+For those applications with a need to create an application thread in a server, <a href="pgthr.html#wp1162204">Listing&#160;10-4</a> shows a multicontexted server example where a service creates another thread, and this application-created server thread operates in a separated context. Operating system (OS) threads functions differ from one OS to another. In this example, POSIX and ATMI functions are used.
+</p>
+<a name="wp1162203"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>In order to simplify the example, error checking code is not included. </td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1162204"> </a>
+Listing&#160;10-4	   Code Sample for Application-Created Server Thread Working in Application-Created Context
+</div> <a name="wp1160265"> </a><div class="pPreformatted"><pre>#include &lt;pthread.h&gt;<br />#include &lt;atmi.h&gt;<br /><br />void *withdrawalthread(void *);<br /><br />void<br />TRANSFER(TPSVCINFO *svcinfo)<br />{<br />&#160;&#160;&#160;&#160;pthread_t withdrawalthreadid;<br /><br />&#160;&#160;&#160;&#160;pthread_create( &amp;withdrawalthreadid, NULL,<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;withdrawalthread, … );<br />&#160;&#160;&#160;&#160;tpcall(&quot;DEPOSIT&quot;, ...);<br />&#160;&#160;&#160;&#160;pthread_join(withdrawalthreadid, NULL);<br />&#160;&#160;&#160;&#160;tpreturn(TPSUCCESS, ...);<br />}<br /><br />void *<br />withdrawalthread(void *arg)<br />{<br />&#160;&#160;&#160;&#160;tpappthrinit(NULL);<br />&#160;&#160;&#160;&#160;tpopen();<br />&#160;&#160;&#160;&#160;tpcall(&quot;WITHDRAWAL&quot;, ...);<br />&#160;&#160;&#160;&#160;tpclose();<br />&#160;&#160;&#160;&#160;tpappthrterm();<br />&#160;&#160;&#160;&#160;return(NULL);<br />}</pre></div><h3 class="pHeading2"><a name="wp1162210"> </a>
+See Also
+</h3>
+<p class="pBody"><a name="wp1162211"> </a>
+<a href="pgthr.html#wp1157969">How Multithreading and Multicontexting Work in Application-Created Threads of an ATMI Server</a>
+</p>
+<p class="pBody"><a name="wp1162581"> </a>
+<a href="pgthr.html#wp1089108">How Multithreading and Multicontexting Work in Server-Dispatched Threads an on ATMI Server</a>
+</p>
+<h3 class="pHeading2"><a name="wp1162213"> </a>
+Writing a Multithreaded ATMI Client
+</h3>
+<p class="pBody"><a name="wp1136183"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089574"> </a><a href="pgthr.html#wp1089605">Coding Rules for a Multithreaded ATMI Client</a></li>
+<li><a name="wp1089578"> </a><a href="pgthr.html#wp1089618">Initializing an ATMI Client to Multiple Contexts</a></li>
+<li><a name="wp1089582"> </a><a href="pgthr.html#wp1089623">Getting Replies in a Multithreaded Environment</a></li>
+<li><a name="wp1089585"> </a><a href="pgthr.html#wp1089632">Using Environment Variables in a Multithreaded and/or Multicontexted Environment</a></li>
+<li><a name="wp1089590"> </a><a href="pgthr.html#wp1089698">Using Per-context Functions and Data Structures in a Multithreaded ATMI Client</a></li>
+<li><a name="wp1089594"> </a><a href="pgthr.html#wp1089751">Using Per-process Functions and Data Structures in a Multithreaded ATMI Client</a></li>
+<li><a name="wp1089598"> </a><a href="pgthr.html#wp1089772">Using Per-thread Functions and Data Structures in a Multithreaded ATMI Client</a></li>
+<li><a name="wp1089602"> </a><a href="pgthr.html#wp1089787">Sample Code for a Multithreaded ATMI Client</a></li>
+</ul></div>
+<a name="wp1089603"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The Oracle Tuxedo system does not support multithreaded COBOL applications.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp1089605"> </a>
+Coding Rules for a Multithreaded ATMI Client
+</h4>
+<p class="pBody"><a name="wp1089606"> </a>
+Keep in mind the following rules for coding multithreaded clients:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089607"> </a>Once a conversation has been started, any thread in the same process can work on that conversation. Handles and call descriptors are portable within the same context in the same process, but not between contexts or processes. Handles and call descriptors can be used only in the application context in which they are originally assigned.</li>
+<li><a name="wp1089608"> </a>Any thread operating in the same context within the same process can invoke <a href="pgreq.html#wp1098002">tpgetrply()</a> to receive a response to an earlier call to <a href="pgreq.html#wp1055487">tpacall()</a>, regardless of whether or not that thread originally called <code class="cCode">tpacall()</code>.</li>
+<li><a name="wp1089609"> </a>A transaction can be committed or aborted by only one thread, which may or may not be the same thread that started it.</li>
+<li><a name="wp1089610"> </a>All RPC calls and all conversations must be completed before an attempt is made to commit the transaction. If an application calls <a href="pgglob.html#wp1045424">tpcommit()</a> while RPC calls or conversations are outstanding, <code class="cCode">tpcommit()</code> aborts the transaction, returns <code class="cCode">-1</code>, and sets <a href="../rf5/rf5.html">tperrno(5)</a> to <code class="cCode">TPEABORT</code>.</li>
+<li><a name="wp1089611"> </a>Functions such as <a href="pgreq.html#wp1055338">tpcall()</a>, <a href="pgreq.html#wp1055487">tpacall()</a>, <a href="pgreq.html#wp1098002">tpgetrply()</a>, <a href="pgconv.html#wp1089600">tpconnect()</a>, <a href="pgconv.html#wp1062634">tpsend()</a>, <a href="pgconv.html#wp1062702">tprecv()</a>, and <a href="pgconv.html#wp1082308">tpdiscon()</a> should not be called in transaction mode unless you are sure that the transaction is not already committing or aborting.</li>
+<li><a name="wp1089612"> </a>Two <a href="pgglob.html#wp1045304">tpbegin()</a> calls cannot be made simultaneously for the same context.</li>
+<li><a name="wp1089613"> </a><a href="pgglob.html#wp1045304">tpbegin()</a> cannot be issued for a context that is already in transaction mode.</li>
+<li><a name="wp1089614"> </a>If you are using a client and you want to connect to more than one domain, you must manually change the value of <code class="cCode">TUXCONFIG</code> or <code class="cCode">WSNADDR</code> before calling <a href="pgclt.html#wp1030381">tpinit()</a>. You must synchronize the setting of the environment variable and the <code class="cCode">tpinit()</code> call if multiple threads may be performing such an action. All application associations in a client must obey the following rules:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1089615"> </a>All associations must be made to the same release of the Oracle Tuxedo system.</li>
+<li><a name="wp1089616"> </a>Either every application association in a particular client must be made as a native client, or every application association must be made as a Workstation client.</li>
+</ul></div>
+<li><a name="wp1098435"> </a>To join an application, a multithreaded Workstation client must always call <a href="pgclt.html#wp1030381">tpinit()</a> with the <code class="cCode">TPMULTICONTEXTS</code> flag set, even if the client is running in single-context mode.</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1089618"> </a>
+Initializing an ATMI Client to Multiple Contexts
+</h4>
+<p class="pBody"><a name="wp1089619"> </a>
+To have a client join more than one context, issue a call to the <a href="pgclt.html#wp1030381">tpinit()</a> function with the <code class="cCode">TPMULTICONTEXTS</code> flag set in the <code class="cCodeEmphasis">flags</code> element of the <code class="cCode">TPINIT</code> data structure.
+</p>
+<p class="pBody"><a name="wp1089620"> </a>
+In any one process, either all calls to <a href="pgclt.html#wp1030381">tpinit()</a> must include the <code class="cCode">TPMULTICONTEXTS</code> flag or no call to <code class="cCode">tpinit()</code> may include this flag. The only exception to this rule is that if all of a client&#8217;s application associations are terminated by successful calls to <a href="pgclt.html#wp1030538">tpterm()</a>, then the process is restored to a state in which the inclusion of the <code class="cCode">TPMULTICONTEXTS</code> flag in the next call to <code class="cCode">tpinit()</code> is optional.
+</p>
+<p class="pBody"><a name="wp1089621"> </a>
+When <a href="pgclt.html#wp1030381">tpinit()</a> is invoked with the <code class="cCode">TPMULTICONTEXTS</code> flag set, a new application association is created and is designated the current association. The Oracle Tuxedo domain to which the new association is made is determined by the value of the <code class="cCode">TUXCONFIG</code> or <code class="cCode">WSENVFILE/WSNADDR</code> environment variable.
+</p>
+<p class="pBody"><a name="wp1090638"> </a>
+When a client thread successfully executes <a href="pgclt.html#wp1030381">tpinit()</a> without the <code class="cCode">TPMULTICONTEXTS</code> flag, all threads in the client are placed in the single-context state (<code class="cCode">TPSINGLECONTEXT</code>).
+</p>
+<p class="pBody"><a name="wp1091264"> </a>
+On failure, <a href="pgclt.html#wp1030381">tpinit()</a> leaves the calling thread in its original context (that is, in the context state in which it was operating before the call to <code class="cCode">tpinit()</code>).
+</p>
+<p class="pBody"><a name="wp1091209"> </a>
+Do not call <a href="pgclt.html#wp1030538">tpterm()</a> from a given context if any of the threads in that context are still working. See the table labeled <a href="pgthr.html#wp1091639">Multicontext State Transitions</a> for a description of the context states that result from calling <code class="cCode">tpterm()</code> under these and other circumstances.
+</p>
+<h4 class="pHeading3"><a name="wp1089982"> </a>
+Context State Changes for an ATMI Client Thread
+</h4>
+<p class="pBody"><a name="wp1091570"> </a>
+In a multicontext application, calls to various functions result in context state changes for the calling thread and any other threads that are active in the same context as the calling process. <a href="pgthr.html#wp1091639">Figure&#160;10-4</a> illustrates the context state changes that result from calls to <a href="pgclt.html#wp1030381">tpinit()</a>, <a href="../rf3c/rf3c.html">tpsetctxt(3c)</a>, and <a href="pgclt.html#wp1030538">tpterm()</a>. (The <a href="../rf3c/rf3c.html">tpgetctxt(3c)</a> function does not produce any context state changes.)
+</p>
+<div class="pFigureTitle"><a name="wp1091639"> </a>
+Figure&#160;10-4  Multicontext State Transitions
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1091699"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/pgc-10-1-4.gif" height="373" width="544" alt="Multicontext State Transitions" id="wp1091640"/></div><p class="pGraphic">
+
+</p>
+<a name="wp1091623"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>When <a href="pgclt.html#wp1030538">tpterm()</a> is called by a thread running in the multicontext state (<code class="cCode">TPMULTICONTEXTS</code>), the calling thread is placed in the null context state (<code class="cCode">TPNULLCONTEXT</code>). All other threads associated with the terminated context are switched to the invalid context state (<code class="cCode">TPINVALIDCONTEXT</code>).</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1091637"> </a>
+The following table lists all possible context state changes produced by calling <a href="pgclt.html#wp1030381">tpinit()</a>, <a href="../rf3c/rf3c.html">tpsetctxt(3c)</a>, and <a href="pgclt.html#wp1030538">tpterm()</a>.
+</p>
+<p class="pGraphic"><a name="wp1091638"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1090068table1090066"><caption><a name="wp1090068"> </a>
+Table 10-2  Context State Changes for a Client Thread
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th colspan="1" rowspan="2"><div class="pCellHeading"><a name="wp1090078"> </a>
+When this function is executed . . . 
+</div>
+</th>
+    <th colspan="4" rowspan="1"><div class="pCellHeading"><a name="wp1090080"> </a>
+Then a thread in this context state results in . . .
+</div>
+</th>
+</tr>
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1090360"> </a>
+Null Context
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1090362"> </a>
+Single Context
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1090364"> </a>
+ Multicontext
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1090366"> </a>
+Invalid Context
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090098"> </a>
+<a href="pgclt.html#wp1030381">tpinit()</a> without <code class="cCode">TPMULTICONTEXTS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090100"> </a>
+Single context
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090102"> </a>
+Single context
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090104"> </a>
+Error
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090106"> </a>
+Error
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090108"> </a>
+<a href="pgclt.html#wp1030381">tpinit()</a> with <code class="cCode">TPMULTICONTEXTS</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090110"> </a>
+Multicontext
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090112"> </a>
+Error
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090114"> </a>
+Multicontext
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090116"> </a>
+Error
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090118"> </a>
+<a href="../rf3c/rf3c.html">tpsetctxt(3c)</a> to <code class="cCode">TPNULLCONTEXT</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090120"> </a>
+Null
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090122"> </a>
+Error
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090124"> </a>
+Null
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090126"> </a>
+Null
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090128"> </a>
+<a href="../rf3c/rf3c.html">tpsetctxt(3c)</a> to context 0
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090130"> </a>
+Error
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090132"> </a>
+Single context
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090134"> </a>
+Error
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090136"> </a>
+Error
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090138"> </a>
+<a href="../rf3c/rf3c.html">tpsetctxt(3c)</a> to context &gt; 0
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090140"> </a>
+Multicontext
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090142"> </a>
+Error
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090144"> </a>
+Multicontext
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090146"> </a>
+Multicontext
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090148"> </a>
+Implicit <a href="pgclt.html#wp1030381">tpinit()</a>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090150"> </a>
+Single context
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090152"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090154"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090156"> </a>
+Error
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090158"> </a>
+<a href="pgclt.html#wp1030538">tpterm()</a> in this thread
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090160"> </a>
+Null
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090162"> </a>
+Null
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090164"> </a>
+Null
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090166"> </a>
+Null
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090188"> </a>
+<a href="pgclt.html#wp1030538">tpterm()</a> in a different thread of this context
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090190"> </a>
+N/A
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090192"> </a>
+Null
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090194"> </a>
+Invalid
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1090196"> </a>
+N/A
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h4 class="pHeading3"><a name="wp1089623"> </a>
+Getting Replies in a Multithreaded Environment
+</h4>
+<p class="pBody"><a name="wp1089624"> </a>
+<a href="pgreq.html#wp1098002">tpgetrply()</a> receives responses only to requests made via <a href="pgreq.html#wp1055487">tpacall()</a>. Requests made with <a href="pgreq.html#wp1055338">tpcall()</a> are separate and cannot be retrieved with <code class="cCode">tpgetrply()</code> regardless of the multithreading or multicontexting level.
+</p>
+<p class="pBody"><a name="wp1089625"> </a>
+<a href="pgreq.html#wp1098002">tpgetrply()</a> operates in only one context, which is the context in which it is called. Therefore, when you call <code class="cCode">tpgetrply()</code> with the <code class="cCode">TPGETANY</code> flag, only handles generated in the same context are considered. Similarly, a handle generated in one context may not be used in another context, but the handle may be used in any thread operating within the same context.
+</p>
+<p class="pBody"><a name="wp1089626"> </a>
+When <a href="pgreq.html#wp1098002">tpgetrply()</a> is called in a multithreaded environment, the following restrictions apply:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089627"> </a>If a thread calls <a href="pgreq.html#wp1098002">tpgetrply()</a> for a specific handle while another thread in the same context is already waiting in<span style="font-weight: bold"> </span><code class="cCode">tpgetrply()</code> for the same handle, <code class="cCode">tpgetrply()</code> returns <code class="cCode">-1</code> and sets <code class="cCode">tperrno</code> to <code class="cCode">TPEPROTO</code>. </li>
+<li><a name="wp1089628"> </a>If a thread calls <a href="pgreq.html#wp1098002">tpgetrply()</a> for a specific handle while another thread in the same context is already waiting in <code class="cCode">tpgetrply()</code> with the <code class="cCode">TPGETANY</code> flag, the call returns <code class="cCode">-1</code> and sets <a href="../rf5/rf5.html">tperrno(5)</a> to <code class="cCode">TPEPROTO</code>. </li>
+<p class="pBodyRelative"><a name="wp1089629"> </a>
+The same behavior occurs if a thread calls <a href="pgreq.html#wp1098002">tpgetrply()</a> with the <code class="cCode">TPGETANY</code> flag while another thread in the same context is already waiting in <code class="cCode">tpgetrply()</code> for a specific handle. These restrictions protect a thread that is waiting on a specific handle from having its reply taken by a thread waiting on any handle.
+</p>
+<li><a name="wp1089630"> </a>At any given time, only one thread in a particular context can wait in <a href="pgreq.html#wp1098002">tpgetrply()</a> with the <code class="cCode">TPGETANY</code> flag set. If a second thread in the same context invokes <code class="cCode">tpgetrply()</code> with the <code class="cCode">TPGETANY</code> flag while a similar call is outstanding, this second call returns <code class="cCode">-1</code> and sets <a href="../rf5/rf5.html">tperrno(5)</a> to <code class="cCode">TPEPROTO</code>.</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1089632"> </a>
+Using Environment Variables in a Multithreaded and/or Multicontexted Environment
+</h4>
+<p class="pBody"><a name="wp1089633"> </a>
+When an Oracle Tuxedo application is run in an environment that is multicontexted and/or multithreaded, the following considerations apply to the use of environment variables:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089634"> </a>A process initially inherits its environment from the operating system environment. On platforms that support environment variables, such variables make up a per-process entity. Therefore, applications that depend on per-context environment settings should use the tuxgetenv<span class="cHyperlink">
+<a href="../rf3c/rf3c.html"></a>(3c)</span> function instead of an OS function.</li>
+<a name="wp1089635"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The environment is initially empty for those operating systems that do not recognize an operating system environment.</td>
+</tr>
+</table>
+
+<li><a name="wp1089636"> </a>Many environment variables are read by the Oracle Tuxedo system only once per process or once per context and then cached within the Oracle Tuxedo system. Changes to such variables once cached in the process have no effect.</li>
+<p class="pGraphic"><a name="wp1156250"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1089639table1089637">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1089639"> </a>
+Caching is done on a . . . 
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1089641"> </a>
+For environment variables such as . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="9"><div class="pCellBody"><a name="wp1089643"> </a>
+Per-context basis
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089645"> </a>
+<code class="cCode">TUXCONFIG</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089649"> </a>
+<code class="cCode">FIELDTBLS</code> and <code class="cCode">FIELDTBLS32</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089653"> </a>
+<code class="cCode">FLDTBLDIR</code> and <code class="cCode">FLDTBLDIR32</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089657"> </a>
+<code class="cCode">ULOGPFX</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089661"> </a>
+<code class="cCode">VIEWDIR</code> and <code class="cCode">VIEWDIR32</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089665"> </a>
+<code class="cCode">VIEWFILES</code> and <code class="cCode">VIEWFILES32</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089669"> </a>
+<code class="cCode">WSNADDR</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089673"> </a>
+<code class="cCode">WSDEVICE</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089677"> </a>
+<code class="cCode">WSENV</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="3"><div class="pCellBody"><a name="wp1089679"> </a>
+Per-process basis
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089681"> </a>
+<code class="cCode">TMTRACE</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089685"> </a>
+<code class="cCode">TUXDIR</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1089689"> </a>
+<code class="cCode">ULOGDEBUG</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+<li><a name="wp1089690"> </a>The tuxputenv<span class="cHyperlink">
+<a href="../rf3c/rf3c.html"></a>(3c)</span> function affects the environment for the entire process.</li>
+<li><a name="wp1089691"> </a>When you call the tuxreadenv<span class="cHyperlink">
+<a href="../rf3c/rf3c.html"></a>(3c)</span> function, it reads a file containing environment variables and adds them to the environment for the entire process.</li>
+<li><a name="wp1089692"> </a>The tuxgetenv<span class="cHyperlink">
+<a href="../rf3c/rf3c.html"></a>(3c)</span> function returns the current value of the requested environment variable in the current context. Initially, all contexts have the same environment, but the use of environment files specific to a particular context can cause different contexts to have different environment settings.</li>
+<li><a name="wp1089693"> </a>If a client intends to initialize to more than one domain, the client must change the value of the <code class="cCode">TUXCONFIG</code>, <code class="cCode">WSNADDR</code>, or <code class="cCode">WSENVFILE</code> environment variable to the proper value before each call to <a href="pgclt.html#wp1030381">tpinit()</a>. If such an application is multithreaded, a mutex or other application-defined concurrency control will probably be needed to ensure that:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1089694"> </a>The appropriate environment variable is reset.</li>
+<li><a name="wp1089695"> </a>The call to <a href="pgclt.html#wp1030381">tpinit()</a> is made without the environment variable being reset by any other thread.</li>
+</ul></div>
+<li><a name="wp1089696"> </a>When a client initializes to the system, the <code class="cCode">WSENVFILE</code> and/or machine environment file is read and affects the environment in that context only. The previous environment for the process as a whole remains for that context to the extent that it is not overridden within the environment file(s). </li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1089698"> </a>
+Using Per-context Functions and Data Structures in a Multithreaded ATMI Client
+</h3>
+<p class="pBody"><a name="wp1089699"> </a>
+The following ATMI functions affect only the application contexts in which they are called:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089700"> </a><span class="cHyperlink">
+<a href="pgglob.html#wp1045451">tpabort()</a></span></li>
+<li><a name="wp1089701"> </a><span class="cHyperlink">
+<a href="pgreq.html#wp1055487">tpacall()</a></span></li>
+<li><a name="wp1089702"> </a><a href="../rf3c/rf3c.html">tpadmcall(3c)</a></li>
+<li><a name="wp1089703"> </a><span class="cHyperlink">
+<a href="pgglob.html#wp1045304">tpbegin()</a></span></li>
+<li><a name="wp1089704"> </a><span class="cHyperlink">
+<a href="pgevb.html#wp1081110">tpbroadcast()</a></span></li>
+<li><a name="wp1089705"> </a><span class="cHyperlink">
+<a href="pgreq.html#wp1055338">tpcall()</a></span></li>
+<li><a name="wp1089706"> </a><span class="cHyperlink">
+<a href="pgserv.html#wp1168043">tpcancel()</a></span></li>
+<li><a name="wp1089707"> </a><span class="cHyperlink">
+<a href="pgclt.html#wp1030775">tpchkauth()</a></span></li>
+<li><a name="wp1089708"> </a><span class="cHyperlink">
+<a href="pgevb.html#wp1081203">tpchkunsol()</a></span></li>
+<li><a name="wp1089709"> </a><a href="../rf3c/rf3c.html">tpclose(3c)</a></li>
+<li><a name="wp1089710"> </a><span class="cHyperlink">
+<a href="pgglob.html#wp1045424">tpcommit()</a></span></li>
+<li><a name="wp1089711"> </a><span class="cHyperlink">
+<a href="pgconv.html#wp1089600">tpconnect()</a></span></li>
+<li><a name="wp1089712"> </a><a href="../rf3c/rf3c.html">tpdequeue(3c)</a></li>
+<li><a name="wp1089713"> </a><span class="cHyperlink">
+<a href="pgconv.html#wp1082308">tpdiscon()</a></span></li>
+<li><a name="wp1089714"> </a><a href="../rf3c/rf3c.html">tpenqueue(3c)</a></li>
+<li><a name="wp1089715"> </a><span class="cHyperlink">
+<a href="pgserv.html#wp1168061">tpforward()</a></span></li>
+<li><a name="wp1089716"> </a><span class="cHyperlink">
+<a href="pgglob.html#wp1045502">tpgetlev()</a></span></li>
+<li><a name="wp1112784"> </a><span class="cHyperlink">
+<a href="pgreq.html#wp1098002">tpgetrply()</a></span></li>
+<li><a name="wp1112786"> </a><span class="cHyperlink">
+<a href="pgclt.html#wp1030381">tpinit()</a></span></li>
+<li><a name="wp1112788"> </a><span class="cHyperlink">
+<a href="pgevb.html#wp1081164">tpnotify()</a></span></li>
+<li><a name="wp1107810"> </a><span class="cHyperlink">
+<a href="../rf3c/rf3c.html">tpopen</a>(3c)</span></li>
+<li><a name="wp1107812"> </a><span class="cHyperlink">
+<a href="pgevb.html#wp1081416">tppost()</a></span></li>
+<li><a name="wp1107814"> </a><span class="cHyperlink">
+<a href="pgconv.html#wp1062702">tprecv()</a></span></li>
+<li><a name="wp1089723"> </a><span class="cHyperlink">
+<a href="pgglob.html#wp1132082">tpresume()</a></span></li>
+<li><a name="wp1089724"> </a><span class="cHyperlink">
+<a href="pgserv.html#wp1167965">tpreturn()</a></span></li>
+<li><a name="wp1089725"> </a><a href="../rf3c/rf3c.html">tpscmt(3c)</a></li>
+<li><a name="wp1089726"> </a><span class="cHyperlink">
+<a href="pgconv.html#wp1062634">tpsend()</a></span></li>
+<li><a name="wp1089727"> </a><a href="../rf3c/rf3c.html">tpservice(3c)</a></li>
+<li><a name="wp1089728"> </a><span class="cHyperlink">
+<a href="pgevb.html#wp1081079">tpsetunsol()</a></span></li>
+<li><a name="wp1089729"> </a><span class="cHyperlink">
+<a href="pgevb.html#wp1081229">tpsubscribe()</a></span></li>
+<li><a name="wp1089730"> </a><span class="cHyperlink">
+<a href="pgglob.html#wp1132056">tpsuspend()</a></span></li>
+<li><a name="wp1089731"> </a><span class="cHyperlink">
+<a href="pgclt.html#wp1030538">tpterm()</a></span></li>
+<li><a name="wp1089732"> </a><span class="cHyperlink">
+<a href="pgevb.html#wp1081383">tpunsubscribe()</a></span></li>
+<li><a name="wp1089733"> </a><a href="../rf3c/rf3c.html">tx_begin(3c)</a></li>
+<li><a name="wp1089734"> </a><a href="../rf3c/rf3c.html">tx_close(3c)</a></li>
+<li><a name="wp1089735"> </a><a href="../rf3c/rf3c.html">tx_commit(3c)</a></li>
+<li><a name="wp1089736"> </a><a href="../rf3c/rf3c.html">tx_info(3c)</a></li>
+<li><a name="wp1089737"> </a><a href="../rf3c/rf3c.html">tx_open(3c)</a></li>
+<li><a name="wp1089738"> </a><a href="../rf3c/rf3c.html">tx_rollback(3c)</a></li>
+<li><a name="wp1089739"> </a><a href="../rf3c/rf3c.html">tx_set_commit_return(3c)</a></li>
+<li><a name="wp1089740"> </a><a href="../rf3c/rf3c.html">tx_set_transaction_control(3c)</a></li>
+<li><a name="wp1089741"> </a><a href="../rf3c/rf3c.html">tx_set_transaction_timeout(3c)</a></li>
+<li><a name="wp1089742"> </a><a href="../rf3c/rf3c.html">userlog(3c)</a></li>
+</ul></div>
+<a name="wp1089743"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For <a href="pgevb.html#wp1081110">tpbroadcast()</a>, the broadcast message is identified as having come from a particular application association. For <a href="../rf3c/rf3c.html">tpnotify(3c)</a>, the notification is identified as having come from a particular application association. See &#8220;Using Per-process Functions and Data Structures in a Multithreaded Client&#8221; for notes about <a href="pgclt.html#wp1030381">tpinit()</a>. </td>
+</tr>
+</table>
+
+<a name="wp1089744"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>If <a href="pgevb.html#wp1081079">tpsetunsol()</a> is called from a thread that is not associated with a context, a per-process default unsolicited message handler for all new <a href="pgclt.html#wp1030381">tpinit()</a> contexts created is established. A specific context may change the unsolicited message handler for that context by calling <code class="cCode">tpsetunsol()</code> again when the context is active. The per-process default unsolicited message handler may be changed by again calling <code class="cCode">tpsetunsol()</code> in a thread not currently associated with a context.</td>
+</tr>
+</table>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089745"> </a>The <code class="cCode">CLIENTID</code>, client name, username, transaction ID, and the contents of the <code class="cCode">TPSVCINFO</code> data structure may differ from context to context within the same process.</li>
+<li><a name="wp1089746"> </a>Asynchronous call handles and connection descriptors are valid in the contexts in which they are created. The unsolicited notification type is specific per-context. Although signal-based notification may not be used with multiple contexts, each context may choose one of three options:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1089747"> </a>Ignoring unsolicited messages</li>
+<li><a name="wp1089748"> </a>Using dip-in notification</li>
+<li><a name="wp1089749"> </a>Using dedicated thread notification</li>
+</ul></div>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1089751"> </a>
+Using Per-process Functions and Data Structures in a Multithreaded ATMI Client 
+</h3>
+<p class="pBody"><a name="wp1089752"> </a>
+The following Oracle Tuxedo functions affect the entire process in which they are called:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089753"> </a><span class="cHyperlink">
+<a href="pgserv.html#wp1168143">tpadvertise()</a></span></li>
+<li><a name="wp1089754"> </a><span class="cHyperlink">
+<a href="pgbuf.html#wp1262143">tpalloc()</a></span></li>
+<li><a name="wp1089755"> </a><a href="../rf3c/rf3c.html">tpconvert(3c)</a>&#8212;the requested structure is converted, although it is probably relevant to only a subset of the process.</li>
+<li><a name="wp1089756"> </a><span class="cHyperlink">
+<a href="pgbuf.html#wp1262377">tpfree()</a></span></li>
+<li><a name="wp1089757"> </a><a href="pgclt.html#wp1030381">tpinit()</a>&#8212;to the extent that the per-process <code class="cCode">TPMULTICONTEXTS</code> mode or single-context mode is established. See also <a href="pgthr.html#wp1089698">Using Per-context Functions and Data Structures in a Multithreaded ATMI Client</a>.</li>
+<li><a name="wp1089761"> </a><span class="cHyperlink">
+<a href="pgbuf.html#wp1262255">tprealloc()</a></span></li>
+<li><a name="wp1089762"> </a><span class="cHyperlink">
+<a href="pgserv.html#wp1387047">tpsvrdone()</a></span></li>
+<li><a name="wp1089763"> </a><span class="cHyperlink">
+<a href="pgserv.html#wp1386336">tpsvrinit()</a></span></li>
+<li><a name="wp1089764"> </a><span class="cHyperlink">
+<a href="pgbuf.html#wp1262318">tptypes()</a></span></li>
+<li><a name="wp1089765"> </a><span class="cHyperlink">
+<a href="pgserv.html#wp1168162">tpunadvertise()</a></span></li>
+<li><a name="wp1089766"> </a><a href="../rf3c/rf3c.html">tuxgetenv(3c)</a>&#8212;if the OS environment is per-process.</li>
+<li><a name="wp1089767"> </a><a href="../rf3c/rf3c.html">tuxputenv(3c)</a>&#8212;if the OS environment is per-process.</li>
+<li><a name="wp1089768"> </a><a href="../rf3c/rf3c.html">tuxreadenv(3c)</a>&#8212;if the OS environment is per-process.</li>
+<li><a name="wp1089769"> </a><a href="../rf3c/rf3c.html">Usignal(3c)</a></li>
+</ul></div>
+<p class="pBody"><a name="wp1089770"> </a>
+The determination of single-context mode, multicontext mode, or uninitialized mode affects an entire process. The buffer type switch, the view cache, and environment variable values are also per-process functions.
+</p>
+<h3 class="pHeading2"><a name="wp1089772"> </a>
+Using Per-thread Functions and Data Structures in a Multithreaded ATMI Client
+</h3>
+<p class="pBody"><a name="wp1089773"> </a>
+Only the calling thread is affected by the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089774"> </a><code class="cCode">CATCH</code></li>
+<li><a name="wp1089775"> </a><a href="../rf3c/rf3c.html">tperrordetail(3c)</a></li>
+<li><a name="wp1089776"> </a><a href="../rf3c/rf3c.html">tpgetctxt(3c)</a></li>
+<li><a name="wp1089777"> </a><span class="cHyperlink">
+<a href="pgreq.html#wp1055635">tpgprio()</a></span></li>
+<li><a name="wp1089778"> </a><a href="../rf3c/rf3c.html">tpsetctxt(3c)</a></li>
+<li><a name="wp1089779"> </a><span class="cHyperlink">
+<a href="pgreq.html#wp1055604">tpsprio()</a></span></li>
+<li><a name="wp1089780"> </a><a href="../rf3c/rf3c.html">tpstrerror(3c)</a></li>
+<li><a name="wp1089781"> </a><a href="../rf3c/rf3c.html">tpstrerrordetail(3c)</a></li>
+<li><a name="wp1089782"> </a><a href="../rf3c/rf3c.html">TRY(3c)</a></li>
+<li><a name="wp1089783"> </a><a href="../rf3c/rf3c.html">Uunix_err(3c)</a></li>
+</ul></div>
+<p class="pBody"><a name="wp1089784"> </a>
+The <a href="../rf5/rf5.html">Ferror,&#160;Ferro</a><a href="../rf5/rf5.html">r32(5)</a>, <a href="../rf5/rf5.html">tperrno(5)</a>, <a href="../rf5/rf5.html">tpurcode(5)</a>, and <code class="cCode">Uunix_err</code> variables are specific to each thread. 
+</p>
+<p class="pBody"><a name="wp1089785"> </a>
+The identity of the current context is specific to each thread.
+</p>
+<h3 class="pHeading2"><a name="wp1089787"> </a>
+Sample Code for a Multithreaded ATMI Client
+</h3>
+<p class="pBody"><a name="wp1089788"> </a>
+<a href="pgthr.html#wp1089790">Listing&#160;10-5</a> shows a multithreaded client using ATMI calls. Threads functions differ from one operating system to another. In this example, POSIX functions are used.
+</p>
+<a name="wp1089789"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>In order to simplify this example, error checking code has not been included. </td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1089790"> </a>
+Listing&#160;10-5	   Sample Code for a Multithreaded Client
+</div> <a name="wp1095037"> </a><div class="pPreformatted"><pre>#include &lt;stdio.h&gt;<br />#include &lt;pthread.h&gt;<br />#include &lt;atmi.h&gt;<br /><br />TPINIT   *   tpinitbuf;<br />int          timeout=60;<br />pthread_t    withdrawalthreadid, stockthreadid;<br />TPCONTEXT_T  ctxt;<br />void * stackthread(void *);<br />void * withdrawalthread(void *);<br /><br />main()<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpinitbuf = tpalloc(TPINIT, NULL, TPINITNEED(0));<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;/*<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;* This code will perform a transfer, using separate threads for the <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;* withdrawal and deposit.   It will also get the current <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;* price of Oracle stock from a separate application, and calculate how<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;* many shares the transferred amount can buy.<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;*/<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpinitbuf-&gt;flags = TPMULTICONTEXTS;<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* Fill in the rest of tpinitbuf.  */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpinit(tpinitbuf);<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpgetctxt(&amp;ctxt, 0);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpbegin(timeout, 0);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;pthread_create(&amp;withdrawalthreadid, NULL, withdrawalthread, NULL);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpcall(&quot;DEPOSIT&quot;, ...);<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* Wait for the withdrawal thread to complete. */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;pthread_join(withdrawalthreadid, NULL);<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpcommit(0);<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;tpterm();<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* Wait for the stock thread to complete. */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;pthread_join(stockthreadid, NULL);<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* Print the results. */<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;printf(&quot;$%9.2f has been transferred \<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;from your savings account to your checking account.\n&quot;, ...);<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;printf(&quot;At the current Oracle stock price of $%8.3f, \<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;you could purchase %d shares.\n&quot;, ...);<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;exit(0);<br />}<br /><br /><br /><br />void *<br />stockthread(void *arg)<br />{<br /><br />&#160;&#160;&#160;&#160;&#160;/* The other threads have now called tpinit(), so resetting TUXCONFIG can<br />&#160;&#160;&#160;&#160;&#160;&#160;* no longer adversely affect them.<br />&#160;&#160;&#160;&#160;&#160;*/<br /><br />&#160;&#160;&#160;&#160;&#160;tuxputenv(&quot;TUXCONFIG=/home/users/xyz/stockconf&quot;);<br />&#160;&#160;&#160;&#160;&#160;tpinitbuf-&gt;flags = TPMULTICONTEXTS;<br />&#160;&#160;&#160;&#160;&#160;/* Fill in the rest of tpinitbuf. */<br />&#160;&#160;&#160;&#160;&#160;tpinit(tpinitbuf);<br />&#160;&#160;&#160;&#160;&#160;tpcall(&quot;GETSTOCKPRICE&quot;, ...);<br />&#160;&#160;&#160;&#160;&#160;/* Save the stock price in a variable that can also be accessed in main(). */<br />&#160;&#160;&#160;&#160;&#160;tpterm();<br />&#160;&#160;&#160;&#160;&#160;return(NULL);<br />}<br /><br /><br /><br />void *<br />withdrawalthread(void *arg)<br />{<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;/* Create a separate thread to get stock prices from a different<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;* application. <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;*/</pre></div><a name="wp1089791"> </a><div class="pPreformatted"><pre><br /><br />&#160;&#160;&#160;&#160;&#160;pthread_create(&amp;stockthreadid, NULL, stockthread, NULL);<br />&#160;&#160;&#160;&#160;&#160;tpsetctxt(ctxt, 0);<br />&#160;&#160;&#160;&#160;&#160;tpcall(&quot;WITHDRAWAL&quot;, ...);<br />&#160;&#160;&#160;&#160;&#160;return(NULL);<br />}</pre></div><h3 class="pHeading2"><a name="wp1089792"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089796"> </a><a href="pgthr.html#wp1088990">How Multithreading and Multicontexting Work in a Client</a></li>
+<li><a name="wp1089799"> </a><a href="pgthr.html#wp1089341">Preliminary Guidelines for Programming a Multithreaded/Multicontexted ATMI Application</a></li>
+<li><a name="wp1089804"> </a><a href="pgthr.html#wp1089400">Writing Code to Enable Multicontexting in an ATMI Client</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1089807"> </a>
+Writing a Multithreaded ATMI Server
+</h3>
+<p class="pBody"><a name="wp1089808"> </a>
+Multithreaded servers are almost always multicontexted, as well. For information about writing a multithreaded server, see <a href="pgthr.html#wp1089480">Writing Code to Enable Server-Dispatched Multicontexting and Multithreading Threads in an ATMI Server</a>.
+</p>
+<h3 class="pHeading2"><a name="wp1089813"> </a>
+Compiling Code for a Multithreaded/Multicontexted ATMI Application
+</h3>
+<p class="pBody"><a name="wp1089814"> </a>
+The programs provided by the Oracle Tuxedo system for compiling or building executables, such as <a href="../rfcm/rfcmd.html">buildserver(1)</a> and <a href="../rfcm/rfcmd.html">buildclient(1)</a>, automatically include any required compiler flags. If you use these tools, then you do not need to set any flags at compile time.
+</p>
+<p class="pBody"><a name="wp1089815"> </a>
+If, however, you compile your <code class="cCode">.c</code> files into <code class="cCode">.o</code> files before doing a final compilation, you may need to set platform-specific compiler flags. Such flags must be set consistently for all code linked into a single process.
+</p>
+<p class="pBody"><a name="wp1089816"> </a>
+If you are creating a multithreaded server, you must run the <a href="../rfcm/rfcmd.html">buildserver</a><a href="../rfcm/rfcmd.html">(1)</a> command with the <code class="cCode">-t</code> option. This option is mandatory for multithreaded servers; if you do not specify it at build time and later try to boot the new server with a configuration file in which the value of <code class="cCode">MAXDISPATCHTHREADS</code> is greater than 1, a warning message is recorded in the user log and the server reverts to single-threaded operation.
+</p>
+<p class="pBody"><a name="wp1089817"> </a>
+To identify any operating system-specific compiler parameters that are required when you compile <code class="cCode">.c</code> files into <code class="cCode">.o</code> files in a multithreaded environment, run <a href="../rfcm/rfcmd.html">buildclient(1)</a> or <a href="../rfcm/rfcmd.html">buildserver(1)</a> with the <code class="cCode">-v</code> option set on a test file.
+</p>
+<h3 class="pHeading2"><a name="wp1089818"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089822"> </a><a href="pgthr.html#wp1089400">Writing Code to Enable Multicontexting in an ATMI Client</a></li>
+<li><a name="wp1089825"> </a><a href="pgthr.html#wp1089480">Writing Code to Enable Server-Dispatched Multicontexting and Multithreading Threads in an ATMI Server</a></li>
+<li><a name="wp1162592"> </a><a href="pgthr.html#wp1159681">Writing Code to Enable Multicontexting in Application-Created Threads of an ATMI Server</a></li>
+<li><a name="wp1089830"> </a><a href="pgthr.html#wp1162213">Writing a Multithreaded ATMI Client</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1089832"> </a>
+Testing a Multithreaded/Multicontexted ATMI Application
+</h2><p class="pBody"><a name="wp1136188"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089836"> </a><a href="pgthr.html#wp1089846">Testing Recommendations for a Multithreaded/Multicontexted ATMI Application</a></li>
+<li><a name="wp1089840"> </a><a href="pgthr.html#wp1089852">Troubleshooting a Multithreaded/Multicontexted ATMI Application</a></li>
+<li><a name="wp1089844"> </a><a href="pgthr.html#wp1101636">Error Handling for a Multithreaded/Multicontexted ATMI Application</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1089846"> </a>
+Testing Recommendations for a Multithreaded/Multicontexted ATMI Application
+</h3>
+<p class="pBody"><a name="wp1089847"> </a>
+We recommend following these recommendations during testing of your multithreaded and/or multicontexted code:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089848"> </a>Use a multiprocessor.</li>
+<li><a name="wp1089849"> </a>Use a multithreaded debugger (if your operating system vendor offers one).</li>
+<li><a name="wp1089850"> </a>Run stress tests to introduce a variety of timing conditions.</li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1089852"> </a>
+Troubleshooting a Multithreaded/Multicontexted ATMI Application
+</h3>
+<p class="pBody"><a name="wp1089853"> </a>
+When you need to investigate possible causes of errors, we recommend that you start by checking whether and how the <code class="cCode">TPMULTICONTEXTS</code> flag has been set. Errors are frequently introduced by failures to set this flag or to set it properly.
+</p>
+<h4 class="pHeading3"><a name="wp1089854"> </a>
+Improper Use of the TPMULTICONTEXTS Flag to tpinit( )
+</h4>
+<p class="pBody"><a name="wp1089855"> </a>
+If a process includes the <code class="cCode">TPMULTICONTEXTS</code> flag in a state for which this flag is not allowed (or omits <code class="cCode">TPMULTICONTEXTS</code> in a state that requires it), then <a href="pgclt.html#wp1030381">tpinit()</a> returns <code class="cCode">-1</code> and sets <code class="cCode">tperrno</code> to <code class="cCode">TPEPROTO</code>.
+</p>
+<h4 class="pHeading3"><a name="wp1089856"> </a>
+Calls to tpinit( ) Without TPMULTICONTEXTS
+</h4>
+<p class="pBody"><a name="wp1089857"> </a>
+When <a href="pgclt.html#wp1030381">tpinit()</a> is invoked without <code class="cCode">TPMULTICONTEXTS</code>, it behaves as it does when called in a single-contexted application. When <code class="cCode">tpinit()</code> has been invoked once, subsequent <code class="cCode">tpinit()</code> calls without the <code class="cCode">TPMULTICONTEXTS</code> flag succeed without further action. This is true even if the value of the <code class="cCode">TUXCONFIG</code> or <code class="cCode">WSNADDR</code> environment variable in the application has been changed. Calling <code class="cCode">tpinit()</code> without the <code class="cCode">TPMULTICONTEXTS</code> flag set is not allowed in multicontext mode.
+</p>
+<p class="pBody"><a name="wp1089858"> </a>
+If a client has not joined an application and <a href="pgclt.html#wp1030381">tpinit()</a> is called implicitly (as a result of a call to another function that calls <code class="cCode">tpinit()</code>), then the Oracle Tuxedo system interprets the action as a call to <code class="cCode">tpinit()</code> without the <code class="cCode">TPMULTICONTEXTS</code> flag for purposes of determining which flags may be used in subsequent calls to <code class="cCode">tpinit()</code>.
+</p>
+<p class="pBody"><a name="wp1101466"> </a>
+For most ATMI functions, if a function is invoked by a thread that is not associated with a context in a process already operating in multicontext mode, the ATMI function fails with <a href="../rf5/rf5.html">tperrno(5)</a><code class="cCode">=TPEPROTO</code>.
+</p>
+<h4 class="pHeading3"><a name="wp1101470"> </a>
+Insufficient Thread Stack Size
+</h4>
+<p class="pBody"><a name="wp1101492"> </a>
+On certain operating systems, the operating system default thread stack size is insufficient for use with the Oracle Tuxedo system. Compaq Tru64 UNIX and UnixWare are two operating systems for which this is known to be the case. If the default thread stack size parameter is used, applications on these platforms dump core when a function with substantial stack usage requirements is called by any thread other than the main thread. Often the core file that is created does not give any obvious clues to the fact that an insufficient stack size is the cause of the problem.
+</p>
+<p class="pBody"><a name="wp1101570"> </a>
+When the Oracle Tuxedo system is creating threads on its own, such as server-dispatched threads or a client unsolicited message thread, it can adjust the default stack size parameter on these platforms to a sufficient value. However, when an application is creating threads on its own, the application must specify a sufficient stack size. At a minimum, a value of 128K should be used for any thread that will access the Oracle Tuxedo system.
+</p>
+<p class="pBody"><a name="wp1101634"> </a>
+On Compaq Tru64 UNIX and other systems on which POSIX threads are used, a thread stack size is specified by invoking <code class="cCode">pthread_attr_setstacksize()</code> before calling <code class="cCode">pthread_create()</code>. On UnixWare, the thread stack size is specified as an argument to <code class="cCode">thr_create()</code>. Consult your operating system documentation for further information on this subject.
+</p>
+<h3 class="pHeading2"><a name="wp1101636"> </a>
+Error Handling for a Multithreaded/Multicontexted ATMI Application
+</h3>
+<p class="pBody"><a name="wp1089862"> </a>
+Errors are reported in the user log. For each error, whether in single-context mode or multicontext mode, the following information is recorded:
+</p>
+<p class="pBody"><a name="wp1089863"> </a>
+<code class="cCodeEmphasis">process_ID.thread_ID.context_ID</code>
+</p>
+<h3 class="pHeading2"><a name="wp1089880"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1089883"> </a><a href="pgthr.html#wp1088990">How Multithreading and Multicontexting Work in a Client</a></li>
+<li><a name="wp1105875"> </a><a href="pgthr.html#wp1089108">How Multithreading and Multicontexting Work in Server-Dispatched Threads an on ATMI Server</a></li>
+<li><a name="wp1162613"> </a><a href="pgthr.html#wp1157969">How Multithreading and Multicontexting Work in Application-Created Threads of an ATMI Server</a></li>
+<li><a name="wp1105876"> </a><a href="pgthr.html#wp1089341">Preliminary Guidelines for Programming a Multithreaded/Multicontexted ATMI Application</a></li>
+</ul></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="pgthr.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="pgglob.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="pgerr.html"><img id="LongDescNotReq9" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

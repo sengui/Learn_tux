@@ -1,0 +1,837 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="3" />
+<meta name="LOC_US_CHANGE" content="41998" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/ada/fm/adtrb.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/28/12 11:40:34" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Troubleshooting an Oracle Tuxedo Application</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Administering an Oracle Tuxedo Application at Run Time
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="adtun.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next_grey1.gif" border="0" alt="Next" />&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/ada.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1037662"> </a>
+Troubleshooting an Oracle Tuxedo Application
+</h1>
+<p class="pBody"><a name="wp1033456"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1025863"> </a><a href="adtrb.html#wp1025901">Determining Types of Failures</a></li>
+<li><a name="wp1028047"> </a><a href="adtrb.html#wp1025944">How to Broadcast an Unsolicited Message</a></li>
+<li><a name="wp1028072"> </a><a href="adtrb.html#wp1025955">Maintaining Your System Files</a></li>
+<li><a name="wp1035379"> </a><a href="adtrb.html#wp1035284">Recovery Considerations</a></li>
+<li><a name="wp1028093"> </a><a href="adtrb.html#wp1026013">Repairing Partitioned Networks</a></li>
+<li><a name="wp1028106"> </a><a href="adtrb.html#wp1026073">Restoring Failed Machines</a></li>
+<li><a name="wp1028119"> </a><a href="adtrb.html#wp1026106">How to Replace System Components</a></li>
+<li><a name="wp1027994"> </a><a href="adtrb.html#wp1026116">How to Replace Application Components</a></li>
+<li><a name="wp1025867"> </a><a href="adtrb.html#wp1026125">Cleaning Up and Restarting Servers Manually</a></li>
+<li><a name="wp1025871"> </a><a href="adtrb.html#wp1026175">Aborting or Committing Transactions</a></li>
+<li><a name="wp1025875"> </a><a href="adtrb.html#wp1031778">How to Recover from Failures When Transactions Are Used</a></li>
+<li><a name="wp1029752"> </a><a href="adtrb.html#wp1029789">How to Use the IPC Tool When an Application Fails to Shut Down Properly</a></li>
+<li><a name="wp1025879"> </a><a href="adtrb.html#wp1025843">Troubleshooting Multithreaded/ Multicontexted Applications</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1025901"> </a>
+Determining Types of Failures
+</h2><p class="pBody"><a name="wp1025904"> </a>
+The first step in troubleshooting is determining problem areas. In most applications you must consider six possible sources of trouble:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1025905"> </a>Application</li>
+<li><a name="wp1025906"> </a>Oracle Tuxedo system</li>
+<li><a name="wp1025907"> </a>Database management software</li>
+<li><a name="wp1025908"> </a>Network</li>
+<li><a name="wp1025909"> </a>Operating system</li>
+<li><a name="wp1025910"> </a>Hardware</li>
+</ul></div>
+<p class="pBody"><a name="wp1025911"> </a>
+Once you have determined the problem area, you must then work with the appropriate administrator to resolve the problem. If, for example, you determine that the trouble is caused by a networking problem, you must work with the network administrator.
+</p>
+<h3 class="pHeading2"><a name="wp1025913"> </a>
+How to Determine the Cause of an Application Failure
+</h3>
+<p class="pBody"><a name="wp1025915"> </a>
+The following steps will help you detect the source of an application failure.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1025917"> </a>Check any Oracle Tuxedo system warnings and error messages in the user log (<code class="cCode">ULOG</code>).</li>
+<li><a name="wp1025918"> </a>Select the messages you think most likely reflect the current problem. Note the catalog name and the number of each of message, so you can look up the message in <em class="cEmphasis">System Messages</em>. The manual entry provides: </li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1025919"> </a>Details about the error condition indicated by the message</li>
+<li><a name="wp1025920"> </a>Recommendations for recovery actions</li>
+</ul></div>
+<li><a name="wp1025921"> </a>Check any application warnings and error messages in the <code class="cCode">ULOG</code>.</li>
+<li><a name="wp1025922"> </a>Check any warnings and errors generated by application servers and clients. Such messages are usually sent to the standard output and standard error files (named, by default <code class="cCode">stdout</code> and <code class="cCode">stderr</code>, respectively).</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1025923"> </a>The <code class="cCode">stdout</code> and <code class="cCode">stderr</code> files are located in the directory defined by the<code class="cCode"> APPDIR</code> variable.</li>
+<li><a name="wp1025924"> </a>The <code class="cCode">stdout</code> and <code class="cCode">stderr</code> files for your clients and servers may have been renamed. (You can rename the <code class="cCode">stdout</code> and <code class="cCode">stderr</code> files by specifying <code class="cCode">-e</code> and <code class="cCode">-o</code> in the appropriate client and server definitions in your configuration file. For details, see <a href="../rf5/rf5.html">servopts(5)</a> in the <em class="cEmphasis">File Formats, Data Descriptions, MIBs, and System Processes Reference</em>.)</li>
+</ul></div>
+<li><a name="wp1025925"> </a>Look for any core dumps in the directory defined by the <code class="cCode">APPDIR</code>.variable. Use a debugger such as <code class="cCode">dbx</code> to get a stack trace. If you find core dumps, notify your application developer.</li>
+<li><a name="wp1025926"> </a>Check your system activity reports (for example, by running the <code class="cCode">sar</code>(1) command) to determine why your system is not functioning properly. Consider the following reasons:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1025927"> </a>The system may be running out of memory.</li>
+<li><a name="wp1025928"> </a>The kernel might not be tuned correctly.</li>
+</ul></div>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1025931"> </a>
+How to Determine the Cause of an Oracle Tuxedo System Failure
+</h3>
+<p class="pBody"><a name="wp1025932"> </a>
+The following steps will help you detect the source of a system failure.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1025933"> </a>Check any Oracle Tuxedo system warnings and error messages in the user log (<code class="cCode">ULOG</code>):</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1025934"> </a><code class="cCode">TPEOS</code> messages indicate errors in the operating system.</li>
+<li><a name="wp1025935"> </a><code class="cCode">TPESYSTEM</code> messages indicate errors in the Oracle Tuxedo system.</li>
+</ul></div>
+<li><a name="wp1025936"> </a>Select the messages you think most likely reflect the current problem. Note the catalog name and number of each of message, so you can look up the message in<em class="cEmphasis"> System Messages</em>. The manual entry provides: </li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1025937"> </a>Details about the error condition flagged by the message.</li>
+<li><a name="wp1025938"> </a>Recommendations for recovery actions.</li>
+</ul></div>
+<li><a name="wp1025939"> </a>Prepare for debugging in the following ways:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1030055"> </a>Shut down the <code class="cCode">suspend</code> service.</li>
+<li><a name="wp1030204"> </a>Use <code class="cCode">tmboot -n -s(server) -d1</code>. (This will not boot the server, but prints the command line used to boot the server by the Oracle Tuxedo system.) Use that command line with a debugger such as <code class="cCode">dbx</code>.</li>
+</ul></div>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1025944"> </a>
+How to Broadcast an Unsolicited Message
+</h2><p class="pBody"><a name="wp1025946"> </a>
+The EventBroker enhances troubleshooting by providing a system-wide summary of events and a mechanism whereby an event triggers notification. The EventBroker provides details about Oracle Tuxedo system events, such as servers dying and networks failing, or application events, such as an ATM machine running out of money. An Oracle Tuxedo client that receives unsolicited notification of an event, can name a service routine to be invoked, or name an application queue in which data should be stored for later processing. An Oracle Tuxedo server that receives unsolicited notification can specify a service request or name an application queue to store data.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1028427"> </a>To send an unsolicited message, enter the following command:</li>
+<a name="wp1025947"> </a><div class="pPreformattedRelative"><pre><code class="cCode">broadcast</code> (<code class="cCode">bcst</code>) [-m <span style="font-style: italic">machine</span>] [-u <span style="font-style: italic">usrname</span>] [-c <span style="font-style: italic">cltname</span>] [<span style="font-style: italic">text</span>] </pre></div><a name="wp1025948"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>By default, the message is sent to all clients. </td>
+</tr>
+</table>
+
+<li><a name="wp1028578"> </a>You can limit distribution to one of the following recipients:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1025949"> </a>One machine (<code class="cCode">-m </code><code class="cCodeEmphasis">machine</code>)</li>
+<li><a name="wp1025950"> </a>One client group (<code class="cCode">-c </code><code class="cCodeEmphasis">client_group</code>)</li>
+<li><a name="wp1025951"> </a>One user (<code class="cCode">-u </code><code class="cCodeEmphasis">user</code>) </li>
+</ul></div>
+</ol></div>
+<p class="pBody"><a name="wp1025952"> </a>
+The text may not include more than 80 characters. The system sends the message in a <code class="cCode">STRING</code> type buffer, which means the client&#8217;s unsolicited message handling function (specified by <code class="cCode">tpsetunsol(0)</code>) must be able to handle this type of message. The<span style="font-style: italic"> </span><code class="cCode">tptypes()</code> function may be useful in this case.
+</p>
+<h3 class="pHeading2"><a name="wp1028636"> </a>
+See Also
+</h3>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1032299"> </a><span class="cHyperlink">
+&#8220;Unsolicited </span><a href="../int/intatm.html"></a>Communication&#8221; in<span style="font-weight: bold"> </span><span style="font-weight: normal">Introducing Oracle Tuxedo ATMI</span></li>
+<li><a name="wp1032304"> </a><span class="cHyperlink">
+&#8220;Managing Events </span><a href="../int/intman.html"></a>Using EventBroker&#8221; in <em class="cEmphasis">Introducing Oracle Tuxedo ATMI</em></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1025955"> </a>
+Maintaining Your System Files
+</h2><p class="pBody"><a name="wp1025956"> </a>
+Periodically, you may need to perform the following tasks to maintain your file system:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1029515"> </a><a href="adtrb.html#wp1029449">Print the Universal Device List</a></li>
+<li><a name="wp1025958"> </a><a href="adtrb.html#wp1029457">Print VTOC information</a></li>
+<li><a name="wp1029535"> </a><a href="adtrb.html#wp1029639">Reinitialize a device</a></li>
+<li><a name="wp1029513"> </a><a href="adtrb.html#wp1025964">Create a device list</a></li>
+<li><a name="wp1025959"> </a><a href="adtrb.html#wp1025974">Destroy a device list</a></li>
+</ul></div>
+<a name="wp1030244"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>This file format is used for <code class="cCode">TUXCONFIG</code>, <code class="cCode">TLOG</code>, and /Q.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1029449"> </a>
+How to Print the Universal Device List (UDL)
+</h3>
+<p class="pBody"><a name="wp1029450"> </a>
+To print a UDL, complete the following procedure:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1030253"> </a>Run <code class="cCode">tmadmin -c</code>.</li>
+<li><a name="wp1029451"> </a>Enter the following command:</li>
+<a name="wp1029452"> </a><div class="pPreformattedRelative"><pre>lidl</pre></div><li><a name="wp1029453"> </a>To specify the device from which you want to obtain the UDL, you have a choice of two methods:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1029454"> </a>Specify the device on the <code class="cCode">lidl</code> command line:</li>
+<a name="wp1029455"> </a><div class="pPreformattedRelative"><pre>-z <code class="cCodeEmphasis">device_name</code> [<code class="cCodeEmphasis">devindx</code>]</pre></div><li><a name="wp1029456"> </a>Set the environment variable <code class="cCode">FSCONFIG</code> to the name of the desired device.</li>
+</ul></div>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1029457"> </a>
+How to Print VTOC Information
+</h3>
+<p class="pBody"><a name="wp1029458"> </a>
+To print VTOC information, complete the following procedure.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1030298"> </a>Run <code class="cCode">tmadmin -c</code>.</li>
+<li><a name="wp1029459"> </a>To get information about all VTOC table entries, enter the following command:</li>
+<a name="wp1029460"> </a><div class="pPreformattedRelative"><pre>livtoc</pre></div><li><a name="wp1029461"> </a>To specify the device from which you want to obtain the VTOC, you have a choice of two methods:</li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1029462"> </a>Specify the following on the <code class="cCode">lidl</code> command line:</li>
+<a name="wp1029463"> </a><div class="pPreformattedRelative"><pre>-z <code class="cCodeEmphasis">device name</code> [<code class="cCodeEmphasis">devindx</code>]</pre></div><li><a name="wp1029464"> </a>Set the environment variable <code class="cCode">FSCONFIG</code> to the name of the desired device.</li>
+</ul></div>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1029639"> </a>
+How to Reinitialize a Device
+</h3>
+<p class="pBody"><a name="wp1029640"> </a>
+To reinitialize a device that is included on a device list, complete the following procedure.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1029641"> </a>Run <code class="cCode">tmadmin -c</code>.</li>
+<li><a name="wp1030351"> </a>Enter the following command:</li>
+<a name="wp1029642"> </a><div class="pPreformattedRelative"><pre>initdl [-z <code class="cCodeEmphasis">devicename</code>] [-yes] <code class="cCodeEmphasis">devindx</code></pre></div><a name="wp1029643"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The value of <code class="cCodeEmphasis">devindx</code> is the index to the file to be destroyed.</td>
+</tr>
+</table>
+
+<li><a name="wp1029644"> </a>You can specify the device by: </li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1029645"> </a>Entering its name after the <code class="cCode">-z</code> option (as shown here), or</li>
+<li><a name="wp1029646"> </a>Setting the environment variable <code class="cCode">FSCONFIG</code> to the device name</li>
+</ul></div>
+<li><a name="wp1029633"> </a>If you include the <code class="cCode">-yes</code> option on the command line, you are not prompted to confirm your intention to destroy the file before the file is actually destroyed.</li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1025964"> </a>
+How to Create a Device List
+</h3>
+<p class="pBody"><a name="wp1025966"> </a>
+To create a device list, complete the following procedure.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1029191"> </a>Run <code class="cCode">tmadmin -c</code>.</li>
+<li><a name="wp1025968"> </a>Enter the following command:</li>
+<a name="wp1025969"> </a><div class="pPreformattedRelative"><pre>crdl [-z <code class="cCodeEmphasis">devicename</code>] [-b <code class="cCodeEmphasis">blocks</code>]</pre></div><div class="pSmartList2Bullet"><ul>
+<li><a name="wp1025970"> </a>The value of <code class="cCodeEmphasis">devicename</code> [<code class="cCodeEmphasis">devindx</code>] is the desired device name. (Another way to assign a name to a new device is by setting the <code class="cCode">FSCONFIG</code> environment variable to the desired device name.)</li>
+<li><a name="wp1025971"> </a>The value of<span style="font-style: italic"> </span><code class="cCodeEmphasis">blocks</code> is the number of blocks needed. The default is 1000 blocks.</li>
+<a name="wp1025972"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Because 35 blocks are needed for the administrative overhead associated with a TLOG, be sure to assign a value higher than 35 when you create a TLOG.</td>
+</tr>
+</table>
+
+</ul></div>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1025974"> </a>
+How to Destroy a Device List
+</h3>
+<p class="pBody"><a name="wp1025976"> </a>
+To destroy a device list with index <code class="cCodeEmphasis">devindx</code>, complete the following procedure.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1029136"> </a>Run <code class="cCode">tmadmin -c</code>.</li>
+<li><a name="wp1030404"> </a>Enter the following command:</li>
+<a name="wp1025977"> </a><div class="pPreformattedRelative"><pre>dsdl [-z <code class="cCodeEmphasis">devicename</code>] [yes] [<code class="cCodeEmphasis">devindx</code>]</pre></div><a name="wp1027487"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The value of <code class="cCodeEmphasis">devindx</code> is the index to the file to be destroyed.</td>
+</tr>
+</table>
+
+<li><a name="wp1025978"> </a>You can specify the device by: </li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1025979"> </a>Entering its name after the <code class="cCode">-z</code> option (as shown here), or</li>
+<li><a name="wp1025980"> </a>Setting the environment variable <code class="cCode">FSCONFIG</code> to the device name</li>
+</ul></div>
+<li><a name="wp1025981"> </a>If you include the yes option on the command line, you are not prompted to confirm your intention to destroy the file before the file is actually destroyed.</li>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1035284"> </a>
+Recovery Considerations
+</h2><p class="pBody"><a name="wp1035285"> </a>
+The Oracle Tuxedo system requires a certain level of environmental stability to provide optimum functionality. Although the Oracle Tuxedo administrative subsystem offers unparalleled capabilities of recovering from network, machine, and application process failures, it is not invulnerable. You should be aware of the following ways in which an Oracle Tuxedo system works.
+</p>
+<p class="pBody"><a name="wp1035286"> </a>
+Application clients and servers that use the <code class="cCode">FASTPATH</code> model of <code class="cCode">SYSTEM_ACCESS</code> (the default) have direct memory access to the Oracle Tuxedo shared data structures. Using the <code class="cCode">FASTPATH</code> model helps ensure that the Oracle Tuxedo system achieves its outstanding performance. The Oracle Tuxedo system uses the IPC (InterProcess Communication and File System) facilities provided by the operating system.
+</p>
+<p class="pBody"><a name="wp1035287"> </a>
+If an application accidentally uses these facilities to write into the Oracle Tuxedo shared memory or to an Oracle Tuxedo file descriptor, or if it mistakenly uses any other Oracle Tuxedo system resource, data may become corrupted, Oracle Tuxedo functionality may be compromised, or an application may be brought down. 
+</p>
+<p class="pBody"><a name="wp1035288"> </a>
+It is inappropriate for a user or administrator to directly terminate application clients, application servers, or Oracle Tuxedo administrative processes because these processes may be executing within a critical section (that is, updating shared information in shared memory). Interrupting a critical section during a memory update could potentially cause inconsistent internal data structures. (This is characteristic not only of the Oracle Tuxedo system, but of any system in which shared data is used.) Error messages in the Oracle Tuxedo userlog that refer to locks or semaphores may indicate that such corruption has occurred.
+</p>
+<p class="pBody"><a name="wp1035289"> </a>
+For maximum application availability, you can take advantage of the Oracle Tuxedo system&#8217;s facilities for managing redundancy, such as its multiple server, machine, and domain facilities. Distributing an application&#8217;s functionality allows continued operation if a failure occurs in one area.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1026013"> </a>
+Repairing Partitioned Networks
+</h2><p class="pBody"><a name="wp1026015"> </a>
+This topic provides instructions for troubleshooting a partition, identifying its cause, and taking action to recover from it. A network partition exists if one or more machines cannot access the <code class="cCode">MASTER</code> machine. As the application administrator, you are responsible for detecting partitions and recovering from them. 
+</p>
+<p class="pBody"><a name="wp1026016"> </a>
+A network partition may be caused by any the following failures:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1026017"> </a>A network failure&#8212;either a transient failure, which corrects itself in minutes, or a severe failure, which requires you to take the partitioned machine out of the network</li>
+<li><a name="wp1026020"> </a>A machine failure on either the <code class="cCode">MASTER</code> machine or the nonmaster machine </li>
+<li><a name="wp1026023"> </a>A <code class="cCode">BRIDGE</code> failure</li>
+</ul></div>
+<p class="pBody"><a name="wp1026024"> </a>
+The procedure you follow to recover from a partitioned network depends on the cause of the partition. 
+</p>
+<h3 class="pHeading2"><a name="wp1026026"> </a>
+Detecting a Partitioned Network
+</h3>
+<p class="pBody"><a name="wp1026028"> </a>
+You can detect a network partition in one of the following ways:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1026029"> </a><a href="adtrb.html#wp1026032">Check the user log (</a><code class="cCode">ULOG</code>) for messages that may shed light on the origin of the problem.</li>
+<li><a name="wp1026030"> </a><a href="adtrb.html#wp1026039">Gather information about the network, server, and service, by running the tmadmin commands provided for this purpose.</a></li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1026032"> </a>
+How to Check the ULOG
+</h4>
+<p class="pBody"><a name="wp1026033"> </a>
+When problems occur with the network, Oracle Tuxedo system administrative servers start sending messages to the <code class="cCode">ULOG</code>. If the <code class="cCode">ULOG</code> is set up over a remote file system, all messages are written to the same log. In this scenario, you can run the <code class="cCode">tail</code>(1) command on one file and check the failure messages displayed on the screen.
+</p>
+<p class="pBody"><a name="wp1026035"> </a>
+If, however, the remote file system is using the network in which the problem has occurred, the remote file system may no longer be available.
+</p>
+<div class="pCodeTitle"><a name="wp1026036"> </a>
+Listing&#160;9-1	   Example of a ULOG Error Message
+</div> <a name="wp1026037"> </a><div class="pPreformatted"><pre>151804.gumby!DBBL.28446: ... : ERROR: BBL partitioned, machine=SITE2<br /></pre></div><h4 class="pHeading3"><a name="wp1026039"> </a>
+How to Gather Information About the Network, Server, and Service
+</h4>
+<p class="pBody"><a name="wp1026043"> </a>
+The following is an example of a <code class="cCode">tmadmin</code> session in which information is being collected about a partitioned network, a server, and a service on that network. Three <code class="cCode">tmadmin</code> commands are run: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1026045"> </a><code class="cCode">pnw</code> (the <code class="cCode">printnetwork</code> command)</li>
+<li><a name="wp1026047"> </a><code class="cCode">psr</code> (the <code class="cCode">printserver</code> command)</li>
+<li><a name="wp1026843"> </a><code class="cCode">psc</code> (the <code class="cCode">printservice</code> command)</li>
+<div class="pCodeTitle"><a name="wp1026871"> </a>
+Listing&#160;9-2	   Example tmadmin Session
+</div> <a name="wp1027054"> </a><div class="pPreformatted"><pre>$ tmadmin<br />&gt; pnw SITE2<br />Could not retrieve status from SITE2<br /><br />&gt; psr -m SITE1<br />a.out Name   Queue Name	   Grp Name   ID   Rq Done   Load Done   Current Service<br />BBL          30002.00000  SITE1       0      -         -             ( - )<br />DBBL         123456       SITE1	       0     121       6050          MASTERBB<br />simpserv     00001.00001  GROUP1      	1	      -	         -	             ( - )<br />BRIDGE	       16900672	     SITE1       	0      	-         	-	            ( DEAD )<br />&gt;psc -m SITE1<br />Service Name Routine Name a.out    Grp Name ID Machine # Done Status<br />------------ ------------ -------- -------- -- ------- ------------ <br />ADJUNCTADMIN ADJUNCTADMIN BBL      SITE1     0   SITE1      - PART<br />ADJUNCTBB    ADJUNCTBB    BBL      SITE1     0   SITE1      - PART<br />TOUPPER      TOUPPER      simpserv GROUP1    1   SITE1      - PART<br />BRIDGESVCNM  BRIDGESVCNM  BRIDGE   SITE1     1   SITE1      - PART<br /></pre></div></ul></div>
+<h3 class="pHeading2"><a name="wp1026702"> </a>
+Restoring a Network Connection
+</h3>
+<p class="pBody"><a name="wp1026056"> </a>
+This topic provides instructions for recovering from transient and severe network failures.
+</p>
+<h4 class="pHeading3"><a name="wp1026058"> </a>
+How to Recover from Transient Network Failures
+</h4>
+<p class="pBody"><a name="wp1026060"> </a>
+Because the <code class="cCode">BRIDGE</code> tries, automatically, to recover from any transient network failures and reconnect, transient network failures are usually not noticed. If, however, you need to perform a manual recovery from a transient network failure, complete the following procedure.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1026061"> </a>On the <code class="cCode">MASTER</code> machine, start a <a href="../rfcm/rfcmd.html">tmadmin(1)</a> session.</li>
+<li><a name="wp1026062"> </a>Run the <code class="cCode">reconnect</code> command (<code class="cCode">rco</code>), specifying the names of nonpartitioned and partitioned machines:</li>
+<a name="wp1026063"> </a><div class="pPreformattedRelative"><pre><code class="cCode">rco </code><code class="cCodeEmphasis">non-partioned_node1 partioned_node2</code></pre></div></ol></div>
+<h4 class="pHeading3"><a name="wp1026065"> </a>
+How to Recover from Severe Network Failures
+</h4>
+<p class="pBody"><a name="wp1026067"> </a>
+To recover from severe network failure, complete the following procedure.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1026068"> </a>On the <code class="cCode">MASTER</code> machine, start a <code class="cCode">tmadmin</code> session.</li>
+<li><a name="wp1026069"> </a>Run the <code class="cCode">pclean</code> command, specifying the name of the partitioned machine:</li>
+<a name="wp1026070"> </a><div class="pPreformattedRelative"><pre>pcl <code class="cCodeEmphasis">partioned_machine</code></pre></div><li><a name="wp1026071"> </a>Migrate the application servers or, once the problem has been corrected, reboot the machine.</li>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1026073"> </a>
+Restoring Failed Machines
+</h2><p class="pBody"><a name="wp1026074"> </a>
+The procedure you follow to restore a failed machine depends on whether that machine was the <code class="cCode">MASTER</code> machine.
+</p>
+<h3 class="pHeading2"><a name="wp1026076"> </a>
+How to Restore a Failed MASTER Machine
+</h3>
+<p class="pBody"><a name="wp1026077"> </a>
+To restore a failed <code class="cCode">MASTER</code> machine, complete the following procedure.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1026078"> </a>Make sure that all IPC resources for the Oracle Tuxedo processes that are removed.</li>
+<li><a name="wp1026079"> </a>Start a <code class="cCode">tmadmin</code> session on the <code class="cCode">ACTING MASTER</code> (<code class="cCode">SITE2</code>):</li>
+<a name="wp1028959"> </a><div class="pPreformattedRelative"><pre>tmadmin</pre></div><li><a name="wp1026081"> </a>Boot the BBL on the <code class="cCode">MASTER</code> (<code class="cCode">SITE1</code>) by entering the following command:</li>
+<a name="wp1026082"> </a><div class="pPreformattedRelative"><pre>boot -B SITE1</pre></div><p class="pBodyRelative"><a name="wp1026083"> </a>
+(The BBL does not boot if you have not executed <code class="cCode">pclean</code> on <code class="cCode">SITE1</code>.)
+</p>
+<li><a name="wp1026084"> </a>Still in <code class="cCode">tmadmin</code>, start a DBBL running again on the <code class="cCode">MASTER</code> site (<code class="cCode">SITE1</code>) by entering the following:</li>
+<a name="wp1026085"> </a><div class="pPreformattedRelative"><pre>MASTER</pre></div><li><a name="wp1026086"> </a>If you have migrated application servers and data off the failed machine, boot them or migrate them back.</li>
+</ol></div>
+<h3 class="pHeading2"><a name="wp1026089"> </a>
+How to Restore a Failed Nonmaster Machine
+</h3>
+<p class="pBody"><a name="wp1026090"> </a>
+To restore a failed nonmaster machine, complete the following procedure.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1026091"> </a>On the <code class="cCode">MASTER</code> machine, start a <code class="cCode">tmadmin</code> session.</li>
+<li><a name="wp1026092"> </a>Run <code class="cCode">pclean</code>, specifying the partitioned machine on the command line.</li>
+<li><a name="wp1026093"> </a>Fix the machine problem.</li>
+<li><a name="wp1026094"> </a>Restore the failed machine by booting the Bulletin Board Liaison (BBL) for the machine from the <code class="cCode">MASTER</code> machine. </li>
+<li><a name="wp1026095"> </a>If you have migrated application servers and data from the failed machine, boot them or migrate them back.</li>
+</ol></div>
+<p class="pBody"><a name="wp1026099"> </a>
+In the following list, <code class="cCode">SITE2</code>, a nonmaster machine, is restored.
+</p>
+<div class="pCodeTitle"><a name="wp1026102"> </a>
+Listing&#160;9-3	   Example of Restoring a Failed Nonmaster Machine
+</div> <a name="wp1026103"> </a><div class="pPreformatted"><pre>$ tmadmin<br />tmadmin - Copyright © 1987-1990 AT&amp;T; 1991-1993 USL. All rights reserved<br /><br />&gt; pclean SITE2<br />Cleaning the DBBL.<br /><br />Pausing 10 seconds waiting for system to stabilize.<br />3 SITE2 servers removed from bulletin board<br /><br />&gt; boot -B SITE2<br />Booting admin processes ...<br /><br />Exec BBL -A :<br /><br />on SITE2 -&gt; process id=22923 ... Started.<br />1 process started.<br />&gt; q<br /></pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1026106"> </a>
+How to Replace System Components
+</h2><p class="pBody"><a name="wp1026108"> </a>
+To replace Oracle Tuxedo system components, complete the following procedure.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1026109"> </a>Install the Oracle Tuxedo system software that is being replaced.</li>
+<li><a name="wp1026110"> </a>Shut down those parts of the application that will be affected by the changes: </li>
+<div class="pSmartList2Bullet"><ul>
+<li><a name="wp1026111"> </a>The Oracle Tuxedo system servers may need to be shut down if libraries are being updated. </li>
+<li><a name="wp1026112"> </a>Application clients and servers must be shut down and rebuilt if relevant Oracle Tuxedo system header files or static libraries are being replaced. (Application clients and servers do not need to be rebuilt if the Oracle Tuxedo system message catalogs, system commands, administrative servers, or shared objects are being replaced.)</li>
+</ul></div>
+<li><a name="wp1026113"> </a>If relevant Oracle Tuxedo system header files and static libraries have been replaced, rebuild your application clients and servers.</li>
+<li><a name="wp1026114"> </a>Reboot the parts of the application that you shut down.</li>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1026116"> </a>
+How to Replace Application Components
+</h2><p class="pBody"><a name="wp1026119"> </a>
+To replace components of your application, complete the following procedure.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1026120"> </a>Install the application software. This software may consist of application clients, application servers, and various administrative files, such as the FML field tables.</li>
+<li><a name="wp1026121"> </a>Shut down the application servers being replaced.</li>
+<li><a name="wp1026122"> </a>If necessary, build the new application servers.</li>
+<li><a name="wp1026123"> </a>Boot the new application servers.</li>
+</ol></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1026125"> </a>
+Cleaning Up and Restarting Servers Manually 
+</h2><p class="pBody"><a name="wp1026127"> </a>
+By default, the Oracle Tuxedo system cleans up resources associated with dead processes (such as queues) and restarts restartable dead servers from the Bulletin Board (BB) at regular intervals during BBL scans. You may, however, request cleaning at other times.
+</p>
+<h3 class="pHeading2"><a name="wp1026128"> </a>
+How to Clean Up Resources Associated with Dead Processes
+</h3>
+<p class="pBody"><a name="wp1026131"> </a>
+To request an immediate cleanup of resources associated with dead processes, complete the following procedure.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1026132"> </a>Start a <code class="cCode">tmadmin</code> session.</li>
+<li><a name="wp1026133"> </a>Enter <code class="cCode">bbclean</code> <code class="cCodeEmphasis">machine</code>.</li>
+</ol></div>
+<p class="pBody"><a name="wp1026134"> </a>
+The <code class="cCode">bbclean</code> command takes one optional argument: the name of the machine to be cleaned.
+</p>
+<p class="pGraphic"><a name="wp1026152"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1026137table1026135">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1026137"> </a>
+<span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">If You Specify...</span>
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1026139"> </a>
+Then...
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026141"> </a>
+No machine
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026143"> </a>
+The resources on the default machine are cleaned.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026145"> </a>
+A machine
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026147"> </a>
+The resources on the specified machine are cleaned.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026149"> </a>
+DBBL
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1026151"> </a>
+The resources on the Distinguished Bulletin Board Liaison (DBBL) and the bulletin boards at all sites are cleaned.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<h3 class="pHeading2"><a name="wp1026153"> </a>
+How to Clean Up Other Resources
+</h3>
+<p class="pBody"><a name="wp1026155"> </a>
+To clean up other resources, complete the following procedure.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1026157"> </a>Start a <code class="cCode">tmadmin</code> session.</li>
+<li><a name="wp1026158"> </a>Enter <code class="cCode">pclean </code><code class="cCodeEmphasis">machine</code>.</li>
+</ol></div>
+<a name="wp1026172"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>You must specify a value for <code class="cCodeEmphasis">machine</code>; it is a required argument.</td>
+</tr>
+</table>
+
+<p class="pGraphic"><a name="wp1028595"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1028611table1028609">
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1028611"> </a>
+If the Specified Machine Is
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1028613"> </a>
+Then
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1028615"> </a>
+Not partitioned
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1028617"> </a>
+<code class="cCode">pclean</code> will invoke <code class="cCode">bbclean</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1028619"> </a>
+Partitioned
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1028621"> </a>
+<code class="cCode">pclean</code> will remove all entries for servers and services from all nonpartitioned bulletin boards.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1026173"> </a>
+This command is useful for restoring order to a system after partitioning has occurred unexpectedly.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1033512"> </a>
+How to Check the Order in Which Oracle Tuxedo CORBA Servers Are Booted
+</h2><p class="pBody"><a name="wp1033519"> </a>
+If a Oracle Tuxedo CORBA application fails to boot, open the application&#8217;s <code class="cCode">UBBCONFIG</code> file with a text editor and check whether the servers are booted in the correct order in the <code class="cCode">SERVERS</code> section. The following is the correct order in which to boot the servers in a Oracle Tuxedo CORBA environment. A Oracle Tuxedo CORBA application will not boot if this order is not adhered to.
+</p>
+<p class="pBody"><a name="wp1033526"> </a>
+Boot the servers in the following order:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1033527"> </a>The system EventBroker, <code class="cCode">TMSYSEVT.</code></li>
+<li><a name="wp1033528"> </a>The TMFFNAME server with the <code class="cCode">-N</code> option and the <code class="cCode">-M</code> option, which starts the NameManager service (as a <code class="cCode">MASTER</code>). This service maintains a mapping of application-supplied names to object references.</li>
+<li><a name="wp1033529"> </a>The TMFFNAME server with the <code class="cCode">-N</code> option only, to start a slave NameManager service.</li>
+<li><a name="wp1033530"> </a>The <code class="cCode">TMFFNAME</code> server with the <code class="cCode">-F</code> option, to start the FactoryFinder.</li>
+<li><a name="wp1033531"> </a>The application servers that are advertising factories.</li>
+</ol></div>
+<p class="pBody"><a name="wp1033534"> </a>
+For a detailed example, see the section <span class="cHyperlink">
+&#8220;Required Order in Which</span><a href="../ads/adfig.html"></a> to Boot CORBA C++ Servers&#8221; in <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em>.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1033540"> </a>
+How to Check the Hostname Format and Capitalization of Oracle Tuxedo CORBA Servers
+</h2><p class="pBody"><a name="wp1033546"> </a>
+The network address that is specified by programmers in the Bootstrap object constructor or in <code class="cCode">TOBJADDR</code> must exactly match the network address in the server application&#8217;s <code class="cCode">UBBCONFIG</code> file. The format of the address as well as the capitalization must match. If the addresses do not match, the call to the Bootstrap object constructor will fail with a seemingly unrelated error message:
+</p>
+<p class="pBody"><a name="wp1033547"> </a>
+<code class="cCode">ERROR: Unofficial connection from client at <br />&lt;tcp/ip address&gt;/&lt;port-number&gt;:</code>
+</p>
+<p class="pBody"><a name="wp1033548"> </a>
+For example, if the network address is specified as //TRIXIE:3500 in the ISL command-line option string (in the server application&#8217;s <code class="cCode">UBBCONFIG</code> file), specifying either //192.12.4.6:3500 or //trixie:3500 in the Bootstrap object constructor or in TOBJADDR will cause the connection attempt to fail.
+</p>
+<p class="pBody"><a name="wp1034139"> </a>
+On UNIX systems, use the uname -n command on the host system to determine the capitalization used. On Windows systems, see the host system&#8217;s Network control panel to determine the capitalization used.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1034144"> </a>
+Why Some Oracle Tuxedo CORBA Clients Fail to Boot
+</h2><p class="pBody"><a name="wp1034145"> </a>
+You may want to perform the following steps on a Windows server that is running a Oracle Tuxedo CORBA application, if the following problem occurs: some Internet Inter-ORB Protocol (IIOP) clients boot, but some clients fail to create a Bootstrap object and return an <code class="cCode">InvalidDomain</code> message, even though the <code class="cCode">//host:port</code> address is correctly specified. (For related information, see the section <a href="adtrb.html#wp1033540"><span class="cHyperlink">
+How to Check the Hostname Format and Capitalization of Oracle Tuxedo CORBA Servers on page&#160;9-14</span></a>.)
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1033562"> </a>Start <code class="cCode">regedt32</code>, the Registry Editor.</li>
+<li><a name="wp1033563"> </a>Go to the <code class="cCode">HKEY_LOCAL_MACHINE on Local Machine</code> window.</li>
+<li><a name="wp1033564"> </a>Select:</li>
+<a name="wp1033565"> </a><div class="pPreformatted"><pre><code class="cCode">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Afd\Parameters</code></pre></div><li><a name="wp1033566"> </a>Add the following values by using the Edit &#8212;&gt; Add Value menu option:</li>
+<p class="pBodyRelative"><a name="wp1033567"> </a>
+<code class="cCode">DynamicBacklogGrowthDelta: REG_DWORD : 0xa</code>
+</p>
+<p class="pBodyRelative"><a name="wp1033568"> </a>
+<code class="cCode">EnableDynamicBacklog: REG_DWORD: 0x1</code>
+</p>
+<p class="pBodyRelative"><a name="wp1033569"> </a>
+<code class="cCode">MaximumDynamicBacklog: REG_DWORD: 0x3e8</code>
+</p>
+<p class="pBodyRelative"><a name="wp1033570"> </a>
+<code class="cCode">MinimumDynamicBacklog: REG_DWORD: 0x14</code>
+</p>
+<li><a name="wp1033571"> </a>Restart the Windows system for the changes to take effect.</li>
+</ol></div>
+<p class="pBody"><a name="wp1033572"> </a>
+These values replace the static connection queue (that is, the backlog) of five pending connections with a dynamic connection backlog, that will have at least 20 entries (minimum 0x14), at most 1000 entries (maximum 0x3e8), and will increase from the minimum to the maximum by steps of 10 (growth delta 0xa).
+</p>
+<p class="pBody"><a name="wp1033573"> </a>
+These settings only apply to connections that have been received by the system, but are not accepted by an IIOP Listener. The minimum value of 20 and the delta of 10 are recommended by Microsoft. The maximum value depends on the machine. However, Microsoft recommends that the maximum value not exceed 5000 on a Windows server.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1026175"> </a>
+Aborting or Committing Transactions
+</h2><p class="pBody"><a name="wp1026176"> </a>
+This topic provides instructions for aborting and committing transactions.
+</p>
+<h3 class="pHeading2"><a name="wp1026178"> </a>
+How to Abort a Transaction
+</h3>
+<p class="pBody"><a name="wp1026180"> </a>
+To abort a transaction, complete the following procedure.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1029232"> </a>Enter the following command:</li>
+<a name="wp1026181"> </a><div class="pPreformattedRelative"><pre>aborttrans (abort) [-yes] [-g <code class="cCodeEmphasis">groupname</code>] <code class="cCodeEmphasis">tranindex</code></pre></div><li><a name="wp1026182"> </a>To determine the value of <code class="cCodeEmphasis">tranindex</code>, run the <code class="cCode">printtrans</code> command (a <code class="cCode">tmadmin</code> command).</li>
+<li><a name="wp1026183"> </a>If <code class="cCodeEmphasis">groupname</code> is specified, a message is sent to the TMS of that group to mark as &#8220;aborted&#8221; the transaction for that group. If a group is not specified, a message is sent, instead, to the coordinating TMS, requesting an abort of the transaction. You must send abort messages to all groups in the transaction to control the abort.</li>
+</ol></div>
+<p class="pBody"><a name="wp1026184"> </a>
+This command is useful when the coordinating site is partitioned or when the client terminates before calling a commit or an abort. If the timeout is large, the transaction remains in the transaction table unless it is aborted.
+</p>
+<h3 class="pHeading2"><a name="wp1026186"> </a>
+How to Commit a Transaction
+</h3>
+<p class="pBody"><a name="wp1026188"> </a>
+To commit a transaction, enter the following command:
+</p>
+<a name="wp1026189"> </a><div class="pPreformatted"><pre>committrans (commit) [-yes] [-g <code class="cCodeEmphasis">groupname</code>] <code class="cCodeEmphasis">tranindex</code></pre></div><a name="wp1026190"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Both <code class="cCodeEmphasis">groupname</code> and <code class="cCodeEmphasis">tranindex</code> are required arguments.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1026191"> </a>
+The operation fails if the transaction is not precommitted or has been marked aborted. This message should be sent to all groups to fully commit the transaction.
+</p>
+<h4 class="pHeading3"><a name="wp1026193"> </a>
+Cautions About Using the committrans Command
+</h4>
+<p class="pBody"><a name="wp1026194"> </a>
+Be careful about using the <code class="cCode">committrans</code> command. The only time you need to run it is when both of the following conditions apply:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1026195"> </a>The coordinating TMS has gone down before all groups got the commit message.</li>
+<li><a name="wp1026196"> </a>The coordinating TMS will not be able to recover the transaction for some time.</li>
+</ul></div>
+<p class="pBody"><a name="wp1031776"> </a>
+Also, a client may be blocked on <code class="cCode">tpcommit()</code>, which will be timed out. If you are going to perform an administrative commit, be sure to inform this client.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1031778"> </a>
+How to Recover from Failures When Transactions Are Used
+</h2><p class="pBody"><a name="wp1026201"> </a>
+When the application you are administering includes database transactions, you may need to apply an after-image journal (AIJ) to a restored database following a disk corruption failure. Or you may need to coordinate the timing of this recovery activity with your site&#8217;s database administrator (DBA). Typically, the database management software automatically performs transaction rollback when an error occurs. When the disk containing database files has become corrupted permanently, however, you or the DBA may need to step in and perform the rollforward operation. 
+</p>
+<p class="pBody"><a name="wp1026203"> </a>
+Assume that a disk containing portions of a database is corrupted at 3:00 P.M. on a Wednesday. For this example, assume that a shadow volume (that is, you have disk mirroring) does not exist.
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1026206"> </a>Shut down the Oracle Tuxedo application. (For instructions, see <a href="adboot.html"><span class="cHyperlink">
+&#8220;Starting Up and Shutting Down an Application&#8221; on page&#160;1-1</span></a> in <em class="cEmphasis">Setting Up an Oracle Tuxedo Application</em>.)</li>
+<li><a name="wp1026208"> </a>Obtain the last full backup of the database and restore the file. For example, restore the full backup version of the database from last Sunday at 12:01 A.M.</li>
+<li><a name="wp1026209"> </a>Apply the incremental backup files, such as the incrementals from Monday and Tuesday. For example, assume that this step restores the database up until 11:00 P.M. on Tuesday.</li>
+<li><a name="wp1026210"> </a>Apply the AIJ, or transaction journal file, that contains the transactions from 11:15 P.M. on Tuesday up to 2:50 P.M. on Wednesday.</li>
+<li><a name="wp1026211"> </a>Open the database again.</li>
+<li><a name="wp1026212"> </a>Restart the Oracle Tuxedo application.</li>
+</ol></div>
+<p class="pBody"><a name="wp1026214"> </a>
+Refer to the documentation for the resource manager (database product) for specific instructions on the database rollforward process.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1029789"> </a>
+How to Use the IPC Tool When an Application Fails to Shut Down Properly
+</h2><p class="pBody"><a name="wp1029852"> </a>
+Inter-process communication (IPC) resources are operating system resources, such as message queues, shared memory, and semaphores. When a Oracle Tuxedo application shuts down properly with the <code class="cCode">tmshutdown</code> command, all IPC resources are removed from the system. In some cases, however, an application may fail to shut down properly and stray IPC resources may remain on the system. When this happens, it may not be possible to reboot the application. 
+</p>
+<p class="pBody"><a name="wp1029853"> </a>
+One way to address this problem is to remove IPC resources with a script that invokes the system <code class="cCode">IPCS</code> command and scan for all IPC resources owned by a particular user account. However, with this method, it is difficult to distinguish among different sets of IPC resources; some may belong to the Oracle Tuxedo system; some to a particular Oracle Tuxedo application; and others to applications unrelated to the Oracle Tuxedo system. It is important to be able to distinguish among these sets of resources; unintentional removal of IPC resources can severely damage an application.
+</p>
+<p class="pBody"><a name="wp1029854"> </a>
+The Oracle Tuxedo IPC tool (that is, the <code class="cCode">tmipcrm</code> command) enables you to remove IPC resources allocated by the Oracle Tuxedo system (that is, for core Oracle Tuxedo and Workstation components only) in an active application. 
+</p>
+<p class="pBody"><a name="wp1029855"> </a>
+The command to remove IPC resources, <code class="cCode">tmipcrm</code>, resides in <code class="cCode">TUXDIR/bin</code>. This command reads the binary configuration file (<code class="cCode">TUXCONFIG</code>), and attaches to the bulletin board using the information in this file. <code class="cCode">tmipcrm</code> works only on the local server machine; it does not clean up IPC resources on remote machines in a Oracle Tuxedo configuration.
+</p>
+<p class="pBody"><a name="wp1029856"> </a>
+To run this command, enter it as follows on the command line:
+</p>
+<a name="wp1029857"> </a><div class="pPreformatted"><pre>tmipcrm [-y] [-n] [<code class="cCodeEmphasis">TUXCONFIG_file</code>]</pre></div><p class="pBody"><a name="wp1029858"> </a>
+The IPC tool lists all IPC resources used by the Oracle Tuxedo system and gives you the option of removing them.
+</p>
+<a name="wp1029796"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td> This command will not work unless you have set the <code class="cCode">TUXCONFIG</code> environment variable correctly or specified the appropriate <code class="cCode">TUXCONFIG</code> file on the command line. </td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1025843"> </a>
+Troubleshooting Multithreaded/<br />Multicontexted Applications
+</h2><h3 class="pHeading2"><a name="wp1025823"> </a>
+Debugging Multithreaded/Multicontexted Applications
+</h3>
+<p class="pBody"><a name="wp1025824"> </a>
+Multithreaded applications can be much more difficult to debug than single-threaded applications. As the administrator, you may want to establish a policy governing whether such multithreaded applications should be created.
+</p>
+<h3 class="pHeading2"><a name="wp1025825"> </a>
+Limitations of Protected Mode in a Multithreaded Application
+</h3>
+<p class="pBody"><a name="wp1025826"> </a>
+When running in protected mode, an application attaches to shared memory only when an ATMI call is being executed. Protected mode is used to guard against problems that arise when Oracle Tuxedo shared memory is accidentally overwritten by stray application pointers.
+</p>
+<p class="pBody"><a name="wp1025827"> </a>
+If your multithreaded application is running in protected mode, some threads may be executing application code while others are attached to the Oracle Tuxedo Bulletin Board&#8217;s shared memory within an Oracle Tuxedo function call. Therefore, as long as at least one thread is attached to the bulletin board in an ATMI call, the use of protected mode cannot guard against stray application pointers in threads executing application code, which may overwrite the Oracle Tuxedo shared memory. As a result, the usefulness of protected mode is relatively limited in multithreaded applications.
+</p>
+<p class="pBody"><a name="wp1025828"> </a>
+There is no solution to this limitation. We simply want to warn you that when running a multithreaded application you cannot rely on protected mode as much as you do when running a single-threaded application.
+</p>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="adtrb.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="adtun.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<img id="LongDescNotReq9" src="/global_resources/images/nexttop_disabled.gif" border="0" alt="Next" />
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

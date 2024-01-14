@@ -1,0 +1,523 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="11" />
+<meta name="LOC_US_CHANGE" content="42015" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/ads/fm/adsnet.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/29/12 11:10:28" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Setting Up the Network for a Distributed Application</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Setting Up an Oracle Tuxedo Application
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="adsdis.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="adwsc.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+<a accesskey="2" href="javascript:OpenWindowIndex();" onmouseover="window.status='Index'; return true" onfocus="window.status='Index'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open Index in new window">     <img id="LongDescNotReq5" src="/global_resources//images/doc_nav_index.gif" border="0" alt="Open Index in new window" /></a>&nbsp;
+<a href="../pdf/ads.pdf" target="pdf"><img id="LongDescNotReq6" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq7" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1049186"> </a>
+Setting Up the Network for a Distributed Application
+</h1>
+<p class="pBody"><a name="wp1048525"> </a>
+This topic includes the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1048168"> </a><a href="adsnet.html#wp1048191">Configuring the Network for a Distributed Application</a></li>
+<li><a name="wp1048172"> </a><a href="adsnet.html#wp1048295">How Data Moves Over a Network</a></li>
+<li><a name="wp1048176"> </a><a href="adsnet.html#wp1048300">How Data Moves Over Parallel Networks</a></li>
+<li><a name="wp1048180"> </a><a href="adsnet.html#wp1048318">Example of a Network Configuration for a Simple Distributed Application</a></li>
+<li><a name="wp1048184"> </a><a href="adsnet.html#wp1048322">How Failover and Failback Work in Scheduling Network Data</a></li>
+<li><a name="wp1048188"> </a><a href="adsnet.html#wp1048328">Example Configuration of Multiple Netgroups</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1048191"> </a>
+Configuring the Network for a Distributed Application
+</h2><p class="pBody"><a name="wp1048192"> </a>
+A distributed application is an application that runs on multiple computers, each of which supports an installation of the Oracle Tuxedo system. These computers are connected and can communicate with each other through a network that includes hardware, software, access methods, and communication protocols. The Oracle Tuxedo system encodes, routes, and decodes messages, and uses the network to ship those messages between machines. The system performs these tasks automatically.
+</p>
+<p class="pBody"><a name="wp1048193"> </a>
+To configure the networking functionality required to support a distributed application, include the following entries in the configuration file of <a href="adsnet.html#wp1049826">Table&#160;11-1</a>.
+</p>
+<p class="pGraphic"><a name="wp1048293"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1049826table1048194"><caption><a name="wp1049826"> </a>
+Table 11-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">Configuring the Network for a Distributed Application</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1048196"> </a>
+In This <br />Section . . . 
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1048198"> </a>
+Set This Parameter . . . 
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1048200"> </a>
+To . . .
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="3"><div class="pCellBody"><a name="wp1048202"> </a>
+<code class="cCode">RESOURCES</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048204"> </a>
+<code class="cCode">MODEL</code> (Required)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048206"> </a>
+<code class="cCode">MP</code>. This parameter enables all other networking parameters. It is used only for networked machines. <code class="cCode">SHM</code> is used for a single-machine configuration, even if the machine is a multiprocessor.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048210"> </a>
+<code class="cCode">OPTIONS</code> (Required)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048212"> </a>
+<code class="cCode">LAN</code> (Local Area Network) to indicate that communication will take place between separate machines, rather than between separate processes on the same machine.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048216"> </a>
+<code class="cCode">MAXNETGROUPS</code> (Optional)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048218"> </a>
+Designate a limit on the number of <code class="cCode">NETGROUPS</code> that can be defined. The default is 8; the upper limit, 8192.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048220"> </a>
+<code class="cCode">MACHINES</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048222"> </a>
+<code class="cCode">TYPE</code>=<code class="cCodeEmphasis">string </code>(Optional)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048224"> </a>
+Determine whether  encoding is required when messages are exchanged by two machines. The <code class="cCode">TYPE</code> parameter specifies the data representation being used on each machine being defined. If a message is being sent from a machine on which one type of data representation is being used to a machine on which a different type of data representation is being used, the message to be sent must be encoded before transmission and decoded upon arrival. 
+</div>
+<div class="pCellBody"><a name="wp1048225"> </a>
+If the machines in question both use the same type of data representation, however, the system skips the encoding/decoding process. 
+</div>
+<div class="pCellBody"><a name="wp1049613"> </a>
+Example 1
+</div>
+<div class="pCellBody"><a name="wp1049614"> </a>
+<code class="cCode">LMID_1 TYPE = &#8220;abc&#8221;<br />LMID_2 TYPE = &#8220;abc&#8221;</code>
+</div>
+<div class="pCellBody"><a name="wp1048229"> </a>
+Encoding is not used in this case.
+</div>
+<div class="pCellBody"><a name="wp1048231"> </a>
+Example 2
+</div>
+<div class="pCellBody"><a name="wp1048232"> </a>
+<code class="cCode">LMID_1 TYPE = &#8220;HP&#8221;<br />LMID_2 TYPE = &#8220;SUN&#8221;</code>
+</div>
+<div class="pCellBody"><a name="wp1048234"> </a>
+Encoding is used in this case.
+</div>
+<div class="pCellBody"><a name="wp1048236"> </a>
+You do not need to set this parameter if the same type of data representation is used on all machines that will exchange messages. The parameter must be set only for a machine on which a different type is used. For example, if you have nine SPARC machines and one HP machine, you must specify <code class="cCode">TYPE</code>=s<code class="cCodeEmphasis">tring</code> only for the HP. For the SPARC machines, the default null string identifies them as the same type.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048240"> </a>
+<code class="cCode">CMPLIMIT</code>=<code class="cCodeEmphasis">remote</code>[, <code class="cCodeEmphasis">local</code>]<code class="cCode"> </code>(Optional)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048242"> </a>
+Specify the compression threshold, that is, the minimum byte size for a message to be compressed before being sent to a remote and/or local destination. The value of both <code class="cCodeEmphasis">remote</code> and <code class="cCodeEmphasis">local</code> is a number between 0 and <code class="cCode">MAXLONG</code>. If <code class="cCode">CMPLIMIT</code> is set to only one value, it is assumed that the specified value is the <code class="cCodeEmphasis">remote</code> argument and that messages sent to local destinations are never compressed.
+</div>
+<div class="pCellBody"><a name="wp1048243"> </a>
+For example, if you set <code class="cCode">CMPLIMIT=1024</code>, than any message greater than 1024 bytes bound for a remote location is compressed. 
+</div>
+<div class="pCellBody"><a name="wp1048244"> </a>
+Compression thresholds can also be specified with the variable<b class="cBold"> </b><code class="cCode">TMCMPLIMIT</code><b class="cBold">. </b>See the discussion, in <code class="cCode">tuxenv</code>(5), about the variable<b class="cBold"> </b><code class="cCode">TMCMPPRFM</code>,<b class="cBold"> </b>which sets the degree of compression in a range of 1 to 9.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row">&#160;</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048248"> </a>
+<code class="cCode">NETLOAD</code>=<code class="cCodeEmphasis">number </code>(Optional)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048250"> </a>
+Add an application-specific number to the value of <code class="cCode">LOAD</code> for a remote service. The result is used by the system to evaluate whether a request should be processed locally or sent to a remote machine. A higher <code class="cCode">NETLOAD</code> results in less traffic being sent to a remote machine.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="3"><div class="pCellBody"><a name="wp1048252"> </a>
+<code class="cCode">NETGROUPS</code> (Optional)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048254"> </a>
+<code class="cCode">NETGROUP </code>(Required)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048256"> </a>
+Specify the name assigned by the application to a particular group of machines. The name may contain up to 30 characters. One group, consisting of all the machines on the network, must be named <code class="cCode">DEFAULTNET</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048260"> </a>
+<code class="cCode">NETGRPNO</code>=<code class="cCodeEmphasis">number </code>(Required)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048262"> </a>
+Specify a number by which the system can identify a group of machines. The value can be any number between 1 and 8192. For <code class="cCode">DEFAULTNET</code>, the value of <code class="cCode">NETGRPNO</code> must be 0.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048266"> </a>
+<code class="cCode">NETPRIO</code>=<code class="cCodeEmphasis">number </code>(Optional)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048268"> </a>
+Assign a priority to a <code class="cCode">NETGROUP</code>. This parameter helps the system determine which network connection to use. The number must be between 0 and 8192. Assign a higher priority to your faster circuits; give your lowest priority to <code class="cCode">DEFAULTNET</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="straddledcells" colspan="1" rowspan="4"><div class="pCellBody"><a name="wp1048270"> </a>
+<code class="cCode">NETWORK </code>(Optional)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048272"> </a>
+<code class="cCode">LMID</code> (Required)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048274"> </a>
+Map the specified machine to one of the entries in the <code class="cCode">MACHINES</code> section.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048278"> </a>
+<code class="cCode">NADDR</code>=<code class="cCodeEmphasis">string </code>(Required)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048280"> </a>
+Specify the listening address for the <code class="cCode">BRIDGE</code> process on this <code class="cCode">LMID</code>. There are four valid formats for specifying this network address. See the <code class="cCode">NETWORK</code> section of <code class="cCode">UBBCONFIG</code>(5) for details.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048284"> </a>
+<code class="cCode">NLSADDR</code>=<code class="cCodeEmphasis">string </code>(Required)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048286"> </a>
+Specify the network address for the <code class="cCode">tlisten</code> process on this <code class="cCode">LMID</code>. Valid formats are the same as the valid formats for <code class="cCode">NADDR</code>.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048290"> </a>
+<code class="cCode">NETGROUP</code>=<code class="cCodeEmphasis">string </code>(Optional)
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1048292"> </a>
+Specify a <code class="cCode">NETWORK</code> group name. The value of <code class="cCodeEmphasis">string</code> must be a group name specified in the <code class="cCode">NETGROUPS</code> section. The default is <code class="cCode">DEFAULTNET.</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1048295"> </a>
+How Data Moves Over a Network
+</h2><p class="pBody"><a name="wp1048296"> </a>
+In a distributed application, data is sent across the network as follows:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1048297"> </a><span style="font-style: normal">At the sending end</span>&#8212;the <code class="cCode">BRIDGE</code> sends a message to <code class="cCodeEmphasis">destination_machine</code> by writing the message to a virtual circuit and delegating, to the operating system, responsibility for sending it. The operating system retains a copy of every pending message. If a network error occurs, however, pending messages are lost. </li>
+<li><a name="wp1048298"> </a><span style="font-style: normal">At the receiving end</span>&#8212;the <code class="cCode">BRIDGE</code> process listens on a particular network address for incoming messages.</li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1048300"> </a>
+How Data Moves Over Parallel Networks
+</h2><p class="pBody"><a name="wp1048301"> </a>
+In a distributed application there are several advantages to using parallel data circuits for sending data across the network:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1048302"> </a>By listening at more than one address, the <code class="cCode">BRIDGE</code> achieves higher availability.</li>
+<li><a name="wp1048303"> </a>By sending data simultaneously on parallel data circuits, the <code class="cCode">BRIDGE</code> can achieve a higher throughput, if the network was the limiting factor before.</li>
+<li><a name="wp1048304"> </a>When you configure parallel data circuits, the software does not necessarily fail to deliver a message if the original destination circuit is busy. The system attempts to schedule traffic over the circuit with the highest network group number (<code class="cCode">NETGRPNO</code>). If this circuit is busy, the traffic is automatically scheduled over the circuit with the next (that is, the second highest) network group number. When all circuits are busy, data is queued until a circuit is available.</li>
+</ul></div>
+<p class="pBody"><a name="wp1048305"> </a>
+Before making a decision to use parallel data circuits, however, you should determine whether it will be important, in your application, for messages to be kept in sequence. The system guarantees that conversational messages are kept in the correct sequence by binding the conversation connection to one particular data circuit. 
+</p>
+<p class="pBody"><a name="wp1048306"> </a>
+If your application will require all messages to be kept in sequence, you must program the application to keep track of the sequence for nonconversational messages. If you are using this approach, you may not want to configure parallel data circuits.
+</p>
+<p class="pBody"><a name="wp1048307"> </a>
+<a href="adsnet.html#wp1048309">Figure&#160;11-1</a> describes how data flows when one machine tries to contact another. The figure is based on a sample scenario involving two machines: machine A and machine B. First, the <code class="cCode">BRIDGE</code> identifies the network groups that are common to both machines: the <code class="cCode">MAGENTA_GROUP</code>, the <code class="cCode">GREEN_GROUP</code>, and the <code class="cCode">DEFAULTNET</code>. 
+</p>
+<p class="pBody"><a name="wp1048308"> </a>
+Data flows in parallel on network groups with the same priority (that is, groups for which the same value is assigned to the <code class="cCode">NETPRIO</code> parameter). Network groups with different priorities are used for failover. 
+</p>
+<div class="pFigureTitle"><a name="wp1048309"> </a>
+Figure&#160;11-1  Flow of Data over the BRIDGE
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1048316"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/brflow.gif" alt="Flow of Data over the BRIDGE" id="wp1048314"/></div><p class="pGraphic">
+
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1048318"> </a>
+Example of a Network Configuration for a Simple Distributed Application
+</h2><p class="pBody"><a name="wp1048319"> </a>
+The following example shows how to configure a simple network:
+</p>
+<p class="pBody"><a name="wp1048320"> </a>
+# The following configuration file excerpt shows a NETWORK<br /># section for a 2-site configuration.<br /><br />*NETWORK<br />   SITE1   NADDR=&quot;//mach1:80952&#8221; <br />           NLSADDR=&quot;//mach1:serve&quot;<br />#<br />   SITE2   NADDR=&quot;//mach386:80952&quot; <br />           NLSADDR=&quot;//mach386:serve&quot;
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1048322"> </a>
+How Failover and Failback Work in Scheduling Network Data
+</h2><p class="pBody"><a name="wp1048323"> </a>
+Data flows over the highest available priority circuit. If all network groups have the    same priority, data travels over all networks simultaneously. If all circuits at the current priority fail, data is sent over the next lower priority circuit. This process is called <em class="cEmphasis">failover</em>. When failover occurs, the failed connections are retried periodically.
+</p>
+<p class="pBody"><a name="wp1048324"> </a>
+When higher priority network connections are reestablished, <em class="cEmphasis">failback</em> occurs and no further data is scheduled for the lower priority connection. The lower priority connection is disconnected in an orderly fashion.
+</p>
+<p class="pBody"><a name="wp1048325"> </a>
+If attempts to connect to all network addresses have been made and have failed, new attempts to connect are made the next time application or system data needs to be sent between machines.
+</p>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1048328"> </a>
+Example Configuration of Multiple Netgroups
+</h2><p class="pBody"><a name="wp1048329"> </a>
+The hypothetical First State Bank has a network of five machines (A-E). These machines are configured in four network groups and each machine is used in two or three groups.
+</p>
+<a name="wp1048330"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The hardware and system software prerequisites for configuring multiple network groups (<code class="cCode">NETGROUPS</code>) are beyond the scope of this document. For example, machines are frequently required to belong to more than one physical network. Each TCP/IP symbolic address must be identified in the <code class="cCode">/etc/hosts</code> file or in the DNS (Domain Name Services).</td>
+</tr>
+</table>
+
+<a name="wp1048526"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>In the following example, it is assumed that in addresses written in the form <code class="cCode">//A_CORPORATE:5345</code>, the string <code class="cCode">A_CORPORATE</code> is specified in the <code class="cCode">/etc/hosts</code> file or in DNS.</td>
+</tr>
+</table>
+<p class="pBody"><a name="wp1048331"> </a>
+The four groups in the First State Bank network include:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1048332"> </a><code class="cCode">DEFAULTNET</code> (the default network, which is the corporate WAN)</li>
+<li><a name="wp1048333"> </a><code class="cCode">MAGENTA_GROUP</code> (a LAN)</li>
+<li><a name="wp1048334"> </a><code class="cCode">BLUE_GROUP</code> (a LAN)</li>
+<li><a name="wp1048335"> </a><code class="cCode">GREEN_GROUP</code> (a private LAN that provides high-speed, fiber, point-to-point links between member machines)</li>
+</ul></div>
+<p class="pBody"><a name="wp1048336"> </a>
+All machines belong to <code class="cCode">DEFAULTNET</code> (the corporate WAN). In addition, each machine is associated with either the <code class="cCode">MAGENTA_GROUP</code> or the <code class="cCode">BLUE_GROUP</code>. Finally, some machines in the <code class="cCode">MAGENTA_GROUP</code> also belong to the <code class="cCode">GREEN_GROUP</code>. <a href="adsnet.html#wp1048337">Figure&#160;11-2</a> illustrates group assignments for the network.
+</p>
+<div class="pFigureTitle"><a name="wp1048337"> </a>
+Figure&#160;11-2  Example Network Groups
+</div>
+
+ 
+ <p class="pBody"><a name="wp1048343"> </a>
+In this example, machines A and B have addresses for the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1048344"> </a><code class="cCode">DEFAULTNET</code> (the corporate WAN)</li>
+<li><a name="wp1048345"> </a><code class="cCode">MAGENTA_GROUP</code> (LAN)</li>
+<li><a name="wp1048346"> </a><code class="cCode">GREEN_GROUP</code> (LAN)</li>
+</ul></div>
+<p class="pBody"><a name="wp1048347"> </a>
+Machine C has addresses for the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1048348"> </a><code class="cCode">DEFAULTNET</code> (the corporate WAN)</li>
+<li><a name="wp1048349"> </a><code class="cCode">MAGENTA_GROUP</code> (LAN)</li>
+</ul></div>
+<p class="pBody"><a name="wp1048350"> </a>
+Machines D and E have addresses for the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1048351"> </a><code class="cCode">DEFAULTNET</code> (the corporate WAN)</li>
+<li><a name="wp1048352"> </a><code class="cCode">BLUE_GROUP</code> (LAN)</li>
+</ul></div>
+<p class="pBody"><a name="wp1048353"> </a>
+Because the local area networks are not routed to all locations, machine D (in the <code class="cCode">BLUE_GROUP</code> LAN) may contact machine A (in the <code class="cCode">GREEN_GROUP</code> LAN) only by using the single address they have in common: the corporate WAN network address.
+</p>
+<h3 class="pHeading2"><a name="wp1048354"> </a>
+Configuration File for the Sample Network
+</h3>
+<p class="pBody"><a name="wp1048355"> </a>
+To set up the configuration described in the preceding section, the First State Bank administrator defines each group in the <code class="cCode">NETGROUPS</code> and <code class="cCode">NETWORK</code> sections of the <code class="cCode">UBBCONFIG</code> file as follows:
+</p>
+<a name="wp1048356"> </a><div class="pPreformatted"><pre>*NETGROUPS<br /><br />DEFAULTNET 		NETGRPNO = 0 		      NETPRIO = 100 #default<br />BLUE_GROUP		NETGRPNO = 9 		      NETPRIO = 200<br />MAGENTA_GROUP		NETGRPNO = 125      NETPRIO = 200<br />GREEN_GROUP		NETGRPNO = 13       NETPRIO = 300<br /><br />*NETWORK<br /><br />A	NETGROUP=DEFAULTNET				NADDR=&quot;//A_CORPORATE:5723&#8221;<br />A	NETGROUP=MAGENTA_GROUP				NADDR=&quot;//A_MAGENTA:5724&quot;<br />A	NETGROUP=GREEN_GROUP				NADDR=&quot;//A_GREEN:5725&quot;</pre></div><a name="wp1048357"> </a><div class="pPreformatted"><pre>B	NETGROUP=DEFAULTNET				NADDR=&quot;//B_CORPORATE:5723&quot;<br />B	NETGROUP=MAGENTA_GROUP				NADDR=&quot;//B_MAGENTA:5724&quot;<br />B	NETGROUP=GREEN_GROUP				NADDR=&quot;//B_GREEN:5725&quot;</pre></div><a name="wp1048358"> </a><div class="pPreformatted"><pre>C	NETGROUP=DEFAULTNET				NADDR=&quot;//C_CORPORATE:5723&quot;<br />C	NETGROUP=MAGENTA_GROUP				NADDR=&quot;//C_MAGENTA:5724&quot;<br /><br />D	NETGROUP=DEFAULTNET				NADDR=&quot;//D_CORPORATE:5723&quot;<br />D	NETGROUP=BLUE_GROUP				NADDR=&quot;//D_BLUE:5726&quot;</pre></div><a name="wp1048359"> </a><div class="pPreformatted"><pre>E	NETGROUP=DEFAULTNET				NADDR=&quot;//E_CORPORATE:5723&quot;<br />E	NETGROUP=BLUE_GROUP				NADDR=&quot;//E_BLUE:5726&quot;<br /><br /></pre></div><h3 class="pHeading2"><a name="wp1048360"> </a>
+Assigning Priorities for Each Network Group
+</h3>
+<p class="pBody"><a name="wp1048361"> </a>
+Assigning priorities appropriately for each <code class="cCode">NETGROUP</code> enables you to maximize the capability of network <code class="cCode">BRIDGE </code>processes. When determining <code class="cCode">NETGROUP </code>priorities, keep in mind the following considerations:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1048362"> </a>Data flows over only the highest available priority circuit.</li>
+<li><a name="wp1048363"> </a>If all network groups have the same priority, data travels over all circuits simultaneously.</li>
+<li><a name="wp1048364"> </a>If <em class="cEmphasis">all</em> circuits at the current priority fail, data is sent over the next lower priority circuit.</li>
+<li><a name="wp1048365"> </a>When a higher priority circuit becomes available, data flows over it.</li>
+<li><a name="wp1048366"> </a>All unavailable higher priority circuits are retried periodically.</li>
+<li><a name="wp1048367"> </a>After connections to all network addresses have been tried and have failed, connections are tried again the next time data needs to be sent between machines.</li>
+<li><a name="wp1048368"> </a>The default value of <code class="cCode">NETPRIO</code> is 100.</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1048369"> </a>
+Example Assignment of Priorities to Network Groups
+</h4>
+<p class="pBody"><a name="wp1048370"> </a>
+<a href="adsnet.html#wp1048371">Figure&#160;11-3</a> shows how the First State Bank administrator assigns priorities to the available network groups.
+</p>
+<div class="pFigureTitle"><a name="wp1048371"> </a>
+Figure&#160;11-3  Assigning Priorities to Network Groups
+</div>
+
+ 
+ <p class="pGraphic"><a name="wp1048375"> </a>
+</p>
+<div class="figure" align="left"><img src="wwimages/netgrp2.gif" alt="Assigning Priorities to Network Groups" id="wp1048373"/></div><p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1048376"> </a>
+The following priorities are assigned:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1048377"> </a><code class="cCode">BLUE_GROUP</code>=200</li>
+<li><a name="wp1048378"> </a><code class="cCode">DEFAULTNET</code>=100</li>
+<li><a name="wp1048379"> </a><code class="cCode">GREEN_GROUP</code>=300</li>
+<li><a name="wp1048380"> </a><code class="cCode">MAGENTA_GROUP</code>=200</li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1048381"> </a>
+Example NETGROUP and NETWORK Sections
+</h4>
+<p class="pBody"><a name="wp1048382"> </a>
+The lowest priority among network groups is reserved for the default network group, that is, the group that is not used unless all others are unavailable. Therefore, if you want to limit the use of a particular network, such as a satellite link for which per-minute fees are incurred, designate that network as the default network group.
+</p>
+<p class="pBody"><a name="wp1048383"> </a>
+You can assign a network priority to the default network group by setting the <code class="cCode">NETPRIO</code> parameter for <code class="cCode">DEFAULTNET</code> just as you do for any other group. If you do not specify a priority for <code class="cCode">DEFAULTNET</code>, a default of 100 is used, as shown in the following example:
+</p>
+<a name="wp1048384"> </a><div class="pPreformatted"><pre>*NETGROUP<br />DEFAULTNET  NETGRPNO = 0   NETPRIO = 100</pre></div><p class="pBody"><a name="wp1048385"> </a>
+For <code class="cCode">DEFAULTNET</code>, the value of the network group number (<code class="cCode">NETGRPNO</code>) must be zero; any other number is invalid. The value of <code class="cCode">NETGRPNO</code> must be <em class="cEmphasis">unique</em> for each entry. 
+</p>
+<p class="pBody"><a name="wp1048386"> </a>
+On the other hand, the <em class="cEmphasis">same</em> value of <code class="cCode">NETPRIO</code> may be assigned to multiple network groups. For example, in the First State Bank configuration file, the same network priority (<code class="cCode">NETPRIO=200</code>) is assigned to both the <code class="cCode">MAGENTA_GROUP</code> and the <code class="cCode">GREEN_GROUP</code>.
+</p>
+<p class="pBody"><a name="wp1048387"> </a>
+Each network address (NETWORK) is associated by default with the <code class="cCode">DEFAULTNET</code> network group. This parameter may be specified explicitly for either of two reasons: to maintain uniformity among entries, or to associate the network address being defined with a second network group.
+</p>
+<a name="wp1048388"> </a><div class="pPreformatted"><pre>*NETWORK<br />D	NETGROUP=BLUE_GROUP		 NADDR=&quot;//D_BLUE:5726&quot;</pre></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="adsnet.html"><img id="LongDescNotReq8" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="adsdis.html"><img id="LongDescNotReq9" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="adwsc.html"><img id="LongDescNotReq10" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>

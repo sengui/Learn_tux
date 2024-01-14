@@ -1,0 +1,946 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+
+<!-- LOCALIZATION RELATED INFORMATION -->
+<meta name="LOC_PROJ_ID" content="WLPF8.1" />
+<meta name="LOC_OWNER" content="BEAJ" />
+<meta name="LOC_STATUS" content="READY!" />
+<meta name="LOC_COMMENT" content="LOC_COMMENT" />
+<meta name="LOC_US_REV" content="3" />
+<meta name="LOC_US_CHANGE" content="42024" />
+<meta name="LOC_US_SRCFILE" content="//depot/tuxedo/tux12c/sca/fm/admin.fm" />
+<!-- LOCALIZATION RELATED INFORMATION -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="GENERATOR" content="Quadralay WebWorks AutoMap 2003 Platinum Edition for FrameMaker 8.6.6577.0" />
+    <meta name="TEMPLATEBASE" content="BEA_WFP_Template_V1.04" />
+    <meta name="LASTUPDATED" content="06/29/12 11:21:57" />
+    <link rel="StyleSheet" href="/global_resources/edocs.css" type="text/css" media="all" />
+
+<title>Administering Oracle Tuxedo SCA Components</title>
+
+<!-- BEA scripts begin -->
+
+<script language="Javascript" src="/global_resources/js/banner.js" type="text/javascript"></script>
+<!-- This script outputs the banner required for edocs documentation. -->
+
+<script language="Javascript" src="floatwin.js" type="text/javascript"></script>
+<!-- This script opens a new small floating window and puts TOC<i>&lt;name&gt;</i>.html and IX<i>&lt;name&gt;</i>.html files in it and sets a generic popup window code to enable the display of some viewlets in the WebLogic Platform Tour. -->
+
+<script language="Javascript1.1" src="/global_resources/js/footer.js" type="text/javascript"></script>
+<!-- This script outputs the footer with the correct copyright date and link to copyright page.-->
+
+<script language="Javascript1.1" src="/global_resources/js/googlesearch4.js" type="text/javascript"></script>
+<!-- This script outputs the google search form. -->
+
+<script language="Javascript1.1" src="/global_resources/js/note.js" type="text/javascript"></script>
+<!-- This script outputs a note such as a BETA note. -->
+
+<script language="JavaScript1.1" src="/global_resources/js/search.js" type="text/javascript"></script>
+<!-- This script is not for online documents. It is only used by the QuestAgent Java Applet for CD search indexes. -->
+
+<!-- BEA scripts end -->
+
+  </head>
+
+  <body>
+
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleURL();
+</script><noscript>This script outputs the google search URL required for search on edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+Banner();
+</script><noscript>This script outputs the banner required for edocs documentation.</noscript>
+
+<script language="Javascript1.1" type="text/javascript">
+GoogleSearchCollection();
+</script><noscript>This script outputs the google search parameters required for search on edocs documentation.</noscript>
+
+<!-- page title -->
+<h1 class="booktitle">Service Component Architecture
+</h1>
+<!-- page title end -->
+
+    <table id="SummaryNotReq1" width="100%" border="0" align="left" cellpadding="2%" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="index.html"><img id="LongDescNotReq1" src="/global_resources/images/doc_nav_prev.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="sca.html"><img id="LongDescNotReq2" src="/global_resources/images/doc_nav_next.gif" border="0" alt="Next" /></a>&nbsp;
+<img id="LongDescNotReq3" src="/global_resources/images/doc_nav_dots.gif" border="0" alt="" />&nbsp;
+<a accesskey="1" href="javascript:OpenWindowToc();" onmouseover="window.status='Table of Contents'; return true" onfocus="window.status='Table of Contents'; return true" onmouseout="window.status=''; return true" onblur="window.status=''; return true" title="Open TOC in new window">      <img id="LongDescNotReq4" src="/global_resources/images/doc_nav_contents.gif" alt="Open TOC in new window" border="0" /></a>&nbsp;
+&nbsp;
+<a href="../pdf/sca.pdf" target="pdf"><img id="LongDescNotReq5" src="/global_resources/images/doc_nav_pdf.gif" width="59" height="44" alt="View as PDF - New Window" title="View as PDF - New Window" border="0" /></a>&nbsp;
+<a href="http://www.adobe.com/products/acrobat/alternate.html" target="_blank"><img id="LongDescNotReq6" src="/global_resources/images/get_reader.gif" width="52" height="44" alt="Get Adobe Reader - New Window" title="Get Adobe Reader - New Window" border="0" /></a>
+<a name="link_group_0"></a>
+	</td>
+      </tr>
+    </table>
+
+<a name="skipnav" title="Content starts here"><img src="/global_resources/images/_.gif" alt="Content starts here" border="0" height="1" width="1" /></a>
+
+
+
+<h1 class="pChapHead"><a name="wp1097716"> </a>
+Administering Oracle Tuxedo SCA Components
+</h1>
+<p class="pBody"><a name="wp1099696"> </a>
+This chapter contains the following sections:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1100697"> </a><span class="cHyperlink">
+Oracle SALT SCA Deployment Model</span></li>
+<li><a name="wp1100709"> </a><a href="admin.html#wp1099825">Configuring Oracle Tuxedo SCA Components</a></li>
+<li><a name="wp1100729"> </a><a href="admin.html#wp1100693">Administering Oracle Tuxedo SCA Components</a></li>
+</ul></div>
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1100663"> </a>
+Oracle Tuxedo SCA Deployment Model
+</h2><p class="pBody"><a name="wp1099697"> </a>
+An SCA composite is typically described in an associated configuration file, the file name ends with &quot;.composite&quot;. This file uses an XML-based format call the Service Component Definition Language (SCDL) to describe the components this composite contains and specify how they related to one another. Deploying Oracle Tuxedo SCA requires at least one root composite file that is located in <code class="cCode">$APPDIR</code>. 
+</p>
+<p class="pBody"><a name="wp1099698"> </a>
+There are two configuration file types:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1099702"> </a><a href="admin.html#wp1099709">SCA Composite Configuration File</a> (.<code class="cCode">composite)</code></li>
+<li><a name="wp1099706"> </a><a href="admin.html#wp1099748">SCA Component Configuration File</a> (<code class="cCode">.componentType)</code></li>
+</ul></div>
+<p class="pBody"><a name="wp1099707"> </a>
+There can be one or more components configured in the root composite file, and each of these components has its own <code class="cCode">.composite</code> and <code class="cCode">.componentType</code> file residing in its own subdirectory.
+</p>
+<h3 class="pHeading2"><a name="wp1099709"> </a>
+SCA Composite Configuration File
+</h3>
+<p class="pBody"><a name="wp1099710"> </a>
+There can be zero or more component elements within a composite. The root composite files must be stored in <code class="cCode">$APPDIR</code> in a server environment. 
+</p>
+<p class="pBody"><a name="wp1099714"> </a>
+<a href="admin.html#wp1099716">Listing&#160;1-1</a>shows an example of a root composite which contains two components:
+</p>
+<div class="pCodeTitle"><a name="wp1099716"> </a>
+Listing&#160;1-1	   Root Composite with Two Components
+</div> <a name="wp1099717"> </a><div class="pPreformatted"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />&lt;composite xmlns=&quot;http://www.osoa.org/xmlns/sca/1.0&quot; name=&quot;ECHO.app&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;component name=&quot;ECHO&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;implementation.composite name=&quot;ECHO&quot; /&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/component&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;component name=&quot;TOUPPER&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;implementation.composite name=&quot;TOUPPER&quot; /&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/component&gt;<br />&lt;/composite&gt;</pre></div><p class="pBody"><a name="wp1099725"> </a>
+Based on the configuration in <a href="admin.html#wp1099716">Listing&#160;1-1</a>, <a href="admin.html#wp1099727">Listing&#160;1-2</a> shows the implied the directory hierarchy.
+</p>
+<div class="pCodeTitle"><a name="wp1099727"> </a>
+Listing&#160;1-2	   SCA Composite Directory Hierarchy
+</div> <a name="wp1099728"> </a><div class="pPreformatted"><pre>$APPDIR/ECHO.app.composite<br />$APPDIR/ECHO<br />$APPDIR/ECHO/ECHO.composite<br />$APPDIR/ECHO/ECHO.componentType<br />$APPDIR/TOUPPER<br />$APPDIR/TOUPPER/TOUPPER.composite<br />$APPDIR/TOUPPER/TOUPPER.componentType</pre></div><p class="pBody"><a name="wp1099730"> </a>
+This example is a typical server configuration. The Oracle Tuxedo SCA client also has a similar application topology meaning that the client application is located in a subdirectory of the root composite file. <a href="admin.html#wp1099743">Listing&#160;1-3</a> lists the directory structure for a client named <code class="cCode">EchoClient</code> that uses the <code class="cCode">ECHO1</code> service provided by <code class="cCode">ECHO</code>.
+</p>
+<div class="pCodeTitle"><a name="wp1099743"> </a>
+Listing&#160;1-3	   Directory Structure
+</div> <a name="wp1099744"> </a><div class="pPreformatted"><pre>$APPDIR/root.composite<br />$APPDIR/EchoClient/EchoClient.composite<br />$APPDIR/EchoClient.composite<br />$APPDIR/EchoClient/EchoClient.dll<br />$APPDIR/EchoClient/EchoClient.exe</pre></div><a name="wp1099746"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>One slight difference between an SCA server environment and an SCA client environment is that there is no need to have a component configuration file in the client environment.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1099748"> </a>
+SCA Component Configuration File
+</h3>
+<p class="pBody"><a name="wp1099749"> </a>
+Components are the basic elements of business function in an SCA assembly, which are combined into complete business solutions by SCA composites. Components are configured instances of implementations. Components provide and consume services. More than one component can use and configure the same implementation, where each component configures the implementation differently.
+</p>
+<p class="pBody"><a name="wp1099750"> </a>
+Components are declared as sub-elements of a composite in an <code class="cCode">xxx.composite</code> file. A component is represented by a component element that is a child of the composite element. Using the composite from <a href="admin.html#wp1099716">Listing&#160;1-1</a>, the 2 components (<code class="cCode">ECHO </code>and <code class="cCode">TOUPPER</code>), contains specific information. For the <code class="cCode">ECHO</code> service (<code class="cCode">$APPDIR/ECHO/ECHO.composite)</code>, the <code class="cCode">ECHO.composite</code> information is shown in <a href="admin.html#wp1099758">Listing&#160;1-4</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1099758"> </a>
+Listing&#160;1-4	   ECHO.composite
+</div> <a name="wp1099759"> </a><div class="pPreformatted"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />&lt;composite xmlns=&quot;http://www.osoa.org/xmlns/sca/1.0&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;name=&quot;ECHO&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;service name=&quot;ECHO&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;interface.cpp header=&quot;ECHO.h&quot; /&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;binding.atmi requires=&quot;legacy&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;map target=&quot;EchoString1&quot;&gt;ECHO1&lt;/map&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;map target=&quot;EchoString2&quot;&gt;ECHO2&lt;/map&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/binding.atmi&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;reference&gt;EchoServiceComponent&lt;/reference&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/service&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;component name=&quot;EchoServiceComponent&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;implementation.cpp library=&quot;ECHO&quot; header=&quot;ECHOImpl.h&quot; /&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/component&gt;<br />&lt;/composite&gt;</pre></div><p class="pBody"><a name="wp1099761"> </a>
+The <code class="cCode">ECHO</code> service provides two Oracle Tuxedo services: <code class="cCode">ECHO1</code> and <code class="cCode">ECHO2</code>. <code class="cCode">ECHO1</code> executes CPP function &#8220;<code class="cCode">EchoString1</code>&#8221;. <code class="cCode">ECHO2</code> executes CPP function <code class="cCode">&quot;EchoString2&quot;</code>. The existence of <code class="cCode">$APPDIR/ECHO/ECHOImpl.componentType</code> and <code class="cCode">$APPDIR/ECHO/ECHO.so</code>. are implied. <a href="admin.html#wp1099789">Listing&#160;1-5</a> shows information that may be contained in <code class="cCode">ECHOImpl.componentType</code>.
+</p>
+<a name="wp1099765"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>On some Unix systems the suffix is .so.71 or .sl.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1099784"> </a>
+<code class="cCode">ECHO.so</code> (or <code class="cCode">ECHO.dll</code> Windows), is the shared library that contains the actual implementation of <code class="cCode">EchoString1</code> and <code class="cCode">EchoString2 </code>and is loaded into memory when the service is initialized. <code class="cCode">ECHO1</code> and <code class="cCode">ECHO2</code> are dynamically advertised at server initialization.  For example, if <code class="cCode">EchoServer</code> is the Oracle Tuxedo server that provides these two services, the Oracle Tuxedo UBBCONFIG file should contain information as shown in <a href="admin.html#wp1099793">Listing&#160;1-6</a>.
+</p>
+<div class="pCodeTitle"><a name="wp1099789"> </a>
+Listing&#160;1-5	   ECHOImpl.componentType
+</div> <a name="wp1099790"> </a><div class="pPreformatted"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />&lt;componentType xmlns=&quot;http://www.osoa.org/xmlns/sca/1.0&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;service name=&quot;ECHO&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;interface.cpp header=&quot;ECHO.h&quot;/&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/service&gt;<br />&lt;/componentType&gt;</pre></div><div class="pCodeTitle"><a name="wp1099793"> </a>
+Listing&#160;1-6	   UBBCONFIG File Example
+</div> <a name="wp1099794"> </a><div class="pPreformatted"><pre>...<br />*SERVERS<br />DEFAULT:<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;CLOPT=&quot;-A&quot;<br />EchoServer  SRVGRP=GROUP1 SRVID=1001<br />...</pre></div><p class="pBody"><a name="wp1099796"> </a>
+For the <code class="cCode">TOUPPER</code> service, the existence of <code class="cCode">$APPDIR/TOUPPER/TOUPPER.composite</code> is also implied by the <code class="cCode">ECHO.app.composite</code> file. <a href="admin.html#wp1099801">Listing&#160;1-7</a> shows information that may be contained in <code class="cCode">TOUPPER.composite file</code>.
+</p>
+<div class="pCodeTitle"><a name="wp1099801"> </a>
+Listing&#160;1-7	   TOUPPER.composite file Example
+</div> <a name="wp1099802"> </a><div class="pPreformatted"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />&lt;composite xmlns=&quot;http://www.osoa.org/xmlns/sca/1.0&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;name=&quot;TOUPPER&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;service name=&quot;TOUPPER&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;interface.cpp header=&quot;TOUPPER.h&quot; /&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;binding.atmi requires=&quot;legacy&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;map target=&quot;UpperString1&quot;&gt;TOUPPER1&lt;/map&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;map target=&quot;UpperString2&quot;&gt;TOUPPER2&lt;/map&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/binding.atmi&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;reference&gt;ToupperServiceComponent&lt;/reference&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/service&gt;<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;component name=&quot;ToupperServiceComponent&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;implementation.cpp library=&quot;TOUPPER&quot; header=&quot;TOUPPERImpl.h&quot; /&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/component&gt;</pre></div><a name="wp1099803"> </a><div class="pPreformatted"><pre>&lt;/composite&gt;</pre></div><p class="pBody"><a name="wp1099805"> </a>
+This composite file also implies the existence of <code class="cCode">$APPDIR/TOUPPER/TOUPPERImpl.componentType</code> and <code class="cCode">$APPDIR/TOUPPER/TOUPPER.so</code>.
+</p>
+<a name="wp1099806"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Oracle Tuxedo SCA only supports <code class="cCode">&quot;cpp&quot;</code> implementation types.</td>
+</tr>
+</table>
+
+<p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1099825"> </a>
+Configuring Oracle Tuxedo SCA Components
+</h2><p class="pBody"><a name="wp1099826"> </a>
+Configuring Oracle Tuxedo SCA components comprises the following:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1099830"> </a><a href="admin.html#wp1099856">Configuring an SCA ATMI Client</a></li>
+<li><a name="wp1099834"> </a><a href="admin.html#wp1099932">Configuring an SCA Workstation Client</a></li>
+<li><a name="wp1099838"> </a><a href="admin.html#wp1099932">Configuring an SCA Workstation Client</a></li>
+<li><a name="wp1099842"> </a><a href="admin.html#wp1100126">The above SCA component are hosted in an Oracle Tuxedo server built using buildscaserver with the -w option (for Web services) and named WSServer</a></li>
+<li><a name="wp1099846"> </a><a href="admin.html#wp1100126">The above SCA component are hosted in an Oracle Tuxedo server built using buildscaserver with the -w option (for Web services) and named WSServer</a></li>
+<li><a name="wp1099850"> </a><a href="admin.html#wp1100077">Configuring an SCA Web Service Server</a></li>
+<li><a name="wp1099854"> </a><a href="admin.html#wp1100166">Configuring SCA Client Security</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1099856"> </a>
+Configuring an SCA ATMI Client
+</h3>
+<p class="pBody"><a name="wp1099857"> </a>
+The SCA ATMI client is a native Oracle Tuxedo client that is written using the SCA paradigm and built using the <code class="cCode">buildscaclient</code> utility. The client executable must be in a subdirectory of a directory that contains the <code class="cCode">root.composite</code> file. 
+</p>
+<a name="wp1099858"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The <code class="cCode">APPDIR </code>environment variable must point to the <code class="cCode">root.composite</code> file directory. </td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1099862"> </a>
+<a href="admin.html#wp1099864">Listing&#160;1-8</a> shows the client application root composite file <code class="cCode">$APPDIR/root.composite</code>.
+</p>
+<div class="pCodeTitle"><a name="wp1099864"> </a>
+Listing&#160;1-8	   Client Application Root Composite File
+</div> <a name="wp1099865"> </a><div class="pPreformatted"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />&lt;composite xmlns=&quot;http://www.osoa.org/xmlns/sca/1.0&quot; name=&quot;testApp&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;component name=&quot;testStringClientComp&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;implementation.composite name=&quot;ECHO&quot;/&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/component&gt;<br />&lt;/composite&gt;</pre></div><p class="pBody"><a name="wp1099867"> </a>
+<code class="cCode">The $APPDIR/ECHO</code> directory contains the ECHO application.  The directory name, &quot;<code class="cCode">ECHO</code>&quot;, must match the name specified in <code class="cCode">&lt;implementation.composite name=&quot;ECHO&quot;/&gt;</code>.  <a href="admin.html#wp1099882">Listing&#160;1-9</a> shows the client application composite file.
+</p>
+<div class="pCodeTitle"><a name="wp1099882"> </a>
+Listing&#160;1-9	   Client Application Composite File
+</div> <a name="wp1099883"> </a><div class="pPreformatted"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />&lt;composite xmlns=&quot;http://www.osoa.org/xmlns/sca/1.0&quot; name=&quot;ECHO&quot;&gt;<br />&#160;&#160;&lt;reference name=&quot;ECHO&quot;&gt;<br />&#160;&#160;&#160;&#160;&lt;interface.cpp header=&quot;ECHO.h&quot;/&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;binding.atmi requires=&quot;legacy&quot;&gt; <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;tuxconfig&gt;/tux/application/ECHOServer/tuxconfig&lt;/tuxconfig&gt; <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;inputBufferType target=&quot;TestString&quot;&gt;STRING&lt;/inputBufferType&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;outputBufferType target=&quot;TestString&quot;&gt;STRING&lt;/outputBufferType&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;errorBufferType target=&quot;TestString&quot;&gt;STRING&lt;/errorBufferType&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160; &lt;binding.atmi&gt;<br />&#160;&#160;&lt;/reference&gt;<br />&lt;/composite&gt;</pre></div><p class="pBody"><a name="wp1099885"> </a>
+The client dynamic link library for this client application is also contained in this directory. For example, using the example in <a href="admin.html#wp1099882">Listing&#160;1-9</a>, the <code class="cCode">$APPDIR/ECHO/ECHO.so</code> shared object exists in the ECHO directory. The target &quot;<code class="cCode">TestStr</code>&quot; is used to group buffer types together.
+</p>
+<p class="pBody"><a name="wp1099889"> </a>
+The client executable also exists in this directory. There is no naming convention associated with a client application. This client ECHO application could very well contain &quot;<code class="cCode">doEchoClient</code>&quot; in the ECHO application directory. For example: <code class="cCode">$APPDIR/ECHO/doEchoClient</code>.
+</p>
+<a name="wp1099893"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>You must set <code class="cCode">SCA_COMPONENT</code>. See <a href="admin.html#wp1099882">Listing&#160;1-9</a>, <code class="cCode">SCA_COMPONENT=testStringClientComp</code>.</td>
+</tr>
+</table>
+
+<h3 class="pHeading2"><a name="wp1099904"> </a>
+Configuring an SCA JATMI Client
+</h3>
+<p class="pBody"><a name="wp1099905"> </a>
+The JATMI client application configuration composite file is part of the Java <code class="cCode">.jar</code> file. The JATMI client composite file is not part of any package and is located in the base of the <code class="cCode">.jar</code> file. When client application is invoked, SCA Java runtime loads the composite file. No special setup is required.
+</p>
+<a name="wp1099906"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The client application <code class="cCode">.jar </code>file <span style="font-style: italic">must</span> be included in the <code class="cCode">CLASSPATH</code>. The following <code class="cCode">.jar</code> files should also be part of <code class="cCode">CLASSPATH</code>:</td>
+</tr>
+</table>
+
+<div class="pSmartList1NoteBullet"><ul>
+<li><a name="wp1099907"> </a><code class="cCode">binding-jatmi-extension.jar</code></li>
+<li><a name="wp1099908"> </a><code class="cCode">com.oracle.jatmi.dataxfm_1.0.0.0.jar</code></li>
+<li><a name="wp1099909"> </a><code class="cCode">com.bea.core.jatmi_1.2.0.3.jar</code></li>
+<li><a name="wp1099910"> </a><code class="cCode">com.bea.core.i18n_1.4.0.0.jar</code></li>
+<li><a name="wp1099911"> </a><code class="cCode">tuscany-sca-manifest.jar</code></li>
+</ul></div>
+<p class="pBody"><a name="wp1099915"> </a>
+<a href="admin.html#wp1099917">Listing&#160;1-10</a> shows an SCA JATMI client composite file example.
+</p>
+<div class="pCodeTitle"><a name="wp1099917"> </a>
+Listing&#160;1-10	   SCA JATMI Client Composite File Example
+</div> <a name="wp1099918"> </a><div class="pPreformatted"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />&lt;composite xmlns=&quot;http://www.osoa.org/xmlns/sca/1.0&quot; xmlns:f=&quot;binding-atmi.xsd&quot;<br />name=&quot;EchoComposite&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;reference name=&quot;ECHO&quot; promote=&quot;EchoComponent/ECHO&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;interface.java class=&quot;com.abc.sca.java.Echo&quot; /&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;f:binding.atmi requires=&quot;legacy&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;f:serviceType&gt;RequestResponse&lt;/f:serviceType&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;f:inputBufferType&gt;FML&lt;/f:inputBufferType&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;f:outputBufferType&gt;FML&lt;/f:outputBufferType&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;f:fieldTables&gt;com.abc.sca.java.fml.FMLTABLE<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/f:fieldTables&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;f:workStationParameters&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;f:networkAddress&gt;//STRIATUM:15011<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/f:networkAddress&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/f:workStationParameters&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/f:binding.atmi&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/reference&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;component name=&quot;EchoComponent&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;implementation.java<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;class=&quot;com.abc.sca.java.EchoComponentImpl /&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/component&gt;<br />&lt;/composite&gt;</pre></div><h3 class="pHeading2"><a name="wp1099932"> </a>
+Configuring an SCA Workstation Client
+</h3>
+<p class="pBody"><a name="wp1099933"> </a>
+Configuring an SCA workstation clients is similar to configuring SCA native clients. One difference is that an SCA workstation client requires using the <code class="cCode">&lt;workStationParameters&gt;</code> element and its sub-elements in the composite. The SCA runtime automatically detects whether the client is built as an SCA native client or SCA workstation client and loads the correct reference binding library accordingly.
+</p>
+<p class="pBody"><a name="wp1099934"> </a>
+An SCA Oracle Tuxedo Workstation client has a similar directory hierarchy to an SCA native client. Both rely on the environment variable <code class="cCode">$APPDIR</code>, which points to where the client application is located.
+</p>
+<p class="pBody"><a name="wp1099941"> </a>
+<a href="admin.html#wp1099943">Listing&#160;1-11</a> and <a href="admin.html#wp1099947">Listing&#160;1-12</a> show SCA Oracle Tuxedo workstation client configuration examples.
+</p>
+<div class="pCodeTitle"><a name="wp1099943"> </a>
+Listing&#160;1-11	   $APPDIR/root.composite
+</div> <a name="wp1099944"> </a><div class="pPreformatted"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />&lt;composite xmlns=&quot;http://www.osoa.org/xmlns/sca/1.0&quot; name=&quot;testApp&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;component name=&quot;testStringClientComp&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;implementation.composite name=&quot;ECHO&quot;/&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/component&gt;<br />&lt;/composite&gt;</pre></div><div class="pCodeTitle"><a name="wp1099947"> </a>
+Listing&#160;1-12	   $APPDIR/ECHO/ECHO.composite
+</div> <a name="wp1099948"> </a><div class="pPreformatted"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />&lt;composite xmlns=&quot;http://www.osoa.org/xmlns/sca/1.0&quot; name=&quot;ECHO&quot;&gt;<br />&#160;&#160;&lt;reference name=&quot;ECHO&quot;&gt;<br />&#160;&#160;&#160;&#160;&lt;interface.cpp header=&quot;ECHO.h&quot;/&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;binding.atmi requires=&quot;legacy&quot;&gt;        <br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;inputBufferType target=&quot;TestString&quot;&gt;STRING&lt;/inputBufferType&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;outputBufferType target=&quot;TestString&quot;&gt;STRING&lt;/outputBufferType&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;errorBufferType target=&quot;TestString&quot;&gt;STRING&lt;/errorBufferType&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;workStationParameters&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;networkAddress&gt;//STRIATUM:4890&lt;/networkAddress&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;encryptBits&gt;128/128&lt;/encryptBits&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;/workStationParameters&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;remoteAccess&gt;WorkStation&lt;/remoteAccess&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;/binding.atmi&gt;<br />&#160;&#160;&lt;reference&gt;<br />&lt;/composite&gt;</pre></div><h3 class="pHeading2"><a name="wp1099971"> </a>
+Configuring an SCA Web Service Client
+</h3>
+<p class="pBody"><a name="wp1099972"> </a>
+The SCA Web service client is basically the same as SCA native client except that is uses the <code class="cCode">&lt;binding.ws&gt;</code> element instead of <code class="cCode">&lt;binding.atmi&gt;</code>. The SCA runtime automatically detects which binding the client is using, and loads the correct reference binding accordingly.
+</p>
+<p class="pBody"><a name="wp1099973"> </a>
+The SCA Web service client has a similar directory hierarchy as native client. They both rely on the <code class="cCode">$APPDIR </code>environment variable to point to where the client application is located.
+</p>
+<p class="pBody"><a name="wp1099980"> </a>
+<a href="admin.html#wp1099982">Listing&#160;1-13</a> and <a href="admin.html#wp1099986">Listing&#160;1-14</a> show SCA Web service client configuration examples.
+</p>
+<div class="pCodeTitle"><a name="wp1099982"> </a>
+Listing&#160;1-13	   $APPDIR/root.composite
+</div> <a name="wp1099983"> </a><div class="pPreformatted"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />&lt;composite xmlns=&quot;http://www.osoa.org/xmlns/sca/1.0&quot; name=&quot;testApp&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;component name=&quot;calcClient&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;implementation.composite name=&quot;calcClient&quot;/&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/component&gt;<br />&lt;/composite&gt;</pre></div><div class="pCodeTitle"><a name="wp1099986"> </a>
+Listing&#160;1-14	   $APPDIR/calcClient/calcClient.composite
+</div> <a name="wp1099987"> </a><div class="pPreformatted"><pre>&lt;composite xmlns=&quot;http://www.osoa.org/xmlns/sca/1.0&quot;name=&quot;calcClient&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;reference name=&quot;Calculator&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;interface.cpp header=&quot;CalcService.h&quot;/&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;binding.ws<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;endpoint=&quot;http://calc.sample#wsdl.endpoint<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(Calculator/CalculatorSOAP11port)&quot;/&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/reference&gt;<br /><br />&lt;/composite&gt;</pre></div><p class="pBody"><a name="wp1099989"> </a>
+The <code class="cCode">&lt;interface.cpp&gt;</code> element is required to build the appropriate proxy stub. Also, the client directory should contain the WSDL file where the endpoint specified in <code class="cCode">&lt;binding.ws&gt;</code> is located. In addition, the configuration of the Oracle Tuxedo Web services gateway (GWWS) is necessary and requires the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1099990"> </a>Make sure the <code class="cCode">TMMETADATA</code> and GWWS servers are shut down.</li>
+<li><a name="wp1099991"> </a>Run <code class="cCode">wsdlcvt</code> on the WSDL of the service(s) used. This produces a WSDF file, an Oracle Tuxedo Metadata Repository interface definitions file, fml32 field tables and XML schemas.</li>
+<li><a name="wp1099992"> </a>Optionally, modify the generated WSDF file to override the actual endpoint address used at runtime. For more information, see WSDF documentation.</li>
+<li><a name="wp1099993"> </a>Load the Oracle Tuxedo Metadata Repository interface definitions into the <code class="cCode">TMMETADATA</code> server repository (e.g.: <code class="cCode">$ tmloadrepos -I calc.mif metadata.repos -y). </code>For more information, see <code class="cCode">tmloadrepos</code> documentation.</li>
+<li><a name="wp1099994"> </a>Add a reference to the WSDF in the GWWS configuration input file (named <code class="cCode">gwws.dep</code> for example). <a href="admin.html#wp1100001">Listing&#160;1-15</a> shows the added elements highlighted in blue.</li>
+<li><a name="wp1099998"> </a>Reload the GWWS binary configuration file to take into account the changes performed in the previous five (e.g.: <code class="cCode">$ wsloadcf -y gwws.dep)</code>.</li>
+<li><a name="wp1099999"> </a>Reboot GWWS and <code class="cCode">TMMETADATA</code>.</li>
+<div class="pCodeTitle"><a name="wp1100001"> </a>
+Listing&#160;1-15	   GWWS Configuration File
+</div> <a name="wp1100002"> </a><div class="pPreformatted"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />&lt;saltdep:Deployment xmlns:saltdep=&quot;http://www.bea.com/Tuxedo/SALTDEPLOY/2007&quot; xmlns=&quot;http://www.bea.com/Tuxedo/SALTDEPLOY/2007&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;saltdep:WSDF&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-weight: bold">&lt;saltdep:Import location=&quot;calc.wsdf&quot;/&gt;<br /></span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/saltdep:WSDF&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;saltdep:WSGateway&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;saltdep:GWInstance id=&quot;GWWS1&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-weight: bold">&lt;saltdep:Outbound&gt;<br /></span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-weight: bold">&lt;saltdep:Binding ref=&quot;calc:CalculatorSOAP11Binding&quot;&gt;<br /></span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-weight: bold">&lt;saltdep:Endpoint use=&quot;CalculatorSOAP11port&quot;/&gt;<br /></span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-weight: bold">&lt;/saltdep:Binding&gt;<br /></span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-weight: bold">&lt;/saltdep:Outbound&gt;<br /></span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/saltdep:GWInstance&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/saltdep:WSGateway&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;saltdep:System/&gt;<br />&lt;/saltdep:Deployment&gt;</pre></div></ol></div>
+<h3 class="pHeading2"><a name="wp1100025"> </a>
+Configuring an SCA ATMI Server
+</h3>
+<p class="pBody"><a name="wp1100026"> </a>
+For an SCA ATMI server, the SCA ROOT is the same as <code class="cCode">$APPDIR</code>. There should be at least one composite file that describes the SCA application. The SCA runtime searches for this composite file and from there it loads all the <code class="cCode">composite</code> and <code class="cCode">componentType</code> files for SCA server applications that are hosted in an Oracle Tuxedo environment.
+</p>
+<p class="pBody"><a name="wp1100030"> </a>
+<a href="admin.html#wp1100032">Listing&#160;1-16</a> shows a root composite file, named <code class="cCode">root.composite </code>contains two SCA applications hosted in an Oracle Tuxedo application domain. The two applications are called Purchase and Finance. There are at least two subdirectories for these two SCA applications. One is called <code class="cCode">Purchase.component</code> and the other is called <code class="cCode">Finance.component</code>.
+</p>
+<div class="pCodeTitle"><a name="wp1100032"> </a>
+Listing&#160;1-16	   $APPDIR/root.composite
+</div> <a name="wp1100033"> </a><div class="pPreformatted"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />&lt;composite xmlns=&quot;http://www.osoa.org/xmlns/sca/1.0&quot; name=&quot;root&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;component name=&quot;Purchase.component&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;implementation.composite name=&quot;Purchase&quot; /&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/component&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;component name=&quot;Finance.component&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;implementation.composite name=&quot;Finance&quot; /&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/component&gt;<br />&lt;/composite&gt;</pre></div><p class="pBody"><a name="wp1100038"> </a>
+<a href="admin.html#wp1100040">Listing&#160;1-17</a> shows the <code class="cCode">Purchase.component</code> directory contains a composite file for the Purchase application named <code class="cCode">Purchase.composite</code>. Similarly, the <code class="cCode">Finance.component</code> directory contains a composite file for the Finance application named <code class="cCode">Finance.composite</code>.
+</p>
+<div class="pCodeTitle"><a name="wp1100040"> </a>
+Listing&#160;1-17	   $APPDIR/Purchase.component/Purchase.composite
+</div> <a name="wp1100041"> </a><div class="pPreformatted"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />&lt;composite xmlns=&quot;http://www.osoa.org/xmlns/sca/1.0&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;name=&quot;Purchase&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;service name=&quot;purchase&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;interface.cpp header=&quot;Purchase.h&quot; /&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;binding.atmi requires=&quot;legacy&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;map target=&quot;Order&quot;&gt;ORDER&lt;/map&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;map target=&quot;TrackOrder&quot;&gt;TRACKORDER&lt;/map&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/binding.atmi&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;reference&gt;PurchaseServiceComponent&lt;/reference&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/service&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;component name=&quot;PurchaseServiceComponent&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;implementation.cpp library=&quot;Purchase&quot; header=&quot;PurchaseImpl.h&quot; /&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/component&gt;<br />&lt;/composite&gt;</pre></div><p class="pBody"><a name="wp1100046"> </a>
+<a href="admin.html#wp1100048">Listing&#160;1-18</a> shows <code class="cCode">Purchase.composite</code> contains the<code class="cCode"> PurchaseImpl.componentType file</code> in the <code class="cCode">$APPDIR/Purchase.component</code> directory and uses CPP as its application implementation. When an SCA server using this configuration is built using the <code class="cCode">buildscaserver</code> utility, it advertises two SCA services automatically at runtime (<code class="cCode">ORDER</code> and <code class="cCode">TRACKORDER</code>). The actual CPP implementation of the services is called <code class="cCode">Order</code> and <code class="cCode">TrackOrder</code>.
+</p>
+<div class="pCodeTitle"><a name="wp1100048"> </a>
+Listing&#160;1-18	   $APPDIR/Purchase.component/PurchaseImpl.componentType
+</div> <a name="wp1100049"> </a><div class="pPreformatted"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />&lt;componentType xmlns=&quot;http://www.osoa.org/xmlns/sca/1.0&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;service name=&quot;purchase&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;interface.cpp header=&quot;Purchase.h&quot;/&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/service&gt;<br />&lt;/componentType&gt;</pre></div><p class="pBody"><a name="wp1100051"> </a>
+Assume these two SCA applications hosted in Oracle Tuxedo and built using <code class="cCode">buildscaserver</code> are called <code class="cCode">PurchaseSvr</code> and <code class="cCode">FinanceSvr</code>. You must add the following lines to the *SERVERS section in the UBBCONFIG file:
+</p>
+<p class="pBody"><a name="wp1100052"> </a>
+<code class="cCode">PurchaseSvr SRVGRP=PURCHASEGRP SRVID=500</code>
+</p>
+<p class="pBody"><a name="wp1100074"> </a>
+<code class="cCode">FinanceSvr SRVGRP=FINANCEGRP SRVID=600</code>
+</p>
+<p class="pBody"><a name="wp1100075"> </a>
+There is no need to add a service in the *SERVICES section. SCA services hosted by Oracle Tuxedo are dynamically advertised.
+</p>
+<h3 class="pHeading2"><a name="wp1100077"> </a>
+Configuring an SCA Web Service Server
+</h3>
+<p class="pBody"><a name="wp1100078"> </a>
+Configuring Web services binding for components (server side) is similar to configuring ATMI binding for hosting SCA components.
+</p>
+<p class="pBody"><a name="wp1100082"> </a>
+<a href="admin.html#wp1100091">Listing&#160;1-19</a> shows a root composite file named <code class="cCode">root.composite</code>. It contains one SCA component hosted in an Oracle Tuxedo application domain. The two applications are called Purchase and Finance. There are at least two subdirectories for these two SCA applications, one is called <code class="cCode">Purchase.component</code>, and the other is called<code class="cCode"> Finance.component</code>.
+</p>
+<p class="pBody"><a name="wp1100089"> </a>
+<a href="admin.html#wp1100095">Listing&#160;1-20</a> shows the actual component subdirectory. <a href="admin.html#wp1100099">Listing&#160;1-21</a> shows the <code class="cCode">componentType</code> side file
+</p>
+<div class="pCodeTitle"><a name="wp1100091"> </a>
+Listing&#160;1-19	   $APPDIR/root.composite
+</div> <a name="wp1100092"> </a><div class="pPreformatted"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />&lt;composite xmlns=&quot;http://www.osoa.org/xmlns/sca/1.0&quot; name=&quot;root&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;component name=&quot;account&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;implementation.composite name=&quot;account&quot; /&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/component&gt;<br />&lt;/composite&gt;</pre></div><div class="pCodeTitle"><a name="wp1100095"> </a>
+Listing&#160;1-20	   $APPDIR/account/account.composite
+</div> <a name="wp1100096"> </a><div class="pPreformatted"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />&lt;composite xmlns=&quot;http://www.osoa.org/xmlns/sca/1.0&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;name=&quot;account&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;service name=&quot;AccountService&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;interface.wsdl interface=&quot;http://www.bigbank.com/AccountService#wsdl.interface(AccountService)&quot;/&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;binding.ws/&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;reference&gt;AccountServiceComponent&lt;/reference&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/service&gt;<br /><br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;component name=&quot;AccountServiceComponent&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;implementation.cpp library=&quot;Account&quot; header=&quot;AccountServiceImpl.h&quot;/&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/component&gt;<br />&lt;/composite&gt;</pre></div><div class="pCodeTitle"><a name="wp1100099"> </a>
+Listing&#160;1-21	   $APPDIR/account/AccountServiceImpl.componentType
+</div> <a name="wp1100100"> </a><div class="pPreformatted"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />&lt;componentType xmlns=&quot;http://www.osoa.org/xmlns/sca/1.0&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;service name=&quot;AccountService&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;interface.cpp header=&quot;AccountService.h&quot;/&gt;</pre></div><a name="wp1100101"> </a><div class="pPreformatted"><pre>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/service&gt;<br />&lt;/componentType&gt;</pre></div><p class="pBody"><a name="wp1100126"> </a>
+The above SCA component are hosted in an Oracle Tuxedo server built using <code class="cCode">buildscaserver</code> with the -w option (for Web services) and named <code class="cCode">WSServer</code>
+</p>
+<p class="pBody"><a name="wp1100127"> </a>
+Then in the Oracle Tuxedo UBBCONFIG file you need to add the following line in the *SERVERS section: <code class="cCode">WSServer SRVGRP=ACCTGRP SRVID=500</code>.
+</p>
+<p class="pBody"><a name="wp1100128"> </a>
+There is no need add a service in the *SERVICES section. SCA services hosted by Oracle Tuxedo are dynamically advertised.
+</p>
+<p class="pBody"><a name="wp1100129"> </a>
+In addition, configuration of the Oracle Tuxedo Web services gateway (GWWS) is necessary. Do the following steps:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1100130"> </a>Make sure the <code class="cCode">TMMETADATA</code> and GWWS servers are shut down</li>
+<li><a name="wp1100131"> </a>Run <code class="cCode">wsdlcvt</code> on the WSDL of the service(s) used. This produces a WSDF file, an Oracle Tuxedo Metadata Repository interface definitions file, fml32 field tables and XML schemas.</li>
+<li><a name="wp1100132"> </a>Modify the generated WSDF file to specify the actual endpoint address used at runtime to accept requests. For more information, see WSDF documentation.</li>
+<li><a name="wp1100133"> </a>Load the Oracle Tuxedo Metadata Repository interface definitions into the <code class="cCode">TMMETADATA</code> server repository (for example, $<code class="cCode"> tmloadrepos -I AccountService.mif metadata.repos -y</code>).<code class="cCode"> </code>For more information, see <code class="cCode">tmloadrepos</code> documentation.</li>
+<li><a name="wp1100134"> </a>Add a reference to the WSDF in the GWWS configuration input file (named <code class="cCode">gwws.dep</code> for example). <a href="admin.html#wp1100141">Listing&#160;1-22</a> shows the elements added highlighted in blue.</li>
+<li><a name="wp1100138"> </a>Reload the GWWS binary configuration file to take into account the changes performed in the step five (e.g.: <code class="cCode">$ wsloadcf -y gwws.dep</code>).</li>
+<li><a name="wp1100139"> </a>Reboot GWWS and <code class="cCode">TMMETADATA</code>.</li>
+<div class="pCodeTitle"><a name="wp1100141"> </a>
+Listing&#160;1-22	   gwws.dep File
+</div> <a name="wp1100142"> </a><div class="pPreformatted"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br />&lt;saltdep:Deployment xmlns:saltdep=&quot;http://www.bea.com/Tuxedo/SALTDEPLOY/2007&quot; xmlns=&quot;http://www.bea.com/Tuxedo/SALTDEPLOY/2007&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;saltdep:WSDF&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-weight: bold">&lt;saltdep:Import location=&quot;AccountService.wsdf&quot;/&gt;<br /></span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/saltdep:WSDF&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;saltdep:WSGateway&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;saltdep:GWInstance id=&quot;GWWS1&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-weight: bold">&lt;saltdep:Inbound&gt;<br /></span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;saltdep:Binding ref=&quot;AccountService:AccountServiceSOAP&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;saltdep:Endpoint use=&quot;AccountServiceSOAP&quot;/&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/saltdep:Binding&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/saltdep:Inbound&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/saltdep:GWInstance&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/saltdep:WSGateway&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;saltdep:System/&gt;<br />&lt;/saltdep:Deployment&gt;</pre></div></ol></div>
+<h3 class="pHeading2"><a name="wp1100166"> </a>
+Configuring SCA Client Security
+</h3>
+<p class="pBody"><a name="wp1100167"> </a>
+Oracle Tuxedo SCA components support two types of security:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1100171"> </a><a href="admin.html#wp1100177">Oracle Tuxedo Application Domain Security</a></li>
+<li><a name="wp1100175"> </a><a href="admin.html#wp1100214">Oracle Tuxedo Link-Level Security</a></li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1100177"> </a>
+Oracle Tuxedo Application Domain Security
+</h4>
+<p class="pBody"><a name="wp1100178"> </a>
+Oracle Tuxedo Application Domain Security is set when the <code class="cCode">TUXCONFIG</code> file for the Oracle Tuxedo Application Domain contains the <code class="cCode">SECURITY</code> keyword in the <code class="cCode">*RESOURCES</code> section. There are five levels of application security: <code class="cCode">NONE</code>, <code class="cCode">APP_PW</code>, <code class="cCode">USER_PW</code>, <code class="cCode">ACL</code>, and <code class="cCode">MANDATORY_ACL</code>. All security levels except <code class="cCode">NONE</code> require at least an application password from user to gain access to the Oracle Tuxedo application. At the <code class="cCode">USER_PW</code> level and above there is an additional user password to authenticate the user and establish user credentials. In total there are potentially two passwords that need to be configured.
+</p>
+<p class="pBody"><a name="wp1100179"> </a>
+All SCA clients require this password information in order to gain access to Oracle Tuxedo application servers. There are two ways for an SCA client to retrieve password information:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1100180"> </a>The client application may provide password information to ATMI/JATMI reference binding extensions through a callback mechanism.</li>
+<li><a name="wp1100181"> </a>The client application may configure the identification of the password to be retrieved by the ATMI/JATMI reference binding extensions in the appropriate composite file.</li>
+<a name="wp1100183"> </a><table class="ListNote">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>For more information, see Password callback methods in <a href="sca.html">Oracle Tuxedo SCA Programming</a>.</td>
+</tr>
+</table>
+
+</ul></div>
+<p class="pBody"><a name="wp1100184"> </a>
+In order for the Oracle Tuxedo administrator to configure password retrieval, the administrator must: 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1100185"> </a>Maintain the <code class="cCode">password.store</code> file and set this file up correctly for the client application. The administrator must duplicate the <code class="cCode">password.store</code> file across different machines if necessary.</li>
+<li><a name="wp1100186"> </a>Add or delete password and identification pairs when necessary.</li>
+<li><a name="wp1100187"> </a>Configure the client application composite file with correct information.</li>
+</ul></div>
+<p class="pBody"><a name="wp1100194"> </a>
+<a href="admin.html#wp1100196">Listing&#160;1-23</a> and <a href="admin.html#wp1100207">Listing&#160;1-24</a> contain SCA ATMI client application examples.
+</p>
+<div class="pCodeTitle"><a name="wp1100196"> </a>
+Listing&#160;1-23	   $APPDIR/password.store $APPDIR/simple.app.composite
+</div> <a name="wp1100197"> </a><div class="pPreformatted"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;<br /><br />&lt;composite xmlns=&quot;http://www.osoa.org/xmlns/sca/1.0&quot;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;name=&quot;simple.app&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;component name=&quot;simpapp.TuxClient&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;implementation.composite name=&quot;simpapp.client&quot;/&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;reference name=&quot;TOUPPER&quot;&gt;tuxToupper&lt;/reference&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/component&gt;<br /><br />&lt;/composite&gt;</pre></div><div class="pCodeTitle"><a name="wp1100207"> </a>
+Listing&#160;1-24	   $APPDIR/simpapp.client/simpapp.client.composite
+</div> <a name="wp1100208"> </a><div class="pPreformatted"><pre>&lt;composite xmlns=&quot;http://www.osoa.org/xmlns/sca/1.0&quot; <br />name=&quot;simpapp.client&quot;&gt;<br /><br />&#160;&#160;&lt;reference name=&quot;TOUPPER&quot;&gt;<br />&#160;&#160;&#160;&#160;&lt;interface.cpp header=&quot;ToupperTuxService.h&quot;/&gt;<br />&#160;&#160;&#160;&#160;&lt;binding.atmi requires=&quot;legacy&quot;&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;tuxconfig&gt;d:\tests\tuxedo\sca\tests\TUXCONFIG&lt;/tuxconfig&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;inputBufferType target=&quot;charToup&quot;&gt;STRING&lt;/inputBufferType&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&lt;outputBufferType target=&quot;charToup&quot;&gt;STRING&lt;/outputBufferType&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;authentication<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;passwordIdentifier&gt;aaa&lt;/passwordIdentifier&gt;<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/authentication&gt;<br />&#160;&#160;&#160;&#160;&lt;/binding.atmi&gt;<br />&#160;&#160;&lt;/reference&gt;<br />&lt;/composite&gt;</pre></div><p class="pBody"><a name="wp1100210"> </a>
+The above composite defines an Oracle Tuxedo application domain password identification &quot;<code class="cCode">aaa</code>&quot; which causes the ATMI reference binding to retrieve the password with identification &quot;<code class="cCode">aaa</code>&quot; from the <code class="cCode">password.store</code> file at the runtime. If you increased Oracle Tuxedo application domain security by requiring user authentication. (<code class="cCode">SECURITY=USER_PW</code> or above) you would use the following command: <code class="cCode">scapasswordtool -i crusoe -a</code>.
+</p>
+<p class="pBody"><a name="wp1100211"> </a>
+Then use a text editor or any other tool that can edit the <code class="cCode">simpapp.client.composite</code> file and add the following entry in the <code class="cCode">&lt;binding.atmi/authentication&gt; </code>element: <code class="cCode">&lt;userPasswordIdentifier&gt;crusoe&lt;/userPasswordIdentifier&gt;</code>
+</p>
+<p class="pBody"><a name="wp1100212"> </a>
+Anyone using the password &quot;crusoe&quot; can access Oracle Tuxedo applications.
+</p>
+<h4 class="pHeading3"><a name="wp1100214"> </a>
+Oracle Tuxedo Link-Level Security
+</h4>
+<p class="pBody"><a name="wp1100215"> </a>
+Oracle Tuxedo Link-Level Security has two variations. One is the easily configured Link-Level Encryption (LLE) and the other one is the more commonly used Transport Layer Security (TLS) also known as Secured Socket Layer (SSL). An SCA ATMI client using the native ATMI reference binding does not need link-level security configured at the SCA level since its transport method is native message queues and the Oracle Tuxedo BRIDGE. 
+</p>
+<p class="pBody"><a name="wp1100216"> </a>
+The SCA JATMI client reference binding does not support link-level security. The only type of SCA client that allows configuration of link-level security is SCA Workstation ATMI client.
+</p>
+<p class="pBody"><a name="wp1100217"> </a>
+The SCA Workstation ATMI client contains a <code class="cCode">&lt;workStationParameters&gt;</code> element configured in the composite file. The SCA runtime automatically loads the correct reference binding for this type of client.
+</p>
+<h5 class="pHeading4"><a name="wp1100218"> </a>
+Configuring Link-Level Encryption
+</h5>
+<p class="pBody"><a name="wp1100219"> </a>
+Link-level encryption can be configured by adding an <code class="cCode">&lt;encryptBits&gt;</code> element in the composite file. The following elements <span style="font-style: italic">should not</span> be configured for LLE, since they are specific to SSL encryption and imply that SSL encryption is used:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1100220"> </a><code class="cCode">secPrincipalName</code></li>
+<li><a name="wp1100221"> </a><code class="cCode">secPrincipalLocation</code></li>
+<li><a name="wp1100222"> </a><code class="cCode">secPrincipalPassId</code></li>
+</ul></div>
+<p class="pBody"><a name="wp1100223"> </a>
+The <code class="cCode">&lt;encryptBits&gt;</code> element specifies the encryption strength that this client attempts to negotiate. The syntax for the <code class="cCode">&lt;encryptBits&gt;</code> element is <code class="cCode">&lt;minimum encryption strength&gt;/&lt;maximum encryption strength&gt;</code>. To configure minimum 56-bit encryption you must add the following to the composite file:
+</p>
+<p class="pBody"><a name="wp1100224"> </a>
+<code class="cCode">&lt;networkAddress&gt;//STRIATUM:8741&lt;/networkAddress&gt;</code>
+</p>
+<p class="pBody"><a name="wp1100225"> </a>
+<code class="cCode">&lt;encryptBits&gt;56/128&lt;/encryptBits&gt;</code>
+</p>
+<a name="wp1100226"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td><code class="cCode">encryptBits</code> specifies the encryption strength that the client connection attempts to negotiate. The format is <code class="cCode">&lt;minencryptbits&gt;</code>/<code class="cCode">&lt;maxencprytbits&gt;</code> (for example, 128/128). Values can be 0 (no encryption is used), 40, 56, 128, or 256. Invalid values result in a configuration exception. </td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1100227"> </a>
+This tells SCA Workstation Reference binding to require 56 to 128 bits encryption strength when negotiating with WSH. You must also add the following line to the *SERVERS section in the UBBCONFIG file: 
+</p>
+<p class="pBody"><a name="wp1100228"> </a>
+<code class="cCode">WSL   SRVGRP=GROUP1 SRVID=1001 CLOPT=&quot;-A -- -n //STRIATUM:8741 -a -z 56 -Z 256</code>
+</p>
+<h5 class="pHeading4"><a name="wp1100250"> </a>
+Configuring Transport Layer Security
+</h5>
+<p class="pBody"><a name="wp1100251"> </a>
+In addition to <code class="cCode">&lt;encryptBits&gt;</code>, to enable Link-Level Security over TLS/SSL you must configure <code class="cCode">secPrincipalName</code>, <code class="cCode">secPrincipalLocation</code>, and <code class="cCode">secPrincipalPassId</code>. 
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1100252"> </a><code class="cCode">secPrincipalName</code> - the name of the security principal.  It is used for searching the client X.509 certification from the LDAP server.</li>
+<li><a name="wp1100253"> </a><code class="cCode">secPrincipalLocation</code> - the client private key file.</li>
+<li><a name="wp1100254"> </a><code class="cCode">secPrincipalPassId</code> - the password identifier that is used to retrieve client password used to encrypt the private key file.</li>
+</ul></div>
+<a name="wp1100255"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>The &quot;cn&quot; attribute of a distinguished name is used as key for certificate lookup. Wildcards used in a name are not supported. Empty subject fields are not allowed. This limitation is also found in Oracle Tuxedo.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1100256"> </a>
+These three parameters specify the parameters needed when a TLS/SSL connection needs to be established by a SCA Workstation ATMI client.
+</p>
+<p class="pBody"><a name="wp1100260"> </a>
+<a href="admin.html#wp1100262">Listing&#160;1-25</a> contains the lines you must add to the client composite file in <code class="cCode">/binding.atmi/workStationParameters</code> to configure TLS/SSL.
+</p>
+<div class="pCodeTitle"><a name="wp1100262"> </a>
+Listing&#160;1-25	   Client Composite File
+</div> <a name="wp1100263"> </a><div class="pPreformatted"><pre>&lt;networkAddress&gt;//STRITUM:8742&lt;/networkAddress&gt;<br />&lt;secPrincipalName&gt;crusoe&lt;/secPrincipalName&gt;<br />&lt;secPrincipalLocation&gt;/tux/udataobj/security/keys/crusoe.pem&lt;/secPrincipalLocation&gt;<br />&lt;secPrincipalPassId&gt;crusoe&lt;/secPrincipalPassId&gt;</pre></div><p class="pBody"><a name="wp1100265"> </a>
+In Oracle Tuxedo, you must add <code class="cCode">-S 8742 </code>to WSL to indicate that TLS/SSL is used if the client connects through port 8742.
+</p>
+<a name="wp1100691"> </a><div class="pPreformatted"><pre>WSL  SRVGRP=GROUP1 SRVID=1001<br />&#160;&#160;&#160;&#160;&#160;&#160;&#160;CLOPT=&quot;-A -- -n //STRIATUM:8741 -S 8742 -z 56 -Z 128&quot;</pre></div><p>&nbsp;</p>
+<hr noshade="noshade"/>
+<h2 class="pHeading1"><a name="wp1100693"> </a>
+Administering Oracle Tuxedo SCA Components
+</h2><p class="pBody"><a name="wp1100694"> </a>
+This section contains the following topics:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1100295"> </a><a href="admin.html#wp1100305">Tracing the SCA ATMI Server and Client</a></li>
+<li><a name="wp1100299"> </a><a href="admin.html#wp1100568">Log File Contents</a></li>
+<li><a name="wp1100303"> </a><a href="admin.html#wp1100568">Log File Contents</a></li>
+</ul></div>
+<h3 class="pHeading2"><a name="wp1100305"> </a>
+Tracing the SCA ATMI Server and Client
+</h3>
+<p class="pBody"><a name="wp1100306"> </a>
+Both The SCA ATMI server and client can utilized the existing tracing capability provided by Oracle Tuxedo and SCA. The following sections describe how to use them in detail:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1100310"> </a><a href="admin.html#wp1100316">Oracle Tuxedo TMTRACE</a></li>
+<li><a name="wp1100314"> </a><a href="admin.html#wp1100320">SCA Runtime, ATMI Service, and Reference Binding Tracing</a></li>
+</ul></div>
+<h4 class="pHeading3"><a name="wp1100316"> </a>
+Oracle Tuxedo TMTRACE
+</h4>
+<p class="pBody"><a name="wp1100317"> </a>
+SCA ATMI servers and clients support the Oracle Tuxedo tmtrace(5)function. All traces generated from <code class="cCode">TMTRACE</code> are logged in the ULOG file. Checking the ULOG file trace information helps to determine the cause of a failure. The Oracle Tuxedo <code class="cCode">TMTRACE</code> facility is enabled by setting <code class="cCode">TMTRACE</code> environmental variable, or by using the <code class="cCode">tmadmin</code> <code class="cCode">chtr</code> sub-command.
+</p>
+<a name="wp1100318"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>To trace Oracle Tuxedo ATMI messages enter: <code class="cCode">export TMTRACE=atmi:ulog</code> at the command line.</td>
+</tr>
+</table>
+
+<h4 class="pHeading3"><a name="wp1100320"> </a>
+SCA Runtime, ATMI Service, and Reference Binding Tracing
+</h4>
+<p class="pBody"><a name="wp1100321"> </a>
+There are two environment variables used for tracing:
+</p>
+<div class="pSmartList1Bullet"><ul>
+<li><a name="wp1100322"> </a><code class="cCode">SCACPP_LOGGING</code>: Set to a numeric value and controls the number of trace messages produced.</li>
+<li><a name="wp1100323"> </a><code class="cCode">SCACPP_ULOG</code>: Set to &quot;yes&quot; to send trace messages to the ULOG.  If this environment variable is not set or is set to &quot;no&quot;, then trace messages are written to standard output.</li>
+</ul></div>
+<a name="wp1100324"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>These tracing facilities are only available for Oracle Tuxedo server builds using <code class="cCode">buildscaserver</code> and SCA client builds using <code class="cCode">buildscaclient</code>.</td>
+</tr>
+</table>
+
+<p class="pBody"><a name="wp1100328"> </a>
+<a href="admin.html#wp1100331">Listing&#160;1-26</a> shows a ULOG example containing SCA runtime tracing:
+</p>
+<a name="wp1100329"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Lines starting with &quot;&gt;&gt;&quot; or with &quot;&lt;&lt;&quot; is not printed when the code is compiled </td>
+</tr>
+</table>
+
+<div class="pCodeTitle"><a name="wp1100331"> </a>
+Listing&#160;1-26	   SCA Runtime Tracing Information ULOG File
+</div> <a name="wp1100332"> </a><div class="pPreformatted"><pre>142059.STRIATUM!?proc.1108.3000.-2: osoa::sca::CompositeContext::getCurrent<br />142059.STRIATUM!?proc.1108.3000.-2:     &gt;&gt; Tuscany::sca::SCARuntime::getCurrent Runtime<br />142059.STRIATUM!?proc.1108.3000.-2:     &gt;&gt; tuscany::sca::util::ThreadLocal::getValu e <br />142059.STRIATUM!?proc.1108.3000.-2:     &lt;&lt; tuscany::sca::util::ThreadLocal::getValu e<br />142059.STRIATUM!?proc.1108.3000.-2:     &gt;&gt; tuscany::sca::SCARuntime::getShared Runtime<br />142059.STRIATUM!?proc.1108.3000.-2:     SCARuntime::getSharedRuntime()<br />142059.STRIATUM!?proc.1108.3000.-2:     &gt;&gt; tuscany::sca::util::Mutex::lock</pre></div><a name="wp1100333"> </a><div class="pPreformatted"><pre>142059.STRIATUM!?proc.1108.3000.-2:     &lt;&lt; tuscany::sca::util::Mutex::lock</pre></div><a name="wp1100334"> </a><div class="pPreformatted"><pre>142059.STRIATUM!?proc.1108.3000.-2:     &gt;&gt; tuscany::sca::util::Mutex::unlock<br />142059.STRIATUM!?proc.1108.3000.-2:     &lt;&lt; tuscany::sca::util::Mutex::unlock<br />142059.STRIATUM!?proc.1108.3000.-2:     &lt;&lt; tuscany::sca::SCARuntime::getSharedR untime<br />142059.STRIATUM!?proc.1108.3000.-2:     &gt;&gt; tuscany::sca::util::ThreadLocal::Thread Local<br />142059.STRIATUM!?proc.1108.3000.-2:     &lt;&lt; tuscany::sca::util::ThreadLocal::Thread Local<br />142059.STRIATUM!?proc.1108.3000.-2:     &gt;&gt; tuscany::sca::SCARuntime::SCARuntime<br />142059.STRIATUM!?proc.1108.3000.-2:     SCA runtime install root f:\tuxedo\tux101rp _wsc\udataobj\salt\sca<br />142059.STRIATUM!?proc.1108.3000.-2:     Default component: testStringClientComp<br />142059.STRIATUM!?proc.1108.3000.-2:     &gt;&gt; tuscany::sca::util::ThreadLocal::getValu e<br />142059.STRIATUM!?proc.1108.3000.-2:     &lt;&lt; tuscany::sca::util::ThreadLocal::getValu e</pre></div><h3 class="pHeading2"><a name="wp1100359"> </a>
+Monitoring SCA ATMI Servers
+</h3>
+<p class="pBody"><a name="wp1100360"> </a>
+An Oracle Tuxedo SCA server built with the <code class="cCode">buildscaserver</code> utility can be monitored using the <code class="cCode">scaadmin</code> utility. This utility shows service statistics information and helps perform maintenance through dynamic shared library loading and unloading.
+</p>
+<p class="pBody"><a name="wp1100361"> </a>
+To reload all components hosted by the <code class="cCode">uBikeServer</code> Oracle Tuxedo server previously built using the <code class="cCode">buildscaserver</code> command, do the following:
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1100362"> </a><code class="cCode">prompt&gt; scaadmin</code></li>
+<li><a name="wp1100363"> </a><code class="cCode">prompt&gt; reload -s uBikeServer</code></li>
+</ol></div>
+<p class="pBody"><a name="wp1100364"> </a>
+Enter the following at the command line to display statistics on the services offered by the <code class="cCode">uBikeServer </code>Oracle Tuxedo server (<a href="admin.html#wp1100373">Table&#160;1-1</a> shows the results):
+</p>
+<div class="pSmartList1"><ol type="1" class="pSmartList1">
+<li><a name="wp1100368"> </a><code class="cCode">prompt&gt; scaadmin</code></li>
+<li><a name="wp1100369"> </a><code class="cCode">prompt&gt; pstats -s uBikeServer</code></li>
+<p class="pGraphic"><a name="wp1100396"> </a>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1100373table1100370"><caption><a name="wp1100373"> </a>
+Table 1-1  <span style="font-style: normal; font-weight: bold; text-decoration: none; vertical-align: baseline">pstats 0utput Service Statics</span>
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1100381"> </a>
+Service
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1100383"> </a>
+Method
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1100385"> </a>
+Status
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1100387"> </a>
+Requests Processed
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100389"> </a>
+<code class="cCode">SEARCHINVENTORY</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100391"> </a>
+<code class="cCode">searchInventory</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100393"> </a>
+<code class="cCode">A</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100395"> </a>
+<code class="cCode">37</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
+</p>
+</ol></div>
+<p class="pBody"><a name="wp1100400"> </a>
+Before <code class="cCode">scaadmin</code> is executed, you must set the <code class="cCode">TUXCONFIG</code> environment variable. <a href="admin.html#wp1100404">Table&#160;1-2</a> lists <code class="cCode">scaadmin</code> sub-commands.
+</p>
+<p class="pGraphic"><a name="wp1100451"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1100404table1100401"><caption><a name="wp1100404"> </a>
+Table 1-2  scaadmin Sub-Commands
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1100410"> </a>
+Sub-Command
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1100412"> </a>
+Abbrev.
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1100414"> </a>
+Description
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100416"> </a>
+<code class="cCode">default</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100418"> </a>
+<code class="cCode">d</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100420"> </a>
+Sets the corresponding argument to default, and it can be machine name, group name, server id, or server name. If the default command is entered without an argument, the current default values is printed.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100422"> </a>
+<code class="cCode">reload</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100424"> </a>
+<code class="cCode">r</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100426"> </a>
+Dynamically reloads the SCA components hosted in a Oracle Tuxedo server.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100428"> </a>
+<code class="cCode">printstats</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100430"> </a>
+<code class="cCode">pstats</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100432"> </a>
+Displays the list of services hosted by an Oracle Tuxedo server, and the associated method, number of queries, and status (active, idle)
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100434"> </a>
+<code class="cCode">verbose</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100436"> </a>
+<code class="cCode">v</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100438"> </a>
+Produces output in verbose mode.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100440"> </a>
+<code class="cCode">echo</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100442"> </a>
+<code class="cCode">e</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100444"> </a>
+Switches echo input on/off echo.
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100446"> </a>
+<code class="cCode">quit</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100448"> </a>
+<code class="cCode">q</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100450"> </a>
+Terminates the session.
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<a name="wp1100452"> </a><table class="Note">
+<tr>
+<td valign="top"><strong>Note:</strong></td>
+<td>Both Windows and HP systems have a limitation using the &quot;reload&quot; sub-command.</td>
+</tr>
+</table>
+
+<a name="wp1100453"> </a><table class="Note">
+<tr>
+<td valign="top"><b class="texthide">Note:</b></td>
+<td>When multiple servers share the same component library on Windows and HP systems, the shared component library cannot be reloaded. To reload a component library common to multiple servers, the &quot;<code class="cCode">scaadmin</code>&quot; reload sub-command must be performed on all affected servers simultaneously.</td>
+</tr>
+</table>
+<h3 class="pHeading2"><a name="wp1100461"> </a>
+Tracing SCA JATMI Clients
+</h3>
+<p class="pBody"><a name="wp1100462"> </a>
+The Oracle Tuxedo SCA Java reference binding and data transformation support output to the console and to a log file. By default there are at most 10 log files, the maximum size of each file is 100000 bytes, and are located in <code class="cCode">$APPDIR</code> with name <code class="cCode">jatmi&lt;number&gt;.log</code> file. The log file names are cycled with the latest one using the number 0, and the one just before latest one uses 1 (for example. <code class="cCode">jatmi0.log</code> is the latest log file, and <code class="cCode">jatmi9.log </code>is the oldest log file). If the <code class="cCode">APPDIR</code> environment variable is not set and <code class="cCode">com.oracle.jatmi.APPDIR</code> java property is not specified, the log is placed in the current working directory.
+</p>
+<p class="pBody"><a name="wp1100463"> </a>
+By default, the log files are overwritten each time the application starts. Many logger parameters can be fine tuned. <a href="admin.html#wp1100470">Table&#160;1-3</a> lists tunable Java properties related to logging.
+</p>
+<p class="pGraphic"><a name="wp1100533"> </a>
+</p>
+<div align="left">
+<table class="table" cellpadding="3" cellspacing="0" id="wp1100470table1100467"><caption><a name="wp1100470"> </a>
+Table 1-3  Logger Tuning Property Table
+
+</caption>
+
+  <tr bgcolor="#CCCCCC" align="center" valign="top">    <th scope="col"><div class="pCellHeading"><a name="wp1100478"> </a>
+Function
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1100480"> </a>
+Properties
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1100482"> </a>
+Value Range
+</div>
+</th>
+    <th scope="col"><div class="pCellHeading"><a name="wp1100484"> </a>
+Default Value
+</div>
+</th>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100486"> </a>
+Log File Location
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100488"> </a>
+<code class="cCode">com.oracle.jatmi.APPDIR</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100490"> </a>
+valid path name
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100492"> </a>
+<code class="cCode">APPDIR</code> environmental variable, if <code class="cCode">APPDIR</code> is not set uses current working directory
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100494"> </a>
+Log File Size
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100496"> </a>
+<code class="cCode">com.oracle.jatmi.LogFileSize</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100498"> </a>
+<code class="cCode">0</code> ... maximum file size supported by the system
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100500"> </a>
+<code class="cCode">100,000 bytes</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100502"> </a>
+Append File
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100504"> </a>
+<code class="cCode">com.oracle.jatmi.LogFileAppend</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100506"> </a>
+<code class="cCode">{true,false}</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100508"> </a>
+<code class="cCode">false</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100510"> </a>
+Number of Log Files
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100512"> </a>
+<code class="cCode">com.oracle.jatmi.LogFileCount</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100514"> </a>
+1 ... maximum number of files in a directory
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100516"> </a>
+10
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100518"> </a>
+Log Output
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100520"> </a>
+<code class="cCode">com.oracle.jatmi.LogDestination</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100522"> </a>
+<code class="cCode">{file,console,both}</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100524"> </a>
+<code class="cCode">both</code>
+</div>
+</td>
+</tr>
+  <tr align="left" valign="top">    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100526"> </a>
+Log Format
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100528"> </a>
+<code class="cCode">com.oracle.jatmi.LogFileFormat</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100530"> </a>
+<code class="cCode">{xml,plain}</code>
+</div>
+</td>
+    <td class="table" scope="row"><div class="pCellBody"><a name="wp1100532"> </a>
+<code class="cCode">plain</code>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<p class="pGraphic">
+
+</p>
+<p class="pBody"><a name="wp1100534"> </a>
+To have the Oracle Tuxedo SCA Java reference binding log in a different language, first check the supported languages that are installed. The default is <code class="cCode">English</code>. To switch to a different language, add: &quot;<code class="cCode">-Duser.language=&lt;your preferred language&gt;</code>&quot; to your Java command line when starting the Oracle Tuxedo SCA Java client.  For example: 
+</p>
+<p class="pBody"><a name="wp1100535"> </a>
+<code class="cCode">java -classpath .:/apps/classes:$CLASSPATH -Duser.langueage=ES -Dcom.oracle.jatmi.LogDestination=console myApplication.</code>
+</p>
+<p class="pBody"><a name="wp1100536"> </a>
+This generates an English log in plain text format to the console only.
+</p>
+<p class="pBody"><a name="wp1100540"> </a>
+<a href="admin.html#wp1100470">Table&#160;1-3</a> shows an example of the log file contents.
+</p>
+<div class="pCodeTitle"><a name="wp1100568"> </a>
+Listing&#160;1-27	   Log File Contents
+</div> <a name="wp1100569"> </a><div class="pPreformatted"><pre>9/3/08:3:19:14 PM:10:TRACE[TuxedoConversion,processSendBuf]&lt; (10) return 1st args<br />9/3/08:3:19:14 PM:10:DBG[AtmiBindingInvoker,invoke]ServiceType: requestresponse<br />9/3/08:3:19:14 PM:10:DBG[AtmiBindingInvoker,invoke]Return Type Class: simpapp.View7Rep<br />9/3/08:3:19:14 PM:10:DBG[AtmiBindingInvoker,invoke]target service name: RULE7<br />9/3/08:3:19:15 PM:10:DBG[AtmiBindingInvoker,invoke]TPURCODE: 0<br />9/3/08:3:19:15 PM:10:TRACE[TuxedoConversion,processReplyBuffer]&gt; (reply simpapp.View7Rep@191777e:0:null)<br />9/3/08:3:19:15 PM:10:DBG[TuxedoConversion,processReplyBuffer]returnType: simpapp.View7Rep<br />9/3/08:3:19:15 PM:10:DBG[TuxedoConversion,processReplyBuffer]Reply Buffer Class: simpapp.View7Rep<br />9/3/08:3:19:15 PM:10:DBG[TuxedoConversion,processReplyBuffer]Reply Buffer Type: X_COMMON<br />9/3/08:3:19:15 PM:10:DBG[TuxedoConversion,processReplyBuffer]Reply Buffer Subtype: View7Rep<br />9/3/08:3:19:15 PM:10:TRACE[TuxedoConversion,processReplyBuffer]&lt; (30) return buffer directly<br />9/3/08:3:19:15 PM:10:DBG[Accessors,getConventionProperty]Convention Property: CONVENTIONS_TUX<br />9/3/08:3:19:15 PM:10:DBG[AtmiBindingInvoker,invoke]networkAddress: host = STRIATUM, port = 8080<br />9/3/08:3:19:15 PM:10:TRACE[AtmiBindingInvoker,determineServiceCallParameters]&gt; ()<br />9/3/08:3:19:15 PM:10:DBG[AtmiBindingImpl,isLegacy]&gt; ()<br />9/3/08:3:19:15 PM:10:DBG[AtmiBindingImpl,isLegacy]&lt; (10) return true<br />9/3/08:3:19:15 PM:10:DBG[AtmiBindingImpl,isMap]&gt; ()<br />9/3/08:3:19:15 PM:10:DBG[AtmiBindingImpl,isMap]&lt; (10) return false<br />9/3/08:3:19:15 PM:10:DBG[AtmiBindingInvoker,determineServiceCallParameters]Operation name = rule7_OVVO<br />9/3/08:3:19:15 PM:10:TRACE[AtmiBindingImpl,getServiceType]&gt; (rule7_OVVO)<br />9/3/08:3:19:15 PM:10:TRACE[AtmiBindingImpl,getServiceType]&lt; (10) return null<br />9/3/08:3:19:15 PM:10:TRACE[AtmiBindingImpl,getInputBufferType]&gt; (rule7_OVVO)<br />9/3/08:3:19:15 PM:10:TRACE[AtmiBindingImpl,getInputBufferType]&lt; (10) return null<br />9/3/08:3:19:15 PM:10:TRACE[AtmiBindingImpl,getOutputBufferType]&gt; (rule7_OVVO)<br />9/3/08:3:19:15 PM:10:TRACE[AtmiBindingImpl,getOutputBufferType]&lt; (10) return null<br />9/3/08:3:19:15 PM:10:DBG[AtmiBindingImpl,getErrorBufferType]&gt; (rule7_OVVO)</pre></div><a name="wp1100570"> </a><div class="pPreformatted"><pre>9/3/08:3:19:15 PM:10:DBG[AtmiBindingImpl,getErrorBufferType]&lt; (10) return null<br />9/3/08:3:19:15 PM:10:DBG[AtmiBindingInvoker,determineServiceCallParameters]svcName = RULE7<br />9/3/08:3:19:15 PM:10:DBG[AtmiBindingInvoker,determineServiceCallParameters]svcType = requestresponse<br />9/3/08:3:19:15 PM:10:DBG[AtmiBindingInvoker,determineServiceCallParameters]inbuf = X_COMMON<br />9/3/08:3:19:15 PM:10:DBG[AtmiBindingInvoker,determineServiceCallParameters]outbuf = X_COMMON<br />9/3/08:3:19:15 PM:10:DBG[AtmiBindingInvoker,determineServiceCallParameters]errbuf = null</pre></div><a name="wp1100571"> </a><div class="pPreformatted"><pre>9/3/08:3:19:15 PM:10:TRACE[AtmiBindingInvoker,determineServiceCallParameters]&lt; (10) return<br />9/3/08:3:19:15 PM:10:DBG[AtmiBindingInvoker,invoke]Input Buffer Type: X_COMMON<br />9/3/08:3:19:15 PM:10:DBG[AtmiBindingInvoker,invoke]Output Buffer Type: X_COMMON<br />9/3/08:3:19:15 PM:10:DBG[AtmiBindingInvoker,invoke]Error Buffer Type: null</pre></div><p class="pBody"><a name="wp1100287"> </a>
+9/3/08:3:19:15 PM:10:DBG[AtmiBindingInvoker,invoke]inBufType:X_COMMON, count: 1<br />9/3/08:3:19:15 PM:10:DBG[AtmiBindingInvoker,invoke]outBufType:X_COMMON, 
+</p>
+<a name="wp1100594"> </a><div class="pPreformatted"><pre>count: 1<br />9/3/08:3:19:15 PM:10:DBG[AtmiBindingInvoker,invoke]View Classes: simpapp.View7Req,simpapp.View7Rep<br />9/3/08:3:19:15 PM:10:DBG[TuxedoConversion,getClassList]getClassList: Getting class for simpapp.View7Req<br />9/3/08:3:19:15 PM:10:DBG[TuxedoConversion,getClassList]getClassList: Getting class for simpapp.View7Rep<br />9/3/08:3:19:15 PM:10:DBG[TuxedoConversion,setFieldClasses]setFldClasses: null<br />9/3/08:3:19:15 PM:10:DBG[AtmiBindingInvoker,invoke]Passing thro invoker...</pre></div><a name="wp1100595"> </a><div class="pPreformatted"><pre>9/3/08:3:19:15 PM:10:TRACE[TuxedoConversion,processSendBuf]&gt; (args [Ljava.lang.Object;@ab1b4)<br />9/3/08:3:19:15 PM:10:DBG[TuxedoConversion,processSendBuf]args[0] class simpapp.Rule7Req<br />9/3/08:3:19:15 PM:10:DBG[TuxedoConversion,needConversion]buftype: X_COMMON</pre></div><a name="wp1100596"> </a><div class="pPreformatted"><pre>9/3/08:3:19:15 PM:10:DBG[TuxedoConversion,processSendBuf]Argument Class Name: simpapp.Rule7Req<br />9/3/08:3:19:15 PM:10:DBG[TuxedoConversion,processSendBuf]Input Buffer Id    : XCOMMON<br />9/3/08:3:19:15 PM:10:DBG[TuxedoConversion,processSendBuf]Type code          : 10<br />9/3/08:3:19:15 PM:10:DBG[TuxedoConversion,processSendBuf]InputBufferType: XCOMMON<br />9/3/08:3:19:15 PM:10:DBG[TuxedoConversion,getClassList]getClassList: Getting class for simpapp.View7Req<br />9/3/08:3:19:15 PM:10:DBG[TuxedoConversion,getClassList]getClassList: Getting class for simpapp.View7Rep<br />9/3/08:3:19:15 PM:10:TRACE[Accessors,determineConvention]&gt; (simpapp.Rule7Req)<br />9/3/08:3:19:15 PM:10:DBG[Accessors,determineConvention]Method name: getId</pre></div><a name="wp1100597"> </a><div class="pPreformatted"><pre>9/3/08:3:19:15 PM:10:DBG[Accessors,determineConvention]Method name: setCmd</pre></div><a name="wp1100598"> </a><div class="pPreformatted"><pre>9/3/08:3:19:15 PM:10:DBG[Accessors,determineConvention]Method name: setId</pre></div><a name="wp1100599"> </a><div class="pPreformatted"><pre>9/3/08:3:19:15 PM:10:DBG[Accessors,determineConvention]Method name: getCmd</pre></div><a name="wp1100600"> </a><div class="pPreformatted"><pre>9/3/08:3:19:15 PM:10:TRACE[Accessors,determineConvention]&lt; (30) return BEAN</pre></div>
+ 
+<br/>
+    <table id="SummaryNotReq2" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr> 
+        <td>
+&nbsp;
+<a href="admin.html"><img id="LongDescNotReq7" src="/global_resources/images/backtop.gif" width="90" height="25" alt="Back to Top" title="Back to Top" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a accesskey="4" href="index.html"><img id="LongDescNotReq8" src="/global_resources/images/prevtop.gif" border="0" alt="Previous" /></a>&nbsp;
+<a accesskey="5" href="sca.html"><img id="LongDescNotReq9" src="/global_resources/images/nexttop.gif" border="0" alt="Next" /></a>
+<script language="Javascript1.1" type="text/javascript">
+Copyright();
+</script>
+<noscript><a href="http://edocs.bea.com/copyright.html">&copy; BEA Systems</a></noscript>
+        </td>
+      </tr>
+    </table>
+
+<!-- WebAnalytics BEGIN -->
+
+<!--#include virtual="/global_resources/edocs_wt.html"-->
+      
+<!-- WebAnalytics END -->
+
+  </body>
+</html>
