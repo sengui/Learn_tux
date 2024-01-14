@@ -1,0 +1,40 @@
+# ------------------------------------------------------------------------
+# -- DISCLAIMER:
+# --    This script is provided for educational purposes only. It is NOT
+# --    supported by Oracle World Wide Technical Support.
+# --    The script has been tested and appears to work as intended.
+# --    You should always run new scripts on a test instance initially.
+# -- 
+# ------------------------------------------------------------------------
+
+# DMCONFIG SolutionA
+
+*DM_LOCAL
+"gwtA1"			
+	GWGRP="DMGWTGRP"
+	TYPE=TDOMAIN
+	ACCESSPOINTID="a1"
+	MTYPE="OracleLinux"
+	CONNECTION_POLICY=ON_STARTUP
+
+*DM_REMOTE
+"gwtB1"			
+	TYPE=TDOMAIN
+	ACCESSPOINTID="b1"
+	MTYPE="OracleLinux"
+
+*DM_TDOMAIN
+"gwtA1"			
+	NWADDR="//host01:5055"
+#Change to the DNS name or network address of your machine
+
+"gwtB1"			
+	NWADDR="//host02:5055"
+#Change to the DNS name or network address of your machine
+
+*DM_EXPORT
+"INQ"			
+
+*DM_IMPORT
+"TOUPPER"			
+	RACCESSPOINT="gwtB1"

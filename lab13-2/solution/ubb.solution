@@ -1,0 +1,57 @@
+# ------------------------------------------------------------------------
+# -- DISCLAIMER:
+# --    This script is provided for educational purposes only. It is NOT
+# --    supported by Oracle World Wide Technical Support.
+# --    The script has been tested and appears to work as intended.
+# --    You should always run new scripts on a test instance initially.
+# -- 
+# ------------------------------------------------------------------------
+
+# UBB Solution
+*RESOURCES
+IPCKEY          49152
+
+DOMAINID        queapp
+MASTER          SITE1
+MAXACCESSERS    75
+MAXSERVERS      50
+MAXSERVICES     50
+MODEL           SHM
+MAXGTT          50
+
+*MACHINES
+#Change this value to the name of your machine
+"host01"
+    LMID=SITE1
+    APPDIR="/u01/domains/tuxapps"
+    TUXCONFIG="/u01/domains/tuxapps/tuxconfig"
+    TUXDIR="/opt/tuxedo"
+    ULOGPFX="/practices/tux/lab13-2/ULOG-host01"
+    TLOGDEVICE="/u01/domains/tuxapps/TLOGDEVICE"
+    TLOGNAME="TLOG"
+    TLOGSIZE=50
+
+*GROUPS
+APPGRP
+    LMID=SITE1 GRPNO=1 TMSNAME="TMS" TMSCOUNT=2 
+
+TMQGRP
+    LMID=SITE1 GRPNO=2 TMSNAME=TMS_TMQM TMSCOUNT=2
+    OPENINFO="TUXEDO/TMQM:/u01/domains/tuxapps/QSDEVICE:QSPACE"
+
+*SERVERS
+DEFAULT:    CLOPT="-A"
+
+ZipServer
+	SRVGRP=APPGRP
+	SRVID=10
+	MIN=2
+
+TuxMsgQ
+    SRVGRP=TMQGRP  SRVID=1
+    RESTART=Y CONV=N MAXGEN=10
+    CLOPT="-s QSPACE:TuxMsgQ --  "
+
+*SERVICES
+
+
