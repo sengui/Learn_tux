@@ -1,0 +1,44 @@
+# ------------------------------------------------------------------------
+# -- DISCLAIMER:
+# --    This script is provided for educational purposes only. It is NOT
+# --    supported by Oracle World Wide Technical Support.
+# --    The script has been tested and appears to work as intended.
+# --    You should always run new scripts on a test instance initially.
+# -- 
+# ------------------------------------------------------------------------
+
+# UBB Solution
+*RESOURCES
+IPCKEY		55432
+MASTER		SITE1
+MODEL		SHM
+MAXACCESSERS	75
+MAXSERVERS	50
+
+*MACHINES
+#Change this value to the name of your machine
+"host01"	
+	LMID=SITE1
+	APPDIR="/u01/domains/tuxapps"
+	TUXCONFIG="/u01/domains/tuxapps/tuxconfig"
+	TUXDIR="/opt/tuxedo"
+
+*GROUPS
+GROUP1		
+   LMID=SITE1	
+   GRPNO=1
+
+*SERVERS
+InqServer       
+   SRVID=10	
+   SRVGRP=GROUP1
+
+DeleteServer
+    SRVID=20	
+    SRVGRP=GROUP1
+
+UpdateServer    
+   SRVID=30	
+   SRVGRP=GROUP1
+
+*SERVICES

@@ -1,0 +1,63 @@
+# ------------------------------------------------------------------------
+# -- DISCLAIMER:
+# --    This script is provided for educational purposes only. It is NOT
+# --    supported by Oracle World Wide Technical Support.
+# --    The script has been tested and appears to work as intended.
+# --    You should always run new scripts on a test instance initially.
+# -- 
+# ------------------------------------------------------------------------
+
+# UBB Solution
+*RESOURCES
+IPCKEY		55432
+MASTER		SITE1
+MODEL		SHM
+OPTIONS		NO_AA,NO_XA
+MAXGTT		0
+MAXACCESSERS	75
+MAXSERVERS	50
+SCANUNIT	5
+SANITYSCAN	2
+
+*MACHINES
+#Change this value to the name of your machine
+"host01"	
+	LMID=SITE1
+	APPDIR="/u01/domains/tuxapps"
+	TUXCONFIG="/u01/domains/tuxapps/tuxconfig"
+	TUXDIR="/opt/tuxedo"
+	ULOGPFX="/practices/tux/lab16-1/ULOG-host01"
+	ENVFILE="/practices/tux/lab16-1/TuxApp.env"
+
+*GROUPS
+APPGRP
+	LMID=SITE1
+	GRPNO=1  
+
+*SERVERS
+# PART ONE
+#DBServer  
+#	SRVGRP=APPGRP  SRVID=10  MIN=2  MAX=10
+#	CLOPT="-A -p 3,60:6,5 -r -e svctimes.txt"
+#	RQADDR=dbserverq  REPLYQ=Y
+#	RESTART=Y  MAXGEN=2  GRACE=0
+
+# PART THREE
+DBServer  
+	SRVGRP=APPGRP  SRVID=10  MIN=2  MAX=10
+	CLOPT="-s INQ:Inq -p 3,60:6,5"
+	RQADDR=inqq  REPLYQ=Y
+	RESTART=Y  MAXGEN=2  GRACE=0
+DBServer  
+	SRVGRP=APPGRP  SRVID=20  MIN=2  MAX=10
+	CLOPT="-s DELETE:Delete -p 3,60:6,5"
+	RQADDR=deleteq  REPLYQ=Y
+	RESTART=Y  MAXGEN=2  GRACE=0
+DBServer  
+	SRVGRP=APPGRP  SRVID=30  MIN=2  MAX=10
+	CLOPT="-s UPDATE:Update -p 3,60:6,5"
+	RQADDR=updateq  REPLYQ=Y
+	RESTART=Y  MAXGEN=2  GRACE=0
+
+*SERVICES
+

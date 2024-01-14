@@ -1,0 +1,51 @@
+# ------------------------------------------------------------------------
+# -- DISCLAIMER:
+# --    This script is provided for educational purposes only. It is NOT
+# --    supported by Oracle World Wide Technical Support.
+# --    The script has been tested and appears to work as intended.
+# --    You should always run new scripts on a test instance initially.
+# -- 
+# ------------------------------------------------------------------------
+# Example use of ud32 for multiple dynamic updates
+#
+# Create a new APPGRP3 group in tuxconfig
+SRVCNM	.TMIB
+TA_OPERATION	SET
+TA_CLASS	T_GROUP
+TA_SRVGRP	APPGRP3
+TA_GRPNO	3
+TA_LMID	SITE1
+TA_STATE	NEW
+
+n
+# Create a new BigUpdate server entry in tuxconfig
+SRVCNM	.TMIB
+TA_OPERATION	SET
+TA_CLASS	T_SERVER
+TA_STATE	NEW
+TA_SRVID	100
+TA_SRVGRP	APPGRP3
+TA_SERVERNAME	BigUpdate
+TA_MIN	3
+TA_MAX	10
+TA_CLOPT	-s UPDATE2:BigUpdate -o BigUpdate.out
+
+n
+# Create a new PingServer server entry in tuxconfig
+SRVCNM	.TMIB
+TA_OPERATION	SET
+TA_CLASS	T_SERVER
+TA_STATE	NEW
+TA_SRVID	110
+TA_SRVGRP	APPGRP3
+TA_SERVERNAME	PingServer
+TA_MIN	2
+
+n
+# Start the MIN number of servers in APPGRP3
+SRVCNM	.TMIB
+TA_OPERATION	SET
+TA_CLASS	T_GROUP
+TA_SRVGRP	APPGRP3
+TA_STATE	ACTIVE
+

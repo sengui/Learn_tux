@@ -1,0 +1,37 @@
+# ------------------------------------------------------------------------
+# -- DISCLAIMER:
+# --    This script is provided for educational purposes only. It is NOT
+# --    supported by Oracle World Wide Technical Support.
+# --    The script has been tested and appears to work as intended.
+# --    You should always run new scripts on a test instance initially.
+# -- 
+# ------------------------------------------------------------------------
+
+# UBB Solution
+*RESOURCES
+IPCKEY          49152
+DOMAINID        simpjava
+MASTER          SITE1
+MAXACCESSERS    10
+MAXSERVERS       5
+MAXSERVICES     10
+MODEL           SHM
+LDBAL           N
+
+*MACHINES
+"host01"	
+	LMID=SITE1
+	APPDIR="/u01/domains/tuxapps"
+	TUXCONFIG="/u01/domains/tuxapps/tuxconfig"
+	TUXDIR="/opt/tuxedo"
+
+*GROUPS
+GROUP1	LMID=SITE1	GRPNO=1	OPENINFO=NONE
+
+*SERVERS
+TMJAVASVR SRVGRP=GROUP1 SRVID=1
+          CLOPT="-- -c MyJavaSvrConfig.xml"
+          MINDISPATCHTHREADS=2 MAXDISPATCHTHREADS=2
+
+*SERVICES
+

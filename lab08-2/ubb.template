@@ -1,0 +1,48 @@
+# ------------------------------------------------------------------------
+# -- DISCLAIMER:
+# --    This script is provided for educational purposes only. It is NOT
+# --    supported by Oracle World Wide Technical Support.
+# --    The script has been tested and appears to work as intended.
+# --    You should always run new scripts on a test instance initially.
+# -- 
+# ------------------------------------------------------------------------
+
+# UBB Template
+*RESOURCES
+IPCKEY		55432
+MASTER		SITE1
+MODEL		SHM
+MAXACCESSERS    10
+MAXSERVERS      5
+MAXSERVICES     10
+LDBAL           N
+
+*MACHINES
+#Change this value to the name of your machine
+"MYMACHINE"
+	LMID=SITE1
+	APPDIR="/u01/domains/tuxapps"
+	TUXCONFIG="/u01/domains/tuxapps/tuxconfig"
+	TUXDIR="/opt/tuxedo"
+	ULOGPFX="/practices/tux/lab08-2/ULOG-host01"
+
+# Refer to the lab guide for additional instructions
+
+*GROUPS
+
+# Refer to the lab guide for additional instructions
+
+APPGRP
+	LMID=SITE1
+	GRPNO=20
+
+*SERVERS
+
+# Refer to the lab guide for additional instructions
+
+simpserv	
+	SRVGRP=APPGRP
+	SRVID=20
+
+*SERVICES
+TOUPPER

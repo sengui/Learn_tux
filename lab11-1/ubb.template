@@ -1,0 +1,106 @@
+# ------------------------------------------------------------------------
+# -- DISCLAIMER:
+# --    This script is provided for educational purposes only. It is NOT
+# --    supported by Oracle World Wide Technical Support.
+# --    The script has been tested and appears to work as intended.
+# --    You should always run new scripts on a test instance initially.
+# -- 
+# ------------------------------------------------------------------------
+
+# UBB Template
+*RESOURCES
+IPCKEY          54321
+MASTER          SITE1
+MODEL           MP
+
+# Refer to the lab guide for additional instructions
+
+MAXACCESSERS    75
+MAXSERVERS      50
+SCANUNIT        5
+SANITYSCAN      3
+
+*MACHINES
+#Change this value to the name of your machine
+"MYMACHINE"	
+	LMID=SITE1
+	APPDIR="/u01/domains/tuxapps"
+	TUXCONFIG="/u01/domains/tuxapps/tuxconfig"
+	TUXDIR="/opt/tuxedo"
+	ULOGPFX="/practices/tux/lab11-1/ULOG-host01"
+	ENVFILE="/practices/tux/lab11-1/TuxApp.env"
+	MAXWSCLIENTS=10
+	MAXACCESSERS=85
+
+#Change this value to the name of your slave machine
+"MYMACHINE2"	
+	LMID=SITE2
+	APPDIR="/u01/domains/tuxapps"
+	TUXCONFIG="/u01/domains/tuxapps/tuxconfig"
+	TUXDIR="/opt/tuxedo"
+	ULOGPFX="/practices/tux/lab11-1/ULOG-host02"
+    ENVFILE="/practices/tux/lab11-1/TuxApp.env"
+	MAXWSCLIENTS=10
+	MAXACCESSERS=85
+
+*GROUPS
+
+# Refer to the lab guide for additional instructions
+
+SYSGRP1
+	GRPNO=3
+	LMID=SITE1
+
+SYSGRP2
+	GRPNO=4
+	LMID=SITE2
+
+*NETWORK
+SITE1
+	NADDR="//MYMACHINE:9001"
+	NLSADDR="//MYMACHINE:3050"
+#Change these to reflect the network address of your machine
+
+SITE2
+	NADDR="//MYMACHINE:9001"
+	NLSADDR="//MYMACHINE:3050"
+#Change these to reflect the network address of your machine
+
+*SERVERS
+#Default parameters for all Servers
+DEFAULT:
+	RESTART=Y
+	MAXGEN=5
+	GRACE=300
+
+# Application Servers
+DDRServer
+	SRVID=10
+	SRVGRP=APPGRP1
+	CLOPT="-A -- -f acct1.data"
+
+DDRServer
+	SRVID=20
+	SRVGRP=APPGRP2
+	CLOPT="-A -- -f acct2.data"
+
+WSL
+	SRVID=100
+	SRVGRP=SYSGRP1
+	CLOPT="-A -- -n //MYMACHINE:2468 -m 1 -M 2 -x 5"
+#Change the -n value to reflect the network address of your machine
+
+WSL
+	SRVID=101
+	SRVGRP=SYSGRP2
+	CLOPT="-A -- -n //MYMACHINE:2468 -m 1 -M 2 -x 5"
+#Change the -n value to reflect the network address of your machine
+
+*ROUTING
+
+# Refer to the lab guide for additional instructions
+
+*SERVICES
+
+# Refer to the lab guide for additional instructions
+

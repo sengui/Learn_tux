@@ -1,0 +1,53 @@
+# ------------------------------------------------------------------------
+# -- DISCLAIMER:
+# --    This script is provided for educational purposes only. It is NOT
+# --    supported by Oracle World Wide Technical Support.
+# --    The script has been tested and appears to work as intended.
+# --    You should always run new scripts on a test instance initially.
+# -- 
+# ------------------------------------------------------------------------
+
+# UBB Template
+*RESOURCES
+IPCKEY          49152
+DOMAINID        simpapp
+MASTER          SITE1
+MAXACCESSERS    100
+MAXSERVERS      15
+MAXSERVICES     50
+MODEL           SHM
+LDBAL           N
+# Refer to the lab guide for instructions
+
+*MACHINES
+#Change this value to the name of your machine
+"MYMACHINE"	LMID=SITE1
+            APPDIR="/u01/domains/tuxapps"
+            TUXCONFIG="/u01/domains/tuxapps/tuxconfig"
+            TUXDIR="/opt/tuxedo"
+            MAXWSCLIENTS=5
+
+*GROUPS
+# Refer to the lab guide for instructions
+#App server groups
+APPGRP1     LMID=SITE1 GRPNO=1
+APPGRP2     LMID=SITE1 GRPNO=2
+
+# Refer to the lab guide for instructions
+#WSL Groups
+SYSGRP1     LMID=SITE1 GRPNO=3
+SYSGRP2     LMID=SITE1 GRPNO=4
+
+*SERVERS
+DEFAULT:    CLOPT="-A"
+
+simpserv    SRVGRP=APPGRP1 SRVID=1
+simpserv    SRVGRP=APPGRP2 SRVID=1
+
+WSL         SRVGRP=SYSGRP1 SRVID=1 CLOPT=" -- -n //MYMACHINE:2468"
+#Change the -n value to reflect the network address of your machine
+WSL         SRVGRP=SYSGRP2 SRVID=1 CLOPT=" -- -n //MYMACHINE:2568"
+#Change the -n value to reflect the network address of your machine
+
+*SERVICES
+

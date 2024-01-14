@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<!--
+   DISCLAIMER:
+      This script is provided for educational purposes only. It is NOT
+      supported by Oracle World Wide Technical Support.
+      The script has been tested and appears to work as intended.
+      You should always run new scripts on a test instance initially.
+   
+===================================================================
+<description>
+    Test/Sample Component file for weblogic client
+
+Notes:
+    This is a build file for use with the Jakarta Ant build tool.
+
+Prerequisites:
+    jakarta-ant from http://jakarta.apache.org
+
+Build Instructions:
+    To compile
+        ant build
+    To execute
+        ant run
+</description>
+====================================================================
+-->
+
+<project default="all" basedir=".">
+	<!-- Set global properties for this build-->
+	<property environment="env"/>
+	<property name="WL_HOME" value="${env.WL_HOME}"/>
+	<property name="SALT.WORK" value="${basedir}"/>
+	<property name="SALT.SRC" value="${basedir}/src"/>
+	<property name="EXAMPLE-OUTPUT" value="${SALT.WORK}/com"/>
+	<property name="COMPILE_WSDLDIR" value="${EXAMPLE-OUTPUT}/oracle/salt/examples/simpapp/wlclient"/>
+	<property name="WSDL_FILE" value="${basedir}/simpapp.wsdl"/>
+
+	<!-- Path -->
+	<path id="client.class.path">
+		<pathelement path="${SALT.WORK}" />
+		<pathelement path="${COMPILE_WSDLDIR}"/>
+		<fileset dir="${WL_HOME}/server/lib">
+			<include name="weblogic.jar"/>
+			<include name="webservices.jar"/>
+			<include name="webserviceclient.jar"/>
+		</fileset>
+	</path>
+
+	<!-- -->
+	<taskdef name="clientgen"
+				classpathref="client.class.path"
+				classname="weblogic.wsee.tools.anttasks.ClientGenTask" />
+
+	<!-- All -->
+	<target name="all" depends="clean,build,run"/>
+
+	<!-- Prepare -->
+	<target name="prepare" description="Create target directories">
+		<mkdir dir="${COMPILE_WSDLDIR}"/>
+	</target>
+
+	<!-- Build -->
+	<target name="build" depends="prepare" description="Compiles all source codes">
+		<clientgen wsdl="file:///${WSDL_FILE}"
+					packageName="com.oracle.salt.examples.simpapp.wlclient"
+					destDir="${SALT.WORK}"/>
+		<copy file="${SALT.SRC}/SimpappClient.java"
+				tofile="${COMPILE_WSDLDIR}/SimpappClient.java"/>
+		<javac srcdir="${COMPILE_WSDLDIR}"
+				fork="true"
+				failonerror="no"
+				classpathref="client.class.path"
+				includes="**/*.java"
+				source="1.4"
+				nowarn="true" />
+	</target>
+
+	<!-- Clean -->
+	<target name="clean" description="Removes all generated files">
+		<delete dir="${SALT.WORK}/com"/>
+	</target>
+
+	<!-- Run -->
+	<target name="run" description="Execute Client">
+		<java classname="com.oracle.salt.examples.simpapp.wlclient.SimpappClient"
+				fork="true"
+				classpathref="client.class.path">
+				<arg line="&quot;Hello World!&quot;" />
+		</java>
+	</target>
+</project>

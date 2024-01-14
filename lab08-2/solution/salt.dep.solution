@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   DISCLAIMER:
+      This script is provided for educational purposes only. It is NOT
+      supported by Oracle World Wide Technical Support.
+      The script has been tested and appears to work as intended.
+      You should always run new scripts on a test instance initially.
+   
+-->
+<Deployment xmlns="http://www.bea.com/Tuxedo/SALTDEPLOY/2007">
+	<WSDF>
+		<Import location="/practices/tux/lab08-2/simpapp.wsdf"></Import>
+	</WSDF>
+	<WSGateway>
+		<GWInstance id="GWWS1">
+			<Inbound>
+				<Binding ref="simpapp:simpapp_Binding">
+					<Endpoint use="simpapp_GWWS1_HTTPPort"></Endpoint>
+				</Binding>
+			</Inbound>
+			<Properties>
+				<Property name="enableSOAPValidation" value="true"/>
+			</Properties>
+		</GWInstance>
+	</WSGateway>
+	<System></System>
+</Deployment>
+
